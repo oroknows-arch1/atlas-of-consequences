@@ -84,7 +84,7 @@ function markdownToHtml(markdown) {
     if (h3 || h2 || h1) {
       flushAll();
       const heading = h3?.[1] || h2?.[1] || h1?.[1];
-      const tag = h3 ? "h3" : "h2";
+      const tag = h3 ? "h4" : "h3";
       output.push(`<${tag}>${inlineMarkdown(heading)}</${tag}>`);
       continue;
     }
