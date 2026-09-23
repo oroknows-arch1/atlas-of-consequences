@@ -9,4 +9,4 @@ sample_rate=48000
 channels=2
 r_frame_rate=0/0
 duration=30.033333
-size=4340582
+size=4286950
