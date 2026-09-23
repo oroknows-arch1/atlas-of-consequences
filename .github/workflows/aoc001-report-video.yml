@@ -22,17 +22,18 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ffmpeg fonts-liberation2
 
-      - name: Fetch rights-checked factual media and sound bed
+      - name: Fetch rights-checked article and context media
         run: |
           set -euo pipefail
-          mkdir -p .render/aoc001-report-v02 public/assets
+          R=.render/aoc001-report-v03
+          mkdir -p "$R" public/assets
 
           python3 - <<'PY'
           import json, shutil, urllib.parse, urllib.request
 
           API = 'https://commons.wikimedia.org/w/api.php'
           HEADERS = {
-              'User-Agent': 'AtlasOfConsequences/0.2 (https://github.com/oroknows-arch1/atlas-of-consequences)',
+              'User-Agent': 'AtlasOfConsequences/0.3 (https://github.com/oroknows-arch1/atlas-of-consequences)',
               'Referer': 'https://commons.wikimedia.org/'
           }
 
@@ -69,38 +70,50 @@ jobs:
 
           fetch_video(
               'File:Data Center Tour & Technical Deep Dive into the Power, Data and Cooling Infrastructure!.webm',
-              '.render/aoc001-report-v02/data-center.webm'
+              '.render/aoc001-report-v03/data-center.webm'
           )
           fetch_video(
               'File:REN overhead power line maintenance PT 2018 E.webm',
-              '.render/aoc001-report-v02/grid.webm'
+              '.render/aoc001-report-v03/grid.webm'
           )
           fetch_video(
               'File:5 copper crystals covered with glass.webm',
-              '.render/aoc001-report-v02/copper.webm'
+              '.render/aoc001-report-v03/copper.webm'
           )
           PY
 
-          UA='AtlasOfConsequences/0.2 (https://github.com/oroknows-arch1/atlas-of-consequences)'
+          UA='AtlasOfConsequences/0.3 (https://github.com/oroknows-arch1/atlas-of-consequences)'
           REF='https://commons.wikimedia.org/'
 
-          curl -L --fail --retry 3 -A "$UA" -e "$REF" \
-            'https://commons.wikimedia.org/wiki/Special:FilePath/Homes%20in%20Calama%2C%20Chile%20%2845418686415%29.jpg?width=1800' \
-            -o .render/aoc001-report-v02/calama.jpg
+          fetch_image () {
+            name="$1"; out="$2"; width="$3"
+            encoded=$(python3 -c 'import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1]))' "$name")
+            curl -L --fail --retry 3 -A "$UA" -e "$REF" \
+              "https://commons.wikimedia.org/wiki/Special:FilePath/${encoded}?width=${width}" -o "$out"
+          }
 
-          curl -L --fail --retry 3 -A "$UA" -e "$REF" \
-            'https://commons.wikimedia.org/wiki/Special:FilePath/Chuquicamata-Chile-2009.JPG?width=1800' \
-            -o .render/aoc001-report-v02/chuquicamata.jpg
+          # 500 Howard Street is Anthropic's current 2026 HQ. Both photographs were
+          # taken in 2018 when the building was occupied by Slack; captions disclose that.
+          fetch_image 'Slack HQ - 500 Howard (40929471094).jpg' "$R/hq1.jpg" 1800
+          fetch_image 'Slack HQ - 500 Howard (41600178032).jpg' "$R/hq2.jpg" 1800
 
-          # CC0 atmospheric bed by John Bartmann. Used quietly under the editorial cut.
+          # Western Downs / Dalby geographic context; not a precise project-site map.
+          fetch_image 'Dalby location map in Queensland.PNG' "$R/dalby-map.png" 1400
+
+          # Real northern-Chile / worker / community context.
+          fetch_image 'Chuquicamata-Chile-2009.JPG' "$R/chuqui.jpg" 1800
+          fetch_image 'Chilean Miners.jpg' "$R/miners.jpg" 1800
+          fetch_image 'Homes in Calama, Chile (45418686415).jpg' "$R/calama-homes.jpg" 1800
+
+          # Quiet CC0 bed used only to give the montage continuity. No AI voice is used.
           curl -L --fail --retry 3 -A "$UA" -e "$REF" \
             'https://commons.wikimedia.org/wiki/Special:FilePath/John%20Bartmann%20-%20flourescent-crystals-master.ogg' \
-            -o .render/aoc001-report-v02/bed.ogg
+            -o "$R/bed.ogg"
 
-      - name: Build contemporary caption package
+      - name: Build article-specific editorial captions
         run: |
           set -euo pipefail
-          R=.render/aoc001-report-v02
+          R=.render/aoc001-report-v03
           cat > "$R/captions.ass" <<'EOF'
           [Script Info]
           ScriptType: v4.00+
@@ -111,88 +124,118 @@ jobs:
 
           [V4+ Styles]
           Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
-          Style: Bug,Liberation Sans,20,&H00FFFFFF,&H000000FF,&H70000000,&H00000000,-1,0,0,0,100,100,0.6,0,1,1.6,0,7,34,34,30,1
-          Style: Caption,Liberation Sans,43,&H00FFFFFF,&H000000FF,&H80000000,&H00000000,-1,0,0,0,100,100,0,0,1,2.6,0,2,44,44,118,1
-          Style: Place,Liberation Sans,38,&H00FFFFFF,&H000000FF,&H80000000,&H00000000,-1,0,0,0,100,100,0.2,0,1,2.6,0,2,44,44,118,1
-          Style: Source,Liberation Sans,17,&HCCFFFFFF,&H000000FF,&H70000000,&H00000000,0,0,0,0,100,100,0.4,0,1,1.2,0,9,28,28,31,1
+          Style: Bug,Liberation Sans,18,&H00FFFFFF,&H000000FF,&H72000000,&H00000000,-1,0,0,0,100,100,0.8,0,1,1.6,0,7,30,30,28,1
+          Style: Head,Liberation Sans,45,&H00FFFFFF,&H000000FF,&H8A000000,&H00000000,-1,0,0,0,100,100,0,0,1,2.8,0,2,42,42,118,1
+          Style: Place,Liberation Sans,39,&H00FFFFFF,&H000000FF,&H8A000000,&H00000000,-1,0,0,0,100,100,0.3,0,1,2.7,0,2,42,42,118,1
+          Style: Source,Liberation Sans,16,&HDEFFFFFF,&H000000FF,&H78000000,&H00000000,0,0,0,0,100,100,0.35,0,1,1.2,0,9,26,26,28,1
 
           [Events]
           Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
-          Dialogue: 0,0:00:00.00,0:00:22.00,Bug,,0,0,0,,ATLAS · WHAT'S REAL
-          Dialogue: 0,0:00:00.15,0:00:02.75,Caption,,0,0,0,,AI is digital.\NIts infrastructure isn't.
-          Dialogue: 0,0:00:00.15,0:00:05.50,Source,,0,0,0,,IEA · SR-01 / SR-03
-          Dialogue: 0,0:00:02.75,0:00:05.50,Caption,,0,0,0,,Data centres used about 415 TWh\Nof electricity in 2024.
-          Dialogue: 0,0:00:05.50,0:00:08.25,Caption,,0,0,0,,More compute means more\Npower demand.
-          Dialogue: 0,0:00:05.50,0:00:11.00,Source,,0,0,0,,IEA · SR-04
-          Dialogue: 0,0:00:08.25,0:00:11.00,Caption,,0,0,0,,And more pressure on grids,\Nequipment and connections.
-          Dialogue: 0,0:00:11.00,0:00:13.75,Caption,,0,0,0,,The physical system\Nalso needs copper.
-          Dialogue: 0,0:00:11.00,0:00:16.50,Source,,0,0,0,,IEA · SR-04
-          Dialogue: 0,0:00:13.75,0:00:16.50,Caption,,0,0,0,,Copper links compute\Nto material supply chains.
-          Dialogue: 0,0:00:16.50,0:00:19.25,Place,,0,0,0,,CALAMA · NORTHERN CHILE\NA city, not a mine.
-          Dialogue: 0,0:00:16.50,0:00:19.25,Source,,0,0,0,,PLACE CONTEXT
-          Dialogue: 0,0:00:19.25,0:00:22.00,Place,,0,0,0,,CHUQUICAMATA · ~15 KM NORTH\NConnection, not causation.
-          Dialogue: 0,0:00:19.25,0:00:22.00,Source,,0,0,0,,CODELCO · SR-07 / SR-08
+          Dialogue: 0,0:00:00.00,0:00:30.00,Bug,,0,0,0,,ATLAS · WHAT'S REAL
+
+          Dialogue: 0,0:00:00.12,0:00:03.00,Head,,0,0,0,,ANTHROPIC\NSAN FRANCISCO
+          Dialogue: 0,0:00:00.12,0:00:03.00,Source,,0,0,0,,500 HOWARD ST · CURRENT 2026 HQ · PHOTO 2018, THEN SLACK
+
+          Dialogue: 0,0:00:03.00,0:00:06.00,Head,,0,0,0,,ITS FIRST AUSTRALIAN\NDATA-CENTRE DEAL
+          Dialogue: 0,0:00:03.00,0:00:06.00,Source,,0,0,0,,REUTERS · 16 SEP 2026
+
+          Dialogue: 0,0:00:06.00,0:00:09.00,Place,,0,0,0,,WESTERN DOWNS · QUEENSLAND\NPROPOSED 2.16 GW CAMPUS
+          Dialogue: 0,0:00:06.00,0:00:09.00,Source,,0,0,0,,DALBY LOCATOR · REUTERS / WDDP · PROJECT SUBJECT TO APPROVALS
+
+          Dialogue: 0,0:00:09.00,0:00:12.00,Head,,0,0,0,,AI IS DIGITAL.\NTHE BUILD IS PHYSICAL.
+          Dialogue: 0,0:00:09.00,0:00:12.00,Source,,0,0,0,,CONTEXT FOOTAGE · GENERIC DATA CENTRE · NOT THE WESTERN DOWNS FACILITY
+
+          Dialogue: 0,0:00:12.00,0:00:15.00,Head,,0,0,0,,POWER. GRID CONNECTIONS.\NINFRASTRUCTURE.
+          Dialogue: 0,0:00:12.00,0:00:15.00,Source,,0,0,0,,IEA · SR-03 / SR-04 · GENERIC GRID CONTEXT
+
+          Dialogue: 0,0:00:15.00,0:00:18.00,Head,,0,0,0,,AND MATERIAL SYSTEMS.\NINCLUDING COPPER.
+          Dialogue: 0,0:00:15.00,0:00:18.00,Source,,0,0,0,,IEA · SR-04 · COPPER MATERIAL CONTEXT
+
+          Dialogue: 0,0:00:18.00,0:00:21.00,Place,,0,0,0,,CHUQUICAMATA · NORTHERN CHILE\NAN EXISTING COPPER ECONOMY
+          Dialogue: 0,0:00:18.00,0:00:21.00,Source,,0,0,0,,CODELCO · SR-07 / SR-08 · REAL CHUQUICAMATA IMAGE
+
+          Dialogue: 0,0:00:21.00,0:00:24.00,Head,,0,0,0,,MINING IS WORK\NDONE BY PEOPLE.
+          Dialogue: 0,0:00:21.00,0:00:24.00,Source,,0,0,0,,CONTEXT · CODELCO ANDINA MINERS, 2007 · CDC/NIOSH · NOT CHUQUICAMATA
+
+          Dialogue: 0,0:00:24.00,0:00:27.00,Place,,0,0,0,,CALAMA\NHOMES. FAMILIES. ROUTINES.
+          Dialogue: 0,0:00:24.00,0:00:27.00,Source,,0,0,0,,REAL CALAMA HOMES · COMMUNITY CONTEXT · NO HOUSEHOLD CLAIMED AS A MINING FAMILY
+
+          Dialogue: 0,0:00:27.00,0:00:30.00,Head,,0,0,0,,CONNECTION,\NNOT CAUSATION.
+          Dialogue: 0,0:00:27.00,0:00:30.00,Source,,0,0,0,,ATLAS FOLLOWS CONSEQUENCES WITHOUT INVENTING A DIRECT SUPPLY CHAIN
           EOF
 
-      - name: Render full-frame editorial cut
+      - name: Render 30-second article-specific news montage
         run: |
           set -euo pipefail
-          R=.render/aoc001-report-v02
+          R=.render/aoc001-report-v03
+
+          still_center () {
+            input="$1"; out="$2"; xexpr="$3"
+            ffmpeg -y -loop 1 -t 3 -i "$input" \
+              -vf "scale=-2:1280,crop=720:1280:x=${xexpr}:y=0,eq=contrast=1.035:brightness=-0.015:saturation=0.94,setsar=1,fps=30,format=yuv420p" \
+              -an -c:v libx264 -preset veryfast -crf 19 -pix_fmt yuv420p "$out"
+          }
+
+          still_map () {
+            input="$1"; out="$2"
+            ffmpeg -y -loop 1 -t 3 -i "$input" \
+              -vf "scale=720:-2,crop=720:1280:x=0:y=(ih-1280)/2,eq=contrast=1.02:brightness=-0.01:saturation=0.90,setsar=1,fps=30,format=yuv420p" \
+              -an -c:v libx264 -preset veryfast -crf 19 -pix_fmt yuv420p "$out"
+          }
 
           motion () {
             input="$1"; start="$2"; out="$3"
-            ffmpeg -y -ss "$start" -t 2.75 -i "$input" \
-              -vf "scale=-2:1280,crop=720:1280:x=(iw-ow)/2:y=0,eq=contrast=1.045:brightness=-0.015:saturation=0.94,setsar=1,fps=30,format=yuv420p" \
-              -an -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p "$out"
+            ffmpeg -y -ss "$start" -t 3 -i "$input" \
+              -vf "scale=-2:1280,crop=720:1280:x=(iw-720)/2:y=0,eq=contrast=1.04:brightness=-0.018:saturation=0.93,setsar=1,fps=30,format=yuv420p" \
+              -an -c:v libx264 -preset veryfast -crf 19 -pix_fmt yuv420p "$out"
           }
 
-          still () {
-            input="$1"; out="$2"
-            ffmpeg -y -loop 1 -t 2.75 -i "$input" \
-              -vf "scale=-2:1280,crop=720:1280:x=(iw-ow)/2:y=0,eq=contrast=1.035:brightness=-0.018:saturation=0.92,setsar=1,fps=30,format=yuv420p" \
-              -an -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p "$out"
-          }
+          # Article/company world: two sourced editorial photographs of the current HQ building.
+          still_center "$R/hq1.jpg" "$R/s01.mp4" '(iw-720)/2'
+          still_center "$R/hq2.jpg" "$R/s02.mp4" '(iw-720)*0.58'
 
-          # Two real-world angles from each moving source create editorial rhythm
-          # without reclassifying generic footage as a specific facility.
-          motion "$R/data-center.webm" 1303 "$R/s1.mp4"
-          motion "$R/data-center.webm" 1314 "$R/s2.mp4"
-          motion "$R/grid.webm" 0.35 "$R/s3.mp4"
-          motion "$R/grid.webm" 4.55 "$R/s4.mp4"
-          motion "$R/copper.webm" 5.0 "$R/s5.mp4"
-          motion "$R/copper.webm" 15.0 "$R/s6.mp4"
-          still "$R/calama.jpg" "$R/s7.mp4"
-          still "$R/chuquicamata.jpg" "$R/s8.mp4"
+          # Australian location bridge and physical infrastructure.
+          still_map "$R/dalby-map.png" "$R/s03.mp4"
+          motion "$R/data-center.webm" 1303 "$R/s04.mp4"
+          motion "$R/grid.webm" 0.35 "$R/s05.mp4"
+          motion "$R/copper.webm" 5.0 "$R/s06.mp4"
+
+          # Northern Chile / people / household context.
+          still_center "$R/chuqui.jpg" "$R/s07.mp4" '(iw-720)/2'
+          still_center "$R/miners.jpg" "$R/s08.mp4" '(iw-720)/2'
+          still_center "$R/calama-homes.jpg" "$R/s09.mp4" '(iw-720)*0.34'
+          still_center "$R/calama-homes.jpg" "$R/s10.mp4" '(iw-720)*0.66'
 
           cat > "$R/list.txt" <<EOF
-          file 's1.mp4'
-          file 's2.mp4'
-          file 's3.mp4'
-          file 's4.mp4'
-          file 's5.mp4'
-          file 's6.mp4'
-          file 's7.mp4'
-          file 's8.mp4'
+          file 's01.mp4'
+          file 's02.mp4'
+          file 's03.mp4'
+          file 's04.mp4'
+          file 's05.mp4'
+          file 's06.mp4'
+          file 's07.mp4'
+          file 's08.mp4'
+          file 's09.mp4'
+          file 's10.mp4'
           EOF
 
           ffmpeg -y -f concat -safe 0 -i "$R/list.txt" -c copy "$R/picture-cut.mp4"
 
-          # Final presentation: restrained captions + low CC0 atmospheric bed.
           ffmpeg -y \
             -i "$R/picture-cut.mp4" \
-            -ss 28 -t 22 -i "$R/bed.ogg" \
+            -ss 24 -t 30 -i "$R/bed.ogg" \
             -filter_complex "\
-              [0:v]subtitles=$R/captions.ass,fade=t=in:st=0:d=0.16,fade=t=out:st=21.55:d=0.45[v];\
-              [1:a]volume=0.075,highpass=f=55,afade=t=in:st=0:d=0.6,afade=t=out:st=20.4:d=1.6[a]" \
+              [0:v]subtitles=$R/captions.ass,fade=t=in:st=0:d=0.12,fade=t=out:st=29.55:d=0.45[v];\
+              [1:a]volume=0.075,highpass=f=55,afade=t=in:st=0:d=0.5,afade=t=out:st=28.4:d=1.5[a]" \
             -map '[v]' -map '[a]' \
-            -r 30 -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p \
+            -r 30 -c:v libx264 -preset veryfast -crf 19 -pix_fmt yuv420p \
             -c:a aac -b:a 128k -ar 48000 -movflags +faststart \
-            public/assets/aoc001-report-video-candidate-v0.2.mp4
+            public/assets/aoc001-report-video-candidate-v0.3.mp4
 
           mkdir -p "$R/review"
-          for t in 1 4 7 10 12 15 18 20.5; do
+          for t in 1.5 4.5 7.5 10.5 13.5 16.5 19.5 22.5 25.5 28.5; do
             safe=${t/./_}
-            ffmpeg -y -ss "$t" -i public/assets/aoc001-report-video-candidate-v0.2.mp4 \
+            ffmpeg -y -ss "$t" -i public/assets/aoc001-report-video-candidate-v0.3.mp4 \
               -frames:v 1 -q:v 2 "$R/review/frame-${safe}.jpg"
           done
 
@@ -200,27 +243,84 @@ jobs:
             -show_entries format=duration,size \
             -show_entries stream=codec_name,codec_type,width,height,r_frame_rate,sample_rate,channels \
             -of default=noprint_wrappers=1 \
-            public/assets/aoc001-report-video-candidate-v0.2.mp4
+            public/assets/aoc001-report-video-candidate-v0.3.mp4 \
+            > public/assets/aoc001-report-video-candidate-v0.3-probe.txt
 
-      - name: Publish v0.2 report candidate
+          # 5x2 contact sheet from the finished encoded file.
+          ffmpeg -y -i public/assets/aoc001-report-video-candidate-v0.3.mp4 \
+            -vf "fps=1/3,scale=216:384,tile=5x2" -frames:v 1 \
+            public/assets/aoc001-report-video-candidate-v0.3-review.jpg
+
+          cat > public/assets/aoc001-report-video-candidate-v0.3-credits.txt <<'EOF'
+          AOC001-REPORT-VIDEO v0.3 — REVIEW CREDITS
+
+          Candidate adaptation licence: CC BY-SA 4.0.
+          Source works retain their original licences and attribution requirements.
+
+          ARTICLE / PROJECT FACTS
+          Reuters, "Anthropic signs first Australia data centre agreement", 16 Sep 2026.
+          Western Downs Digital Park / Zerra DC official project site.
+
+          500 HOWARD STREET PHOTOGRAPHS
+          Scott Schiller — "Slack HQ - 500 Howard (40929471094).jpg" — CC BY-SA 2.0.
+          Scott Schiller — "Slack HQ - 500 Howard (41600178032).jpg" — CC BY-SA 2.0.
+          Photographs taken in 2018 when the building was occupied by Slack. 500 Howard is used only as the building that is Anthropic's current 2026 headquarters.
+
+          QUEENSLAND LOCATOR
+          "Dalby location map in Queensland.PNG" — CC BY-SA 3.0 / GFDL. Geographic context only; not a precise project-site map.
+
+          DATA-CENTRE CONTEXT VIDEO
+          Lawrence Systems — "Data Center Tour & Technical Deep Dive into the Power, Data and Cooling Infrastructure!.webm" — CC BY 3.0. Generic context only; not Anthropic/Western Downs footage.
+
+          GRID CONTEXT VIDEO
+          Fernando Moital — "REN overhead power line maintenance PT 2018 E.webm" — CC BY 2.0. Generic grid context only.
+
+          COPPER CONTEXT VIDEO
+          François Nguyen — "5 copper crystals covered with glass.webm" — CC BY 2.0. Copper material context only.
+
+          CHUQUICAMATA
+          Pierre cb — "Chuquicamata-Chile-2009.JPG" — public-domain dedication.
+
+          CHILEAN MINERS
+          CDC / NIOSH — "Chilean Miners.jpg" — public domain (U.S. federal work). Photograph is Codelco Andina, 2007; it is not Chuquicamata and is labelled as context.
+
+          CALAMA HOMES
+          Chris Hunkeler — "Homes in Calama, Chile (45418686415).jpg" — CC BY-SA 2.0. Community/household context only; no pictured home is claimed to be a mining family.
+
+          SOUND BED
+          John Bartmann — "flourescent-crystals-master.ogg" — CC0.
+
+          Full production provenance: content/AOC-001/sources/report-video-v0.3-asset-register.md
+          EOF
+
+          cat public/assets/aoc001-report-video-candidate-v0.3-probe.txt
+
+      - name: Publish v0.3 report candidate and QA records
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/assets/aoc001-report-video-candidate-v0.2.mp4
+          git add \
+            public/assets/aoc001-report-video-candidate-v0.3.mp4 \
+            public/assets/aoc001-report-video-candidate-v0.3-probe.txt \
+            public/assets/aoc001-report-video-candidate-v0.3-review.jpg \
+            public/assets/aoc001-report-video-candidate-v0.3-credits.txt
           if git diff --cached --quiet; then
-            echo 'v0.2 report candidate unchanged.'
+            echo 'v0.3 report candidate unchanged.'
           else
-            git commit -m 'Publish AOC-001 report video candidate v0.2'
+            git commit -m 'Publish AOC-001 article-specific report video v0.3'
             git push
           fi
 
       - name: Upload review package
         uses: actions/upload-artifact@v4
         with:
-          name: aoc001-report-video-candidate-v0.2
+          name: aoc001-report-video-candidate-v0.3
           path: |
-            public/assets/aoc001-report-video-candidate-v0.2.mp4
-            .render/aoc001-report-v02/review/*.jpg
+            public/assets/aoc001-report-video-candidate-v0.3.mp4
+            public/assets/aoc001-report-video-candidate-v0.3-probe.txt
+            public/assets/aoc001-report-video-candidate-v0.3-review.jpg
+            public/assets/aoc001-report-video-candidate-v0.3-credits.txt
+            .render/aoc001-report-v03/review/*.jpg
           if-no-files-found: error
           retention-days: 7
