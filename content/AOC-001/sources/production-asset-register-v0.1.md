@@ -46,7 +46,24 @@
 
 ### 03 — COPPER / MINING
 
-**Status:** PENDING
+**Status:** LOCKED  
+**Asset:** `2012.09.29.104551 Truck Bingham Canyon Mine Utah.jpg`  
+**Type:** Real photograph  
+**Photographer / copyright holder:** Hermann Luyken  
+**Date photographed:** 29 September 2012  
+**Original dimensions:** 1920 × 1280  
+**Location depicted:** Bingham Canyon Mine (Kennecott Copper Mine), Utah, United States  
+**Subject:** Haul truck carrying ore at an operating copper mine  
+**Source record:** Wikimedia Commons  
+**Source page:** https://commons.wikimedia.org/wiki/File:2012.09.29.104551_Truck_Bingham_Canyon_Mine_Utah.jpg  
+**Source:** Own work by the uploader  
+**Camera metadata:** Sony DSLR-A100; Wikimedia identifies the file as a directly photographed image.  
+**Licence:** Creative Commons CC0 1.0 Universal Public Domain Dedication  
+**Licence URL:** https://creativecommons.org/publicdomain/zero/1.0/  
+**Licence verification:** Wikimedia Commons records Hermann Luyken as author and copyright holder and states that the copyright holder dedicated the work under CC0 1.0.  
+**Permitted production use:** Copy, publish, crop, adapt and use commercially without requesting permission.  
+**Required credit:** None required by CC0. Atlas should retain provenance in SOURCES; optional visible credit: `Photo: Hermann Luyken / Wikimedia Commons / CC0`.  
+**Production note:** Use for the copper-extraction/mining beat. It is deliberately a generic real copper-mining image; do not identify this Utah mine as Chilean. The following Calama/Chuquicamata slot will provide the geographic hand-off into the actual Chilean setting.
 
 ### 04 — CALAMA / CHUQUICAMATA
 
