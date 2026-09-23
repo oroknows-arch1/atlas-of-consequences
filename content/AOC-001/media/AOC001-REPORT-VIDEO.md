@@ -2,77 +2,81 @@
 
 **Edition:** AOC-001 — *AI's Physical Hunger*  
 **Role:** factual/news-report clip  
-**Status:** candidate production / awaiting human review  
+**Current candidate:** v0.4  
+**Status:** TECHNICAL QA PASS / INTERNAL EDITORIAL QA PASS / AWAITING HUMAN REVIEW  
 **Authority:** `ATLAS-BUILD-LOCK.md`
 
 ## Purpose
 
-Produce the factual moving-media half of the AOC-001 media architecture. This clip must work independently as `WHAT'S REAL` and later supply selected moments to the hybrid opening trailer.
+Produce the factual moving-media half of AOC-001. The report must work independently as `WHAT'S REAL` and later supply selected verified moments to the hybrid opening trailer.
 
 This asset is factual. It contains no fictional people, invented documentary scenes or AI-generated footage presented as reality.
 
-## Editorial sequence
+## v0.4 editorial sequence
 
-1. **Data-centre infrastructure** — real licensed moving footage.
-2. **Electricity / grid** — real licensed moving footage.
-3. **Copper material** — real licensed moving footage of copper material.
-4. **Calama** — rights-cleared real city image used as explanatory place context.
-5. **Chuquicamata** — rights-cleared real mine image used as explanatory place context.
+1. **Anthropic / San Francisco** — rights-cleared Anthropic identity over real San Francisco city context.
+2. **500 Howard Street** — real building/address context; the photograph is explicitly labelled as a 2020 Slack-era image while Anthropic's current occupancy is separately verified with 2026 evidence.
+3. **Western Downs / Dalby** — real regional context for the Reuters article; the proposed project site is explicitly not shown.
+4. **Data-centre infrastructure** — real licensed generic moving footage, clearly labelled as generic and not the Western Downs facility.
+5. **Electricity / grid** — real licensed generic moving footage, clearly labelled as context.
+6. **Chilean copper transport** — real Chilean copper material/logistics imagery.
+7. **Chuquicamata** — real mine image used as northern-Chile copper context.
+8. **Chilean miners** — real Codelco Andina miners, explicitly labelled to their true 2007 context and not represented as Chuquicamata workers.
+9. **Calama community** — real residential context captioned `HOMES. STREETS. ROUTINES.`; no photographed household is claimed to be a mining family.
+10. **Causal boundary** — `CONNECTION, NOT CAUSATION.` and an explicit statement that no direct Anthropic–Chuquicamata supply chain is claimed.
 
-The clip ends by stating the causal boundary: the connection is legitimate, but AI growth does not prove a specific mine expansion.
+## Article and evidence anchor
 
-## Factual claim wiring
+- Reuters, *Anthropic signs first Australia data centre agreement*, 16 September 2026.
+- Western Downs Digital Park / Zerra DC project source.
+- IEA physical-infrastructure / grid / material evidence → **SR-03 / SR-04**.
+- Antofagasta / Chile copper-system context → **SR-05 / SR-06**.
+- Chuquicamata operation / location → **SR-07 / SR-08**.
+- Calama / mining work-home context remains bounded by the publication source register.
 
-- Data centres used about 415 TWh in 2024 → **SR-01**.
-- Data centres are physical infrastructure → **SR-03**.
-- AI/data-centre expansion can add pressure to grid equipment and requires materials including copper → **SR-04**.
-- Antofagasta is Chile's dominant copper-producing region → **SR-05 / SR-06**.
-- Chuquicamata is a current major copper operation in Calama → **SR-07**.
-- Chuquicamata lies about 15 km north of Calama → **SR-08**.
+Full asset-level provenance, rights and use boundaries:
 
-## Moving-footage sources
+`content/AOC-001/sources/report-video-v0.4-asset-register.md`
 
-### Data centre
-- Wikimedia Commons: `Data Center Tour & Technical Deep Dive into the Power, Data and Cooling Infrastructure!.webm`
-- Author / attribution: Lawrence Systems
-- Licence: CC BY 3.0
-- Commons record states the external-source licence was reviewed and confirmed.
-- Use: brief excerpt from the server-room portion; generic data-centre infrastructure only. It is not represented as an AI-specific facility.
+## Technical QA — v0.4
 
-### Grid
-- Wikimedia Commons: `REN overhead power line maintenance PT 2018 E.webm`
-- Author / attribution: Fernando Moital
-- Licence: CC BY 2.0
-- Commons record states the Flickr licence was reviewed and confirmed.
-- Use: generic high-voltage grid infrastructure only; not Chile and not represented as infrastructure built for AI.
+- Duration: **30.000 s**
+- Frame: **720 × 1280** vertical
+- Video: **H.264**
+- Frame rate: **30 fps**
+- Audio: **AAC stereo, 48 kHz**
+- Encoded size: **4,329,043 bytes**
+- Review contact sheet and ten timed review frames generated from the finished encode.
+- GitHub Actions render/publish run: **PASS**.
 
-### Copper material
-- Wikimedia Commons: `5 copper crystals covered with glass.webm`
-- Attribution: François Nguyen
-- Licence: CC BY 2.0
-- Use: copper as material; not mining footage and not represented as Chilean production.
+## Internal editorial/style QA — v0.4
 
-## Place sources
+**PASS as a candidate for human review.**
 
-### Calama
-- Wikimedia Commons: `Homes in Calama, Chile (45418686415).jpg`
-- Licence: CC BY-SA 2.0
-- Use: lived-city context so Calama is not reduced to a mine.
-
-### Chuquicamata
-- Wikimedia Commons: `Chuquicamata-Chile-2009.JPG`
-- Author: Pierre cb
-- Licence: public domain dedication
-- Description: loading of rock at the Chuquicamata copper mine in Chile.
-
-## Explicit exclusions
-
-The Google Earth / YouTube Chuquicamata timelapse currently visible on Commons is **not used** because the Commons record says its external-source licence has not been independently reviewed.
-
-Generic open-pit mining footage is **not used as copper/Chile footage** because doing so would visually imply more than the source establishes.
+Verified against the Build Lock:
+- named company/article world appears before the consequence chain;
+- recognisable Anthropic identity is present without reusing Reuters imagery;
+- San Francisco / headquarters context is distinguishable from data-centre context;
+- Western Downs regional imagery is not presented as the project site;
+- generic data-centre and grid footage is visibly labelled as generic;
+- Chilean copper, mine, worker and Calama community material retains its actual context;
+- no real miner, household or community member is claimed to be personally affected by Anthropic;
+- no fictional Atlas family appears in the factual report;
+- `Connection is allowed. Causation requires evidence.` is preserved on screen;
+- source labels are readable at mobile review size;
+- the result is materially more article-specific than v0.2/v0.3.
 
 ## Candidate output
 
-`public/assets/aoc001-report-video-candidate-v0.1.mp4`
+`public/assets/aoc001-report-video-candidate-v0.4.mp4`
 
-The candidate is not promoted to approved production status until human review confirms factual clarity, pacing, mobile readability and the absence of misleading visual implications.
+Supporting QA files:
+- `public/assets/aoc001-report-video-candidate-v0.4-review.jpg`
+- `public/assets/aoc001-report-video-candidate-v0.4-probe.txt`
+- `public/assets/aoc001-report-video-candidate-v0.4-credits.txt`
+
+## Approval boundary
+
+v0.4 is **not production-approved yet**. It remains a candidate until the user reviews the actual video and approves the factual clarity, pacing, mobile readability and overall newsroom-style production standard.
+
+If approved, the next production outcome is `AOC001-STORY-PROMO`. If rejected, only the specific review failures should be revised; do not reopen settled factual architecture without evidence.
