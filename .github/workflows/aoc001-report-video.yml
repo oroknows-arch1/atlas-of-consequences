@@ -179,7 +179,7 @@ jobs:
           still_map () {
             input="$1"; out="$2"
             ffmpeg -y -loop 1 -t 3 -i "$input" \
-              -vf "scale=720:-2,crop=720:1280:x=0:y=(ih-1280)/2,eq=contrast=1.02:brightness=-0.01:saturation=0.90,setsar=1,fps=30,format=yuv420p" \
+              -vf "scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280:x=(iw-720)/2:y=(ih-1280)/2,eq=contrast=1.02:brightness=-0.01:saturation=0.90,setsar=1,fps=30,format=yuv420p" \
               -an -c:v libx264 -preset veryfast -crf 19 -pix_fmt yuv420p "$out"
           }
 
