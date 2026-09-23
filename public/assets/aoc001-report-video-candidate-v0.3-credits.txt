@@ -1,0 +1,39 @@
+AOC001-REPORT-VIDEO v0.3 — REVIEW CREDITS
+
+Candidate adaptation licence: CC BY-SA 4.0.
+Source works retain their original licences and attribution requirements.
+
+ARTICLE / PROJECT FACTS
+Reuters, "Anthropic signs first Australia data centre agreement", 16 Sep 2026.
+Western Downs Digital Park / Zerra DC official project site.
+
+500 HOWARD STREET PHOTOGRAPHS
+Scott Schiller — "Slack HQ - 500 Howard (40929471094).jpg" — CC BY-SA 2.0.
+Scott Schiller — "Slack HQ - 500 Howard (41600178032).jpg" — CC BY-SA 2.0.
+Photographs taken in 2018 when the building was occupied by Slack. 500 Howard is used only as the building that is Anthropic's current 2026 headquarters.
+
+QUEENSLAND LOCATOR
+"Dalby location map in Queensland.PNG" — CC BY-SA 3.0 / GFDL. Geographic context only; not a precise project-site map.
+
+DATA-CENTRE CONTEXT VIDEO
+Lawrence Systems — "Data Center Tour & Technical Deep Dive into the Power, Data and Cooling Infrastructure!.webm" — CC BY 3.0. Generic context only; not Anthropic/Western Downs footage.
+
+GRID CONTEXT VIDEO
+Fernando Moital — "REN overhead power line maintenance PT 2018 E.webm" — CC BY 2.0. Generic grid context only.
+
+COPPER CONTEXT VIDEO
+François Nguyen — "5 copper crystals covered with glass.webm" — CC BY 2.0. Copper material context only.
+
+CHUQUICAMATA
+Pierre cb — "Chuquicamata-Chile-2009.JPG" — public-domain dedication.
+
+CHILEAN MINERS
+CDC / NIOSH — "Chilean Miners.jpg" — public domain (U.S. federal work). Photograph is Codelco Andina, 2007; it is not Chuquicamata and is labelled as context.
+
+CALAMA HOMES
+Chris Hunkeler — "Homes in Calama, Chile (45418686415).jpg" — CC BY-SA 2.0. Community/household context only; no pictured home is claimed to be a mining family.
+
+SOUND BED
+John Bartmann — "flourescent-crystals-master.ogg" — CC0.
+
+Full production provenance: content/AOC-001/sources/report-video-v0.3-asset-register.md
