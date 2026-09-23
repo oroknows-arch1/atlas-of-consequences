@@ -1,0 +1,70 @@
+name: Build AOC-001 opening video
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/aoc001-opening-video.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render-opening:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install render tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg librsvg2-bin
+
+      - name: Fetch locked factual assets
+        run: |
+          set -euo pipefail
+          mkdir -p .render/aoc001 public/assets
+          curl -L --fail --retry 3 'https://commons.wikimedia.org/wiki/Special:FilePath/Datacenter%20Server%20Racks%20%2822370909788%29.jpg?width=2400' -o .render/aoc001/01-data.jpg
+          curl -L --fail --retry 3 'https://commons.wikimedia.org/wiki/Special:FilePath/Transmission%20substation.jpg?width=2400' -o .render/aoc001/02-grid.jpg
+          curl -L --fail --retry 3 'https://commons.wikimedia.org/wiki/Special:FilePath/2012.09.29.104551%20Truck%20Bingham%20Canyon%20Mine%20Utah.jpg?width=2400' -o .render/aoc001/03-copper.jpg
+          curl -L --fail --retry 3 'https://commons.wikimedia.org/wiki/Special:FilePath/Mina%20de%20Chuquicamata%2C%20Calama%2C%20Chile%2C%202016-02-01%2C%20DD%20114.JPG?width=2400' -o .render/aoc001/04-chuqui.jpg
+          rsvg-convert -w 1600 -h 900 public/assets/aoc001-family-fiction.svg > .render/aoc001/05-family.png
+
+      - name: Render one continuous vertical opening clip
+        run: |
+          set -euo pipefail
+          for spec in \
+            '01-data.jpg 01.mp4' \
+            '02-grid.jpg 02.mp4' \
+            '03-copper.jpg 03.mp4' \
+            '04-chuqui.jpg 04.mp4' \
+            '05-family.png 05.mp4'; do
+            set -- $spec
+            ffmpeg -y -loop 1 -t 2.7 -i ".render/aoc001/$1" \
+              -vf "scale=900:1600:force_original_aspect_ratio=increase,crop=900:1600,zoompan=z='min(zoom+0.00035,1.035)':d=81:s=900x1600:fps=30,format=yuv420p" \
+              -an -r 30 -c:v libx264 -preset medium -crf 21 -movflags +faststart ".render/aoc001/$2"
+          done
+
+          ffmpeg -y \
+            -i .render/aoc001/01.mp4 -i .render/aoc001/02.mp4 -i .render/aoc001/03.mp4 -i .render/aoc001/04.mp4 -i .render/aoc001/05.mp4 \
+            -filter_complex "[0:v][1:v]xfade=transition=fade:duration=0.45:offset=2.25[v01];[v01][2:v]xfade=transition=fade:duration=0.45:offset=4.50[v02];[v02][3:v]xfade=transition=fade:duration=0.45:offset=6.75[v03];[v03][4:v]xfade=transition=fade:duration=0.45:offset=9.00[vout]" \
+            -map '[vout]' -an -c:v libx264 -preset medium -crf 22 -pix_fmt yuv420p -movflags +faststart public/assets/aoc001-opening.mp4
+
+          ffmpeg -y -sseof -0.05 -i public/assets/aoc001-opening.mp4 -frames:v 1 -q:v 2 public/assets/aoc001-opening-final.jpg
+
+      - name: Commit rendered production assets
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/aoc001-opening.mp4 public/assets/aoc001-opening-final.jpg
+          if git diff --cached --quiet; then
+            echo 'No rendered asset changes.'
+            exit 0
+          fi
+          git commit -m 'Build AOC-001 opening video [skip ci]'
+          git push
