@@ -1,10 +1,10 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "edition_id": "AOC-001",
   "artifact_id": "AOC001-VISUAL-CHARACTER-BIBLE-v0.1",
   "worker": "character_director",
   "skills": ["character_continuity", "cultural_character_grounding", "creative_intensity_control"],
-  "status": "revised_candidate_requires_culturally_grounded_visual_set",
+  "status": "approved_internal_reference_set",
   "creative_intensity": 1,
   "bible_mode": "internal",
   "public_bible_approved": false,
@@ -45,86 +45,18 @@
     "variation_required": ["complexion", "hair texture", "face structure", "body type", "age presentation", "wardrobe", "expressiveness"]
   },
   "characters": [
-    {
-      "id": "AOC001-CHAR-DANIELA-01",
-      "name": "Daniela",
-      "age": 38,
-      "role": "Calama-based administrative worker, partner, mother, daughter of Elena",
-      "complexion": "medium-to-deeper warm brown",
-      "face": "softly angular oval-to-broad face; pronounced cheek structure; strong brows; deep-brown slightly hooded almond eyes; medium-broad nose",
-      "hair": "very dark brown; shoulder length; straighter at crown with soft natural wave through lengths",
-      "build": "medium height; compact capable build",
-      "never": ["glamour makeover", "generic Latin-mother styling", "severe corporate-executive styling", "age or face drift"]
-    },
-    {
-      "id": "AOC001-CHAR-MAURICIO-01",
-      "name": "Mauricio",
-      "age": 40,
-      "role": "mining-related maintenance/technical worker, partner, father",
-      "complexion": "lighter warm olive/tan than Daniela's maternal line",
-      "face": "broader lower face; strong natural jaw; deep-brown deeper-set eyes; straight-to-gently prominent nose",
-      "hair": "dark brown; short; visibly wavy-to-loosely-curled; slight early grey at temples",
-      "build": "medium-tall; broad solid practical working build",
-      "never": ["action-hero miner styling", "hard-hat identity shorthand", "extreme weathering", "unsupported employer branding"]
-    },
-    {
-      "id": "AOC001-CHAR-TOMAS-01",
-      "name": "Tomás",
-      "age": 16,
-      "role": "secondary-school student considering technical study",
-      "complexion": "intermediate between Daniela and Mauricio",
-      "face": "longer adolescent face; Daniela-like brow and eye area; more of Mauricio's developing lower-face structure",
-      "hair": "thick dark brown; visibly wavy; longer on top; imperfectly controlled",
-      "build": "lean medium-tall adolescent trending toward Mauricio's height",
-      "never": ["adult ageing", "significant facial hair", "miner cosplay", "permanent brooding expression"]
-    },
-    {
-      "id": "AOC001-CHAR-EMILIA-01",
-      "name": "Emilia",
-      "age": 7,
-      "role": "primary-school child",
-      "complexion": "warm medium brown between the two parental lines",
-      "face": "rounder child face; stronger Daniela/Elena cheek and eye pattern; Mauricio-like smile",
-      "hair": "dark brown; thick; wavier/looser-curled than Daniela's; around shoulder length",
-      "build": "small active child proportions",
-      "never": ["older-child styling", "makeup", "glamour", "exaggerated cuteness"]
-    },
-    {
-      "id": "AOC001-CHAR-ELENA-01",
-      "name": "Elena",
-      "age": 64,
-      "role": "Daniela's mother and the children's grandmother",
-      "complexion": "medium-to-deeper warm brown in Daniela's broad family range",
-      "face": "strong Daniela resemblance through brow, cheek structure and mouth; natural age lines; deep-brown eyes",
-      "hair": "very dark hair substantially mixed with silver/grey; straighter-to-soft-wave texture",
-      "build": "average height and build; grounded posture",
-      "never": ["unestablished frailty", "grandmother caricature", "anti-age smoothing", "unsupported ancestry costume markers"]
-    }
+    {"id":"AOC001-CHAR-DANIELA-01","name":"Daniela","age":38,"role":"Calama-based administrative worker, partner, mother, daughter of Elena","reference_generation_id":"c3fb5be3-34b3-4c96-b6fd-576b9f203d14"},
+    {"id":"AOC001-CHAR-MAURICIO-01","name":"Mauricio","age":40,"role":"mining-related maintenance/technical worker, partner, father","reference_generation_id":"1b59e1cf-6b86-4db2-b04d-f4135361fd4b"},
+    {"id":"AOC001-CHAR-TOMAS-01","name":"Tomás","age":16,"role":"secondary-school student considering technical study","reference_generation_id":"89adf8cb-c9a8-4baf-ae4b-29defb46ed9a"},
+    {"id":"AOC001-CHAR-EMILIA-01","name":"Emilia","age":7,"role":"primary-school child","reference_generation_id":"75cd2f33-7fca-49dd-b2c3-983be1dbee62"},
+    {"id":"AOC001-CHAR-ELENA-01","name":"Elena","age":64,"role":"Daniela's mother and the children's grandmother","reference_generation_id":"9031ba6d-39df-4bbe-b889-85b6e8cce1a6"}
   ],
-  "reference_set": [
-    "neutral front portrait for each character",
-    "three-quarter portrait for each character",
-    "full-body neutral standing reference for each character",
-    "five-person family group in ordinary Calama-home context",
-    "Daniela + Elena resemblance pair",
-    "Mauricio + Tomás resemblance pair",
-    "Daniela + Emilia resemblance pair"
-  ],
+  "family_group_reference_generation_id": "34173fb8-35a4-4479-a9eb-c72b7db15d35",
   "human_gate": {
     "id": "visual_character_human_gate",
-    "status": "blocked",
-    "reason": "Previous visual direction was too homogeneous; revised culturally grounded visual reference set required.",
-    "checks": [
-      "individual identity survives angle changes",
-      "two parental lines remain visibly distinct",
-      "children plausibly blend both lines",
-      "family resemblance is plausible without cloned faces",
-      "complexion, hair texture, face structure, body type and styling show natural variation",
-      "ages read correctly",
-      "cultural influence appears through ordinary lived context rather than costume",
-      "no unsupported cultural/Indigenous identity marker appears",
-      "no intended real-person likeness appears",
-      "group feels consistent with the locked AOC-001 story and contemporary Calama"
-    ]
+    "status": "approved",
+    "approved_on": "2026-09-24",
+    "approval_scope": "Internal continuity references approved for AOC001-STORY-PROMO production only.",
+    "next_worker": "fiction_media_director"
   }
 }
