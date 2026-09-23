@@ -165,7 +165,7 @@ jobs:
                 drawtext=fontfile=$BOLD:textfile=$R/mode.txt:fontcolor=white:fontsize=28:x=32:y=58,\
                 drawtext=fontfile=$BOLD:textfile=$scene:fontcolor=white:fontsize=38:line_spacing=12:x=32:y=690,\
                 drawtext=fontfile=$FONT:textfile=$source:fontcolor=white@0.78:fontsize=19:x=32:y=1218,\
-                format=yuv420p[v]" \
+                setsar=1,format=yuv420p[v]" \
               -map '[v]' -an -r 25 -c:v libx264 -preset veryfast -crf 22 -pix_fmt yuv420p "$out"
           }
 
@@ -183,7 +183,7 @@ jobs:
                 drawtext=fontfile=$BOLD:textfile=$R/mode.txt:fontcolor=white:fontsize=28:x=32:y=58,\
                 drawtext=fontfile=$BOLD:textfile=$scene:fontcolor=white:fontsize=38:line_spacing=12:x=32:y=690,\
                 drawtext=fontfile=$FONT:textfile=$source:fontcolor=white@0.78:fontsize=19:x=32:y=1218,\
-                format=yuv420p[v]" \
+                setsar=1,format=yuv420p[v]" \
               -map '[v]' -an -r 25 -c:v libx264 -preset veryfast -crf 22 -pix_fmt yuv420p "$out"
           }
 
