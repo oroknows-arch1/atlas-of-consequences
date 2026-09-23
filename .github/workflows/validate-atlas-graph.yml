@@ -1,0 +1,28 @@
+name: Validate Atlas worker graph
+
+on:
+  pull_request:
+    paths:
+      - 'atlas/**'
+      - 'tools/validate_atlas_graph.py'
+      - 'ATLAS-OPERATING-MODEL.md'
+      - 'content/AOC-001/**'
+  push:
+    branches: [main]
+    paths:
+      - 'atlas/**'
+      - 'tools/validate_atlas_graph.py'
+      - 'ATLAS-OPERATING-MODEL.md'
+      - 'content/AOC-001/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate worker, skills, authority, graph and AOC-001 binding
+        run: python3 tools/validate_atlas_graph.py

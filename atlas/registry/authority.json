@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "principle": "Authority is explicit and flows downward. Implementation cannot silently redefine product truth.",
+  "levels": [
+    {
+      "rank": 1,
+      "id": "product_lock",
+      "sources": ["ATLAS-BUILD-LOCK.md"],
+      "rule": "Highest authority for locked product behaviour and current production truth."
+    },
+    {
+      "rank": 2,
+      "id": "constitution",
+      "sources": ["docs/atlas-constitution.md"],
+      "rule": "Permanent fact/fiction, evidence, locality and publishing boundaries."
+    },
+    {
+      "rank": 3,
+      "id": "edition_truth",
+      "sources": [
+        "content/{edition_id}/edition-manifest-v0.1.yaml",
+        "content/{edition_id}/master-edition-v0.1.md",
+        "content/{edition_id}/sources/publication-source-register-v0.1.md"
+      ],
+      "rule": "Edition-specific factual, narrative, locality and evidence truth."
+    },
+    {
+      "rank": 4,
+      "id": "human_gate",
+      "rule": "A human may approve or reject candidates and may explicitly revise higher locks. Silence is not approval."
+    },
+    {
+      "rank": 5,
+      "id": "worker_contract",
+      "sources": ["atlas/registry/workers.json", "atlas/graphs/edition-production.json"],
+      "rule": "Defines execution powers, write scopes, handoffs and escalation."
+    },
+    {
+      "rank": 6,
+      "id": "implementation",
+      "sources": ["atlas/registry/skills.json", ".github/workflows/**", "tools/**", "prompts/**"],
+      "rule": "Replaceable execution detail. Never grants product authority."
+    }
+  ],
+  "immutable_boundaries": [
+    "Facts can change the fiction. Fiction must never quietly become fact.",
+    "Evidence establishes the world. Fiction determines what happens within it.",
+    "Connection may be shown. Causation requires evidence.",
+    "A worker cannot approve its own publication-critical output.",
+    "Fictional people or generated scenes cannot be presented as documentary evidence."
+  ],
+  "decision_owners": {
+    "source_acceptance": "evidence_verifier",
+    "locality_truth": "locality_researcher",
+    "causal_certainty": "consequence_mapper",
+    "story_structure": "story_architect",
+    "character_identity": "character_director",
+    "fiction_prose": "story_writer",
+    "narrative_subtraction": "narrative_editor",
+    "fact_fiction_boundary": "boundary_auditor",
+    "factual_media_cut": "factual_media_producer",
+    "fiction_media_cut": "fiction_media_director",
+    "hybrid_opening_cut": "hybrid_opening_editor",
+    "reader_implementation": "reader_builder",
+    "source_traceability": "source_registrar",
+    "distribution_derivatives": "distribution_editor",
+    "release_readiness": "publication_qc",
+    "routing_only": "atlas_orchestrator"
+  }
+}

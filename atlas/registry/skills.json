@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "skills": [
+    {"id":"evidence_research","does":"Find relevant primary, local and high-quality secondary evidence.","does_not":"Declare an unsupported claim true."},
+    {"id":"source_trace","does":"Keep claim-to-source and asset-to-rights provenance inspectable.","does_not":"Upgrade weak evidence by repetition."},
+    {"id":"claim_verification","does":"Accept, qualify or reject factual claims against evidence.","does_not":"Write fiction."},
+    {"id":"local_context_research","does":"Build place, language, work, family, social-condition and cultural context from evidence.","does_not":"Treat stereotypes as typical life."},
+    {"id":"causal_mapping","does":"Map consequence chains and label certainty at each link.","does_not":"Turn correlation or plausible connection into direct causation."},
+    {"id":"story_architecture","does":"Design plot, subplots, reveals, pacing and narrative questions inside established world truth.","does_not":"Change evidence or locked story facts."},
+    {"id":"character_continuity","does":"Maintain identity, relationships, history, appearance and behavioural continuity.","does_not":"Rewrite factual locality to suit a character."},
+    {"id":"fiction_writing","does":"Write scenes, dialogue, interiority and transitions.","does_not":"Present invented conditions as sourced reality."},
+    {"id":"creative_intensity_control","does":"Adjust narrative pressure from 0 to 5 without widening authority.","does_not":"Permit new factual claims, sensationalism or boundary bypass."},
+    {"id":"editorial_subtraction","does":"Remove explanation, repetition and weak prose while preserving meaning.","does_not":"Create new plot under the guise of editing."},
+    {"id":"boundary_audit","does":"Detect fact/fiction leakage, evidence overreach and misleading presentation.","does_not":"Approve its own upstream creative work."},
+    {"id":"asset_research","does":"Find source-relevant, rights-appropriate factual media and record use boundaries.","does_not":"Use generic assets as if they depict a named place/person/project."},
+    {"id":"factual_video_editing","does":"Assemble sourced report media with accurate labels, pacing and causal boundaries.","does_not":"Generate synthetic documentary evidence."},
+    {"id":"fiction_visual_direction","does":"Create coherent fictional visual worlds, performances and shots from story truth.","does_not":"Impersonate real people or reportage."},
+    {"id":"visual_continuity","does":"Keep characters, environments, wardrobe, geography and temporal continuity stable.","does_not":"Override story truth for visual convenience."},
+    {"id":"hybrid_editing","does":"Combine already approved factual and fictional media with a legible transition.","does_not":"Blur the transition or introduce new claims."},
+    {"id":"mobile_reader_assembly","does":"Build the reader experience around locked edition structure and media states.","does_not":"Rewrite editorial truth through interface convenience."},
+    {"id":"distribution_derivation","does":"Derive social/discovery assets from the verified master edition.","does_not":"Create a separate version of truth for a platform."},
+    {"id":"publication_qa","does":"Check completeness, regressions, mobile readability, source integrity and locked behaviour.","does_not":"Silently repair failures by changing product requirements."},
+    {"id":"graph_routing","does":"Select eligible next workers, pass artifacts, retry bounded failures and stop at gates.","does_not":"Author, approve or reinterpret content."}
+  ]
+}

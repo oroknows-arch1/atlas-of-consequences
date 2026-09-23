@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "graph_id": "atlas-edition-production",
+  "orchestrator": "atlas_orchestrator",
+  "rules": {
+    "node_worker_must_exist": true,
+    "worker_skills_must_exist": true,
+    "publication_critical_self_approval_forbidden": true,
+    "failure_returns_to_responsible_node": true,
+    "facts_never_accept_fiction_as_evidence": true
+  },
+  "nodes": [
+    {"id":"evidence_pack","worker":"evidence_researcher","produces":"evidence_candidates"},
+    {"id":"evidence_gate","worker":"evidence_verifier","requires":["evidence_pack"],"produces":"verified_evidence"},
+    {"id":"locality_pack","worker":"locality_researcher","requires":["evidence_gate"],"produces":"local_context_pack"},
+    {"id":"consequence_map","worker":"consequence_mapper","requires":["evidence_gate","locality_pack"],"produces":"certainty_labeled_consequence_map"},
+    {"id":"story_architecture","worker":"story_architect","requires":["locality_pack","consequence_map"],"produces":"story_plan"},
+    {"id":"character_model","worker":"character_director","requires":["story_architecture","locality_pack"],"produces":"narrative_character_model"},
+    {"id":"story_draft","worker":"story_writer","requires":["story_architecture","character_model"],"produces":"story_draft"},
+    {"id":"story_edit","worker":"narrative_editor","requires":["story_draft"],"produces":"edited_story"},
+    {"id":"story_boundary_gate","worker":"boundary_auditor","requires":["story_edit","evidence_gate","locality_pack"],"produces":"story_boundary_pass"},
+    {"id":"source_register","worker":"source_registrar","requires":["evidence_gate","locality_pack","consequence_map"],"produces":"source_register"},
+    {"id":"factual_media","worker":"factual_media_producer","requires":["evidence_gate","source_register"],"produces":"report_video_candidate"},
+    {"id":"factual_media_human_gate","type":"human_gate","requires":["factual_media"],"condition":"factual clarity, pacing, mobile readability and newsroom production standard approved"},
+    {"id":"visual_character_bible","worker":"character_director","requires":["character_model","story_boundary_gate","locality_pack"],"produces":"visual_character_bible"},
+    {"id":"visual_character_human_gate","type":"human_gate","requires":["visual_character_bible"],"condition":"visual character identity, family coherence and locality fit approved"},
+    {"id":"fiction_media","worker":"fiction_media_director","requires":["visual_character_human_gate","story_boundary_gate"],"produces":"story_promo_candidate"},
+    {"id":"fiction_media_human_gate","type":"human_gate","requires":["fiction_media"],"condition":"story truth, continuity, fiction labelling and cinematic quality approved"},
+    {"id":"hybrid_opening","worker":"hybrid_opening_editor","requires":["factual_media_human_gate","fiction_media_human_gate"],"produces":"hybrid_opening_candidate"},
+    {"id":"hybrid_human_gate","type":"human_gate","requires":["hybrid_opening"],"condition":"fact-to-fiction transition and whole-edition opening approved"},
+    {"id":"reader_build","worker":"reader_builder","requires":["hybrid_human_gate","story_boundary_gate","source_register"],"produces":"reader_candidate"},
+    {"id":"distribution_pack","worker":"distribution_editor","requires":["story_boundary_gate","source_register"],"produces":"distribution_candidate"},
+    {"id":"publication_qa","worker":"publication_qc","requires":["reader_build","distribution_pack"],"produces":"release_readiness_report"},
+    {"id":"release_human_gate","type":"human_gate","requires":["publication_qa"],"condition":"edition approved for publication"}
+  ]
+}
