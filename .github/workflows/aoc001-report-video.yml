@@ -1,0 +1,217 @@
+name: Build AOC-001 factual report video
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/aoc001-report-video.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install render tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+
+      - name: Fetch rights-checked factual media
+        run: |
+          set -euo pipefail
+          mkdir -p .render/aoc001-report public/assets
+
+          python3 - <<'PY'
+          import json, urllib.parse, urllib.request
+
+          API = 'https://commons.wikimedia.org/w/api.php'
+
+          def fetch_video(title, output):
+              params = urllib.parse.urlencode({
+                  'action': 'query',
+                  'format': 'json',
+                  'prop': 'videoinfo',
+                  'titles': title,
+                  'viprop': 'url|derivatives',
+                  'redirects': '1',
+              })
+              req = urllib.request.Request(API + '?' + params, headers={'User-Agent': 'AtlasOfConsequences/0.1'})
+              with urllib.request.urlopen(req, timeout=60) as r:
+                  payload = json.load(r)
+              page = next(iter(payload['query']['pages'].values()))
+              info = page['videoinfo'][0]
+              derivatives = info.get('derivatives', [])
+              preferred = ['480p.vp9.webm', '720p.vp9.webm', '360p.vp9.webm']
+              chosen = None
+              for key in preferred:
+                  chosen = next((d for d in derivatives if d.get('transcodekey') == key), None)
+                  if chosen:
+                      break
+              if not chosen:
+                  chosen = {'src': info['url']}
+              print(f"Downloading {title} -> {chosen['src']}")
+              urllib.request.urlretrieve(chosen['src'], output)
+
+          fetch_video(
+              'File:Data Center Tour & Technical Deep Dive into the Power, Data and Cooling Infrastructure!.webm',
+              '.render/aoc001-report/data-center.webm'
+          )
+          fetch_video(
+              'File:REN overhead power line maintenance PT 2018 E.webm',
+              '.render/aoc001-report/grid.webm'
+          )
+          fetch_video(
+              'File:5 copper crystals covered with glass.webm',
+              '.render/aoc001-report/copper.webm'
+          )
+          PY
+
+          curl -L --fail --retry 3 \
+            'https://commons.wikimedia.org/wiki/Special:FilePath/Homes%20in%20Calama%2C%20Chile%20%2845418686415%29.jpg?width=1600' \
+            -o .render/aoc001-report/calama.jpg
+
+          curl -L --fail --retry 3 \
+            'https://commons.wikimedia.org/wiki/Special:FilePath/Chuquicamata-Chile-2009.JPG?width=1600' \
+            -o .render/aoc001-report/chuquicamata.jpg
+
+      - name: Write factual on-screen copy
+        run: |
+          set -euo pipefail
+          R=.render/aoc001-report
+          printf '%s\n' 'ATLAS OF CONSEQUENCES' > "$R/brand.txt"
+          printf '%s\n' "WHAT'S REAL" > "$R/mode.txt"
+
+          cat > "$R/scene1.txt" <<'EOF'
+          AI IS DIGITAL.
+          ITS INFRASTRUCTURE IS NOT.
+
+          Data centres used about 415 TWh
+          of electricity in 2024.
+          EOF
+          printf '%s\n' 'SR-01 / SR-03 · IEA' > "$R/source1.txt"
+
+          cat > "$R/scene2.txt" <<'EOF'
+          MORE COMPUTE
+          MEANS MORE GRID.
+
+          Data-centre growth adds pressure
+          to power equipment and connections.
+          EOF
+          printf '%s\n' 'SR-04 · IEA' > "$R/source2.txt"
+
+          cat > "$R/scene3.txt" <<'EOF'
+          THE MATERIAL SYSTEM
+          INCLUDES COPPER.
+
+          Copper is used in data-centre construction
+          and the wider electricity system.
+          EOF
+          printf '%s\n' 'SR-04 · IEA' > "$R/source3.txt"
+
+          cat > "$R/scene4.txt" <<'EOF'
+          CALAMA IS A CITY,
+          NOT A MINE.
+
+          The Atlas narrows to northern Chile.
+          EOF
+          printf '%s\n' 'PLACE CONTEXT · CALAMA, CHILE' > "$R/source4.txt"
+
+          cat > "$R/scene5.txt" <<'EOF'
+          CHUQUICAMATA
+          ≈15 KM NORTH OF CALAMA
+
+          Connection, not causation:
+          AI growth does not prove a specific mine expansion.
+          EOF
+          printf '%s\n' 'SR-07 / SR-08 · CODELCO' > "$R/source5.txt"
+
+      - name: Render vertical factual report candidate
+        run: |
+          set -euo pipefail
+          R=.render/aoc001-report
+          FONT=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+          BOLD=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
+
+          render_motion () {
+            input="$1"; start="$2"; scene="$3"; source="$4"; out="$5"
+            ffmpeg -y -ss "$start" -t 4 -i "$input" \
+              -filter_complex "\
+                [0:v]fps=25,split=2[bg][fg];\
+                [bg]scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280,gblur=sigma=28,eq=brightness=-0.34:saturation=0.75[bg2];\
+                [fg]scale=680:-2:force_original_aspect_ratio=decrease[fg2];\
+                [bg2][fg2]overlay=(W-w)/2:185,\
+                drawbox=x=0:y=0:w=720:h=120:color=black@0.46:t=fill,\
+                drawbox=x=0:y=625:w=720:h=655:color=black@0.68:t=fill,\
+                drawtext=fontfile=$FONT:textfile=$R/brand.txt:fontcolor=white:fontsize=20:x=32:y=26,\
+                drawtext=fontfile=$BOLD:textfile=$R/mode.txt:fontcolor=white:fontsize=28:x=32:y=58,\
+                drawtext=fontfile=$BOLD:textfile=$scene:fontcolor=white:fontsize=38:line_spacing=12:x=32:y=690,\
+                drawtext=fontfile=$FONT:textfile=$source:fontcolor=white@0.78:fontsize=19:x=32:y=1218,\
+                format=yuv420p[v]" \
+              -map '[v]' -an -r 25 -c:v libx264 -preset veryfast -crf 22 -pix_fmt yuv420p "$out"
+          }
+
+          render_still () {
+            input="$1"; scene="$2"; source="$3"; out="$4"
+            ffmpeg -y -loop 1 -t 4 -i "$input" \
+              -filter_complex "\
+                [0:v]fps=25,split=2[bg][fg];\
+                [bg]scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280,gblur=sigma=28,eq=brightness=-0.34:saturation=0.78[bg2];\
+                [fg]scale=680:510:force_original_aspect_ratio=decrease[fg2];\
+                [bg2][fg2]overlay=(W-w)/2:155,\
+                drawbox=x=0:y=0:w=720:h=120:color=black@0.46:t=fill,\
+                drawbox=x=0:y=625:w=720:h=655:color=black@0.68:t=fill,\
+                drawtext=fontfile=$FONT:textfile=$R/brand.txt:fontcolor=white:fontsize=20:x=32:y=26,\
+                drawtext=fontfile=$BOLD:textfile=$R/mode.txt:fontcolor=white:fontsize=28:x=32:y=58,\
+                drawtext=fontfile=$BOLD:textfile=$scene:fontcolor=white:fontsize=38:line_spacing=12:x=32:y=690,\
+                drawtext=fontfile=$FONT:textfile=$source:fontcolor=white@0.78:fontsize=19:x=32:y=1218,\
+                format=yuv420p[v]" \
+              -map '[v]' -an -r 25 -c:v libx264 -preset veryfast -crf 22 -pix_fmt yuv420p "$out"
+          }
+
+          # Server-room portion begins around 21:43 in the licensed tour.
+          render_motion "$R/data-center.webm" 1303 "$R/scene1.txt" "$R/source1.txt" "$R/s1.mp4"
+          render_motion "$R/grid.webm" 0.5 "$R/scene2.txt" "$R/source2.txt" "$R/s2.mp4"
+          render_motion "$R/copper.webm" 5 "$R/scene3.txt" "$R/source3.txt" "$R/s3.mp4"
+          render_still "$R/calama.jpg" "$R/scene4.txt" "$R/source4.txt" "$R/s4.mp4"
+          render_still "$R/chuquicamata.jpg" "$R/scene5.txt" "$R/source5.txt" "$R/s5.mp4"
+
+          ffmpeg -y \
+            -i "$R/s1.mp4" -i "$R/s2.mp4" -i "$R/s3.mp4" -i "$R/s4.mp4" -i "$R/s5.mp4" \
+            -filter_complex '[0:v][1:v][2:v][3:v][4:v]concat=n=5:v=1:a=0,fade=t=out:st=19.5:d=0.5[v]' \
+            -map '[v]' -an -c:v libx264 -preset veryfast -crf 22 -pix_fmt yuv420p -movflags +faststart \
+            public/assets/aoc001-report-video-candidate-v0.1.mp4
+
+          ffmpeg -y -ss 10 -i public/assets/aoc001-report-video-candidate-v0.1.mp4 \
+            -frames:v 1 -q:v 2 "$R/review-frame.jpg"
+
+          ffprobe -v error -show_entries format=duration,size -show_entries stream=codec_name,width,height,r_frame_rate \
+            -of default=noprint_wrappers=1 public/assets/aoc001-report-video-candidate-v0.1.mp4
+
+      - name: Publish report-video candidate
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/aoc001-report-video-candidate-v0.1.mp4
+          if git diff --cached --quiet; then
+            echo 'Report-video candidate unchanged.'
+          else
+            git commit -m 'Publish AOC-001 factual report video candidate'
+            git push
+          fi
+
+      - name: Upload review package
+        uses: actions/upload-artifact@v4
+        with:
+          name: aoc001-report-video-candidate-v0.1
+          path: |
+            public/assets/aoc001-report-video-candidate-v0.1.mp4
+            .render/aoc001-report/review-frame.jpg
+          if-no-files-found: error
+          retention-days: 7
