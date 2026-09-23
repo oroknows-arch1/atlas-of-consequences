@@ -92,7 +92,12 @@ No additional visual direction, scrolling refinements, deployment work or decora
 - Master content, story and core fact/fiction structure are locked.
 
 ### Required video assets
-- `AOC001-REPORT-VIDEO`: **NOT YET PRODUCED as the approved moving factual/news-report clip**.
+- `AOC001-REPORT-VIDEO`: **CANDIDATE PRODUCED / TECHNICALLY AND VISUALLY VERIFIED / AWAITING HUMAN APPROVAL**.
+  - Candidate: `public/assets/aoc001-report-video-candidate-v0.1.mp4`
+  - 20 seconds, 720×1280, H.264, 25 fps, 9:16.
+  - Uses rights-checked real moving footage for data-centre, grid and copper-material beats, plus rights-checked real Calama and Chuquicamata place imagery.
+  - Production record: `content/AOC-001/media/AOC001-REPORT-VIDEO.md`.
+  - It must not be promoted to approved production status until the user reviews it.
 - `AOC001-STORY-PROMO`: **NOT YET PRODUCED as the approved moving cinematic fiction teaser**.
 - `AOC001-OPEN-01`: **NOT YET PRODUCED as the approved hybrid of those two clips**.
 
@@ -114,6 +119,6 @@ Do not continue adding graphics around the missing core media. Recover in this o
 6. Only then continue reader polish, section imagery and distribution derivatives.
 
 ## Next single production outcome
-**Produce `AOC001-REPORT-VIDEO` as a real moving factual/news-report clip.**
+**Human review of `AOC001-REPORT-VIDEO` candidate v0.1.**
 
-Until that passes review, do not spend the foreground action on more opening graphics, scroll polish, alternative deployment paths, or a replacement hybrid trailer.
+Do not begin `AOC001-STORY-PROMO` until the report-video candidate is explicitly approved or specific revisions are requested.
