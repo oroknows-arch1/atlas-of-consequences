@@ -21,7 +21,8 @@
     "report_video_asset_register": "content/AOC-001/sources/report-video-v0.4-asset-register.md",
     "story_promo_lock": "content/AOC-001/media/AOC001-STORY-PROMO-LOCK.md",
     "visual_character_bible": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.md",
-    "visual_character_registry": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.json"
+    "visual_character_registry": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.json",
+    "visual_character_approval_record": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-APPROVAL.md"
   },
   "node_state": {
     "evidence_pack": "satisfied_by_existing_artifact",
@@ -36,10 +37,10 @@
     "source_register": "satisfied_by_existing_artifact",
     "factual_media": "candidate_ready",
     "factual_media_human_gate": "pending",
-    "visual_character_bible": "revised_for_cultural_individuality_visual_set_pending",
-    "visual_character_human_gate": "blocked_until_culturally_grounded_visual_reference_set_review",
-    "fiction_media": "blocked_by_visual_character_gate",
-    "fiction_media_human_gate": "blocked",
+    "visual_character_bible": "satisfied_by_approved_reference_set",
+    "visual_character_human_gate": "approved",
+    "fiction_media": "ready",
+    "fiction_media_human_gate": "pending_after_candidate",
     "hybrid_opening": "blocked_until_both_media_branches_approved",
     "hybrid_human_gate": "blocked",
     "reader_build": "blocked_until_hybrid_approved",
@@ -47,14 +48,14 @@
     "publication_qa": "blocked_until_reader_and_distribution_candidates_exist",
     "release_human_gate": "blocked"
   },
-  "foreground_next": "visual_character_bible",
+  "foreground_next": "fiction_media",
   "notes": [
     "The existing factual report v0.4 remains a candidate awaiting human review; it is not silently promoted.",
-    "Internal character bibles are functional continuity assets; publication-grade design is deferred unless a public character-bible surface is explicitly approved.",
-    "If a public bible is later approved, its visual treatment must inherit AOC-001's story-specific mood, place, light, texture and emotional setting.",
-    "The first character direction was judged too homogeneous. The character_director has revised the family around two distinct parental lines, natural variation and evidence-aware Calama cultural context without assigning unsupported Indigenous/ethnic identity.",
-    "The visual character node remains active and the human gate remains blocked until a new culturally grounded visual reference set is reviewed.",
-    "The factual and fictional media branches may develop independently, but the hybrid opening cannot begin until both pass human approval.",
+    "Internal character bibles remain functional continuity assets; publication-grade design is deferred unless a public character-bible surface is explicitly approved.",
+    "The revised culturally grounded reference set for Daniela, Mauricio, Tomás, Emilia and Elena was explicitly approved by the human gate on 2026-09-24.",
+    "The approved reference set establishes continuity for the fictional story promo and does not establish factual ethnicity, Indigenous identity or documentary evidence.",
+    "The fiction-media branch is now unlocked. The next foreground action is production of AOC001-STORY-PROMO from the locked story and approved character references.",
+    "The factual and fictional media branches remain independent until both pass their own human approval gates.",
     "The old still-image opening prototype is historical evidence only and is not an eligible hybrid-opening input."
   ]
 }
