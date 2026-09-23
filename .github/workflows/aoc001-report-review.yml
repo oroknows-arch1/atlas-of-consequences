@@ -1,0 +1,57 @@
+name: Build AOC-001 report review sheet
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/aoc001-report-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  review-sheet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Build contact sheet from finished v0.2 video
+        run: |
+          set -euo pipefail
+          mkdir -p .review
+          VIDEO=public/assets/aoc001-report-video-candidate-v0.2.mp4
+          test -f "$VIDEO"
+
+          for pair in '01 1.0' '02 4.0' '03 7.0' '04 10.0' '05 12.5' '06 15.0' '07 18.0' '08 20.5'; do
+            set -- $pair
+            ffmpeg -y -ss "$2" -i "$VIDEO" -frames:v 1 -vf 'scale=270:480' ".review/frame-$1.jpg"
+          done
+
+          ffmpeg -y \
+            -i .review/frame-01.jpg -i .review/frame-02.jpg -i .review/frame-03.jpg -i .review/frame-04.jpg \
+            -i .review/frame-05.jpg -i .review/frame-06.jpg -i .review/frame-07.jpg -i .review/frame-08.jpg \
+            -filter_complex '[0:v][1:v][2:v][3:v]hstack=inputs=4[top];[4:v][5:v][6:v][7:v]hstack=inputs=4[bottom];[top][bottom]vstack=inputs=2[sheet]' \
+            -map '[sheet]' -frames:v 1 -q:v 3 \
+            public/assets/aoc001-report-video-candidate-v0.2-review.jpg
+
+          ffprobe -v error -show_entries format=duration,size -show_entries stream=codec_name,codec_type,width,height,r_frame_rate,sample_rate,channels -of default=noprint_wrappers=1 "$VIDEO" > public/assets/aoc001-report-video-candidate-v0.2-probe.txt
+
+      - name: Publish visual QA artifacts
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/aoc001-report-video-candidate-v0.2-review.jpg public/assets/aoc001-report-video-candidate-v0.2-probe.txt
+          if git diff --cached --quiet; then
+            echo 'Review artifacts unchanged.'
+          else
+            git commit -m 'Publish AOC-001 report v0.2 visual QA artifacts'
+            git push
+          fi
