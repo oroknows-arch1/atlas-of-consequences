@@ -1,24 +1,48 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "edition_id": "AOC-001",
   "artifact_id": "AOC001-VISUAL-CHARACTER-BIBLE-v0.1",
   "worker": "character_director",
-  "status": "candidate_awaiting_human_review",
-  "creative_intensity": 2,
-  "purpose": "Reusable fictional identity and continuity control for AOC-001 story media.",
+  "skills": ["character_continuity", "cultural_character_grounding", "creative_intensity_control"],
+  "status": "revised_candidate_requires_culturally_grounded_visual_set",
+  "creative_intensity": 1,
+  "bible_mode": "internal",
+  "public_bible_approved": false,
+  "purpose": "Functional fictional identity and continuity control for AOC-001 story media.",
+  "mode_rules": {
+    "internal": "Neutral, functional continuity asset. No unnecessary cinematic or publication design spend.",
+    "public": "Only if explicitly approved. Must inherit AOC-001 story mood, place, light, colour, texture and emotional setting rather than a generic character-bible aesthetic."
+  },
   "boundaries": [
     "Do not alter established family relationships, story truth, occupations or locality.",
     "Do not intentionally reproduce a real identifiable person's likeness.",
     "Do not treat invented appearance as representative of Calama or Chile.",
-    "Do not introduce unresearched Indigenous or cultural markers.",
+    "Do not introduce unsupported Indigenous, ethnic, religious or other identity markers.",
+    "Do not use cosmetic diversity as a substitute for researched cultural grounding.",
     "Reference imagery is fictional production control, never documentary evidence."
   ],
+  "cultural_grounding": {
+    "principle": "Cultural influence appears through lived context as well as appearance.",
+    "allowed_context": [
+      "contemporary Spanish-language household and school material",
+      "ordinary occupied Calama home details",
+      "practical responses to bright dry Calama conditions",
+      "mining-roster calendars, bags and work-transition objects without mining decor",
+      "locally credible football or civic references such as Cobreloa when naturally relevant",
+      "family photographs and inherited household objects",
+      "generational clothing and grooming differences",
+      "city, school and neighbourhood life alongside mining"
+    ],
+    "requires_research_before_use": ["Lickanantay/Atacameño identity", "Aymara identity", "Quechua identity", "other specific Indigenous or cultural identity not already established"]
+  },
   "family_continuity": {
-    "eye_family": "deep brown",
-    "hair_family": "naturally dark brown with age-appropriate greying",
-    "complexion_family": "warm medium range with ordinary individual variation",
-    "resemblance_method": "shared brow line, eye shape, cheek structure and smile shape; never cloned faces",
-    "wardrobe_rule": "ordinary contemporary practical Calama city life; no luxury or poverty signalling; no unsupported logos"
+    "resemblance_rule": "Believable kinship, not visual sameness.",
+    "parental_lines": {
+      "daniela_elena": "medium-to-deeper warm-brown complexion; straighter-to-softly-wavy dark hair; pronounced cheek structure; broad expressive brow; compact-to-average builds",
+      "mauricio": "lighter warm-olive-to-tan complexion; wavier/loosely-curled dark hair; broader lower face; deeper-set eyes; taller broader frame"
+    },
+    "children_rule": "Tomás and Emilia plausibly blend both parental lines without cloning either parent.",
+    "variation_required": ["complexion", "hair texture", "face structure", "body type", "age presentation", "wardrobe", "expressiveness"]
   },
   "characters": [
     {
@@ -26,67 +50,56 @@
       "name": "Daniela",
       "age": 38,
       "role": "Calama-based administrative worker, partner, mother, daughter of Elena",
-      "face": "softly angular oval face; defined cheekbones; strong natural brows; deep-brown almond-shaped eyes; medium-width nose; expressive mouth",
-      "hair": "very dark brown; shoulder length; naturally wavy; loose, half-tied or quickly tied back",
+      "complexion": "medium-to-deeper warm brown",
+      "face": "softly angular oval-to-broad face; pronounced cheek structure; strong brows; deep-brown slightly hooded almond eyes; medium-broad nose",
+      "hair": "very dark brown; shoulder length; straighter at crown with soft natural wave through lengths",
       "build": "medium height; compact capable build",
-      "wardrobe": ["simple blouse or knit top", "straight-leg trousers", "practical flats or sneakers", "light jacket or cardigan", "casual T-shirt and jeans/trousers at home"],
-      "behaviour": ["economical movement", "small facial reactions before speaking", "frequently handling phone, keys, bag or household objects"],
-      "never": ["glamour makeover", "severe corporate-executive styling", "maternal stereotype costuming", "age or face drift"]
+      "never": ["glamour makeover", "generic Latin-mother styling", "severe corporate-executive styling", "age or face drift"]
     },
     {
       "id": "AOC001-CHAR-MAURICIO-01",
       "name": "Mauricio",
       "age": 40,
       "role": "mining-related maintenance/technical worker, partner, father",
-      "face": "broader face; strong natural jaw; deep-brown eyes; straight-to-gently prominent nose; emerging smile lines",
-      "hair": "dark brown; short practical cut; slight early grey at temples permitted",
-      "build": "medium-tall; solid practical working build; visibly used hands",
-      "wardrobe": ["plain T-shirts", "workwear-style trousers or jeans", "sweatshirt or light jacket", "ordinary sneakers or work shoes", "generic workwear/high-vis only when context requires"],
-      "behaviour": ["shoulders relax visibly at home", "small affectionate physical contact", "humour registers before speech"],
-      "never": ["action-hero miner styling", "extreme weathering", "hard-hat identity shorthand", "body-type drift", "unsupported employer branding"]
+      "complexion": "lighter warm olive/tan than Daniela's maternal line",
+      "face": "broader lower face; strong natural jaw; deep-brown deeper-set eyes; straight-to-gently prominent nose",
+      "hair": "dark brown; short; visibly wavy-to-loosely-curled; slight early grey at temples",
+      "build": "medium-tall; broad solid practical working build",
+      "never": ["action-hero miner styling", "hard-hat identity shorthand", "extreme weathering", "unsupported employer branding"]
     },
     {
       "id": "AOC001-CHAR-TOMAS-01",
       "name": "Tomás",
       "age": 16,
       "role": "secondary-school student considering technical study",
-      "face": "longer adolescent family face; Daniela-like brow and eyes; Mauricio-like developing lower-face structure; deep-brown eyes",
-      "hair": "thick dark-brown; slightly wavy; longer on top; imperfectly controlled",
-      "build": "lean; medium-tall; still-growing adolescent proportions",
-      "wardrobe": ["plain T-shirts", "hoodie or overshirt", "jeans or casual trousers", "school backpack"],
-      "behaviour": ["slightly rounded posture over laptop or phone", "half-hugs and shoulder contact", "brief looks before answering"],
-      "never": ["adult ageing", "significant facial hair", "miner cosplay", "luxury streetwear signalling", "permanent brooding expression"]
+      "complexion": "intermediate between Daniela and Mauricio",
+      "face": "longer adolescent face; Daniela-like brow and eye area; more of Mauricio's developing lower-face structure",
+      "hair": "thick dark brown; visibly wavy; longer on top; imperfectly controlled",
+      "build": "lean medium-tall adolescent trending toward Mauricio's height",
+      "never": ["adult ageing", "significant facial hair", "miner cosplay", "permanent brooding expression"]
     },
     {
       "id": "AOC001-CHAR-EMILIA-01",
       "name": "Emilia",
       "age": 7,
       "role": "primary-school child",
-      "face": "rounder child version of family features; Daniela/Elena-like eye shape; Mauricio-like smile; deep-brown eyes",
-      "hair": "dark brown; wavy; around shoulder length; ponytail, loose or imperfectly tied as scene continuity allows",
+      "complexion": "warm medium brown between the two parental lines",
+      "face": "rounder child face; stronger Daniela/Elena cheek and eye pattern; Mauricio-like smile",
+      "hair": "dark brown; thick; wavier/looser-curled than Daniela's; around shoulder length",
       "build": "small active child proportions",
-      "wardrobe": ["ordinary school and casual clothes", "simple layers", "practical shoes", "natural brighter colours without branded costume shorthand"],
-      "behaviour": ["moves while speaking", "carries folders, containers or small objects", "direct physical affection", "fast facial reactions"],
-      "never": ["older-child styling", "makeup", "glamour", "exaggerated cuteness", "constant comic expression"]
+      "never": ["older-child styling", "makeup", "glamour", "exaggerated cuteness"]
     },
     {
       "id": "AOC001-CHAR-ELENA-01",
       "name": "Elena",
       "age": 64,
       "role": "Daniela's mother and the children's grandmother",
-      "face": "clear Daniela resemblance through eyes, cheekbones and mouth; natural age lines; deep-brown eyes; confident resting expression",
-      "hair": "dark hair substantially mixed with silver/grey; practical short-to-medium style",
+      "complexion": "medium-to-deeper warm brown in Daniela's broad family range",
+      "face": "strong Daniela resemblance through brow, cheek structure and mouth; natural age lines; deep-brown eyes",
+      "hair": "very dark hair substantially mixed with silver/grey; straighter-to-soft-wave texture",
       "build": "average height and build; grounded posture",
-      "wardrobe": ["neat ordinary blouse or knit", "cardigan", "trousers or simple skirt", "comfortable shoes"],
-      "behaviour": ["direct eye contact", "comfortable occupying family space", "restrained dry humour"],
-      "never": ["unestablished frailty", "grandmother caricature", "anti-age smoothing", "ancestry costume markers"]
+      "never": ["unestablished frailty", "grandmother caricature", "anti-age smoothing", "unsupported ancestry costume markers"]
     }
-  ],
-  "resemblance_map": [
-    "Daniela and Elena carry the strongest generational resemblance.",
-    "Tomás combines Daniela's eye/brow area with more of Mauricio's lower-face structure.",
-    "Emilia combines Daniela/Elena eye shape with Mauricio-like smile structure.",
-    "Mauricio remains visually distinct enough that the children do not appear cloned from Daniela's side."
   ],
   "reference_set": [
     "neutral front portrait for each character",
@@ -99,15 +112,19 @@
   ],
   "human_gate": {
     "id": "visual_character_human_gate",
-    "status": "pending",
+    "status": "blocked",
+    "reason": "Previous visual direction was too homogeneous; revised culturally grounded visual reference set required.",
     "checks": [
       "individual identity survives angle changes",
+      "two parental lines remain visibly distinct",
+      "children plausibly blend both lines",
       "family resemblance is plausible without cloned faces",
+      "complexion, hair texture, face structure, body type and styling show natural variation",
       "ages read correctly",
-      "wardrobe and grooming remain ordinary and contemporary",
-      "no stereotype or unresearched cultural marker appears",
+      "cultural influence appears through ordinary lived context rather than costume",
+      "no unsupported cultural/Indigenous identity marker appears",
       "no intended real-person likeness appears",
-      "group feels consistent with locked AOC-001 story"
+      "group feels consistent with the locked AOC-001 story and contemporary Calama"
     ]
   }
 }
