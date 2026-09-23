@@ -5,10 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#050708">
 <title>Atlas of Consequences — AOC-001</title>
-<link rel="preconnect" href="https://commons.wikimedia.org">
 <style>
-*{box-sizing:border-box}html,body{margin:0;background:#050708;color:#fff;font-family:Arial,Helvetica,sans-serif}body{overflow-x:hidden}
-#world{position:fixed;inset:0;overflow:hidden;background:#050708;z-index:0}.asset{position:absolute;inset:-2%;width:104%;height:104%;object-fit:cover;opacity:0;transform:scale(1.025);will-change:opacity,transform;filter:saturate(.88) contrast(1.04)}
+*{box-sizing:border-box}html,body{margin:0;background:#050708;color:#fff;font-family:Arial,Helvetica,sans-serif}body{overflow-x:hidden}body.playing{overflow:hidden}
+#world{position:fixed;inset:0;overflow:hidden;background:#050708;z-index:0}#openingFilm{position:absolute;inset:-2%;width:104%;height:104%;object-fit:cover;background:#050708;filter:saturate(.88) contrast(1.04)}
 #shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.05) 38%,rgba(0,0,0,.62) 78%,rgba(0,0,0,.91));z-index:20;pointer-events:none}#grain{position:absolute;inset:0;z-index:21;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
 #top{position:fixed;z-index:40;top:max(17px,env(safe-area-inset-top));left:18px;right:18px;display:flex;justify-content:space-between;gap:16px;font-size:9px;letter-spacing:.22em;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.8)}#mode{text-align:right;opacity:.76}
 #assetmeta{position:fixed;z-index:42;left:18px;right:18px;bottom:max(14px,env(safe-area-inset-bottom));display:flex;align-items:flex-end;justify-content:space-between;gap:18px;text-shadow:0 2px 12px #000;pointer-events:none}.asset-state{font-size:8px;letter-spacing:.18em;text-transform:uppercase;opacity:.92}.credit{max-width:62%;text-align:right;font-size:8px;line-height:1.35;opacity:.78}.credit a{color:#fff;text-decoration:none;pointer-events:auto}.credit a:focus,.credit a:hover{text-decoration:underline}
@@ -16,16 +15,14 @@
 #choice{height:100svh;position:relative;z-index:30;display:flex;align-items:flex-end;padding:24px 22px max(70px,10svh)}.box{width:min(100%,540px)}.box h2{font-family:Georgia,serif;font-weight:400;font-size:44px;line-height:.96;margin:10px 0 18px}.choice{display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,.34);padding:17px 2px;text-decoration:none;color:#fff;font-size:11px;letter-spacing:.18em;text-transform:uppercase}.choice:last-of-type{border-bottom:1px solid rgba(255,255,255,.34)}
 main{position:relative;z-index:30}.chapter{min-height:100svh;display:flex;align-items:flex-end;padding:24px 22px max(70px,10svh)}.content{width:min(100%,600px);opacity:.42;transform:translateY(16px);transition:opacity .3s ease,transform .42s ease;text-shadow:0 2px 12px rgba(0,0,0,.9)}.chapter.focus .content{opacity:1;transform:none}.idx{font-size:9px;letter-spacing:.22em;text-transform:uppercase;opacity:.8}.content h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(42px,12vw,64px);line-height:.94;margin:12px 0}.content p{font-family:Georgia,serif;font-size:18px;line-height:1.45;max-width:39ch;margin:0}.source-list{margin-top:20px;padding-top:12px;border-top:1px solid rgba(255,255,255,.3);font-size:10px;line-height:1.5;max-width:60ch;text-shadow:0 2px 8px #000}.source-list a{color:#fff}.source-list div{margin:8px 0}.boundary{display:inline-block;margin-top:10px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;border:1px solid rgba(255,255,255,.5);padding:6px 8px}
 @media(min-width:800px){#intro,#choice,.chapter{padding-left:8vw;padding-right:8vw}#assetmeta{left:8vw;right:8vw}}
-@media(prefers-reduced-motion:reduce){.asset{transform:none!important}#introcopy{transition:none}}
+@media(prefers-reduced-motion:reduce){#introcopy{transition:none}.content{transition:none}}
 </style>
 </head>
 <body>
 <div id="world" aria-hidden="true">
-<img class="asset" id="asset-data" alt="" fetchpriority="high" src="https://commons.wikimedia.org/wiki/Special:FilePath/Datacenter%20Server%20Racks%20%2822370909788%29.jpg?width=1600">
-<img class="asset" id="asset-grid" alt="" src="https://commons.wikimedia.org/wiki/Special:FilePath/Transmission%20substation.jpg?width=1600">
-<img class="asset" id="asset-mine" alt="" src="https://commons.wikimedia.org/wiki/Special:FilePath/2012.09.29.104551%20Truck%20Bingham%20Canyon%20Mine%20Utah.jpg?width=1600">
-<img class="asset" id="asset-place" alt="" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mina%20de%20Chuquicamata%2C%20Calama%2C%20Chile%2C%202016-02-01%2C%20DD%20114.JPG?width=1600">
-<img class="asset" id="asset-family" alt="" src="assets/aoc001-family-fiction.svg">
+<video id="openingFilm" muted playsinline autoplay preload="auto" disablepictureinpicture>
+<source src="assets/aoc001-opening.mp4" type="video/mp4">
+</video>
 <div id="shade"></div><div id="grain"></div>
 </div>
 <div id="top"><span>ATLAS OF CONSEQUENCES</span><span id="mode">OPENING</span></div>
@@ -37,7 +34,7 @@ main{position:relative;z-index:30}.chapter{min-height:100svh;display:flex;align-
 <section class="chapter" id="story" data-p="1" data-label="STORY"><div class="content"><div class="idx">02 / STORY</div><h2>The person inside it.</h2><p>The sequence arrives in an ordinary household. Daniela, Mauricio, Tomás, Emilia and Elena are fictional characters; their lives are not documentary evidence.</p><span class="boundary">STORY · FICTION</span></div></section>
 <section class="chapter" id="consequences" data-p=".5" data-label="CONSEQUENCES"><div class="content"><div class="idx">03 / CONSEQUENCES</div><h2>The forces connect.</h2><p>Energy demand, infrastructure build-out and copper extraction become one connected physical chain.</p></div></section>
 <section class="chapter" id="place" data-p=".75" data-label="PLACE"><div class="content"><div class="idx">04 / PLACE</div><h2>Calama and Chuquicamata.</h2><p>The global chain reaches a real place: one of the world’s defining copper districts, beside the city where the fictional story is set.</p></div></section>
-<section class="chapter" id="sources" data-p=".5" data-label="SOURCES"><div class="content"><div class="idx">05 / SOURCES</div><h2>Opening image provenance.</h2><p>Every factual image in the opening is traceable to its source and reuse terms. The family image is generated fiction.</p><div class="source-list">
+<section class="chapter" id="sources" data-p=".5" data-label="SOURCES"><div class="content"><div class="idx">05 / SOURCES</div><h2>Opening image provenance.</h2><p>The opening is one continuous film assembled from four sourced factual images and one generated fictional family image. Every input remains traceable to its source and reuse terms.</p><div class="source-list">
 <div>Data centre — Carl Lender, CC BY 2.0; web-sized derivative. <a href="https://commons.wikimedia.org/wiki/File:Datacenter_Server_Racks_(22370909788).jpg">Source</a></div>
 <div>Grid / energy — Rsparks3, CC0 1.0; Bayfield, Colorado; used only as generic grid infrastructure. <a href="https://commons.wikimedia.org/wiki/File:Transmission_substation.jpg">Source</a></div>
 <div>Copper / mining — Hermann Luyken, CC0 1.0; Bingham Canyon Mine, Utah; used only as generic copper extraction. <a href="https://commons.wikimedia.org/wiki/File:2012.09.29.104551_Truck_Bingham_Canyon_Mine_Utah.jpg">Source</a></div>
@@ -46,8 +43,9 @@ main{position:relative;z-index:30}.chapter{min-height:100svh;display:flex;align-
 </div></div></section>
 </main>
 <script>
-const chapters=[...document.querySelectorAll('.chapter')];const mode=document.getElementById('mode'),state=document.getElementById('assetstate'),credit=document.getElementById('credit');
-const assets=[document.getElementById('asset-data'),document.getElementById('asset-grid'),document.getElementById('asset-mine'),document.getElementById('asset-place'),document.getElementById('asset-family')];
+const video=document.getElementById('openingFilm');
+const chapters=[...document.querySelectorAll('.chapter')];
+const mode=document.getElementById('mode'),state=document.getElementById('assetstate'),credit=document.getElementById('credit');
 const stages=[
 {p:0,state:'REAL · DATA CENTRE',credit:'Carl Lender · CC BY 2.0 · web resize',url:'https://commons.wikimedia.org/wiki/File:Datacenter_Server_Racks_(22370909788).jpg'},
 {p:.25,state:'REAL · GRID / ENERGY',credit:'Rsparks3 · CC0 1.0 · Colorado',url:'https://commons.wikimedia.org/wiki/File:Transmission_substation.jpg'},
@@ -55,10 +53,97 @@ const stages=[
 {p:.75,state:'REAL · CHUQUICAMATA / CALAMA',credit:'Diego Delso, delso.photo · CC BY-SA 4.0 · web resize',url:'https://commons.wikimedia.org/wiki/File:Mina_de_Chuquicamata,_Calama,_Chile,_2016-02-01,_DD_114.JPG'},
 {p:1,state:'STORY · FICTION',credit:'Generated for AOC-001 · fictional people',url:null}
 ];
-const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t;let p=0,target=0,done=false,start=performance.now();
-function draw(v){let nearest=0,best=9;stages.forEach((s,i)=>{const d=Math.abs(v-s.p);if(d<best){best=d;nearest=i}const o=clamp(1-d/.25,0,1);assets[i].style.opacity=o;assets[i].style.transform=`scale(${1.035-o*.02})`});const s=stages[nearest];state.textContent=s.state;credit.innerHTML=s.url?`<a href="${s.url}" target="_blank" rel="noopener">${s.credit}</a>`:s.credit}
-function loop(now){if(!done){const t=clamp((now-start)/10000,0,1);p=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;target=p;if(t>=1){done=true;document.body.classList.remove('playing');document.body.classList.add('ready');mode.textContent='EDITION'}}else p+=(target-p)*.12;draw(p);requestAnimationFrame(loop)}document.body.classList.add('playing');requestAnimationFrame(loop);
-function updateFromScroll(){if(!done)return;const first=chapters[0].offsetTop,y=scrollY;if(y<first){target=1;mode.textContent='EDITION';chapters.forEach(s=>s.classList.remove('focus'));return}const pos=(y-first)/innerHeight,i=clamp(Math.floor(pos),0,chapters.length-1),j=clamp(i+1,0,chapters.length-1),f=clamp(pos-i,0,1);target=lerp(parseFloat(chapters[i].dataset.p),parseFloat(chapters[j].dataset.p),f);const n=clamp(Math.round(pos),0,chapters.length-1);chapters.forEach((s,k)=>s.classList.toggle('focus',k===n));mode.textContent=chapters[n].dataset.label}addEventListener('scroll',()=>requestAnimationFrame(updateFromScroll),{passive:true});document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})}));
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t;
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let duration=10,finished=false,target=10,visualTime=10;
+
+function drawMeta(seconds){
+  const n=duration?clamp(seconds/duration,0,1):0;
+  let nearest=0,best=9;
+  stages.forEach((s,i)=>{const d=Math.abs(n-s.p);if(d<best){best=d;nearest=i}});
+  const s=stages[nearest];
+  state.textContent=s.state;
+  credit.innerHTML=s.url?`<a href="${s.url}" target="_blank" rel="noopener">${s.credit}</a>`:s.credit;
+}
+
+function finishOpening(){
+  if(finished)return;
+  finished=true;
+  duration=Number.isFinite(video.duration)&&video.duration>0?video.duration:duration;
+  target=duration;visualTime=duration;
+  document.body.classList.remove('playing');
+  document.body.classList.add('ready');
+  mode.textContent='EDITION';
+  drawMeta(duration);
+  updateFromScroll();
+}
+
+function startOpening(){
+  duration=Number.isFinite(video.duration)&&video.duration>0?video.duration:duration;
+  if(reduced){
+    video.pause();
+    video.currentTime=Math.max(0,duration-.04);
+    finishOpening();
+    return;
+  }
+  document.body.classList.add('playing');
+  const attempt=video.play();
+  if(attempt&&attempt.catch){
+    attempt.catch(()=>{
+      const resume=()=>{video.play().catch(()=>{});document.removeEventListener('pointerdown',resume)};
+      document.addEventListener('pointerdown',resume,{once:true});
+    });
+  }
+}
+
+video.addEventListener('loadedmetadata',startOpening,{once:true});
+video.addEventListener('timeupdate',()=>{if(!finished)drawMeta(video.currentTime)});
+video.addEventListener('ended',finishOpening);
+if(video.readyState>=1)startOpening();
+
+function updateFromScroll(){
+  if(!finished)return;
+  const first=chapters[0].offsetTop,y=scrollY,pre=first-innerHeight;
+  if(y<pre){
+    target=duration;
+    chapters.forEach(s=>s.classList.remove('focus'));
+    mode.textContent='EDITION';
+    return;
+  }
+  if(y<first){
+    const f=clamp((y-pre)/innerHeight,0,1),p0=1,p1=parseFloat(chapters[0].dataset.p);
+    target=lerp(p0,p1,f)*duration;
+    chapters.forEach((s,k)=>s.classList.toggle('focus',k===0&&f>.55));
+    mode.textContent=f>.5?chapters[0].dataset.label:'EDITION';
+    return;
+  }
+  const pos=(y-first)/innerHeight,i=clamp(Math.floor(pos),0,chapters.length-1),j=clamp(i+1,0,chapters.length-1),f=clamp(pos-i,0,1);
+  target=lerp(parseFloat(chapters[i].dataset.p),parseFloat(chapters[j].dataset.p),f)*duration;
+  const n=clamp(Math.round(pos),0,chapters.length-1);
+  chapters.forEach((s,k)=>s.classList.toggle('focus',k===n));
+  mode.textContent=chapters[n].dataset.label;
+}
+
+function scrubLoop(){
+  if(finished){
+    if(reduced){
+      visualTime=target;
+    }else{
+      visualTime+= (target-visualTime)*.16;
+    }
+    const t=clamp(visualTime,0,Math.max(0,duration-.001));
+    if(Math.abs(video.currentTime-t)>.025){
+      try{video.currentTime=t}catch(e){}
+    }
+    drawMeta(t);
+  }
+  requestAnimationFrame(scrubLoop);
+}
+requestAnimationFrame(scrubLoop);
+
+addEventListener('scroll',()=>requestAnimationFrame(updateFromScroll),{passive:true});
+addEventListener('resize',()=>requestAnimationFrame(updateFromScroll),{passive:true});
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:reduced?'auto':'smooth'})}));
 </script>
 </body>
 </html>
