@@ -20,6 +20,7 @@
     "report_video_candidate": "public/assets/aoc001-report-video-candidate-v0.4.mp4",
     "report_video_asset_register": "content/AOC-001/sources/report-video-v0.4-asset-register.md",
     "story_promo_lock": "content/AOC-001/media/AOC001-STORY-PROMO-LOCK.md",
+    "story_promo_approval_record": "content/AOC-001/media/AOC001-STORY-PROMO-APPROVAL.md",
     "visual_character_bible": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.md",
     "visual_character_registry": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.json",
     "visual_character_approval_record": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-APPROVAL.md"
@@ -39,8 +40,8 @@
     "factual_media_human_gate": "pending",
     "visual_character_bible": "satisfied_by_approved_reference_set",
     "visual_character_human_gate": "approved",
-    "fiction_media": "ready",
-    "fiction_media_human_gate": "pending_after_candidate",
+    "fiction_media": "candidate_approved",
+    "fiction_media_human_gate": "approved_2026-09-24",
     "hybrid_opening": "blocked_until_both_media_branches_approved",
     "hybrid_human_gate": "blocked",
     "reader_build": "blocked_until_hybrid_approved",
@@ -48,14 +49,16 @@
     "publication_qa": "blocked_until_reader_and_distribution_candidates_exist",
     "release_human_gate": "blocked"
   },
-  "foreground_next": "fiction_media",
+  "foreground_next": "factual_media",
   "notes": [
     "The existing factual report v0.4 remains a candidate awaiting human review; it is not silently promoted.",
     "Internal character bibles remain functional continuity assets; publication-grade design is deferred unless a public character-bible surface is explicitly approved.",
     "The revised culturally grounded reference set for Daniela, Mauricio, Tomás, Emilia and Elena was explicitly approved by the human gate on 2026-09-24.",
     "The approved reference set establishes continuity for the fictional story promo and does not establish factual ethnicity, Indigenous identity or documentary evidence.",
-    "The fiction-media branch is now unlocked. The next foreground action is production of AOC001-STORY-PROMO from the locked story and approved character references.",
-    "The factual and fictional media branches remain independent until both pass their own human approval gates.",
+    "A 25-second moving AOC001-STORY-PROMO candidate was generated in Runway from the locked story and six approved visual references, with native audio, at 1280x720. Runway task: 661289e7-a166-47e4-bcb6-2d413590c5e6.",
+    "The human gate explicitly approved the fiction-media test candidate on 2026-09-24 as more than capable for testing and suitable to continue moving forward.",
+    "The fiction-media branch is approved; hybrid opening remains blocked because factual-media human approval is still pending.",
+    "The next foreground action is factual-media human review. No additional Runway generation is authorised by this state change.",
     "The old still-image opening prototype is historical evidence only and is not an eligible hybrid-opening input."
   ]
 }
