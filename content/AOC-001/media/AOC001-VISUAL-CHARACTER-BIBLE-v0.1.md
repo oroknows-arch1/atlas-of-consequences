@@ -2,16 +2,26 @@
 
 **Edition:** AOC-001 — *AI's Physical Hunger*  
 **Worker:** `character_director`  
-**Skills:** `character_continuity`, `creative_intensity_control`  
-**Status:** CANDIDATE / AWAITING HUMAN VISUAL REVIEW  
-**Creative intensity for reference pass:** 2/5 — identity clarity over drama  
+**Skills:** `character_continuity`, `cultural_character_grounding`, `creative_intensity_control`  
+**Status:** REVISED CANDIDATE / CULTURAL-GROUNDING REVIEW REQUIRED  
+**Creative intensity for internal reference pass:** 1/5 — continuity only, no aesthetic spend  
 **Parent authority:** `ATLAS-BUILD-LOCK.md` → `docs/atlas-constitution.md` → AOC-001 locked story/locality truth
 
 ## Purpose
 
 This artifact establishes reusable fictional visual identities for Daniela, Mauricio, Tomás, Emilia and Elena so future generated story media can preserve the same people across shots.
 
-It does **not** change the approved story, family relationships, locality, occupations, chronology or plot. It does **not** claim that these invented appearances are representative of Calama or Chile. No real identifiable person is an intended likeness.
+It does **not** change the approved story, family relationships, locality, occupations, chronology or plot. These invented appearances are individuals, not a claim about what a Calama or Chilean family generally looks like. No real identifiable person is an intended likeness.
+
+The previous specification was too visually narrow and risked generating one repeated character type across the family. That approach is rejected. Family resemblance must coexist with individual difference, generational difference and two visibly distinct parental lines.
+
+## Bible mode — INTERNAL
+
+This document is currently an **internal production-control asset**.
+
+Do not spend resources making the internal bible cinematic, decorative or publication-ready. The reference set should be plain enough that reviewers judge identity, age, resemblance and cultural credibility rather than lighting or graphic design.
+
+If Atlas later approves a **public-facing character bible**, that is a separate publication asset. Its visual design must inherit AOC-001's actual story world — domestic Calama, work/absence rhythms, northern-Chile light and texture, and the emotional tension between opportunity and family time. It must not use a generic Atlas aesthetic merely because a character bible is being published.
 
 ## Locked family truth
 
@@ -23,21 +33,61 @@ It does **not** change the approved story, family relationships, locality, occup
 
 The visual bible must support the existing story's emotional centre: an ordinary family negotiating work, time, opportunity and absence.
 
+## Cultural-grounding rule
+
+Cultural influence should be visible in the **whole lived world**, not added as costume or a skin-tone slider.
+
+For AOC-001 this can include, where naturally useful:
+- contemporary Spanish-language household and school material;
+- a home that feels occupied by a working Calama family rather than a generic studio set;
+- practical responses to Calama's dry, bright environment — shade, curtains/blinds, layered everyday clothing, ordinary dust and wear;
+- mining-roster calendars, bags and work-transition objects without turning the house into mining décor;
+- locally credible football/civic references such as Cobreloa only when they fit naturally rather than as mandatory branding;
+- family photos and inherited household objects that suggest a life before the story begins;
+- different generational clothing and grooming choices between Elena, Daniela, Mauricio and the children;
+- city, school and neighbourhood life alongside the mining economy.
+
+Do **not** assign Lickanantay/Atacameño, Aymara, Quechua or another specific Indigenous identity merely to diversify the cast. If a future production choice requires a specific identity, route back through locality/cultural research before locking it.
+
 ## Family-level visual language
 
-These five people should read as one believable family before they read as five separate generated characters.
+The family should read as related without appearing generated from one facial template.
 
-**Shared continuity:**
-- dark-brown eye family;
-- naturally dark hair across generations, with age-appropriate greying for Elena and slight early greying permitted for Mauricio;
-- warm medium complexions with normal individual variation from indoor/outdoor life;
-- recognisable resemblance through brow line, eyes, cheek structure and smile shape rather than identical faces;
-- practical contemporary clothing appropriate to ordinary Calama city life;
-- no luxury styling, poverty signalling, costume-like regional styling or invented Indigenous markers;
-- no visible company branding unless later required by a sourced production need;
-- skin texture, lines, imperfect hair, tiredness and ordinary physical detail are allowed and preferred over commercial-model polish.
+### Two parental lines
 
-The family should feel established and functional, not posed to explain the Atlas thesis.
+**Daniela / Elena line**
+- medium-to-deeper warm-brown complexion;
+- straighter-to-softly-wavy very dark hair with substantial silver in Elena;
+- strong cheek structure, broad expressive brow, deep-brown slightly hooded/almond eyes;
+- compact-to-average builds;
+- generational resemblance should be unmistakable without making Daniela look like a younger clone of Elena.
+
+**Mauricio line**
+- lighter warm-olive-to-tan complexion than Daniela's maternal line;
+- dark hair with more visible wave/loose curl and early greying at Mauricio's temples;
+- broader lower face, heavier jaw, slightly deeper-set dark-brown eyes;
+- taller, broader body frame.
+
+These are invented family traits. They do not define ethnic categories and must not be labelled as such.
+
+### Children as blends, not copies
+
+- **Tomás** should inherit more of Mauricio's height/lower-face structure while keeping Daniela's brow/eye area and a complexion between the two parental lines.
+- **Emilia** should carry more of Daniela/Elena's cheek/eye pattern but Mauricio's smile shape and slightly more textured hair than Daniela.
+- Neither child should look like a miniature copy of one parent.
+
+### Household variation
+
+The five people should vary naturally in:
+- complexion within the family;
+- hair texture and grooming;
+- face width and bone structure;
+- body type and posture;
+- age presentation;
+- wardrobe choices;
+- expressiveness and personal space.
+
+The continuity target is **believable kinship, not visual sameness**.
 
 ## Daniela — identity card
 
@@ -45,20 +95,22 @@ The family should feel established and functional, not posed to explain the Atla
 
 **Age / life stage:** 38. Adult parent with a full work-and-home routine.
 
-**Face:** softly angular oval face; defined cheekbones; strong natural brows; deep-brown almond-shaped eyes; medium-width nose; expressive mouth that can move quickly between practical focus and restrained humour.
+**Face:** softly angular oval-to-broad face; pronounced cheek structure; strong natural brows; deep-brown slightly hooded almond eyes; medium-broad nose; expressive mouth that moves quickly between practical focus and restrained humour.
 
-**Hair:** very dark brown, shoulder-length, naturally wavy; usually worn loose, half-tied or quickly tied back when busy. No highly styled salon finish.
+**Complexion:** medium-to-deeper warm brown, distinct from Mauricio's lighter parental line.
+
+**Hair:** very dark brown, shoulder-length, straighter at crown with soft natural wave through lengths; usually loose, half-tied or quickly tied back. No salon-perfect finish.
 
 **Build / posture:** medium height; compact, capable build; upright when working, relaxed asymmetry at home; movements economical because she is usually already doing the next thing.
 
 **Wardrobe capsule:**
 - work: simple blouse or knit top, straight-leg trousers, practical flats/sneakers, light jacket/cardigan;
 - home: T-shirt or knit top, jeans/casual trousers, practical footwear;
-- colours should remain muted-to-earthy with occasional stronger everyday colour, never a fixed costume palette.
+- allow ordinary personal colour choices rather than locking her to a muted cinematic palette.
 
 **Physical behaviour:** checks objects while speaking; carries phone/keys/bag without theatrical emphasis; facial reactions often small before verbal response; warmth appears through brief smiles rather than constant softness.
 
-**Do not drift:** no glamour makeover, no severe corporate-executive styling, no maternal stereotype costuming, no change in age/face shape between scenes.
+**Do not drift:** no glamour makeover, no severe corporate-executive styling, no generic "Latin mother" styling, no change in age/face shape between scenes.
 
 ## Mauricio — identity card
 
@@ -66,11 +118,13 @@ The family should feel established and functional, not posed to explain the Atla
 
 **Age / life stage:** 40. Experienced technical worker and parent.
 
-**Face:** broader face than Daniela; strong jaw without heroic exaggeration; deep-brown eyes; straight-to-gently prominent nose; smile lines beginning at eyes; light stubble acceptable but facial-hair state must remain scene-continuous.
+**Face:** broader lower face than Daniela; strong natural jaw without heroic exaggeration; deep-brown slightly deeper-set eyes; straight-to-gently prominent nose; smile lines beginning at eyes; light stubble acceptable but facial-hair state must remain scene-continuous.
 
-**Hair:** dark brown, short, practical cut; slight early grey at temples permitted and retained once established.
+**Complexion:** lighter warm olive/tan than Daniela's maternal line, capable of looking more sun-exposed in work-transition scenes without artificial weathering.
 
-**Build / posture:** medium-tall; solid working build from practical labour rather than gym-muscular styling; hands visibly used; shoulders drop more at home than at work.
+**Hair:** dark brown, short, visibly wavy-to-loosely-curled texture; slight early grey at temples retained once established.
+
+**Build / posture:** medium-tall; broad, solid working build from practical labour rather than gym-muscular styling; hands visibly used; shoulders drop more at home than at work.
 
 **Wardrobe capsule:**
 - off duty: plain T-shirts, workwear-style trousers/jeans, sweatshirt or light jacket, ordinary sneakers/work shoes;
@@ -86,17 +140,19 @@ The family should feel established and functional, not posed to explain the Atla
 
 **Age / life stage:** 16. Teenager still physically growing into adult proportions.
 
-**Face:** longer, narrower adolescent version of the family; Daniela-like brow/eyes; Mauricio-like jaw developing but not fully mature; deep-brown eyes.
+**Face:** longer adolescent face; Daniela-like brow and eye area; more of Mauricio's developing jaw/lower-face width; deep-brown eyes.
 
-**Hair:** thick dark-brown hair, slightly wavy, longer on top and imperfectly controlled; avoid fashion-model precision.
+**Complexion:** intermediate between Daniela and Mauricio, with ordinary adolescent skin texture.
 
-**Build / posture:** lean, medium-tall; shoulders sometimes rounded over laptop/phone; movement slightly economical or withdrawn when he does not want to explain himself.
+**Hair:** thick dark-brown hair, more visibly wavy than Daniela's and less tightly controlled than Mauricio's short cut; longer on top and imperfectly managed.
+
+**Build / posture:** lean, medium-tall trending toward Mauricio's height; shoulders sometimes rounded over laptop/phone; movement slightly economical or withdrawn when he does not want to explain himself.
 
 **Wardrobe capsule:** plain T-shirts, hoodie/overshirt, jeans/casual trousers, school backpack; no luxury streetwear signalling and no forced youth-brand references.
 
 **Physical behaviour:** half-hugs, shoulder contact, small eye-rolls, brief looks before answering; hands often near laptop/backpack; expression should preserve intelligence without making him permanently brooding.
 
-**Do not drift:** do not age him into a young adult, add facial hair beyond light adolescent trace, turn technical interest into miner cosplay, or make every scene emotionally withdrawn.
+**Do not drift:** do not age him into a young adult, add significant facial hair, turn technical interest into miner cosplay, or make every scene emotionally withdrawn.
 
 ## Emilia — identity card
 
@@ -104,13 +160,15 @@ The family should feel established and functional, not posed to explain the Atla
 
 **Age / life stage:** 7. Primary-school child.
 
-**Face:** rounder child version of family features; Daniela/Elena eye shape; Mauricio-like smile; deep-brown eyes; natural child skin and proportions.
+**Face:** rounder child version of the family; stronger Daniela/Elena cheek and eye pattern with Mauricio-like smile; deep-brown eyes.
 
-**Hair:** dark brown, wavy, around shoulder length; often ponytail, loose or imperfectly tied; continuity can vary by scene if the change is ordinary and visible.
+**Complexion:** warm medium brown, able to sit plausibly between the two parental lines without matching either parent exactly.
+
+**Hair:** dark brown, thick, noticeably wavier/looser-curled than Daniela's, around shoulder length; often ponytail, loose or imperfectly tied.
 
 **Build / posture:** small, active, physically expressive; often moves while speaking or carrying something.
 
-**Wardrobe capsule:** everyday school/casual clothes, simple layers, practical shoes; brighter colours are natural but avoid branded/cartoon costume shorthand.
+**Wardrobe capsule:** everyday school/casual clothes, simple layers, practical shoes; brighter personal colour choices are natural but avoid branded/cartoon costume shorthand.
 
 **Physical behaviour:** holds containers/folders/objects while asking questions; climbs into family space without ceremony; facial reactions arrive fast; affection is physically direct.
 
@@ -122,30 +180,23 @@ The family should feel established and functional, not posed to explain the Atla
 
 **Age / life stage:** approximately 64. Daniela's mother and the children's grandmother.
 
-**Face:** clearly related to Daniela through eyes, cheekbones and mouth; age lines visible and natural; deep-brown eyes; confident resting expression.
+**Face:** strongest family link to Daniela through brow, cheek structure and mouth; deeper natural age lines; deep-brown eyes; confident resting expression. Her age should add history, not fragility.
 
-**Hair:** dark hair substantially mixed with silver/grey, worn in a practical short-to-medium style; no artificial anti-age smoothing.
+**Complexion:** medium-to-deeper warm brown in the same broad family range as Daniela, with natural age and sun variation.
+
+**Hair:** very dark hair substantially mixed with silver/grey; straighter-to-soft-wave texture; practical short-to-medium style; no artificial anti-age smoothing.
 
 **Build / posture:** average height and build; grounded stance; comfortable occupying family space; direct eye contact.
 
-**Wardrobe capsule:** neat ordinary blouse/knit/cardigan, trousers or simple skirt, comfortable shoes; contemporary rather than old-fashioned stereotype styling.
+**Wardrobe capsule:** neat ordinary blouse/knit/cardigan, trousers or simple skirt, comfortable shoes; her choices should feel generationally distinct from Daniela without becoming old-fashioned costume.
 
 **Physical behaviour:** sits as though she already belongs there; looks directly at the person she is questioning; humour is dry and facially restrained.
 
-**Do not drift:** no frailty unless later story truth establishes it, no grandmother caricature, no excessive age makeup, no costume signalling a specific ancestry not established by evidence.
-
-## Family resemblance map
-
-- **Daniela ↔ Elena:** strongest resemblance. Eye shape, cheek structure and smile line should make the relationship readable without labels.
-- **Tomás:** visually bridges both parents; Daniela's eyes/brow with more of Mauricio's lower-face structure.
-- **Emilia:** younger blend of both parents; eye area closer to Daniela/Elena, smile closer to Mauricio.
-- **Mauricio:** visually distinct enough that the children do not appear as clones of Daniela's side.
-
-Family resemblance must survive different lighting, hairstyles, wardrobe and camera angles.
+**Do not drift:** no unestablished frailty, grandmother caricature, excessive age makeup, or costume signalling a specific ancestry not established by evidence.
 
 ## Reference-set requirement
 
-The first visual reference set should contain:
+The first **internal** visual reference set should contain only what continuity needs:
 
 1. neutral front portrait of each character;
 2. three-quarter portrait of each character;
@@ -155,31 +206,42 @@ The first visual reference set should contain:
 6. Mauricio + Tomás pair for parent/teen resemblance;
 7. Daniela + Emilia pair for parent/child resemblance.
 
-Reference images are identity controls, not finished story frames. Use neutral natural light, restrained expressions and ordinary wardrobe. Cinematic grading, intense emotion and scene-specific workwear belong later to `fiction_media_director` after the human identity gate passes.
+No designed poster is required. No cinematic grade is required. No public-facing layout is required.
+
+## Public-bible rule
+
+If a public character bible is later approved, the `character_director` and `fiction_media_director` must derive it from the actual AOC-001 mood rather than this neutral reference presentation.
+
+The public version should feel like it belongs beside the story: domestic warmth under pressure, bright/dry Calama exterior light, harder industrial-scale moments outside the household, ordinary family clutter and routines, and visual contrast between presence and absence. The public bible should feel like an extension of the edition, not a production manual made attractive.
 
 ## Generation constraints
 
 - fictional people only; do not imitate a named or recognisable real person;
-- photorealistic/naturalistic, not illustration unless a separate style study is explicitly requested;
+- photorealistic/naturalistic for identity references;
 - no documentary/witness framing;
 - no `WHAT'S REAL` treatment;
 - permanent `STORY / FICTION` provenance must follow these identities into published media;
 - do not generate new plot events inside reference images;
 - do not use mine machinery/desert spectacle as the default background for every character;
-- ordinary home/city context takes priority in family grouping references.
+- ordinary home/city context takes priority in family grouping references;
+- do not make all five faces share the same generated facial template;
+- do not introduce unsupported cultural or Indigenous identity markers.
 
 ## Human gate checklist
 
 The visual-character gate should approve only if:
 
 - each person is individually recognisable across angles;
+- the two parental visual lines are distinct and the children plausibly blend them;
 - family resemblance feels plausible without making faces interchangeable;
+- complexion, hair texture, face structure, body type and personal styling show natural variation;
 - ages read correctly;
 - Daniela and Mauricio read as ordinary working adults rather than performers/models;
 - Tomás reads as 16, Emilia as 7, Elena as Daniela's mother generation;
-- wardrobe and grooming feel contemporary and ordinary;
-- no stereotype or unresearched cultural marker has been introduced;
+- cultural influence appears in ordinary lived context rather than costume or stereotypes;
+- wardrobe and grooming feel contemporary and individually chosen;
+- no unsupported Indigenous/ethnic identity has been inserted for diversity;
 - no character resembles a known real person intentionally;
-- the group feels like the same family described in the locked story.
+- the group feels like the same family described in the locked story and a family that plausibly lives in contemporary Calama.
 
-**Gate result:** PENDING HUMAN REVIEW.
+**Gate result:** BLOCKED — revised culturally grounded visual reference set required before human approval.
