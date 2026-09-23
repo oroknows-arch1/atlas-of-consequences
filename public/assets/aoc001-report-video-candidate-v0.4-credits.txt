@@ -1,0 +1,44 @@
+AOC001-REPORT-VIDEO v0.4 — REVIEW CREDITS
+
+Candidate adaptation licence: CC BY-SA 4.0.
+Source works retain their original licences and attribution requirements.
+
+ARTICLE / PROJECT FACTS
+Reuters, "Anthropic signs first Australia data centre agreement", 16 Sep 2026.
+Western Downs Digital Park / Zerra DC official project site.
+
+ANTHROPIC IDENTITY
+"Anthropic logo.svg" — Anthropic — public-domain simple text logo; trademark restrictions may still apply. Editorial identification only; no endorsement implied.
+
+SAN FRANCISCO CONTEXT
+Raydann — "San Francisco Skyline 2024.jpg" — CC BY-SA 4.0.
+
+500 HOWARD STREET BUILDING CONTEXT
+HaeB — "Slack offices, Howard Street, San Francisco (viewed from the south-west, January 2020).jpg" — CC BY-SA 4.0.
+Photograph taken in 2020 while Slack occupied the building. 500 Howard is used only as building/address context; Anthropic's occupancy is established by 2026 source evidence.
+
+WESTERN DOWNS REGIONAL CONTEXT
+Mattinbgn — "DalbyMainStreet.JPG" — CC BY-SA 3.0 / GFDL. Dalby context only; project site not shown.
+
+DATA-CENTRE CONTEXT VIDEO
+Lawrence Systems — "Data Center Tour & Technical Deep Dive into the Power, Data and Cooling Infrastructure!.webm" — CC BY 3.0. Generic context only; not Anthropic/Western Downs footage.
+
+GRID CONTEXT VIDEO
+Fernando Moital — "REN overhead power line maintenance PT 2018 E.webm" — CC BY 2.0. Generic grid context only.
+
+CHILE COPPER TRANSPORT
+Benjamin Goetzinger — "Chile - copper slates on train.jpg" — CC BY-SA 4.0. Copper sheets transported toward Antofagasta; contextual only.
+
+CHUQUICAMATA
+Pierre cb — "Chuquicamata-Chile-2009.JPG" — public-domain dedication.
+
+CHILEAN MINERS
+CDC / NIOSH — "Chilean Miners.jpg" — public domain (U.S. federal work). Codelco Andina, 2007; not Chuquicamata.
+
+CALAMA HOMES
+Chris Hunkeler — "Homes in Calama, Chile (45418686415).jpg" — CC BY-SA 2.0. Community context only; no photographed household is claimed to be a mining family.
+
+SOUND BED
+John Bartmann — "flourescent-crystals-master.ogg" — CC0.
+
+Full production provenance: content/AOC-001/sources/report-video-v0.4-asset-register.md
