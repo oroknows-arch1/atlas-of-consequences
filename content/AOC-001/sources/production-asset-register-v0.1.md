@@ -8,7 +8,7 @@
 
 ### 01 — DATA CENTRE
 
-**Status:** LOCKED  
+**Status:** LOCKED + WIRED  
 **Asset:** `Datacenter Server Racks (22370909788).jpg`  
 **Type:** Real photograph  
 **Photographer:** Carl Lender  
@@ -23,11 +23,11 @@
 **Licence verification:** Wikimedia Commons records that FlickreviewR checked the original Flickr publication on 5 November 2015 and confirmed the CC BY 2.0 licence.  
 **Permitted production use:** Copy, publish, crop and adapt, provided attribution is given and changes are indicated.  
 **Required credit:** `Photo: Carl Lender / CC BY 2.0`  
-**Production note:** This is a directly photographed data-centre/server-rack image, not an AI-generated illustration. Use as the first visual beat in the opening sequence.
+**Production note:** Directly photographed data-centre/server-rack image. Served in the Atlas opening as a web-sized derivative; attribution and source link are shown in the reader.
 
 ### 02 — GRID / ENERGY
 
-**Status:** LOCKED  
+**Status:** LOCKED + WIRED  
 **Asset:** `Transmission substation.jpg`  
 **Type:** Real photograph  
 **Photographer / uploader:** Rsparks3  
@@ -41,12 +41,12 @@
 **Licence URL:** https://creativecommons.org/publicdomain/zero/1.0/  
 **Licence verification:** Wikimedia Commons records the uploader/copyright holder as releasing the work under CC0 1.0 and identifies the media as a directly photographed JPEG with preserved EXIF/camera metadata.  
 **Permitted production use:** Copy, publish, crop, adapt and use commercially without requesting permission.  
-**Required credit:** None required by CC0. Atlas should still retain provenance in SOURCES; optional visible credit: `Photo: Rsparks3 / Wikimedia Commons / CC0`.  
-**Production note:** Use as generic grid/transmission infrastructure in the opening sequence. Do not caption, imply or visually present this Colorado substation as a Chilean or Calama-specific location.
+**Required credit:** None required by CC0. Atlas retains provenance in SOURCES; visible credit used: `Photo: Rsparks3 / Wikimedia Commons / CC0`.  
+**Production note:** Generic grid/transmission infrastructure only. It must not be captioned or implied to be Chilean or Calama-specific.
 
 ### 03 — COPPER / MINING
 
-**Status:** LOCKED  
+**Status:** LOCKED + WIRED  
 **Asset:** `2012.09.29.104551 Truck Bingham Canyon Mine Utah.jpg`  
 **Type:** Real photograph  
 **Photographer / copyright holder:** Hermann Luyken  
@@ -62,14 +62,40 @@
 **Licence URL:** https://creativecommons.org/publicdomain/zero/1.0/  
 **Licence verification:** Wikimedia Commons records Hermann Luyken as author and copyright holder and states that the copyright holder dedicated the work under CC0 1.0.  
 **Permitted production use:** Copy, publish, crop, adapt and use commercially without requesting permission.  
-**Required credit:** None required by CC0. Atlas should retain provenance in SOURCES; optional visible credit: `Photo: Hermann Luyken / Wikimedia Commons / CC0`.  
-**Production note:** Use for the copper-extraction/mining beat. It is deliberately a generic real copper-mining image; do not identify this Utah mine as Chilean. The following Calama/Chuquicamata slot will provide the geographic hand-off into the actual Chilean setting.
+**Required credit:** None required by CC0. Atlas retains provenance in SOURCES; visible credit used: `Photo: Hermann Luyken / Wikimedia Commons / CC0`.  
+**Production note:** Generic real copper-mining image. Do not identify this Utah mine as Chilean. The following slot provides the geographic hand-off into the actual Chilean setting.
 
 ### 04 — CALAMA / CHUQUICAMATA
 
-**Status:** PENDING
+**Status:** LOCKED + WIRED  
+**Asset:** `Mina de Chuquicamata, Calama, Chile, 2016-02-01, DD 114.JPG`  
+**Type:** Real photograph  
+**Photographer / copyright holder:** Diego Delso  
+**Date photographed:** 1 February 2016  
+**Original dimensions:** 8688 × 5792  
+**Location depicted:** Chuquicamata Mine, Calama, Chile  
+**Subject:** Komatsu haul truck at Chuquicamata Mine  
+**Source record:** Wikimedia Commons  
+**Source page:** https://commons.wikimedia.org/wiki/File:Mina_de_Chuquicamata,_Calama,_Chile,_2016-02-01,_DD_114.JPG  
+**Source:** Own work by Diego Delso  
+**Licence:** Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)  
+**Licence URL:** https://creativecommons.org/licenses/by-sa/4.0/  
+**Licence verification:** Wikimedia Commons identifies Diego Delso as author, the file as his own work, and the image as licensed CC BY-SA 4.0.  
+**Permitted production use:** Commercial publication and derivative use are permitted with attribution, licence notice and ShareAlike for the derivative.  
+**Required credit:** `Diego Delso, delso.photo, License CC BY-SA 4.0`  
+**Production note:** Served as a web-sized derivative in the Atlas opening. The visible credit is placed next to the image state and the derivative remains under CC BY-SA 4.0.
 
 ### 05 — FICTIONAL HUMAN / FAMILY MOMENT
 
-**Status:** GENERATED — NOT YET WIRED  
-**Boundary:** STORY / FICTION. Must never be labelled or styled as documentary evidence of a real family.
+**Status:** LOCKED + WIRED  
+**Asset:** `public/assets/aoc001-family-fiction.svg`  
+**Type:** Generated fictional image; embedded web image inside SVG wrapper  
+**Scene:** Daniela preparing to leave, Emilia at the drawer with containers, Tomás leaving with backpack and toast; Mauricio absent, consistent with STORY v0.2 Tuesday morning.  
+**Boundary:** `STORY · FICTION` is displayed in the reader whenever this image is active.  
+**Production rule:** Must never be labelled or styled as documentary evidence of a real Calama family.
+
+## Pass result
+
+All five opening production slots are now populated and wired into the hosted AOC-001 reader in the locked order:
+
+`data centre → grid / energy → copper / mining → Chuquicamata / Calama → fictional family`
