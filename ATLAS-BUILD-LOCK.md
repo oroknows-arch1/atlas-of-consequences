@@ -15,12 +15,14 @@
 - The sourced/generated assets are production inputs used to create the opening video.
 
 ### Video-to-site transition
-- The opening video plays through once.
-- The clip must settle on its **exact final frame**.
-- That exact final frame remains visible after motion stops.
-- The final frame becomes the continuing visual background of the edition.
-- The reader then moves into the Atlas website over that same visual world.
-- Do not replace this behaviour with crossfading standalone images, a looping slideshow, or a separate post-video background unless explicitly approved.
+- The opening video plays forward automatically once when the edition loads.
+- The clip reaches and settles on its **exact final frame**.
+- That final frame is the hand-off point from autoplay to reader control; it is **not** a permanent static background.
+- From that point onward, the same video remains behind the edition and becomes **scroll-controlled**.
+- Scrolling through the edition scrubs through the same clip.
+- Reversing scroll direction reverses movement through the clip.
+- The reader therefore moves through `WHAT'S REAL → STORY → CONSEQUENCES → PLACE → SOURCES` while the same video timeline moves forward or backward in response to scroll position/direction.
+- Do not replace this behaviour with crossfading standalone images, a looping slideshow, a permanently frozen final frame, or a separate post-video background unless explicitly approved.
 
 ### Edition structure
 The core reader structure remains:
@@ -55,11 +57,11 @@ Before implementing any Atlas change:
 - Five opening production assets have been identified and rights/provenance recorded.
 - The current hosted reader incorrectly wires those assets as crossfading website images.
 - That wiring is **not the approved final behaviour**.
-- The approved correction is to use those assets as source material for the opening video, then preserve the video's exact final frame as the edition background.
+- The approved correction is to use those assets as source material for the opening video, autoplay that video to its final frame, then hand the same video timeline over to scroll-controlled forward/backward scrubbing through the edition.
 
 ## Next meaningful build outcome
 Correct AOC-001 so the hosted edition follows the locked opening experience:
 
-`video starts immediately → video plays through → exact final frame holds → that same frame continues behind the reader experience`
+`video starts immediately → video plays forward once → exact final frame is reached → control hands to scroll → the same clip scrubs forward/backward behind the edition according to scroll`
 
-Do not create another separate slideshow or mockup interpretation of the five source assets.
+Do not create another separate slideshow, permanently frozen final-frame background, or mockup interpretation of the five source assets.
