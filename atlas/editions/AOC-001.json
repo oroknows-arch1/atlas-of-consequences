@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "edition_id": "AOC-001",
+  "title": "AI's Physical Hunger",
+  "graph": "atlas/graphs/edition-production.json",
+  "live_regression_case": true,
+  "preserve_existing_artifacts": true,
+  "authority_sources": [
+    "ATLAS-BUILD-LOCK.md",
+    "docs/atlas-constitution.md",
+    "content/AOC-001/edition-manifest-v0.1.yaml",
+    "content/AOC-001/master-edition-v0.1.md",
+    "content/AOC-001/sources/publication-source-register-v0.1.md"
+  ],
+  "artifact_bindings": {
+    "local_context_pack": "content/AOC-001/place/antofagasta-local-context-pack-v0.1.md",
+    "master_edition": "content/AOC-001/master-edition-v0.1.md",
+    "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+    "report_video_record": "content/AOC-001/media/AOC001-REPORT-VIDEO.md",
+    "report_video_candidate": "public/assets/aoc001-report-video-candidate-v0.4.mp4",
+    "report_video_asset_register": "content/AOC-001/sources/report-video-v0.4-asset-register.md",
+    "story_promo_lock": "content/AOC-001/media/AOC001-STORY-PROMO-LOCK.md"
+  },
+  "node_state": {
+    "evidence_pack": "satisfied_by_existing_artifact",
+    "evidence_gate": "satisfied_by_existing_artifact",
+    "locality_pack": "satisfied_by_existing_artifact",
+    "consequence_map": "satisfied_by_existing_artifact",
+    "story_architecture": "satisfied_by_existing_artifact",
+    "story_draft": "satisfied_by_existing_artifact",
+    "story_edit": "satisfied_by_existing_artifact",
+    "story_boundary_gate": "satisfied_by_existing_artifact",
+    "source_register": "satisfied_by_existing_artifact",
+    "factual_media": "candidate_ready",
+    "factual_media_human_gate": "pending",
+    "character_bible": "ready",
+    "character_human_gate": "blocked_until_character_bible_review",
+    "fiction_media": "blocked_by_character_and_story_gates",
+    "fiction_media_human_gate": "blocked",
+    "hybrid_opening": "blocked_until_both_media_branches_approved",
+    "hybrid_human_gate": "blocked",
+    "reader_build": "blocked_until_hybrid_approved",
+    "distribution_pack": "ready_from_locked_master",
+    "publication_qa": "blocked_until_reader_and_distribution_candidates_exist",
+    "release_human_gate": "blocked"
+  },
+  "foreground_next": "character_bible",
+  "notes": [
+    "The existing factual report v0.4 remains a candidate awaiting human review; it is not silently promoted.",
+    "Character-bible work can proceed as the current fiction-branch foreground action without reopening locked story content.",
+    "The factual and fictional media branches may develop independently, but the hybrid opening cannot begin until both pass human approval.",
+    "The old still-image opening prototype is historical evidence only and is not an eligible hybrid-opening input."
+  ]
+}
