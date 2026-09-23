@@ -4,73 +4,59 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#050708">
-<title>Atlas of Consequences — AOC-001 Motion Prototype</title>
+<title>Atlas of Consequences — AOC-001</title>
 <style>
-*{box-sizing:border-box} html,body{margin:0;background:#050708;color:#fff;font-family:Arial,Helvetica,sans-serif}
-body{overflow-x:hidden}
-#world{position:fixed;inset:0;overflow:hidden;background:#081018;z-index:0}
-#sky{position:absolute;inset:0;background:linear-gradient(180deg,#263d4d 0%,#513e34 48%,#090a0c 100%);transition:background .2s linear}
-.layer{position:absolute;inset:0;will-change:opacity,transform,filter}
-#mountains{opacity:.2}
-#city,#mine,#worker,#data,#rings{opacity:0}
-#sun{position:absolute;width:46vw;height:46vw;max-width:360px;max-height:360px;border-radius:50%;right:-8vw;top:10vh;background:radial-gradient(circle,rgba(241,176,90,.55) 0%,rgba(241,176,90,.13) 42%,rgba(241,176,90,0) 72%);filter:blur(2px)}
-#mountains:before,#mountains:after{content:"";position:absolute;left:-10%;width:120%;height:54%;bottom:0;clip-path:polygon(0 61%,12% 37%,23% 57%,39% 25%,52% 50%,69% 19%,82% 43%,100% 15%,100% 100%,0 100%)}
-#mountains:before{background:#17242d;bottom:14%}
-#mountains:after{background:#0c1318;bottom:0;transform:scaleX(1.08)}
-#city{bottom:0;top:auto;height:38%;background:linear-gradient(90deg,transparent 0 4%,#f2c06b 4% 5%,transparent 5% 11%,#e7ad57 11% 12%,transparent 12% 19%,#f2c06b 19% 20%,transparent 20% 29%,#e7ad57 29% 30%,transparent 30% 38%,#f2c06b 38% 39%,transparent 39% 49%,#e7ad57 49% 50%,transparent 50% 61%,#f2c06b 61% 62%,transparent 62% 74%,#e7ad57 74% 75%,transparent 75% 87%,#f2c06b 87% 88%,transparent 88%);mask:linear-gradient(180deg,transparent 0 35%,#000 35% 100%);opacity:.9}
-#mine:before,#mine:after{content:"";position:absolute;left:-10%;width:120%;height:4px;background:#d59a59;box-shadow:0 120px #a97240,0 240px #8f623b,0 360px #6e4a30;transform:rotate(-5deg);top:32%}
-#mine:after{transform:rotate(7deg);top:44%;opacity:.55}
-#worker:before{content:"";position:absolute;width:23vw;height:23vw;max-width:170px;max-height:170px;border-radius:50%;background:#08090a;left:54%;top:29%;transform:translateX(-50%)}
-#worker:after{content:"";position:absolute;width:28vw;max-width:215px;height:52vh;background:#08090a;left:54%;top:38%;transform:translateX(-50%);border-radius:44% 44% 8% 8%/14% 14% 4% 4%}
-#data{padding:17vh 7vw 21vh;display:flex;gap:8vw;align-items:stretch}
-.rack{flex:1;background:#091016;border:1px solid rgba(155,185,205,.32);border-radius:10px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.5);position:relative}
-.rack:before{content:"";position:absolute;left:10%;right:10%;top:8%;height:3px;background:#e5a04b;box-shadow:0 11vh #3c5668,0 22vh #3c5668,0 33vh #3c5668,0 44vh #3c5668}
-#rings{display:grid;place-items:center}
-#rings:before{content:"";width:64vw;height:64vw;max-width:520px;max-height:520px;border-radius:50%;border:1px solid rgba(210,205,195,.25);box-shadow:0 0 0 42px rgba(210,205,195,.06),0 0 0 88px rgba(210,205,195,.045),0 0 0 136px rgba(210,205,195,.03)}
-#shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.06) 42%,rgba(0,0,0,.72) 82%,rgba(0,0,0,.93));z-index:20;pointer-events:none}
-#grain{position:absolute;inset:0;z-index:21;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
-#top{position:fixed;z-index:40;top:max(17px,env(safe-area-inset-top));left:18px;right:18px;display:flex;justify-content:space-between;gap:16px;font-size:9px;letter-spacing:.22em;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.7)}
-#mode{text-align:right;opacity:.72}
-#intro{height:100svh;position:relative;z-index:30;display:flex;flex-direction:column;justify-content:flex-end;padding:24px 22px max(28px,env(safe-area-inset-bottom))}
-#introcopy{margin-bottom:7svh;opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
-body.playing #introcopy,body.ready #introcopy{opacity:1;transform:none}
-.k{font-size:9px;letter-spacing:.22em;text-transform:uppercase;opacity:.78}
-h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(52px,14vw,88px);line-height:.89;letter-spacing:-.035em;margin:12px 0 14px}
-.deck{font-family:Georgia,'Times New Roman',serif;font-size:19px;line-height:1.35;max-width:350px}
-#hint{font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:0;transition:opacity .5s ease}
-body.ready #hint{opacity:.82}
-#choice{height:100svh;position:relative;z-index:30;display:flex;align-items:flex-end;padding:24px 22px max(60px,9svh)}
-.box{width:min(100%,540px)}
-.box h2{font-family:Georgia,serif;font-weight:400;font-size:44px;line-height:.96;margin:10px 0 18px}
-.choice{display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,.34);padding:17px 2px;text-decoration:none;color:#fff;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
-.choice:last-of-type{border-bottom:1px solid rgba(255,255,255,.34)}
-main{position:relative;z-index:30}
-.chapter{height:100svh;display:flex;align-items:flex-end;padding:24px 22px max(60px,9svh)}
-.content{width:min(100%,540px);opacity:.42;transform:translateY(16px);transition:opacity .3s ease,transform .42s ease;text-shadow:0 2px 12px rgba(0,0,0,.8)}
-.chapter.focus .content{opacity:1;transform:none}
-.idx{font-size:9px;letter-spacing:.22em;text-transform:uppercase;opacity:.78}
-.content h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(42px,12vw,64px);line-height:.94;margin:12px 0}
-.content p{font-family:Georgia,serif;font-size:18px;line-height:1.45;max-width:39ch;margin:0}
-#readout{position:fixed;z-index:40;left:18px;bottom:max(13px,env(safe-area-inset-bottom));font-size:8px;letter-spacing:.14em;text-transform:uppercase;opacity:.58;text-shadow:0 1px 8px #000}
-@media(min-width:800px){#intro,#choice,.chapter{padding-left:8vw;padding-right:8vw}}
+*{box-sizing:border-box}html,body{margin:0;background:#050708;color:#fff;font-family:Arial,Helvetica,sans-serif}body{overflow-x:hidden}
+#world{position:fixed;inset:0;overflow:hidden;background:#050708;z-index:0}.asset{position:absolute;inset:-2%;width:104%;height:104%;object-fit:cover;opacity:0;transform:scale(1.025);will-change:opacity,transform;filter:saturate(.86) contrast(1.04)}
+#shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.05) 38%,rgba(0,0,0,.62) 78%,rgba(0,0,0,.91));z-index:20;pointer-events:none}#grain{position:absolute;inset:0;z-index:21;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+#top{position:fixed;z-index:40;top:max(17px,env(safe-area-inset-top));left:18px;right:18px;display:flex;justify-content:space-between;gap:16px;font-size:9px;letter-spacing:.22em;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.8)}#mode{text-align:right;opacity:.76}
+#assetmeta{position:fixed;z-index:42;left:18px;right:18px;bottom:max(14px,env(safe-area-inset-bottom));display:flex;align-items:flex-end;justify-content:space-between;gap:18px;text-shadow:0 2px 12px #000;pointer-events:none}.asset-state{font-size:8px;letter-spacing:.18em;text-transform:uppercase;opacity:.88}.credit{max-width:58%;text-align:right;font-size:8px;line-height:1.35;opacity:.72}.credit a{color:#fff;text-decoration:none;pointer-events:auto}.credit a:focus,.credit a:hover{text-decoration:underline}
+#intro{height:100svh;position:relative;z-index:30;display:flex;flex-direction:column;justify-content:flex-end;padding:24px 22px max(48px,env(safe-area-inset-bottom))}#introcopy{margin-bottom:7svh;opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}body.playing #introcopy,body.ready #introcopy{opacity:1;transform:none}.k{font-size:9px;letter-spacing:.22em;text-transform:uppercase;opacity:.8}h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(52px,14vw,88px);line-height:.89;letter-spacing:-.035em;margin:12px 0 14px}.deck{font-family:Georgia,'Times New Roman',serif;font-size:19px;line-height:1.35;max-width:350px}#hint{font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:0;transition:opacity .5s ease}body.ready #hint{opacity:.82}
+#choice{height:100svh;position:relative;z-index:30;display:flex;align-items:flex-end;padding:24px 22px max(70px,10svh)}.box{width:min(100%,540px)}.box h2{font-family:Georgia,serif;font-weight:400;font-size:44px;line-height:.96;margin:10px 0 18px}.choice{display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,.34);padding:17px 2px;text-decoration:none;color:#fff;font-size:11px;letter-spacing:.18em;text-transform:uppercase}.choice:last-of-type{border-bottom:1px solid rgba(255,255,255,.34)}
+main{position:relative;z-index:30}.chapter{min-height:100svh;display:flex;align-items:flex-end;padding:24px 22px max(70px,10svh)}.content{width:min(100%,600px);opacity:.42;transform:translateY(16px);transition:opacity .3s ease,transform .42s ease;text-shadow:0 2px 12px rgba(0,0,0,.9)}.chapter.focus .content{opacity:1;transform:none}.idx{font-size:9px;letter-spacing:.22em;text-transform:uppercase;opacity:.8}.content h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(42px,12vw,64px);line-height:.94;margin:12px 0}.content p{font-family:Georgia,serif;font-size:18px;line-height:1.45;max-width:39ch;margin:0}.source-list{margin-top:20px;padding-top:12px;border-top:1px solid rgba(255,255,255,.3);font-size:10px;line-height:1.5;max-width:54ch;text-shadow:0 2px 8px #000}.source-list a{color:#fff}.source-list div{margin:8px 0}.boundary{display:inline-block;margin-top:10px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;border:1px solid rgba(255,255,255,.5);padding:6px 8px}
+@media(min-width:800px){#intro,#choice,.chapter{padding-left:8vw;padding-right:8vw}#assetmeta{left:8vw;right:8vw}}
+@media(prefers-reduced-motion:reduce){.asset{transform:none!important}#introcopy{transition:none}}
 </style>
 </head>
 <body>
-<div id="world"><div id="sky"></div><div id="sun"></div><div class="layer" id="rings"></div><div class="layer" id="mountains"></div><div class="layer" id="city"></div><div class="layer" id="mine"></div><div class="layer" id="worker"></div><div class="layer" id="data"><div class="rack"></div><div class="rack"></div><div class="rack"></div></div><div id="shade"></div><div id="grain"></div></div>
-<div id="top"><span>ATLAS OF CONSEQUENCES</span><span id="mode">OPENING</span></div><div id="readout">visual progress 0%</div>
+<div id="world" aria-hidden="true">
+<img class="asset" id="asset-data" alt="" src="https://commons.wikimedia.org/wiki/Special:FilePath/Data%20center%20roof.jpg?width=1600">
+<img class="asset" id="asset-grid" alt="" src="https://commons.wikimedia.org/wiki/Special:FilePath/L%C3%ADneas%20alta%20tensi%C3%B3n%20Chile.jpg?width=1600">
+<img class="asset" id="asset-mine" alt="" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mina%20de%20Chuquicamata%2C%20Calama%2C%20Chile%2C%202016-02-01%2C%20DD%20110-112%20PAN.JPG?width=1600">
+<img class="asset" id="asset-place" alt="" src="https://commons.wikimedia.org/wiki/Special:FilePath/Homes%20in%20Calama%2C%20Chile%20%2845418686415%29.jpg?width=1600">
+<img class="asset" id="asset-family" alt="" src="assets/aoc001-family-fiction.svg">
+<div id="shade"></div><div id="grain"></div>
+</div>
+<div id="top"><span>ATLAS OF CONSEQUENCES</span><span id="mode">OPENING</span></div>
+<div id="assetmeta"><span class="asset-state" id="assetstate">REAL · DATA CENTRE</span><span class="credit" id="credit"></span></div>
 <section id="intro"><div id="introcopy"><div class="k">AOC-001 · Current edition</div><h1>AI’s<br>Physical<br>Hunger</h1><div class="deck">The machines may be digital. Their hunger isn’t.</div></div><div id="hint">scroll after the opening settles ↓</div></section>
 <section id="choice"><div class="box"><div class="k">The opening has ended. Its world remains.</div><h2>Choose how you want to go deeper.</h2><a class="choice" href="#report"><span>Enter the report</span><span>→</span></a><a class="choice" href="#story"><span>Enter the story</span><span>→</span></a></div></section>
 <main>
-<section class="chapter" id="report" data-p=".83" data-label="WHAT'S REAL"><div class="content"><div class="idx">01 / WHAT'S REAL</div><h2>The physical system.</h2><p>The opening moves back into the industrial and data-centre moment rather than loading a separate background.</p></div></section>
-<section class="chapter" id="story" data-p=".64" data-label="STORY"><div class="content"><div class="idx">02 / STORY</div><h2>The person inside it.</h2><p>The same visual world moves toward the human moment as the fictional story takes over.</p></div></section>
-<section class="chapter" id="consequences" data-p=".44" data-label="CONSEQUENCES"><div class="content"><div class="idx">03 / CONSEQUENCES</div><h2>The forces connect.</h2><p>Infrastructure and extraction rise back through the same sequence as the cause-and-effect layer comes forward.</p></div></section>
-<section class="chapter" id="place" data-p=".24" data-label="PLACE"><div class="content"><div class="idx">04 / PLACE</div><h2>The world widens.</h2><p>The sequence moves toward landscape and settlement rather than cutting to a new page background.</p></div></section>
-<section class="chapter" id="sources" data-p=".06" data-label="SOURCES"><div class="content"><div class="idx">05 / SOURCES</div><h2>Then it quietens.</h2><p>The motion almost reaches the beginning again, leaving a calmer state for the evidence.</p></div></section>
+<section class="chapter" id="report" data-p=".05" data-label="WHAT'S REAL"><div class="content"><div class="idx">01 / WHAT'S REAL</div><h2>The physical system.</h2><p>AI begins in digital space, but the infrastructure underneath it is physical: facilities, electricity, networks, materials and land.</p></div></section>
+<section class="chapter" id="story" data-p="1" data-label="STORY"><div class="content"><div class="idx">02 / STORY</div><h2>The person inside it.</h2><p>The sequence arrives in an ordinary household. Daniela, Mauricio, Tomás, Emilia and Elena are fictional characters; their lives are not documentary evidence.</p><span class="boundary">STORY · FICTION</span></div></section>
+<section class="chapter" id="consequences" data-p=".5" data-label="CONSEQUENCES"><div class="content"><div class="idx">03 / CONSEQUENCES</div><h2>The forces connect.</h2><p>Energy demand, infrastructure build-out and copper extraction become one connected physical chain.</p></div></section>
+<section class="chapter" id="place" data-p=".75" data-label="PLACE"><div class="content"><div class="idx">04 / PLACE</div><h2>Calama.</h2><p>The global chain reaches a real place: a city shaped by proximity to one of the world’s defining copper districts.</p></div></section>
+<section class="chapter" id="sources" data-p=".5" data-label="SOURCES"><div class="content"><div class="idx">05 / SOURCES</div><h2>Opening image provenance.</h2><p>Every factual image in the opening is traceable to its source and reuse terms. The family image is generated fiction.</p><div class="source-list">
+<div>Data centre — Rsparks3, CC0 1.0. <a href="https://commons.wikimedia.org/wiki/File:Data_center_roof.jpg">Source</a></div>
+<div>Grid — ShootingStarMax, CC BY-SA 4.0. <a href="https://commons.wikimedia.org/wiki/File:L%C3%ADneas_alta_tensi%C3%B3n_Chile.jpg">Source</a></div>
+<div>Chuquicamata — Diego Delso, delso.photo, License CC BY-SA 4.0. <a href="https://commons.wikimedia.org/wiki/File:Mina_de_Chuquicamata,_Calama,_Chile,_2016-02-01,_DD_110-112_PAN.JPG">Source</a></div>
+<div>Calama homes — Chris Hunkeler, CC BY-SA 2.0. <a href="https://commons.wikimedia.org/wiki/File:Homes_in_Calama,_Chile_(45418686415).jpg">Source</a></div>
+<div>Family — generated for Atlas of Consequences, AOC-001; STORY · FICTION; no real family is depicted.</div>
+</div></div></section>
 </main>
 <script>
-const chapters=[...document.querySelectorAll('.chapter')];const mode=document.getElementById('mode'),readout=document.getElementById('readout');const el={sky:document.getElementById('sky'),sun:document.getElementById('sun'),rings:document.getElementById('rings'),mountains:document.getElementById('mountains'),city:document.getElementById('city'),mine:document.getElementById('mine'),worker:document.getElementById('worker'),data:document.getElementById('data')};const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t;const bump=(p,c,w)=>clamp(1-Math.abs(p-c)/w,0,1);const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;let p=0,target=0,done=false,start=performance.now();
-function draw(v){const sources=bump(v,.06,.19),place=bump(v,.24,.23),mine=bump(v,.44,.23),worker=bump(v,.64,.23),data=bump(v,.83,.22),final=clamp((v-.84)/.16,0,1);el.rings.style.opacity=sources;el.mountains.style.opacity=Math.max(place,worker*.58,final*.55);el.city.style.opacity=place*.9;el.mine.style.opacity=mine*.95;el.worker.style.opacity=Math.max(worker*.95,final*.82);el.data.style.opacity=data*.95;el.sun.style.opacity=.2+place*.25+worker*.22+final*.38;el.data.style.transform=`scale(${1.05-data*.05}) translateY(${(1-data)*18}px)`;el.worker.style.transform=`scale(${.95+worker*.05+final*.035})`;el.mine.style.transform=`translateY(${(1-mine)*12}px)`;el.city.style.transform=`translateY(${(1-place)*14}px)`;el.sky.style.background=v<.55?`linear-gradient(180deg,rgb(${Math.round(38+v*110)},${Math.round(61-v*12)},${Math.round(77-v*34)}) 0%,#513e34 52%,#090a0c 100%)`:`linear-gradient(180deg,#41352f 0%,rgb(${Math.round(45-v*18)},${Math.round(39-v*16)},${Math.round(36-v*14)}) 58%,#070809 100%)`;readout.textContent='visual progress '+Math.round(v*100)+'%'}
-function loop(now){if(!done){const t=clamp((now-start)/8500,0,1);p=ease(t);target=p;if(t>=1){done=true;document.body.classList.remove('playing');document.body.classList.add('ready');mode.textContent='EDITION'}}else p+=(target-p)*.12;draw(p);requestAnimationFrame(loop)}document.body.classList.add('playing');requestAnimationFrame(loop);
+const chapters=[...document.querySelectorAll('.chapter')];const mode=document.getElementById('mode'),state=document.getElementById('assetstate'),credit=document.getElementById('credit');
+const assets=[document.getElementById('asset-data'),document.getElementById('asset-grid'),document.getElementById('asset-mine'),document.getElementById('asset-place'),document.getElementById('asset-family')];
+const stages=[
+{p:0,state:'REAL · DATA CENTRE',credit:'Rsparks3 · Wikimedia Commons · CC0 1.0',url:'https://commons.wikimedia.org/wiki/File:Data_center_roof.jpg'},
+{p:.25,state:'REAL · GRID / ENERGY',credit:'ShootingStarMax · Wikimedia Commons · CC BY-SA 4.0',url:'https://commons.wikimedia.org/wiki/File:L%C3%ADneas_alta_tensi%C3%B3n_Chile.jpg'},
+{p:.5,state:'REAL · COPPER / MINING',credit:'Diego Delso, delso.photo, License CC BY-SA 4.0',url:'https://commons.wikimedia.org/wiki/File:Mina_de_Chuquicamata,_Calama,_Chile,_2016-02-01,_DD_110-112_PAN.JPG'},
+{p:.75,state:'REAL · CALAMA',credit:'Chris Hunkeler · Wikimedia Commons · CC BY-SA 2.0',url:'https://commons.wikimedia.org/wiki/File:Homes_in_Calama,_Chile_(45418686415).jpg'},
+{p:1,state:'STORY · FICTION',credit:'Generated for AOC-001 · fictional people',url:null}
+];
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t;let p=0,target=0,done=false,start=performance.now();
+function draw(v){let nearest=0,best=9;stages.forEach((s,i)=>{const d=Math.abs(v-s.p);if(d<best){best=d;nearest=i}const o=clamp(1-d/.25,0,1);assets[i].style.opacity=o;assets[i].style.transform=`scale(${1.035-o*.02})`});const s=stages[nearest];state.textContent=s.state;credit.innerHTML=s.url?`<a href="${s.url}" target="_blank" rel="noopener">${s.credit}</a>`:s.credit}
+function loop(now){if(!done){const t=clamp((now-start)/10000,0,1);p=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;target=p;if(t>=1){done=true;document.body.classList.remove('playing');document.body.classList.add('ready');mode.textContent='EDITION'}}else p+=(target-p)*.12;draw(p);requestAnimationFrame(loop)}document.body.classList.add('playing');requestAnimationFrame(loop);
 function updateFromScroll(){if(!done)return;const first=chapters[0].offsetTop,y=scrollY;if(y<first){target=1;mode.textContent='EDITION';chapters.forEach(s=>s.classList.remove('focus'));return}const pos=(y-first)/innerHeight,i=clamp(Math.floor(pos),0,chapters.length-1),j=clamp(i+1,0,chapters.length-1),f=clamp(pos-i,0,1);target=lerp(parseFloat(chapters[i].dataset.p),parseFloat(chapters[j].dataset.p),f);const n=clamp(Math.round(pos),0,chapters.length-1);chapters.forEach((s,k)=>s.classList.toggle('focus',k===n));mode.textContent=chapters[n].dataset.label}addEventListener('scroll',()=>requestAnimationFrame(updateFromScroll),{passive:true});document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})}));
 </script>
 </body>
