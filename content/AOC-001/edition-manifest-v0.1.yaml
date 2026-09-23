@@ -1,0 +1,397 @@
+schema_version: "0.1"
+edition:
+  id: "AOC-001"
+  ecosystem_id: "AOC-ECO-0001"
+  title: "AI's Physical Hunger"
+  status: "publication-locked content / production assets pending"
+  reader_path:
+    - whats_real
+    - story
+    - consequences
+    - place
+    - sources
+  constitutional_rule: "Facts can change the fiction. Fiction must never quietly become fact."
+  guiding_question: "What does providing for your family mean when the opportunity that helps you provide also asks for more of your absence?"
+  locality:
+    city: "Calama"
+    region: "Antofagasta Region"
+    country: "Chile"
+
+source_of_truth:
+  master_edition: "content/AOC-001/master-edition-v0.1.md"
+  publication_audit: "content/AOC-001/master-edition-publication-audit-v0.1.md"
+  evidence_register: "content/AOC-001/sources/publication-source-register-v0.1.md"
+  constitution: "docs/atlas-constitution.md"
+  distribution_rules: "content/AOC-001/distribution/README.md"
+  orok_rules: "content/AOC-001/orok/README.md"
+
+content_lock:
+  story: true
+  reader_sequence: true
+  fact_fiction_boundary: true
+  causal_boundary: true
+  locality: true
+  consequence_mechanism: true
+  source_register: true
+  narrative_rewrite_allowed: false
+
+certainty_model:
+  - id: documented_global
+    label: "Documented global mechanism"
+    meaning: "Sourced real-world mechanism."
+    visual_rule: "Use factual/documentary or clearly explanatory material only. Never imply a local consequence that the evidence does not establish."
+  - id: documented_place
+    label: "Documented place connection"
+    meaning: "Sourced connection between copper, Chile, Antofagasta, Calama and Chuquicamata."
+    visual_rule: "Use verifiable place, infrastructure, mapping and operational context. Do not imply that AI caused a specific local project or job."
+  - id: fictional_human
+    label: "Fictional human exploration"
+    meaning: "Daniela, Mauricio, Tomás, Emilia, Elena and their events are invented."
+    visual_rule: "Generated or staged fictional visuals are allowed only with persistent STORY / FICTION treatment. Never present fictional people or scenes as documentary evidence."
+
+brand_shell:
+  permanent_assets:
+    required:
+      - atlas_logo_or_wordmark
+      - edition_stamp_system
+      - mode_label_system
+      - typography_system
+      - transition_system
+      - map_coordinate_language
+    optional:
+      - sonic_ident
+  permanent_site_imagery: false
+  principle: "Permanent shell, temporary world."
+
+motion_model:
+  narrative_progress_range: "0-100"
+  current_controller: "touch scroll"
+  controller_is_not_content_model: true
+  opening_rule: "The edition opens as moving image before conventional navigation appears."
+  memory_rule: "The opening visual sequence becomes the edition's visual memory; later scroll states return to selected moments from that same sequence."
+  slow_scroll: "Directly blend/scrub between adjacent cinematic moments."
+  quick_flick: "Allow normal page movement; visual layer resolves smoothly toward the destination key moment without slowing the user's scroll."
+  reverse_scroll: "Reverse the visual progression naturally."
+  hard_cut_default: false
+  hard_cut_exception: "Only when deliberately required by story/editorial intent."
+  reduced_motion_fallback: "Static approved keyframes with normal section transitions."
+
+opening:
+  asset_id: "AOC001-OPEN-01"
+  type: "hybrid edition trailer"
+  target_duration_seconds: "10-15"
+  status: "required / not yet produced"
+  purpose: "Introduce the whole edition before asking the reader to choose Report or Story."
+  visual_arc:
+    - "AI/data-centre physical infrastructure"
+    - "electricity/grid infrastructure"
+    - "copper/material system"
+    - "Calama/Chuquicamata place connection"
+    - "human/family consequence"
+  final_state: "A strong final image that can remain behind the interface as the edition settles."
+  audio_default: "muted autoplay where required by browser policy; experience must remain complete without sound"
+  factual_fiction_rule: "Any fictional human material in the hybrid opening must be visually identifiable as fiction and must not be cut to resemble reportage."
+
+entry_interface:
+  appears_after_opening: true
+  primary_actions:
+    - label: "ENTER THE REPORT"
+      target: "whats_real"
+    - label: "ENTER THE STORY"
+      target: "story"
+  secondary_surfaces:
+    - consequences
+    - place
+    - sources
+
+sections:
+  whats_real:
+    display_label: "WHAT'S REAL"
+    mode: "factual"
+    certainty: "documented_global + documented_place"
+    content_source: "master-edition-v0.1.md#WHAT'S REAL"
+    evidence_ids:
+      - SR-01
+      - SR-02
+      - SR-03
+      - SR-04
+      - SR-05
+      - SR-06
+      - SR-07
+      - SR-08
+      - SR-10
+    required_web_treatment:
+      - "short mobile paragraphs"
+      - "key-number callouts: 415 TWh, ~1.5%, 58%, ~15 km"
+      - "visual consequence chain rather than repeated arrow prose"
+      - "motion becomes quieter once long-form reading begins"
+    visual_state:
+      key_moment: "physical infrastructure / data centre / grid"
+      allowed_asset_classes:
+        - "licensed or rights-cleared documentary photo/video"
+        - "official/primary-source operational imagery where reuse rights permit"
+        - "editorial map/data visual created from verified facts"
+        - "clearly explanatory generated diagram, not fake documentary footage"
+      prohibited:
+        - "generated footage presented as a real data centre, Calama, Chuquicamata or real worker"
+        - "imagery implying AI directly caused a specific mine expansion or job"
+    media_outputs:
+      - id: "AOC001-REPORT-VIDEO"
+        type: "factual report clip"
+        status: "required / not yet produced"
+        social_derivative: true
+        label_required: "WHAT'S REAL"
+
+  story:
+    display_label: "STORY — FICTION"
+    mode: "fiction"
+    certainty: "fictional_human"
+    content_source: "master-edition-v0.1.md#STORY — FICTION"
+    fictional_people:
+      - Daniela
+      - Mauricio
+      - Tomás
+      - Emilia
+      - Elena
+    environmental_constraints:
+      - "7x7 roster plausibility: SR-11"
+      - "organised worker transport plausibility: SR-12"
+      - "mining commuting context: SR-10"
+    required_web_treatment:
+      - "persistent or obvious STORY / FICTION label"
+      - "fiction disclosure before first story paragraph"
+      - "preserve short paragraphs and scene breaks"
+      - "no factual cards inserted into the fiction"
+      - "do not make the household look like a documentary case study"
+    visual_state:
+      key_moment: "human / household / absence / return"
+      allowed_asset_classes:
+        - "generated cinematic fictional character imagery"
+        - "generated fictional household/interior scenes"
+        - "non-identifying atmospheric real place material when rights-cleared and not used as character evidence"
+      prohibited:
+        - "real identifiable people portrayed as Daniela, Mauricio, Tomás, Emilia or Elena"
+        - "generated scenes presented as witness footage or documentary evidence"
+        - "invented cultural/social conditions added for drama"
+    media_outputs:
+      - id: "AOC001-STORY-PROMO"
+        type: "cinematic fiction teaser"
+        status: "required / not yet produced"
+        social_derivative: true
+        label_required: "STORY / FICTION"
+
+  consequences:
+    display_label: "CONSEQUENCES"
+    mode: "analysis"
+    certainty_layers:
+      - documented_global
+      - documented_place
+      - fictional_human
+    content_source: "master-edition-v0.1.md#CONSEQUENCES"
+    evidence_ids:
+      - SR-01
+      - SR-02
+      - SR-04
+      - SR-05
+      - SR-06
+      - SR-07
+      - SR-08
+    required_web_treatment:
+      - "render as a compact visual map, not a second report"
+      - "three visibly separated certainty levels"
+      - "make the prohibited shortcut visually distinct"
+    prohibited_shortcut: "AI boom -> mine expands -> Mauricio gets promoted"
+    visual_state:
+      key_moment: "infrastructure / copper / connection map"
+      allowed_asset_classes:
+        - "evidence-derived diagrams"
+        - "maps"
+        - "rights-cleared infrastructure/mining imagery"
+      prohibited:
+        - "single causal animation implying the prohibited shortcut is factual"
+
+  place:
+    display_label: "PLACE"
+    mode: "factual_context"
+    certainty: "documented_place"
+    content_source: "master-edition-v0.1.md#PLACE"
+    evidence_ids:
+      - SR-09
+      - SR-10
+      - SR-11
+      - SR-12
+      - SR-13
+      - SR-14
+      - SR-15
+      - SR-16
+    required_web_treatment:
+      - "map/location treatment"
+      - "city facts separated from story"
+      - "show Calama as a city, not an empty desert settlement attached to a mine"
+      - "preserve Indigenous sourcing boundary"
+    visual_state:
+      key_moment: "Calama / Atacama city and landscape"
+      allowed_asset_classes:
+        - "verified map"
+        - "rights-cleared real Calama streets/civic life/landscape"
+        - "rights-cleared Chuquicamata context"
+        - "historical archival material with provenance and reuse permission"
+      prohibited:
+        - "generic desert/mining montage used as if it represents all of Calama"
+        - "invented Indigenous imagery or viewpoint for cultural atmosphere"
+
+  sources:
+    display_label: "SOURCES"
+    mode: "evidence"
+    content_source: "sources/publication-source-register-v0.1.md"
+    required_web_treatment:
+      - "scannable/collapsible evidence cards"
+      - "direct source links"
+      - "source role and limitation visible where useful"
+      - "quieter/static visual state"
+    visual_state:
+      key_moment: "calm closing / evidence desk"
+      allowed_asset_classes:
+        - "source metadata"
+        - "maps/data diagrams already verified"
+        - "static final frame from opening where readable"
+      prohibited:
+        - "decorative motion that interferes with source inspection"
+
+orok_companion:
+  status: "required for complete v0.1 publishing package / not yet produced"
+  source_rules: "content/AOC-001/orok/README.md"
+  candidate_human_themes:
+    - "work and responsibility"
+    - "providing for family"
+    - "time and absence"
+    - "skills and intergenerational opportunity"
+  rule: "Keep local expression specific; do not flatten Calama into a universal stereotype."
+
+asset_register:
+  policy: "No permanent edition imagery is stored as generic website decoration. Assets are acquired/generated per edition and attached to manifest slots."
+  rights_required_for_real_world_assets: true
+  provenance_required: true
+  asset_states:
+    - proposed
+    - rights_checked
+    - editorially_verified
+    - approved
+    - published
+    - rejected
+  required_slots:
+    - id: "AOC001-VIS-01"
+      role: "data-centre / compute infrastructure"
+      section_use: [opening, whats_real]
+      class: "real_world_documentary_or_explanatory"
+      status: "empty"
+    - id: "AOC001-VIS-02"
+      role: "electricity/grid infrastructure"
+      section_use: [opening, whats_real, consequences]
+      class: "real_world_documentary_or_explanatory"
+      status: "empty"
+    - id: "AOC001-VIS-03"
+      role: "copper/mining system"
+      section_use: [opening, whats_real, consequences]
+      class: "real_world_documentary"
+      status: "empty"
+    - id: "AOC001-VIS-04"
+      role: "Calama / Chuquicamata locality"
+      section_use: [opening, place]
+      class: "real_world_place"
+      status: "empty"
+    - id: "AOC001-VIS-05"
+      role: "fictional household / worker human moment"
+      section_use: [opening, story]
+      class: "generated_fiction"
+      status: "empty"
+    - id: "AOC001-VIS-06"
+      role: "Calama map / zoom path"
+      section_use: [whats_real, consequences, place]
+      class: "verified_map_or_editorial_graphic"
+      status: "empty"
+    - id: "AOC001-VIS-07"
+      role: "closing evidence state"
+      section_use: [sources]
+      class: "static_or_opening_keyframe"
+      status: "empty"
+
+derivative_outputs:
+  website:
+    - "mobile-first permanent Atlas edition"
+    - "opening cinematic sequence"
+    - "Report / Story entry interface"
+    - "scroll-controlled visual-memory states"
+    - "WHAT'S REAL"
+    - "STORY — FICTION"
+    - "CONSEQUENCES"
+    - "PLACE"
+    - "SOURCES"
+  distribution:
+    rule: "Derive from the verified master edition; do not invent separate factual claims."
+    required:
+      - "edition opening/trailer export"
+      - "report clip"
+      - "story promo"
+      - "vertical social cuts"
+      - "still/image or carousel derivatives"
+      - "captions"
+      - "headlines/descriptions"
+      - "thumbnails/poster frames"
+      - "links back to permanent Atlas edition"
+  audio:
+    v0_1_required: false
+    future_standard: "Human voice preferred for finished narrative audio; AI narration must not silently impersonate human performance."
+
+production_pipeline:
+  - id: P1
+    stage: "content_lock"
+    status: "complete"
+  - id: P2
+    stage: "edition_manifest"
+    status: "complete when this file is approved"
+  - id: P3
+    stage: "asset_acquisition_and_generation"
+    status: "next"
+    actions:
+      - "source rights-cleared real-world imagery/video for factual and place slots"
+      - "generate fictional human/story assets for fiction slots"
+      - "create maps/data/consequence graphics from verified evidence"
+  - id: P4
+    stage: "asset_editorial_verification"
+    status: "pending"
+  - id: P5
+    stage: "opening_report_story_media_assembly"
+    status: "pending"
+  - id: P6
+    stage: "mobile_web_assembly"
+    status: "pending"
+  - id: P7
+    stage: "distribution_derivatives"
+    status: "pending"
+  - id: P8
+    stage: "publication_QA"
+    status: "pending"
+  - id: P9
+    stage: "human_approval"
+    status: "pending"
+  - id: P10
+    stage: "publish"
+    status: "pending"
+
+publication_gates:
+  - "Every material factual claim remains wired to the publication source register."
+  - "A fast-scrolling phone reader cannot mistake fiction for reportage."
+  - "No image or clip silently converts fiction into documentary evidence."
+  - "No factual image implies a stronger causal chain than the evidence supports."
+  - "Real-world assets have provenance and sufficient publication/reuse rights."
+  - "Place imagery represents Calama as a lived city as well as a mining locality."
+  - "Sensitive or cultural representation receives explicit human editorial review."
+  - "Opening, Report clip and Story promo remain distinguishable assets with clear roles."
+  - "Mobile performance has poster/static fallbacks and reduced-motion support."
+  - "Social derivatives point back to the permanent Atlas edition and preserve fact/fiction labels."
+
+next_foreground_action:
+  id: "AOC001-ASSET-PASS-01"
+  action: "Populate the required asset slots with real-world sourced material, generated fiction material, and verified maps/graphics, beginning with the opening sequence."
+  rule: "Use the manifest as the production contract; do not create a parallel mockup asset system."
