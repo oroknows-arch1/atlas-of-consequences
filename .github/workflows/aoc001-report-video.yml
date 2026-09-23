@@ -20,12 +20,12 @@ jobs:
       - name: Install render tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg fonts-liberation2
+          sudo apt-get install -y ffmpeg fonts-liberation2 librsvg2-bin
 
       - name: Fetch rights-checked article and context media
         run: |
           set -euo pipefail
-          R=.render/aoc001-report-v03
+          R=.render/aoc001-report-v04
           mkdir -p "$R" public/assets
 
           python3 - <<'PY'
@@ -33,7 +33,7 @@ jobs:
 
           API = 'https://commons.wikimedia.org/w/api.php'
           HEADERS = {
-              'User-Agent': 'AtlasOfConsequences/0.3 (https://github.com/oroknows-arch1/atlas-of-consequences)',
+              'User-Agent': 'AtlasOfConsequences/0.4 (https://github.com/oroknows-arch1/atlas-of-consequences)',
               'Referer': 'https://commons.wikimedia.org/'
           }
 
@@ -70,15 +70,15 @@ jobs:
 
           fetch_video(
               'File:Data Center Tour & Technical Deep Dive into the Power, Data and Cooling Infrastructure!.webm',
-              '.render/aoc001-report-v03/data-center.webm'
+              '.render/aoc001-report-v04/data-center.webm'
           )
           fetch_video(
               'File:REN overhead power line maintenance PT 2018 E.webm',
-              '.render/aoc001-report-v03/grid.webm'
+              '.render/aoc001-report-v04/grid.webm'
           )
           PY
 
-          UA='AtlasOfConsequences/0.3 (https://github.com/oroknows-arch1/atlas-of-consequences)'
+          UA='AtlasOfConsequences/0.4 (https://github.com/oroknows-arch1/atlas-of-consequences)'
           REF='https://commons.wikimedia.org/'
 
           fetch_image () {
@@ -88,21 +88,19 @@ jobs:
               "https://commons.wikimedia.org/wiki/Special:FilePath/${encoded}?width=${width}" -o "$out"
           }
 
-          # 500 Howard Street building context. This 2020 image was taken while
-          # Slack occupied the building; captions disclose that. Anthropic's 2026 use
-          # of 500 Howard is established separately by current-source evidence.
-          fetch_image 'Slack offices, Howard Street, San Francisco (viewed from the south-west, January 2020).jpg' "$R/hq1.jpg" 1800
-
-          # Western Downs regional town context; this is not the project site.
+          fetch_image 'San Francisco Skyline 2024.jpg' "$R/sf.jpg" 1800
+          fetch_image 'Slack offices, Howard Street, San Francisco (viewed from the south-west, January 2020).jpg' "$R/hq.jpg" 1800
           fetch_image 'DalbyMainStreet.JPG' "$R/dalby.jpg" 1800
-
-          # Chile material / mining / worker / community context.
           fetch_image 'Chile - copper slates on train.jpg' "$R/chile-copper.jpg" 1800
           fetch_image 'Chuquicamata-Chile-2009.JPG' "$R/chuqui.jpg" 1800
           fetch_image 'Chilean Miners.jpg' "$R/miners.jpg" 1800
           fetch_image 'Homes in Calama, Chile (45418686415).jpg' "$R/calama-homes.jpg" 1800
 
-          # Quiet CC0 bed used only to give the montage continuity. No AI voice is used.
+          encoded_logo=$(python3 -c 'import urllib.parse; print(urllib.parse.quote("Anthropic logo.svg"))')
+          curl -L --fail --retry 3 -A "$UA" -e "$REF" \
+            "https://commons.wikimedia.org/wiki/Special:FilePath/${encoded_logo}" -o "$R/anthropic.svg"
+          rsvg-convert -w 320 "$R/anthropic.svg" -o "$R/anthropic-logo.png"
+
           curl -L --fail --retry 3 -A "$UA" -e "$REF" \
             'https://commons.wikimedia.org/wiki/Special:FilePath/John%20Bartmann%20-%20flourescent-crystals-master.ogg' \
             -o "$R/bed.ogg"
@@ -110,7 +108,7 @@ jobs:
       - name: Build article-specific editorial captions
         run: |
           set -euo pipefail
-          R=.render/aoc001-report-v03
+          R=.render/aoc001-report-v04
           cat > "$R/captions.ass" <<'EOF'
           [Script Info]
           ScriptType: v4.00+
@@ -121,23 +119,23 @@ jobs:
 
           [V4+ Styles]
           Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
-          Style: Bug,Liberation Sans,18,&H00FFFFFF,&H000000FF,&H72000000,&H00000000,-1,0,0,0,100,100,0.8,0,1,1.6,0,7,30,30,28,1
-          Style: Head,Liberation Sans,43,&H00FFFFFF,&H000000FF,&H8A000000,&H00000000,-1,0,0,0,100,100,0,0,1,2.8,0,2,42,42,116,1
-          Style: Place,Liberation Sans,38,&H00FFFFFF,&H000000FF,&H8A000000,&H00000000,-1,0,0,0,100,100,0.3,0,1,2.7,0,2,42,42,116,1
-          Style: Source,Liberation Sans,13,&HDEFFFFFF,&H000000FF,&H78000000,&H00000000,0,0,0,0,100,100,0.15,0,1,1.2,0,7,30,30,58,1
+          Style: Bug,Liberation Sans,18,&H00FFFFFF,&H000000FF,&H50000000,&H00000000,-1,0,0,0,100,100,0.8,0,1,1.8,0,7,30,30,28,1
+          Style: Head,Liberation Sans,43,&H00FFFFFF,&H000000FF,&H50000000,&H00000000,-1,0,0,0,100,100,0,0,1,2.8,0,2,42,42,116,1
+          Style: Place,Liberation Sans,38,&H00FFFFFF,&H000000FF,&H50000000,&H00000000,-1,0,0,0,100,100,0.3,0,1,2.7,0,2,42,42,116,1
+          Style: Source,Liberation Sans,14,&H00FFFFFF,&H000000FF,&H40000000,&H00000000,0,0,0,0,100,100,0.15,0,1,1.8,0,7,30,30,58,1
 
           [Events]
           Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
           Dialogue: 0,0:00:00.00,0:00:30.00,Bug,,0,0,0,,ATLAS · WHAT'S REAL
 
-          Dialogue: 0,0:00:00.12,0:00:03.00,Head,,0,0,0,,500 HOWARD STREET\NSAN FRANCISCO
-          Dialogue: 0,0:00:00.12,0:00:03.00,Source,,0,0,0,,BUILDING PHOTO · 2020 · SLACK ERA
+          Dialogue: 0,0:00:00.12,0:00:03.00,Head,,0,0,0,,ANTHROPIC\NSAN FRANCISCO
+          Dialogue: 0,0:00:00.12,0:00:03.00,Source,,0,0,0,,ANTHROPIC HQ · SAN FRANCISCO · SKYLINE CONTEXT 2024
 
-          Dialogue: 0,0:00:03.00,0:00:06.00,Head,,0,0,0,,ANTHROPIC'S FIRST AUSTRALIAN\NDATA-CENTRE DEAL · 2.16 GW
-          Dialogue: 0,0:00:03.00,0:00:06.00,Source,,0,0,0,,REUTERS · 16 SEP 2026 · HQ ADDRESS VERIFIED 2026
+          Dialogue: 0,0:00:03.00,0:00:06.00,Head,,0,0,0,,500 HOWARD STREET\NCURRENT HQ ADDRESS
+          Dialogue: 0,0:00:03.00,0:00:06.00,Source,,0,0,0,,BUILDING PHOTO 2020 · SLACK ERA · ANTHROPIC OCCUPANCY VERIFIED 2026
 
-          Dialogue: 0,0:00:06.00,0:00:09.00,Place,,0,0,0,,WESTERN DOWNS · QUEENSLAND\NTHE PROJECT REGION
-          Dialogue: 0,0:00:06.00,0:00:09.00,Source,,0,0,0,,DALBY · REGIONAL CONTEXT · PROJECT SITE NOT SHOWN
+          Dialogue: 0,0:00:06.00,0:00:09.00,Place,,0,0,0,,FIRST AUSTRALIAN DATA-CENTRE DEAL\NWESTERN DOWNS · 2.16 GW
+          Dialogue: 0,0:00:06.00,0:00:09.00,Source,,0,0,0,,REUTERS · 16 SEP 2026 · DALBY CONTEXT · PROJECT SITE NOT SHOWN
 
           Dialogue: 0,0:00:09.00,0:00:12.00,Head,,0,0,0,,AI IS DIGITAL.\NTHE BUILD IS PHYSICAL.
           Dialogue: 0,0:00:09.00,0:00:12.00,Source,,0,0,0,,GENERIC DATA-CENTRE CONTEXT · NOT WESTERN DOWNS
@@ -146,16 +144,16 @@ jobs:
           Dialogue: 0,0:00:12.00,0:00:15.00,Source,,0,0,0,,IEA · SR-03 / SR-04 · GENERIC GRID CONTEXT
 
           Dialogue: 0,0:00:15.00,0:00:18.00,Head,,0,0,0,,COPPER MOVES THROUGH\NCHILE'S MATERIAL ECONOMY.
-          Dialogue: 0,0:00:15.00,0:00:18.00,Source,,0,0,0,,CHILE COPPER TRANSPORT · ANTOFAGASTA ROUTE · 2010
+          Dialogue: 0,0:00:15.00,0:00:18.00,Source,,0,0,0,,COPPER TRANSPORT · ANTOFAGASTA · 2010
 
           Dialogue: 0,0:00:18.00,0:00:21.00,Place,,0,0,0,,CHUQUICAMATA · NORTHERN CHILE\NAN EXISTING COPPER ECONOMY
-          Dialogue: 0,0:00:18.00,0:00:21.00,Source,,0,0,0,,CODELCO · SR-07 / SR-08 · REAL CHUQUICAMATA IMAGE
+          Dialogue: 0,0:00:18.00,0:00:21.00,Source,,0,0,0,,CHUQUICAMATA · CODELCO · SR-07 / SR-08
 
           Dialogue: 0,0:00:21.00,0:00:24.00,Head,,0,0,0,,MINING IS WORK\NDONE BY PEOPLE.
-          Dialogue: 0,0:00:21.00,0:00:24.00,Source,,0,0,0,,CODELCO ANDINA MINERS · 2007 · CONTEXT, NOT CHUQUICAMATA
+          Dialogue: 0,0:00:21.00,0:00:24.00,Source,,0,0,0,,CODELCO ANDINA MINERS · 2007 · NOT CHUQUICAMATA
 
-          Dialogue: 0,0:00:24.00,0:00:27.00,Place,,0,0,0,,CALAMA\NHOMES. FAMILIES. ROUTINES.
-          Dialogue: 0,0:00:24.00,0:00:27.00,Source,,0,0,0,,REAL CALAMA HOMES · COMMUNITY CONTEXT
+          Dialogue: 0,0:00:24.00,0:00:27.00,Place,,0,0,0,,CALAMA\NHOMES. STREETS. ROUTINES.
+          Dialogue: 0,0:00:24.00,0:00:27.00,Source,,0,0,0,,CALAMA HOMES · COMMUNITY CONTEXT · 2015
 
           Dialogue: 0,0:00:27.00,0:00:30.00,Head,,0,0,0,,CONNECTION,\NNOT CAUSATION.
           Dialogue: 0,0:00:27.00,0:00:30.00,Source,,0,0,0,,NO DIRECT ANTHROPIC–CHUQUICAMATA SUPPLY CHAIN IS CLAIMED
@@ -164,7 +162,7 @@ jobs:
       - name: Render 30-second article-specific news montage
         run: |
           set -euo pipefail
-          R=.render/aoc001-report-v03
+          R=.render/aoc001-report-v04
 
           still_center () {
             input="$1"; out="$2"; xexpr="$3"
@@ -180,17 +178,18 @@ jobs:
               -an -c:v libx264 -preset veryfast -crf 19 -pix_fmt yuv420p "$out"
           }
 
-          # Two crops of the sourced 500 Howard exterior keep the building context
-          # without foregrounding obsolete Slack signage.
-          still_center "$R/hq1.jpg" "$R/s01.mp4" '(iw-720)*0.20'
-          still_center "$R/hq1.jpg" "$R/s02.mp4" '(iw-720)*0.78'
+          ffmpeg -y -loop 1 -t 3 -i "$R/sf.jpg" -i "$R/anthropic-logo.png" \
+            -filter_complex "\
+              [0:v]scale=-2:1280,crop=720:1280:x=(iw-720)/2:y=0,eq=contrast=1.03:brightness=-0.02:saturation=0.92,setsar=1[bg];\
+              [bg]drawbox=x=32:y=88:w=382:h=76:color=white@0.90:t=fill[box];\
+              [1:v]scale=320:-1[logo];\
+              [box][logo]overlay=60:108:eof_action=repeat:shortest=0,fps=30,format=yuv420p[v]" \
+            -map '[v]' -an -c:v libx264 -preset veryfast -crf 19 -pix_fmt yuv420p "$R/s01.mp4"
 
-          # Australian project-region and physical infrastructure context.
+          still_center "$R/hq.jpg" "$R/s02.mp4" '(iw-720)*0.28'
           still_center "$R/dalby.jpg" "$R/s03.mp4" '(iw-720)/2'
           motion "$R/data-center.webm" 1303 "$R/s04.mp4"
           motion "$R/grid.webm" 0.35 "$R/s05.mp4"
-
-          # Chile material / mine / people / household context.
           still_center "$R/chile-copper.jpg" "$R/s06.mp4" '(iw-720)/2'
           still_center "$R/chuqui.jpg" "$R/s07.mp4" '(iw-720)/2'
           still_center "$R/miners.jpg" "$R/s08.mp4" '(iw-720)/2'
@@ -221,12 +220,12 @@ jobs:
             -map '[v]' -map '[a]' \
             -r 30 -c:v libx264 -preset veryfast -crf 19 -pix_fmt yuv420p \
             -c:a aac -b:a 128k -ar 48000 -movflags +faststart \
-            public/assets/aoc001-report-video-candidate-v0.3.mp4
+            public/assets/aoc001-report-video-candidate-v0.4.mp4
 
           mkdir -p "$R/review"
           for t in 1.5 4.5 7.5 10.5 13.5 16.5 19.5 22.5 25.5 28.5; do
             safe=${t/./_}
-            ffmpeg -y -ss "$t" -i public/assets/aoc001-report-video-candidate-v0.3.mp4 \
+            ffmpeg -y -ss "$t" -i public/assets/aoc001-report-video-candidate-v0.4.mp4 \
               -frames:v 1 -q:v 2 "$R/review/frame-${safe}.jpg"
           done
 
@@ -234,15 +233,15 @@ jobs:
             -show_entries format=duration,size \
             -show_entries stream=codec_name,codec_type,width,height,r_frame_rate,sample_rate,channels \
             -of default=noprint_wrappers=1 \
-            public/assets/aoc001-report-video-candidate-v0.3.mp4 \
-            > public/assets/aoc001-report-video-candidate-v0.3-probe.txt
+            public/assets/aoc001-report-video-candidate-v0.4.mp4 \
+            > public/assets/aoc001-report-video-candidate-v0.4-probe.txt
 
-          ffmpeg -y -i public/assets/aoc001-report-video-candidate-v0.3.mp4 \
+          ffmpeg -y -i public/assets/aoc001-report-video-candidate-v0.4.mp4 \
             -vf "fps=1/3,scale=216:384,tile=5x2" -frames:v 1 \
-            public/assets/aoc001-report-video-candidate-v0.3-review.jpg
+            public/assets/aoc001-report-video-candidate-v0.4-review.jpg
 
-          cat > public/assets/aoc001-report-video-candidate-v0.3-credits.txt <<'EOF'
-          AOC001-REPORT-VIDEO v0.3 — REVIEW CREDITS
+          cat > public/assets/aoc001-report-video-candidate-v0.4-credits.txt <<'EOF'
+          AOC001-REPORT-VIDEO v0.4 — REVIEW CREDITS
 
           Candidate adaptation licence: CC BY-SA 4.0.
           Source works retain their original licences and attribution requirements.
@@ -251,12 +250,18 @@ jobs:
           Reuters, "Anthropic signs first Australia data centre agreement", 16 Sep 2026.
           Western Downs Digital Park / Zerra DC official project site.
 
+          ANTHROPIC IDENTITY
+          "Anthropic logo.svg" — Anthropic — public-domain simple text logo; trademark restrictions may still apply. Editorial identification only; no endorsement implied.
+
+          SAN FRANCISCO CONTEXT
+          Raydann — "San Francisco Skyline 2024.jpg" — CC BY-SA 4.0.
+
           500 HOWARD STREET BUILDING CONTEXT
           HaeB — "Slack offices, Howard Street, San Francisco (viewed from the south-west, January 2020).jpg" — CC BY-SA 4.0.
-          Photograph taken in 2020 while Slack occupied the building. 500 Howard is used only as the building that is Anthropic's current 2026 headquarters.
+          Photograph taken in 2020 while Slack occupied the building. 500 Howard is used only as building/address context; Anthropic's occupancy is established by 2026 source evidence.
 
           WESTERN DOWNS REGIONAL CONTEXT
-          Mattinbgn — "DalbyMainStreet.JPG" — CC BY-SA 3.0. Dalby regional context only; the project site is not shown.
+          Mattinbgn — "DalbyMainStreet.JPG" — CC BY-SA 3.0 / GFDL. Dalby context only; project site not shown.
 
           DATA-CENTRE CONTEXT VIDEO
           Lawrence Systems — "Data Center Tour & Technical Deep Dive into the Power, Data and Cooling Infrastructure!.webm" — CC BY 3.0. Generic context only; not Anthropic/Western Downs footage.
@@ -265,51 +270,51 @@ jobs:
           Fernando Moital — "REN overhead power line maintenance PT 2018 E.webm" — CC BY 2.0. Generic grid context only.
 
           CHILE COPPER TRANSPORT
-          Benjamin Goetzinger — "Chile - copper slates on train.jpg" — CC BY-SA 4.0. Copper sheets being transported toward the port of Antofagasta, Chile; contextual only.
+          Benjamin Goetzinger — "Chile - copper slates on train.jpg" — CC BY-SA 4.0. Copper sheets transported toward Antofagasta; contextual only.
 
           CHUQUICAMATA
           Pierre cb — "Chuquicamata-Chile-2009.JPG" — public-domain dedication.
 
           CHILEAN MINERS
-          CDC / NIOSH — "Chilean Miners.jpg" — public domain (U.S. federal work). Photograph is Codelco Andina, 2007; it is not Chuquicamata and is labelled as context.
+          CDC / NIOSH — "Chilean Miners.jpg" — public domain (U.S. federal work). Codelco Andina, 2007; not Chuquicamata.
 
           CALAMA HOMES
-          Chris Hunkeler — "Homes in Calama, Chile (45418686415).jpg" — CC BY-SA 2.0. Community/household context only; no pictured home is claimed to be a mining family.
+          Chris Hunkeler — "Homes in Calama, Chile (45418686415).jpg" — CC BY-SA 2.0. Community context only; no photographed household is claimed to be a mining family.
 
           SOUND BED
           John Bartmann — "flourescent-crystals-master.ogg" — CC0.
 
-          Full production provenance: content/AOC-001/sources/report-video-v0.3-asset-register.md
+          Full production provenance: content/AOC-001/sources/report-video-v0.4-asset-register.md
           EOF
 
-          cat public/assets/aoc001-report-video-candidate-v0.3-probe.txt
+          cat public/assets/aoc001-report-video-candidate-v0.4-probe.txt
 
-      - name: Publish v0.3 report candidate and QA records
+      - name: Publish v0.4 report candidate and QA records
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add \
-            public/assets/aoc001-report-video-candidate-v0.3.mp4 \
-            public/assets/aoc001-report-video-candidate-v0.3-probe.txt \
-            public/assets/aoc001-report-video-candidate-v0.3-review.jpg \
-            public/assets/aoc001-report-video-candidate-v0.3-credits.txt
+            public/assets/aoc001-report-video-candidate-v0.4.mp4 \
+            public/assets/aoc001-report-video-candidate-v0.4-probe.txt \
+            public/assets/aoc001-report-video-candidate-v0.4-review.jpg \
+            public/assets/aoc001-report-video-candidate-v0.4-credits.txt
           if git diff --cached --quiet; then
-            echo 'v0.3 report candidate unchanged.'
+            echo 'v0.4 report candidate unchanged.'
           else
-            git commit -m 'Publish AOC-001 article-specific report video v0.3'
+            git commit -m 'Publish AOC-001 article-specific report video v0.4'
             git push
           fi
 
       - name: Upload review package
         uses: actions/upload-artifact@v4
         with:
-          name: aoc001-report-video-candidate-v0.3
+          name: aoc001-report-video-candidate-v0.4
           path: |
-            public/assets/aoc001-report-video-candidate-v0.3.mp4
-            public/assets/aoc001-report-video-candidate-v0.3-probe.txt
-            public/assets/aoc001-report-video-candidate-v0.3-review.jpg
-            public/assets/aoc001-report-video-candidate-v0.3-credits.txt
-            .render/aoc001-report-v03/review/*.jpg
+            public/assets/aoc001-report-video-candidate-v0.4.mp4
+            public/assets/aoc001-report-video-candidate-v0.4-probe.txt
+            public/assets/aoc001-report-video-candidate-v0.4-review.jpg
+            public/assets/aoc001-report-video-candidate-v0.4-credits.txt
+            .render/aoc001-report-v04/review/*.jpg
           if-no-files-found: error
           retention-days: 7
