@@ -76,10 +76,6 @@ jobs:
               'File:REN overhead power line maintenance PT 2018 E.webm',
               '.render/aoc001-report-v03/grid.webm'
           )
-          fetch_video(
-              'File:5 copper crystals covered with glass.webm',
-              '.render/aoc001-report-v03/copper.webm'
-          )
           PY
 
           UA='AtlasOfConsequences/0.3 (https://github.com/oroknows-arch1/atlas-of-consequences)'
@@ -92,15 +88,17 @@ jobs:
               "https://commons.wikimedia.org/wiki/Special:FilePath/${encoded}?width=${width}" -o "$out"
           }
 
-          # 500 Howard Street is Anthropic's current 2026 HQ. Both photographs were
-          # taken in 2018 when the building was occupied by Slack; captions disclose that.
-          fetch_image 'Slack HQ - 500 Howard (40929471094).jpg' "$R/hq1.jpg" 1800
-          fetch_image 'Slack HQ - 500 Howard (41600178032).jpg' "$R/hq2.jpg" 1800
+          # 500 Howard Street building context. These 2020 images were taken while
+          # Slack occupied the building; captions disclose that. Anthropic's 2026 use
+          # of 500 Howard is established separately by current-source evidence.
+          fetch_image 'Slack offices, Howard Street, San Francisco (viewed from the south-west, January 2020).jpg' "$R/hq1.jpg" 1800
+          fetch_image 'Slack offices, Howard Street, San Francisco (viewed from the north-east, detail, January 2020).jpg' "$R/hq2.jpg" 1800
 
-          # Western Downs / Dalby geographic context; not a precise project-site map.
-          fetch_image 'Dalby location map in Queensland.PNG' "$R/dalby-map.png" 1400
+          # Western Downs regional town context; this is not the project site.
+          fetch_image 'DalbyMainStreet.JPG' "$R/dalby.jpg" 1800
 
-          # Real northern-Chile / worker / community context.
+          # Chile material / mining / worker / community context.
+          fetch_image 'Chile - copper slates on train.jpg' "$R/chile-copper.jpg" 1800
           fetch_image 'Chuquicamata-Chile-2009.JPG' "$R/chuqui.jpg" 1800
           fetch_image 'Chilean Miners.jpg' "$R/miners.jpg" 1800
           fetch_image 'Homes in Calama, Chile (45418686415).jpg' "$R/calama-homes.jpg" 1800
@@ -125,43 +123,43 @@ jobs:
           [V4+ Styles]
           Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
           Style: Bug,Liberation Sans,18,&H00FFFFFF,&H000000FF,&H72000000,&H00000000,-1,0,0,0,100,100,0.8,0,1,1.6,0,7,30,30,28,1
-          Style: Head,Liberation Sans,45,&H00FFFFFF,&H000000FF,&H8A000000,&H00000000,-1,0,0,0,100,100,0,0,1,2.8,0,2,42,42,118,1
-          Style: Place,Liberation Sans,39,&H00FFFFFF,&H000000FF,&H8A000000,&H00000000,-1,0,0,0,100,100,0.3,0,1,2.7,0,2,42,42,118,1
-          Style: Source,Liberation Sans,16,&HDEFFFFFF,&H000000FF,&H78000000,&H00000000,0,0,0,0,100,100,0.35,0,1,1.2,0,9,26,26,28,1
+          Style: Head,Liberation Sans,43,&H00FFFFFF,&H000000FF,&H8A000000,&H00000000,-1,0,0,0,100,100,0,0,1,2.8,0,2,42,42,116,1
+          Style: Place,Liberation Sans,38,&H00FFFFFF,&H000000FF,&H8A000000,&H00000000,-1,0,0,0,100,100,0.3,0,1,2.7,0,2,42,42,116,1
+          Style: Source,Liberation Sans,14,&HDEFFFFFF,&H000000FF,&H78000000,&H00000000,0,0,0,0,100,100,0.2,0,1,1.2,0,8,26,26,28,1
 
           [Events]
           Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
           Dialogue: 0,0:00:00.00,0:00:30.00,Bug,,0,0,0,,ATLAS · WHAT'S REAL
 
-          Dialogue: 0,0:00:00.12,0:00:03.00,Head,,0,0,0,,ANTHROPIC\NSAN FRANCISCO
-          Dialogue: 0,0:00:00.12,0:00:03.00,Source,,0,0,0,,500 HOWARD ST · CURRENT 2026 HQ · PHOTO 2018, THEN SLACK
+          Dialogue: 0,0:00:00.12,0:00:03.00,Head,,0,0,0,,500 HOWARD STREET\NSAN FRANCISCO
+          Dialogue: 0,0:00:00.12,0:00:03.00,Source,,0,0,0,,BUILDING PHOTO · 2020 · SLACK ERA
 
-          Dialogue: 0,0:00:03.00,0:00:06.00,Head,,0,0,0,,ITS FIRST AUSTRALIAN\NDATA-CENTRE DEAL
-          Dialogue: 0,0:00:03.00,0:00:06.00,Source,,0,0,0,,REUTERS · 16 SEP 2026
+          Dialogue: 0,0:00:03.00,0:00:06.00,Head,,0,0,0,,ANTHROPIC'S FIRST AUSTRALIAN\NDATA-CENTRE DEAL · 2.16 GW
+          Dialogue: 0,0:00:03.00,0:00:06.00,Source,,0,0,0,,REUTERS · 16 SEP 2026 · 500 HOWARD IS ANTHROPIC'S CURRENT HQ
 
-          Dialogue: 0,0:00:06.00,0:00:09.00,Place,,0,0,0,,WESTERN DOWNS · QUEENSLAND\NPROPOSED 2.16 GW CAMPUS
-          Dialogue: 0,0:00:06.00,0:00:09.00,Source,,0,0,0,,DALBY LOCATOR · REUTERS / WDDP · PROJECT SUBJECT TO APPROVALS
+          Dialogue: 0,0:00:06.00,0:00:09.00,Place,,0,0,0,,WESTERN DOWNS · QUEENSLAND\NTHE PROJECT REGION
+          Dialogue: 0,0:00:06.00,0:00:09.00,Source,,0,0,0,,DALBY · REGIONAL CONTEXT · PROJECT SITE NOT SHOWN
 
           Dialogue: 0,0:00:09.00,0:00:12.00,Head,,0,0,0,,AI IS DIGITAL.\NTHE BUILD IS PHYSICAL.
-          Dialogue: 0,0:00:09.00,0:00:12.00,Source,,0,0,0,,CONTEXT FOOTAGE · GENERIC DATA CENTRE · NOT THE WESTERN DOWNS FACILITY
+          Dialogue: 0,0:00:09.00,0:00:12.00,Source,,0,0,0,,GENERIC DATA-CENTRE CONTEXT · NOT WESTERN DOWNS
 
           Dialogue: 0,0:00:12.00,0:00:15.00,Head,,0,0,0,,POWER. GRID CONNECTIONS.\NINFRASTRUCTURE.
           Dialogue: 0,0:00:12.00,0:00:15.00,Source,,0,0,0,,IEA · SR-03 / SR-04 · GENERIC GRID CONTEXT
 
-          Dialogue: 0,0:00:15.00,0:00:18.00,Head,,0,0,0,,AND MATERIAL SYSTEMS.\NINCLUDING COPPER.
-          Dialogue: 0,0:00:15.00,0:00:18.00,Source,,0,0,0,,IEA · SR-04 · COPPER MATERIAL CONTEXT
+          Dialogue: 0,0:00:15.00,0:00:18.00,Head,,0,0,0,,COPPER MOVES THROUGH\NCHILE'S MATERIAL ECONOMY.
+          Dialogue: 0,0:00:15.00,0:00:18.00,Source,,0,0,0,,CHILE COPPER TRANSPORT · ANTOFAGASTA ROUTE · 2010
 
           Dialogue: 0,0:00:18.00,0:00:21.00,Place,,0,0,0,,CHUQUICAMATA · NORTHERN CHILE\NAN EXISTING COPPER ECONOMY
           Dialogue: 0,0:00:18.00,0:00:21.00,Source,,0,0,0,,CODELCO · SR-07 / SR-08 · REAL CHUQUICAMATA IMAGE
 
           Dialogue: 0,0:00:21.00,0:00:24.00,Head,,0,0,0,,MINING IS WORK\NDONE BY PEOPLE.
-          Dialogue: 0,0:00:21.00,0:00:24.00,Source,,0,0,0,,CONTEXT · CODELCO ANDINA MINERS, 2007 · CDC/NIOSH · NOT CHUQUICAMATA
+          Dialogue: 0,0:00:21.00,0:00:24.00,Source,,0,0,0,,CODELCO ANDINA MINERS · 2007 · CONTEXT, NOT CHUQUICAMATA
 
           Dialogue: 0,0:00:24.00,0:00:27.00,Place,,0,0,0,,CALAMA\NHOMES. FAMILIES. ROUTINES.
-          Dialogue: 0,0:00:24.00,0:00:27.00,Source,,0,0,0,,REAL CALAMA HOMES · COMMUNITY CONTEXT · NO HOUSEHOLD CLAIMED AS A MINING FAMILY
+          Dialogue: 0,0:00:24.00,0:00:27.00,Source,,0,0,0,,REAL CALAMA HOMES · COMMUNITY CONTEXT
 
           Dialogue: 0,0:00:27.00,0:00:30.00,Head,,0,0,0,,CONNECTION,\NNOT CAUSATION.
-          Dialogue: 0,0:00:27.00,0:00:30.00,Source,,0,0,0,,ATLAS FOLLOWS CONSEQUENCES WITHOUT INVENTING A DIRECT SUPPLY CHAIN
+          Dialogue: 0,0:00:27.00,0:00:30.00,Source,,0,0,0,,NO DIRECT ANTHROPIC–CHUQUICAMATA SUPPLY CHAIN IS CLAIMED
           EOF
 
       - name: Render 30-second article-specific news montage
@@ -176,13 +174,6 @@ jobs:
               -an -c:v libx264 -preset veryfast -crf 19 -pix_fmt yuv420p "$out"
           }
 
-          still_map () {
-            input="$1"; out="$2"
-            ffmpeg -y -loop 1 -t 3 -i "$input" \
-              -vf "scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280:x=(iw-720)/2:y=(ih-1280)/2,eq=contrast=1.02:brightness=-0.01:saturation=0.90,setsar=1,fps=30,format=yuv420p" \
-              -an -c:v libx264 -preset veryfast -crf 19 -pix_fmt yuv420p "$out"
-          }
-
           motion () {
             input="$1"; start="$2"; out="$3"
             ffmpeg -y -ss "$start" -t 3 -i "$input" \
@@ -190,17 +181,17 @@ jobs:
               -an -c:v libx264 -preset veryfast -crf 19 -pix_fmt yuv420p "$out"
           }
 
-          # Article/company world: two sourced editorial photographs of the current HQ building.
-          still_center "$R/hq1.jpg" "$R/s01.mp4" '(iw-720)/2'
+          # Article/company world: sourced exterior context for 500 Howard.
+          still_center "$R/hq1.jpg" "$R/s01.mp4" '(iw-720)*0.20'
           still_center "$R/hq2.jpg" "$R/s02.mp4" '(iw-720)*0.58'
 
-          # Australian location bridge and physical infrastructure.
-          still_map "$R/dalby-map.png" "$R/s03.mp4"
+          # Australian project-region and physical infrastructure context.
+          still_center "$R/dalby.jpg" "$R/s03.mp4" '(iw-720)/2'
           motion "$R/data-center.webm" 1303 "$R/s04.mp4"
           motion "$R/grid.webm" 0.35 "$R/s05.mp4"
-          motion "$R/copper.webm" 5.0 "$R/s06.mp4"
 
-          # Northern Chile / people / household context.
+          # Chile material / mine / people / household context.
+          still_center "$R/chile-copper.jpg" "$R/s06.mp4" '(iw-720)/2'
           still_center "$R/chuqui.jpg" "$R/s07.mp4" '(iw-720)/2'
           still_center "$R/miners.jpg" "$R/s08.mp4" '(iw-720)/2'
           still_center "$R/calama-homes.jpg" "$R/s09.mp4" '(iw-720)*0.34'
@@ -246,7 +237,6 @@ jobs:
             public/assets/aoc001-report-video-candidate-v0.3.mp4 \
             > public/assets/aoc001-report-video-candidate-v0.3-probe.txt
 
-          # 5x2 contact sheet from the finished encoded file.
           ffmpeg -y -i public/assets/aoc001-report-video-candidate-v0.3.mp4 \
             -vf "fps=1/3,scale=216:384,tile=5x2" -frames:v 1 \
             public/assets/aoc001-report-video-candidate-v0.3-review.jpg
@@ -261,13 +251,13 @@ jobs:
           Reuters, "Anthropic signs first Australia data centre agreement", 16 Sep 2026.
           Western Downs Digital Park / Zerra DC official project site.
 
-          500 HOWARD STREET PHOTOGRAPHS
-          Scott Schiller — "Slack HQ - 500 Howard (40929471094).jpg" — CC BY-SA 2.0.
-          Scott Schiller — "Slack HQ - 500 Howard (41600178032).jpg" — CC BY-SA 2.0.
-          Photographs taken in 2018 when the building was occupied by Slack. 500 Howard is used only as the building that is Anthropic's current 2026 headquarters.
+          500 HOWARD STREET BUILDING CONTEXT
+          HaeB — "Slack offices, Howard Street, San Francisco (viewed from the south-west, January 2020).jpg" — CC BY-SA 4.0.
+          HaeB — "Slack offices, Howard Street, San Francisco (viewed from the north-east, detail, January 2020).jpg" — CC BY-SA 4.0.
+          Both photographs were taken in 2020 while Slack occupied the building. 500 Howard is used only as the building that is Anthropic's current 2026 headquarters.
 
-          QUEENSLAND LOCATOR
-          "Dalby location map in Queensland.PNG" — CC BY-SA 3.0 / GFDL. Geographic context only; not a precise project-site map.
+          WESTERN DOWNS REGIONAL CONTEXT
+          Mattinbgn — "DalbyMainStreet.JPG" — CC BY-SA 3.0. Dalby regional context only; the project site is not shown.
 
           DATA-CENTRE CONTEXT VIDEO
           Lawrence Systems — "Data Center Tour & Technical Deep Dive into the Power, Data and Cooling Infrastructure!.webm" — CC BY 3.0. Generic context only; not Anthropic/Western Downs footage.
@@ -275,8 +265,8 @@ jobs:
           GRID CONTEXT VIDEO
           Fernando Moital — "REN overhead power line maintenance PT 2018 E.webm" — CC BY 2.0. Generic grid context only.
 
-          COPPER CONTEXT VIDEO
-          François Nguyen — "5 copper crystals covered with glass.webm" — CC BY 2.0. Copper material context only.
+          CHILE COPPER TRANSPORT
+          Benjamin Goetzinger — "Chile - copper slates on train.jpg" — CC BY-SA 4.0. Copper sheets being transported toward the port of Antofagasta, Chile; contextual only.
 
           CHUQUICAMATA
           Pierre cb — "Chuquicamata-Chile-2009.JPG" — public-domain dedication.
