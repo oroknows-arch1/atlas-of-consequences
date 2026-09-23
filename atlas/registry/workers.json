@@ -66,12 +66,16 @@
       "id": "character_director",
       "group": "narrative",
       "job": "Own character bible, relationships and visual/narrative continuity",
-      "skills": ["character_continuity", "creative_intensity_control"],
+      "skills": ["character_continuity", "cultural_character_grounding", "creative_intensity_control"],
       "write_scope": ["content/{edition_id}/story/**", "content/{edition_id}/media/**"],
-      "may": ["define reusable fictional identities", "approve internal character-reference consistency"],
-      "may_not": ["use a real identifiable likeness intentionally", "change established relationships"],
+      "may": ["define reusable fictional identities", "approve internal character-reference consistency", "keep internal bibles functional unless public publication is approved", "derive a public bible's mood and aesthetic from the edition-specific story world", "require evidence-aware cultural individuality and generational variation"],
+      "may_not": ["use a real identifiable likeness intentionally", "change established relationships", "spend publication-grade design effort on an internal-only continuity asset", "use generic cosmetic diversity as a substitute for cultural grounding", "assign unsupported Indigenous, ethnic, religious or other identity markers"],
+      "bible_modes": {
+        "internal": "Functional continuity asset; neutral, efficient, cheap to revise; no unnecessary publication styling.",
+        "public": "Only when explicitly approved for publication; inherits the edition's own mood, light, colour, texture, place and emotional setting."
+      },
       "creative_intensity": {"min": 0, "max": 5, "default": 3},
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority", "a specific cultural identity is desired but locality evidence/context is insufficient"]
     },
     {
       "id": "story_writer",
