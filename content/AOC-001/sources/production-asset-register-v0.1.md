@@ -27,7 +27,22 @@
 
 ### 02 — GRID / ENERGY
 
-**Status:** PENDING
+**Status:** LOCKED  
+**Asset:** `Transmission substation.jpg`  
+**Type:** Real photograph  
+**Photographer / uploader:** Rsparks3  
+**Date photographed:** 21 December 2025  
+**Original dimensions:** 4096 × 3072  
+**Location depicted:** Transmission substation near Bayfield, Colorado, United States, viewed from the north-west  
+**Source record:** Wikimedia Commons  
+**Source page:** https://commons.wikimedia.org/wiki/File:Transmission_substation.jpg  
+**Source:** Own work by the uploader  
+**Licence:** Creative Commons CC0 1.0 Universal Public Domain Dedication  
+**Licence URL:** https://creativecommons.org/publicdomain/zero/1.0/  
+**Licence verification:** Wikimedia Commons records the uploader/copyright holder as releasing the work under CC0 1.0 and identifies the media as a directly photographed JPEG with preserved EXIF/camera metadata.  
+**Permitted production use:** Copy, publish, crop, adapt and use commercially without requesting permission.  
+**Required credit:** None required by CC0. Atlas should still retain provenance in SOURCES; optional visible credit: `Photo: Rsparks3 / Wikimedia Commons / CC0`.  
+**Production note:** Use as generic grid/transmission infrastructure in the opening sequence. Do not caption, imply or visually present this Colorado substation as a Chilean or Calama-specific location.
 
 ### 03 — COPPER / MINING
 
