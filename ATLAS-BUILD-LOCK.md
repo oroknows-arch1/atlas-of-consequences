@@ -197,12 +197,17 @@ No additional scrolling refinements, deployment work or decorative asset generat
 - They are references for standard, pacing and language only; Atlas must not copy third-party branding or protected creative assets.
 
 ## Required video assets
-- `AOC001-REPORT-VIDEO`: **STRUCTURAL DIRECTION APPROVED / CURRENT v0.1 CANDIDATE NOT PRODUCTION-QUALITY**.
-  - Candidate: `public/assets/aoc001-report-video-candidate-v0.1.mp4`
-  - 20 seconds, 720×1280, H.264, 25 fps, 9:16.
-  - The factual chain and general direction were positively reviewed.
-  - The existing candidate is retained as a structural prototype only because its production treatment feels too synthetic, dated and amateur relative to the newly locked reference standard.
-  - It must be rebuilt in the locked modern editorial/report style before production approval.
+- `AOC001-REPORT-VIDEO`: **v0.2 REBUILT / TECHNICAL QA PASSED / AWAITING HUMAN STYLE APPROVAL**.
+  - Current candidate: `public/assets/aoc001-report-video-candidate-v0.2.mp4`
+  - Technical verification: 22.2 seconds, 720×1280, 30 fps, H.264 video, stereo AAC audio at 48 kHz.
+  - Presentation changes from v0.1: full-frame moving footage, faster editorial cuts, restrained caption/subtitle treatment, restrained Atlas branding, source labels, and a low CC0 atmospheric sound bed.
+  - The approved factual chain is unchanged.
+  - Real moving footage remains generic where generic; it is not relabelled as a specific AI facility or Chilean grid asset.
+  - Real Calama and Chuquicamata place imagery is retained for the location hand-off.
+  - Visual QA contact sheet: `public/assets/aoc001-report-video-candidate-v0.2-review.jpg`.
+  - Technical probe record: `public/assets/aoc001-report-video-candidate-v0.2-probe.txt`.
+  - **Do not promote v0.2 to production-approved status until the user watches it and explicitly approves the style.**
+- `AOC001-REPORT-VIDEO v0.1`: retained as **STRUCTURAL PROTOTYPE / NOT PRODUCTION-QUALITY**.
 - `AOC001-STORY-PROMO`: **NOT YET PRODUCED to the locked cinematic reference standard**.
 - `AOC001-OPEN-01`: **NOT YET PRODUCED as the approved 20–30 second hybrid of the verified report and story clips**.
 
@@ -214,8 +219,8 @@ No additional scrolling refinements, deployment work or decorative asset generat
 - The existing scroll/video-control code may be reusable later, but it is not evidence that the opening media is complete.
 
 # Recovery / production sequence — LOCKED
-1. Rebuild and verify `AOC001-REPORT-VIDEO` to the first-reference modern editorial/news standard.
-2. Produce and verify `AOC001-STORY-PROMO` to the second-reference cinematic human-story standard.
+1. Human-review and either approve or revise `AOC001-REPORT-VIDEO v0.2` against the first-reference modern editorial/news standard.
+2. Only after report approval, produce and verify `AOC001-STORY-PROMO` to the second-reference cinematic human-story standard.
 3. Edit selected moments from those two verified clips into the **20–30 second** `AOC001-OPEN-01` hybrid trailer.
 4. Human-review and approve the hybrid trailer.
 5. Replace the old prototype opening MP4 with the verified hybrid trailer.
@@ -223,6 +228,6 @@ No additional scrolling refinements, deployment work or decorative asset generat
 7. Only then continue reader polish, section imagery and distribution derivatives.
 
 # Next single production outcome
-**Rebuild `AOC001-REPORT-VIDEO` to the newly locked modern editorial/news production standard while preserving the approved factual chain.**
+**Human visual/style review of `AOC001-REPORT-VIDEO v0.2`.**
 
-Do not begin the story promo, hybrid opening or further website polish until that rebuilt report candidate has passed technical QA, editorial/style QA and human review.
+Do not begin the story promo, hybrid opening or further website polish until v0.2 is explicitly approved or specific revisions are requested.
