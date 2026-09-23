@@ -7,13 +7,13 @@ ARTICLE / PROJECT FACTS
 Reuters, "Anthropic signs first Australia data centre agreement", 16 Sep 2026.
 Western Downs Digital Park / Zerra DC official project site.
 
-500 HOWARD STREET PHOTOGRAPHS
-Scott Schiller — "Slack HQ - 500 Howard (40929471094).jpg" — CC BY-SA 2.0.
-Scott Schiller — "Slack HQ - 500 Howard (41600178032).jpg" — CC BY-SA 2.0.
-Photographs taken in 2018 when the building was occupied by Slack. 500 Howard is used only as the building that is Anthropic's current 2026 headquarters.
+500 HOWARD STREET BUILDING CONTEXT
+HaeB — "Slack offices, Howard Street, San Francisco (viewed from the south-west, January 2020).jpg" — CC BY-SA 4.0.
+HaeB — "Slack offices, Howard Street, San Francisco (viewed from the north-east, detail, January 2020).jpg" — CC BY-SA 4.0.
+Both photographs were taken in 2020 while Slack occupied the building. 500 Howard is used only as the building that is Anthropic's current 2026 headquarters.
 
-QUEENSLAND LOCATOR
-"Dalby location map in Queensland.PNG" — CC BY-SA 3.0 / GFDL. Geographic context only; not a precise project-site map.
+WESTERN DOWNS REGIONAL CONTEXT
+Mattinbgn — "DalbyMainStreet.JPG" — CC BY-SA 3.0. Dalby regional context only; the project site is not shown.
 
 DATA-CENTRE CONTEXT VIDEO
 Lawrence Systems — "Data Center Tour & Technical Deep Dive into the Power, Data and Cooling Infrastructure!.webm" — CC BY 3.0. Generic context only; not Anthropic/Western Downs footage.
@@ -21,8 +21,8 @@ Lawrence Systems — "Data Center Tour & Technical Deep Dive into the Power, Dat
 GRID CONTEXT VIDEO
 Fernando Moital — "REN overhead power line maintenance PT 2018 E.webm" — CC BY 2.0. Generic grid context only.
 
-COPPER CONTEXT VIDEO
-François Nguyen — "5 copper crystals covered with glass.webm" — CC BY 2.0. Copper material context only.
+CHILE COPPER TRANSPORT
+Benjamin Goetzinger — "Chile - copper slates on train.jpg" — CC BY-SA 4.0. Copper sheets being transported toward the port of Antofagasta, Chile; contextual only.
 
 CHUQUICAMATA
 Pierre cb — "Chuquicamata-Chile-2009.JPG" — public-domain dedication.
