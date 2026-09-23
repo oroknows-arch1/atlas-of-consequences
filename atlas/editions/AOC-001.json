@@ -36,8 +36,8 @@
     "source_register": "satisfied_by_existing_artifact",
     "factual_media": "candidate_ready",
     "factual_media_human_gate": "pending",
-    "visual_character_bible": "reference_spec_ready_visual_candidate_pending",
-    "visual_character_human_gate": "blocked_until_visual_reference_set_review",
+    "visual_character_bible": "revised_for_cultural_individuality_visual_set_pending",
+    "visual_character_human_gate": "blocked_until_culturally_grounded_visual_reference_set_review",
     "fiction_media": "blocked_by_visual_character_gate",
     "fiction_media_human_gate": "blocked",
     "hybrid_opening": "blocked_until_both_media_branches_approved",
@@ -50,8 +50,10 @@
   "foreground_next": "visual_character_bible",
   "notes": [
     "The existing factual report v0.4 remains a candidate awaiting human review; it is not silently promoted.",
-    "The finished story already supplies the narrative character model; the character_director has now produced the reusable visual identity specification and machine-readable continuity registry.",
-    "The visual character node remains active until the generated reference set is reviewed by the human gate.",
+    "Internal character bibles are functional continuity assets; publication-grade design is deferred unless a public character-bible surface is explicitly approved.",
+    "If a public bible is later approved, its visual treatment must inherit AOC-001's story-specific mood, place, light, texture and emotional setting.",
+    "The first character direction was judged too homogeneous. The character_director has revised the family around two distinct parental lines, natural variation and evidence-aware Calama cultural context without assigning unsupported Indigenous/ethnic identity.",
+    "The visual character node remains active and the human gate remains blocked until a new culturally grounded visual reference set is reviewed.",
     "The factual and fictional media branches may develop independently, but the hybrid opening cannot begin until both pass human approval.",
     "The old still-image opening prototype is historical evidence only and is not an eligible hybrid-opening input."
   ]
