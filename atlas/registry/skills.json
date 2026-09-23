@@ -8,6 +8,7 @@
     {"id":"causal_mapping","does":"Map consequence chains and label certainty at each link.","does_not":"Turn correlation or plausible connection into direct causation."},
     {"id":"story_architecture","does":"Design plot, subplots, reveals, pacing and narrative questions inside established world truth.","does_not":"Change evidence or locked story facts."},
     {"id":"character_continuity","does":"Maintain identity, relationships, history, appearance and behavioural continuity.","does_not":"Rewrite factual locality to suit a character."},
+    {"id":"cultural_character_grounding","does":"Build culturally situated fictional individuals from researched locality through appearance, household detail, clothing, routines, language environment and generational variation.","does_not":"Assign identity markers for cosmetic diversity, stereotypes or unsupported cultural signalling."},
     {"id":"fiction_writing","does":"Write scenes, dialogue, interiority and transitions.","does_not":"Present invented conditions as sourced reality."},
     {"id":"creative_intensity_control","does":"Adjust narrative pressure from 0 to 5 without widening authority.","does_not":"Permit new factual claims, sensationalism or boundary bypass."},
     {"id":"editorial_subtraction","does":"Remove explanation, repetition and weak prose while preserving meaning.","does_not":"Create new plot under the guise of editing."},

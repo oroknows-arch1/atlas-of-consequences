@@ -62,6 +62,37 @@ Creative workers may expose an `intensity` setting from `0` to `5`.
 
 Intensity changes **how strongly a creative worker explores its permitted space**. It never expands that space. It cannot turn speculation into fact, invent a new factual condition, alter a locked plot fact, or bypass a human gate.
 
+## Character-bible modes
+
+Character bibles have two distinct jobs and Atlas must not spend publication-grade design effort on an internal production tool unless a public surface has actually been approved.
+
+### Internal continuity bible
+
+The default character bible is a production-control asset. Its job is identity consistency, age, relationships, wardrobe continuity, body/face references and behavioural continuity.
+
+- Keep it functional, clear and cheap to revise.
+- Neutral reference views are preferred.
+- Do not add cinematic styling merely to make the production document look impressive.
+- Internal usefulness outranks presentation polish.
+
+### Public character bible
+
+A public-facing character bible exists only when the edition explicitly chooses to publish one.
+
+If published, its design must inherit the **specific story's visual world** — mood, lighting, colour, texture, place, emotional temperature and setting language — rather than using a generic Atlas template or a reusable aesthetic unrelated to the edition.
+
+Public character design remains downstream from approved character identity. Styling may amplify the story world but may not alter the character's established identity or imply documentary truth.
+
+### Cultural individuality
+
+Character diversity is not achieved by randomly varying appearances. The `character_director` must build distinct people whose appearance, household details, clothing, objects, routines, language environment and generational differences can plausibly exist inside the researched locality.
+
+- A cast should not collapse into one repeated visual type unless the story itself requires it.
+- Family resemblance does not require identical complexion, facial structure, hair texture, body type, style or temperament.
+- Cultural influence should appear through lived detail as well as faces.
+- Do not assign a specific Indigenous, ethnic, religious or other identity merely to make a cast appear more diverse. Such identity requires sufficient evidence/context and appropriate cultural grounding.
+- Research constrains cultural truth; fiction creates the individual within it.
+
 ## Graph rules
 
 The graph is a directed workflow of workers and gates.

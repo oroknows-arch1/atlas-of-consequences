@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.2",
+  "edition_id": "AOC-001",
+  "artifact_id": "AOC001-VISUAL-CHARACTER-BIBLE-v0.1",
+  "worker": "character_director",
+  "skills": ["character_continuity", "cultural_character_grounding", "creative_intensity_control"],
+  "status": "approved_internal_reference_set",
+  "creative_intensity": 1,
+  "bible_mode": "internal",
+  "public_bible_approved": false,
+  "purpose": "Functional fictional identity and continuity control for AOC-001 story media.",
+  "mode_rules": {
+    "internal": "Neutral, functional continuity asset. No unnecessary cinematic or publication design spend.",
+    "public": "Only if explicitly approved. Must inherit AOC-001 story mood, place, light, colour, texture and emotional setting rather than a generic character-bible aesthetic."
+  },
+  "boundaries": [
+    "Do not alter established family relationships, story truth, occupations or locality.",
+    "Do not intentionally reproduce a real identifiable person's likeness.",
+    "Do not treat invented appearance as representative of Calama or Chile.",
+    "Do not introduce unsupported Indigenous, ethnic, religious or other identity markers.",
+    "Do not use cosmetic diversity as a substitute for researched cultural grounding.",
+    "Reference imagery is fictional production control, never documentary evidence."
+  ],
+  "cultural_grounding": {
+    "principle": "Cultural influence appears through lived context as well as appearance.",
+    "allowed_context": [
+      "contemporary Spanish-language household and school material",
+      "ordinary occupied Calama home details",
+      "practical responses to bright dry Calama conditions",
+      "mining-roster calendars, bags and work-transition objects without mining decor",
+      "locally credible football or civic references such as Cobreloa when naturally relevant",
+      "family photographs and inherited household objects",
+      "generational clothing and grooming differences",
+      "city, school and neighbourhood life alongside mining"
+    ],
+    "requires_research_before_use": ["Lickanantay/Atacameño identity", "Aymara identity", "Quechua identity", "other specific Indigenous or cultural identity not already established"]
+  },
+  "family_continuity": {
+    "resemblance_rule": "Believable kinship, not visual sameness.",
+    "parental_lines": {
+      "daniela_elena": "medium-to-deeper warm-brown complexion; straighter-to-softly-wavy dark hair; pronounced cheek structure; broad expressive brow; compact-to-average builds",
+      "mauricio": "lighter warm-olive-to-tan complexion; wavier/loosely-curled dark hair; broader lower face; deeper-set eyes; taller broader frame"
+    },
+    "children_rule": "Tomás and Emilia plausibly blend both parental lines without cloning either parent.",
+    "variation_required": ["complexion", "hair texture", "face structure", "body type", "age presentation", "wardrobe", "expressiveness"]
+  },
+  "characters": [
+    {"id":"AOC001-CHAR-DANIELA-01","name":"Daniela","age":38,"role":"Calama-based administrative worker, partner, mother, daughter of Elena","reference_generation_id":"c3fb5be3-34b3-4c96-b6fd-576b9f203d14"},
+    {"id":"AOC001-CHAR-MAURICIO-01","name":"Mauricio","age":40,"role":"mining-related maintenance/technical worker, partner, father","reference_generation_id":"1b59e1cf-6b86-4db2-b04d-f4135361fd4b"},
+    {"id":"AOC001-CHAR-TOMAS-01","name":"Tomás","age":16,"role":"secondary-school student considering technical study","reference_generation_id":"89adf8cb-c9a8-4baf-ae4b-29defb46ed9a"},
+    {"id":"AOC001-CHAR-EMILIA-01","name":"Emilia","age":7,"role":"primary-school child","reference_generation_id":"75cd2f33-7fca-49dd-b2c3-983be1dbee62"},
+    {"id":"AOC001-CHAR-ELENA-01","name":"Elena","age":64,"role":"Daniela's mother and the children's grandmother","reference_generation_id":"9031ba6d-39df-4bbe-b889-85b6e8cce1a6"}
+  ],
+  "family_group_reference_generation_id": "34173fb8-35a4-4479-a9eb-c72b7db15d35",
+  "human_gate": {
+    "id": "visual_character_human_gate",
+    "status": "approved",
+    "approved_on": "2026-09-24",
+    "approval_scope": "Internal continuity references approved for AOC001-STORY-PROMO production only.",
+    "next_worker": "fiction_media_director"
+  }
+}

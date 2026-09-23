@@ -64,7 +64,8 @@ for boundary in authority_doc.get("immutable_boundaries", []):
 if edition.get("graph") != "atlas/graphs/edition-production.json":
     errors.append("AOC-001 is not bound to the production graph")
 
-for node_id in edition.get("node_state", {}):
+node_state = edition.get("node_state", {})
+for node_id in node_state:
     if node_id not in node_ids:
         errors.append(f"AOC-001 state references unknown node {node_id}")
 
@@ -85,8 +86,21 @@ for item in required_boundaries:
     if item not in present:
         errors.append(f"required Atlas boundary missing: {item}")
 
-if edition.get("foreground_next") != "visual_character_bible":
-    errors.append("AOC-001 foreground must currently be visual_character_bible")
+# AOC-001 foreground is derived from the current visual-character gate rather
+# than frozen to one historical node. This keeps the validator aligned with
+# real graph progress instead of blocking an approved handoff.
+visual_gate = node_state.get("visual_character_human_gate")
+foreground = edition.get("foreground_next")
+if visual_gate == "approved":
+    if node_state.get("visual_character_bible") != "satisfied_by_approved_reference_set":
+        errors.append("approved visual gate requires approved visual-character reference state")
+    if node_state.get("fiction_media") != "ready":
+        errors.append("approved visual gate must unlock fiction_media")
+    if foreground != "fiction_media":
+        errors.append("approved visual gate requires fiction_media as AOC-001 foreground")
+else:
+    if foreground != "visual_character_bible":
+        errors.append("unapproved visual gate requires visual_character_bible as AOC-001 foreground")
 
 if errors:
     print("ATLAS GRAPH VALIDATION: FAIL")
