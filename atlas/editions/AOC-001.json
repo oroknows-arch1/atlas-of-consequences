@@ -27,15 +27,16 @@
     "locality_pack": "satisfied_by_existing_artifact",
     "consequence_map": "satisfied_by_existing_artifact",
     "story_architecture": "satisfied_by_existing_artifact",
+    "character_model": "satisfied_by_existing_artifact",
     "story_draft": "satisfied_by_existing_artifact",
     "story_edit": "satisfied_by_existing_artifact",
     "story_boundary_gate": "satisfied_by_existing_artifact",
     "source_register": "satisfied_by_existing_artifact",
     "factual_media": "candidate_ready",
     "factual_media_human_gate": "pending",
-    "character_bible": "ready",
-    "character_human_gate": "blocked_until_character_bible_review",
-    "fiction_media": "blocked_by_character_and_story_gates",
+    "visual_character_bible": "ready",
+    "visual_character_human_gate": "blocked_until_visual_character_bible_review",
+    "fiction_media": "blocked_by_visual_character_gate",
     "fiction_media_human_gate": "blocked",
     "hybrid_opening": "blocked_until_both_media_branches_approved",
     "hybrid_human_gate": "blocked",
@@ -44,10 +45,10 @@
     "publication_qa": "blocked_until_reader_and_distribution_candidates_exist",
     "release_human_gate": "blocked"
   },
-  "foreground_next": "character_bible",
+  "foreground_next": "visual_character_bible",
   "notes": [
     "The existing factual report v0.4 remains a candidate awaiting human review; it is not silently promoted.",
-    "Character-bible work can proceed as the current fiction-branch foreground action without reopening locked story content.",
+    "The finished story already supplies the narrative character model; current character-bible work is the reusable visual/continuity reference needed for fictional media production.",
     "The factual and fictional media branches may develop independently, but the hybrid opening cannot begin until both pass human approval.",
     "The old still-image opening prototype is historical evidence only and is not an eligible hybrid-opening input."
   ]
