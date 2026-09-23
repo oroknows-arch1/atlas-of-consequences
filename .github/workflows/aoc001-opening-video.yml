@@ -5,10 +5,14 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/aoc001-opening-video.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/aoc001-render-trigger'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   render-opening:
@@ -16,8 +20,6 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Install render tools
         run: |
@@ -56,15 +58,12 @@ jobs:
 
           ffmpeg -y -sseof -0.05 -i public/assets/aoc001-opening.mp4 -frames:v 1 -q:v 2 public/assets/aoc001-opening-final.jpg
 
-      - name: Commit rendered production assets
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/assets/aoc001-opening.mp4 public/assets/aoc001-opening-final.jpg
-          if git diff --cached --quiet; then
-            echo 'No rendered asset changes.'
-            exit 0
-          fi
-          git commit -m 'Build AOC-001 opening video [skip ci]'
-          git push
+      - name: Upload rendered production assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: aoc001-opening-production
+          path: |
+            public/assets/aoc001-opening.mp4
+            public/assets/aoc001-opening-final.jpg
+          if-no-files-found: error
+          retention-days: 3
