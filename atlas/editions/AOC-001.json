@@ -19,7 +19,9 @@
     "report_video_record": "content/AOC-001/media/AOC001-REPORT-VIDEO.md",
     "report_video_candidate": "public/assets/aoc001-report-video-candidate-v0.4.mp4",
     "report_video_asset_register": "content/AOC-001/sources/report-video-v0.4-asset-register.md",
-    "story_promo_lock": "content/AOC-001/media/AOC001-STORY-PROMO-LOCK.md"
+    "story_promo_lock": "content/AOC-001/media/AOC001-STORY-PROMO-LOCK.md",
+    "visual_character_bible": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.md",
+    "visual_character_registry": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.json"
   },
   "node_state": {
     "evidence_pack": "satisfied_by_existing_artifact",
@@ -34,8 +36,8 @@
     "source_register": "satisfied_by_existing_artifact",
     "factual_media": "candidate_ready",
     "factual_media_human_gate": "pending",
-    "visual_character_bible": "ready",
-    "visual_character_human_gate": "blocked_until_visual_character_bible_review",
+    "visual_character_bible": "reference_spec_ready_visual_candidate_pending",
+    "visual_character_human_gate": "blocked_until_visual_reference_set_review",
     "fiction_media": "blocked_by_visual_character_gate",
     "fiction_media_human_gate": "blocked",
     "hybrid_opening": "blocked_until_both_media_branches_approved",
@@ -48,7 +50,8 @@
   "foreground_next": "visual_character_bible",
   "notes": [
     "The existing factual report v0.4 remains a candidate awaiting human review; it is not silently promoted.",
-    "The finished story already supplies the narrative character model; current character-bible work is the reusable visual/continuity reference needed for fictional media production.",
+    "The finished story already supplies the narrative character model; the character_director has now produced the reusable visual identity specification and machine-readable continuity registry.",
+    "The visual character node remains active until the generated reference set is reviewed by the human gate.",
     "The factual and fictional media branches may develop independently, but the hybrid opening cannot begin until both pass human approval.",
     "The old still-image opening prototype is historical evidence only and is not an eligible hybrid-opening input."
   ]
