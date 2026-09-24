@@ -27,6 +27,7 @@
     "hybrid_opening_ux_lock": "content/AOC-001/media/AOC001-HYBRID-OPENING-UX.md",
     "reader_approval_record": "content/AOC-001/media/AOC001-READER-APPROVAL.md",
     "publication_qa_report": "content/AOC-001/publication-qa-v0.1.md",
+    "manifest_reconciliation": "content/AOC-001/manifest-reconciliation-note-2026-09-25.md",
     "visual_character_bible": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.md",
     "visual_character_registry": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.json",
     "visual_character_approval_record": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-APPROVAL.md"
@@ -70,7 +71,8 @@
     "The final approved reader tuning uses a substantially lighter full-bleed background treatment; the reader-state film brightness was raised from 0.43 to 0.67 while retaining text legibility.",
     "Opening UX remains: immediate viewport handoff, muted autoplay where required, small Tap for sound control, Skip, and failure-safe reader reveal.",
     "The live AOC-001 mobile reader visual/interaction experience was explicitly approved by the human gate on 2026-09-24 after the full-screen brightness and scroll-scrub pass.",
-    "Publication QA v0.1 failed on 2026-09-25 because the live reader still contains summary skeleton content rather than the complete locked master edition; required consequence/place/source treatments and reduced-motion fallback are incomplete; the distribution package has no candidate; and the edition manifest has drifted from the approved live design.",
+    "Publication QA v0.1 failed on 2026-09-25 because the live reader still contains summary skeleton content rather than the complete locked master edition; required consequence/place/source treatments and reduced-motion fallback are incomplete; the distribution package has no candidate; and the edition manifest had drifted from the approved live design.",
+    "The edition manifest was reconciled to the approved current state on 2026-09-25. Obsolete opening, asset and pipeline instructions were removed from the active contract and retained only through Git history and approval/QA records. Manifest drift is no longer an active reader-build blocker.",
     "The visual/interaction approval remains valid and must be preserved during reader remediation. The next foreground action is complete master-content integration into the approved reader treatment.",
     "The old still-image opening prototype and the rejected auto-playing factual-to-story sequence are historical evidence only and are not eligible reader-opening inputs."
   ]

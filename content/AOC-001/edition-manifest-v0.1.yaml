@@ -1,9 +1,12 @@
-schema_version: "0.1"
+schema_version: "0.2"
+manifest_role: "active production contract"
+manifest_reconciled: "2026-09-25"
+
 edition:
   id: "AOC-001"
   ecosystem_id: "AOC-ECO-0001"
   title: "AI's Physical Hunger"
-  status: "publication-locked content / production assets pending"
+  status: "reader remediation / publication QA failed / release blocked"
   reader_path:
     - whats_real
     - story
@@ -22,6 +25,9 @@ source_of_truth:
   publication_audit: "content/AOC-001/master-edition-publication-audit-v0.1.md"
   evidence_register: "content/AOC-001/sources/publication-source-register-v0.1.md"
   constitution: "docs/atlas-constitution.md"
+  reader_approval: "content/AOC-001/media/AOC001-READER-APPROVAL.md"
+  publication_qa: "content/AOC-001/publication-qa-v0.1.md"
+  manifest_reconciliation: "content/AOC-001/manifest-reconciliation-note-2026-09-25.md"
   distribution_rules: "content/AOC-001/distribution/README.md"
   orok_rules: "content/AOC-001/orok/README.md"
 
@@ -49,60 +55,69 @@ certainty_model:
     meaning: "Daniela, Mauricio, Tomás, Emilia, Elena and their events are invented."
     visual_rule: "Generated or staged fictional visuals are allowed only with persistent STORY / FICTION treatment. Never present fictional people or scenes as documentary evidence."
 
-brand_shell:
-  permanent_assets:
-    required:
-      - atlas_logo_or_wordmark
-      - edition_stamp_system
-      - mode_label_system
-      - typography_system
-      - transition_system
-      - map_coordinate_language
-    optional:
-      - sonic_ident
-  permanent_site_imagery: false
-  principle: "Permanent shell, temporary world."
+approved_reader_system:
+  status: "approved_2026-09-24"
+  preserve_during_remediation: true
+  live_surface: "public/index.html"
+  opening:
+    asset: "public/assets/aoc001-report-video-candidate-v0.4.mp4"
+    mode: "factual film only"
+    status: "approved"
+    autoplay: "immediate; muted where browser policy requires"
+    sound_control: "small Tap for sound control"
+    skip_control: true
+    failure_policy: "fail open into reader"
+    final_frame_hold: true
+    transition: "final factual frame visibly recedes into the reader"
+    story_promo_auto_play: false
+  reader_background:
+    source: "same approved factual film"
+    behavior: "persistent full-screen scroll-driven scrub layer"
+    object_fit: "cover"
+    approved_reader_brightness: 0.67
+    approved_reader_opacity: 0.82
+    darker_previous_reader_brightness_retired: 0.43
+  soundtrack:
+    approval: "approved for testing"
+    role: "restrained supporting bed only"
+    rule: "must never compete with visuals, speech, captions, evidence or story"
+  reduced_motion:
+    required: true
+    implementation_status: "incomplete / publication blocker"
+    target: "approved static keyframes with normal section transitions; never skip reader access"
 
-motion_model:
-  narrative_progress_range: "0-100"
-  current_controller: "touch scroll"
-  controller_is_not_content_model: true
-  opening_rule: "The edition opens as moving image before conventional navigation appears."
-  memory_rule: "The opening visual sequence becomes the edition's visual memory; later scroll states return to selected moments from that same sequence."
-  slow_scroll: "Directly blend/scrub between adjacent cinematic moments."
-  quick_flick: "Allow normal page movement; visual layer resolves smoothly toward the destination key moment without slowing the user's scroll."
-  reverse_scroll: "Reverse the visual progression naturally."
-  hard_cut_default: false
-  hard_cut_exception: "Only when deliberately required by story/editorial intent."
-  reduced_motion_fallback: "Static approved keyframes with normal section transitions."
+separate_media_assets:
+  factual_report_video:
+    id: "AOC001-REPORT-VIDEO"
+    status: "approved"
+    role: "automatic factual opening + scroll-scrub visual memory + standalone factual derivative"
+    approval_record: "content/AOC-001/media/AOC001-REPORT-VIDEO-APPROVAL.md"
+    provenance: "content/AOC-001/sources/report-video-v0.4-asset-register.md"
+  story_promo:
+    id: "AOC001-STORY-PROMO"
+    status: "approved separate fiction/distribution asset"
+    role: "optional cinematic fiction teaser; not part of automatic reader opening"
+    label_required: "STORY / FICTION"
+    approval_record: "content/AOC-001/media/AOC001-STORY-PROMO-APPROVAL.md"
+  atlas_soundtrack:
+    status: "approved for testing"
+    role: "low supporting sonic signature"
+    approval_record: "content/AOC-001/media/AOC001-ATLAS-SOUNDTRACK-APPROVAL.md"
+  visual_character_reference_set:
+    status: "approved internal continuity baseline"
+    public_character_bible: false
+    approval_record: "content/AOC-001/media/AOC001-VISUAL-CHARACTER-APPROVAL.md"
 
-opening:
-  asset_id: "AOC001-OPEN-01"
-  type: "hybrid edition trailer"
-  target_duration_seconds: "10-15"
-  status: "required / not yet produced"
-  purpose: "Introduce the whole edition before asking the reader to choose Report or Story."
-  visual_arc:
-    - "AI/data-centre physical infrastructure"
-    - "electricity/grid infrastructure"
-    - "copper/material system"
-    - "Calama/Chuquicamata place connection"
-    - "human/family consequence"
-  final_state: "A strong final image that can remain behind the interface as the edition settles."
-  audio_default: "muted autoplay where required by browser policy; experience must remain complete without sound"
-  factual_fiction_rule: "Any fictional human material in the hybrid opening must be visually identifiable as fiction and must not be cut to resemble reportage."
-
-entry_interface:
-  appears_after_opening: true
-  primary_actions:
-    - label: "ENTER THE REPORT"
-      target: "whats_real"
-    - label: "ENTER THE STORY"
-      target: "story"
-  secondary_surfaces:
-    - consequences
-    - place
-    - sources
+retired_active_instructions:
+  - "10–15 second hybrid edition trailer as required reader opening"
+  - "automatic factual-video to story-promo opening sequence"
+  - "ENTER THE REPORT / ENTER THE STORY gate before the reader"
+  - "required / not yet produced status for the factual report video"
+  - "required / not yet produced status for the story promo"
+  - "empty required asset slots for media already produced and approved"
+  - "asset acquisition as the next foreground action"
+  - "mobile web assembly as not yet started"
+  - "rejected still-image opening prototype"
 
 sections:
   whats_real:
@@ -110,238 +125,76 @@ sections:
     mode: "factual"
     certainty: "documented_global + documented_place"
     content_source: "master-edition-v0.1.md#WHAT'S REAL"
-    evidence_ids:
-      - SR-01
-      - SR-02
-      - SR-03
-      - SR-04
-      - SR-05
-      - SR-06
-      - SR-07
-      - SR-08
-      - SR-10
+    integration_status: "pending complete master-content integration"
+    evidence_ids: [SR-01, SR-02, SR-03, SR-04, SR-05, SR-06, SR-07, SR-08, SR-10]
     required_web_treatment:
       - "short mobile paragraphs"
       - "key-number callouts: 415 TWh, ~1.5%, 58%, ~15 km"
       - "visual consequence chain rather than repeated arrow prose"
       - "motion becomes quieter once long-form reading begins"
-    visual_state:
-      key_moment: "physical infrastructure / data centre / grid"
-      allowed_asset_classes:
-        - "licensed or rights-cleared documentary photo/video"
-        - "official/primary-source operational imagery where reuse rights permit"
-        - "editorial map/data visual created from verified facts"
-        - "clearly explanatory generated diagram, not fake documentary footage"
-      prohibited:
-        - "generated footage presented as a real data centre, Calama, Chuquicamata or real worker"
-        - "imagery implying AI directly caused a specific mine expansion or job"
-    media_outputs:
-      - id: "AOC001-REPORT-VIDEO"
-        type: "factual report clip"
-        status: "required / not yet produced"
-        social_derivative: true
-        label_required: "WHAT'S REAL"
-
   story:
     display_label: "STORY — FICTION"
     mode: "fiction"
     certainty: "fictional_human"
     content_source: "master-edition-v0.1.md#STORY — FICTION"
-    fictional_people:
-      - Daniela
-      - Mauricio
-      - Tomás
-      - Emilia
-      - Elena
-    environmental_constraints:
-      - "7x7 roster plausibility: SR-11"
-      - "organised worker transport plausibility: SR-12"
-      - "mining commuting context: SR-10"
+    integration_status: "pending complete master-content integration"
+    fictional_people: [Daniela, Mauricio, Tomás, Emilia, Elena]
     required_web_treatment:
       - "persistent or obvious STORY / FICTION label"
       - "fiction disclosure before first story paragraph"
       - "preserve short paragraphs and scene breaks"
       - "no factual cards inserted into the fiction"
       - "do not make the household look like a documentary case study"
-    visual_state:
-      key_moment: "human / household / absence / return"
-      allowed_asset_classes:
-        - "generated cinematic fictional character imagery"
-        - "generated fictional household/interior scenes"
-        - "non-identifying atmospheric real place material when rights-cleared and not used as character evidence"
-      prohibited:
-        - "real identifiable people portrayed as Daniela, Mauricio, Tomás, Emilia or Elena"
-        - "generated scenes presented as witness footage or documentary evidence"
-        - "invented cultural/social conditions added for drama"
-    media_outputs:
-      - id: "AOC001-STORY-PROMO"
-        type: "cinematic fiction teaser"
-        status: "required / not yet produced"
-        social_derivative: true
-        label_required: "STORY / FICTION"
-
   consequences:
     display_label: "CONSEQUENCES"
     mode: "analysis"
-    certainty_layers:
-      - documented_global
-      - documented_place
-      - fictional_human
     content_source: "master-edition-v0.1.md#CONSEQUENCES"
-    evidence_ids:
-      - SR-01
-      - SR-02
-      - SR-04
-      - SR-05
-      - SR-06
-      - SR-07
-      - SR-08
+    integration_status: "pending complete master-content integration"
+    certainty_layers: [documented_global, documented_place, fictional_human]
     required_web_treatment:
-      - "render as a compact visual map, not a second report"
+      - "compact visual consequence map"
       - "three visibly separated certainty levels"
       - "make the prohibited shortcut visually distinct"
     prohibited_shortcut: "AI boom -> mine expands -> Mauricio gets promoted"
-    visual_state:
-      key_moment: "infrastructure / copper / connection map"
-      allowed_asset_classes:
-        - "evidence-derived diagrams"
-        - "maps"
-        - "rights-cleared infrastructure/mining imagery"
-      prohibited:
-        - "single causal animation implying the prohibited shortcut is factual"
-
   place:
     display_label: "PLACE"
     mode: "factual_context"
-    certainty: "documented_place"
     content_source: "master-edition-v0.1.md#PLACE"
-    evidence_ids:
-      - SR-09
-      - SR-10
-      - SR-11
-      - SR-12
-      - SR-13
-      - SR-14
-      - SR-15
-      - SR-16
+    integration_status: "pending complete master-content integration"
+    evidence_ids: [SR-09, SR-10, SR-11, SR-12, SR-13, SR-14, SR-15, SR-16]
     required_web_treatment:
       - "map/location treatment"
       - "city facts separated from story"
       - "show Calama as a city, not an empty desert settlement attached to a mine"
       - "preserve Indigenous sourcing boundary"
-    visual_state:
-      key_moment: "Calama / Atacama city and landscape"
-      allowed_asset_classes:
-        - "verified map"
-        - "rights-cleared real Calama streets/civic life/landscape"
-        - "rights-cleared Chuquicamata context"
-        - "historical archival material with provenance and reuse permission"
-      prohibited:
-        - "generic desert/mining montage used as if it represents all of Calama"
-        - "invented Indigenous imagery or viewpoint for cultural atmosphere"
-
   sources:
     display_label: "SOURCES"
     mode: "evidence"
     content_source: "sources/publication-source-register-v0.1.md"
+    integration_status: "pending complete source-card integration"
     required_web_treatment:
       - "scannable/collapsible evidence cards"
       - "direct source links"
       - "source role and limitation visible where useful"
       - "quieter/static visual state"
-    visual_state:
-      key_moment: "calm closing / evidence desk"
-      allowed_asset_classes:
-        - "source metadata"
-        - "maps/data diagrams already verified"
-        - "static final frame from opening where readable"
-      prohibited:
-        - "decorative motion that interferes with source inspection"
 
 orok_companion:
-  status: "required for complete v0.1 publishing package / not yet produced"
+  status: "unresolved release-scope item after publication QA"
   source_rules: "content/AOC-001/orok/README.md"
-  candidate_human_themes:
-    - "work and responsibility"
-    - "providing for family"
-    - "time and absence"
-    - "skills and intergenerational opportunity"
-  rule: "Keep local expression specific; do not flatten Calama into a universal stereotype."
+  rule: "Do not treat OROK companion production as complete or silently drop it; resolve scope before release human gate."
 
-asset_register:
-  policy: "No permanent edition imagery is stored as generic website decoration. Assets are acquired/generated per edition and attached to manifest slots."
-  rights_required_for_real_world_assets: true
-  provenance_required: true
-  asset_states:
-    - proposed
-    - rights_checked
-    - editorially_verified
-    - approved
-    - published
-    - rejected
-  required_slots:
-    - id: "AOC001-VIS-01"
-      role: "data-centre / compute infrastructure"
-      section_use: [opening, whats_real]
-      class: "real_world_documentary_or_explanatory"
-      status: "empty"
-    - id: "AOC001-VIS-02"
-      role: "electricity/grid infrastructure"
-      section_use: [opening, whats_real, consequences]
-      class: "real_world_documentary_or_explanatory"
-      status: "empty"
-    - id: "AOC001-VIS-03"
-      role: "copper/mining system"
-      section_use: [opening, whats_real, consequences]
-      class: "real_world_documentary"
-      status: "empty"
-    - id: "AOC001-VIS-04"
-      role: "Calama / Chuquicamata locality"
-      section_use: [opening, place]
-      class: "real_world_place"
-      status: "empty"
-    - id: "AOC001-VIS-05"
-      role: "fictional household / worker human moment"
-      section_use: [opening, story]
-      class: "generated_fiction"
-      status: "empty"
-    - id: "AOC001-VIS-06"
-      role: "Calama map / zoom path"
-      section_use: [whats_real, consequences, place]
-      class: "verified_map_or_editorial_graphic"
-      status: "empty"
-    - id: "AOC001-VIS-07"
-      role: "closing evidence state"
-      section_use: [sources]
-      class: "static_or_opening_keyframe"
-      status: "empty"
-
-derivative_outputs:
-  website:
-    - "mobile-first permanent Atlas edition"
-    - "opening cinematic sequence"
-    - "Report / Story entry interface"
-    - "scroll-controlled visual-memory states"
-    - "WHAT'S REAL"
-    - "STORY — FICTION"
-    - "CONSEQUENCES"
-    - "PLACE"
-    - "SOURCES"
-  distribution:
-    rule: "Derive from the verified master edition; do not invent separate factual claims."
-    required:
-      - "edition opening/trailer export"
-      - "report clip"
-      - "story promo"
-      - "vertical social cuts"
-      - "still/image or carousel derivatives"
-      - "captions"
-      - "headlines/descriptions"
-      - "thumbnails/poster frames"
-      - "links back to permanent Atlas edition"
-  audio:
-    v0_1_required: false
-    future_standard: "Human voice preferred for finished narrative audio; AI narration must not silently impersonate human performance."
+distribution_pack:
+  status: "missing candidate / publication blocker"
+  rule: "Derive only from the verified master edition; do not invent separate factual claims."
+  expected_outputs:
+    - "standalone factual report clip"
+    - "standalone STORY / FICTION promo"
+    - "vertical social cuts where useful"
+    - "still/carousel derivatives"
+    - "captions"
+    - "headlines/descriptions"
+    - "thumbnail/poster frames"
+    - "links back to permanent Atlas edition"
 
 production_pipeline:
   - id: P1
@@ -349,35 +202,32 @@ production_pipeline:
     status: "complete"
   - id: P2
     stage: "edition_manifest"
-    status: "complete when this file is approved"
+    status: "reconciled_to_current_truth_2026-09-25"
   - id: P3
-    stage: "asset_acquisition_and_generation"
-    status: "next"
-    actions:
-      - "source rights-cleared real-world imagery/video for factual and place slots"
-      - "generate fictional human/story assets for fiction slots"
-      - "create maps/data/consequence graphics from verified evidence"
+    stage: "core_media_generation"
+    status: "complete for approved factual film, story promo, soundtrack test and visual reference set"
   - id: P4
-    stage: "asset_editorial_verification"
-    status: "pending"
+    stage: "core_media_editorial_verification"
+    status: "complete for approved media assets"
   - id: P5
-    stage: "opening_report_story_media_assembly"
-    status: "pending"
+    stage: "approved opening_to_reader_system"
+    status: "complete and human approved"
   - id: P6
-    stage: "mobile_web_assembly"
-    status: "pending"
+    stage: "mobile_reader_build"
+    status: "remediation_in_progress"
+    blocker: "live reader still contains skeleton summaries instead of complete locked master edition"
   - id: P7
     stage: "distribution_derivatives"
-    status: "pending"
+    status: "pending candidate"
   - id: P8
     stage: "publication_QA"
-    status: "pending"
+    status: "failed_2026-09-25"
   - id: P9
-    stage: "human_approval"
-    status: "pending"
+    stage: "release_human_approval"
+    status: "blocked"
   - id: P10
     stage: "publish"
-    status: "pending"
+    status: "blocked"
 
 publication_gates:
   - "Every material factual claim remains wired to the publication source register."
@@ -387,11 +237,23 @@ publication_gates:
   - "Real-world assets have provenance and sufficient publication/reuse rights."
   - "Place imagery represents Calama as a lived city as well as a mining locality."
   - "Sensitive or cultural representation receives explicit human editorial review."
-  - "Opening, Report clip and Story promo remain distinguishable assets with clear roles."
-  - "Mobile performance has poster/static fallbacks and reduced-motion support."
+  - "Factual opening and separate Story promo remain distinguishable assets with clear roles."
+  - "Mobile performance has a reduced-motion/static fallback and fail-open reader access."
   - "Social derivatives point back to the permanent Atlas edition and preserve fact/fiction labels."
+  - "The live reader contains the complete locked Master Edition, not skeleton summaries."
 
 next_foreground_action:
-  id: "AOC001-ASSET-PASS-01"
-  action: "Populate the required asset slots with real-world sourced material, generated fiction material, and verified maps/graphics, beginning with the opening sequence."
-  rule: "Use the manifest as the production contract; do not create a parallel mockup asset system."
+  id: "AOC001-READER-MASTER-INTEGRATION"
+  action: "Integrate the complete locked Master Edition v0.1 into the already-approved mobile reader treatment."
+  preserve:
+    - "approved factual-film opening"
+    - "final-frame hold and reader handoff"
+    - "full-screen 0.67-brightness scroll-scrub background"
+    - "fact/fiction boundary"
+    - "story promo excluded from automatic opening"
+    - "existing story text and causal boundaries without rewrite"
+  do_not_do:
+    - "redesign the approved reader visual system"
+    - "rewrite the locked story"
+    - "reintroduce retired opening prototypes"
+    - "generate new paid media unless a later approved blocker genuinely requires it"
