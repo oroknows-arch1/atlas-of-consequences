@@ -1,0 +1,33 @@
+/* Publication-completeness treatments layered onto the approved AOC-001 reader.
+   These extend content readability and evidence inspection without changing the approved visual system. */
+.fact-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:20px 0 34px;max-width:560px}
+.fact-callout{border:1px solid rgba(255,255,255,.24);background:rgba(0,0,0,.16);backdrop-filter:blur(7px);padding:12px 11px;min-height:86px}
+.fact-callout strong{display:block;font-family:Georgia,'Times New Roman',serif;font-size:25px;line-height:1;margin-bottom:7px;font-weight:400}
+.fact-callout span{display:block;font-size:8px;line-height:1.45;letter-spacing:.11em;text-transform:uppercase;color:#ddd6c8}
+.context-note,.location-card,.certainty-card,.prohibited-boundary{max-width:560px;border:1px solid rgba(255,255,255,.22);background:rgba(0,0,0,.17);backdrop-filter:blur(7px);padding:15px;margin:20px 0 30px}
+.context-note .label,.location-card .label,.certainty-card .label,.prohibited-boundary .label{font-size:8px;letter-spacing:.16em;text-transform:uppercase;opacity:.72;margin-bottom:9px}
+.context-note p,.location-card p,.certainty-card p,.prohibited-boundary p{font-size:16px;line-height:1.45;margin:0 0 .7em;max-width:42ch}
+.context-note p:last-child,.location-card p:last-child,.certainty-card p:last-child,.prohibited-boundary p:last-child{margin-bottom:0}
+.location-card .route{font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:1.35;margin-bottom:12px}
+.location-card a{font-size:9px;letter-spacing:.12em;text-transform:uppercase;text-decoration:underline}
+.certainty-map{display:grid;gap:9px;margin:22px 0 34px;max-width:560px}
+.certainty-card{margin:0}
+.certainty-card strong{font-family:Georgia,'Times New Roman',serif;font-size:20px;font-weight:400}
+.prohibited-boundary{border-color:rgba(255,255,255,.38)}
+.prohibited-boundary strong{display:block;font-family:Georgia,'Times New Roman',serif;font-size:21px;line-height:1.3;font-weight:400}
+.source-register{margin-top:42px;max-width:620px}
+.source-register>h3{margin-bottom:8px}
+.source-register-intro{font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.5;max-width:42ch;margin:0 0 18px;color:#f0eadf}
+.source-card{border-top:1px solid rgba(255,255,255,.22);padding:0}
+.source-card:last-of-type{border-bottom:1px solid rgba(255,255,255,.22)}
+.source-card summary{cursor:pointer;list-style:none;padding:15px 0;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.35}
+.source-card summary::-webkit-details-marker{display:none}
+.source-card summary:after{content:'+';float:right;font-family:Arial,Helvetica,sans-serif;font-size:14px;opacity:.72}
+.source-card[open] summary:after{content:'–'}
+.source-card .source-body{padding:0 0 16px}
+.source-card .meta{font-size:9px;line-height:1.55;letter-spacing:.07em;text-transform:uppercase;color:#ddd6c8;margin:0 0 8px}
+.source-card p{font-size:15px;line-height:1.48;margin:0 0 .75em;max-width:48ch}
+.source-card a{text-decoration:underline}
+.source-card .limit{opacity:.82}
+@media(min-width:800px){.fact-strip{grid-template-columns:repeat(4,minmax(0,1fr));max-width:620px}.certainty-map{grid-template-columns:repeat(3,minmax(0,1fr));max-width:620px}.certainty-card{min-height:160px}}
+@media(prefers-reduced-motion:reduce){#factFilm{display:none!important}#world{background:#000 url('assets/aoc001-report-video-candidate-v0.4-review.jpg') center center/cover no-repeat fixed}#world.reader-mode{background:#000 url('assets/aoc001-report-video-candidate-v0.4-review.jpg') center center/cover no-repeat fixed}.source-card summary{scroll-behavior:auto}}
