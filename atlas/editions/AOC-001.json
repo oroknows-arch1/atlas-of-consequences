@@ -56,7 +56,7 @@
     "hybrid_human_gate": "historical_approval_only",
     "reader_build": "complete_master_integrated",
     "distribution_pack": "candidate_v0.1_assembled",
-    "publication_qa": "rerun_required_after_blockers_cleared",
+    "publication_qa": "rerun_pending_after_remediation",
     "release_human_gate": "blocked"
   },
   "foreground_next": "publication_qa",
