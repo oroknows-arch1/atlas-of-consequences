@@ -6,7 +6,7 @@ edition:
   id: "AOC-001"
   ecosystem_id: "AOC-ECO-0001"
   title: "AI's Physical Hunger"
-  status: "reader remediation complete / publication QA rerun pending / release blocked"
+  status: "distribution candidate assembled / publication QA rerun pending / release blocked"
   reader_path:
     - whats_real
     - story
@@ -29,6 +29,7 @@ source_of_truth:
   publication_qa: "content/AOC-001/publication-qa-v0.1.md"
   manifest_reconciliation: "content/AOC-001/manifest-reconciliation-note-2026-09-25.md"
   distribution_rules: "content/AOC-001/distribution/README.md"
+  distribution_candidate: "content/AOC-001/distribution/distribution-candidate-v0.1.md"
   orok_rules: "content/AOC-001/orok/README.md"
   live_reader: "public/index.html"
   reader_publication_css: "public/reader-publication-treatments.css"
@@ -189,7 +190,9 @@ orok_companion:
   rule: "Do not treat OROK companion production as complete or silently drop it; resolve scope before release human gate."
 
 distribution_pack:
-  status: "missing candidate / publication blocker"
+  status: "candidate_v0.1 assembled / publication QA pending"
+  candidate: "content/AOC-001/distribution/distribution-candidate-v0.1.md"
+  permanent_destination: "https://atlas-of-consequences.onrender.com/"
   rule: "Derive only from the verified master edition; do not invent separate factual claims."
   expected_outputs:
     - "standalone factual report clip"
@@ -222,10 +225,10 @@ production_pipeline:
     status: "complete / full master and required publication treatments integrated / QA rerun pending"
   - id: P7
     stage: "distribution_derivatives"
-    status: "pending candidate"
+    status: "complete / candidate_v0.1 assembled from approved media and locked master"
   - id: P8
     stage: "publication_QA"
-    status: "failed_2026-09-25 / rerun required after current remediation and distribution candidate"
+    status: "failed_2026-09-25 / rerun now required against remediated reader + distribution candidate"
   - id: P9
     stage: "release_human_approval"
     status: "blocked"
@@ -247,17 +250,20 @@ publication_gates:
   - "The live reader contains the complete locked Master Edition, not skeleton summaries."
 
 next_foreground_action:
-  id: "AOC001-DISTRIBUTION-CANDIDATE"
-  action: "Assemble the first complete distribution candidate from the locked Master Edition and already-approved media assets."
-  preserve:
-    - "approved factual report film as factual media"
-    - "approved story promo as STORY / FICTION media"
-    - "fact/fiction labels in every derivative"
-    - "claims and causal boundaries from the publication source register"
-    - "permanent Atlas edition as the destination"
+  id: "AOC001-PUBLICATION-QA-RERUN"
+  action: "Rerun the full AOC-001 publication QA across the complete live reader and distribution candidate."
+  verify:
+    - "locked Master Edition is complete in the live reader"
+    - "reader visual/interaction approval has not regressed"
+    - "reduced-motion and fail-open behavior work"
+    - "SR-01 through SR-16 remain inspectable"
+    - "factual and fictional distribution branches are unmistakably separated"
+    - "distribution claims remain inside the evidence and causal boundaries"
+    - "all distribution paths return to the permanent Atlas edition"
+    - "remaining release-scope blockers, including OROK companion scope, are explicitly resolved or carried to the human release gate"
   do_not_do:
     - "rewrite the locked story"
-    - "invent new factual claims"
-    - "merge factual and fictional media into an ambiguous asset"
     - "redesign the approved reader"
-    - "generate new paid media unless a genuine approved blocker requires it"
+    - "invent new factual claims"
+    - "generate new paid media unless QA demonstrates a genuine blocker"
+    - "advance to release or publish unless Publication QA passes"
