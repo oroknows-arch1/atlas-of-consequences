@@ -24,6 +24,7 @@
     "story_promo_approval_record": "content/AOC-001/media/AOC001-STORY-PROMO-APPROVAL.md",
     "atlas_soundtrack_approval_record": "content/AOC-001/media/AOC001-ATLAS-SOUNDTRACK-APPROVAL.md",
     "hybrid_opening_manifest": "content/AOC-001/media/AOC001-HYBRID-OPENING-v0.1.md",
+    "hybrid_opening_ux_lock": "content/AOC-001/media/AOC001-HYBRID-OPENING-UX.md",
     "visual_character_bible": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.md",
     "visual_character_registry": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.json",
     "visual_character_approval_record": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-APPROVAL.md"
@@ -64,6 +65,7 @@
     "The fiction-media candidate was explicitly approved by the human gate on 2026-09-24.",
     "Both factual and fictional media branches are independently approved.",
     "A no-new-generation hybrid-opening test candidate now sequences the approved factual report, an explicit STORY / FICTION crossing, and the approved story promo with the approved Atlas sonic bed kept low underneath. Human hybrid review remains pending.",
+    "Opening UX was explicitly approved on 2026-09-24: entering the edition immediately hands the viewport to the opening; autoplay begins muted where browser policy requires; a small Tap for sound control may enable audio; the reader is revealed when the opening ends or is skipped; opening failure must never block reader access.",
     "The old still-image opening prototype is historical evidence only and is not an eligible hybrid-opening input."
   ]
 }
