@@ -6,7 +6,7 @@ edition:
   id: "AOC-001"
   ecosystem_id: "AOC-ECO-0001"
   title: "AI's Physical Hunger"
-  status: "reader remediation / publication QA failed / release blocked"
+  status: "reader remediation complete / publication QA rerun pending / release blocked"
   reader_path:
     - whats_real
     - story
@@ -30,6 +30,9 @@ source_of_truth:
   manifest_reconciliation: "content/AOC-001/manifest-reconciliation-note-2026-09-25.md"
   distribution_rules: "content/AOC-001/distribution/README.md"
   orok_rules: "content/AOC-001/orok/README.md"
+  live_reader: "public/index.html"
+  reader_publication_css: "public/reader-publication-treatments.css"
+  reader_publication_js: "public/reader-publication-treatments.js"
 
 content_lock:
   story: true
@@ -83,8 +86,10 @@ approved_reader_system:
     rule: "must never compete with visuals, speech, captions, evidence or story"
   reduced_motion:
     required: true
-    implementation_status: "incomplete / publication blocker"
-    target: "approved static keyframes with normal section transitions; never skip reader access"
+    implementation_status: "implemented in reader / publication QA rerun pending"
+    static_asset: "public/assets/aoc001-report-video-candidate-v0.4-review.jpg"
+    behavior: "video hidden, static factual-film frame retained, reader entered immediately, normal text navigation preserved"
+    target: "static factual-film fallback with normal reader access; never require moving/scrubbed video"
 
 separate_media_assets:
   factual_report_video:
@@ -125,7 +130,7 @@ sections:
     mode: "factual"
     certainty: "documented_global + documented_place"
     content_source: "master-edition-v0.1.md#WHAT'S REAL"
-    integration_status: "pending complete master-content integration"
+    integration_status: "complete / locked master text + key factual callouts integrated"
     evidence_ids: [SR-01, SR-02, SR-03, SR-04, SR-05, SR-06, SR-07, SR-08, SR-10]
     required_web_treatment:
       - "short mobile paragraphs"
@@ -137,7 +142,7 @@ sections:
     mode: "fiction"
     certainty: "fictional_human"
     content_source: "master-edition-v0.1.md#STORY — FICTION"
-    integration_status: "pending complete master-content integration"
+    integration_status: "complete / locked story + fiction disclosure + scene breaks integrated"
     fictional_people: [Daniela, Mauricio, Tomás, Emilia, Elena]
     required_web_treatment:
       - "persistent or obvious STORY / FICTION label"
@@ -149,7 +154,7 @@ sections:
     display_label: "CONSEQUENCES"
     mode: "analysis"
     content_source: "master-edition-v0.1.md#CONSEQUENCES"
-    integration_status: "pending complete master-content integration"
+    integration_status: "complete / locked text + three-layer certainty treatment + prohibited-shortcut boundary integrated"
     certainty_layers: [documented_global, documented_place, fictional_human]
     required_web_treatment:
       - "compact visual consequence map"
@@ -160,7 +165,7 @@ sections:
     display_label: "PLACE"
     mode: "factual_context"
     content_source: "master-edition-v0.1.md#PLACE"
-    integration_status: "pending complete master-content integration"
+    integration_status: "complete / locked place text + real-location treatment integrated"
     evidence_ids: [SR-09, SR-10, SR-11, SR-12, SR-13, SR-14, SR-15, SR-16]
     required_web_treatment:
       - "map/location treatment"
@@ -171,7 +176,7 @@ sections:
     display_label: "SOURCES"
     mode: "evidence"
     content_source: "sources/publication-source-register-v0.1.md"
-    integration_status: "pending complete source-card integration"
+    integration_status: "complete / master source surface + SR-01 through SR-16 inspectable cards integrated"
     required_web_treatment:
       - "scannable/collapsible evidence cards"
       - "direct source links"
@@ -214,14 +219,13 @@ production_pipeline:
     status: "complete and human approved"
   - id: P6
     stage: "mobile_reader_build"
-    status: "remediation_in_progress"
-    blocker: "live reader still contains skeleton summaries instead of complete locked master edition"
+    status: "complete / full master and required publication treatments integrated / QA rerun pending"
   - id: P7
     stage: "distribution_derivatives"
     status: "pending candidate"
   - id: P8
     stage: "publication_QA"
-    status: "failed_2026-09-25"
+    status: "failed_2026-09-25 / rerun required after current remediation and distribution candidate"
   - id: P9
     stage: "release_human_approval"
     status: "blocked"
@@ -243,17 +247,17 @@ publication_gates:
   - "The live reader contains the complete locked Master Edition, not skeleton summaries."
 
 next_foreground_action:
-  id: "AOC001-READER-MASTER-INTEGRATION"
-  action: "Integrate the complete locked Master Edition v0.1 into the already-approved mobile reader treatment."
+  id: "AOC001-DISTRIBUTION-CANDIDATE"
+  action: "Assemble the first complete distribution candidate from the locked Master Edition and already-approved media assets."
   preserve:
-    - "approved factual-film opening"
-    - "final-frame hold and reader handoff"
-    - "full-screen 0.67-brightness scroll-scrub background"
-    - "fact/fiction boundary"
-    - "story promo excluded from automatic opening"
-    - "existing story text and causal boundaries without rewrite"
+    - "approved factual report film as factual media"
+    - "approved story promo as STORY / FICTION media"
+    - "fact/fiction labels in every derivative"
+    - "claims and causal boundaries from the publication source register"
+    - "permanent Atlas edition as the destination"
   do_not_do:
-    - "redesign the approved reader visual system"
     - "rewrite the locked story"
-    - "reintroduce retired opening prototypes"
-    - "generate new paid media unless a later approved blocker genuinely requires it"
+    - "invent new factual claims"
+    - "merge factual and fictional media into an ambiguous asset"
+    - "redesign the approved reader"
+    - "generate new paid media unless a genuine approved blocker requires it"
