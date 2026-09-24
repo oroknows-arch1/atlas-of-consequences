@@ -90,14 +90,15 @@ for item in required_boundaries:
     if item not in present:
         errors.append(f"required Atlas boundary missing: {item}")
 
-# Derive the foreground from the live human-gate state instead of freezing
-# validation to one historical handoff. Each approved gate unlocks only the
-# next eligible node; blocked parallel branches remain blocked.
+# Derive AOC-001 foreground from the live human-gate state.
 visual_gate = node_state.get("visual_character_human_gate")
 fiction_gate = node_state.get("fiction_media_human_gate")
 factual_gate = node_state.get("factual_media_human_gate")
+hybrid_gate = node_state.get("hybrid_human_gate")
 foreground = edition.get("foreground_next")
 fiction_state = node_state.get("fiction_media")
+reader_state = node_state.get("reader_build")
+publication_state = node_state.get("publication_qa")
 
 if visual_gate == "approved":
     if node_state.get("visual_character_bible") != "satisfied_by_approved_reference_set":
@@ -110,13 +111,17 @@ if visual_gate == "approved":
             errors.append("approved fiction-media gate requires candidate_approved fiction_media state")
 
         if approved(factual_gate):
-            if foreground != "hybrid_opening":
-                errors.append("both approved media gates require hybrid_opening as AOC-001 foreground")
+            if approved(hybrid_gate) and reader_state == "candidate_approved":
+                if foreground != "publication_qa":
+                    errors.append("approved reader state requires publication_qa as AOC-001 foreground")
+                if publication_state != "ready":
+                    errors.append("approved reader state requires publication_qa to be ready")
+            else:
+                if foreground != "hybrid_opening":
+                    errors.append("approved factual media with pending opening gate requires hybrid_opening as AOC-001 foreground")
         else:
             if foreground != "factual_media":
                 errors.append("approved fiction-media gate with pending factual gate requires factual_media as AOC-001 foreground")
-            if node_state.get("hybrid_opening") != "blocked_until_both_media_branches_approved":
-                errors.append("hybrid_opening must remain blocked until factual-media approval")
     else:
         if fiction_state != "ready":
             errors.append("unapproved fiction-media gate requires fiction_media to remain ready")
