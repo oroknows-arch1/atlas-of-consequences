@@ -6,7 +6,7 @@ edition:
   id: "AOC-001"
   ecosystem_id: "AOC-ECO-0001"
   title: "AI's Physical Hunger"
-  status: "QA blockers cleared / final publication QA rerun pending / release blocked"
+  status: "publication QA v0.3 passed / release human approval ready / publish blocked"
   reader_path:
     - whats_real
     - story
@@ -26,8 +26,9 @@ source_of_truth:
   evidence_register: "content/AOC-001/sources/publication-source-register-v0.1.md"
   constitution: "docs/atlas-constitution.md"
   reader_approval: "content/AOC-001/media/AOC001-READER-APPROVAL.md"
-  publication_qa: "content/AOC-001/publication-qa-v0.2.md"
-  publication_qa_previous: "content/AOC-001/publication-qa-v0.1.md"
+  publication_qa: "content/AOC-001/publication-qa-v0.3.md"
+  publication_qa_previous: "content/AOC-001/publication-qa-v0.2.md"
+  publication_qa_initial: "content/AOC-001/publication-qa-v0.1.md"
   manifest_reconciliation: "content/AOC-001/manifest-reconciliation-note-2026-09-25.md"
   distribution_rules: "content/AOC-001/distribution/README.md"
   distribution_candidate: "content/AOC-001/distribution/distribution-candidate-v0.1.md"
@@ -89,7 +90,7 @@ approved_reader_system:
     rule: "must never compete with visuals, speech, captions, evidence or story"
   reduced_motion:
     required: true
-    implementation_status: "implemented / QA v0.2 source-level pass"
+    implementation_status: "implemented / QA v0.3 pass"
     static_asset: "public/assets/aoc001-report-video-candidate-v0.4-review.jpg"
     behavior: "video hidden, static factual-film frame retained, reader entered immediately, normal text navigation preserved"
     target: "static factual-film fallback with normal reader access; never require moving/scrubbed video"
@@ -134,7 +135,7 @@ sections:
     mode: "factual"
     certainty: "documented_global + documented_place"
     content_source: "master-edition-v0.1.md#WHAT'S REAL"
-    integration_status: "complete / QA v0.2 pass"
+    integration_status: "complete / QA v0.3 pass"
     evidence_ids: [SR-01, SR-02, SR-03, SR-04, SR-05, SR-06, SR-07, SR-08, SR-10]
     required_web_treatment:
       - "short mobile paragraphs"
@@ -146,7 +147,7 @@ sections:
     mode: "fiction"
     certainty: "fictional_human"
     content_source: "master-edition-v0.1.md#STORY — FICTION"
-    integration_status: "complete / QA v0.2 pass"
+    integration_status: "complete / QA v0.3 pass"
     fictional_people: [Daniela, Mauricio, Tomás, Emilia, Elena]
     required_web_treatment:
       - "persistent or obvious STORY / FICTION label"
@@ -158,7 +159,7 @@ sections:
     display_label: "CONSEQUENCES"
     mode: "analysis"
     content_source: "master-edition-v0.1.md#CONSEQUENCES"
-    integration_status: "complete / QA v0.2 pass"
+    integration_status: "complete / QA v0.3 pass"
     certainty_layers: [documented_global, documented_place, fictional_human]
     required_web_treatment:
       - "compact visual consequence map"
@@ -169,7 +170,7 @@ sections:
     display_label: "PLACE"
     mode: "factual_context"
     content_source: "master-edition-v0.1.md#PLACE"
-    integration_status: "complete / QA v0.2 pass"
+    integration_status: "complete / QA v0.3 pass"
     evidence_ids: [SR-09, SR-10, SR-11, SR-12, SR-13, SR-14, SR-15, SR-16]
     required_web_treatment:
       - "map/location treatment"
@@ -180,7 +181,7 @@ sections:
     display_label: "SOURCES"
     mode: "evidence"
     content_source: "sources/publication-source-register-v0.1.md"
-    integration_status: "complete / QA v0.2 pass"
+    integration_status: "complete / QA v0.3 pass"
     required_web_treatment:
       - "scannable/collapsible evidence cards"
       - "direct source links"
@@ -191,7 +192,7 @@ orchestration_contract:
   status: "repaired / validation pass"
   active_reader_dependency: "factual_media_human_gate + story_boundary_gate + source_register -> reader_build"
   retired_hybrid_nodes_non_blocking: true
-  verification: "GitHub Actions Validate Atlas worker graph run #44 passed on commit c19c0b12e2ef9c199a115bc49070b1df187f8db6"
+  verification: "GitHub Actions Validate Atlas worker graph run #49 passed on commit d193d5b669a85af6ccdbdc8b07fae50d3289350b"
 
 orok_companion:
   status: "optional downstream / explicitly not required for AOC-001 release / non-blocking"
@@ -200,7 +201,7 @@ orok_companion:
   rule: "OROK companion material is optional downstream enrichment unless a future edition explicitly opts into it before production. AOC-001 does not require one for release or end-to-end proof."
 
 distribution_pack:
-  status: "candidate_v0.1 / QA v0.2 pass"
+  status: "candidate_v0.1 / QA v0.3 pass"
   candidate: "content/AOC-001/distribution/distribution-candidate-v0.1.md"
   permanent_destination: "https://atlas-of-consequences.onrender.com/"
   rule: "Derive only from the verified master edition; do not invent separate factual claims."
@@ -232,19 +233,19 @@ production_pipeline:
     status: "complete and human approved"
   - id: P6
     stage: "mobile_reader_build"
-    status: "complete / QA v0.2 pass"
+    status: "complete / QA v0.3 pass"
   - id: P7
     stage: "distribution_derivatives"
-    status: "complete candidate / QA v0.2 pass"
+    status: "complete candidate / QA v0.3 pass"
   - id: P8
     stage: "publication_QA"
-    status: "final rerun required / v0.2 blockers now cleared"
+    status: "passed_2026-09-25_v0.3"
   - id: P9
     stage: "release_human_approval"
-    status: "blocked pending final publication QA"
+    status: "ready_for_human_approval"
   - id: P10
     stage: "publish"
-    status: "blocked"
+    status: "blocked pending explicit human release approval"
 
 publication_gates:
   - "Every material factual claim remains wired to the publication source register."
@@ -262,18 +263,18 @@ publication_gates:
   - "OROK is optional downstream enrichment unless an edition explicitly opts into it; AOC-001 has explicitly opted out for release."
 
 next_foreground_action:
-  id: "AOC001-PUBLICATION-QA-FINAL-RERUN"
-  action: "Rerun the final AOC-001 publication QA now that the orchestration validator and OROK release-scope blockers are cleared."
+  id: "AOC001-RELEASE-HUMAN-GATE"
+  action: "Review the final AOC-001 release candidate and explicitly approve or reject publication."
   verify:
-    - "GitHub Actions Validate Atlas worker graph remains green"
+    - "Publication QA v0.3 is the active QA authority and has passed"
     - "approved factual-opening-to-reader architecture remains unchanged"
-    - "complete live reader and distribution candidate remain publication-clean"
-    - "OROK is recorded as optional and non-blocking for AOC-001"
-    - "no unresolved structural release blocker remains before the release human gate"
+    - "complete reader and distribution candidate remain publication-clean"
+    - "OROK remains optional and non-blocking for AOC-001"
+    - "no publication occurs without explicit human approval"
   do_not_do:
     - "change the locked story"
     - "redesign the approved reader"
     - "change factual claims"
     - "restore automatic story-promo playback"
     - "produce OROK content merely to satisfy this prototype"
-    - "advance to release until final Publication QA passes"
+    - "publish automatically without explicit human release approval"
