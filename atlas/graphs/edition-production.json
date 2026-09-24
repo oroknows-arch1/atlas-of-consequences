@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "graph_id": "atlas-edition-production",
   "orchestrator": "atlas_orchestrator",
   "rules": {
@@ -7,7 +7,8 @@
     "worker_skills_must_exist": true,
     "publication_critical_self_approval_forbidden": true,
     "failure_returns_to_responsible_node": true,
-    "facts_never_accept_fiction_as_evidence": true
+    "facts_never_accept_fiction_as_evidence": true,
+    "retired_nodes_are_non_blocking": true
   },
   "nodes": [
     {"id":"evidence_pack","worker":"evidence_researcher","produces":"evidence_candidates"},
@@ -26,9 +27,9 @@
     {"id":"visual_character_human_gate","type":"human_gate","requires":["visual_character_bible"],"condition":"visual character identity, family coherence and locality fit approved"},
     {"id":"fiction_media","worker":"fiction_media_director","requires":["visual_character_human_gate","story_boundary_gate"],"produces":"story_promo_candidate"},
     {"id":"fiction_media_human_gate","type":"human_gate","requires":["fiction_media"],"condition":"story truth, continuity, fiction labelling and cinematic quality approved"},
-    {"id":"hybrid_opening","worker":"hybrid_opening_editor","requires":["factual_media_human_gate","story_boundary_gate"],"produces":"reader_opening_handoff_candidate"},
-    {"id":"hybrid_human_gate","type":"human_gate","requires":["hybrid_opening"],"condition":"opening-to-reader handoff, visual continuity, scroll interaction and fact/fiction boundary approved"},
-    {"id":"reader_build","worker":"reader_builder","requires":["hybrid_human_gate","story_boundary_gate","source_register"],"produces":"reader_candidate"},
+    {"id":"hybrid_opening","worker":"hybrid_opening_editor","requires":["factual_media_human_gate","story_boundary_gate"],"produces":"historical_reader_opening_handoff_candidate","lifecycle":"retired","active":false,"note":"Historical AOC-001 experiment only. The approved reader opening is the factual report film directly into the reader."},
+    {"id":"hybrid_human_gate","type":"human_gate","requires":["hybrid_opening"],"condition":"historical opening review only","lifecycle":"retired","active":false,"note":"Historical approval record; not an active dependency for reader_build."},
+    {"id":"reader_build","worker":"reader_builder","requires":["factual_media_human_gate","story_boundary_gate","source_register"],"produces":"reader_candidate","opening_contract":"approved factual report film -> final-frame handoff -> reader"},
     {"id":"distribution_pack","worker":"distribution_editor","requires":["story_boundary_gate","source_register"],"produces":"distribution_candidate"},
     {"id":"publication_qa","worker":"publication_qc","requires":["reader_build","distribution_pack"],"produces":"release_readiness_report"},
     {"id":"release_human_gate","type":"human_gate","requires":["publication_qa"],"condition":"edition approved for publication"}
