@@ -26,8 +26,9 @@
     "hybrid_opening_manifest": "content/AOC-001/media/AOC001-HYBRID-OPENING-v0.1.md",
     "hybrid_opening_ux_lock": "content/AOC-001/media/AOC001-HYBRID-OPENING-UX.md",
     "reader_approval_record": "content/AOC-001/media/AOC001-READER-APPROVAL.md",
-    "publication_qa_report": "content/AOC-001/publication-qa-v0.2.md",
-    "publication_qa_previous": "content/AOC-001/publication-qa-v0.1.md",
+    "publication_qa_report": "content/AOC-001/publication-qa-v0.3.md",
+    "publication_qa_previous": "content/AOC-001/publication-qa-v0.2.md",
+    "publication_qa_initial": "content/AOC-001/publication-qa-v0.1.md",
     "manifest_reconciliation": "content/AOC-001/manifest-reconciliation-note-2026-09-25.md",
     "distribution_candidate": "content/AOC-001/distribution/distribution-candidate-v0.1.md",
     "orok_scope_decision": "content/AOC-001/orok/AOC001-OROK-SCOPE-DECISION.md",
@@ -56,10 +57,10 @@
     "hybrid_human_gate": "historical_approval_only",
     "reader_build": "complete_master_integrated",
     "distribution_pack": "candidate_v0.1_assembled",
-    "publication_qa": "rerun_pending_after_remediation",
-    "release_human_gate": "blocked"
+    "publication_qa": "passed_2026-09-25_v0.3",
+    "release_human_gate": "ready_for_human_approval"
   },
-  "foreground_next": "publication_qa",
+  "foreground_next": "release_human_gate",
   "notes": [
     "The factual report video v0.4 was explicitly approved by the human gate on 2026-09-24 after review for article coverage, fact/fiction clarity, pacing and hand-off into the fictional story.",
     "Atlas moving media requires a recognisable but restrained signature sonic bed. It must accompany rather than compete with visuals, speech, captions, evidence or story and may be reduced or removed when silence or natural ambience is stronger.",
@@ -75,11 +76,12 @@
     "Opening UX remains: immediate viewport handoff, muted autoplay where required, small Tap for sound control, Skip, and failure-safe reader reveal.",
     "The live AOC-001 mobile reader visual/interaction experience was explicitly approved by the human gate on 2026-09-24 after the full-screen brightness and scroll-scrub pass.",
     "Publication QA v0.1 failed before remediation because the live reader still contained summary skeleton content and required publication/distribution treatments were incomplete.",
-    "The complete locked Master Edition and required publication treatments are now integrated into the approved reader without redesigning it.",
+    "The complete locked Master Edition and required publication treatments are integrated into the approved reader without redesigning it.",
     "Distribution Candidate v0.1 is assembled from the approved factual report film, approved STORY / FICTION promo, locked Master Edition and source register.",
     "Publication QA v0.2 passed the reader, evidence, provenance and distribution content gates but identified two release blockers: stale hybrid-opening orchestration validation and unresolved OROK companion scope.",
-    "The Atlas graph and validator were repaired so the active reader path is factual_media_human_gate + story_boundary_gate + source_register -> reader_build. Retired hybrid nodes are non-blocking. GitHub Actions Validate Atlas worker graph run #44 passed on commit c19c0b12e2ef9c199a115bc49070b1df187f8db6.",
+    "The Atlas graph and validator were repaired so the active reader path is factual_media_human_gate + story_boundary_gate + source_register -> reader_build. Retired hybrid nodes are non-blocking. GitHub Actions Validate Atlas worker graph run #49 passed on commit d193d5b669a85af6ccdbdc8b07fae50d3289350b.",
     "On 2026-09-25 the human release-scope decision made OROK companion material optional downstream enrichment. AOC-001 does not require an OROK companion for release or to prove the end-to-end Atlas pipeline.",
-    "Both structural blockers from Publication QA v0.2 are now cleared. The next foreground action is the final Publication QA rerun; release remains blocked until that gate passes."
+    "Publication QA v0.3 passed on 2026-09-25. No reader, master-edition, source-register, distribution or approved media files changed after the v0.2 publication-content pass; both structural blockers were cleared; no new Runway generation was required.",
+    "AOC-001 is now ready for the release human gate. Publication remains a separate explicit human decision."
   ]
 }
