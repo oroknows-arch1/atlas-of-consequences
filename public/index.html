@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#050708">
 <title>Atlas of Consequences — AOC-001</title>
+<link rel="stylesheet" href="reader-publication-treatments.css">
 <style>
 *{box-sizing:border-box}html{background:#050708}body{margin:0;background:#050708;color:#f5f2ea;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}body.opening-active{overflow:hidden}a{color:inherit}
 #world{position:fixed;inset:0;z-index:0;background:#000;overflow:hidden;transition:background 1s ease}
@@ -26,7 +27,7 @@ nav{display:flex;gap:9px;overflow-x:auto;padding:0 18px 17px;scrollbar-width:non
 </head>
 <body class="opening-active">
 <div id="world" aria-hidden="true">
-  <video id="factFilm" muted playsinline autoplay preload="auto" disablepictureinpicture>
+  <video id="factFilm" muted playsinline autoplay preload="auto" disablepictureinpicture poster="assets/aoc001-report-video-candidate-v0.4-review.jpg">
     <source src="assets/aoc001-report-video-candidate-v0.4.mp4" type="video/mp4">
   </video>
   <div id="veil"></div>
@@ -167,7 +168,7 @@ nav{display:flex;gap:9px;overflow-x:auto;padding:0 18px 17px;scrollbar-width:non
 <p>“Seven-seven.”</p>
 <p>She waited.</p>
 <p>“Rotating.”</p>
-<p>Mauricio leaned back.</p>
+<p>Maurio leaned back.</p>
 <p>“It isn't more days away.”</p>
 <p>“I know.”</p>
 <p>“Actually—”</p>
@@ -490,5 +491,6 @@ if(fact.readyState>=2)startOpening();else fact.addEventListener('canplay',startO
 setTimeout(()=>{if(!readerActive&&fact.paused)startOpening()},900);
 requestAnimationFrame(scrubLoop);
 </script>
+<script src="reader-publication-treatments.js"></script>
 </body>
 </html>
