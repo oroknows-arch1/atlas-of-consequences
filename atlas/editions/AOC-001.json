@@ -25,6 +25,7 @@
     "atlas_soundtrack_approval_record": "content/AOC-001/media/AOC001-ATLAS-SOUNDTRACK-APPROVAL.md",
     "hybrid_opening_manifest": "content/AOC-001/media/AOC001-HYBRID-OPENING-v0.1.md",
     "hybrid_opening_ux_lock": "content/AOC-001/media/AOC001-HYBRID-OPENING-UX.md",
+    "reader_approval_record": "content/AOC-001/media/AOC001-READER-APPROVAL.md",
     "visual_character_bible": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.md",
     "visual_character_registry": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.json",
     "visual_character_approval_record": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-APPROVAL.md"
@@ -46,14 +47,14 @@
     "visual_character_human_gate": "approved",
     "fiction_media": "candidate_approved",
     "fiction_media_human_gate": "approved_2026-09-24",
-    "hybrid_opening": "candidate_ready",
-    "hybrid_human_gate": "pending_review",
-    "reader_build": "blocked_until_hybrid_approved",
+    "hybrid_opening": "candidate_approved",
+    "hybrid_human_gate": "approved_2026-09-24",
+    "reader_build": "candidate_approved",
     "distribution_pack": "ready_from_locked_master",
-    "publication_qa": "blocked_until_reader_and_distribution_candidates_exist",
+    "publication_qa": "ready",
     "release_human_gate": "blocked"
   },
-  "foreground_next": "hybrid_opening",
+  "foreground_next": "publication_qa",
   "notes": [
     "The factual report video v0.4 was explicitly approved by the human gate on 2026-09-24 after review for article coverage, fact/fiction clarity, pacing and hand-off into the fictional story.",
     "Atlas moving media requires a recognisable but restrained signature sonic bed. It must accompany rather than compete with visuals, speech, captions, evidence or story and may be reduced or removed when silence or natural ambience is stronger.",
@@ -62,10 +63,12 @@
     "The revised culturally grounded reference set for Daniela, Mauricio, Tomás, Emilia and Elena was explicitly approved by the human gate on 2026-09-24.",
     "The approved reference set establishes continuity for the fictional story promo and does not establish factual ethnicity, Indigenous identity or documentary evidence.",
     "A 25-second moving AOC001-STORY-PROMO candidate was generated in Runway from the locked story and six approved visual references, with native audio, at 1280x720. Runway task: 661289e7-a166-47e4-bcb6-2d413590c5e6.",
-    "The fiction-media candidate was explicitly approved by the human gate on 2026-09-24.",
-    "Both factual and fictional media branches are independently approved.",
-    "A no-new-generation hybrid-opening test candidate now sequences the approved factual report, an explicit STORY / FICTION crossing, and the approved story promo with the approved Atlas sonic bed kept low underneath. Human hybrid review remains pending.",
-    "Opening UX was explicitly approved on 2026-09-24: entering the edition immediately hands the viewport to the opening; autoplay begins muted where browser policy requires; a small Tap for sound control may enable audio; the reader is revealed when the opening ends or is skipped; opening failure must never block reader access.",
-    "The old still-image opening prototype is historical evidence only and is not an eligible hybrid-opening input."
+    "The fiction-media candidate was explicitly approved by the human gate on 2026-09-24 and remains a separate story/distribution asset.",
+    "The story promo is not part of the approved automatic reader opening and must not be silently reintroduced into that path.",
+    "The approved opening now uses the factual film as the continuous visual layer from entry into the reader: final-frame hold, visible recede, full-screen background, scroll-driven scrubbing, and fail-open reader access.",
+    "The final approved reader tuning uses a substantially lighter full-bleed background treatment; the reader-state film brightness was raised from 0.43 to 0.67 while retaining text legibility.",
+    "Opening UX remains: immediate viewport handoff, muted autoplay where required, small Tap for sound control, Skip, and failure-safe reader reveal.",
+    "The live AOC-001 mobile reader experience was explicitly approved by the human gate on 2026-09-24 after the full-screen brightness and scroll-scrub pass.",
+    "The old still-image opening prototype and the rejected auto-playing factual-to-story sequence are historical evidence only and are not eligible reader-opening inputs."
   ]
 }
