@@ -26,6 +26,7 @@
     "hybrid_opening_manifest": "content/AOC-001/media/AOC001-HYBRID-OPENING-v0.1.md",
     "hybrid_opening_ux_lock": "content/AOC-001/media/AOC001-HYBRID-OPENING-UX.md",
     "reader_approval_record": "content/AOC-001/media/AOC001-READER-APPROVAL.md",
+    "publication_qa_report": "content/AOC-001/publication-qa-v0.1.md",
     "visual_character_bible": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.md",
     "visual_character_registry": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.json",
     "visual_character_approval_record": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-APPROVAL.md"
@@ -49,12 +50,12 @@
     "fiction_media_human_gate": "approved_2026-09-24",
     "hybrid_opening": "candidate_approved",
     "hybrid_human_gate": "approved_2026-09-24",
-    "reader_build": "candidate_approved",
-    "distribution_pack": "ready_from_locked_master",
-    "publication_qa": "ready",
+    "reader_build": "needs_master_content_integration",
+    "distribution_pack": "missing_candidate",
+    "publication_qa": "failed_2026-09-25",
     "release_human_gate": "blocked"
   },
-  "foreground_next": "publication_qa",
+  "foreground_next": "reader_build",
   "notes": [
     "The factual report video v0.4 was explicitly approved by the human gate on 2026-09-24 after review for article coverage, fact/fiction clarity, pacing and hand-off into the fictional story.",
     "Atlas moving media requires a recognisable but restrained signature sonic bed. It must accompany rather than compete with visuals, speech, captions, evidence or story and may be reduced or removed when silence or natural ambience is stronger.",
@@ -65,10 +66,12 @@
     "A 25-second moving AOC001-STORY-PROMO candidate was generated in Runway from the locked story and six approved visual references, with native audio, at 1280x720. Runway task: 661289e7-a166-47e4-bcb6-2d413590c5e6.",
     "The fiction-media candidate was explicitly approved by the human gate on 2026-09-24 and remains a separate story/distribution asset.",
     "The story promo is not part of the approved automatic reader opening and must not be silently reintroduced into that path.",
-    "The approved opening now uses the factual film as the continuous visual layer from entry into the reader: final-frame hold, visible recede, full-screen background, scroll-driven scrubbing, and fail-open reader access.",
+    "The approved opening uses the factual film as the continuous visual layer from entry into the reader: final-frame hold, visible recede, full-screen background, scroll-driven scrubbing, and fail-open reader access.",
     "The final approved reader tuning uses a substantially lighter full-bleed background treatment; the reader-state film brightness was raised from 0.43 to 0.67 while retaining text legibility.",
     "Opening UX remains: immediate viewport handoff, muted autoplay where required, small Tap for sound control, Skip, and failure-safe reader reveal.",
-    "The live AOC-001 mobile reader experience was explicitly approved by the human gate on 2026-09-24 after the full-screen brightness and scroll-scrub pass.",
+    "The live AOC-001 mobile reader visual/interaction experience was explicitly approved by the human gate on 2026-09-24 after the full-screen brightness and scroll-scrub pass.",
+    "Publication QA v0.1 failed on 2026-09-25 because the live reader still contains summary skeleton content rather than the complete locked master edition; required consequence/place/source treatments and reduced-motion fallback are incomplete; the distribution package has no candidate; and the edition manifest has drifted from the approved live design.",
+    "The visual/interaction approval remains valid and must be preserved during reader remediation. The next foreground action is complete master-content integration into the approved reader treatment.",
     "The old still-image opening prototype and the rejected auto-playing factual-to-story sequence are historical evidence only and are not eligible reader-opening inputs."
   ]
 }
