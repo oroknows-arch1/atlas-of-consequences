@@ -6,7 +6,7 @@ edition:
   id: "AOC-001"
   ecosystem_id: "AOC-ECO-0001"
   title: "AI's Physical Hunger"
-  status: "publication QA v0.2 failed / release blocked"
+  status: "QA blockers cleared / final publication QA rerun pending / release blocked"
   reader_path:
     - whats_real
     - story
@@ -32,6 +32,7 @@ source_of_truth:
   distribution_rules: "content/AOC-001/distribution/README.md"
   distribution_candidate: "content/AOC-001/distribution/distribution-candidate-v0.1.md"
   orok_rules: "content/AOC-001/orok/README.md"
+  orok_scope_decision: "content/AOC-001/orok/AOC001-OROK-SCOPE-DECISION.md"
   live_reader: "public/index.html"
   reader_publication_css: "public/reader-publication-treatments.css"
   reader_publication_js: "public/reader-publication-treatments.js"
@@ -125,6 +126,7 @@ retired_active_instructions:
   - "asset acquisition as the next foreground action"
   - "mobile web assembly as not yet started"
   - "rejected still-image opening prototype"
+  - "OROK companion as a mandatory AOC-001 release requirement"
 
 sections:
   whats_real:
@@ -185,10 +187,17 @@ sections:
       - "source role and limitation visible where useful"
       - "quieter/static visual state"
 
+orchestration_contract:
+  status: "repaired / validation pass"
+  active_reader_dependency: "factual_media_human_gate + story_boundary_gate + source_register -> reader_build"
+  retired_hybrid_nodes_non_blocking: true
+  verification: "GitHub Actions Validate Atlas worker graph run #44 passed on commit c19c0b12e2ef9c199a115bc49070b1df187f8db6"
+
 orok_companion:
-  status: "release blocker / scope unresolved"
+  status: "optional downstream / explicitly not required for AOC-001 release / non-blocking"
   source_rules: "content/AOC-001/orok/README.md"
-  rule: "Produce the companion or explicitly revise v0.1 release scope before release human approval. Do not silently drop it."
+  scope_decision: "content/AOC-001/orok/AOC001-OROK-SCOPE-DECISION.md"
+  rule: "OROK companion material is optional downstream enrichment unless a future edition explicitly opts into it before production. AOC-001 does not require one for release or end-to-end proof."
 
 distribution_pack:
   status: "candidate_v0.1 / QA v0.2 pass"
@@ -229,10 +238,10 @@ production_pipeline:
     status: "complete candidate / QA v0.2 pass"
   - id: P8
     stage: "publication_QA"
-    status: "failed_2026-09-25_v0.2 / orchestration validator drift + OROK scope unresolved"
+    status: "final rerun required / v0.2 blockers now cleared"
   - id: P9
     stage: "release_human_approval"
-    status: "blocked"
+    status: "blocked pending final publication QA"
   - id: P10
     stage: "publish"
     status: "blocked"
@@ -250,25 +259,21 @@ publication_gates:
   - "Social derivatives point back to the permanent Atlas edition and preserve fact/fiction labels."
   - "The live reader contains the complete locked Master Edition, not skeleton summaries."
   - "Atlas orchestration/validation contracts must match the active approved reader architecture and must not route work back into retired behaviour."
-  - "OROK companion release scope must be explicitly resolved before release human approval."
+  - "OROK is optional downstream enrichment unless an edition explicitly opts into it; AOC-001 has explicitly opted out for release."
 
 next_foreground_action:
-  id: "AOC001-ORCHESTRATION-CONTRACT-REPAIR"
-  action: "Repair the Atlas production graph/validator drift so automated validation recognises the approved factual-opening-to-reader architecture and the current remediated reader/distribution state."
-  preserve:
-    - "factual report film as the only automatic opening media"
-    - "story promo as a separate STORY / FICTION distribution asset"
-    - "final factual frame handoff into the full reader"
-    - "approved full-screen brightness and scroll-scrub reader behaviour"
-    - "complete Master Edition and SR-01 through SR-16 publication treatments"
-  verify_after_repair:
-    - "tools/validate_atlas_graph.py passes"
-    - "GitHub Actions Validate Atlas worker graph passes on main"
-    - "no retired hybrid factual-to-story auto-play path is reintroduced"
-    - "publication QA can be rerun from the current reader/distribution state"
+  id: "AOC001-PUBLICATION-QA-FINAL-RERUN"
+  action: "Rerun the final AOC-001 publication QA now that the orchestration validator and OROK release-scope blockers are cleared."
+  verify:
+    - "GitHub Actions Validate Atlas worker graph remains green"
+    - "approved factual-opening-to-reader architecture remains unchanged"
+    - "complete live reader and distribution candidate remain publication-clean"
+    - "OROK is recorded as optional and non-blocking for AOC-001"
+    - "no unresolved structural release blocker remains before the release human gate"
   do_not_do:
     - "change the locked story"
     - "redesign the approved reader"
     - "change factual claims"
     - "restore automatic story-promo playback"
-    - "advance to release while OROK scope remains unresolved"
+    - "produce OROK content merely to satisfy this prototype"
+    - "advance to release until final Publication QA passes"
