@@ -30,6 +30,7 @@
     "publication_qa_previous": "content/AOC-001/publication-qa-v0.1.md",
     "manifest_reconciliation": "content/AOC-001/manifest-reconciliation-note-2026-09-25.md",
     "distribution_candidate": "content/AOC-001/distribution/distribution-candidate-v0.1.md",
+    "orok_scope_decision": "content/AOC-001/orok/AOC001-OROK-SCOPE-DECISION.md",
     "visual_character_bible": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.md",
     "visual_character_registry": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.json",
     "visual_character_approval_record": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-APPROVAL.md"
@@ -55,7 +56,7 @@
     "hybrid_human_gate": "historical_approval_only",
     "reader_build": "complete_master_integrated",
     "distribution_pack": "candidate_v0.1_assembled",
-    "publication_qa": "failed_2026-09-25_v0.2_contract_and_scope",
+    "publication_qa": "rerun_required_after_blockers_cleared",
     "release_human_gate": "blocked"
   },
   "foreground_next": "publication_qa",
@@ -76,9 +77,9 @@
     "Publication QA v0.1 failed before remediation because the live reader still contained summary skeleton content and required publication/distribution treatments were incomplete.",
     "The complete locked Master Edition and required publication treatments are now integrated into the approved reader without redesigning it.",
     "Distribution Candidate v0.1 is assembled from the approved factual report film, approved STORY / FICTION promo, locked Master Edition and source register.",
-    "Publication QA v0.2 passes the reader, evidence, provenance and distribution candidate gates but remains blocked for release readiness because the Atlas graph validator still encodes the retired hybrid-opening route and the OROK companion release scope remains unresolved.",
-    "GitHub Actions run 36043978963 failed with: approved factual media with pending opening gate requires hybrid_opening as AOC-001 foreground. That requirement conflicts with the active approved factual-film-only opening contract and must be repaired in the graph/validator rather than by restoring rejected reader behaviour.",
-    "The production Render service is live from commit 05a6182cc35aa1f20b7348dd3ef79947d316243f at the time of QA v0.2.",
-    "The next operational repair is the Atlas orchestration contract/validator drift. After that passes, publication QA is rerun; OROK scope remains the following release-scope decision."
+    "Publication QA v0.2 passed the reader, evidence, provenance and distribution content gates but identified two release blockers: stale hybrid-opening orchestration validation and unresolved OROK companion scope.",
+    "The Atlas graph and validator were repaired so the active reader path is factual_media_human_gate + story_boundary_gate + source_register -> reader_build. Retired hybrid nodes are non-blocking. GitHub Actions Validate Atlas worker graph run #44 passed on commit c19c0b12e2ef9c199a115bc49070b1df187f8db6.",
+    "On 2026-09-25 the human release-scope decision made OROK companion material optional downstream enrichment. AOC-001 does not require an OROK companion for release or to prove the end-to-end Atlas pipeline.",
+    "Both structural blockers from Publication QA v0.2 are now cleared. The next foreground action is the final Publication QA rerun; release remains blocked until that gate passes."
   ]
 }
