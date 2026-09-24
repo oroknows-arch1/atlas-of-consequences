@@ -221,13 +221,17 @@
   if (reduced) {
     const video = $('#factFilm');
     if (video) {
-      video.pause();
-      video.removeAttribute('autoplay');
       video.setAttribute('poster', 'assets/aoc001-report-video-candidate-v0.4-review.jpg');
+      video.muted = true;
+      video.setAttribute('playsinline', '');
+      const tryOpeningFilm = () => {
+        if (!document.body.classList.contains('opening-active')) return;
+        const playAttempt = video.play();
+        if (playAttempt && typeof playAttempt.catch === 'function') playAttempt.catch(() => {});
+      };
+      if (video.readyState >= 2) tryOpeningFilm();
+      else video.addEventListener('canplay', tryOpeningFilm, { once: true });
     }
-    const soundBtn = $('#soundBtn');
-    if (soundBtn) soundBtn.style.display = 'none';
-    if (typeof enterReader === 'function') enterReader();
   }
 })();
 
