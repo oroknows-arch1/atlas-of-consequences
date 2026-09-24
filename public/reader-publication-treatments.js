@@ -230,3 +230,151 @@
     if (typeof enterReader === 'function') enterReader();
   }
 })();
+
+/* Reader architecture v0.2: edition map, explicit mechanism flow and perspective story model. */
+(() => {
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+  const make = (tag, className, text) => {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    if (text !== undefined) el.textContent = text;
+    return el;
+  };
+
+  const intro = $('#intro');
+  if (intro && !$('.edition-map', intro)) {
+    intro.classList.add('edition-map-screen');
+    const inner = $('.intro-inner', intro);
+    const map = make('div', 'edition-map');
+    map.setAttribute('aria-label', 'What this edition will show');
+    const kicker = make('div', 'edition-map-kicker', 'WHAT THIS SCROLL WILL SHOW');
+    kicker.style.gridColumn = '1 / -1';
+    map.append(kicker);
+
+    const items = [
+      ['01', "WHAT'S REAL", 'The documented change and the physical chain behind it', '#report'],
+      ['02', 'STORY', 'A fictional human lens living inside that real system', '#story'],
+      ['03', 'CONSEQUENCES', 'What is documented, what is connected, and what is only explored', '#consequences'],
+      ['04', 'PLACE', 'Why the chain narrows to Calama and northern Chile', '#place'],
+      ['05', 'SOURCES', 'Inspect the evidence and the limits of each claim', '#sources']
+    ];
+
+    items.forEach(([no, label, description, href]) => {
+      const a = document.createElement('a');
+      a.className = 'edition-map-item';
+      a.href = href;
+      const n = make('span', 'edition-map-no', no);
+      const copy = make('span', 'edition-map-copy');
+      const strong = document.createElement('strong');
+      strong.textContent = label;
+      const small = document.createElement('span');
+      small.textContent = description;
+      copy.append(strong, small);
+      a.append(n, copy);
+      map.append(a);
+    });
+
+    const prompt = make('div', 'edition-map-prompt', 'Scroll to follow the chain · tap a section to jump');
+    prompt.style.gridColumn = '1 / -1';
+    map.append(prompt);
+    inner.append(map);
+  }
+
+  const nav = $('nav[aria-label="Edition sections"]');
+  if (nav) {
+    nav.classList.add('reader-route');
+    const navLinks = $$('a', nav);
+    navLinks.forEach(a => a.dataset.target = a.getAttribute('href') || '');
+    const sections = ['report','story','consequences','place','sources']
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        const visible = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        navLinks.forEach(a => a.classList.toggle('active', a.dataset.target === `#${visible.target.id}`));
+      }, { rootMargin: '-24% 0px -58% 0px', threshold: [0,.05,.2,.45] });
+      sections.forEach(section => observer.observe(section));
+    }
+  }
+
+  const orientations = {
+    report: "WHAT'S REAL · documented mechanism and evidence chain",
+    story: 'STORY · fictional human perspective inside the system',
+    consequences: 'CONSEQUENCES · separate documented effects from explored possibilities',
+    place: 'PLACE · locate the mechanism in a real city and region',
+    sources: 'SOURCES · inspect what each claim can and cannot prove'
+  };
+  Object.entries(orientations).forEach(([id, label]) => {
+    const root = $(`#${id} .content`);
+    if (!root || $('.chapter-orientation', root)) return;
+    const idx = $('.idx', root);
+    if (!idx) return;
+    const orient = make('div', 'chapter-orientation');
+    orient.append(make('span', '', 'WHERE YOU ARE'), make('strong', '', label));
+    idx.insertAdjacentElement('afterend', orient);
+  });
+
+  const report = $('#report .content');
+  if (report && !$('.signal-flow', report)) {
+    const flow = make('div', 'signal-flow');
+    flow.append(make('div', 'signal-flow-head', 'THE CONNECTION THIS EDITION IS TESTING'));
+    const nodes = [
+      ['01', 'AI / data-centre growth', 'More digital capacity means more physical computing infrastructure.', 'IEA · SR-01–03'],
+      ['02', 'Electricity + grid demand', 'Facilities need generation, connections, transformers, substations, cables and other equipment.', 'IEA · SR-02–04'],
+      ['03', 'Material demand', 'Copper is one of the materials used across data centres and the wider electricity system.', 'IEA · SR-04'],
+      ['04', 'Northern Chile', 'Antofagasta is already the dominant copper-producing region in Chile.', 'Cochilco · SR-05–06'],
+      ['05', 'Calama / Chuquicamata', 'The global material chain meets a real city, workforce, businesses and families.', 'Codelco + UCN · SR-07–12']
+    ];
+    nodes.forEach(([step, title, copy, source]) => {
+      const node = make('div', 'flow-node');
+      const num = make('span', 'flow-step', step);
+      const text = make('div', 'flow-copy');
+      const strong = document.createElement('strong');
+      strong.textContent = title;
+      const span = document.createElement('span');
+      span.textContent = copy;
+      const evidence = make('span', 'flow-evidence', source);
+      text.append(strong, span, evidence);
+      node.append(num, text);
+      flow.append(node);
+    });
+    const boundary = make('div', 'flow-boundary');
+    boundary.innerHTML = '<strong>Boundary:</strong> this is a documented connection chain, not proof that AI caused a specific Antofagasta mine expansion or a particular job.';
+    flow.append(boundary);
+
+    const factStrip = $('.fact-strip', report);
+    const h2 = $('h2', report);
+    if (factStrip) factStrip.insertAdjacentElement('beforebegin', flow);
+    else h2.insertAdjacentElement('afterend', flow);
+  }
+
+  const story = $('#story .content');
+  if (story && !$('.story-lens', story)) {
+    const panel = make('div', 'story-lens');
+    panel.append(make('div', 'label', 'CURRENT STORY LENS'));
+    const title = document.createElement('h3');
+    title.textContent = 'Inside → out · family + labour';
+    const p = document.createElement('p');
+    p.textContent = 'One market can look different depending on where you stand. AOC-001 currently follows the family and labour side of the copper system. The Atlas framework can support additional story branches without turning fiction into market evidence.';
+    const grid = make('div', 'story-lens-grid');
+    const lenses = [
+      ['CURRENT', 'Family + labour', true],
+      ['FRAMEWORK', 'Operator + supplier', false],
+      ['FRAMEWORK', 'Buyer + customer', false],
+      ['FRAMEWORK', 'Investor + market', false]
+    ];
+    lenses.forEach(([state, label, current]) => {
+      const chip = make('div', `story-lens-chip${current ? ' current' : ''}`);
+      chip.append(make('strong', '', state), document.createTextNode(label));
+      grid.append(chip);
+    });
+    panel.append(title, p, grid);
+    const boundary = $('.boundary-tag', story);
+    if (boundary) boundary.insertAdjacentElement('beforebegin', panel);
+    else $('h2', story).insertAdjacentElement('afterend', panel);
+  }
+})();
