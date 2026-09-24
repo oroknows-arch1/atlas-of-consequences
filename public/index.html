@@ -19,7 +19,7 @@
 header{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;gap:14px;padding:max(16px,env(safe-area-inset-top)) 18px 13px;background:linear-gradient(180deg,rgba(5,7,8,.48),rgba(5,7,8,.14),transparent);font-size:9px;letter-spacing:.18em;text-transform:uppercase;text-shadow:0 2px 10px #000}.edition-label{opacity:.62}
 #intro{min-height:100svh;display:flex;align-items:flex-end;padding:28px 22px 76px}.intro-inner{max-width:560px;text-shadow:0 3px 18px rgba(0,0,0,.95)}.k{font-size:9px;letter-spacing:.22em;text-transform:uppercase;opacity:.68}h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(54px,15vw,86px);line-height:.88;letter-spacing:-.035em;margin:13px 0 17px}.deck{font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:1.4;max-width:350px;color:#f1ece1}.reader-note{margin-top:24px;font-size:9px;line-height:1.55;letter-spacing:.12em;text-transform:uppercase;opacity:.62}
 nav{display:flex;gap:9px;overflow-x:auto;padding:0 18px 17px;scrollbar-width:none;position:relative;z-index:15}nav::-webkit-scrollbar{display:none}nav a{white-space:nowrap;text-decoration:none;border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 10px;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#eee;background:rgba(0,0,0,.14);backdrop-filter:blur(7px)}
-.chapter{min-height:100svh;display:flex;align-items:flex-end;padding:28px 22px max(82px,11svh);border-top:1px solid rgba(255,255,255,.07)}.content{width:min(100%,620px);text-shadow:0 3px 18px rgba(0,0,0,.96)}.idx{font-size:9px;letter-spacing:.22em;text-transform:uppercase;opacity:.7}.content h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(42px,12vw,64px);font-weight:400;line-height:.95;margin:12px 0 18px}.content p{font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.5;max-width:39ch;margin:0;color:#f0eadf}.boundary-tag{display:inline-block;margin-top:14px;border:1px solid rgba(255,255,255,.42);padding:6px 8px;font-size:8px;letter-spacing:.16em;text-transform:uppercase;background:rgba(0,0,0,.14)}.source-list{margin-top:22px;padding-top:14px;border-top:1px solid rgba(255,255,255,.18);font-size:10px;line-height:1.55;max-width:62ch;color:#ddd6c8}.source-list div{margin:10px 0}.source-list a{text-decoration:underline}
+.chapter{min-height:100svh;display:flex;align-items:flex-end;padding:28px 22px max(82px,11svh);border-top:1px solid rgba(255,255,255,.07)}.content{width:min(100%,620px);text-shadow:0 3px 18px rgba(0,0,0,.96)}.idx{font-size:9px;letter-spacing:.22em;text-transform:uppercase;opacity:.7}.content h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(42px,12vw,64px);font-weight:400;line-height:.95;margin:12px 0 18px}.content h3{font-family:Georgia,'Times New Roman',serif;font-size:27px;font-weight:400;line-height:1.08;margin:42px 0 15px}.content h4{font-family:Georgia,'Times New Roman',serif;font-size:20px;font-weight:400;line-height:1.2;margin:30px 0 12px}.content p{font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.5;max-width:39ch;margin:0 0 1.05em;color:#f0eadf}.content p:last-child{margin-bottom:0}.content hr{border:0;border-top:1px solid rgba(255,255,255,.18);margin:36px 0}.boundary-tag{display:inline-block;margin:2px 0 24px;border:1px solid rgba(255,255,255,.42);padding:6px 8px;font-size:8px;letter-spacing:.16em;text-transform:uppercase;background:rgba(0,0,0,.14)}.source-list{margin-top:30px;padding-top:16px;border-top:1px solid rgba(255,255,255,.18);font-size:10px;line-height:1.55;max-width:62ch;color:#ddd6c8}.source-list div{margin:10px 0}.source-list a{text-decoration:underline}
 @media(min-width:800px){#intro,.chapter{padding-left:8vw;padding-right:8vw}nav,header{padding-left:8vw;padding-right:8vw}#world.reader-mode #factFilm{inset:0;width:100%;height:100%}}
 @media(prefers-reduced-motion:reduce){#factFilm,#reader,#openingChrome{transition:none}}
 </style>
@@ -42,11 +42,376 @@ nav{display:flex;gap:9px;overflow-x:auto;padding:0 18px 17px;scrollbar-width:non
 <section id="intro" data-p="1"><div class="intro-inner"><div class="k">Current edition</div><h1>AI’s<br>Physical<br>Hunger</h1><div class="deck">The machines may be digital. Their hunger isn’t.</div><div class="reader-note">WHAT’S REAL → STORY → CONSEQUENCES → PLACE → SOURCES</div></div></section>
 <nav aria-label="Edition sections"><a href="#report">What's real</a><a href="#story">Story</a><a href="#consequences">Consequences</a><a href="#place">Place</a><a href="#sources">Sources</a></nav>
 <main>
-<section class="chapter" id="report" data-p=".10"><div class="content"><div class="idx">01 / WHAT'S REAL</div><h2>The physical system.</h2><p>AI begins in digital space, but the infrastructure underneath it is physical: facilities, electricity, networks, materials and land.</p></div></section>
-<section class="chapter" id="story" data-p=".91"><div class="content"><div class="idx">02 / STORY</div><h2>The person inside it.</h2><p>The sequence arrives in an ordinary household. Daniela, Mauricio, Tomás, Emilia and Elena are fictional characters; their lives are not documentary evidence.</p><span class="boundary-tag">STORY · FICTION</span></div></section>
-<section class="chapter" id="consequences" data-p=".55"><div class="content"><div class="idx">03 / CONSEQUENCES</div><h2>The forces connect.</h2><p>Energy demand, infrastructure build-out and copper extraction become one connected physical chain.</p></div></section>
-<section class="chapter" id="place" data-p=".80"><div class="content"><div class="idx">04 / PLACE</div><h2>Calama and Chuquicamata.</h2><p>The global chain reaches a real place: one of the world’s defining copper districts, beside the city where the fictional story is set.</p></div></section>
-<section class="chapter" id="sources" data-p=".98"><div class="content"><div class="idx">05 / SOURCES</div><h2>Evidence remains inspectable.</h2><p>The Atlas reader keeps factual sourcing and fictional storytelling visibly separate. The opening’s factual branch is source-registered; its fictional family is explicitly labelled as fiction.</p><div class="source-list"><div>Factual report provenance and rights: <a href="https://github.com/oroknows-arch1/atlas-of-consequences/blob/main/content/AOC-001/sources/report-video-v0.4-asset-register.md">asset register</a>.</div><div>Publication claim traceability: <a href="https://github.com/oroknows-arch1/atlas-of-consequences/blob/main/content/AOC-001/sources/publication-source-register-v0.1.md">source register</a>.</div><div>Fictional story promo remains an approved separate story asset and is not auto-played in the reader opening.</div></div></div></section>
+<section class="chapter" id="report" data-p=".10"><div class="content">
+<div class="idx">01 / WHAT'S REAL</div>
+<h2>The question feels weightless. The system answering it is not.</h2>
+<p>Type a question into an AI system and the answer can appear in seconds. From the screen, almost nothing seems to move.</p>
+<p>Behind the screen is physical infrastructure.</p>
+<p>AI models are trained and run in data centres containing servers, storage, networking equipment and cooling systems. Those facilities connect to electricity grids and other infrastructure. The International Energy Agency estimates that data centres consumed about <strong>415 TWh of electricity in 2024</strong>, around <strong>1.5% of global electricity consumption</strong>. It expects data-centre electricity use to more than double by 2030 in its base case, with AI the most important driver of that growth alongside other digital services.</p>
+<p>That does not mean every AI question has the same footprint. Models, hardware, workloads, cooling systems, locations and electricity supplies differ. Atlas therefore does not assign a precise electricity, water or material cost to the fictional query that opens this edition.</p>
+<p>The defensible point is simpler:</p>
+<p><strong>AI is digital activity carried by physical systems.</strong></p>
+<h3>More computation means more than more servers</h3>
+<p>As data-centre capacity grows, electricity demand can create pressure beyond the facility itself.</p>
+<p>Generation has to supply the load. Grids have to connect it. Transmission and distribution systems use substations, transformers, cables and other equipment. The IEA says rapid AI and data-centre expansion has increased the urgency of grid-equipment supply constraints.</p>
+<p>Those systems require materials.</p>
+<p>The IEA specifically identifies copper among the metals required for data-centre construction and the wider electricity infrastructure supporting growing demand.</p>
+<p>Copper is not an “AI metal” in isolation. It is already used across power grids, buildings, transport, industry and electrification. AI/data-centre growth enters a much larger demand system.</p>
+<p>That distinction matters.</p>
+<h3>Why copper takes us to northern Chile</h3>
+<p>Chile is one of the world's major copper-producing countries.</p>
+<p>Within Chile, the Antofagasta Region is the dominant production centre. Cochilco's 2025–2034 projection places Antofagasta at <strong>58% of national copper production in 2025</strong>, with the region remaining above half of projected national production through 2034.</p>
+<p>This does <strong>not</strong> establish:</p>
+<p><strong>AI → Antofagasta mine expansion.</strong></p>
+<p>Mining projects have their own economics, ore bodies, approvals, investment cycles, operating needs and histories.</p>
+<p>What it establishes is a legitimate connection worth examining:</p>
+<p><strong>AI/data-centre growth</strong><br>→ adds to electricity and infrastructure demand<br>→ electricity infrastructure requires materials including copper<br>→ Antofagasta is already one of the world's major copper-producing regions.</p>
+<p>Now the Atlas can narrow.</p>
+<h3>Calama</h3>
+<p>Calama sits inside this copper system.</p>
+<p>Chuquicamata, one of Chile's major copper operations, lies about <strong>15 km north of Calama</strong>. Codelco reports that the division produced <strong>266 thousand tonnes of fine copper in 2025</strong> and had <strong>3,992 direct employees</strong> at the end of that year.</p>
+<p>But Calama is not a mine.</p>
+<p>It is a city where people work, study, raise children, shop, play sport, make plans and organise family life. Mining is deeply present without accounting for every person's identity or every event in the city.</p>
+<p>Research from Universidad Católica del Norte also documents the importance of shift work and labour commuting in the regional mining economy. That gives Atlas a human question to explore without pretending a particular family is evidence.</p>
+<p>Before we do that, the mode changes.</p>
+</div></section>
+
+<section class="chapter" id="story" data-p=".91"><div class="content">
+<div class="idx">02 / STORY</div>
+<h2>STORY — FICTION</h2>
+<span class="boundary-tag">STORY · FICTION</span>
+<p><strong>Fiction boundary:</strong> Daniela, Mauricio, Tomás, Emilia and Elena are fictional. Their individual lives and the events below are invented. Calama, the wider mining economy and the work and education patterns surrounding them are evidence-informed. Mauricio's opportunity is fictional and is not presented as a job created by AI.</p>
+<hr>
+<h3>Tuesday</h3>
+<p>By seven-thirty Daniela had already found one shoe, signed something Emilia had forgotten about until breakfast, answered a message from work and told Tomás twice that being able to hear his alarm from the kitchen did not count as getting up.</p>
+<p>Mauricio had sent a message before she woke.</p>
+<p><strong>Morning. All good here. Call tonight.</strong></p>
+<p>She put the phone down beside her coffee.</p>
+<p>Emilia came back into the kitchen wearing both shoes now, but carrying a plastic container with no lid.</p>
+<p>“Where's the blue one?”</p>
+<p>“Second drawer.”</p>
+<p>“It isn't.”</p>
+<p>“It is.”</p>
+<p>Emilia opened the drawer again and found it immediately.</p>
+<p>Tomás appeared with his backpack over one shoulder.</p>
+<p>“I'm going.”</p>
+<p>“You're eating first.”</p>
+<p>“I'll get something.”</p>
+<p>“You'll eat that.”</p>
+<p>He took the piece of toast Daniela held out without breaking stride.</p>
+<p>Nothing about the morning was unusual.</p>
+<p>When Mauricio was away, Daniela knew which decisions could wait until his call and which could not. She knew when Emilia would suddenly remember something for school and when Tomás's silence meant <em>leave it</em> rather than <em>ask again</em>.</p>
+<p>She picked up her bag, checked the kitchen once and called toward the hallway.</p>
+<p>“Now. Both of you.”</p>
+<hr>
+<p>At work, a document arrived incomplete. A meeting had been moved without everyone being told. Someone needed a record Daniela knew had been filed three months earlier.</p>
+<p>She found it.</p>
+<p>At lunch she checked her phone.</p>
+<p>Mauricio had sent a photograph of a paper cup beside his work bag.</p>
+<p><strong>Luxury.</strong></p>
+<p>Daniela smiled.</p>
+<p><strong>Don't spend it all at once.</strong></p>
+<p>A few seconds later:</p>
+<p><strong>Home Thursday.</strong></p>
+<p>She already knew.</p>
+<p>Still, she liked seeing it.</p>
+<hr>
+<h3>Thursday</h3>
+<p>Mauricio came through the door carrying his bag and the tiredness of someone who had been awake at the wrong hours.</p>
+<p>Emilia reached him first.</p>
+<p>He lifted her until she complained that she was too old for that, while making no serious attempt to get down.</p>
+<p>Tomás gave him the half-hug boys sometimes used when they had decided a full hug might constitute evidence.</p>
+<p>Daniela waited behind them.</p>
+<p>Mauricio looked at her.</p>
+<p>“Hi.”</p>
+<p>“Hi.”</p>
+<p>He kissed her.</p>
+<p>For the first hour, being home was easy.</p>
+<p>There was food. There were questions. Mauricio had brought something small for Emilia and nothing for Tomás because Tomás had insisted last time that he didn't need anything.</p>
+<p>Tomás looked offended anyway.</p>
+<p>“You told me not to.”</p>
+<p>“I didn't say you had to listen.”</p>
+<p>Mauricio laughed.</p>
+<p>“There it is. I missed that.”</p>
+<p>Later, Emilia was sitting on the floor trying to close a folder that had somehow become too full.</p>
+<p>Mauricio was on the couch beside her.</p>
+<p>“Mum?”</p>
+<p>Daniela was in the kitchen.</p>
+<p>“What?”</p>
+<p>“Can you help me?”</p>
+<p>Mauricio looked down at the folder, then at Emilia.</p>
+<p>“I am literally here.”</p>
+<p>Emilia looked at him as if this were new information.</p>
+<p>“Oh.”</p>
+<p>Daniela turned around.</p>
+<p>Mauricio was smiling.</p>
+<p>Mostly.</p>
+<p>“I can do it,” he said.</p>
+<p>Emilia handed him the folder.</p>
+<p>Thirty seconds later she was telling him something about a girl at school, and Mauricio was trying to understand a story that seemed to have begun several days before he arrived.</p>
+<p>Daniela went back to the kitchen.</p>
+<hr>
+<h3>The offer</h3>
+<p>Mauricio waited until the children had moved away before he told her.</p>
+<p>“They've asked me about another position.”</p>
+<p>Daniela looked up.</p>
+<p>“Asked you what?”</p>
+<p>“If I'd take it.”</p>
+<p>He explained it without trying to make it sound bigger than it was. More responsibility. Better money. A stronger technical role. A clearer path forward.</p>
+<p>“And?” Daniela asked.</p>
+<p>“I think it's good.”</p>
+<p>“You already said yes?”</p>
+<p>“No.”</p>
+<p>She nodded.</p>
+<p>“The roster?”</p>
+<p>“Seven-seven.”</p>
+<p>She waited.</p>
+<p>“Rotating.”</p>
+<p>Mauricio leaned back.</p>
+<p>“It isn't more days away.”</p>
+<p>“I know.”</p>
+<p>“Actually—”</p>
+<p>“I know how numbers work, Mauricio.”</p>
+<p>He stopped.</p>
+<p>She smiled slightly.</p>
+<p>“Just checking.”</p>
+<p>“What happens after nights?”</p>
+<p>“I sleep.”</p>
+<p>“Exactly.”</p>
+<p>Some of his days home would still be Daniela's workdays and the children's school days. Some would begin with Mauricio trying to persuade his body that daytime was daytime again.</p>
+<p>“So you want it?” she asked.</p>
+<p>Mauricio looked toward the hallway.</p>
+<p>“I think I'd be stupid not to.”</p>
+<p>“That isn't what I asked.”</p>
+<p>He looked back at her.</p>
+<p>“Yes.”</p>
+<p>Daniela nodded.</p>
+<p>“Okay.”</p>
+<p>“Okay good or okay we're going to discuss this for six hours?”</p>
+<p>“Both.”</p>
+<hr>
+<h3>Tomás</h3>
+<p>Mauricio found Tomás at the table later with three browser tabs open and none of them related to what he claimed to be doing.</p>
+<p>“What are those?”</p>
+<p>“Nothing.”</p>
+<p>Mauricio leaned closer.</p>
+<p>Tomás moved the laptop slightly.</p>
+<p>“That usually means something.”</p>
+<p>“It's school stuff.”</p>
+<p>One page was about technical study.</p>
+<p>“You looking at electrical?”</p>
+<p>“Maybe.”</p>
+<p>“That's good.”</p>
+<p>Tomás glanced at him.</p>
+<p>“You don't even know what it is yet.”</p>
+<p>“Electrical is electrical.”</p>
+<p>“No, it isn't.”</p>
+<p>“Fine. Educate me.”</p>
+<p>Tomás rolled his eyes, but he turned the laptop.</p>
+<p>Mauricio listened. Tomás had options and had not decided which one he wanted.</p>
+<p>“The good thing about learning something useful,” Mauricio said, “is nobody can take the skill off you.”</p>
+<p>Tomás looked at him.</p>
+<p>“You're changing jobs?”</p>
+<p>“Maybe.”</p>
+<p>“Mum knows?”</p>
+<p>“Of course your mum knows.”</p>
+<p>“What roster?”</p>
+<p>Mauricio laughed.</p>
+<p>“You two have a union?”</p>
+<p>“What roster?”</p>
+<p>“Seven-seven.”</p>
+<p>Tomás nodded once.</p>
+<p>Mauricio watched him turn back to the screen.</p>
+<hr>
+<h3>Elena</h3>
+<p>Daniela's mother came by the next afternoon and immediately asked why nobody had offered her coffee.</p>
+<p>Mauricio stood.</p>
+<p>“I was getting there.”</p>
+<p>“You weren't.”</p>
+<p>Elena sat down.</p>
+<p>Daniela eventually mentioned the offer.</p>
+<p>“Better money?” Elena asked.</p>
+<p>“Yes.”</p>
+<p>“You want him to take it?”</p>
+<p>“I didn't say that.”</p>
+<p>“You didn't answer me either.”</p>
+<p>Mauricio, safely across the room, became very interested in his phone.</p>
+<p>Daniela looked at her mother.</p>
+<p>“I want us to get somewhere.”</p>
+<p>Elena nodded.</p>
+<p>Then she looked at Mauricio.</p>
+<p>“You making coffee or just hiding?”</p>
+<p>“Coffee.”</p>
+<p>“Good.”</p>
+<hr>
+<h3>Sunday</h3>
+<p>They did not decide in one grand conversation.</p>
+<p>The decision accumulated.</p>
+<p>It appeared while Daniela put away groceries and Mauricio mentioned what the new role could add to their savings.</p>
+<p>It appeared when they compared calendars.</p>
+<p>It appeared when Tomás asked another question about technical work and Mauricio answered without turning it into recruitment.</p>
+<p>And it appeared when Daniela went to work while Mauricio was home.</p>
+<p>At eleven-thirty he sent her a photograph of the kitchen.</p>
+<p><strong>Fixed the drawer.</strong></p>
+<p>She replied:</p>
+<p><strong>Which drawer?</strong></p>
+<p>Three dots appeared.</p>
+<p>Stopped.</p>
+<p>Appeared again.</p>
+<p><strong>There is more than one broken drawer?</strong></p>
+<p>Daniela laughed at her desk.</p>
+<hr>
+<p>That evening she opened the calendar again.</p>
+<p>“If we do this,” she said, “I don't want the extra money to just disappear.”</p>
+<p>“It won't.”</p>
+<p>“It always does.”</p>
+<p>“Then we decide where it goes first.”</p>
+<p>“A buffer,” she said.</p>
+<p>“How much?”</p>
+<p>“I don't know yet.”</p>
+<p>“For what?”</p>
+<p>Daniela thought about it.</p>
+<p>“For being able to choose.”</p>
+<p>Mauricio waited.</p>
+<p>“If something changes, I don't want every decision to be whichever one pays us fastest.”</p>
+<p>Mauricio nodded.</p>
+<p>“Okay.”</p>
+<p>“And if the roster is terrible?”</p>
+<p>“We look at it again.”</p>
+<p>“Not in five years.”</p>
+<p>“No.”</p>
+<p>“When?”</p>
+<p>He smiled.</p>
+<p>“You really do want the six-hour discussion.”</p>
+<p>“Answer me.”</p>
+<p>“We give it time. Then we look at what it's actually doing to us.”</p>
+<p>Daniela closed the calendar.</p>
+<p>“Okay.”</p>
+<hr>
+<h3>Monday</h3>
+<p>Mauricio accepted the role.</p>
+<p>Nothing dramatic happened.</p>
+<p>Daniela went to work.</p>
+<p>Tomás went back to whatever decision he had not made.</p>
+<p>Emilia lost something that had been in her hand moments earlier.</p>
+<p>Mauricio started preparing for the change.</p>
+<p>His bag sat open while Emilia moved around him, providing an uninterrupted account of something involving two friends and a disagreement whose central facts changed each time she told it.</p>
+<p>“Dad.”</p>
+<p>“Mm?”</p>
+<p>“Are you listening?”</p>
+<p>“Yes.”</p>
+<p>“What did I say?”</p>
+<p>Mauricio looked at her.</p>
+<p>Emilia waited.</p>
+<p>He surrendered.</p>
+<p>“Start again.”</p>
+<p>She did, happily.</p>
+<p>He listened properly this time.</p>
+<hr>
+<p>When the first new work block came, the departure was ordinary.</p>
+<p>Bag.</p>
+<p>Phone.</p>
+<p>A last check.</p>
+<p>Something Daniela remembered at the door.</p>
+<p>Something Mauricio had forgotten.</p>
+<p>He kissed Emilia, bumped shoulders with Tomás and held Daniela a moment longer than necessary.</p>
+<p>Then he left to join the workers travelling out of Calama toward the faena.</p>
+<p>Daniela closed the door.</p>
+<p>Behind her, Emilia was already asking where something was.</p>
+<p>Tomás had something open on his laptop again.</p>
+<p>Daniela's own workday was waiting.</p>
+<p>The house began rearranging itself.</p>
+<p>Again.</p>
+<hr>
+<p>Far from Calama, someone could type a question into an AI system and receive an answer almost immediately.</p>
+<p>It could feel weightless.</p>
+<p>It wasn't.</p>
+<p>The digital world still needed a physical one.</p>
+<p>And in Calama, Daniela's morning was beginning again.</p>
+<p><strong>What does providing for your family mean when the opportunity that helps you provide also asks for more of your absence?</strong></p>
+</div></section>
+
+<section class="chapter" id="consequences" data-p=".55"><div class="content">
+<div class="idx">03 / CONSEQUENCES</div>
+<h2>What connects these two worlds?</h2>
+<p>Not a straight line.</p>
+<p>AOC-001 uses three different levels of certainty.</p>
+<h3>1. Documented global mechanism</h3>
+<p><strong>AI/data-centre expansion</strong><br>→ additional electricity demand<br>→ additional generation/grid/infrastructure requirements<br>→ material requirements including copper.</p>
+<p>The IEA identifies AI as an important driver of projected data-centre electricity growth and identifies copper among the materials required by data centres and electricity infrastructure.</p>
+<h3>2. Documented place connection</h3>
+<p><strong>Copper</strong><br>→ Chile<br>→ Antofagasta Region<br>→ Calama / Chuquicamata copper economy.</p>
+<p>Antofagasta is already Chile's largest copper-producing region. Existing mining activity, investment, contracting and employment there have many causes independent of AI.</p>
+<h3>3. Fictional human exploration</h3>
+<p><strong>Mauricio's invented opportunity</strong><br>→ better household financial margin<br>→ changed roster rhythm<br>→ less predictable usable family time<br>→ Daniela and Mauricio negotiate what “providing” means<br>→ Tomás sees a technical mining-linked future as one real option<br>→ Emilia's ordinary behaviour reveals how absence can become routine.</p>
+<p>This third chain is a story.</p>
+<p>It is not a forecast and it is not evidence that AI caused these events.</p>
+<h3>The prohibited shortcut</h3>
+<p>AOC-001 must never be reduced to:</p>
+<p><strong>AI boom → mine expands → Mauricio gets promoted.</strong></p>
+<p>We do not have evidence for that individual causal chain.</p>
+<p>The edition asks a different question: if digital growth adds pressure to global physical systems, what kinds of human consequences are worth watching in places already deeply connected to the materials those systems require?</p>
+<p>Opportunity can be a consequence too.</p>
+<p>It can improve income, security and choice while changing time, work and family rhythms.</p>
+</div></section>
+
+<section class="chapter" id="place" data-p=".80"><div class="content">
+<div class="idx">04 / PLACE</div>
+<h2>Calama, Antofagasta Region, Chile</h2>
+<p>Calama is the household setting for AOC-001 and the city through which the global chain becomes human-scale.</p>
+<p>The 2024 Chilean census counted <strong>166,334 people in Calama</strong>, making it the second-largest population centre in the Antofagasta Region after Antofagasta commune.</p>
+<p>The city sits in El Loa province in northern Chile's Atacama environment. North of the city is the Chuquicamata mining complex. The relationship between Calama and mining is therefore not abstract: work, transport, contracting, history and family routines have developed around a major copper economy over generations.</p>
+<h3>Calama is more than extraction</h3>
+<p>Atlas deliberately avoids presenting Calama as an empty desert settlement attached to a mine.</p>
+<p>Contemporary local research and municipal records describe neighbourhood organisations, schools, sport, cultural activity, public-space projects and ordinary civic life. Cobreloa football culture, neighbourhood associations and community organisations sit alongside the mining economy.</p>
+<p>A 2026 Universidad Católica del Norte household survey also found residents discussing issues including cost of living, crime, pollution, health, migration, education and housing.</p>
+<p>Those conditions are part of the real city. They are <strong>not automatically part of this story</strong>.</p>
+<p>AOC-001 does not use them as dramatic material simply because they exist.</p>
+<h3>Work and home</h3>
+<p>Mining work can produce a distinctive geography of time.</p>
+<p>A worker may be physically close to Calama on a map while still being absent from Tuesday breakfast, a school event or an ordinary evening at home.</p>
+<p>Organised worker transport and rostered work are established features of the mining environment. In the fiction, Mauricio's exact employer, mine, transport provider and schedule remain invented or deliberately unnamed.</p>
+<p>That gives the edition one useful contradiction:</p>
+<p><strong>The work can be nearby on a map and still remove someone from Tuesday.</strong></p>
+<h3>Chuquicamata and memory</h3>
+<p>Chuquicamata's relationship with Calama also extends beyond today's workforce.</p>
+<p>The former Chuquicamata residential camp was closed as residents were relocated to Calama during the 2000s. More than 10,000 people were moved in the wider process.</p>
+<p>Atlas researched this history when constructing Daniela's extended family, but STORY v0.2 does not use it. Evidence does not have to appear in the fiction merely because it was collected.</p>
+<h3>A note on Indigenous context</h3>
+<p>El Loa is also home to Indigenous communities, including Lickanantay/Atacameño communities with their own histories and relationships to territory, water and development.</p>
+<p>AOC-001 does not invent an Indigenous character or community viewpoint for cultural weight. Such a viewpoint requires its own community-specific research and sourcing.</p>
+</div></section>
+
+<section class="chapter" id="sources" data-p=".98"><div class="content">
+<div class="idx">05 / SOURCES</div>
+<h2>Core evidence</h2>
+<h3>AI, data centres and electricity</h3>
+<p><strong>International Energy Agency — Energy and AI (2025).</strong><br>Used for global data-centre electricity consumption, projected demand growth, AI's role in that growth, grid constraints and physical data-centre infrastructure.</p>
+<p>• <em>Executive summary — Energy and AI</em><br>• <em>Energy demand from AI</em><br>• <em>Energy supply for AI</em><br>• <em>AI and energy security</em></p>
+<h3>Copper outlook</h3>
+<p><strong>Comisión Chilena del Cobre (Cochilco) — Proyección de la producción de cobre en Chile, 2025–2034.</strong><br>Used for the position of Antofagasta as Chile's principal copper-producing region and the projected regional production share.</p>
+<p><strong>Cochilco — copper production statistics.</strong><br>Used as the national copper-production statistical anchor.</p>
+<h3>Chuquicamata</h3>
+<p><strong>Codelco — Chuquicamata operations.</strong><br>Used for location relative to Calama, current operation context, 2025 production and direct workforce figures.</p>
+<p>Codelco is a primary source for its own operations. Atlas does not treat company descriptions of social outcomes as independent evaluation.</p>
+<h3>Calama / Antofagasta population and everyday context</h3>
+<p><strong>Instituto Nacional de Estadísticas (INE) — Censo 2024, Antofagasta regional results.</strong><br>Used for population and regional demographic context.</p>
+<p><strong>Universidad Católica del Norte — mining commuting research and Barómetro Calama 2026.</strong><br>Used for labour-commuting context and contemporary resident concerns.</p>
+<h3>Local and historical context</h3>
+<p><strong>Municipalidad de Calama.</strong><br>Used for contemporary civic/community activity and municipal planning context.</p>
+<p><strong>Servicio Nacional del Patrimonio Cultural / Codelco historical records.</strong><br>Used for Chuquicamata heritage and relocation chronology, with institutional-source limitations retained.</p>
+<h3>Evidence rules for this edition</h3>
+<p>1. A source supporting global AI electricity growth does not prove a local Calama consequence.</p>
+<p>2. A source documenting Antofagasta mining investment does not prove AI caused that investment.</p>
+<p>3. A source documenting roster/commuting effects does not make Daniela's household representative.</p>
+<p>4. Company sources are strongest for company operations and weaker as independent assessments of community outcomes.</p>
+<p>5. Fictional characters, dialogue, household events and Mauricio's opportunity remain fiction even when their surrounding conditions are evidence-informed.</p>
+<hr>
+<h3>Edition boundary</h3>
+<p><strong>WHAT'S REAL</strong> establishes the physical mechanism.<br><strong>STORY</strong> explores one fictional household.<br><strong>CONSEQUENCES</strong> shows exactly where evidence ends and exploration begins.<br><strong>PLACE</strong> restores the wider locality around the characters.<br><strong>SOURCES</strong> makes the evidence inspectable.</p>
+<p><strong>Facts can change the fiction. Fiction must never quietly become fact.</strong></p>
+<div class="source-list"><div>Factual report provenance and rights: <a href="https://github.com/oroknows-arch1/atlas-of-consequences/blob/main/content/AOC-001/sources/report-video-v0.4-asset-register.md">asset register</a>.</div><div>Publication claim traceability: <a href="https://github.com/oroknows-arch1/atlas-of-consequences/blob/main/content/AOC-001/sources/publication-source-register-v0.1.md">source register</a>.</div><div>Fictional story promo remains an approved separate story asset and is not auto-played in the reader opening.</div></div>
+</div></section>
 </main>
 </div>
 
