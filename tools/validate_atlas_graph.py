@@ -90,7 +90,9 @@ for item in required_boundaries:
     if item not in present:
         errors.append(f"required Atlas boundary missing: {item}")
 
-# Derive AOC-001 foreground from the live human-gate state.
+# Derive AOC-001 foreground from the live human-gate and QA state.
+# A failed publication QA must return work to the responsible node rather
+# than leaving the release gate looking ready.
 visual_gate = node_state.get("visual_character_human_gate")
 fiction_gate = node_state.get("fiction_media_human_gate")
 factual_gate = node_state.get("factual_media_human_gate")
@@ -99,6 +101,7 @@ foreground = edition.get("foreground_next")
 fiction_state = node_state.get("fiction_media")
 reader_state = node_state.get("reader_build")
 publication_state = node_state.get("publication_qa")
+distribution_state = node_state.get("distribution_pack")
 
 if visual_gate == "approved":
     if node_state.get("visual_character_bible") != "satisfied_by_approved_reference_set":
@@ -111,11 +114,23 @@ if visual_gate == "approved":
             errors.append("approved fiction-media gate requires candidate_approved fiction_media state")
 
         if approved(factual_gate):
-            if approved(hybrid_gate) and reader_state == "candidate_approved":
-                if foreground != "publication_qa":
-                    errors.append("approved reader state requires publication_qa as AOC-001 foreground")
-                if publication_state != "ready":
-                    errors.append("approved reader state requires publication_qa to be ready")
+            if approved(hybrid_gate):
+                if isinstance(publication_state, str) and publication_state.startswith("failed_"):
+                    if reader_state != "needs_master_content_integration":
+                        errors.append("failed publication QA requires reader_build remediation state")
+                    if distribution_state != "missing_candidate":
+                        errors.append("failed publication QA must preserve missing distribution candidate state")
+                    if foreground != "reader_build":
+                        errors.append("failed publication QA must return AOC-001 foreground to reader_build")
+                    if node_state.get("release_human_gate") != "blocked":
+                        errors.append("failed publication QA must keep release human gate blocked")
+                elif reader_state == "candidate_approved":
+                    if foreground != "publication_qa":
+                        errors.append("approved reader state requires publication_qa as AOC-001 foreground")
+                    if publication_state != "ready":
+                        errors.append("approved reader state requires publication_qa to be ready")
+                else:
+                    errors.append("approved opening gate requires either an approved reader candidate or an explicit QA remediation state")
             else:
                 if foreground != "hybrid_opening":
                     errors.append("approved factual media with pending opening gate requires hybrid_opening as AOC-001 foreground")
