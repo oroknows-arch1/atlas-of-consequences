@@ -18,6 +18,10 @@ def approved(value):
     return isinstance(value, str) and value.startswith("approved")
 
 
+def starts(value, prefix):
+    return isinstance(value, str) and value.startswith(prefix)
+
+
 errors = []
 
 skills_doc = load("atlas/registry/skills.json")
@@ -29,6 +33,7 @@ edition = load("atlas/editions/AOC-001.json")
 skill_ids = {s["id"] for s in skills_doc["skills"]}
 worker_ids = {w["id"] for w in workers_doc["workers"]}
 node_ids = {n["id"] for n in graph["nodes"]}
+nodes = {n["id"]: n for n in graph["nodes"]}
 
 if len(skill_ids) != len(skills_doc["skills"]):
     errors.append("duplicate skill id")
@@ -90,18 +95,34 @@ for item in required_boundaries:
     if item not in present:
         errors.append(f"required Atlas boundary missing: {item}")
 
-# Derive AOC-001 foreground from the live human-gate and QA state.
-# A failed publication QA must return work to the responsible node rather
-# than leaving the release gate looking ready.
+# Active opening architecture.
+# The human-approved AOC-001 path is factual report film -> final-frame handoff -> reader.
+# The earlier hybrid factual+fiction opening is retained only as historical evidence and
+# must never be an active reader dependency again.
+reader_node = nodes.get("reader_build", {})
+reader_requires = set(reader_node.get("requires", []))
+if "factual_media_human_gate" not in reader_requires:
+    errors.append("reader_build must require factual_media_human_gate")
+if "hybrid_human_gate" in reader_requires:
+    errors.append("reader_build must not depend on retired hybrid_human_gate")
+if reader_node.get("opening_contract") != "approved factual report film -> final-frame handoff -> reader":
+    errors.append("reader_build opening contract does not match approved factual-opening architecture")
+
+for retired_id in ("hybrid_opening", "hybrid_human_gate"):
+    retired_node = nodes.get(retired_id, {})
+    if retired_node.get("lifecycle") != "retired" or retired_node.get("active") is not False:
+        errors.append(f"{retired_id} must remain explicitly retired and non-blocking")
+
+# AOC-001 state consistency. Validate outputs and gates without re-imposing a retired route.
 visual_gate = node_state.get("visual_character_human_gate")
 fiction_gate = node_state.get("fiction_media_human_gate")
 factual_gate = node_state.get("factual_media_human_gate")
-hybrid_gate = node_state.get("hybrid_human_gate")
 foreground = edition.get("foreground_next")
 fiction_state = node_state.get("fiction_media")
 reader_state = node_state.get("reader_build")
 publication_state = node_state.get("publication_qa")
 distribution_state = node_state.get("distribution_pack")
+release_state = node_state.get("release_human_gate")
 
 if visual_gate == "approved":
     if node_state.get("visual_character_bible") != "satisfied_by_approved_reference_set":
@@ -109,42 +130,40 @@ if visual_gate == "approved":
     if fiction_state not in {"ready", "candidate_approved"}:
         errors.append("approved visual gate must unlock or preserve fiction_media progress")
 
-    if approved(fiction_gate):
-        if fiction_state != "candidate_approved":
-            errors.append("approved fiction-media gate requires candidate_approved fiction_media state")
+if approved(fiction_gate) and fiction_state != "candidate_approved":
+    errors.append("approved fiction-media gate requires candidate_approved fiction_media state")
 
-        if approved(factual_gate):
-            if approved(hybrid_gate):
-                if isinstance(publication_state, str) and publication_state.startswith("failed_"):
-                    if reader_state != "needs_master_content_integration":
-                        errors.append("failed publication QA requires reader_build remediation state")
-                    if distribution_state != "missing_candidate":
-                        errors.append("failed publication QA must preserve missing distribution candidate state")
-                    if foreground != "reader_build":
-                        errors.append("failed publication QA must return AOC-001 foreground to reader_build")
-                    if node_state.get("release_human_gate") != "blocked":
-                        errors.append("failed publication QA must keep release human gate blocked")
-                elif reader_state == "candidate_approved":
-                    if foreground != "publication_qa":
-                        errors.append("approved reader state requires publication_qa as AOC-001 foreground")
-                    if publication_state != "ready":
-                        errors.append("approved reader state requires publication_qa to be ready")
-                else:
-                    errors.append("approved opening gate requires either an approved reader candidate or an explicit QA remediation state")
-            else:
-                if foreground != "hybrid_opening":
-                    errors.append("approved factual media with pending opening gate requires hybrid_opening as AOC-001 foreground")
-        else:
-            if foreground != "factual_media":
-                errors.append("approved fiction-media gate with pending factual gate requires factual_media as AOC-001 foreground")
-    else:
-        if fiction_state != "ready":
-            errors.append("unapproved fiction-media gate requires fiction_media to remain ready")
-        if foreground != "fiction_media":
-            errors.append("approved visual gate with pending fiction gate requires fiction_media as AOC-001 foreground")
-else:
-    if foreground != "visual_character_bible":
-        errors.append("unapproved visual gate requires visual_character_bible as AOC-001 foreground")
+reader_complete_states = {"candidate_approved", "complete_master_integrated"}
+distribution_complete_states = {"candidate_approved", "candidate_v0.1_assembled"}
+
+if reader_state in reader_complete_states:
+    if not approved(factual_gate):
+        errors.append("completed reader requires approved factual_media_human_gate")
+    if node_state.get("story_boundary_gate") != "satisfied_by_existing_artifact":
+        errors.append("completed reader requires satisfied story boundary gate")
+    if node_state.get("source_register") != "satisfied_by_existing_artifact":
+        errors.append("completed reader requires satisfied source register")
+
+if foreground == "publication_qa":
+    if reader_state not in reader_complete_states:
+        errors.append("publication_qa foreground requires completed reader_build")
+    if distribution_state not in distribution_complete_states:
+        errors.append("publication_qa foreground requires assembled distribution_pack")
+    if publication_state not in {"ready", "rerun_pending_after_remediation"} and not starts(publication_state, "failed_") and not starts(publication_state, "passed_"):
+        errors.append("publication_qa foreground has an unrecognised publication_qa state")
+
+if starts(publication_state, "failed_") or publication_state == "rerun_pending_after_remediation":
+    if release_state != "blocked":
+        errors.append("non-passed publication QA must keep release human gate blocked")
+
+if release_state != "blocked" and not starts(publication_state, "passed_"):
+    errors.append("release human gate cannot advance before publication QA passes")
+
+# Historical hybrid state is allowed only when explicitly marked historical/retired.
+if node_state.get("hybrid_opening") not in {"retired_as_active_requirement", "historical_only", "candidate_approved"}:
+    errors.append("hybrid_opening state must remain historical or retired")
+if node_state.get("hybrid_human_gate") not in {"historical_approval_only", "retired", "approved_2026-09-24"}:
+    errors.append("hybrid_human_gate state must remain historical or retired")
 
 if errors:
     print("ATLAS GRAPH VALIDATION: FAIL")
@@ -157,4 +176,5 @@ print(f"- skills: {len(skill_ids)}")
 print(f"- workers: {len(worker_ids)}")
 print(f"- graph nodes: {len(node_ids)}")
 print(f"- live edition: {edition['edition_id']}")
+print(f"- active opening: {reader_node.get('opening_contract')}")
 print(f"- foreground next: {edition['foreground_next']}")
