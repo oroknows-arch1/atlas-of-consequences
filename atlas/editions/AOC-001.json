@@ -26,7 +26,8 @@
     "hybrid_opening_manifest": "content/AOC-001/media/AOC001-HYBRID-OPENING-v0.1.md",
     "hybrid_opening_ux_lock": "content/AOC-001/media/AOC001-HYBRID-OPENING-UX.md",
     "reader_approval_record": "content/AOC-001/media/AOC001-READER-APPROVAL.md",
-    "publication_qa_report": "content/AOC-001/publication-qa-v0.1.md",
+    "publication_qa_report": "content/AOC-001/publication-qa-v0.2.md",
+    "publication_qa_previous": "content/AOC-001/publication-qa-v0.1.md",
     "manifest_reconciliation": "content/AOC-001/manifest-reconciliation-note-2026-09-25.md",
     "distribution_candidate": "content/AOC-001/distribution/distribution-candidate-v0.1.md",
     "visual_character_bible": "content/AOC-001/media/AOC001-VISUAL-CHARACTER-BIBLE-v0.1.md",
@@ -54,7 +55,7 @@
     "hybrid_human_gate": "historical_approval_only",
     "reader_build": "complete_master_integrated",
     "distribution_pack": "candidate_v0.1_assembled",
-    "publication_qa": "rerun_pending_after_remediation",
+    "publication_qa": "failed_2026-09-25_v0.2_contract_and_scope",
     "release_human_gate": "blocked"
   },
   "foreground_next": "publication_qa",
@@ -72,10 +73,12 @@
     "The final approved reader tuning uses a substantially lighter full-bleed background treatment; the reader-state film brightness was raised from 0.43 to 0.67 while retaining text legibility.",
     "Opening UX remains: immediate viewport handoff, muted autoplay where required, small Tap for sound control, Skip, and failure-safe reader reveal.",
     "The live AOC-001 mobile reader visual/interaction experience was explicitly approved by the human gate on 2026-09-24 after the full-screen brightness and scroll-scrub pass.",
-    "Publication QA v0.1 failed on 2026-09-25 before remediation because the live reader still contained summary skeleton content and required publication/distribution treatments were incomplete.",
-    "The edition manifest was reconciled to the approved current state on 2026-09-25. Obsolete opening, asset and pipeline instructions were removed from the active contract and retained only through Git history and approval/QA records.",
+    "Publication QA v0.1 failed before remediation because the live reader still contained summary skeleton content and required publication/distribution treatments were incomplete.",
     "The complete locked Master Edition and required publication treatments are now integrated into the approved reader without redesigning it.",
-    "Distribution Candidate v0.1 is assembled from the approved factual report film, approved STORY / FICTION promo, locked Master Edition and source register. It includes captions, headlines/descriptions, static derivatives, poster bindings and the permanent Atlas destination without new paid media generation.",
-    "The next foreground action is the full Publication QA rerun. Release and publishing remain blocked until that gate passes and remaining release-scope items are resolved."
+    "Distribution Candidate v0.1 is assembled from the approved factual report film, approved STORY / FICTION promo, locked Master Edition and source register.",
+    "Publication QA v0.2 passes the reader, evidence, provenance and distribution candidate gates but remains blocked for release readiness because the Atlas graph validator still encodes the retired hybrid-opening route and the OROK companion release scope remains unresolved.",
+    "GitHub Actions run 36043978963 failed with: approved factual media with pending opening gate requires hybrid_opening as AOC-001 foreground. That requirement conflicts with the active approved factual-film-only opening contract and must be repaired in the graph/validator rather than by restoring rejected reader behaviour.",
+    "The production Render service is live from commit 05a6182cc35aa1f20b7348dd3ef79947d316243f at the time of QA v0.2.",
+    "The next operational repair is the Atlas orchestration contract/validator drift. After that passes, publication QA is rerun; OROK scope remains the following release-scope decision."
   ]
 }

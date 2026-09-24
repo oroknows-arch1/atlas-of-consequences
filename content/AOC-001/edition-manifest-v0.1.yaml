@@ -6,7 +6,7 @@ edition:
   id: "AOC-001"
   ecosystem_id: "AOC-ECO-0001"
   title: "AI's Physical Hunger"
-  status: "distribution candidate assembled / publication QA rerun pending / release blocked"
+  status: "publication QA v0.2 failed / release blocked"
   reader_path:
     - whats_real
     - story
@@ -26,7 +26,8 @@ source_of_truth:
   evidence_register: "content/AOC-001/sources/publication-source-register-v0.1.md"
   constitution: "docs/atlas-constitution.md"
   reader_approval: "content/AOC-001/media/AOC001-READER-APPROVAL.md"
-  publication_qa: "content/AOC-001/publication-qa-v0.1.md"
+  publication_qa: "content/AOC-001/publication-qa-v0.2.md"
+  publication_qa_previous: "content/AOC-001/publication-qa-v0.1.md"
   manifest_reconciliation: "content/AOC-001/manifest-reconciliation-note-2026-09-25.md"
   distribution_rules: "content/AOC-001/distribution/README.md"
   distribution_candidate: "content/AOC-001/distribution/distribution-candidate-v0.1.md"
@@ -87,7 +88,7 @@ approved_reader_system:
     rule: "must never compete with visuals, speech, captions, evidence or story"
   reduced_motion:
     required: true
-    implementation_status: "implemented in reader / publication QA rerun pending"
+    implementation_status: "implemented / QA v0.2 source-level pass"
     static_asset: "public/assets/aoc001-report-video-candidate-v0.4-review.jpg"
     behavior: "video hidden, static factual-film frame retained, reader entered immediately, normal text navigation preserved"
     target: "static factual-film fallback with normal reader access; never require moving/scrubbed video"
@@ -131,7 +132,7 @@ sections:
     mode: "factual"
     certainty: "documented_global + documented_place"
     content_source: "master-edition-v0.1.md#WHAT'S REAL"
-    integration_status: "complete / locked master text + key factual callouts integrated"
+    integration_status: "complete / QA v0.2 pass"
     evidence_ids: [SR-01, SR-02, SR-03, SR-04, SR-05, SR-06, SR-07, SR-08, SR-10]
     required_web_treatment:
       - "short mobile paragraphs"
@@ -143,7 +144,7 @@ sections:
     mode: "fiction"
     certainty: "fictional_human"
     content_source: "master-edition-v0.1.md#STORY — FICTION"
-    integration_status: "complete / locked story + fiction disclosure + scene breaks integrated"
+    integration_status: "complete / QA v0.2 pass"
     fictional_people: [Daniela, Mauricio, Tomás, Emilia, Elena]
     required_web_treatment:
       - "persistent or obvious STORY / FICTION label"
@@ -155,7 +156,7 @@ sections:
     display_label: "CONSEQUENCES"
     mode: "analysis"
     content_source: "master-edition-v0.1.md#CONSEQUENCES"
-    integration_status: "complete / locked text + three-layer certainty treatment + prohibited-shortcut boundary integrated"
+    integration_status: "complete / QA v0.2 pass"
     certainty_layers: [documented_global, documented_place, fictional_human]
     required_web_treatment:
       - "compact visual consequence map"
@@ -166,7 +167,7 @@ sections:
     display_label: "PLACE"
     mode: "factual_context"
     content_source: "master-edition-v0.1.md#PLACE"
-    integration_status: "complete / locked place text + real-location treatment integrated"
+    integration_status: "complete / QA v0.2 pass"
     evidence_ids: [SR-09, SR-10, SR-11, SR-12, SR-13, SR-14, SR-15, SR-16]
     required_web_treatment:
       - "map/location treatment"
@@ -177,7 +178,7 @@ sections:
     display_label: "SOURCES"
     mode: "evidence"
     content_source: "sources/publication-source-register-v0.1.md"
-    integration_status: "complete / master source surface + SR-01 through SR-16 inspectable cards integrated"
+    integration_status: "complete / QA v0.2 pass"
     required_web_treatment:
       - "scannable/collapsible evidence cards"
       - "direct source links"
@@ -185,12 +186,12 @@ sections:
       - "quieter/static visual state"
 
 orok_companion:
-  status: "unresolved release-scope item after publication QA"
+  status: "release blocker / scope unresolved"
   source_rules: "content/AOC-001/orok/README.md"
-  rule: "Do not treat OROK companion production as complete or silently drop it; resolve scope before release human gate."
+  rule: "Produce the companion or explicitly revise v0.1 release scope before release human approval. Do not silently drop it."
 
 distribution_pack:
-  status: "candidate_v0.1 assembled / publication QA pending"
+  status: "candidate_v0.1 / QA v0.2 pass"
   candidate: "content/AOC-001/distribution/distribution-candidate-v0.1.md"
   permanent_destination: "https://atlas-of-consequences.onrender.com/"
   rule: "Derive only from the verified master edition; do not invent separate factual claims."
@@ -222,13 +223,13 @@ production_pipeline:
     status: "complete and human approved"
   - id: P6
     stage: "mobile_reader_build"
-    status: "complete / full master and required publication treatments integrated / QA rerun pending"
+    status: "complete / QA v0.2 pass"
   - id: P7
     stage: "distribution_derivatives"
-    status: "complete / candidate_v0.1 assembled from approved media and locked master"
+    status: "complete candidate / QA v0.2 pass"
   - id: P8
     stage: "publication_QA"
-    status: "failed_2026-09-25 / rerun now required against remediated reader + distribution candidate"
+    status: "failed_2026-09-25_v0.2 / orchestration validator drift + OROK scope unresolved"
   - id: P9
     stage: "release_human_approval"
     status: "blocked"
@@ -248,22 +249,26 @@ publication_gates:
   - "Mobile performance has a reduced-motion/static fallback and fail-open reader access."
   - "Social derivatives point back to the permanent Atlas edition and preserve fact/fiction labels."
   - "The live reader contains the complete locked Master Edition, not skeleton summaries."
+  - "Atlas orchestration/validation contracts must match the active approved reader architecture and must not route work back into retired behaviour."
+  - "OROK companion release scope must be explicitly resolved before release human approval."
 
 next_foreground_action:
-  id: "AOC001-PUBLICATION-QA-RERUN"
-  action: "Rerun the full AOC-001 publication QA across the complete live reader and distribution candidate."
-  verify:
-    - "locked Master Edition is complete in the live reader"
-    - "reader visual/interaction approval has not regressed"
-    - "reduced-motion and fail-open behavior work"
-    - "SR-01 through SR-16 remain inspectable"
-    - "factual and fictional distribution branches are unmistakably separated"
-    - "distribution claims remain inside the evidence and causal boundaries"
-    - "all distribution paths return to the permanent Atlas edition"
-    - "remaining release-scope blockers, including OROK companion scope, are explicitly resolved or carried to the human release gate"
+  id: "AOC001-ORCHESTRATION-CONTRACT-REPAIR"
+  action: "Repair the Atlas production graph/validator drift so automated validation recognises the approved factual-opening-to-reader architecture and the current remediated reader/distribution state."
+  preserve:
+    - "factual report film as the only automatic opening media"
+    - "story promo as a separate STORY / FICTION distribution asset"
+    - "final factual frame handoff into the full reader"
+    - "approved full-screen brightness and scroll-scrub reader behaviour"
+    - "complete Master Edition and SR-01 through SR-16 publication treatments"
+  verify_after_repair:
+    - "tools/validate_atlas_graph.py passes"
+    - "GitHub Actions Validate Atlas worker graph passes on main"
+    - "no retired hybrid factual-to-story auto-play path is reintroduced"
+    - "publication QA can be rerun from the current reader/distribution state"
   do_not_do:
-    - "rewrite the locked story"
+    - "change the locked story"
     - "redesign the approved reader"
-    - "invent new factual claims"
-    - "generate new paid media unless QA demonstrates a genuine blocker"
-    - "advance to release or publish unless Publication QA passes"
+    - "change factual claims"
+    - "restore automatic story-promo playback"
+    - "advance to release while OROK scope remains unresolved"
