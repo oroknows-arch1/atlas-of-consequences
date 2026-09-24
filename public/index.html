@@ -27,10 +27,8 @@ nav{display:flex;gap:9px;overflow-x:auto;padding:0 18px 17px;scrollbar-width:non
   <video id="factFilm" class="opening-film active" muted playsinline autoplay preload="auto" disablepictureinpicture>
     <source src="assets/aoc001-report-video-candidate-v0.4.mp4" type="video/mp4">
   </video>
-  <video id="storyFilm" class="opening-film" muted playsinline preload="metadata" disablepictureinpicture>
-    <source src="https://atlas-aoc001-media-bridge.onrender.com/story.mp4" type="video/mp4">
-  </video>
-  <audio id="atlasSound" preload="metadata" src="https://atlas-aoc001-media-bridge.onrender.com/soundtrack.mp3"></audio>
+  <video id="storyFilm" class="opening-film" muted playsinline preload="none" disablepictureinpicture data-src="https://atlas-aoc001-media-bridge.onrender.com/story.mp4"></video>
+  <audio id="atlasSound" preload="none" data-src="https://atlas-aoc001-media-bridge.onrender.com/soundtrack.mp3"></audio>
   <div id="openingShade"></div>
   <div id="openingTop"><span>ATLAS OF CONSEQUENCES</span><span class="phase" id="phase">WHAT'S REAL</span></div>
   <div id="boundary"><strong>STORY / FICTION</strong><span>The evidence ends here. What follows is a fictional family story grounded in the researched world.</span></div>
@@ -60,14 +58,18 @@ const boundary=document.getElementById('boundary');
 const soundBtn=document.getElementById('soundBtn');
 const skipBtn=document.getElementById('skipBtn');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-let soundOn=false,finished=false,current='fact';
+let soundOn=false,finished=false,current='fact',storyLoaded=false,soundLoaded=false;
 sound.volume=.08;
 
 function globalTime(){return current==='fact'?(fact.currentTime||0):31.5+(story.currentTime||0)}
+function loadSound(){if(soundLoaded)return;sound.src=sound.dataset.src;sound.load();soundLoaded=true}
+function loadStory(){if(storyLoaded)return;story.src=story.dataset.src;story.load();storyLoaded=true}
+
 async function enableSound(){
   soundOn=true;
   fact.muted=false;story.muted=false;
   soundBtn.textContent='Sound on';
+  loadSound();
   try{sound.currentTime=Math.min(globalTime(),Math.max(0,(sound.duration||178)-.2));await sound.play()}catch(e){}
 }
 function finishOpening(){
@@ -75,33 +77,41 @@ function finishOpening(){
   fact.pause();story.pause();sound.pause();
   document.body.classList.remove('opening-active');
   opening.classList.add('done');
-  setTimeout(()=>opening.hidden=true,470);
+  setTimeout(()=>opening.hidden=true,reduced?0:470);
 }
 async function startStory(){
   current='story';phase.textContent='STORY / FICTION';
   boundary.classList.remove('show');fact.classList.remove('active');story.classList.add('active');
+  loadStory();
   story.muted=!soundOn;
-  if(soundOn){try{sound.currentTime=31.5;await sound.play()}catch(e){}}
-  const p=story.play();if(p&&p.catch)p.catch(finishOpening);
+  if(soundOn){loadSound();try{sound.currentTime=31.5;await sound.play()}catch(e){}}
+  try{
+    const p=story.play();if(p&&p.then)await p;
+  }catch(e){
+    if(soundOn){
+      soundOn=false;story.muted=true;soundBtn.textContent='Tap for sound';
+      try{await story.play()}catch(_){finishOpening()}
+    }else finishOpening();
+  }
 }
 function crossBoundary(){
   current='boundary';phase.textContent='FACT → FICTION';boundary.classList.add('show');
   setTimeout(startStory,1500);
 }
 function start(){
-  if(reduced){finishOpening();return}
+  if(finished||current!=='fact')return;
   phase.textContent="WHAT'S REAL";fact.muted=!soundOn;
-  const p=fact.play();if(p&&p.catch)p.catch(finishOpening);
+  const p=fact.play();if(p&&p.catch)p.catch(()=>{if(current==='fact')finishOpening()});
 }
 
 soundBtn.addEventListener('click',enableSound);
 skipBtn.addEventListener('click',finishOpening);
 fact.addEventListener('ended',crossBoundary);
 story.addEventListener('ended',finishOpening);
-fact.addEventListener('error',finishOpening);
-story.addEventListener('error',finishOpening);
+fact.addEventListener('error',()=>{if(current==='fact')finishOpening()});
+story.addEventListener('error',()=>{if(current==='story')finishOpening()});
 if(fact.readyState>=2)start();else fact.addEventListener('canplay',start,{once:true});
-setTimeout(()=>{if(!finished&&fact.paused&&current==='fact')start()},600);
+setTimeout(()=>{if(!finished&&current==='fact'&&fact.paused)start()},900);
 </script>
 </body>
 </html>
