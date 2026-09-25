@@ -6,6 +6,7 @@ on:
       - 'atlas/**'
       - 'tools/validate_atlas_graph.py'
       - 'tools/validate_reader_invariants.py'
+      - 'tools/validate_opening_controls.py'
       - 'ATLAS-OPERATING-MODEL.md'
       - 'content/AOC-001/**'
       - 'public/**'
@@ -15,6 +16,7 @@ on:
       - 'atlas/**'
       - 'tools/validate_atlas_graph.py'
       - 'tools/validate_reader_invariants.py'
+      - 'tools/validate_opening_controls.py'
       - 'ATLAS-OPERATING-MODEL.md'
       - 'content/AOC-001/**'
       - 'public/**'
@@ -32,3 +34,5 @@ jobs:
         run: python3 tools/validate_atlas_graph.py
       - name: Validate human-approved AOC-001 reader invariants
         run: python3 tools/validate_reader_invariants.py
+      - name: Validate approved opening control position
+        run: python3 tools/validate_opening_controls.py
