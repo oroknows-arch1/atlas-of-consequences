@@ -11,13 +11,15 @@
     "content/AOC-001/edition-manifest-v0.1.yaml",
     "content/AOC-001/master-edition-v0.1.md",
     "content/AOC-001/sources/publication-source-register-v0.1.md",
-    "content/AOC-001/reader-architecture-v0.2.md"
+    "content/AOC-001/reader-architecture-v0.2.md",
+    "atlas/contracts/aoc001-reader-invariants.json"
   ],
   "artifact_bindings": {
     "local_context_pack": "content/AOC-001/place/antofagasta-local-context-pack-v0.1.md",
     "master_edition": "content/AOC-001/master-edition-v0.1.md",
     "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
     "reader_architecture": "content/AOC-001/reader-architecture-v0.2.md",
+    "reader_invariants": "atlas/contracts/aoc001-reader-invariants.json",
     "report_video_record": "content/AOC-001/media/AOC001-REPORT-VIDEO.md",
     "report_video_candidate": "public/assets/aoc001-report-video-candidate-v0.4.mp4",
     "report_video_asset_register": "content/AOC-001/sources/report-video-v0.4-asset-register.md",
@@ -72,6 +74,7 @@
     "The existing family/labour story is the current inside-looking-out perspective. Operator/supplier, buyer/customer and investor/market are framework classes only until explicitly written and approved.",
     "Fiction may illustrate a documented market mechanism but may not become evidence that a stock, company, product or market will increase in value.",
     "Until the next edition publishing approval gate, no new video generation is authorised for this work. New generated media, where needed, is limited to story media unless human approval explicitly changes that rule.",
+    "The human-approved opening-to-reader sequence is now bound to atlas/contracts/aoc001-reader-invariants.json and enforced by tools/validate_reader_invariants.py on every public reader change.",
     "The release human gate is blocked again. The next foreground action is human mobile visual review of the reader v0.2 candidate; Publication QA must be rerun after approval."
   ]
 }
