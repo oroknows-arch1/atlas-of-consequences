@@ -1,9 +1,10 @@
 {
-  "schema_version": "1.6",
+  "schema_version": "1.7",
   "edition_id": "AOC-001",
   "status": "human_approved",
   "approved_sequence": [
     "factual opening film plays",
+    "opening controls remain at the vertical midpoint so lower-third factual text stays unobstructed",
     "opening soundtrack fades naturally through the final 2.2 seconds instead of cutting abruptly",
     "film ends and final frame remains visible",
     "Edition Map appears over that held final frame",
@@ -20,6 +21,9 @@
   ],
   "immutable_runtime_requirements": {
     "opening_asset": "public/assets/aoc001-report-video-candidate-v0.4.mp4",
+    "opening_controls_must_remain_mid_screen": true,
+    "opening_controls_vertical_position": "50%",
+    "opening_controls_must_not_cover_lower_third_text": true,
     "reader_background_must_remain_video": true,
     "static_poster_must_not_replace_reader_video": true,
     "reduced_motion_must_not_skip_opening_film": true,
@@ -91,5 +95,5 @@
     "video_brightness": 0.67,
     "opening_sound_volume": 0.08
   },
-  "change_rule": "Any change that alters an approved sequence, causal-flow order, STORY perspective classes/evidence boundary, certainty-layer order, evidence boundary, prohibited shortcut, PLACE grounding/boundaries, SOURCES register/support/limitation treatment or reader handoff requires a new explicit human approval before merge or release."
+  "change_rule": "Any change that alters an approved sequence, opening-control position, causal-flow order, STORY perspective classes/evidence boundary, certainty-layer order, evidence boundary, prohibited shortcut, PLACE grounding/boundaries, SOURCES register/support/limitation treatment or reader handoff requires a new explicit human approval before merge or release."
 }
