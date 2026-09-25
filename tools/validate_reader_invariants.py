@@ -46,6 +46,14 @@ if runtime.get("consequences_three_layer_separation_must_remain_visible") is not
     errors.append("approved CONSEQUENCES three-layer separation invariant is not enabled in contract")
 if runtime.get("consequences_prohibited_shortcut_must_remain_visible") is not True:
     errors.append("approved CONSEQUENCES prohibited-shortcut invariant is not enabled in contract")
+if runtime.get("place_real_location_grounding_must_remain_visible") is not True:
+    errors.append("approved PLACE real-location grounding invariant is not enabled in contract")
+if runtime.get("place_city_beyond_extraction_must_remain_visible") is not True:
+    errors.append("approved PLACE city-beyond-extraction invariant is not enabled in contract")
+if runtime.get("place_real_context_fiction_boundary_must_remain_visible") is not True:
+    errors.append("approved PLACE real-context/fiction boundary invariant is not enabled in contract")
+if runtime.get("place_indigenous_context_boundary_must_remain_visible") is not True:
+    errors.append("approved PLACE Indigenous-context boundary invariant is not enabled in contract")
 
 required_index = {
     "opening factual film element": '<video id="factFilm"',
@@ -62,7 +70,12 @@ required_index = {
     "opening sound fade function": 'function updateOpeningSoundFade()',
     "opening sound fade tracks film time": "fact.addEventListener('timeupdate',updateOpeningSoundFade);",
     "opening sound fades continuously": 'remaining/OPENING_SOUND_FADE_SECONDS',
-    "opening sound reaches silence before pause": 'sound.volume=0;sound.pause();sound.volume=OPENING_SOUND_VOLUME;'
+    "opening sound reaches silence before pause": 'sound.volume=0;sound.pause();sound.volume=OPENING_SOUND_VOLUME;',
+    "PLACE section heading": 'Calama, Antofagasta Region, Chile',
+    "PLACE city-beyond-extraction heading": 'Calama is more than extraction',
+    "PLACE real-context/fiction boundary": 'not automatically part of this story',
+    "PLACE Indigenous-context heading": 'A note on Indigenous context',
+    "PLACE Indigenous fiction boundary": 'AOC-001 does not invent an Indigenous character or community viewpoint for cultural weight.'
 }
 for label, needle in required_index.items():
     if needle not in index:
@@ -100,7 +113,9 @@ required_css = {
     "approved WHAT'S REAL causal boundary": '.flow-boundary{',
     "approved CONSEQUENCES certainty map": '.certainty-map{',
     "approved CONSEQUENCES certainty cards": '.certainty-card{',
-    "approved CONSEQUENCES prohibited shortcut treatment": '.prohibited-boundary{'
+    "approved CONSEQUENCES prohibited shortcut treatment": '.prohibited-boundary{',
+    "approved PLACE location card": '.location-card',
+    "approved PLACE route treatment": '.location-card .route{'
 }
 for label, needle in required_css.items():
     if needle not in css:
@@ -122,7 +137,10 @@ required_js = {
     "CONSEQUENCES documented-global label": '01 · DOCUMENTED GLOBAL',
     "CONSEQUENCES documented-place label": '02 · DOCUMENTED PLACE',
     "CONSEQUENCES fictional-human label": '03 · FICTIONAL HUMAN',
-    "CONSEQUENCES prohibited-shortcut label": 'PROHIBITED CAUSAL SHORTCUT'
+    "CONSEQUENCES prohibited-shortcut label": 'PROHIBITED CAUSAL SHORTCUT',
+    "PLACE real-location label": 'PLACE · REAL LOCATION',
+    "PLACE approved route": 'Calama → El Loa → Antofagasta Region → Chile',
+    "PLACE location/fiction boundary": 'The household is fictional; the city, region and mining setting are real.'
 }
 for label, needle in required_js.items():
     if needle not in js:
@@ -173,6 +191,15 @@ if shortcut and shortcut not in js:
     errors.append("approved CONSEQUENCES prohibited shortcut is no longer detected in reader treatment")
 if "p.classList.add('prohibited-boundary')" not in js:
     errors.append("approved CONSEQUENCES prohibited shortcut is no longer visually marked")
+
+# Lock the human-approved PLACE grounding route and fact/fiction boundaries.
+place_route = runtime.get("place_route", [])
+if place_route != ["Calama", "El Loa", "Antofagasta Region", "Chile"]:
+    errors.append("approved PLACE grounding route changed in contract")
+else:
+    route_text = " → ".join(place_route)
+    if route_text not in js:
+        errors.append("approved PLACE grounding route is no longer rendered")
 
 forbidden_js = {
     "reduced motion must not auto-enter reader": "if (typeof enterReader === 'function') enterReader();",
