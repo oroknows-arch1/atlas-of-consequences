@@ -42,6 +42,10 @@ if runtime.get("whats_real_causal_flow_must_precede_dense_prose") is not True:
     errors.append("approved WHAT'S REAL causal-flow invariant is not enabled in contract")
 if runtime.get("whats_real_causal_boundary_must_remain_visible") is not True:
     errors.append("approved WHAT'S REAL causal boundary invariant is not enabled in contract")
+if runtime.get("story_perspective_panel_must_remain_visible") is not True:
+    errors.append("approved STORY perspective-panel invariant is not enabled in contract")
+if runtime.get("story_market_evidence_boundary_must_remain_visible") is not True:
+    errors.append("approved STORY market-evidence boundary invariant is not enabled in contract")
 if runtime.get("consequences_three_layer_separation_must_remain_visible") is not True:
     errors.append("approved CONSEQUENCES three-layer separation invariant is not enabled in contract")
 if runtime.get("consequences_prohibited_shortcut_must_remain_visible") is not True:
@@ -117,6 +121,10 @@ required_css = {
     "approved WHAT'S REAL causal-flow container": '.signal-flow{',
     "approved WHAT'S REAL causal-flow nodes": '.flow-node{',
     "approved WHAT'S REAL causal boundary": '.flow-boundary{',
+    "approved STORY perspective panel": '.story-lens{',
+    "approved STORY perspective grid": '.story-lens-grid{',
+    "approved STORY perspective classes": '.story-lens-chip{',
+    "approved STORY current perspective marker": '.story-lens-chip.current{',
     "approved CONSEQUENCES certainty map": '.certainty-map{',
     "approved CONSEQUENCES certainty cards": '.certainty-card{',
     "approved CONSEQUENCES prohibited shortcut treatment": '.prohibited-boundary{',
@@ -143,6 +151,9 @@ required_js = {
     "top of reader holds final frame": 'if (y <= points[0].top + 1) return points[0].p;',
     "WHAT'S REAL causal-flow heading": 'THE CONNECTION THIS EDITION IS TESTING',
     "WHAT'S REAL causal boundary": 'this is a documented connection chain, not proof that AI caused a specific Antofagasta mine expansion or a particular job.',
+    "STORY perspective heading": 'CURRENT STORY LENS',
+    "STORY current direction": 'Inside → out · family + labour',
+    "STORY market-evidence boundary": 'The Atlas framework can support additional story branches without turning fiction into market evidence.',
     "CONSEQUENCES documented-global label": '01 · DOCUMENTED GLOBAL',
     "CONSEQUENCES documented-place label": '02 · DOCUMENTED PLACE',
     "CONSEQUENCES fictional-human label": '03 · FICTIONAL HUMAN',
@@ -177,6 +188,38 @@ else:
 flow_insert = js.find("if (factStrip) factStrip.insertAdjacentElement('beforebegin', flow);")
 if flow_insert == -1:
     errors.append("approved WHAT'S REAL causal flow no longer precedes the dense factual cards/prose treatment")
+
+# Lock the human-approved STORY perspective panel and its market-evidence boundary.
+story_current = runtime.get("story_current_lens")
+story_framework = runtime.get("story_framework_lenses", [])
+if story_current != "Family + labour":
+    errors.append("approved STORY current lens changed in contract")
+expected_story_framework = ["Operator + supplier", "Buyer + customer", "Investor + market"]
+if story_framework != expected_story_framework:
+    errors.append("approved STORY framework lenses/order changed in contract")
+
+story_lenses = [story_current, *story_framework] if story_current else story_framework
+last_pos = -1
+for i, label in enumerate(story_lenses):
+    state = "CURRENT" if i == 0 else "FRAMEWORK"
+    current = "true" if i == 0 else "false"
+    needle = f"['{state}', '{label}', {current}]"
+    pos = js.find(needle)
+    if pos == -1:
+        errors.append(f"missing approved STORY perspective class: {state} / {label}")
+        continue
+    if pos <= last_pos:
+        errors.append(f"approved STORY perspective order changed near: {label}")
+    last_pos = pos
+
+if "const panel = make('div', 'story-lens');" not in js:
+    errors.append("approved STORY perspective panel is no longer rendered")
+if "const grid = make('div', 'story-lens-grid');" not in js:
+    errors.append("approved STORY perspective grid is no longer rendered")
+if "story-lens-chip${current ? ' current' : ''}" not in js:
+    errors.append("approved STORY current/framework state treatment is no longer rendered")
+if "if (boundary) boundary.insertAdjacentElement('beforebegin', panel);" not in js:
+    errors.append("approved STORY perspective panel no longer precedes the fiction boundary")
 
 # Lock the human-approved CONSEQUENCES certainty-layer order and prohibited shortcut.
 consequence_order = runtime.get("consequences_three_layer_order", [])
