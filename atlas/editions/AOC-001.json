@@ -30,9 +30,9 @@
     "hybrid_opening_manifest": "content/AOC-001/media/AOC001-HYBRID-OPENING-v0.1.md",
     "hybrid_opening_ux_lock": "content/AOC-001/media/AOC001-HYBRID-OPENING-UX.md",
     "reader_approval_record": "content/AOC-001/media/AOC001-READER-APPROVAL.md",
-    "publication_qa_report": "content/AOC-001/publication-qa-v0.4.md",
-    "publication_qa_previous": "content/AOC-001/publication-qa-v0.3.md",
-    "publication_qa_previous_2": "content/AOC-001/publication-qa-v0.2.md",
+    "publication_qa_report": "content/AOC-001/publication-qa-v0.5.md",
+    "publication_qa_previous": "content/AOC-001/publication-qa-v0.4.md",
+    "publication_qa_previous_2": "content/AOC-001/publication-qa-v0.3.md",
     "publication_qa_initial": "content/AOC-001/publication-qa-v0.1.md",
     "manifest_reconciliation": "content/AOC-001/manifest-reconciliation-note-2026-09-25.md",
     "distribution_candidate": "content/AOC-001/distribution/distribution-candidate-v0.1.md",
@@ -62,20 +62,20 @@
     "hybrid_human_gate": "historical_approval_only",
     "reader_build": "candidate_approved",
     "distribution_pack": "candidate_v0.1_assembled",
-    "publication_qa": "rerun_pending_after_remediation",
-    "release_human_gate": "blocked"
+    "publication_qa": "passed_2026-09-25_v0.5",
+    "release_human_gate": "ready_for_human_approval"
   },
-  "foreground_next": "publication_qa",
+  "foreground_next": "release_human_gate",
   "notes": [
     "The factual report video v0.4 remains the approved factual-only opening and was not regenerated during reader architecture v0.2 remediation.",
     "The separate STORY / FICTION promo remains a distribution asset and is not part of the automatic reader opening.",
     "Human mobile review of reader v0.2 is complete and approved across the opening handoff, Edition Map, WHAT'S REAL causal flow, STORY perspective entry, CONSEQUENCES, PLACE and SOURCES.",
-    "The approved opening soundtrack now fades through the final 2.2 seconds before the reader handoff instead of cutting abruptly.",
+    "The approved opening soundtrack fades through the final 2.2 seconds before the reader handoff instead of cutting abruptly.",
     "Reduced-motion handling must not skip the factual opening, hide the reader video or replace the scroll-scrub background with the static poster.",
     "The existing family/labour story is the current inside-looking-out perspective. Operator/supplier, buyer/customer and investor/market remain framework classes only until explicitly written and approved.",
     "Fiction may illustrate a documented market mechanism but may not become evidence that a stock, company, product or market will increase in value.",
-    "The human-approved reader sequence and section treatments are bound to atlas/contracts/aoc001-reader-invariants.json and enforced by tools/validate_reader_invariants.py on public reader changes.",
-    "Publication QA v0.4 passed the live publication content but identified two release blockers: stale active state/manifest records and missing STORY perspective regression protection.",
-    "Those two blockers are now under remediation. The release human gate remains blocked until the Publication QA rerun passes."
+    "The human-approved reader sequence and section treatments, including the STORY perspective framework, are bound to atlas/contracts/aoc001-reader-invariants.json and enforced by tools/validate_reader_invariants.py.",
+    "Publication QA v0.5 closed both v0.4 release blockers: active state/manifest drift and missing STORY perspective regression protection.",
+    "AOC-001 is ready for the release human gate. Publication remains blocked until explicit human release approval."
   ]
 }
