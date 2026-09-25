@@ -75,4 +75,4 @@ nav.reader-route a.active{opacity:1;border-color:rgba(255,255,255,.7);background
 .story-lens-chip strong{display:block;font-size:7px;font-weight:400;opacity:.64;margin-bottom:2px}
 
 @media(min-width:800px){.fact-strip{grid-template-columns:repeat(4,minmax(0,1fr));max-width:620px}.certainty-map{grid-template-columns:repeat(3,minmax(0,1fr));max-width:620px}.certainty-card{min-height:160px}.edition-map{grid-template-columns:1fr 1fr}.edition-map-item:last-child{border-bottom:0}.story-lens-grid{grid-template-columns:repeat(4,1fr)}}
-@media(prefers-reduced-motion:reduce){body.opening-active #factFilm{display:block!important}body.reader-active #factFilm{display:none!important}#world{background:#000 url('assets/aoc001-report-video-candidate-v0.4-review.jpg') center center/cover no-repeat fixed}#world.reader-mode{background:#000 url('assets/aoc001-report-video-candidate-v0.4-review.jpg') center center/cover no-repeat fixed}.source-card summary{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){#factFilm{display:block!important}#world,#world.reader-mode{background:#000!important}.source-card summary{scroll-behavior:auto}}
