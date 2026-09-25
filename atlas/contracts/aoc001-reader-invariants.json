@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.5",
+  "schema_version": "1.6",
   "edition_id": "AOC-001",
   "status": "human_approved",
   "approved_sequence": [
@@ -11,6 +11,8 @@
     "scrubbing begins only after reader scroll starts",
     "scroll position controls the film frame through the reader",
     "WHAT'S REAL opens with the approved causal-flow treatment before dense explanatory prose",
+    "STORY preserves the approved perspective entry: current Family + labour lens plus Operator + supplier, Buyer + customer and Investor + market framework classes",
+    "STORY keeps the boundary explicit that fictional perspectives do not become market or investment evidence",
     "CONSEQUENCES preserves the approved three-layer separation: documented global mechanism -> documented place connection -> fictional human exploration",
     "CONSEQUENCES keeps the prohibited causal shortcut explicitly visible",
     "PLACE preserves the approved real-location grounding, presents Calama as more than extraction, and keeps documented local context separate from fictional use",
@@ -36,6 +38,14 @@
       "Calama / Chuquicamata"
     ],
     "whats_real_causal_boundary_must_remain_visible": true,
+    "story_perspective_panel_must_remain_visible": true,
+    "story_current_lens": "Family + labour",
+    "story_framework_lenses": [
+      "Operator + supplier",
+      "Buyer + customer",
+      "Investor + market"
+    ],
+    "story_market_evidence_boundary_must_remain_visible": true,
     "consequences_three_layer_separation_must_remain_visible": true,
     "consequences_three_layer_order": [
       "01 · DOCUMENTED GLOBAL",
@@ -81,5 +91,5 @@
     "video_brightness": 0.67,
     "opening_sound_volume": 0.08
   },
-  "change_rule": "Any change that alters an approved sequence, causal-flow order, certainty-layer order, evidence boundary, prohibited shortcut, PLACE grounding/boundaries, SOURCES register/support/limitation treatment or reader handoff requires a new explicit human approval before merge or release."
+  "change_rule": "Any change that alters an approved sequence, causal-flow order, STORY perspective classes/evidence boundary, certainty-layer order, evidence boundary, prohibited shortcut, PLACE grounding/boundaries, SOURCES register/support/limitation treatment or reader handoff requires a new explicit human approval before merge or release."
 }
