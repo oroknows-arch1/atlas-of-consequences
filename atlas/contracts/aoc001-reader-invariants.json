@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "edition_id": "AOC-001",
+  "status": "human_approved",
+  "approved_sequence": [
+    "factual opening film plays",
+    "film ends and final frame remains visible",
+    "Edition Map appears over that held final frame",
+    "video remains the live reader background",
+    "scrubbing begins only after reader scroll starts",
+    "scroll position controls the film frame through the reader"
+  ],
+  "immutable_runtime_requirements": {
+    "opening_asset": "public/assets/aoc001-report-video-candidate-v0.4.mp4",
+    "reader_background_must_remain_video": true,
+    "static_poster_must_not_replace_reader_video": true,
+    "reduced_motion_must_not_skip_opening_film": true,
+    "reduced_motion_must_not_hide_reader_video": true,
+    "top_of_reader_progress": 1.0,
+    "story_promo_must_not_autoplay_after_factual_film": true
+  },
+  "approved_reader_tuning": {
+    "video_opacity": 0.82,
+    "video_brightness": 0.67
+  },
+  "change_rule": "Any change that alters this sequence requires a new explicit human approval before merge or release."
+}
