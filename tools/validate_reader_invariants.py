@@ -54,6 +54,12 @@ if runtime.get("place_real_context_fiction_boundary_must_remain_visible") is not
     errors.append("approved PLACE real-context/fiction boundary invariant is not enabled in contract")
 if runtime.get("place_indigenous_context_boundary_must_remain_visible") is not True:
     errors.append("approved PLACE Indigenous-context boundary invariant is not enabled in contract")
+if runtime.get("sources_register_must_remain_visible") is not True:
+    errors.append("approved SOURCES register invariant is not enabled in contract")
+if runtime.get("sources_each_card_must_show_supports_and_limitation") is not True:
+    errors.append("approved SOURCES supports/limitation invariant is not enabled in contract")
+if runtime.get("sources_fact_fiction_boundary_must_remain_visible") is not True:
+    errors.append("approved SOURCES fact/fiction boundary invariant is not enabled in contract")
 
 required_index = {
     "opening factual film element": '<video id="factFilm"',
@@ -115,7 +121,10 @@ required_css = {
     "approved CONSEQUENCES certainty cards": '.certainty-card{',
     "approved CONSEQUENCES prohibited shortcut treatment": '.prohibited-boundary{',
     "approved PLACE location card": '.location-card',
-    "approved PLACE route treatment": '.location-card .route{'
+    "approved PLACE route treatment": '.location-card .route{',
+    "approved SOURCES register": '.source-register{',
+    "approved SOURCES cards": '.source-card{',
+    "approved SOURCES limitation treatment": '.source-card .limit{'
 }
 for label, needle in required_css.items():
     if needle not in css:
@@ -140,7 +149,11 @@ required_js = {
     "CONSEQUENCES prohibited-shortcut label": 'PROHIBITED CAUSAL SHORTCUT',
     "PLACE real-location label": 'PLACE · REAL LOCATION',
     "PLACE approved route": 'Calama → El Loa → Antofagasta Region → Chile',
-    "PLACE location/fiction boundary": 'The household is fictional; the city, region and mining setting are real.'
+    "PLACE location/fiction boundary": 'The household is fictional; the city, region and mining setting are real.',
+    "SOURCES inspect heading": 'Inspect the evidence',
+    "SOURCES evidence/fiction boundary": 'Evidence for the physical chain does not turn the fictional family into factual testimony.',
+    "SOURCES support label": '<strong>Supports:</strong>',
+    "SOURCES limitation label": '<strong>Limitation:</strong>'
 }
 for label, needle in required_js.items():
     if needle not in js:
@@ -200,6 +213,29 @@ else:
     route_text = " → ".join(place_route)
     if route_text not in js:
         errors.append("approved PLACE grounding route is no longer rendered")
+
+# Lock the human-approved SOURCES register, per-card support/limitation fields, and fact/fiction boundary.
+source_ids = runtime.get("sources_register_ids", [])
+expected_source_ids = [f"SR-{i:02d}" for i in range(1, 17)]
+if source_ids != expected_source_ids:
+    errors.append("approved SOURCES register IDs/order changed in contract")
+else:
+    last_pos = -1
+    for source_id in source_ids:
+        pos = js.find(f"id:'{source_id}'")
+        if pos == -1:
+            errors.append(f"missing approved source register entry: {source_id}")
+            continue
+        if pos <= last_pos:
+            errors.append(f"approved SOURCES register order changed near: {source_id}")
+        last_pos = pos
+
+if "role.innerHTML = `<strong>Supports:</strong> ${source.role}`;" not in js:
+    errors.append("approved SOURCES support field is no longer rendered per card")
+if "limitation.innerHTML = `<strong>Limitation:</strong> ${source.limitation}`;" not in js:
+    errors.append("approved SOURCES limitation field is no longer rendered per card")
+if "details.append(summary, body);" not in js:
+    errors.append("approved SOURCES cards are no longer inspectable/expandable")
 
 forbidden_js = {
     "reduced motion must not auto-enter reader": "if (typeof enterReader === 'function') enterReader();",
