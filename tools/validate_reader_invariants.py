@@ -2,6 +2,7 @@
 """Fail CI if the human-approved AOC-001 opening-to-reader handoff regresses."""
 from pathlib import Path
 import json
+import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,7 +35,6 @@ required_index = {
     "opening factual film element": '<video id="factFilm"',
     "approved factual film asset": 'assets/aoc001-report-video-candidate-v0.4.mp4',
     "final-frame hold function": 'function holdFinalFrame()',
-    "reader entry invokes final-frame hold": 'holdFinalFrame();sound.pause();',
     "film pauses on held frame": 'fact.pause();targetTime=hold;visualTime=hold;',
     "film end enters reader": "fact.addEventListener('ended',enterReader);",
     "scroll scrub writes video currentTime": 'fact.currentTime=t',
@@ -45,6 +45,20 @@ required_index = {
 for label, needle in required_index.items():
     if needle not in index:
         errors.append(f"missing invariant: {label}")
+
+# Validate the reader-entry behaviour rather than one exact implementation string.
+# Audio handling may evolve, but the final-frame hold must remain the first visual handoff.
+enter_reader = re.search(r"function enterReader\(\)\{(?P<body>.*?)\n\}", index, re.S)
+if not enter_reader:
+    errors.append("missing invariant: enterReader function")
+else:
+    body = enter_reader.group("body")
+    if "holdFinalFrame();" not in body:
+        errors.append("missing invariant: reader entry invokes final-frame hold")
+    hold_pos = body.find("holdFinalFrame();")
+    reader_mode_pos = body.find("world.classList.add('reader-mode')")
+    if reader_mode_pos != -1 and hold_pos > reader_mode_pos:
+        errors.append("reader invariant order broken: final-frame hold must precede reader-mode transition")
 
 required_css = {
     "video remains visible in reduced motion": '#factFilm{display:block!important}',
