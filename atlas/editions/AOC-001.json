@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "edition_id": "AOC-001",
   "title": "AI's Physical Hunger",
   "graph": "atlas/graphs/edition-production.json",
@@ -62,20 +62,21 @@
     "hybrid_human_gate": "historical_approval_only",
     "reader_build": "candidate_approved",
     "distribution_pack": "candidate_v0.1_assembled",
-    "publication_qa": "passed_2026-09-25_v0.5",
-    "release_human_gate": "ready_for_human_approval"
+    "publication_qa": "rerun_pending_after_remediation",
+    "release_human_gate": "blocked"
   },
-  "foreground_next": "release_human_gate",
+  "foreground_next": "publication_qa",
   "notes": [
     "The factual report video v0.4 remains the approved factual-only opening and was not regenerated during reader architecture v0.2 remediation.",
     "The separate STORY / FICTION promo remains a distribution asset and is not part of the automatic reader opening.",
     "Human mobile review of reader v0.2 is complete and approved across the opening handoff, Edition Map, WHAT'S REAL causal flow, STORY perspective entry, CONSEQUENCES, PLACE and SOURCES.",
     "The approved opening soundtrack fades through the final 2.2 seconds before the reader handoff instead of cutting abruptly.",
+    "Tap for sound and Skip were moved to the vertical midpoint after human review found the lower position covered factual video text; the corrected position is human approved.",
+    "The midpoint opening-control position is now bound to atlas/contracts/aoc001-reader-invariants.json and tools/validate_opening_controls.py.",
     "Reduced-motion handling must not skip the factual opening, hide the reader video or replace the scroll-scrub background with the static poster.",
     "The existing family/labour story is the current inside-looking-out perspective. Operator/supplier, buyer/customer and investor/market remain framework classes only until explicitly written and approved.",
     "Fiction may illustrate a documented market mechanism but may not become evidence that a stock, company, product or market will increase in value.",
-    "The human-approved reader sequence and section treatments, including the STORY perspective framework, are bound to atlas/contracts/aoc001-reader-invariants.json and enforced by tools/validate_reader_invariants.py.",
-    "Publication QA v0.5 closed both v0.4 release blockers: active state/manifest drift and missing STORY perspective regression protection.",
-    "AOC-001 is ready for the release human gate. Publication remains blocked until explicit human release approval."
+    "Publication QA v0.5 remains the last completed full QA; a targeted rerun is pending because public reader CSS changed after that pass.",
+    "Publication remains blocked until the targeted QA rerun passes and explicit human release approval follows."
   ]
 }
