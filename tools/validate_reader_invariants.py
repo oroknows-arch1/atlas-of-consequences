@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail CI if the human-approved AOC-001 opening-to-reader handoff regresses."""
+"""Fail CI if the human-approved AOC-001 reader invariants regress."""
 from pathlib import Path
 import json
 import re
@@ -38,6 +38,10 @@ if runtime.get("opening_soundtrack_fade_seconds") != 2.2:
     errors.append("approved opening soundtrack fade must remain 2.2 seconds")
 if runtime.get("opening_soundtrack_must_not_hard_cut_at_reader_handoff") is not True:
     errors.append("approved no-hard-cut audio invariant is not enabled in contract")
+if runtime.get("whats_real_causal_flow_must_precede_dense_prose") is not True:
+    errors.append("approved WHAT'S REAL causal-flow invariant is not enabled in contract")
+if runtime.get("whats_real_causal_boundary_must_remain_visible") is not True:
+    errors.append("approved WHAT'S REAL causal boundary invariant is not enabled in contract")
 
 required_index = {
     "opening factual film element": '<video id="factFilm"',
@@ -86,7 +90,10 @@ else:
 
 required_css = {
     "video remains visible in reduced motion": '#factFilm{display:block!important}',
-    "reduced-motion reader background does not substitute poster": '#world,#world.reader-mode{background:#000!important}'
+    "reduced-motion reader background does not substitute poster": '#world,#world.reader-mode{background:#000!important}',
+    "approved WHAT'S REAL causal-flow container": '.signal-flow{',
+    "approved WHAT'S REAL causal-flow nodes": '.flow-node{',
+    "approved WHAT'S REAL causal boundary": '.flow-boundary{'
 }
 for label, needle in required_css.items():
     if needle not in css:
@@ -102,11 +109,32 @@ for label, needle in forbidden_css.items():
 
 required_js = {
     "reduced motion still attempts opening film": 'const playAttempt = video.play();',
-    "top of reader holds final frame": 'if (y <= points[0].top + 1) return points[0].p;'
+    "top of reader holds final frame": 'if (y <= points[0].top + 1) return points[0].p;',
+    "WHAT'S REAL causal-flow heading": 'THE CONNECTION THIS EDITION IS TESTING',
+    "WHAT'S REAL causal boundary": 'this is a documented connection chain, not proof that AI caused a specific Antofagasta mine expansion or a particular job.'
 }
 for label, needle in required_js.items():
     if needle not in js:
         errors.append(f"missing invariant: {label}")
+
+# Lock the human-approved WHAT'S REAL causal-flow order.
+flow_order = runtime.get("whats_real_causal_flow_order", [])
+if not isinstance(flow_order, list) or not flow_order:
+    errors.append("approved WHAT'S REAL causal-flow order missing from contract")
+else:
+    last_pos = -1
+    for label in flow_order:
+        pos = js.find(f"'{label}'")
+        if pos == -1:
+            errors.append(f"missing approved WHAT'S REAL causal-flow node: {label}")
+            continue
+        if pos <= last_pos:
+            errors.append(f"approved WHAT'S REAL causal-flow order changed near: {label}")
+        last_pos = pos
+
+flow_insert = js.find("if (factStrip) factStrip.insertAdjacentElement('beforebegin', flow);")
+if flow_insert == -1:
+    errors.append("approved WHAT'S REAL causal flow no longer precedes the dense factual cards/prose treatment")
 
 forbidden_js = {
     "reduced motion must not auto-enter reader": "if (typeof enterReader === 'function') enterReader();",
