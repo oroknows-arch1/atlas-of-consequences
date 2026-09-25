@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.4",
+  "schema_version": "1.5",
   "edition_id": "AOC-001",
   "status": "human_approved",
   "approved_sequence": [
@@ -13,7 +13,8 @@
     "WHAT'S REAL opens with the approved causal-flow treatment before dense explanatory prose",
     "CONSEQUENCES preserves the approved three-layer separation: documented global mechanism -> documented place connection -> fictional human exploration",
     "CONSEQUENCES keeps the prohibited causal shortcut explicitly visible",
-    "PLACE preserves the approved real-location grounding, presents Calama as more than extraction, and keeps documented local context separate from fictional use"
+    "PLACE preserves the approved real-location grounding, presents Calama as more than extraction, and keeps documented local context separate from fictional use",
+    "SOURCES preserves the inspectable SR-01 through SR-16 register, states what each source supports and its limitation, and keeps the evidence/fiction boundary explicit"
   ],
   "immutable_runtime_requirements": {
     "opening_asset": "public/assets/aoc001-report-video-candidate-v0.4.mp4",
@@ -52,12 +53,33 @@
     ],
     "place_city_beyond_extraction_must_remain_visible": true,
     "place_real_context_fiction_boundary_must_remain_visible": true,
-    "place_indigenous_context_boundary_must_remain_visible": true
+    "place_indigenous_context_boundary_must_remain_visible": true,
+    "sources_register_must_remain_visible": true,
+    "sources_register_ids": [
+      "SR-01",
+      "SR-02",
+      "SR-03",
+      "SR-04",
+      "SR-05",
+      "SR-06",
+      "SR-07",
+      "SR-08",
+      "SR-09",
+      "SR-10",
+      "SR-11",
+      "SR-12",
+      "SR-13",
+      "SR-14",
+      "SR-15",
+      "SR-16"
+    ],
+    "sources_each_card_must_show_supports_and_limitation": true,
+    "sources_fact_fiction_boundary_must_remain_visible": true
   },
   "approved_reader_tuning": {
     "video_opacity": 0.82,
     "video_brightness": 0.67,
     "opening_sound_volume": 0.08
   },
-  "change_rule": "Any change that alters an approved sequence, causal-flow order, certainty-layer order, evidence boundary, prohibited shortcut, PLACE grounding/boundaries or reader handoff requires a new explicit human approval before merge or release."
+  "change_rule": "Any change that alters an approved sequence, causal-flow order, certainty-layer order, evidence boundary, prohibited shortcut, PLACE grounding/boundaries, SOURCES register/support/limitation treatment or reader handoff requires a new explicit human approval before merge or release."
 }
