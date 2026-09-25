@@ -382,3 +382,34 @@
     else $('h2', story).insertAdjacentElement('afterend', panel);
   }
 })();
+
+/* Opening-to-reader handoff: hold the film's final frame at the top of the edition,
+   then let the existing scrub loop move through the film only as the reader scrolls. */
+(() => {
+  const intro = document.getElementById('intro');
+  if (!intro || typeof sectionProgress !== 'function') return;
+
+  sectionProgress = function () {
+    const points = [intro, ...document.querySelectorAll('.chapter')]
+      .map(el => ({ el, top: el.offsetTop, p: parseFloat(el.dataset.p) }))
+      .filter(point => Number.isFinite(point.p));
+    if (!points.length) return 1;
+
+    const y = Math.max(0, window.scrollY || 0);
+    if (y <= points[0].top + 1) return points[0].p;
+
+    for (let i = 0; i < points.length - 1; i++) {
+      const a = points[i];
+      const b = points[i + 1];
+      if (y >= a.top && y <= b.top) {
+        const f = Math.max(0, Math.min(1, (y - a.top) / (b.top - a.top || 1)));
+        return a.p + (b.p - a.p) * f;
+      }
+    }
+    return points[points.length - 1].p;
+  };
+
+  requestAnimationFrame(() => {
+    if (typeof updateScrubTarget === 'function') updateScrubTarget();
+  });
+})();
