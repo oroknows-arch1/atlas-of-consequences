@@ -6,7 +6,7 @@ edition:
   id: "AOC-001"
   ecosystem_id: "AOC-ECO-0001"
   title: "AI's Physical Hunger"
-  status: "reader v0.2 human approved / publication QA v0.4 remediation applied / QA rerun pending / publish blocked"
+  status: "reader v0.2 human approved / publication QA v0.5 passed / release human approval ready / publish blocked"
   reader_path:
     - whats_real
     - story
@@ -28,9 +28,9 @@ source_of_truth:
   reader_approval: "content/AOC-001/media/AOC001-READER-APPROVAL.md"
   reader_architecture: "content/AOC-001/reader-architecture-v0.2.md"
   reader_invariants: "atlas/contracts/aoc001-reader-invariants.json"
-  publication_qa: "content/AOC-001/publication-qa-v0.4.md"
-  publication_qa_previous: "content/AOC-001/publication-qa-v0.3.md"
-  publication_qa_previous_2: "content/AOC-001/publication-qa-v0.2.md"
+  publication_qa: "content/AOC-001/publication-qa-v0.5.md"
+  publication_qa_previous: "content/AOC-001/publication-qa-v0.4.md"
+  publication_qa_previous_2: "content/AOC-001/publication-qa-v0.3.md"
   publication_qa_initial: "content/AOC-001/publication-qa-v0.1.md"
   manifest_reconciliation: "content/AOC-001/manifest-reconciliation-note-2026-09-25.md"
   distribution_rules: "content/AOC-001/distribution/README.md"
@@ -116,7 +116,7 @@ separate_media_assets:
   atlas_soundtrack:
     status: "approved opening handoff"
     role: "low supporting sonic signature"
-    durability_warning: "currently served from atlas-aoc001-media-bridge.onrender.com; non-blocking for this QA because soundtrack failure does not block the factual reader"
+    durability_warning: "currently served from atlas-aoc001-media-bridge.onrender.com; non-blocking because soundtrack failure does not block the factual reader"
     approval_record: "content/AOC-001/media/AOC001-ATLAS-SOUNDTRACK-APPROVAL.md"
   visual_character_reference_set:
     status: "approved internal continuity baseline"
@@ -142,7 +142,7 @@ sections:
     mode: "factual"
     certainty: "documented_global + documented_place"
     content_source: "master-edition-v0.1.md#WHAT'S REAL"
-    integration_status: "complete / human approved current reader"
+    integration_status: "complete / human approved / QA v0.5 pass"
     evidence_ids: [SR-01, SR-02, SR-03, SR-04, SR-05, SR-06, SR-07, SR-08, SR-10]
     required_web_treatment:
       - "approved causal-flow treatment before dense explanatory prose"
@@ -154,7 +154,7 @@ sections:
     mode: "fiction"
     certainty: "fictional_human"
     content_source: "master-edition-v0.1.md#STORY — FICTION"
-    integration_status: "complete / human approved current reader"
+    integration_status: "complete / human approved / QA v0.5 pass"
     fictional_people: [Daniela, Mauricio, Tomás, Emilia, Elena]
     current_perspective: "Family + labour"
     framework_perspectives: ["Operator + supplier", "Buyer + customer", "Investor + market"]
@@ -171,7 +171,7 @@ sections:
     display_label: "CONSEQUENCES"
     mode: "analysis"
     content_source: "master-edition-v0.1.md#CONSEQUENCES"
-    integration_status: "complete / human approved current reader"
+    integration_status: "complete / human approved / QA v0.5 pass"
     certainty_layers: [documented_global, documented_place, fictional_human]
     required_web_treatment:
       - "compact visual consequence map"
@@ -182,7 +182,7 @@ sections:
     display_label: "PLACE"
     mode: "factual_context"
     content_source: "master-edition-v0.1.md#PLACE"
-    integration_status: "complete / human approved current reader"
+    integration_status: "complete / human approved / QA v0.5 pass"
     evidence_ids: [SR-09, SR-10, SR-11, SR-12, SR-13, SR-14, SR-15, SR-16]
     required_web_treatment:
       - "map/location treatment"
@@ -193,7 +193,7 @@ sections:
     display_label: "SOURCES"
     mode: "evidence"
     content_source: "sources/publication-source-register-v0.1.md"
-    integration_status: "complete / human approved current reader"
+    integration_status: "complete / human approved / QA v0.5 pass"
     required_web_treatment:
       - "scannable/collapsible evidence cards"
       - "direct source links"
@@ -201,12 +201,12 @@ sections:
       - "evidence/fiction boundary remains explicit"
 
 orchestration_contract:
-  status: "repaired / current validation contract includes reader invariants"
+  status: "repaired / validation pass / QA v0.5"
   active_reader_dependency: "factual_media_human_gate + story_boundary_gate + source_register -> reader_build"
   retired_hybrid_nodes_non_blocking: true
   reader_invariant_contract: "atlas/contracts/aoc001-reader-invariants.json"
   reader_invariant_validator: "tools/validate_reader_invariants.py"
-  last_pre_remediation_verification: "GitHub Actions Validate Atlas worker graph run #68 passed on commit 625cb606d9db0bd0eae11d98fc8ab3be1a427b3c"
+  verification: "GitHub Actions Validate Atlas worker graph run #73 passed on commit 46d9ec65d95179e86efd0bb0c59890260bdab9e3, including human-approved reader invariant validation"
 
 orok_companion:
   status: "optional downstream / explicitly not required for AOC-001 release / non-blocking"
@@ -215,7 +215,7 @@ orok_companion:
   rule: "OROK companion material is optional downstream enrichment unless a future edition explicitly opts into it before production. AOC-001 does not require one for release or end-to-end proof."
 
 distribution_pack:
-  status: "candidate_v0.1 / carried forward unchanged / publication-content pass in QA v0.4"
+  status: "candidate_v0.1 / QA v0.5 pass / unchanged"
   candidate: "content/AOC-001/distribution/distribution-candidate-v0.1.md"
   permanent_destination: "https://atlas-of-consequences.onrender.com/"
   rule: "Derive only from the verified master edition; do not invent separate factual claims."
@@ -247,19 +247,19 @@ production_pipeline:
     status: "complete / human approved / regression protected"
   - id: P6
     stage: "mobile_reader_build"
-    status: "complete / reader v0.2 human approved"
+    status: "complete / reader v0.2 human approved / QA v0.5 pass"
   - id: P7
     stage: "distribution_derivatives"
-    status: "complete candidate / carried forward unchanged"
+    status: "complete candidate / QA v0.5 pass"
   - id: P8
     stage: "publication_QA"
-    status: "v0.4 publication-content pass / B1+B2 remediation applied / rerun pending"
+    status: "passed_2026-09-25_v0.5"
   - id: P9
     stage: "release_human_approval"
-    status: "blocked pending successful Publication QA rerun"
+    status: "ready_for_human_approval"
   - id: P10
     stage: "publish"
-    status: "blocked pending successful Publication QA and explicit human release approval"
+    status: "blocked pending explicit human release approval"
 
 publication_gates:
   - "Every material factual claim remains wired to the publication source register."
@@ -278,16 +278,15 @@ publication_gates:
   - "OROK is optional downstream enrichment unless an edition explicitly opts into it; AOC-001 has explicitly opted out for release."
 
 next_foreground_action:
-  id: "AOC001-PUBLICATION-QA-RERUN"
-  action: "Rerun full Publication QA after state reconciliation and STORY regression protection."
+  id: "AOC001-RELEASE-HUMAN-GATE"
+  action: "Review the final AOC-001 release candidate and explicitly approve or reject publication."
   verify:
-    - "Publication QA v0.4 blockers B1 and B2 are closed"
-    - "active manifest and atlas/editions/AOC-001.json describe the current human-approved reader"
-    - "reader invariant validator protects the approved STORY perspective panel/classes"
-    - "approved reader/content/media remain unchanged"
-    - "CI passes both Atlas graph and reader invariant validation"
-    - "production Render deployment is live from current main"
-    - "no publication occurs without explicit human release approval"
+    - "Publication QA v0.5 is the active QA authority and has passed"
+    - "approved factual-opening-to-reader architecture remains unchanged"
+    - "approved STORY perspective framework remains regression-protected"
+    - "complete reader and distribution candidate remain publication-clean"
+    - "OROK remains optional and non-blocking for AOC-001"
+    - "no publication occurs without explicit human approval"
   do_not_do:
     - "change the locked story"
     - "redesign the approved reader"
