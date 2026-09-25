@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "edition_id": "AOC-001",
   "status": "human_approved",
   "approved_sequence": [
@@ -10,7 +10,9 @@
     "video remains the live reader background",
     "scrubbing begins only after reader scroll starts",
     "scroll position controls the film frame through the reader",
-    "WHAT'S REAL opens with the approved causal-flow treatment before dense explanatory prose"
+    "WHAT'S REAL opens with the approved causal-flow treatment before dense explanatory prose",
+    "CONSEQUENCES preserves the approved three-layer separation: documented global mechanism -> documented place connection -> fictional human exploration",
+    "CONSEQUENCES keeps the prohibited causal shortcut explicitly visible"
   ],
   "immutable_runtime_requirements": {
     "opening_asset": "public/assets/aoc001-report-video-candidate-v0.4.mp4",
@@ -31,12 +33,20 @@
       "Northern Chile",
       "Calama / Chuquicamata"
     ],
-    "whats_real_causal_boundary_must_remain_visible": true
+    "whats_real_causal_boundary_must_remain_visible": true,
+    "consequences_three_layer_separation_must_remain_visible": true,
+    "consequences_three_layer_order": [
+      "01 · DOCUMENTED GLOBAL",
+      "02 · DOCUMENTED PLACE",
+      "03 · FICTIONAL HUMAN"
+    ],
+    "consequences_prohibited_shortcut_must_remain_visible": true,
+    "consequences_prohibited_shortcut": "AI boom → mine expands → Mauricio gets promoted."
   },
   "approved_reader_tuning": {
     "video_opacity": 0.82,
     "video_brightness": 0.67,
     "opening_sound_volume": 0.08
   },
-  "change_rule": "Any change that alters an approved sequence, causal-flow order, evidence boundary or reader handoff requires a new explicit human approval before merge or release."
+  "change_rule": "Any change that alters an approved sequence, causal-flow order, certainty-layer order, evidence boundary, prohibited shortcut or reader handoff requires a new explicit human approval before merge or release."
 }
