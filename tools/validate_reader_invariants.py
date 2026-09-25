@@ -31,6 +31,14 @@ js = JS.read_text(encoding="utf-8")
 if contract.get("status") != "human_approved":
     errors.append("reader invariant contract is not marked human_approved")
 
+runtime = contract.get("immutable_runtime_requirements", {})
+if runtime.get("opening_soundtrack_must_fade_before_reader_handoff") is not True:
+    errors.append("approved audio fade invariant is not enabled in contract")
+if runtime.get("opening_soundtrack_fade_seconds") != 2.2:
+    errors.append("approved opening soundtrack fade must remain 2.2 seconds")
+if runtime.get("opening_soundtrack_must_not_hard_cut_at_reader_handoff") is not True:
+    errors.append("approved no-hard-cut audio invariant is not enabled in contract")
+
 required_index = {
     "opening factual film element": '<video id="factFilm"',
     "approved factual film asset": 'assets/aoc001-report-video-candidate-v0.4.mp4',
@@ -40,7 +48,13 @@ required_index = {
     "scroll scrub writes video currentTime": 'fact.currentTime=t',
     "Edition Map starts at final-frame progress": '<section id="intro" data-p="1">',
     "approved reader opacity": 'opacity:.82',
-    "approved reader brightness": 'filter:brightness(.67) saturate(.9)'
+    "approved reader brightness": 'filter:brightness(.67) saturate(.9)',
+    "approved opening sound volume": 'const OPENING_SOUND_VOLUME=.08;',
+    "approved opening sound fade duration": 'const OPENING_SOUND_FADE_SECONDS=2.2;',
+    "opening sound fade function": 'function updateOpeningSoundFade()',
+    "opening sound fade tracks film time": "fact.addEventListener('timeupdate',updateOpeningSoundFade);",
+    "opening sound fades continuously": 'remaining/OPENING_SOUND_FADE_SECONDS',
+    "opening sound reaches silence before pause": 'sound.volume=0;sound.pause();sound.volume=OPENING_SOUND_VOLUME;'
 }
 for label, needle in required_index.items():
     if needle not in index:
@@ -59,6 +73,16 @@ else:
     reader_mode_pos = body.find("world.classList.add('reader-mode')")
     if reader_mode_pos != -1 and hold_pos > reader_mode_pos:
         errors.append("reader invariant order broken: final-frame hold must precede reader-mode transition")
+
+# The approved soundtrack must fade during the closing seconds of the factual film.
+# A pause at handoff is acceptable only after the volume has reached zero.
+fade_fn = re.search(r"function updateOpeningSoundFade\(\)\{(?P<body>.*?)\n\}", index, re.S)
+if not fade_fn:
+    errors.append("missing invariant: opening soundtrack fade function")
+else:
+    fade_body = fade_fn.group("body")
+    if "remaining" not in fade_body or "sound.volume" not in fade_body:
+        errors.append("opening soundtrack fade no longer follows remaining film time")
 
 required_css = {
     "video remains visible in reduced motion": '#factFilm{display:block!important}',
