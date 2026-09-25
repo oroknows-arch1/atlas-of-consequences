@@ -42,6 +42,10 @@ if runtime.get("whats_real_causal_flow_must_precede_dense_prose") is not True:
     errors.append("approved WHAT'S REAL causal-flow invariant is not enabled in contract")
 if runtime.get("whats_real_causal_boundary_must_remain_visible") is not True:
     errors.append("approved WHAT'S REAL causal boundary invariant is not enabled in contract")
+if runtime.get("consequences_three_layer_separation_must_remain_visible") is not True:
+    errors.append("approved CONSEQUENCES three-layer separation invariant is not enabled in contract")
+if runtime.get("consequences_prohibited_shortcut_must_remain_visible") is not True:
+    errors.append("approved CONSEQUENCES prohibited-shortcut invariant is not enabled in contract")
 
 required_index = {
     "opening factual film element": '<video id="factFilm"',
@@ -93,7 +97,10 @@ required_css = {
     "reduced-motion reader background does not substitute poster": '#world,#world.reader-mode{background:#000!important}',
     "approved WHAT'S REAL causal-flow container": '.signal-flow{',
     "approved WHAT'S REAL causal-flow nodes": '.flow-node{',
-    "approved WHAT'S REAL causal boundary": '.flow-boundary{'
+    "approved WHAT'S REAL causal boundary": '.flow-boundary{',
+    "approved CONSEQUENCES certainty map": '.certainty-map{',
+    "approved CONSEQUENCES certainty cards": '.certainty-card{',
+    "approved CONSEQUENCES prohibited shortcut treatment": '.prohibited-boundary{'
 }
 for label, needle in required_css.items():
     if needle not in css:
@@ -111,7 +118,11 @@ required_js = {
     "reduced motion still attempts opening film": 'const playAttempt = video.play();',
     "top of reader holds final frame": 'if (y <= points[0].top + 1) return points[0].p;',
     "WHAT'S REAL causal-flow heading": 'THE CONNECTION THIS EDITION IS TESTING',
-    "WHAT'S REAL causal boundary": 'this is a documented connection chain, not proof that AI caused a specific Antofagasta mine expansion or a particular job.'
+    "WHAT'S REAL causal boundary": 'this is a documented connection chain, not proof that AI caused a specific Antofagasta mine expansion or a particular job.',
+    "CONSEQUENCES documented-global label": '01 · DOCUMENTED GLOBAL',
+    "CONSEQUENCES documented-place label": '02 · DOCUMENTED PLACE',
+    "CONSEQUENCES fictional-human label": '03 · FICTIONAL HUMAN',
+    "CONSEQUENCES prohibited-shortcut label": 'PROHIBITED CAUSAL SHORTCUT'
 }
 for label, needle in required_js.items():
     if needle not in js:
@@ -135,6 +146,33 @@ else:
 flow_insert = js.find("if (factStrip) factStrip.insertAdjacentElement('beforebegin', flow);")
 if flow_insert == -1:
     errors.append("approved WHAT'S REAL causal flow no longer precedes the dense factual cards/prose treatment")
+
+# Lock the human-approved CONSEQUENCES certainty-layer order and prohibited shortcut.
+consequence_order = runtime.get("consequences_three_layer_order", [])
+if not isinstance(consequence_order, list) or consequence_order != [
+    "01 · DOCUMENTED GLOBAL",
+    "02 · DOCUMENTED PLACE",
+    "03 · FICTIONAL HUMAN"
+]:
+    errors.append("approved CONSEQUENCES three-layer order changed in contract")
+else:
+    last_pos = -1
+    for label in consequence_order:
+        pos = js.find(label)
+        if pos == -1:
+            errors.append(f"missing approved CONSEQUENCES layer: {label}")
+            continue
+        if pos <= last_pos:
+            errors.append(f"approved CONSEQUENCES layer order changed near: {label}")
+        last_pos = pos
+
+shortcut = runtime.get("consequences_prohibited_shortcut")
+if shortcut != "AI boom → mine expands → Mauricio gets promoted.":
+    errors.append("approved CONSEQUENCES prohibited shortcut changed in contract")
+if shortcut and shortcut not in js:
+    errors.append("approved CONSEQUENCES prohibited shortcut is no longer detected in reader treatment")
+if "p.classList.add('prohibited-boundary')" not in js:
+    errors.append("approved CONSEQUENCES prohibited shortcut is no longer visually marked")
 
 forbidden_js = {
     "reduced motion must not auto-enter reader": "if (typeof enterReader === 'function') enterReader();",
