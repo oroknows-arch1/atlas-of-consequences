@@ -1,9 +1,10 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "edition_id": "AOC-001",
   "status": "human_approved",
   "approved_sequence": [
     "factual opening film plays",
+    "opening soundtrack fades naturally through the final 2.2 seconds instead of cutting abruptly",
     "film ends and final frame remains visible",
     "Edition Map appears over that held final frame",
     "video remains the live reader background",
@@ -17,11 +18,15 @@
     "reduced_motion_must_not_skip_opening_film": true,
     "reduced_motion_must_not_hide_reader_video": true,
     "top_of_reader_progress": 1.0,
-    "story_promo_must_not_autoplay_after_factual_film": true
+    "story_promo_must_not_autoplay_after_factual_film": true,
+    "opening_soundtrack_must_fade_before_reader_handoff": true,
+    "opening_soundtrack_fade_seconds": 2.2,
+    "opening_soundtrack_must_not_hard_cut_at_reader_handoff": true
   },
   "approved_reader_tuning": {
     "video_opacity": 0.82,
-    "video_brightness": 0.67
+    "video_brightness": 0.67,
+    "opening_sound_volume": 0.08
   },
   "change_rule": "Any change that alters this sequence requires a new explicit human approval before merge or release."
 }
