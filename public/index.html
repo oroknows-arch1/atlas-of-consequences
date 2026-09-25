@@ -425,13 +425,23 @@ const soundBtn=document.getElementById('soundBtn');
 const skipBtn=document.getElementById('skipBtn');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const scrubSections=[document.getElementById('intro'),...document.querySelectorAll('.chapter')];
+const OPENING_SOUND_VOLUME=.08;
+const OPENING_SOUND_FADE_SECONDS=2.2;
 let soundLoaded=false,soundOn=false,readerActive=false,duration=30,targetTime=29.85,visualTime=29.85;
-sound.volume=.08;
+sound.volume=OPENING_SOUND_VOLUME;
 
 function loadSound(){if(soundLoaded)return;sound.src=sound.dataset.src;sound.load();soundLoaded=true}
 async function enableSound(){
-  soundOn=true;fact.muted=false;soundBtn.textContent='Sound on';loadSound();
+  soundOn=true;fact.muted=false;soundBtn.textContent='Sound on';loadSound();sound.volume=OPENING_SOUND_VOLUME;
   try{sound.currentTime=Math.min(fact.currentTime||0,Math.max(0,(sound.duration||178)-.2));await sound.play()}catch(e){}
+}
+function updateOpeningSoundFade(){
+  if(!soundOn||readerActive||sound.paused)return;
+  const d=Number.isFinite(fact.duration)&&fact.duration>0?fact.duration:duration;
+  const remaining=Math.max(0,d-(fact.currentTime||0));
+  if(remaining>=OPENING_SOUND_FADE_SECONDS){sound.volume=OPENING_SOUND_VOLUME;return;}
+  const ratio=Math.max(0,Math.min(1,remaining/OPENING_SOUND_FADE_SECONDS));
+  sound.volume=OPENING_SOUND_VOLUME*ratio*ratio;
 }
 function holdFinalFrame(){
   duration=Number.isFinite(fact.duration)&&fact.duration>0?fact.duration:30;
@@ -441,7 +451,7 @@ function holdFinalFrame(){
 }
 function enterReader(){
   if(readerActive)return;readerActive=true;
-  holdFinalFrame();sound.pause();
+  holdFinalFrame();sound.volume=0;sound.pause();sound.volume=OPENING_SOUND_VOLUME;
   phase.textContent='EDITION';
   document.body.classList.remove('opening-active');
   document.body.classList.add('reader-active');
@@ -482,6 +492,7 @@ function scrubLoop(){
 
 soundBtn.addEventListener('click',enableSound);
 skipBtn.addEventListener('click',enterReader);
+fact.addEventListener('timeupdate',updateOpeningSoundFade);
 fact.addEventListener('ended',enterReader);
 fact.addEventListener('error',enterReader);
 addEventListener('scroll',()=>requestAnimationFrame(updateScrubTarget),{passive:true});
