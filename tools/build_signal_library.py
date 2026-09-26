@@ -50,7 +50,7 @@ def containing_statement(body,needle):
     for p in paras:
         if needle.lower() in p.lower():
             sentences=re.split(r"(?<=[.!?])\s+",p)
-            return clean(next((x for x in sentences if needle.lower() in x.lower()),p))
+            return clean(needle)
     raise ValueError(f"missing locked source text: {needle}")
 
 def tags(statement,mapping):
