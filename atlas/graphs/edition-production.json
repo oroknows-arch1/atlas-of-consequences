@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.6",
+  "schema_version": "1.7",
   "graph_id": "atlas-edition-production",
   "orchestrator": "atlas_orchestrator",
   "rules": {
@@ -224,12 +224,12 @@
       "produces": "route_decision_register"
     },
     {
-      "id": "distribution_pack",
+      "id": "variant_factory",
       "worker": "distribution_editor",
       "requires": [
         "route_decision"
       ],
-      "produces": "distribution_candidate"
+      "produces": "variant_register"
     },
     {
       "id": "publication_qa",
