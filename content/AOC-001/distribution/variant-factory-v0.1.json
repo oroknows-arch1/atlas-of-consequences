@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "register_id": "AOC-001-variant-factory-v0.1",
+  "edition_id": "AOC-001",
+  "input_route_register": "content/AOC-001/distribution/route-decision-v0.1.json",
+  "contract": "atlas/contracts/variant-factory.schema.json",
+  "variant_count": 6,
+  "variants": [
+    {
+      "variant_id": "VAR-001",
+      "route_id": "RTE-002",
+      "signal_id": "AOC001-SIG-002",
+      "destination_id": "DST-001",
+      "audience": "energy and grid professionals",
+      "classification": "factual",
+      "expression_type": "evidence-led submission concept",
+      "candidate_expression": "Data centres used about 415 TWh of electricity globally in 2024. Atlas treats that scale as an infrastructure question: how should grids plan for additional large, concentrated loads while protecting reliability, affordability and community confidence?",
+      "evidence_refs": [
+        "SR-01",
+        "SR-02"
+      ],
+      "boundary_notes": "Global statistic; do not present it as Australian consumption or claim a specific Australian impact.",
+      "status": "INTERNAL_CANDIDATE",
+      "external_action_allowed": false
+    },
+    {
+      "variant_id": "VAR-002",
+      "route_id": "RTE-003",
+      "signal_id": "AOC001-SIG-010",
+      "destination_id": "DST-001",
+      "audience": "AI infrastructure analysts",
+      "classification": "analytical",
+      "expression_type": "evidence-led submission concept",
+      "candidate_expression": "AI expansion is not only a compute story. Where new data-centre capacity adds electricity demand, the consequence reaches generation, networks and grid equipment. Atlas follows that physical chain while keeping location-specific causation separate unless evidence establishes it.",
+      "evidence_refs": [
+        "SR-01",
+        "SR-02",
+        "SR-04"
+      ],
+      "boundary_notes": "Connection may be shown; location-specific causation requires evidence.",
+      "status": "INTERNAL_CANDIDATE",
+      "external_action_allowed": false
+    },
+    {
+      "variant_id": "VAR-003",
+      "route_id": "RTE-005",
+      "signal_id": "AOC001-SIG-003",
+      "destination_id": "DST-004",
+      "audience": "resources sector professionals",
+      "classification": "factual",
+      "expression_type": "regional industry discussion concept",
+      "candidate_expression": "The infrastructure behind expanding digital systems requires physical materials, including copper. For a mining region, the useful question is not whether AI 'caused' existing investment, but how additional infrastructure demand may interact with an economy already built around copper.",
+      "evidence_refs": [
+        "SR-04"
+      ],
+      "boundary_notes": "Do not claim AI caused Antofagasta mining investment; additional pressure only.",
+      "status": "INTERNAL_CANDIDATE",
+      "external_action_allowed": false
+    },
+    {
+      "variant_id": "VAR-004",
+      "route_id": "RTE-006",
+      "signal_id": "AOC001-SIG-004",
+      "destination_id": "DST-004",
+      "audience": "Antofagasta and Chile resources audiences",
+      "classification": "factual",
+      "expression_type": "regional evidence concept",
+      "candidate_expression": "Antofagasta produced 58% of Chile's copper in 2025. That existing concentration is why global changes in infrastructure and material demand matter locally: the region is already deeply exposed to copper's opportunities and consequences.",
+      "evidence_refs": [
+        "SR-05"
+      ],
+      "boundary_notes": "Production share is historical 2025 evidence; do not convert exposure into a prediction.",
+      "status": "INTERNAL_CANDIDATE",
+      "external_action_allowed": false
+    },
+    {
+      "variant_id": "VAR-005",
+      "route_id": "RTE-010",
+      "signal_id": "AOC001-SIG-011",
+      "destination_id": "DST-007",
+      "audience": "Antofagasta communities and regional readers",
+      "classification": "analytical",
+      "expression_type": "editorial outreach concept",
+      "candidate_expression": "Atlas begins with a global physical chain—data centres, electricity, grids and materials—then asks what that chain means in a place already shaped by copper. Antofagasta is not presented as an economy created by AI; it is an existing copper region encountering another possible source of demand pressure.",
+      "evidence_refs": [
+        "SR-05",
+        "SR-06"
+      ],
+      "boundary_notes": "Preserve distinction between existing regional economy and additional demand pressure.",
+      "status": "INTERNAL_CANDIDATE",
+      "external_action_allowed": false
+    },
+    {
+      "variant_id": "VAR-006",
+      "route_id": "RTE-011",
+      "signal_id": "AOC001-SIG-014",
+      "destination_id": "DST-007",
+      "audience": "Calama and Antofagasta readers",
+      "classification": "factual",
+      "expression_type": "place-led editorial concept",
+      "candidate_expression": "Calama cannot be understood only through tonnes of copper. Atlas places mining beside neighbourhoods, families, local identity and the ordinary life of a city that exists beyond extraction—even while extraction shapes much of its economy and history.",
+      "evidence_refs": [
+        "SR-13"
+      ],
+      "boundary_notes": "Place framing must remain grounded; do not use fictional household details as factual evidence about Calama.",
+      "status": "INTERNAL_CANDIDATE",
+      "external_action_allowed": false
+    }
+  ],
+  "blocked_scope": [
+    "destination contact",
+    "outreach",
+    "submission",
+    "scheduling",
+    "publication"
+  ]
+}
