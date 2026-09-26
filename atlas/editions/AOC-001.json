@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1",
+  "schema_version": "2.2",
   "edition_id": "AOC-001",
   "title": "AI's Physical Hunger",
   "graph": "atlas/graphs/edition-production.json",
@@ -55,7 +55,9 @@
     "format_spec_register": "content/AOC-001/distribution/format-workers-v0.1.json",
     "format_workers_contract": "atlas/contracts/format-workers.schema.json",
     "destination_adaptation_register": "content/AOC-001/distribution/destination-adapter-v0.1.json",
-    "destination_adapter_contract": "atlas/contracts/destination-adapter.schema.json"
+    "destination_adapter_contract": "atlas/contracts/destination-adapter.schema.json",
+    "distribution_gate_register": "content/AOC-001/distribution/distribution-gates-v0.1.json",
+    "distribution_gate_contract": "atlas/contracts/distribution-gates.schema.json"
   },
   "node_state": {
     "evidence_pack": "satisfied_by_existing_artifact",
@@ -86,7 +88,10 @@
     "route_decision": "proof_human_approved",
     "variant_factory": "proof_human_approved",
     "format_workers": "proof_human_approved",
-    "destination_adapter": "proof_generated_pending_human_review"
+    "destination_adapter": "proof_human_approved",
+    "distribution_evidence_gate": "proof_pass",
+    "brand_editorial_gate": "proof_pass",
+    "risk_permission_gate": "proof_hold_pending_human_authority"
   },
   "foreground_next": "release_human_gate",
   "notes": [
@@ -108,6 +113,7 @@
     "Route Decision proof evaluates evidenced signal-audience-destination opportunities as PURSUE/HOLD/REJECT. PURSUE authorizes only candidate-expression work; outreach, submission and publication remain blocked.",
     "Variant Factory proof creates six internal candidate expressions from six human-approved PURSUE routes. No destination contact, submission, scheduling or publication is authorized.",
     "Format Workers proof selects one route-appropriate production specification for each of the six approved internal variants. Spanish localisation is only a candidate requirement and is not released without verification.",
-    "Destination Adapter proof uses current verified mechanics for PM&C, AIA and El Diario de Antofagasta. Adaptation is internal only and does not confer permission to contact, submit or publish."
+    "Destination Adapter proof uses current verified mechanics for PM&C, AIA and El Diario de Antofagasta. Adaptation is internal only and does not confer permission to contact, submit or publish.",
+    "Distribution gates proof independently passes evidence and brand/editorial integrity for all six packages while holding all six at Risk/Permission. Zero external actions are execution-eligible without explicit human authority and current destination revalidation."
   ]
 }
