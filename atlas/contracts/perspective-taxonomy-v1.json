@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "role": "permanent Atlas perspective taxonomy",
+  "principle": "Perspectives are lenses Atlas knows how to test. They are not mandatory sections.",
+  "states": {
+    "ACTIVE": "Evidence establishes a material consequence and the route improves understanding enough to appear in the primary perspective menu.",
+    "SECONDARY": "A legitimate evidence-supported connection exists, but it should remain deeper in the graph to avoid clutter.",
+    "ABSENT": "Evidence does not establish a material connection. Atlas must not manufacture relevance."
+  },
+  "families": [
+    {
+      "id": "people",
+      "label": "People",
+      "perspectives": [
+        "individual",
+        "family",
+        "work-skills",
+        "community",
+        "culture-identity"
+      ]
+    },
+    {
+      "id": "physical-world",
+      "label": "Physical world",
+      "perspectives": [
+        "land",
+        "water",
+        "energy-grid",
+        "minerals-resources",
+        "environment"
+      ]
+    },
+    {
+      "id": "economy",
+      "label": "Economy",
+      "perspectives": [
+        "markets-finance",
+        "business-industry",
+        "consumer",
+        "supply-chain"
+      ]
+    },
+    {
+      "id": "systems",
+      "label": "Systems",
+      "perspectives": [
+        "technology",
+        "infrastructure",
+        "government-policy",
+        "geopolitics"
+      ]
+    },
+    {
+      "id": "place",
+      "label": "Place",
+      "perspectives": [
+        "local",
+        "regional",
+        "national",
+        "global"
+      ]
+    }
+  ],
+  "selection_rules": [
+    "Start from the EMRADAR evidence package and Atlas consequence graph, not from a fixed menu.",
+    "A perspective requires an inspectable evidence path to the originating change.",
+    "Connection strength, consequence materiality and reader usefulness determine ACTIVE versus SECONDARY.",
+    "If evidence is insufficient, mark ABSENT rather than infer relevance.",
+    "Sensitive cultural/community perspectives require direct evidence and explicit sourcing boundaries.",
+    "Perspective state may change as evidence changes.",
+    "Keep the primary mobile menu deliberately small; SECONDARY perspectives remain discoverable deeper in the graph.",
+    "Perspective selection changes information routing and presentation, never the underlying factual record."
+  ],
+  "presentation_rule": "The selected perspective determines which verified nodes are foregrounded and which medium best explains them. Text, maps, charts, fiction, imagery or optional video are presentation choices, not mandatory edition components."
+}

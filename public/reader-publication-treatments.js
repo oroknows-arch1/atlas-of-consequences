@@ -413,3 +413,78 @@
     if (typeof updateScrubTarget === 'function') updateScrubTarget();
   });
 })();
+
+
+/* Reader architecture v0.3 — progressive perspective routing. */
+(() => {
+  const intro = document.querySelector('#intro .intro-inner');
+  if (!intro || document.querySelector('.perspective-entry')) return;
+
+  const routes = [
+    {id:'technology', label:'Technology', copy:'Compute, data centres and the physical system behind AI.', targets:['report','consequences','sources']},
+    {id:'energy-grid', label:'Energy + grid', copy:'Electricity demand, connections and grid equipment.', targets:['report','consequences','sources']},
+    {id:'minerals-resources', label:'Minerals + resources', copy:'Copper demand, production and the path into northern Chile.', targets:['report','place','consequences']},
+    {id:'family', label:'Family', copy:'Household, absence, opportunity and the human trade-offs around work.', targets:['story','consequences','place']},
+    {id:'work-skills', label:'Work + skills', copy:'Employment, rosters, technical skills and labour mobility.', targets:['story','place','consequences']},
+    {id:'markets-finance', label:'Markets + finance', copy:'Demand, constraints, concentrated supply and commercial interpretation.', targets:['report','consequences','sources']}
+  ];
+
+  const oldMap = document.querySelector('.edition-map');
+  if (oldMap) oldMap.hidden = true;
+
+  const entry = document.createElement('section');
+  entry.className = 'perspective-entry';
+  entry.setAttribute('aria-label','Choose a perspective');
+  entry.innerHTML = '<div class="perspective-kicker">ONE CHANGE · DIFFERENT CONSEQUENCES</div><h2>Where are you standing?</h2><p class="perspective-intro">Start with the part of this change closest to you. The evidence stays the same; Atlas changes the route.</p>';
+
+  const grid = document.createElement('div');
+  grid.className = 'perspective-grid';
+  routes.forEach(route => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'perspective-choice';
+    button.dataset.perspective = route.id;
+    button.innerHTML = '<strong>'+route.label+'</strong><span>'+route.copy+'</span>';
+    button.addEventListener('click', () => selectRoute(route));
+    grid.append(button);
+  });
+  entry.append(grid);
+
+  const full = document.createElement('a');
+  full.className = 'full-edition-link';
+  full.href = '#report';
+  full.textContent = 'Read the full edition';
+  entry.append(full);
+  intro.append(entry);
+
+  const routeBar = document.createElement('div');
+  routeBar.className = 'perspective-route-bar';
+  routeBar.hidden = true;
+  routeBar.innerHTML = '<span class="route-label"></span><button type="button">Change perspective</button>';
+  document.body.append(routeBar);
+  routeBar.querySelector('button').addEventListener('click', () => {
+    document.querySelectorAll('.perspective-choice').forEach(b => b.classList.remove('selected'));
+    routeBar.hidden = true;
+    document.body.classList.remove('perspective-selected');
+    document.querySelectorAll('.chapter').forEach(s => { s.classList.remove('route-primary','route-secondary'); s.removeAttribute('data-route-order'); });
+    entry.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+
+  function selectRoute(route) {
+    document.querySelectorAll('.perspective-choice').forEach(b => b.classList.toggle('selected', b.dataset.perspective === route.id));
+    document.body.classList.add('perspective-selected');
+    routeBar.hidden = false;
+    routeBar.querySelector('.route-label').textContent = route.label;
+
+    document.querySelectorAll('.chapter').forEach(section => {
+      const index = route.targets.indexOf(section.id);
+      section.classList.toggle('route-primary', index === 0);
+      section.classList.toggle('route-secondary', index > 0);
+      if (index >= 0) section.dataset.routeOrder = String(index + 1);
+      else section.removeAttribute('data-route-order');
+    });
+
+    const first = document.getElementById(route.targets[0]);
+    if (first) first.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+})();

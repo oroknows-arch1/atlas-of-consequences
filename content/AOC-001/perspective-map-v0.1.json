@@ -1,0 +1,179 @@
+{
+  "schema_version": "1.0",
+  "edition_id": "AOC-001",
+  "title": "AI's Physical Hunger",
+  "basis": "AOC-001 Master Edition, source register and documented consequence chain",
+  "active": [
+    {
+      "id": "technology",
+      "evidence": [
+        "SR-01",
+        "SR-02",
+        "SR-03",
+        "SR-04"
+      ],
+      "route": [
+        "AI/data-centre growth",
+        "physical compute",
+        "electricity/grid demand",
+        "materials"
+      ]
+    },
+    {
+      "id": "energy-grid",
+      "evidence": [
+        "SR-02",
+        "SR-03",
+        "SR-04"
+      ],
+      "route": [
+        "data centres",
+        "electricity demand",
+        "grid equipment",
+        "materials"
+      ]
+    },
+    {
+      "id": "minerals-resources",
+      "evidence": [
+        "SR-04",
+        "SR-05",
+        "SR-06",
+        "SR-07",
+        "SR-08"
+      ],
+      "route": [
+        "infrastructure demand",
+        "copper",
+        "Chile",
+        "Antofagasta",
+        "Calama/Chuquicamata"
+      ]
+    },
+    {
+      "id": "family",
+      "evidence": [
+        "SR-09",
+        "SR-10",
+        "SR-11",
+        "SR-12"
+      ],
+      "route": [
+        "regional mining economy",
+        "labour/shift patterns",
+        "fictional family exploration"
+      ],
+      "fiction_boundary": true
+    },
+    {
+      "id": "work-skills",
+      "evidence": [
+        "SR-07",
+        "SR-08",
+        "SR-09",
+        "SR-10",
+        "SR-11",
+        "SR-12"
+      ],
+      "route": [
+        "copper system",
+        "employment",
+        "labour mobility",
+        "skills/rosters"
+      ]
+    },
+    {
+      "id": "markets-finance",
+      "evidence": [
+        "SR-01",
+        "SR-02",
+        "SR-04",
+        "SR-05",
+        "SR-06"
+      ],
+      "route": [
+        "demand growth",
+        "infrastructure/material requirement",
+        "concentrated copper production",
+        "commercial interpretation"
+      ],
+      "investment_boundary": true
+    }
+  ],
+  "secondary": [
+    {
+      "id": "land",
+      "reason": "Relevant through extraction/infrastructure and place, but not as strong as the primary resource chain in current evidence."
+    },
+    {
+      "id": "community",
+      "reason": "Calama context is documented; avoid generalising individual community experience."
+    },
+    {
+      "id": "culture-identity",
+      "reason": "Heritage and Indigenous context exist, but sourcing boundaries require this to remain secondary unless stronger direct evidence is added."
+    },
+    {
+      "id": "business-industry",
+      "reason": "Operator/supplier implications are legitimate but current edition evidence is stronger on the physical and regional chain."
+    },
+    {
+      "id": "infrastructure",
+      "reason": "Strongly present but substantially overlaps Technology and Energy/Grid for the opening menu."
+    },
+    {
+      "id": "local",
+      "reason": "Calama is central and remains available through PLACE rather than requiring another primary button."
+    },
+    {
+      "id": "regional",
+      "reason": "Antofagasta is central but functions as geographic depth rather than a separate opening route."
+    },
+    {
+      "id": "global",
+      "reason": "The global AI/data-centre mechanism is the common factual spine rather than a separate perspective."
+    }
+  ],
+  "absent": [
+    {
+      "id": "water",
+      "reason": "Current locked evidence does not establish a sufficiently specific water consequence for this edition."
+    },
+    {
+      "id": "environment",
+      "reason": "Do not infer a broad environmental consequence without a stronger edition-specific evidence path."
+    },
+    {
+      "id": "consumer",
+      "reason": "No material consumer consequence is established in the current edition."
+    },
+    {
+      "id": "government-policy",
+      "reason": "Policy is contextual rather than a material consequence path in the locked edition."
+    },
+    {
+      "id": "geopolitics",
+      "reason": "Resource concentration alone is insufficient to make geopolitics a material AOC-001 route."
+    },
+    {
+      "id": "individual",
+      "reason": "Covered more usefully by family/work paths; no separate factual individual case."
+    },
+    {
+      "id": "supply-chain",
+      "reason": "Current evidence supports infrastructure/material demand but does not develop a distinct supply-chain consequence deeply enough."
+    },
+    {
+      "id": "national",
+      "reason": "Chile is part of the evidence chain but not a distinct consequence perspective in the current edition."
+    }
+  ],
+  "primary_menu": [
+    "technology",
+    "energy-grid",
+    "minerals-resources",
+    "family",
+    "work-skills",
+    "markets-finance"
+  ]
+}
