@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.8",
+  "schema_version": "1.9",
   "edition_id": "AOC-001",
   "title": "AI's Physical Hunger",
   "graph": "atlas/graphs/edition-production.json",
@@ -49,7 +49,9 @@
     "destination_discovery_register": "content/AOC-001/distribution/destination-discovery-v0.1.json",
     "destination_discovery_contract": "atlas/contracts/destination-discovery.schema.json",
     "route_decision_register": "content/AOC-001/distribution/route-decision-v0.1.json",
-    "route_decision_contract": "atlas/contracts/route-decision.schema.json"
+    "route_decision_contract": "atlas/contracts/route-decision.schema.json",
+    "variant_register": "content/AOC-001/distribution/variant-factory-v0.1.json",
+    "variant_factory_contract": "atlas/contracts/variant-factory.schema.json"
   },
   "node_state": {
     "evidence_pack": "satisfied_by_existing_artifact",
@@ -78,7 +80,8 @@
     "signal_priority": "proof_human_approved",
     "relevance_routing": "proof_human_approved",
     "destination_discovery": "proof_human_approved",
-    "route_decision": "proof_generated_pending_human_review"
+    "route_decision": "proof_human_approved",
+    "variant_factory": "proof_generated_pending_human_review"
   },
   "foreground_next": "release_human_gate",
   "notes": [
@@ -97,6 +100,7 @@
     "Signal Priority proof applies bounded ADVANCE/HOLD/STOP decisions after hard eligibility checks; relevance routing remains blocked pending human review.",
     "Relevance Routing proof routes only the 8 human-approved ADVANCE signals to audiences with explicit reasons to care; destination discovery remains blocked.",
     "Destination Discovery proof identifies real current candidate destinations with fit evidence and permission constraints; no route decision, outreach, variant generation or publication has occurred.",
-    "Route Decision proof evaluates evidenced signal-audience-destination opportunities as PURSUE/HOLD/REJECT. PURSUE authorizes only candidate-expression work; outreach, submission and publication remain blocked."
+    "Route Decision proof evaluates evidenced signal-audience-destination opportunities as PURSUE/HOLD/REJECT. PURSUE authorizes only candidate-expression work; outreach, submission and publication remain blocked.",
+    "Variant Factory proof creates six internal candidate expressions from six human-approved PURSUE routes. No destination contact, submission, scheduling or publication is authorized."
   ]
 }
