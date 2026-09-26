@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "graph_id": "atlas-edition-production",
   "orchestrator": "atlas_orchestrator",
   "rules": {
@@ -192,10 +192,18 @@
       "produces": "signal_library"
     },
     {
+      "id": "signal_priority",
+      "worker": "signal_priority_decider",
+      "requires": [
+        "signal_library"
+      ],
+      "produces": "signal_priority_register"
+    },
+    {
       "id": "distribution_pack",
       "worker": "distribution_editor",
       "requires": [
-        "signal_library"
+        "signal_priority"
       ],
       "produces": "distribution_candidate"
     },
