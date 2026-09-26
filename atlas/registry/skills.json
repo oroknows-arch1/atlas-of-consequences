@@ -110,6 +110,11 @@
       "id": "signal_extraction",
       "does": "Scan a locked edition for independently useful outward-facing signals while preserving section, classification and provenance.",
       "does_not": "Invent signals, upgrade evidence, or convert fiction into fact."
+    },
+    {
+      "id": "signal_priority_decision",
+      "does": "Choose ADVANCE, HOLD or STOP for an eligible signal using evidence, relevance, consequence, distinctiveness, expression potential and cost/risk.",
+      "does_not": "Treat popularity as importance, bypass evidence gates, or automatically convert a numeric score into publication permission."
     }
   ]
 }
