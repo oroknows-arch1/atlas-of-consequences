@@ -31,3 +31,11 @@
 .video-entry.film-complete .edition-geo-bg{opacity:1}
 .video-entry.film-complete .hero-video{opacity:0!important;pointer-events:none}
 .video-entry:not(.film-complete) .edition-geo-bg{opacity:0}
+
+/* Energy + Grid scene 04: distinct grid constraint surface, not repeated copper imagery. */
+.grid-bottleneck{background:radial-gradient(circle at 70% 22%,rgba(255,255,255,.13),transparent 24%),linear-gradient(155deg,#111820 0%,#080b0e 55%,#030405 100%)}
+.grid-bottleneck:before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 15%,rgba(255,255,255,.055) 15.2% 15.5%),repeating-linear-gradient(0deg,transparent 0 18%,rgba(255,255,255,.04) 18.2% 18.5%);transform:perspective(500px) rotateX(58deg) scale(1.7);transform-origin:center 75%;opacity:.8}
+.grid-visual{position:absolute;inset:12% 8% 38%;z-index:1;display:grid;grid-template-columns:repeat(5,1fr);align-items:end;gap:7%}
+.grid-visual span{display:block;border:1px solid rgba(255,255,255,.18);height:var(--h,55%);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.015))}
+.grid-visual span:nth-child(1){--h:34%}.grid-visual span:nth-child(2){--h:58%}.grid-visual span:nth-child(3){--h:82%}.grid-visual span:nth-child(4){--h:100%}.grid-visual span:nth-child(5){--h:68%}
+.skip-film{top:max(58px,calc(env(safe-area-inset-top) + 46px));right:16px;bottom:auto}
