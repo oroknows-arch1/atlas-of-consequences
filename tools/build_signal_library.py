@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the deterministic AOC-001 Signal Library proof from locked Atlas sources."""
 from __future__ import annotations
-import hashlib, json, re, sys
+import json, re, sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 EDITION="AOC-001"
@@ -91,7 +91,7 @@ def main(check=False):
           "potential_audiences":tags(statement,AUDIENCE_MAP),"value_commercial_relevance":tags(statement,VALUE_MAP),
           "sensitivity_risk":r,"available_assets":["approved factual report video"] if c=="factual" and section=="WHAT'S REAL" else ["approved STORY / FICTION promo"] if c=="fictional" else [],
           "potential_depth":["short","medium","long"],"extraction_status":"proof_extracted","human_review_required":c!="factual" or r!=["low"],
-          "provenance":{"master_edition":"content/AOC-001/master-edition-v0.1.md","source_register":"content/AOC-001/sources/publication-source-register-v0.1.md","edition_manifest":"content/AOC-001/edition-manifest-v0.1.yaml","source_text_sha256":hashlib.sha256(statement.encode()).hexdigest(),"rule_trigger":needle}
+          "provenance":{"master_edition":"content/AOC-001/master-edition-v0.1.md","source_register":"content/AOC-001/sources/publication-source-register-v0.1.md","edition_manifest":"content/AOC-001/edition-manifest-v0.1.yaml","source_locator":"section + exact locked text","rule_trigger":needle}
         })
     payload={"schema_version":"1.0","library_id":"AOC-001-signal-library-v0.1","edition_id":EDITION,"constitutional_rule":"Facts can change the fiction. Fiction must never quietly become fact.","inputs":{"master_edition":"content/AOC-001/master-edition-v0.1.md","source_register":"content/AOC-001/sources/publication-source-register-v0.1.md","edition_manifest":"content/AOC-001/edition-manifest-v0.1.yaml"},"generator":"tools/build_signal_library.py","signal_count":len(signals),"signals":signals}
     rendered=json.dumps(payload,indent=2,ensure_ascii=False)+"\n"
