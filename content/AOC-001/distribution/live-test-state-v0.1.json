@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "test_id": "AOC001-LIVE-TEST-001",
+  "authorization": "content/AOC-001/distribution/live-test-authorization-v0.1.json",
+  "selected_adapter_id": "ADP-005",
+  "execution": {
+    "state": "BLOCKED_NOT_EXECUTED",
+    "reason": "No repository-bound authorized external execution channel/credential has been established by this proof.",
+    "actions_attempted": 0,
+    "max_actions": 1
+  },
+  "receipt": {
+    "state": "NOT_CREATED_NO_ATTEMPT"
+  },
+  "performance": {
+    "state": "WAITING_FOR_RECEIPT"
+  },
+  "learning": {
+    "state": "WAITING_FOR_PERFORMANCE"
+  },
+  "routing_update": {
+    "state": "NOT_ELIGIBLE"
+  },
+  "external_effect": false
+}
