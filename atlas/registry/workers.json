@@ -753,6 +753,32 @@
       ]
     },
     {
+      "id": "execution_gateway_worker",
+      "group": "execution",
+      "job": "Provide a replaceable provider-neutral preflight boundary for external distribution transports",
+      "skills": [
+        "execution_gateway_preflight"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "report provider capability",
+        "verify non-secret runtime binding state",
+        "block execution when sender identity or credentials are unavailable"
+      ],
+      "may_not": [
+        "store credentials in repository",
+        "send during preflight",
+        "expand human authorization"
+      ],
+      "escalate_when": [
+        "provider is unbound",
+        "credential or sender identity is absent",
+        "destination revalidation fails"
+      ]
+    },
+    {
       "id": "distribution_executor_worker",
       "group": "distribution",
       "job": "Execute the single authorized distribution action only when every execution precondition is satisfied",

@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.1",
+  "schema_version": "2.2",
   "graph_id": "atlas-edition-production",
   "orchestrator": "atlas_orchestrator",
   "rules": {
@@ -272,10 +272,19 @@
       "produces": "risk_permission_gate_result"
     },
     {
+      "id": "execution_gateway_preflight",
+      "worker": "execution_gateway_worker",
+      "requires": [
+        "risk_permission_gate"
+      ],
+      "produces": "execution_gateway_preflight"
+    },
+    {
       "id": "distribution_executor",
       "worker": "distribution_executor_worker",
       "requires": [
-        "risk_permission_gate"
+        "risk_permission_gate",
+        "execution_gateway_preflight"
       ],
       "produces": "execution_result"
     },

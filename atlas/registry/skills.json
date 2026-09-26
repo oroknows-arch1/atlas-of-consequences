@@ -185,6 +185,11 @@
       "id": "routing_update",
       "does": "Turn supported learning into an inspectable routing-update proposal.",
       "does_not": "Apply consequential routing changes without the required authority."
+    },
+    {
+      "id": "execution_gateway_preflight",
+      "does": "Check provider capability, credential presence, verified sender identity, current destination state and authorization before execution.",
+      "does_not": "Store secrets, choose editorial content, widen authorization, or send when any precondition fails."
     }
   ]
 }

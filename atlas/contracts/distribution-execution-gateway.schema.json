@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "atlas-distribution-execution-gateway",
+  "purpose": "Provider-neutral boundary between Atlas distribution decisions and authorized external transports.",
+  "request_required": [
+    "execution_id",
+    "authorization_id",
+    "adapter_id",
+    "destination_id",
+    "action_type",
+    "payload_ref",
+    "max_actions"
+  ],
+  "preflight_required": [
+    "provider",
+    "capability_available",
+    "credential_present",
+    "sender_identity_verified",
+    "destination_revalidated",
+    "human_authorization_valid"
+  ],
+  "receipt_required": [
+    "execution_id",
+    "attempted",
+    "provider",
+    "provider_receipt_id",
+    "attempted_at",
+    "result"
+  ],
+  "rules": [
+    "secrets and credentials must never be stored in repository artifacts",
+    "preflight must pass every required field before send",
+    "gateway must enforce authorization max_actions",
+    "provider adapters are replaceable",
+    "failed or unavailable capability returns BLOCKED_NOT_EXECUTED",
+    "every attempted action returns a receipt",
+    "gateway cannot widen recipient scope or content scope"
+  ]
+}

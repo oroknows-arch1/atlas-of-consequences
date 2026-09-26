@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "gateway_id": "atlas-distribution-execution-gateway",
+  "status": "NOT_CONFIGURED",
+  "supported_action_types": [
+    "email_outreach"
+  ],
+  "provider": "UNBOUND",
+  "capability_available": false,
+  "credential_present": false,
+  "sender_identity_verified": false,
+  "repository_secret_storage_allowed": false,
+  "required_runtime_bindings": [
+    "provider adapter",
+    "provider credential/connection",
+    "verified Atlas sender identity"
+  ],
+  "next_transition": "Configure an authorized runtime provider outside the repository, then rerun preflight. No send occurs during configuration."
+}
