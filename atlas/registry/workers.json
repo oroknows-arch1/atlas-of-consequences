@@ -683,6 +683,76 @@
       ]
     },
     {
+      "id": "distribution_evidence_verifier",
+      "group": "qa",
+      "job": "Verify evidence integrity of adapted distribution packages",
+      "skills": [
+        "distribution_evidence_gate",
+        "source_trace",
+        "boundary_audit"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "pass hold or fail evidence integrity"
+      ],
+      "may_not": [
+        "authorize external action",
+        "invent supporting evidence"
+      ],
+      "escalate_when": [
+        "evidence is stale missing or materially changed"
+      ]
+    },
+    {
+      "id": "brand_editorial_verifier",
+      "group": "qa",
+      "job": "Verify Atlas editorial identity and presentation boundaries in adapted packages",
+      "skills": [
+        "brand_editorial_gate",
+        "boundary_audit"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "pass hold or fail editorial integrity"
+      ],
+      "may_not": [
+        "authorize contact or publication",
+        "erase factual analytical or fictional distinctions"
+      ],
+      "escalate_when": [
+        "representation or cultural framing is ambiguous"
+      ]
+    },
+    {
+      "id": "risk_permission_verifier",
+      "group": "qa",
+      "job": "Verify permission expiry and human authority before any package becomes execution-eligible",
+      "skills": [
+        "risk_permission_gate"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "pass hold or fail execution eligibility",
+        "expire stale destination routes"
+      ],
+      "may_not": [
+        "perform outreach",
+        "submit",
+        "schedule",
+        "publish",
+        "convert human-gated action into autonomous authority"
+      ],
+      "escalate_when": [
+        "institutional submission outreach or public representation requires human authority"
+      ]
+    },
+    {
       "id": "publication_qc",
       "group": "qa",
       "job": "Verify release readiness against locks, graph gates and real rendered output",
