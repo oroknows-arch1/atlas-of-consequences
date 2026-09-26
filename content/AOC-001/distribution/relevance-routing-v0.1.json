@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0",
+  "register_id": "AOC-001-relevance-routing-v0.1",
+  "edition_id": "AOC-001",
+  "input_priority_register": "content/AOC-001/distribution/signal-priority-v0.1.json",
+  "contract": "atlas/contracts/relevance-routing.schema.json",
+  "eligible_signal_count": 8,
+  "route_count": 16,
+  "routes": [
+    {
+      "signal_id": "AOC001-SIG-001",
+      "audience": "technology infrastructure professionals",
+      "relevance_reason": "AI systems depend on physical data-centre infrastructure.",
+      "relevance_basis": "signal topics and affected industries",
+      "geographic_scope": "global",
+      "route_strength": "strong",
+      "route_status": "ROUTE"
+    },
+    {
+      "signal_id": "AOC001-SIG-001",
+      "audience": "technology readers",
+      "relevance_reason": "Makes the physical layer behind AI visible.",
+      "relevance_basis": "existing potential_audiences metadata",
+      "geographic_scope": "global",
+      "route_strength": "moderate",
+      "route_status": "ROUTE"
+    },
+    {
+      "signal_id": "AOC001-SIG-002",
+      "audience": "energy and grid professionals",
+      "relevance_reason": "The electricity scale of data centres bears directly on generation and grid planning.",
+      "relevance_basis": "signal topics and affected industries",
+      "geographic_scope": "global",
+      "route_strength": "strong",
+      "route_status": "ROUTE"
+    },
+    {
+      "signal_id": "AOC001-SIG-002",
+      "audience": "infrastructure investors and analysts",
+      "relevance_reason": "The statistic describes infrastructure demand rather than only software growth.",
+      "relevance_basis": "value_commercial_relevance metadata",
+      "geographic_scope": "global",
+      "route_strength": "moderate",
+      "route_status": "ROUTE"
+    },
+    {
+      "signal_id": "AOC001-SIG-003",
+      "audience": "resources sector professionals",
+      "relevance_reason": "Copper is identified as a material input to the documented infrastructure mechanism.",
+      "relevance_basis": "signal topics and affected industries",
+      "geographic_scope": "global",
+      "route_strength": "strong",
+      "route_status": "ROUTE"
+    },
+    {
+      "signal_id": "AOC001-SIG-003",
+      "audience": "mining and materials investors",
+      "relevance_reason": "Material-demand linkage is commercially relevant while causal limits remain explicit.",
+      "relevance_basis": "existing potential_audiences and risk metadata",
+      "geographic_scope": "global",
+      "route_strength": "moderate",
+      "route_status": "ROUTE"
+    },
+    {
+      "signal_id": "AOC001-SIG-004",
+      "audience": "Antofagasta and Chile resources audiences",
+      "relevance_reason": "The signal quantifies Antofagasta's share of Chilean copper production.",
+      "relevance_basis": "geography plus resources metadata",
+      "geographic_scope": "Antofagasta Region, Chile",
+      "route_strength": "strong",
+      "route_status": "ROUTE"
+    },
+    {
+      "signal_id": "AOC001-SIG-004",
+      "audience": "copper market analysts and investors",
+      "relevance_reason": "Regional supply concentration is relevant to copper-market structure.",
+      "relevance_basis": "existing potential_audiences and value metadata",
+      "geographic_scope": "global",
+      "route_strength": "strong",
+      "route_status": "ROUTE"
+    },
+    {
+      "signal_id": "AOC001-SIG-009",
+      "audience": "workers and families",
+      "relevance_reason": "The fictional question explores the trade-off between providing materially and being present.",
+      "relevance_basis": "existing potential_audiences metadata",
+      "geographic_scope": "broad / place-grounded in Calama",
+      "route_strength": "strong",
+      "route_status": "ROUTE"
+    },
+    {
+      "signal_id": "AOC001-SIG-009",
+      "audience": "future-of-work audiences",
+      "relevance_reason": "The story frames work opportunity through household consequence rather than job statistics alone.",
+      "relevance_basis": "topics plus existing potential_audiences metadata",
+      "geographic_scope": "global",
+      "route_strength": "moderate",
+      "route_status": "ROUTE"
+    },
+    {
+      "signal_id": "AOC001-SIG-010",
+      "audience": "energy and grid professionals",
+      "relevance_reason": "Additional electricity demand is the edition's core documented infrastructure consequence.",
+      "relevance_basis": "topics, industries and evidence-backed analytical classification",
+      "geographic_scope": "global",
+      "route_strength": "strong",
+      "route_status": "ROUTE"
+    },
+    {
+      "signal_id": "AOC001-SIG-010",
+      "audience": "AI infrastructure analysts",
+      "relevance_reason": "Connects digital expansion to electricity and grid constraints without claiming unsupported direct causation.",
+      "relevance_basis": "signal type and causal-overstatement risk",
+      "geographic_scope": "global",
+      "route_strength": "strong",
+      "route_status": "ROUTE"
+    },
+    {
+      "signal_id": "AOC001-SIG-011",
+      "audience": "Antofagasta communities and regional readers",
+      "relevance_reason": "The signal connects the global copper mechanism to their existing regional economy.",
+      "relevance_basis": "geography plus documented place connection",
+      "geographic_scope": "Antofagasta Region, Chile",
+      "route_strength": "strong",
+      "route_status": "ROUTE"
+    },
+    {
+      "signal_id": "AOC001-SIG-011",
+      "audience": "resources sector and investors",
+      "relevance_reason": "The region's established copper role is relevant to supply-chain exposure.",
+      "relevance_basis": "existing potential_audiences and value metadata",
+      "geographic_scope": "global",
+      "route_strength": "strong",
+      "route_status": "ROUTE"
+    },
+    {
+      "signal_id": "AOC001-SIG-014",
+      "audience": "Calama and Antofagasta readers",
+      "relevance_reason": "The signal directly concerns how Calama is represented beyond extraction.",
+      "relevance_basis": "geography and place_identity signal type",
+      "geographic_scope": "Calama / Antofagasta Region, Chile",
+      "route_strength": "strong",
+      "route_status": "ROUTE"
+    },
+    {
+      "signal_id": "AOC001-SIG-014",
+      "audience": "place-based and community readers",
+      "relevance_reason": "It adds civic and human context to an economy often described through mining output.",
+      "relevance_basis": "existing potential_audiences metadata",
+      "geographic_scope": "Chile / global place-interest",
+      "route_strength": "moderate",
+      "route_status": "ROUTE"
+    }
+  ],
+  "blocked_scope": [
+    "destination discovery",
+    "platform selection",
+    "variant generation",
+    "publication"
+  ]
+}
