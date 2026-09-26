@@ -236,7 +236,7 @@
       "worker": "publication_qc",
       "requires": [
         "reader_build",
-        "distribution_pack"
+        "variant_factory"
       ],
       "produces": "release_readiness_report"
     },
