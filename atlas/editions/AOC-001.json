@@ -74,7 +74,6 @@
     "hybrid_human_gate": "historical_approval_only",
     "reader_build": "candidate_approved",
     "signal_library": "proof_generated_verified",
-    "distribution_pack": "candidate_v0.1_assembled",
     "publication_qa": "passed_2026-09-25_v0.6",
     "release_human_gate": "ready_for_human_approval",
     "signal_priority": "proof_human_approved",
