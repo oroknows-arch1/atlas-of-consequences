@@ -132,7 +132,72 @@ Prefer modifying the existing `oroknows-arch1/atlas-of-consequences` repository 
 
 Create a separate repository only if the experiment proves it requires an independently deployable product/runtime, materially different security boundary, or architecture that cannot remain cleanly isolated in the Atlas repository. That decision requires explicit approval.
 
-## 8. Workflow under test
+## 8. Dynamic edition-generation architecture
+
+AOC-001 is the benchmark used to prove the Atlasoquence machinery. It is **not** the fixed template that future editions must imitate.
+
+Atlasoquence editions are generated from the world change and evidence supplied upstream by EMRADAR. The publication system must derive the edition's useful structure from that material rather than force every subject into AOC-001's perspective count, geography, scene sequence or visual set.
+
+The generation chain is:
+
+**EMRADAR world change → evidence graph → geographic context → viable Perspectives → perspective routes → scene meanings → contextual visual assets → evidence/editorial verification → adaptive edition → distribution signals → reader arrival context → reader-chosen route**
+
+### Invariants
+
+These remain stable across editions:
+
+- evidence provenance and source traceability;
+- fact/fiction boundaries;
+- geographic and cultural integrity;
+- human authority over consequential publication decisions;
+- reader agency at the Perspectives menu;
+- marketing may highlight provenance but must not determine truth or auto-select a route;
+- generated presentation may change form but not factual status;
+- visual assets must not manufacture documentary evidence;
+- route elasticity and the lightest safe execution path;
+- Atlasoquence's core orientation: locate the change, establish what is real, follow where it goes, map what follows.
+
+### Edition-generated variables
+
+These are allowed—and expected—to change according to the evidence:
+
+- geographic hero/location;
+- number and names of Perspectives;
+- perspective ordering;
+- scene count and sequence;
+- contextual visual assets;
+- visual emphasis within the Atlasoquence aesthetic;
+- which evidence nodes appear in each route;
+- connections between Perspectives;
+- distribution signals and the perspective provenance carried back from them.
+
+Six Perspectives are currently appropriate to AOC-001. **Six is not a global requirement.**
+
+### Dynamic visual-asset rule
+
+Edition visuals are part of the information system, not decoration added after writing.
+
+Each scene visual must be derived from:
+
+**scene meaning/evidence → geographic/cultural context → factual boundary → Atlasoquence visual language → composed asset → visual/evidence QA**
+
+A missing visual asset triggers this generation pipeline. It must not trigger arbitrary reuse of the nearest existing image, generic CSS/SVG illustration, unrelated stock imagery or an ungrounded aesthetic substitute.
+
+Generated editorial imagery may communicate systems, atmosphere, geography and consequence, but it must not visually assert that a specific undocumented event, person, facility or causal relationship is factual. Where the distinction could reasonably be misunderstood, the presentation must make the editorial/illustrative status clear.
+
+The visual system should make each edition feel alive and specific to the world change while remaining recognisably Atlasoquence.
+
+### Benchmark rule
+
+AOC-001 should be used to answer:
+
+**Does the Atlasoquence generation system reliably turn a verified world change into a coherent, evidence-backed, geographically grounded, visually contextual and navigable edition?**
+
+Success means the machinery can generate a materially different future edition from different EMRADAR evidence while preserving the invariants above.
+
+Do not encode AOC-001's incidental characteristics as permanent product rules.
+
+## 9. Workflow under test
 
 For each edition:
 
@@ -149,7 +214,7 @@ For each edition:
 
 This is a workflow experiment as well as a UI experiment.
 
-## 9. Governance
+## 10. Governance
 
 Existing Atlasoquence rules remain active:
 
@@ -164,7 +229,7 @@ Existing Atlasoquence rules remain active:
 - When a Work-only node finishes, return immediately to Chat.
 - Do not expand scope simply because a tool or execution environment is available.
 
-## 10. Anti-drift checks
+## 11. Anti-drift checks
 
 Before changing the reader, answer these questions:
 
@@ -183,7 +248,7 @@ Before changing the reader, answer these questions:
 
 If any answer indicates drift, stop the implementation and return to this contract.
 
-## 11. Current correction
+## 12. Current correction
 
 The deployment that inserted the six Minerals + Resources assets into WHAT'S REAL is a **failed architecture test**, not the target implementation.
 
