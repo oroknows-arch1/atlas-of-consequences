@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "atlas-signal-library",
+  "required_signal_fields": ["signal_id","edition_id","originating_section","signal_statement","signal_type","classification","evidence_refs","evidence_strength","geography","topics","affected_industries","potential_audiences","value_commercial_relevance","sensitivity_risk","available_assets","potential_depth","extraction_status","human_review_required","provenance"],
+  "classification_values": ["factual","analytical","fictional"],
+  "rules": {"fiction_must_not_carry_factual_evidence_refs":true,"factual_signals_require_evidence_refs":true,"analytical_signals_must_preserve_certainty_boundary":true,"source_text_must_be_traceable_to_master_edition":true,"output_order_is_deterministic":true}
+}
