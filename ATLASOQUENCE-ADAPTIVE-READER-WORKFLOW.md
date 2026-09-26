@@ -102,6 +102,18 @@ The reader should feel like one living edition with multiple legitimate ways int
 
 The interface must remain mobile-first.
 
+### Edition geographic home rule
+
+The opening film is a temporary introduction, not the persistent reader background. When the film completes or is skipped, it gives way to the edition's geographic Atlas hero.
+
+The geographic hero should locate the edition in the world before the reader chooses a perspective. For AOC-001 this is South America/Chile context. Future editions should use the geography relevant to that edition (for example, an African edition may resolve to its relevant African region).
+
+The stable entrance hierarchy is:
+
+**Atlasoquence → place in the world → edition/world change → Perspectives → chosen route**
+
+Do not carry the opening film forward as a scroll-scrub background in the adaptive reader. Geographic context owns the persistent edition-home state.
+
 ## 7. Architecture separation during testing
 
 Do not destroy the legacy reader to run this experiment.
