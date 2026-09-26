@@ -1,0 +1,176 @@
+{
+  "schema_version": "1.0",
+  "register_id": "AOC-001-destination-discovery-v0.1",
+  "edition_id": "AOC-001",
+  "input_relevance_register": "content/AOC-001/distribution/relevance-routing-v0.1.json",
+  "contract": "atlas/contracts/destination-discovery.schema.json",
+  "candidate_count": 8,
+  "destinations": [
+    {
+      "destination_id": "DST-001",
+      "name": "Australian Government AI infrastructure consultation",
+      "destination_type": "public consultation",
+      "url": "https://www.pmc.gov.au/resources/getting-it-right-building-ai-infrastructure-works-australia",
+      "matched_signal_ids": [
+        "AOC001-SIG-001",
+        "AOC001-SIG-002",
+        "AOC001-SIG-010"
+      ],
+      "matched_audiences": [
+        "technology infrastructure professionals",
+        "energy and grid professionals",
+        "AI infrastructure analysts"
+      ],
+      "fit_reason": "Current consultation explicitly seeks input from industry, researchers, workers, professional associations, consumer and community organisations on large data centres, energy, water and community impacts.",
+      "discovery_evidence": "Australian Government PM&C consultation page; submissions open until 9 October 2026.",
+      "access_mode": "formal submission process",
+      "permission_risk": "human approval required for institutional submission",
+      "state": "CANDIDATE"
+    },
+    {
+      "destination_id": "DST-002",
+      "name": "World Economic Forum — Data Centre Sustainability and Resilience",
+      "destination_type": "professional knowledge forum",
+      "url": "https://www.weforum.org/publications/data-centre-sustainability-and-resilience-a-decision-playbook-for-ai-infrastructure/",
+      "matched_signal_ids": [
+        "AOC001-SIG-001",
+        "AOC001-SIG-002",
+        "AOC001-SIG-010"
+      ],
+      "matched_audiences": [
+        "technology infrastructure professionals",
+        "energy and grid professionals",
+        "infrastructure investors and analysts"
+      ],
+      "fit_reason": "Current WEF work explicitly covers AI data-centre growth, electricity, water, infrastructure systems and host-community confidence.",
+      "discovery_evidence": "WEF report published 21 September 2026.",
+      "access_mode": "knowledge/publication surface; contribution route not assumed",
+      "permission_risk": "destination fit only; no publishing permission inferred",
+      "state": "CANDIDATE"
+    },
+    {
+      "destination_id": "DST-003",
+      "name": "UNECE Sustainable Energy — Large Loads and Data Centres",
+      "destination_type": "institutional knowledge surface",
+      "url": "https://unece.org/info/publications/pub/416640",
+      "matched_signal_ids": [
+        "AOC001-SIG-002",
+        "AOC001-SIG-010"
+      ],
+      "matched_audiences": [
+        "energy and grid professionals",
+        "AI infrastructure analysts"
+      ],
+      "fit_reason": "Current publication focuses on data centres as grid-shaping loads affecting reliability, planning, resilience and affordability.",
+      "discovery_evidence": "UNECE publication dated September 2026.",
+      "access_mode": "institutional publication surface; contribution route not assumed",
+      "permission_risk": "destination fit only",
+      "state": "CANDIDATE"
+    },
+    {
+      "destination_id": "DST-004",
+      "name": "Antofagasta Industrial Association (AIA)",
+      "destination_type": "regional industry association",
+      "url": "https://www.aia.cl/",
+      "matched_signal_ids": [
+        "AOC001-SIG-003",
+        "AOC001-SIG-004",
+        "AOC001-SIG-011"
+      ],
+      "matched_audiences": [
+        "resources sector professionals",
+        "Antofagasta and Chile resources audiences",
+        "Antofagasta communities and regional readers"
+      ],
+      "fit_reason": "AIA represents mining and industrial companies in Antofagasta and runs industry, supplier, community and knowledge activities.",
+      "discovery_evidence": "AIA current site and 2026 Mining Month program show mining, energy, suppliers, academia and community participation.",
+      "access_mode": "association channels/events; participation rules vary",
+      "permission_risk": "human approval required for outreach or community participation",
+      "state": "CANDIDATE"
+    },
+    {
+      "destination_id": "DST-005",
+      "name": "SONAMI — Antofagasta mining economic publications",
+      "destination_type": "mining industry publication",
+      "url": "https://www.sonami.cl/v2/publicaciones/informe-economico-del-sector-minero-en-la-region-de-antofagasta/",
+      "matched_signal_ids": [
+        "AOC001-SIG-003",
+        "AOC001-SIG-004",
+        "AOC001-SIG-011"
+      ],
+      "matched_audiences": [
+        "resources sector professionals",
+        "copper market analysts and investors"
+      ],
+      "fit_reason": "SONAMI publishes current economic analysis specifically on mining production, investment, employment and regional contribution in Antofagasta.",
+      "discovery_evidence": "SONAMI Antofagasta mining-sector economic report, June 2026.",
+      "access_mode": "publication/industry knowledge surface; contribution route not assumed",
+      "permission_risk": "destination fit only",
+      "state": "CANDIDATE"
+    },
+    {
+      "destination_id": "DST-006",
+      "name": "Community, Work & Family",
+      "destination_type": "academic/professional journal",
+      "url": "https://www.tandfonline.com/journals/ccwf20",
+      "matched_signal_ids": [
+        "AOC001-SIG-009"
+      ],
+      "matched_audiences": [
+        "workers and families",
+        "future-of-work audiences"
+      ],
+      "fit_reason": "Journal scope explicitly covers intersections between community, work and family in research, policy and practice.",
+      "discovery_evidence": "Current journal scope and 2026 issues.",
+      "access_mode": "formal scholarly submission; Atlas story is not assumed eligible",
+      "permission_risk": "HOLD unless a suitable evidence-based contribution format exists",
+      "state": "HOLD"
+    },
+    {
+      "destination_id": "DST-007",
+      "name": "El Diario de Antofagasta — Calama",
+      "destination_type": "regional news/community surface",
+      "url": "https://www.diarioantofagasta.cl/regional/calama/",
+      "matched_signal_ids": [
+        "AOC001-SIG-011",
+        "AOC001-SIG-014"
+      ],
+      "matched_audiences": [
+        "Antofagasta communities and regional readers",
+        "Calama and Antofagasta readers",
+        "place-based and community readers"
+      ],
+      "fit_reason": "Maintains an active Calama section with ongoing local reporting, making it a real regional attention surface for place-based material.",
+      "discovery_evidence": "Calama section active in September 2026 with current local coverage.",
+      "access_mode": "editorial/news outlet; no unsolicited publication permission inferred",
+      "permission_risk": "human approval required for outreach",
+      "state": "CANDIDATE"
+    },
+    {
+      "destination_id": "DST-008",
+      "name": "EMRA 2023–2050 — Antofagasta Mining Strategy governance",
+      "destination_type": "regional participatory governance",
+      "url": "https://www.emra.cl/gobernanza/",
+      "matched_signal_ids": [
+        "AOC001-SIG-011",
+        "AOC001-SIG-014"
+      ],
+      "matched_audiences": [
+        "Antofagasta communities and regional readers",
+        "Calama and Antofagasta readers"
+      ],
+      "fit_reason": "Regional mining strategy describes its governance as participatory and invites Antofagasta residents into discussion of mining, wellbeing and sustainable development.",
+      "discovery_evidence": "EMRA governance page lists 2026 sessions and participation framing.",
+      "access_mode": "regional governance/participation; exact submission route must be checked",
+      "permission_risk": "human approval required for institutional/community participation",
+      "state": "CANDIDATE"
+    }
+  ],
+  "blocked_scope": [
+    "route decision",
+    "variant generation",
+    "format adaptation",
+    "publication",
+    "outreach"
+  ]
+}
