@@ -1,0 +1,798 @@
+{
+  "schema_version": "1.0",
+  "library_id": "AOC-001-signal-library-v0.1",
+  "edition_id": "AOC-001",
+  "constitutional_rule": "Facts can change the fiction. Fiction must never quietly become fact.",
+  "inputs": {
+    "master_edition": "content/AOC-001/master-edition-v0.1.md",
+    "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+    "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml"
+  },
+  "generator": "tools/build_signal_library.py",
+  "signal_count": 17,
+  "signals": [
+    {
+      "signal_id": "AOC001-SIG-001",
+      "edition_id": "AOC-001",
+      "originating_section": "WHAT'S REAL",
+      "signal_statement": "AI models are trained and run in data centres",
+      "signal_type": "physical_infrastructure",
+      "classification": "factual",
+      "evidence_refs": [
+        "SR-03"
+      ],
+      "evidence_strength": "registered_evidence",
+      "geography": [
+        "global"
+      ],
+      "topics": [
+        "artificial intelligence",
+        "data centres",
+        "digital infrastructure"
+      ],
+      "affected_industries": [
+        "data centres",
+        "technology"
+      ],
+      "potential_audiences": [
+        "infrastructure professionals",
+        "technology readers"
+      ],
+      "value_commercial_relevance": [
+        "digital-infrastructure growth"
+      ],
+      "sensitivity_risk": [
+        "low"
+      ],
+      "available_assets": [
+        "approved factual report video"
+      ],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": false,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "AI models are trained and run in data centres"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-002",
+      "edition_id": "AOC-001",
+      "originating_section": "WHAT'S REAL",
+      "signal_statement": "415 TWh of electricity in 2024",
+      "signal_type": "scale_statistic",
+      "classification": "factual",
+      "evidence_refs": [
+        "SR-01",
+        "SR-02"
+      ],
+      "evidence_strength": "registered_evidence",
+      "geography": [
+        "global"
+      ],
+      "topics": [
+        "electricity",
+        "grid",
+        "infrastructure"
+      ],
+      "affected_industries": [
+        "energy",
+        "grid infrastructure"
+      ],
+      "potential_audiences": [],
+      "value_commercial_relevance": [
+        "infrastructure demand"
+      ],
+      "sensitivity_risk": [
+        "low"
+      ],
+      "available_assets": [
+        "approved factual report video"
+      ],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": false,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "415 TWh of electricity in 2024"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-003",
+      "edition_id": "AOC-001",
+      "originating_section": "WHAT'S REAL",
+      "signal_statement": "copper among the metals required",
+      "signal_type": "material_demand",
+      "classification": "factual",
+      "evidence_refs": [
+        "SR-04"
+      ],
+      "evidence_strength": "registered_evidence",
+      "geography": [
+        "global"
+      ],
+      "topics": [
+        "copper",
+        "materials",
+        "mining"
+      ],
+      "affected_industries": [
+        "copper",
+        "mining"
+      ],
+      "potential_audiences": [
+        "investors",
+        "mining communities",
+        "resources sector"
+      ],
+      "value_commercial_relevance": [
+        "resource demand",
+        "supply-chain relevance"
+      ],
+      "sensitivity_risk": [
+        "causal_overstatement"
+      ],
+      "available_assets": [
+        "approved factual report video"
+      ],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": true,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "copper among the metals required"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-004",
+      "edition_id": "AOC-001",
+      "originating_section": "WHAT'S REAL",
+      "signal_statement": "58% of national copper production in 2025",
+      "signal_type": "regional_supply",
+      "classification": "factual",
+      "evidence_refs": [
+        "SR-05"
+      ],
+      "evidence_strength": "registered_evidence",
+      "geography": [
+        "global"
+      ],
+      "topics": [
+        "copper",
+        "materials",
+        "mining"
+      ],
+      "affected_industries": [
+        "copper",
+        "mining"
+      ],
+      "potential_audiences": [
+        "investors",
+        "mining communities",
+        "resources sector"
+      ],
+      "value_commercial_relevance": [
+        "resource demand",
+        "supply-chain relevance"
+      ],
+      "sensitivity_risk": [
+        "causal_overstatement"
+      ],
+      "available_assets": [
+        "approved factual report video"
+      ],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": true,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "58% of national copper production in 2025"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-005",
+      "edition_id": "AOC-001",
+      "originating_section": "WHAT'S REAL",
+      "signal_statement": "266 thousand tonnes of fine copper in 2025",
+      "signal_type": "operation_context",
+      "classification": "factual",
+      "evidence_refs": [
+        "SR-07",
+        "SR-08"
+      ],
+      "evidence_strength": "registered_evidence",
+      "geography": [
+        "global"
+      ],
+      "topics": [
+        "copper",
+        "materials",
+        "mining"
+      ],
+      "affected_industries": [
+        "copper",
+        "mining"
+      ],
+      "potential_audiences": [
+        "investors",
+        "mining communities",
+        "resources sector"
+      ],
+      "value_commercial_relevance": [
+        "resource demand",
+        "supply-chain relevance"
+      ],
+      "sensitivity_risk": [
+        "causal_overstatement"
+      ],
+      "available_assets": [
+        "approved factual report video"
+      ],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": true,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "266 thousand tonnes of fine copper in 2025"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-006",
+      "edition_id": "AOC-001",
+      "originating_section": "STORY — FICTION",
+      "signal_statement": "More responsibility. Better money.",
+      "signal_type": "fictional_opportunity",
+      "classification": "fictional",
+      "evidence_refs": [],
+      "evidence_strength": "not_applicable_fiction",
+      "geography": [
+        "Calama",
+        "Antofagasta Region",
+        "Chile"
+      ],
+      "topics": [],
+      "affected_industries": [],
+      "potential_audiences": [],
+      "value_commercial_relevance": [],
+      "sensitivity_risk": [
+        "fact_fiction_boundary"
+      ],
+      "available_assets": [
+        "approved STORY / FICTION promo"
+      ],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": true,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "More responsibility. Better money."
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-007",
+      "edition_id": "AOC-001",
+      "originating_section": "STORY — FICTION",
+      "signal_statement": "For being able to choose.",
+      "signal_type": "fictional_household_value",
+      "classification": "fictional",
+      "evidence_refs": [],
+      "evidence_strength": "not_applicable_fiction",
+      "geography": [
+        "Calama",
+        "Antofagasta Region",
+        "Chile"
+      ],
+      "topics": [],
+      "affected_industries": [],
+      "potential_audiences": [],
+      "value_commercial_relevance": [],
+      "sensitivity_risk": [
+        "fact_fiction_boundary"
+      ],
+      "available_assets": [
+        "approved STORY / FICTION promo"
+      ],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": true,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "For being able to choose."
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-008",
+      "edition_id": "AOC-001",
+      "originating_section": "STORY — FICTION",
+      "signal_statement": "The house began rearranging itself.",
+      "signal_type": "fictional_family_rhythm",
+      "classification": "fictional",
+      "evidence_refs": [],
+      "evidence_strength": "not_applicable_fiction",
+      "geography": [
+        "Calama",
+        "Antofagasta Region",
+        "Chile"
+      ],
+      "topics": [],
+      "affected_industries": [],
+      "potential_audiences": [],
+      "value_commercial_relevance": [],
+      "sensitivity_risk": [
+        "fact_fiction_boundary"
+      ],
+      "available_assets": [
+        "approved STORY / FICTION promo"
+      ],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": true,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "The house began rearranging itself."
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-009",
+      "edition_id": "AOC-001",
+      "originating_section": "STORY — FICTION",
+      "signal_statement": "What does providing for your family mean",
+      "signal_type": "fictional_guiding_question",
+      "classification": "fictional",
+      "evidence_refs": [],
+      "evidence_strength": "not_applicable_fiction",
+      "geography": [
+        "Calama",
+        "Antofagasta Region",
+        "Chile"
+      ],
+      "topics": [
+        "family",
+        "household",
+        "work"
+      ],
+      "affected_industries": [],
+      "potential_audiences": [
+        "future-work audiences",
+        "workers and families"
+      ],
+      "value_commercial_relevance": [],
+      "sensitivity_risk": [
+        "fact_fiction_boundary"
+      ],
+      "available_assets": [
+        "approved STORY / FICTION promo"
+      ],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": true,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "What does providing for your family mean"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-010",
+      "edition_id": "AOC-001",
+      "originating_section": "CONSEQUENCES",
+      "signal_statement": "additional electricity demand",
+      "signal_type": "documented_mechanism",
+      "classification": "analytical",
+      "evidence_refs": [
+        "SR-01",
+        "SR-02",
+        "SR-04"
+      ],
+      "evidence_strength": "registered_evidence",
+      "geography": [
+        "global",
+        "Antofagasta Region",
+        "Chile"
+      ],
+      "topics": [
+        "electricity",
+        "grid",
+        "infrastructure"
+      ],
+      "affected_industries": [
+        "energy",
+        "grid infrastructure"
+      ],
+      "potential_audiences": [],
+      "value_commercial_relevance": [
+        "infrastructure demand"
+      ],
+      "sensitivity_risk": [
+        "causal_overstatement"
+      ],
+      "available_assets": [],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": true,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "additional electricity demand"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-011",
+      "edition_id": "AOC-001",
+      "originating_section": "CONSEQUENCES",
+      "signal_statement": "Antofagasta is already Chile's largest copper-producing region",
+      "signal_type": "documented_place_connection",
+      "classification": "analytical",
+      "evidence_refs": [
+        "SR-05",
+        "SR-06"
+      ],
+      "evidence_strength": "registered_evidence",
+      "geography": [
+        "global",
+        "Antofagasta Region",
+        "Chile"
+      ],
+      "topics": [
+        "copper",
+        "materials",
+        "mining"
+      ],
+      "affected_industries": [
+        "copper",
+        "mining"
+      ],
+      "potential_audiences": [
+        "investors",
+        "mining communities",
+        "resources sector"
+      ],
+      "value_commercial_relevance": [
+        "resource demand",
+        "supply-chain relevance"
+      ],
+      "sensitivity_risk": [
+        "causal_overstatement"
+      ],
+      "available_assets": [],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": true,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "Antofagasta is already Chile's largest copper-producing region"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-012",
+      "edition_id": "AOC-001",
+      "originating_section": "CONSEQUENCES",
+      "signal_statement": "Opportunity can be a consequence too",
+      "signal_type": "analytical_consequence",
+      "classification": "analytical",
+      "evidence_refs": [],
+      "evidence_strength": "analysis_from_registered_mechanism",
+      "geography": [
+        "global",
+        "Antofagasta Region",
+        "Chile"
+      ],
+      "topics": [],
+      "affected_industries": [],
+      "potential_audiences": [],
+      "value_commercial_relevance": [],
+      "sensitivity_risk": [
+        "low"
+      ],
+      "available_assets": [],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": true,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "Opportunity can be a consequence too"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-013",
+      "edition_id": "AOC-001",
+      "originating_section": "PLACE",
+      "signal_statement": "166,334 people in Calama",
+      "signal_type": "population_context",
+      "classification": "factual",
+      "evidence_refs": [
+        "SR-09"
+      ],
+      "evidence_strength": "registered_evidence",
+      "geography": [
+        "Calama",
+        "Antofagasta Region",
+        "Chile"
+      ],
+      "topics": [
+        "Calama",
+        "community",
+        "place"
+      ],
+      "affected_industries": [],
+      "potential_audiences": [
+        "Chile/Antofagasta audiences",
+        "place-based readers"
+      ],
+      "value_commercial_relevance": [],
+      "sensitivity_risk": [
+        "low"
+      ],
+      "available_assets": [],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": false,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "166,334 people in Calama"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-014",
+      "edition_id": "AOC-001",
+      "originating_section": "PLACE",
+      "signal_statement": "Calama is more than extraction",
+      "signal_type": "place_identity",
+      "classification": "factual",
+      "evidence_refs": [
+        "SR-13"
+      ],
+      "evidence_strength": "registered_evidence",
+      "geography": [
+        "Calama",
+        "Antofagasta Region",
+        "Chile"
+      ],
+      "topics": [
+        "Calama",
+        "community",
+        "place"
+      ],
+      "affected_industries": [],
+      "potential_audiences": [
+        "Chile/Antofagasta audiences",
+        "place-based readers"
+      ],
+      "value_commercial_relevance": [],
+      "sensitivity_risk": [
+        "low"
+      ],
+      "available_assets": [],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": false,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "Calama is more than extraction"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-015",
+      "edition_id": "AOC-001",
+      "originating_section": "PLACE",
+      "signal_statement": "physically close to Calama on a map",
+      "signal_type": "work_home_geography",
+      "classification": "factual",
+      "evidence_refs": [
+        "SR-10",
+        "SR-11",
+        "SR-12"
+      ],
+      "evidence_strength": "registered_evidence",
+      "geography": [
+        "Calama",
+        "Antofagasta Region",
+        "Chile"
+      ],
+      "topics": [
+        "Calama",
+        "community",
+        "place"
+      ],
+      "affected_industries": [],
+      "potential_audiences": [
+        "Chile/Antofagasta audiences",
+        "place-based readers"
+      ],
+      "value_commercial_relevance": [],
+      "sensitivity_risk": [
+        "low"
+      ],
+      "available_assets": [],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": false,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "physically close to Calama on a map"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-016",
+      "edition_id": "AOC-001",
+      "originating_section": "PLACE",
+      "signal_statement": "More than 10,000 people were moved",
+      "signal_type": "historical_context",
+      "classification": "factual",
+      "evidence_refs": [
+        "SR-14",
+        "SR-15"
+      ],
+      "evidence_strength": "registered_evidence",
+      "geography": [
+        "Calama",
+        "Antofagasta Region",
+        "Chile"
+      ],
+      "topics": [],
+      "affected_industries": [],
+      "potential_audiences": [],
+      "value_commercial_relevance": [],
+      "sensitivity_risk": [
+        "low"
+      ],
+      "available_assets": [],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": false,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "More than 10,000 people were moved"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-017",
+      "edition_id": "AOC-001",
+      "originating_section": "PLACE",
+      "signal_statement": "Lickanantay/Atacameño communities",
+      "signal_type": "cultural_boundary",
+      "classification": "factual",
+      "evidence_refs": [
+        "SR-16"
+      ],
+      "evidence_strength": "registered_evidence",
+      "geography": [
+        "Calama",
+        "Antofagasta Region",
+        "Chile"
+      ],
+      "topics": [],
+      "affected_industries": [],
+      "potential_audiences": [],
+      "value_commercial_relevance": [],
+      "sensitivity_risk": [
+        "cultural_sensitivity"
+      ],
+      "available_assets": [],
+      "potential_depth": [
+        "short",
+        "medium",
+        "long"
+      ],
+      "extraction_status": "proof_extracted",
+      "human_review_required": true,
+      "provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "Lickanantay/Atacameño communities"
+      }
+    }
+  ]
+}
