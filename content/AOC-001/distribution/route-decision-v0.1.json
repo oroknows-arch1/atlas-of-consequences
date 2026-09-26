@@ -10,7 +10,7 @@
   "contract": "atlas/contracts/route-decision.schema.json",
   "counts": {
     "PURSUE": 6,
-    "HOLD": 6,
+    "HOLD": 5,
     "REJECT": 1
   },
   "decisions": [
@@ -117,20 +117,6 @@
         "ACCESS_UNCLEAR"
       ],
       "reason": "SONAMI is highly relevant contextually, but discovery has not established a legitimate Atlas contribution route.",
-      "permission_state": "publication surface only",
-      "human_gate": false
-    },
-    {
-      "route_id": "RTE-008",
-      "signal_id": "AOC001-SIG-011",
-      "audience": "resources sector professionals",
-      "destination_id": "DST-005",
-      "outcome": "HOLD",
-      "reason_codes": [
-        "FIT_STRONG",
-        "ACCESS_UNCLEAR"
-      ],
-      "reason": "The Antofagasta supply-chain bridge fits SONAMI's resources-sector subject matter, but actionability is not established.",
       "permission_state": "publication surface only",
       "human_gate": false
     },
