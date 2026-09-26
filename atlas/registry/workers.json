@@ -624,6 +624,35 @@
       ]
     },
     {
+      "id": "format_worker",
+      "group": "publication",
+      "job": "Choose and specify the appropriate production form for each approved internal candidate",
+      "skills": [
+        "format_selection",
+        "boundary_audit",
+        "source_trace"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "choose text visual data or media form from route purpose",
+        "specify length structure labels and evidence requirements",
+        "flag localisation as a separate verification need"
+      ],
+      "may_not": [
+        "make every candidate into every format",
+        "release translations",
+        "contact destinations",
+        "submit schedule or publish externally"
+      ],
+      "escalate_when": [
+        "format could obscure fact/fiction classification",
+        "localisation needs cultural or language verification",
+        "production would require new unsupported evidence"
+      ]
+    },
+    {
       "id": "publication_qc",
       "group": "qa",
       "job": "Verify release readiness against locks, graph gates and real rendered output",
