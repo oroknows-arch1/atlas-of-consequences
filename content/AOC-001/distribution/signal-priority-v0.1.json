@@ -1,0 +1,388 @@
+{
+  "schema_version": "1.0",
+  "register_id": "AOC-001-signal-priority-v0.1",
+  "edition_id": "AOC-001",
+  "input_library": "content/AOC-001/distribution/signal-library-v0.1.json",
+  "contract": "atlas/contracts/signal-priority-decision.schema.json",
+  "mode": "initial_proof_explicit_bounded_decision",
+  "decision_model": "Jev-ready bounded decision contract; proof decisions remain inspectable and human-reviewed before routing.",
+  "counts": {
+    "ADVANCE": 8,
+    "HOLD": 8,
+    "STOP": 1
+  },
+  "decisions": [
+    {
+      "signal_id": "AOC001-SIG-001",
+      "signal_statement": "AI models are trained and run in data centres",
+      "classification": "factual",
+      "eligibility": "PASS",
+      "outcome": "ADVANCE",
+      "reason": "Strong foundational mechanism with broad technology and infrastructure relevance.",
+      "evidence_refs": [
+        "SR-03"
+      ],
+      "sensitivity_risk": [
+        "low"
+      ],
+      "human_review_required": false,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "AI models are trained and run in data centres"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-002",
+      "signal_statement": "415 TWh of electricity in 2024",
+      "classification": "factual",
+      "eligibility": "PASS",
+      "outcome": "ADVANCE",
+      "reason": "Concrete scale statistic makes the physical electricity consequence legible.",
+      "evidence_refs": [
+        "SR-01",
+        "SR-02"
+      ],
+      "sensitivity_risk": [
+        "low"
+      ],
+      "human_review_required": false,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "415 TWh of electricity in 2024"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-003",
+      "signal_statement": "copper among the metals required",
+      "classification": "factual",
+      "eligibility": "PASS",
+      "outcome": "ADVANCE",
+      "reason": "Connects digital growth to material demand; causal-overstatement risk remains attached.",
+      "evidence_refs": [
+        "SR-04"
+      ],
+      "sensitivity_risk": [
+        "causal_overstatement"
+      ],
+      "human_review_required": true,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "copper among the metals required"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-004",
+      "signal_statement": "58% of national copper production in 2025",
+      "classification": "factual",
+      "eligibility": "PASS",
+      "outcome": "ADVANCE",
+      "reason": "Strong regional supply context with clear resources and place relevance.",
+      "evidence_refs": [
+        "SR-05"
+      ],
+      "sensitivity_risk": [
+        "causal_overstatement"
+      ],
+      "human_review_required": true,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "58% of national copper production in 2025"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-005",
+      "signal_statement": "266 thousand tonnes of fine copper in 2025",
+      "classification": "factual",
+      "eligibility": "PASS",
+      "outcome": "HOLD",
+      "reason": "Useful operation context, but overlaps the stronger regional copper signal and needs a distinct route.",
+      "evidence_refs": [
+        "SR-07",
+        "SR-08"
+      ],
+      "sensitivity_risk": [
+        "causal_overstatement"
+      ],
+      "human_review_required": true,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "266 thousand tonnes of fine copper in 2025"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-006",
+      "signal_statement": "More responsibility. Better money.",
+      "classification": "fictional",
+      "eligibility": "PASS",
+      "outcome": "HOLD",
+      "reason": "Story fragment has emotional value but lacks enough standalone context for distribution.",
+      "evidence_refs": [],
+      "sensitivity_risk": [
+        "fact_fiction_boundary"
+      ],
+      "human_review_required": true,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "More responsibility. Better money."
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-007",
+      "signal_statement": "For being able to choose.",
+      "classification": "fictional",
+      "eligibility": "PASS",
+      "outcome": "STOP",
+      "reason": "Too context-dependent to justify independent distribution from this edition.",
+      "evidence_refs": [],
+      "sensitivity_risk": [
+        "fact_fiction_boundary"
+      ],
+      "human_review_required": true,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "For being able to choose."
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-008",
+      "signal_statement": "The house began rearranging itself.",
+      "classification": "fictional",
+      "eligibility": "PASS",
+      "outcome": "HOLD",
+      "reason": "Strong fictional image, but should travel only with an explicitly fictional story expression.",
+      "evidence_refs": [],
+      "sensitivity_risk": [
+        "fact_fiction_boundary"
+      ],
+      "human_review_required": true,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "The house began rearranging itself."
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-009",
+      "signal_statement": "What does providing for your family mean",
+      "classification": "fictional",
+      "eligibility": "PASS",
+      "outcome": "ADVANCE",
+      "reason": "Standalone human question connects work, family and future-work audiences while remaining clearly fictional.",
+      "evidence_refs": [],
+      "sensitivity_risk": [
+        "fact_fiction_boundary"
+      ],
+      "human_review_required": true,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "What does providing for your family mean"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-010",
+      "signal_statement": "additional electricity demand",
+      "classification": "analytical",
+      "eligibility": "PASS",
+      "outcome": "ADVANCE",
+      "reason": "Core consequence mechanism linking AI infrastructure growth to electricity and grid pressure.",
+      "evidence_refs": [
+        "SR-01",
+        "SR-02",
+        "SR-04"
+      ],
+      "sensitivity_risk": [
+        "causal_overstatement"
+      ],
+      "human_review_required": true,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "additional electricity demand"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-011",
+      "signal_statement": "Antofagasta is already Chile's largest copper-producing region",
+      "classification": "analytical",
+      "eligibility": "PASS",
+      "outcome": "ADVANCE",
+      "reason": "Strong documented bridge between the global mechanism and Antofagasta.",
+      "evidence_refs": [
+        "SR-05",
+        "SR-06"
+      ],
+      "sensitivity_risk": [
+        "causal_overstatement"
+      ],
+      "human_review_required": true,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "Antofagasta is already Chile's largest copper-producing region"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-012",
+      "signal_statement": "Opportunity can be a consequence too",
+      "classification": "analytical",
+      "eligibility": "PASS",
+      "outcome": "HOLD",
+      "reason": "Editorially meaningful but too abstract alone; needs concrete consequence context.",
+      "evidence_refs": [],
+      "sensitivity_risk": [
+        "low"
+      ],
+      "human_review_required": true,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "Opportunity can be a consequence too"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-013",
+      "signal_statement": "166,334 people in Calama",
+      "classification": "factual",
+      "eligibility": "PASS",
+      "outcome": "HOLD",
+      "reason": "Useful place context but population alone is not yet a strong independent distribution opportunity.",
+      "evidence_refs": [
+        "SR-09"
+      ],
+      "sensitivity_risk": [
+        "low"
+      ],
+      "human_review_required": true,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "166,334 people in Calama"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-014",
+      "signal_statement": "Calama is more than extraction",
+      "classification": "factual",
+      "eligibility": "PASS",
+      "outcome": "ADVANCE",
+      "reason": "Counters reduction of Calama to extraction and supports the edition's place-based purpose.",
+      "evidence_refs": [
+        "SR-13"
+      ],
+      "sensitivity_risk": [
+        "low"
+      ],
+      "human_review_required": false,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "Calama is more than extraction"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-015",
+      "signal_statement": "physically close to Calama on a map",
+      "classification": "factual",
+      "eligibility": "PASS",
+      "outcome": "HOLD",
+      "reason": "Useful supporting geography, but weak as a standalone outward-facing signal.",
+      "evidence_refs": [
+        "SR-10",
+        "SR-11",
+        "SR-12"
+      ],
+      "sensitivity_risk": [
+        "low"
+      ],
+      "human_review_required": true,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "physically close to Calama on a map"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-016",
+      "signal_statement": "More than 10,000 people were moved",
+      "classification": "factual",
+      "eligibility": "PASS",
+      "outcome": "HOLD",
+      "reason": "Historically important context; distribution needs careful framing to connect it legitimately to the edition.",
+      "evidence_refs": [
+        "SR-14",
+        "SR-15"
+      ],
+      "sensitivity_risk": [
+        "low"
+      ],
+      "human_review_required": true,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "More than 10,000 people were moved"
+      }
+    },
+    {
+      "signal_id": "AOC001-SIG-017",
+      "signal_statement": "Lickanantay/Atacameño communities",
+      "classification": "factual",
+      "eligibility": "PASS",
+      "outcome": "HOLD",
+      "reason": "Relevant cultural context but cultural sensitivity requires deliberate human-reviewed framing.",
+      "evidence_refs": [
+        "SR-16"
+      ],
+      "sensitivity_risk": [
+        "cultural_sensitivity"
+      ],
+      "human_review_required": true,
+      "source_provenance": {
+        "master_edition": "content/AOC-001/master-edition-v0.1.md",
+        "source_register": "content/AOC-001/sources/publication-source-register-v0.1.md",
+        "edition_manifest": "content/AOC-001/edition-manifest-v0.1.yaml",
+        "source_locator": "section + exact locked text",
+        "rule_trigger": "Lickanantay/Atacameño communities"
+      }
+    }
+  ]
+}
