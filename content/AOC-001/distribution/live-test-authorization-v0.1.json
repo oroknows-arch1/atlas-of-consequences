@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "authorization_id": "AOC001-LIVE-TEST-001",
+  "edition_id": "AOC-001",
+  "authorized_by": "human_owner",
+  "authorization_basis": "Explicit approval in Atlas Marketing conversation on 2026-09-26 to continue into the deliberately tiny controlled live-test stage.",
+  "scope": {
+    "adapter_id": "ADP-005",
+    "route_id": "RTE-010",
+    "destination_id": "DST-007",
+    "purpose": "single regional editorial outreach test",
+    "max_external_actions": 1
+  },
+  "conditions": [
+    "revalidate destination mechanics immediately before execution",
+    "use only an approved final package derived from ADP-005",
+    "require a configured authorized execution channel",
+    "record a publication/outreach receipt for any attempted action",
+    "stop after one external action regardless of outcome"
+  ],
+  "not_authorized": [
+    "ADP-001",
+    "ADP-002",
+    "ADP-003",
+    "ADP-004",
+    "ADP-006",
+    "automated follow-up",
+    "additional recipients",
+    "paid distribution",
+    "publication without destination acceptance"
+  ],
+  "status": "AUTHORIZED_FOR_EXECUTION_READINESS_NOT_EXECUTED"
+}

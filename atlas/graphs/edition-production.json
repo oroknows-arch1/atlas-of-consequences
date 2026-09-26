@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "2.1",
   "graph_id": "atlas-edition-production",
   "orchestrator": "atlas_orchestrator",
   "rules": {
@@ -272,11 +272,51 @@
       "produces": "risk_permission_gate_result"
     },
     {
+      "id": "distribution_executor",
+      "worker": "distribution_executor_worker",
+      "requires": [
+        "risk_permission_gate"
+      ],
+      "produces": "execution_result"
+    },
+    {
+      "id": "publication_receipt",
+      "worker": "publication_receipt_worker",
+      "requires": [
+        "distribution_executor"
+      ],
+      "produces": "execution_receipt"
+    },
+    {
+      "id": "performance_collector",
+      "worker": "performance_collector_worker",
+      "requires": [
+        "publication_receipt"
+      ],
+      "produces": "performance_record"
+    },
+    {
+      "id": "learning_worker",
+      "worker": "distribution_learning_worker",
+      "requires": [
+        "performance_collector"
+      ],
+      "produces": "routing_learning"
+    },
+    {
+      "id": "routing_update",
+      "worker": "routing_update_worker",
+      "requires": [
+        "learning_worker"
+      ],
+      "produces": "routing_update_proposal"
+    },
+    {
       "id": "publication_qa",
       "worker": "publication_qc",
       "requires": [
         "reader_build",
-        "risk_permission_gate"
+        "routing_update"
       ],
       "produces": "release_readiness_report"
     },
