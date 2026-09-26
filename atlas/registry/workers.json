@@ -467,6 +467,36 @@
       ]
     },
     {
+      "id": "signal_priority_decider",
+      "group": "publication",
+      "job": "Make a bounded, inspectable ADVANCE/HOLD/STOP decision for each eligible Signal Library item",
+      "skills": [
+        "signal_priority_decision",
+        "source_trace",
+        "boundary_audit"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "apply hard eligibility checks",
+        "choose ADVANCE HOLD or STOP",
+        "record decision reasons and preserved evidence",
+        "hold consequential signals for human review"
+      ],
+      "may_not": [
+        "publish externally",
+        "use predicted engagement as editorial importance",
+        "override evidence or fact/fiction boundaries",
+        "change the approved reader"
+      ],
+      "escalate_when": [
+        "eligibility fails ambiguously",
+        "cultural or factual sensitivity requires human judgment",
+        "a decision would require evidence not present in the Signal Library"
+      ]
+    },
+    {
       "id": "distribution_editor",
       "group": "publication",
       "job": "Derive social/discovery assets from the verified edition",
