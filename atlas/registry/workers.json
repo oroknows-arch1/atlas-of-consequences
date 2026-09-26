@@ -589,10 +589,11 @@
     {
       "id": "distribution_editor",
       "group": "publication",
-      "job": "Derive social/discovery assets from the verified edition",
+      "job": "Create destination-aware internal candidate expressions only for approved PURSUE routes",
       "skills": [
         "distribution_derivation",
-        "boundary_audit"
+        "boundary_audit",
+        "variant_factory"
       ],
       "write_scope": [
         "content/{edition_id}/distribution/**",
@@ -600,11 +601,16 @@
       ],
       "may": [
         "adapt format/length/hooks",
-        "link back to source edition"
+        "link back to source edition",
+        "create internal candidate expressions for PURSUE routes",
+        "adapt angle and depth to evidenced audience and destination context"
       ],
       "may_not": [
         "invent platform-specific facts",
-        "erase fiction labels"
+        "erase fiction labels",
+        "imitate a destination's editorial voice",
+        "imply destination endorsement or access",
+        "contact submit schedule or publish externally"
       ],
       "creative_intensity": {
         "min": 0,
