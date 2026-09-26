@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "atlas-relevance-routing",
+  "purpose": "Map ADVANCE signals to people or groups with a legitimate reason to care before destination discovery.",
+  "input_rule": "Only Signal Priority decisions with outcome ADVANCE are eligible.",
+  "required_route_fields": [
+    "signal_id",
+    "audience",
+    "relevance_reason",
+    "relevance_basis",
+    "geographic_scope",
+    "route_strength",
+    "route_status"
+  ],
+  "route_status": [
+    "ROUTE",
+    "HOLD",
+    "REJECT"
+  ],
+  "rules": [
+    "route from signal relevance, never from platform availability",
+    "do not invent audience evidence",
+    "preserve factual analytical fictional classification",
+    "fiction routes must preserve explicit fiction boundary",
+    "commercial relevance is one route dimension, not the default",
+    "no destination or platform selection at this stage"
+  ]
+}
