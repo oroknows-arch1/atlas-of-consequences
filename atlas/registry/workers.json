@@ -5,181 +5,526 @@
       "id": "atlas_orchestrator",
       "group": "orchestration",
       "job": "Route work through the graph without becoming a content author",
-      "skills": ["graph_routing"],
-      "write_scope": ["atlas/**"],
-      "may": ["dispatch eligible nodes", "collect outputs", "retry bounded failures", "stop at gates"],
-      "may_not": ["author facts", "author fiction", "approve publication-critical output", "reinterpret locks"],
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "graph_routing"
+      ],
+      "write_scope": [
+        "atlas/**"
+      ],
+      "may": [
+        "dispatch eligible nodes",
+        "collect outputs",
+        "retry bounded failures",
+        "stop at gates"
+      ],
+      "may_not": [
+        "author facts",
+        "author fiction",
+        "approve publication-critical output",
+        "reinterpret locks"
+      ],
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
     },
     {
       "id": "evidence_researcher",
       "group": "research",
       "job": "Find and package evidence for a defined research question",
-      "skills": ["evidence_research", "source_trace"],
-      "write_scope": ["content/{edition_id}/reality/**", "content/{edition_id}/sources/**"],
-      "may": ["propose claims", "record uncertainty", "collect primary/local sources"],
-      "may_not": ["declare final claim validity", "write fictional events"],
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "evidence_research",
+        "source_trace"
+      ],
+      "write_scope": [
+        "content/{edition_id}/reality/**",
+        "content/{edition_id}/sources/**"
+      ],
+      "may": [
+        "propose claims",
+        "record uncertainty",
+        "collect primary/local sources"
+      ],
+      "may_not": [
+        "declare final claim validity",
+        "write fictional events"
+      ],
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
     },
     {
       "id": "evidence_verifier",
       "group": "research",
       "job": "Verify claim strength and required qualifications",
-      "skills": ["claim_verification", "source_trace"],
-      "write_scope": ["content/{edition_id}/sources/**"],
-      "may": ["accept/qualify/reject claims", "flag missing evidence"],
-      "may_not": ["invent bridging evidence", "approve fiction"],
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "claim_verification",
+        "source_trace"
+      ],
+      "write_scope": [
+        "content/{edition_id}/sources/**"
+      ],
+      "may": [
+        "accept/qualify/reject claims",
+        "flag missing evidence"
+      ],
+      "may_not": [
+        "invent bridging evidence",
+        "approve fiction"
+      ],
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
     },
     {
       "id": "locality_researcher",
       "group": "research",
       "job": "Establish place truth from local and regional evidence",
-      "skills": ["local_context_research", "evidence_research", "source_trace"],
-      "write_scope": ["content/{edition_id}/place/**", "content/{edition_id}/sources/**"],
-      "may": ["define evidenced local conditions", "flag stereotypes", "preserve prevalence limits"],
-      "may_not": ["invent typical local life", "force researched conditions into the story"],
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "local_context_research",
+        "evidence_research",
+        "source_trace"
+      ],
+      "write_scope": [
+        "content/{edition_id}/place/**",
+        "content/{edition_id}/sources/**"
+      ],
+      "may": [
+        "define evidenced local conditions",
+        "flag stereotypes",
+        "preserve prevalence limits"
+      ],
+      "may_not": [
+        "invent typical local life",
+        "force researched conditions into the story"
+      ],
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
     },
     {
       "id": "consequence_mapper",
       "group": "analysis",
       "job": "Map documented mechanisms, place connections and speculative human consequence layers",
-      "skills": ["causal_mapping", "claim_verification"],
-      "write_scope": ["content/{edition_id}/consequences/**"],
-      "may": ["label each link by certainty", "identify prohibited shortcuts"],
-      "may_not": ["state direct causation without evidence", "convert fiction into evidence"],
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "causal_mapping",
+        "claim_verification"
+      ],
+      "write_scope": [
+        "content/{edition_id}/consequences/**"
+      ],
+      "may": [
+        "label each link by certainty",
+        "identify prohibited shortcuts"
+      ],
+      "may_not": [
+        "state direct causation without evidence",
+        "convert fiction into evidence"
+      ],
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
     },
     {
       "id": "story_architect",
       "group": "narrative",
       "job": "Design narrative structure inside the researched world and locked story boundary",
-      "skills": ["story_architecture", "creative_intensity_control"],
-      "write_scope": ["content/{edition_id}/story/**"],
-      "may": ["design scenes/subplots/twists", "set unresolved threads", "tune intensity"],
-      "may_not": ["change locality truth", "invent factual conditions", "cross a locked plot boundary"],
-      "creative_intensity": {"min": 0, "max": 5, "default": 3},
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "story_architecture",
+        "creative_intensity_control"
+      ],
+      "write_scope": [
+        "content/{edition_id}/story/**"
+      ],
+      "may": [
+        "design scenes/subplots/twists",
+        "set unresolved threads",
+        "tune intensity"
+      ],
+      "may_not": [
+        "change locality truth",
+        "invent factual conditions",
+        "cross a locked plot boundary"
+      ],
+      "creative_intensity": {
+        "min": 0,
+        "max": 5,
+        "default": 3
+      },
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
     },
     {
       "id": "character_director",
       "group": "narrative",
       "job": "Own character bible, relationships and visual/narrative continuity",
-      "skills": ["character_continuity", "cultural_character_grounding", "creative_intensity_control"],
-      "write_scope": ["content/{edition_id}/story/**", "content/{edition_id}/media/**"],
-      "may": ["define reusable fictional identities", "approve internal character-reference consistency", "keep internal bibles functional unless public publication is approved", "derive a public bible's mood and aesthetic from the edition-specific story world", "require evidence-aware cultural individuality and generational variation"],
-      "may_not": ["use a real identifiable likeness intentionally", "change established relationships", "spend publication-grade design effort on an internal-only continuity asset", "use generic cosmetic diversity as a substitute for cultural grounding", "assign unsupported Indigenous, ethnic, religious or other identity markers"],
+      "skills": [
+        "character_continuity",
+        "cultural_character_grounding",
+        "creative_intensity_control"
+      ],
+      "write_scope": [
+        "content/{edition_id}/story/**",
+        "content/{edition_id}/media/**"
+      ],
+      "may": [
+        "define reusable fictional identities",
+        "approve internal character-reference consistency",
+        "keep internal bibles functional unless public publication is approved",
+        "derive a public bible's mood and aesthetic from the edition-specific story world",
+        "require evidence-aware cultural individuality and generational variation"
+      ],
+      "may_not": [
+        "use a real identifiable likeness intentionally",
+        "change established relationships",
+        "spend publication-grade design effort on an internal-only continuity asset",
+        "use generic cosmetic diversity as a substitute for cultural grounding",
+        "assign unsupported Indigenous, ethnic, religious or other identity markers"
+      ],
       "bible_modes": {
         "internal": "Functional continuity asset; neutral, efficient, cheap to revise; no unnecessary publication styling.",
         "public": "Only when explicitly approved for publication; inherits the edition's own mood, light, colour, texture, place and emotional setting."
       },
-      "creative_intensity": {"min": 0, "max": 5, "default": 3},
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority", "a specific cultural identity is desired but locality evidence/context is insufficient"]
+      "creative_intensity": {
+        "min": 0,
+        "max": 5,
+        "default": 3
+      },
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority",
+        "a specific cultural identity is desired but locality evidence/context is insufficient"
+      ]
     },
     {
       "id": "story_writer",
       "group": "narrative",
       "job": "Write fiction from approved architecture and character truth",
-      "skills": ["fiction_writing", "creative_intensity_control", "character_continuity"],
-      "write_scope": ["content/{edition_id}/story/**"],
-      "may": ["write scenes/dialogue/interiority", "explore permitted subplots"],
-      "may_not": ["create new factual claims", "alter locked story truth", "publish as fact"],
-      "creative_intensity": {"min": 0, "max": 5, "default": 3},
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "fiction_writing",
+        "creative_intensity_control",
+        "character_continuity"
+      ],
+      "write_scope": [
+        "content/{edition_id}/story/**"
+      ],
+      "may": [
+        "write scenes/dialogue/interiority",
+        "explore permitted subplots"
+      ],
+      "may_not": [
+        "create new factual claims",
+        "alter locked story truth",
+        "publish as fact"
+      ],
+      "creative_intensity": {
+        "min": 0,
+        "max": 5,
+        "default": 3
+      },
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
     },
     {
       "id": "narrative_editor",
       "group": "narrative",
       "job": "Improve rhythm, clarity and trust in scenes mainly through subtraction and precise revision",
-      "skills": ["editorial_subtraction", "character_continuity"],
-      "write_scope": ["content/{edition_id}/story/**"],
-      "may": ["cut explanation/repetition", "repair continuity within approved meaning"],
-      "may_not": ["add new stakes to make a scene stronger", "change evidence"],
-      "creative_intensity": {"min": 0, "max": 4, "default": 2},
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "editorial_subtraction",
+        "character_continuity"
+      ],
+      "write_scope": [
+        "content/{edition_id}/story/**"
+      ],
+      "may": [
+        "cut explanation/repetition",
+        "repair continuity within approved meaning"
+      ],
+      "may_not": [
+        "add new stakes to make a scene stronger",
+        "change evidence"
+      ],
+      "creative_intensity": {
+        "min": 0,
+        "max": 4,
+        "default": 2
+      },
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
     },
     {
       "id": "boundary_auditor",
       "group": "qa",
       "job": "Audit evidence/story separation and presentation boundaries",
-      "skills": ["boundary_audit", "claim_verification"],
-      "write_scope": ["content/{edition_id}/**"],
-      "may": ["block leakage", "identify unsupported causal language", "require clear fiction labels"],
-      "may_not": ["rewrite story for taste", "approve its own upstream artifact"],
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "boundary_audit",
+        "claim_verification"
+      ],
+      "write_scope": [
+        "content/{edition_id}/**"
+      ],
+      "may": [
+        "block leakage",
+        "identify unsupported causal language",
+        "require clear fiction labels"
+      ],
+      "may_not": [
+        "rewrite story for taste",
+        "approve its own upstream artifact"
+      ],
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
     },
     {
       "id": "factual_media_producer",
       "group": "media",
       "job": "Produce the WHAT'S REAL moving-media asset from verified evidence and rights-cleared media",
-      "skills": ["asset_research", "source_trace", "factual_video_editing"],
-      "write_scope": ["content/{edition_id}/media/**", "content/{edition_id}/sources/**", "public/assets/**"],
-      "may": ["choose factual edit", "label generic context", "record rights/provenance"],
-      "may_not": ["generate fake documentary evidence", "depict fictional family as real", "claim causation without evidence"],
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "asset_research",
+        "source_trace",
+        "factual_video_editing"
+      ],
+      "write_scope": [
+        "content/{edition_id}/media/**",
+        "content/{edition_id}/sources/**",
+        "public/assets/**"
+      ],
+      "may": [
+        "choose factual edit",
+        "label generic context",
+        "record rights/provenance"
+      ],
+      "may_not": [
+        "generate fake documentary evidence",
+        "depict fictional family as real",
+        "claim causation without evidence"
+      ],
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
     },
     {
       "id": "fiction_media_director",
       "group": "media",
       "job": "Produce cinematic fictional media from approved story and character truth",
-      "skills": ["fiction_visual_direction", "visual_continuity", "creative_intensity_control"],
-      "write_scope": ["content/{edition_id}/media/**", "public/assets/**"],
-      "may": ["choose shots/lighting/performance/edit rhythm", "generate fictional people/environments"],
-      "may_not": ["change plot facts", "masquerade as reportage", "use real people as fictional characters"],
-      "creative_intensity": {"min": 0, "max": 5, "default": 4},
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "fiction_visual_direction",
+        "visual_continuity",
+        "creative_intensity_control"
+      ],
+      "write_scope": [
+        "content/{edition_id}/media/**",
+        "public/assets/**"
+      ],
+      "may": [
+        "choose shots/lighting/performance/edit rhythm",
+        "generate fictional people/environments"
+      ],
+      "may_not": [
+        "change plot facts",
+        "masquerade as reportage",
+        "use real people as fictional characters"
+      ],
+      "creative_intensity": {
+        "min": 0,
+        "max": 5,
+        "default": 4
+      },
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
     },
     {
       "id": "hybrid_opening_editor",
       "group": "media",
       "job": "Assemble the approved factual report and approved story promo into the edition opening",
-      "skills": ["hybrid_editing", "boundary_audit"],
-      "write_scope": ["content/{edition_id}/media/**", "public/assets/**"],
-      "may": ["select approved moments", "design explicit fact-to-fiction transition"],
-      "may_not": ["use unapproved source video", "hide the fact/fiction crossing", "introduce a new factual claim"],
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "hybrid_editing",
+        "boundary_audit"
+      ],
+      "write_scope": [
+        "content/{edition_id}/media/**",
+        "public/assets/**"
+      ],
+      "may": [
+        "select approved moments",
+        "design explicit fact-to-fiction transition"
+      ],
+      "may_not": [
+        "use unapproved source video",
+        "hide the fact/fiction crossing",
+        "introduce a new factual claim"
+      ],
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
     },
     {
       "id": "reader_builder",
       "group": "publication",
       "job": "Implement the mobile reader around locked structure and approved production assets",
-      "skills": ["mobile_reader_assembly"],
-      "write_scope": ["app/**", "public/**"],
-      "may": ["implement navigation/motion/accessibility", "bind approved assets"],
-      "may_not": ["change editorial sequence without approval", "replace missing production asset with misleading mock media"],
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "mobile_reader_assembly"
+      ],
+      "write_scope": [
+        "app/**",
+        "public/**"
+      ],
+      "may": [
+        "implement navigation/motion/accessibility",
+        "bind approved assets"
+      ],
+      "may_not": [
+        "change editorial sequence without approval",
+        "replace missing production asset with misleading mock media"
+      ],
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
     },
     {
       "id": "source_registrar",
       "group": "publication",
       "job": "Maintain inspectable source, rights and claim traceability",
-      "skills": ["source_trace"],
-      "write_scope": ["content/{edition_id}/sources/**"],
-      "may": ["assign/register provenance", "flag orphan claims/assets"],
-      "may_not": ["decide story aesthetics", "weaken rights/use boundaries"],
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "source_trace"
+      ],
+      "write_scope": [
+        "content/{edition_id}/sources/**"
+      ],
+      "may": [
+        "assign/register provenance",
+        "flag orphan claims/assets"
+      ],
+      "may_not": [
+        "decide story aesthetics",
+        "weaken rights/use boundaries"
+      ],
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
+    },
+    {
+      "id": "signal_extractor",
+      "group": "publication",
+      "job": "Build a structured Signal Library from the locked edition and source register",
+      "skills": [
+        "signal_extraction",
+        "source_trace",
+        "boundary_audit"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "extract source-grounded signals",
+        "classify factual/analytical/fictional material",
+        "attach registered evidence references",
+        "add routing metadata"
+      ],
+      "may_not": [
+        "invent new factual claims",
+        "treat fiction as evidence",
+        "publish externally",
+        "change the approved reader"
+      ],
+      "escalate_when": [
+        "a factual signal has no registered evidence",
+        "classification is ambiguous",
+        "a signal would require a stronger causal claim than the edition supports"
+      ]
     },
     {
       "id": "distribution_editor",
       "group": "publication",
       "job": "Derive social/discovery assets from the verified edition",
-      "skills": ["distribution_derivation", "boundary_audit"],
-      "write_scope": ["content/{edition_id}/distribution/**", "public/distribution/**"],
-      "may": ["adapt format/length/hooks", "link back to source edition"],
-      "may_not": ["invent platform-specific facts", "erase fiction labels"],
-      "creative_intensity": {"min": 0, "max": 4, "default": 3},
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "distribution_derivation",
+        "boundary_audit"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**",
+        "public/distribution/**"
+      ],
+      "may": [
+        "adapt format/length/hooks",
+        "link back to source edition"
+      ],
+      "may_not": [
+        "invent platform-specific facts",
+        "erase fiction labels"
+      ],
+      "creative_intensity": {
+        "min": 0,
+        "max": 4,
+        "default": 3
+      },
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
     },
     {
       "id": "publication_qc",
       "group": "qa",
       "job": "Verify release readiness against locks, graph gates and real rendered output",
-      "skills": ["publication_qa", "boundary_audit", "source_trace"],
-      "write_scope": ["content/{edition_id}/**", "app/**", "public/**"],
-      "may": ["pass/fail explicit checks", "report regressions", "route failure to responsible worker"],
-      "may_not": ["silently relax locked requirements", "approve when mandatory evidence/gates are missing"],
-      "escalate_when": ["a higher-authority source conflicts", "required evidence is missing", "requested work exceeds write scope or decision authority"]
+      "skills": [
+        "publication_qa",
+        "boundary_audit",
+        "source_trace"
+      ],
+      "write_scope": [
+        "content/{edition_id}/**",
+        "app/**",
+        "public/**"
+      ],
+      "may": [
+        "pass/fail explicit checks",
+        "report regressions",
+        "route failure to responsible worker"
+      ],
+      "may_not": [
+        "silently relax locked requirements",
+        "approve when mandatory evidence/gates are missing"
+      ],
+      "escalate_when": [
+        "a higher-authority source conflicts",
+        "required evidence is missing",
+        "requested work exceeds write scope or decision authority"
+      ]
     }
   ]
 }
