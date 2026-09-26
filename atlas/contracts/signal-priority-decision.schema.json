@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "atlas-signal-priority-decision",
+  "legal_outcomes": [
+    "ADVANCE",
+    "HOLD",
+    "STOP"
+  ],
+  "hard_eligibility_rules": [
+    "factual signals require evidence_refs",
+    "fictional signals must not carry factual evidence_refs",
+    "signal must preserve Signal Library provenance",
+    "failed hard eligibility cannot ADVANCE"
+  ],
+  "decision_dimensions": [
+    "evidence",
+    "relevance",
+    "consequence",
+    "distinctiveness",
+    "expression_potential",
+    "cost_risk"
+  ],
+  "anti_optimization_rules": [
+    "popularity is not editorial importance",
+    "predicted engagement cannot override evidence or boundary failures",
+    "low predicted engagement alone cannot STOP a consequential signal",
+    "no additive score may automatically determine outcome"
+  ],
+  "human_gate": "Review proof decisions before relevance routing."
+}
