@@ -13,12 +13,12 @@
 </section>
 <section id="perspectives" class="menu">
   <div class="menu-head"><span>PERSPECTIVES</span><p>Choose where you want to enter this edition. Each route follows the same evidence from a different position.</p></div>
-  <div class="perspective locked"><div><small>ACTIVE PERSPECTIVE · ROUTE NOT YET BUILT</small><h2>Technology</h2><p>Follow the computing systems and physical infrastructure behind AI.</p></div></div>
-  <div class="perspective locked"><div><small>ACTIVE PERSPECTIVE · ROUTE NOT YET BUILT</small><h2>Energy + Grid</h2><p>Follow electricity demand, connections and the infrastructure carrying digital growth.</p></div></div>
+  <div class="perspective locked" data-perspective="technology"><div><small>ACTIVE PERSPECTIVE · ROUTE NOT YET BUILT</small><h2>Technology</h2><p>Follow the computing systems and physical infrastructure behind AI.</p></div></div>
+  <div class="perspective locked" data-perspective="energy-grid"><div><small>ACTIVE PERSPECTIVE · ROUTE NOT YET BUILT</small><h2>Energy + Grid</h2><p>Follow electricity demand, connections and the infrastructure carrying digital growth.</p></div></div>
   <a class="perspective active" href="#minerals" data-perspective="minerals-resources"><img src="../assets/aoc001-copper-cables.png" alt=""><div><small>ACTIVE PERSPECTIVE · TEST ROUTE</small><h2>Minerals + Resources</h2><p>Follow AI’s physical demand from compute infrastructure through grids and copper to northern Chile.</p><b>Enter perspective →</b></div></a>
-  <div class="perspective locked"><div><small>ACTIVE PERSPECTIVE · ROUTE NOT YET BUILT</small><h2>Family</h2><p>Follow how large systems are experienced inside ordinary household life.</p></div></div>
-  <div class="perspective locked"><div><small>ACTIVE PERSPECTIVE · ROUTE NOT YET BUILT</small><h2>Work + Skills</h2><p>Follow labour, technical skills, rosters and opportunity around the changing system.</p></div></div>
-  <div class="perspective locked"><div><small>ACTIVE PERSPECTIVE · ROUTE NOT YET BUILT</small><h2>Markets + Finance</h2><p>Follow demand, investment, value and the market consequences of the same change.</p></div></div>
+  <div class="perspective locked" data-perspective="family"><div><small>ACTIVE PERSPECTIVE · ROUTE NOT YET BUILT</small><h2>Family</h2><p>Follow how large systems are experienced inside ordinary household life.</p></div></div>
+  <div class="perspective locked" data-perspective="work-skills"><div><small>ACTIVE PERSPECTIVE · ROUTE NOT YET BUILT</small><h2>Work + Skills</h2><p>Follow labour, technical skills, rosters and opportunity around the changing system.</p></div></div>
+  <div class="perspective locked" data-perspective="markets-finance"><div><small>ACTIVE PERSPECTIVE · ROUTE NOT YET BUILT</small><h2>Markets + Finance</h2><p>Follow demand, investment, value and the market consequences of the same change.</p></div></div>
 </section>
 <section id="minerals" class="route">
   <header><a href="#perspectives">← Perspectives</a><span>MINERALS + RESOURCES</span></header>
@@ -33,6 +33,19 @@
 </main>
 <script>
 (() => {
+  const params = new URLSearchParams(location.search);
+  const incomingPerspective = params.get('perspective');
+  if (incomingPerspective) {
+    const card = document.querySelector('[data-perspective="' + CSS.escape(incomingPerspective) + '"]');
+    if (card) {
+      card.classList.add('incoming-perspective');
+      const marker = document.createElement('span');
+      marker.className = 'incoming-marker';
+      marker.textContent = 'CONNECTED TO WHAT BROUGHT YOU HERE';
+      card.querySelector('div')?.prepend(marker);
+    }
+  }
+
   const hero = document.querySelector('.video-entry');
   const video = document.querySelector('.hero-video');
   if (!hero || !video) return;
