@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "atlas-route-decision",
+  "purpose": "Choose whether a verified signal-audience-destination opportunity deserves creative resources.",
+  "legal_outcomes": [
+    "PURSUE",
+    "HOLD",
+    "REJECT"
+  ],
+  "required_fields": [
+    "route_id",
+    "signal_id",
+    "audience",
+    "destination_id",
+    "outcome",
+    "reason_codes",
+    "reason",
+    "permission_state",
+    "human_gate"
+  ],
+  "decision_dimensions": [
+    "signal_strength",
+    "audience_fit",
+    "destination_fit",
+    "distinctiveness",
+    "editorial_value",
+    "permission_actionability",
+    "duplication_cost",
+    "sensitivity"
+  ],
+  "rules": [
+    "only ADVANCE signals may be considered",
+    "destination must be CANDIDATE or explicitly HOLD",
+    "PURSUE means create a candidate expression, not permission to publish or contact",
+    "institutional submissions, outreach and community participation remain human-gated",
+    "do not optimize for reach alone",
+    "prefer fewer stronger routes over exhaustive distribution",
+    "REJECT is a successful restraint outcome"
+  ]
+}
