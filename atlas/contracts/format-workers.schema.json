@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "atlas-format-workers",
+  "purpose": "Select and specify the production form for each approved internal candidate without executing external distribution.",
+  "required_fields": [
+    "format_id",
+    "variant_id",
+    "route_id",
+    "format_class",
+    "deliverable",
+    "language",
+    "production_brief",
+    "required_labels",
+    "status"
+  ],
+  "rules": [
+    "one format decision per approved internal candidate in this proof",
+    "format follows route purpose and access mode rather than platform fashion",
+    "do not manufacture social assets without a routed need",
+    "preserve evidence and boundary notes from the candidate",
+    "translation/localisation requires its own verification before external use",
+    "format specification is not publication permission"
+  ]
+}
