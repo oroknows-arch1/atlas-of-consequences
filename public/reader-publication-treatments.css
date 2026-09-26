@@ -79,3 +79,15 @@ nav.reader-route a.active{opacity:1;border-color:rgba(255,255,255,.7);background
 
 @media(min-width:800px){.fact-strip{grid-template-columns:repeat(4,minmax(0,1fr));max-width:620px}.certainty-map{grid-template-columns:repeat(3,minmax(0,1fr));max-width:620px}.certainty-card{min-height:160px}.edition-map{grid-template-columns:1fr 1fr}.edition-map-item:last-child{border-bottom:0}.story-lens-grid{grid-template-columns:repeat(4,1fr)}}
 @media(prefers-reduced-motion:reduce){#factFilm{display:block!important}#world,#world.reader-mode{background:#000!important}.source-card summary{scroll-behavior:auto}}
+
+
+/* Composed Minerals + Resources imagery: replaces abstract/generated surfaces with persisted approved assets. */
+.minerals-visual-sequence{width:calc(100% + 44px);margin:28px -22px 38px;display:grid;gap:2px}
+.minerals-visual{position:relative;margin:0;min-height:58svh;overflow:hidden;background:#050708}
+.minerals-visual img{display:block;width:100%;height:100%;min-height:58svh;object-fit:cover}
+.minerals-visual:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(0,0,0,.72) 100%);pointer-events:none}
+.minerals-visual figcaption{position:absolute;z-index:2;left:20px;right:20px;bottom:20px;text-shadow:0 2px 14px #000}
+.minerals-visual figcaption strong{display:block;font-size:8px;letter-spacing:.18em;text-transform:uppercase;font-weight:400;margin-bottom:6px}
+.minerals-visual figcaption span{display:block;font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.3;max-width:32ch}
+@media(min-width:800px){.minerals-visual-sequence{width:min(92vw,980px);margin-left:0}.minerals-visual{min-height:68vh}.minerals-visual img{min-height:68vh}}
+@media(prefers-reduced-motion:reduce){.minerals-visual img{transition:none}}
