@@ -8,8 +8,9 @@
   </video>
   <img class="hero-bg hero-final-frame" src="../assets/aoc001-opening-final.jpg" alt="">
   <div class="shade"></div>
-  <div class="top"><span>ATLASOQUENCE</span><span>AOC-001 · READER TEST</span></div>
-  <div class="hero-copy"><div class="eyebrow">A CHANGING WORLD · MULTIPLE WAYS IN</div><h1>AI’s<br>Physical<br>Hunger</h1><p>The machines may be digital. Their hunger isn’t.</p><a class="enter" href="#perspectives">Choose a perspective ↓</a></div>
+  <div class="film-mark"><span>ATLASOQUENCE</span><span>AOC-001</span></div>
+  <div class="top reveal-copy"><span>ATLASOQUENCE</span><span>AOC-001 · READER TEST</span></div>
+  <div class="hero-copy reveal-copy"><div class="eyebrow">A CHANGING WORLD · MULTIPLE WAYS IN</div><h1>AI’s<br>Physical<br>Hunger</h1><p>The machines may be digital. Their hunger isn’t.</p><a class="enter" href="#perspectives">Choose a perspective ↓</a></div>
 </section>
 <section id="perspectives" class="menu">
   <div class="menu-head"><span>PERSPECTIVES</span><p>Choose where you want to enter this edition. Each route follows the same evidence from a different position.</p></div>
@@ -30,4 +31,21 @@
   <article class="scene"><img src="../assets/aoc001-chuquicamata-mine-blue-hour.png" alt=""><div class="scene-copy"><small>06 · CALAMA / CHUQUICAMATA</small><h2>The material chain arrives beside a real city.</h2><p>Chuquicamata lies about 15 km north of Calama. Codelco reports 266 thousand tonnes of fine copper produced in 2025 and 3,992 direct employees at year end. Calama itself is more than a mine: it is a city of households, schools, businesses and ordinary life.</p><em>Evidence · Codelco + UCN · SR-07–12</em></div></article>
   <section class="boundary"><small>ATLASOQUENCE BOUNDARY</small><h2>What this perspective does — and does not — establish.</h2><p>AI/data-centre growth adds pressure inside a much larger electricity and copper demand system. This route does not claim AI caused an existing Antofagasta mine expansion, a particular job, or the fictional events in the Daniela and Mauricio story.</p><a href="#perspectives">Choose another perspective ↑</a></section>
 </section>
-</main></body></html>
+</main>
+<script>
+(() => {
+  const hero = document.querySelector('.video-entry');
+  const video = document.querySelector('.hero-video');
+  if (!hero || !video) return;
+  const reveal = () => hero.classList.add('film-complete');
+  video.addEventListener('ended', reveal, { once:true });
+  video.addEventListener('error', reveal, { once:true });
+  video.play().catch(() => hero.classList.add('tap-to-play'));
+  hero.addEventListener('click', () => {
+    if (hero.classList.contains('tap-to-play') && video.paused) {
+      video.play().then(() => hero.classList.remove('tap-to-play')).catch(reveal);
+    }
+  });
+})();
+</script>
+</body></html>
