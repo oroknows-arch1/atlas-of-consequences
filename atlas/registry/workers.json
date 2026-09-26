@@ -497,6 +497,36 @@
       ]
     },
     {
+      "id": "relevance_router",
+      "group": "publication",
+      "job": "Route ADVANCE signals to audiences with a legitimate reason to care before destination discovery",
+      "skills": [
+        "relevance_routing",
+        "source_trace",
+        "boundary_audit"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "route only ADVANCE signals",
+        "record audience and relevance reason",
+        "preserve geography evidence and classification",
+        "hold or reject weak relevance"
+      ],
+      "may_not": [
+        "select platforms or destinations",
+        "publish externally",
+        "invent audience evidence",
+        "turn commercial relevance into the default route"
+      ],
+      "escalate_when": [
+        "relevance requires evidence not present upstream",
+        "fiction boundary could be obscured",
+        "a culturally sensitive audience route needs human judgment"
+      ]
+    },
+    {
       "id": "distribution_editor",
       "group": "publication",
       "job": "Derive social/discovery assets from the verified edition",
