@@ -145,6 +145,21 @@
       "id": "destination_adaptation",
       "does": "Adapt an approved format specification to current verified destination mechanics and constraints.",
       "does_not": "Invent access, infer permission, contact a destination, submit, schedule, or publish."
+    },
+    {
+      "id": "distribution_evidence_gate",
+      "does": "Verify outward-facing package claims, evidence references and causal limits against approved upstream evidence.",
+      "does_not": "Repair weak evidence by rewriting or authorize external action."
+    },
+    {
+      "id": "brand_editorial_gate",
+      "does": "Verify Atlas identity, editorial clarity, fact/fiction visibility and non-misleading destination framing.",
+      "does_not": "Infer permission or optimize away editorial boundaries for engagement."
+    },
+    {
+      "id": "risk_permission_gate",
+      "does": "Verify current permission, expiry, representation and human-authority requirements immediately before execution eligibility.",
+      "does_not": "Treat relevance, quality, contact details or a prior route decision as permission."
     }
   ]
 }
