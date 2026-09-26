@@ -36,7 +36,10 @@
   const hero = document.querySelector('.video-entry');
   const video = document.querySelector('.hero-video');
   if (!hero || !video) return;
-  const reveal = () => hero.classList.add('film-complete');
+  const reveal = () => {
+    hero.classList.add('film-complete');
+    try { video.currentTime = Math.max(0, video.duration - 0.05); } catch (_) {}
+  };
   video.addEventListener('ended', reveal, { once:true });
   video.addEventListener('error', reveal, { once:true });
   video.play().catch(() => hero.classList.add('tap-to-play'));
