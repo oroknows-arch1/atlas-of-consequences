@@ -383,6 +383,34 @@
   }
 })();
 
+/* AOC-001 Minerals + Resources visual sequence — approved composed assets. */
+(() => {
+  const report = document.querySelector('#report .content');
+  if (!report || report.querySelector('.minerals-visual-sequence')) return;
+  const assets = [
+    ['assets/aoc001-data-center-aisle.png','01 · COMPUTE','AI begins in physical rooms: servers, power and cooling.'],
+    ['assets/aoc001-copper-cables.png','02 · COPPER','The digital system reaches into cables, grids and material demand.'],
+    ['assets/aoc001-chile-copper-orbit.png','03 · CHILE','The material chain narrows toward one of the world’s major copper-producing countries.'],
+    ['assets/aoc001-south-america-night-orbit.png','04 · GEOGRAPHY','A global demand system becomes geographically specific.'],
+    ['assets/aoc001-antofagasta-coast-atacama.png','05 · ANTOFAGASTA','Desert, coast, cities and mining infrastructure share the same regional system.'],
+    ['assets/aoc001-chuquicamata-mine-blue-hour.png','06 · CHUQUICAMATA / CALAMA','The chain arrives beside a real city, workforce and household economy.']
+  ];
+  const sequence=document.createElement('div');
+  sequence.className='minerals-visual-sequence';
+  sequence.setAttribute('aria-label','Minerals and resources visual sequence');
+  assets.forEach(([src,label,caption])=>{
+    const figure=document.createElement('figure'); figure.className='minerals-visual';
+    const img=document.createElement('img'); img.src=src; img.alt=''; img.loading='lazy'; img.decoding='async';
+    const figcaption=document.createElement('figcaption');
+    const strong=document.createElement('strong'); strong.textContent=label;
+    const span=document.createElement('span'); span.textContent=caption;
+    figcaption.append(strong,span); figure.append(img,figcaption); sequence.append(figure);
+  });
+  const flow=report.querySelector('.signal-flow');
+  const facts=report.querySelector('.fact-strip');
+  (flow || facts || report.querySelector('h2')).insertAdjacentElement('afterend',sequence);
+})();
+
 /* Opening-to-reader handoff: hold the film's final frame at the top of the edition,
    then let the existing scrub loop move through the film only as the reader scrolls. */
 (() => {
