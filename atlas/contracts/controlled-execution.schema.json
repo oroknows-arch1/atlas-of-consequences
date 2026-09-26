@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "atlas-controlled-execution",
+  "rules": [
+    "executor requires explicit human authorization",
+    "executor requires current destination revalidation",
+    "executor requires configured authorized channel",
+    "max actions must be enforced before execution",
+    "every attempt must create a receipt",
+    "no capability means BLOCKED_NOT_EXECUTED",
+    "performance collection consumes receipts only",
+    "learning may recommend routing changes but cannot self-authorize external action"
+  ]
+}
