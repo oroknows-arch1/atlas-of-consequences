@@ -79,3 +79,23 @@ nav.reader-route a.active{opacity:1;border-color:rgba(255,255,255,.7);background
 
 @media(min-width:800px){.fact-strip{grid-template-columns:repeat(4,minmax(0,1fr));max-width:620px}.certainty-map{grid-template-columns:repeat(3,minmax(0,1fr));max-width:620px}.certainty-card{min-height:160px}.edition-map{grid-template-columns:1fr 1fr}.edition-map-item:last-child{border-bottom:0}.story-lens-grid{grid-template-columns:repeat(4,1fr)}}
 @media(prefers-reduced-motion:reduce){#factFilm{display:block!important}#world,#world.reader-mode{background:#000!important}.source-card summary{scroll-behavior:auto}}
+
+
+/* Reader architecture v0.3 — lightweight perspective entry. */
+.perspective-entry{margin-top:22px;max-width:560px;padding-top:16px;border-top:1px solid rgba(255,255,255,.28)}
+.perspective-kicker{font-size:8px;letter-spacing:.18em;text-transform:uppercase;opacity:.7}
+.perspective-entry h2{font-family:Georgia,'Times New Roman',serif;font-size:30px;font-weight:400;line-height:1.05;margin:8px 0 8px}
+.perspective-intro{font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.4;max-width:35ch;margin:0 0 13px}
+.perspective-grid{display:grid;gap:6px}
+.perspective-choice{appearance:none;width:100%;text-align:left;color:inherit;border:1px solid rgba(255,255,255,.24);background:rgba(0,0,0,.18);backdrop-filter:blur(7px);padding:11px 12px}
+.perspective-choice strong{display:block;font-family:Georgia,'Times New Roman',serif;font-size:17px;font-weight:400;margin-bottom:3px}
+.perspective-choice span{display:block;font-size:8px;line-height:1.4;letter-spacing:.07em;text-transform:uppercase;opacity:.72}
+.perspective-choice.selected{border-color:rgba(255,255,255,.72);background:rgba(255,255,255,.1)}
+.full-edition-link{display:inline-block;margin-top:13px;font-size:8px;letter-spacing:.14em;text-transform:uppercase}
+.perspective-route-bar{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:60;display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid rgba(255,255,255,.25);background:rgba(5,7,8,.82);backdrop-filter:blur(12px);padding:9px 10px}
+.perspective-route-bar[hidden]{display:none}
+.perspective-route-bar .route-label{font-size:8px;letter-spacing:.13em;text-transform:uppercase}
+.perspective-route-bar button{appearance:none;border:0;background:transparent;color:inherit;text-decoration:underline;font-size:8px;letter-spacing:.1em;text-transform:uppercase}
+body.perspective-selected .chapter.route-primary{box-shadow:inset 3px 0 rgba(255,255,255,.5)}
+body.perspective-selected .chapter.route-primary .idx:after,body.perspective-selected .chapter.route-secondary .idx:after{content:' · YOUR ROUTE ' attr(data-route-order);font-size:7px;letter-spacing:.12em;opacity:.72}
+@media(min-width:800px){.perspective-grid{grid-template-columns:1fr 1fr}.perspective-choice:last-child{grid-column:1/-1}}
