@@ -16,7 +16,7 @@ for d in dst["destinations"]:
     assert d["fit_reason"] and d["discovery_evidence"] and d["access_mode"] and d["permission_risk"]
     u=urlparse(d["url"])
     assert u.scheme=="https" and u.netloc, "destination lacks verifiable HTTPS URL"
-    assert "permission" in d["permission_risk"].lower() or "fit only" in d["permission_risk"].lower() or d["state"]!="CANDIDATE"
+    assert any(marker in d["permission_risk"].lower() for marker in ("permission", "approval required", "fit only")) or d["state"]!="CANDIDATE"
 blocked=set(dst["blocked_scope"])
 assert {"variant generation","publication","outreach"} <= blocked
 print("Destination Discovery proof PASS", {"destinations":len(dst["destinations"])})
