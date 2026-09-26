@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.5",
+  "schema_version": "1.6",
   "edition_id": "AOC-001",
   "title": "AI's Physical Hunger",
   "graph": "atlas/graphs/edition-production.json",
@@ -43,7 +43,9 @@
     "signal_library": "content/AOC-001/distribution/signal-library-v0.1.json",
     "signal_library_contract": "atlas/contracts/signal-library.schema.json",
     "signal_priority_register": "content/AOC-001/distribution/signal-priority-v0.1.json",
-    "signal_priority_contract": "atlas/contracts/signal-priority-decision.schema.json"
+    "signal_priority_contract": "atlas/contracts/signal-priority-decision.schema.json",
+    "relevance_route_register": "content/AOC-001/distribution/relevance-routing-v0.1.json",
+    "relevance_route_contract": "atlas/contracts/relevance-routing.schema.json"
   },
   "node_state": {
     "evidence_pack": "satisfied_by_existing_artifact",
@@ -69,7 +71,8 @@
     "distribution_pack": "candidate_v0.1_assembled",
     "publication_qa": "passed_2026-09-25_v0.6",
     "release_human_gate": "ready_for_human_approval",
-    "signal_priority": "proof_generated_pending_human_review"
+    "signal_priority": "proof_human_approved",
+    "relevance_routing": "proof_generated_pending_human_review"
   },
   "foreground_next": "release_human_gate",
   "notes": [
@@ -85,6 +88,7 @@
     "Targeted Publication QA v0.6 passed after the opening-control placement correction; CI run #80 passed the graph, reader-invariant and control-position checks.",
     "AOC-001 is ready for the release human gate. Publication remains blocked until explicit human release approval.",
     "AOC-001 Signal Library proof is generated deterministically from the locked Master Edition and Publication Source Register; it is the upstream input to future distribution derivation and does not alter the approved reader.",
-    "Signal Priority proof applies bounded ADVANCE/HOLD/STOP decisions after hard eligibility checks; relevance routing remains blocked pending human review."
+    "Signal Priority proof applies bounded ADVANCE/HOLD/STOP decisions after hard eligibility checks; relevance routing remains blocked pending human review.",
+    "Relevance Routing proof routes only the 8 human-approved ADVANCE signals to audiences with explicit reasons to care; destination discovery remains blocked."
   ]
 }
