@@ -12,6 +12,7 @@ on:
       - 'tools/validate_route_decision.py'
       - 'tools/validate_variant_factory.py'
       - 'tools/validate_format_workers.py'
+      - 'tools/validate_destination_adapter.py'
       - 'tools/validate_reader_invariants.py'
       - 'tools/validate_opening_controls.py'
       - 'ATLAS-OPERATING-MODEL.md'
@@ -53,6 +54,8 @@ jobs:
         run: python3 tools/validate_variant_factory.py
       - name: Validate AOC-001 Format Workers proof
         run: python3 tools/validate_format_workers.py
+      - name: Validate AOC-001 Destination Adapter proof
+        run: python3 tools/validate_destination_adapter.py
       - name: Validate human-approved AOC-001 reader invariants
         run: python3 tools/validate_reader_invariants.py
       - name: Validate approved opening control position

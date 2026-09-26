@@ -653,6 +653,36 @@
       ]
     },
     {
+      "id": "destination_adapter_worker",
+      "group": "publication",
+      "job": "Adapt approved format specifications to verified destination mechanics while preserving permission boundaries",
+      "skills": [
+        "destination_adaptation",
+        "source_trace",
+        "boundary_audit"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "verify current destination mechanics",
+        "record deadlines and contribution modes",
+        "shape an internal package to verified requirements",
+        "hold routes where access remains unclear"
+      ],
+      "may_not": [
+        "invent submission mechanics",
+        "infer permission from topical fit",
+        "contact destinations",
+        "submit schedule or publish externally"
+      ],
+      "escalate_when": [
+        "destination rules are ambiguous",
+        "outreach or institutional submission is required",
+        "destination mechanics have changed since discovery"
+      ]
+    },
+    {
       "id": "publication_qc",
       "group": "qa",
       "job": "Verify release readiness against locks, graph gates and real rendered output",

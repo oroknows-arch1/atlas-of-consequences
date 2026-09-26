@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "register_id": "AOC-001-destination-adapter-v0.1",
+  "edition_id": "AOC-001",
+  "input_format_register": "content/AOC-001/distribution/format-workers-v0.1.json",
+  "contract": "atlas/contracts/destination-adapter.schema.json",
+  "adapter_count": 6,
+  "adapters": [
+    {
+      "adapter_id": "ADP-001",
+      "format_id": "FMT-001",
+      "destination_id": "DST-001",
+      "adaptation_state": "READY_FOR_INTERNAL_DRAFT",
+      "verified_mechanics": [
+        "online submission form",
+        "respondents may answer only relevant questions",
+        "optional supporting document upload",
+        "closes 5 pm AEDT 9 October 2026"
+      ],
+      "adapted_package": {
+        "form": "selective consultation response plus optional evidence attachment",
+        "focus": "energy/grid implications of large data-centre load",
+        "required_caveat": "415 TWh is global 2024 context, not Australian consumption"
+      },
+      "human_gate": "required before institutional submission",
+      "status": "INTERNAL_ONLY"
+    },
+    {
+      "adapter_id": "ADP-002",
+      "format_id": "FMT-002",
+      "destination_id": "DST-001",
+      "adaptation_state": "READY_FOR_INTERNAL_DRAFT",
+      "verified_mechanics": [
+        "online submission form",
+        "selective question response permitted",
+        "optional supporting document upload",
+        "closes 5 pm AEDT 9 October 2026"
+      ],
+      "adapted_package": {
+        "form": "selective consultation response",
+        "focus": "additional electricity demand and grid-planning mechanism",
+        "required_caveat": "no unsupported location-specific causation"
+      },
+      "human_gate": "required before institutional submission",
+      "status": "INTERNAL_ONLY"
+    },
+    {
+      "adapter_id": "ADP-003",
+      "format_id": "FMT-003",
+      "destination_id": "DST-004",
+      "adaptation_state": "HOLD_FOR_OUTREACH_APPROVAL",
+      "verified_mechanics": [
+        "AIA represents mining and industrial companies, SMEs and suppliers",
+        "member portal and general contact surfaces exist",
+        "no verified open editorial submission path found"
+      ],
+      "adapted_package": {
+        "form": "one-page industry discussion brief",
+        "focus": "copper as physical infrastructure input and additional demand pressure",
+        "required_caveat": "do not imply AIA invitation, endorsement or publication access"
+      },
+      "human_gate": "required before any AIA contact",
+      "status": "INTERNAL_ONLY"
+    },
+    {
+      "adapter_id": "ADP-004",
+      "format_id": "FMT-004",
+      "destination_id": "DST-004",
+      "adaptation_state": "HOLD_FOR_OUTREACH_APPROVAL",
+      "verified_mechanics": [
+        "AIA industry network verified",
+        "events and association channels verified",
+        "no verified open editorial submission path found"
+      ],
+      "adapted_package": {
+        "form": "regional data card plus supporting note",
+        "focus": "Antofagasta 58% share of Chilean copper production in 2025",
+        "required_caveat": "historical production context; no forecast or endorsement implication"
+      },
+      "human_gate": "required before any AIA contact",
+      "status": "INTERNAL_ONLY"
+    },
+    {
+      "adapter_id": "ADP-005",
+      "format_id": "FMT-005",
+      "destination_id": "DST-007",
+      "adaptation_state": "READY_FOR_INTERNAL_PITCH",
+      "verified_mechanics": [
+        "active Calama regional section",
+        "general contact channel",
+        "press contact channel",
+        "independent regional editorial operation"
+      ],
+      "adapted_package": {
+        "form": "concise Spanish-ready press pitch package",
+        "focus": "global physical AI chain to existing Antofagasta copper economy",
+        "required_caveat": "Atlas does not claim AI caused existing regional mining investment"
+      },
+      "human_gate": "required before press contact",
+      "status": "INTERNAL_ONLY"
+    },
+    {
+      "adapter_id": "ADP-006",
+      "format_id": "FMT-006",
+      "destination_id": "DST-007",
+      "adaptation_state": "READY_FOR_INTERNAL_PITCH",
+      "verified_mechanics": [
+        "active Calama section",
+        "press contact channel verified"
+      ],
+      "adapted_package": {
+        "form": "concise Spanish-ready place-story pitch package",
+        "focus": "Calama as lived city beyond extraction",
+        "required_caveat": "fictional household cannot be presented as factual evidence about Calama"
+      },
+      "human_gate": "required before press contact",
+      "status": "INTERNAL_ONLY"
+    }
+  ],
+  "external_evidence_note": "Destination mechanics verified 2026-09-26; re-check before any future execution.",
+  "blocked_scope": [
+    "destination contact",
+    "submission",
+    "scheduling",
+    "publication"
+  ]
+}

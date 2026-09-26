@@ -140,6 +140,11 @@
       "id": "format_selection",
       "does": "Choose and specify the production form that best serves an approved route and candidate expression.",
       "does_not": "Create every possible format, infer publication permission, release translations, contact destinations, or publish."
+    },
+    {
+      "id": "destination_adaptation",
+      "does": "Adapt an approved format specification to current verified destination mechanics and constraints.",
+      "does_not": "Invent access, infer permission, contact a destination, submit, schedule, or publish."
     }
   ]
 }

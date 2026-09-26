@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "atlas-destination-adapter",
+  "purpose": "Adapt approved format specifications to verified destination mechanics without executing contact or publication.",
+  "required_fields": [
+    "adapter_id",
+    "format_id",
+    "destination_id",
+    "adaptation_state",
+    "verified_mechanics",
+    "adapted_package",
+    "human_gate",
+    "status"
+  ],
+  "rules": [
+    "use current externally verified destination mechanics",
+    "never invent a contribution path",
+    "adaptation does not confer permission",
+    "preserve upstream evidence and labels",
+    "external contact submission scheduling and publication remain blocked"
+  ]
+}
