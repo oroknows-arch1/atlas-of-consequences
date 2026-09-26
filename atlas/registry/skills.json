@@ -160,6 +160,31 @@
       "id": "risk_permission_gate",
       "does": "Verify current permission, expiry, representation and human-authority requirements immediately before execution eligibility.",
       "does_not": "Treat relevance, quality, contact details or a prior route decision as permission."
+    },
+    {
+      "id": "controlled_distribution_execution",
+      "does": "Execute at most the explicitly human-authorized external action when permission, destination freshness and channel capability all pass.",
+      "does_not": "Invent capability, expand scope, retry beyond authorization, or self-authorize."
+    },
+    {
+      "id": "execution_receipt",
+      "does": "Record inspectable evidence of an actual attempted external action or explicitly record that no attempt occurred.",
+      "does_not": "Fabricate publication or outreach success."
+    },
+    {
+      "id": "performance_collection",
+      "does": "Collect outcome data only from a real execution receipt and supported destination signals.",
+      "does_not": "Infer engagement when no action occurred."
+    },
+    {
+      "id": "distribution_learning",
+      "does": "Compare routed intent, execution and observed outcome to produce bounded learning.",
+      "does_not": "Rewrite evidence or self-authorize new external actions."
+    },
+    {
+      "id": "routing_update",
+      "does": "Turn supported learning into an inspectable routing-update proposal.",
+      "does_not": "Apply consequential routing changes without the required authority."
     }
   ]
 }
