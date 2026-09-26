@@ -115,6 +115,11 @@
       "id": "signal_priority_decision",
       "does": "Choose ADVANCE, HOLD or STOP for an eligible signal using evidence, relevance, consequence, distinctiveness, expression potential and cost/risk.",
       "does_not": "Treat popularity as importance, bypass evidence gates, or automatically convert a numeric score into publication permission."
+    },
+    {
+      "id": "relevance_routing",
+      "does": "Map an ADVANCE signal to people or groups with a specific reason to care, preserving the evidence and classification boundary.",
+      "does_not": "Choose platforms, manufacture audiences, or equate reach with relevance."
     }
   ]
 }
