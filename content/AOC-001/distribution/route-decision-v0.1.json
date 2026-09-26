@@ -1,0 +1,208 @@
+{
+  "schema_version": "1.0",
+  "register_id": "AOC-001-route-decision-v0.1",
+  "edition_id": "AOC-001",
+  "inputs": [
+    "content/AOC-001/distribution/signal-priority-v0.1.json",
+    "content/AOC-001/distribution/relevance-routing-v0.1.json",
+    "content/AOC-001/distribution/destination-discovery-v0.1.json"
+  ],
+  "contract": "atlas/contracts/route-decision.schema.json",
+  "counts": {
+    "PURSUE": 6,
+    "HOLD": 5,
+    "REJECT": 1
+  },
+  "decisions": [
+    {
+      "route_id": "RTE-001",
+      "signal_id": "AOC001-SIG-001",
+      "audience": "technology infrastructure professionals",
+      "destination_id": "DST-002",
+      "outcome": "HOLD",
+      "reason_codes": [
+        "FIT_STRONG",
+        "ACCESS_UNCLEAR"
+      ],
+      "reason": "Strong thematic fit, but WEF is currently a knowledge surface rather than a verified contribution route.",
+      "permission_state": "unverified contribution path",
+      "human_gate": true
+    },
+    {
+      "route_id": "RTE-002",
+      "signal_id": "AOC001-SIG-002",
+      "audience": "energy and grid professionals",
+      "destination_id": "DST-001",
+      "outcome": "PURSUE",
+      "reason_codes": [
+        "TIMELY",
+        "FIT_STRONG",
+        "FORMAL_ACCESS",
+        "HUMAN_GATE"
+      ],
+      "reason": "The live Australian consultation explicitly seeks evidence on large data centres and energy impacts; Atlas has a directly relevant evidence-backed signal.",
+      "permission_state": "formal submission available; approval required",
+      "human_gate": true
+    },
+    {
+      "route_id": "RTE-003",
+      "signal_id": "AOC001-SIG-010",
+      "audience": "AI infrastructure analysts",
+      "destination_id": "DST-001",
+      "outcome": "PURSUE",
+      "reason_codes": [
+        "TIMELY",
+        "FIT_STRONG",
+        "FORMAL_ACCESS",
+        "HUMAN_GATE"
+      ],
+      "reason": "The core electricity-demand consequence matches the consultation scope and can be developed without extending causation beyond the edition.",
+      "permission_state": "formal submission available; approval required",
+      "human_gate": true
+    },
+    {
+      "route_id": "RTE-004",
+      "signal_id": "AOC001-SIG-002",
+      "audience": "energy and grid professionals",
+      "destination_id": "DST-003",
+      "outcome": "HOLD",
+      "reason_codes": [
+        "FIT_STRONG",
+        "ACCESS_UNCLEAR",
+        "DUPLICATION"
+      ],
+      "reason": "Excellent subject fit, but no verified contribution path and it overlaps the stronger actionable consultation route.",
+      "permission_state": "knowledge surface only",
+      "human_gate": false
+    },
+    {
+      "route_id": "RTE-005",
+      "signal_id": "AOC001-SIG-003",
+      "audience": "resources sector professionals",
+      "destination_id": "DST-004",
+      "outcome": "PURSUE",
+      "reason_codes": [
+        "FIT_STRONG",
+        "LOCAL_RELEVANCE",
+        "HUMAN_GATE"
+      ],
+      "reason": "AIA joins mining, suppliers and regional industry where the copper/material-demand signal has direct relevance.",
+      "permission_state": "outreach/participation approval required",
+      "human_gate": true
+    },
+    {
+      "route_id": "RTE-006",
+      "signal_id": "AOC001-SIG-004",
+      "audience": "Antofagasta and Chile resources audiences",
+      "destination_id": "DST-004",
+      "outcome": "PURSUE",
+      "reason_codes": [
+        "FIT_STRONG",
+        "LOCAL_RELEVANCE",
+        "EVIDENCE_STRONG",
+        "HUMAN_GATE"
+      ],
+      "reason": "The regional production-share signal is specific to AIA's Antofagasta industry constituency and adds documented context.",
+      "permission_state": "outreach/participation approval required",
+      "human_gate": true
+    },
+    {
+      "route_id": "RTE-007",
+      "signal_id": "AOC001-SIG-004",
+      "audience": "copper market analysts and investors",
+      "destination_id": "DST-005",
+      "outcome": "HOLD",
+      "reason_codes": [
+        "FIT_STRONG",
+        "ACCESS_UNCLEAR"
+      ],
+      "reason": "SONAMI is highly relevant contextually, but discovery has not established a legitimate Atlas contribution route.",
+      "permission_state": "publication surface only",
+      "human_gate": false
+    },
+    {
+      "route_id": "RTE-009",
+      "signal_id": "AOC001-SIG-009",
+      "audience": "workers and families",
+      "destination_id": "DST-006",
+      "outcome": "REJECT",
+      "reason_codes": [
+        "FORMAT_MISMATCH",
+        "EVIDENCE_MISMATCH"
+      ],
+      "reason": "The audience theme fits, but a fictional Atlas story fragment is not a suitable scholarly contribution to this journal without a separate evidence-based work.",
+      "permission_state": "scholarly submission mismatch",
+      "human_gate": false
+    },
+    {
+      "route_id": "RTE-010",
+      "signal_id": "AOC001-SIG-011",
+      "audience": "Antofagasta communities and regional readers",
+      "destination_id": "DST-007",
+      "outcome": "PURSUE",
+      "reason_codes": [
+        "FIT_STRONG",
+        "LOCAL_RELEVANCE",
+        "HUMAN_GATE"
+      ],
+      "reason": "A regional Calama news surface is directly relevant to the edition's documented Antofagasta connection; any approach remains editorial outreach.",
+      "permission_state": "editorial outreach approval required",
+      "human_gate": true
+    },
+    {
+      "route_id": "RTE-011",
+      "signal_id": "AOC001-SIG-014",
+      "audience": "Calama and Antofagasta readers",
+      "destination_id": "DST-007",
+      "outcome": "PURSUE",
+      "reason_codes": [
+        "FIT_STRONG",
+        "LOCAL_RELEVANCE",
+        "PLACE_VALUE",
+        "HUMAN_GATE"
+      ],
+      "reason": "The place-identity signal is directly about Calama and suits a local readership without reducing the city to mining output.",
+      "permission_state": "editorial outreach approval required",
+      "human_gate": true
+    },
+    {
+      "route_id": "RTE-012",
+      "signal_id": "AOC001-SIG-011",
+      "audience": "Antofagasta communities and regional readers",
+      "destination_id": "DST-008",
+      "outcome": "HOLD",
+      "reason_codes": [
+        "FIT_STRONG",
+        "PUBLIC_INTEREST",
+        "ACCESS_NEEDS_CHECK",
+        "HUMAN_GATE"
+      ],
+      "reason": "The regional mining-governance context is relevant, but the exact legitimate participation route must be established first.",
+      "permission_state": "participation route requires verification and approval",
+      "human_gate": true
+    },
+    {
+      "route_id": "RTE-013",
+      "signal_id": "AOC001-SIG-014",
+      "audience": "Calama and Antofagasta readers",
+      "destination_id": "DST-008",
+      "outcome": "HOLD",
+      "reason_codes": [
+        "LOCAL_RELEVANCE",
+        "PUBLIC_INTEREST",
+        "ACCESS_NEEDS_CHECK",
+        "HUMAN_GATE"
+      ],
+      "reason": "The human/place perspective could add value to participatory mining discussion, but Atlas must verify how outside contributions are accepted.",
+      "permission_state": "participation route requires verification and approval",
+      "human_gate": true
+    }
+  ],
+  "blocked_scope": [
+    "variant generation",
+    "format production",
+    "outreach",
+    "submission",
+    "publication"
+  ]
+}
