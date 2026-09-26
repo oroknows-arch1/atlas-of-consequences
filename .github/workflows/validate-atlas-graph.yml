@@ -6,6 +6,7 @@ on:
       - 'atlas/**'
       - 'tools/validate_atlas_graph.py'
       - 'tools/build_signal_library.py'
+      - 'tools/validate_signal_priority.py'
       - 'tools/validate_reader_invariants.py'
       - 'tools/validate_opening_controls.py'
       - 'ATLAS-OPERATING-MODEL.md'
@@ -35,6 +36,8 @@ jobs:
         run: python3 tools/validate_atlas_graph.py
       - name: Validate deterministic AOC-001 Signal Library
         run: python3 tools/build_signal_library.py --check
+      - name: Validate AOC-001 Signal Priority proof
+        run: python3 tools/validate_signal_priority.py
       - name: Validate human-approved AOC-001 reader invariants
         run: python3 tools/validate_reader_invariants.py
       - name: Validate approved opening control position
