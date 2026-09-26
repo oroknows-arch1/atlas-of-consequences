@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "atlas-variant-factory",
+  "purpose": "Create evidence-bounded candidate expressions only for PURSUE routes.",
+  "required_fields": [
+    "variant_id",
+    "route_id",
+    "signal_id",
+    "destination_id",
+    "audience",
+    "classification",
+    "expression_type",
+    "candidate_expression",
+    "evidence_refs",
+    "boundary_notes",
+    "status"
+  ],
+  "rules": [
+    "only PURSUE routes may generate variants",
+    "candidate expression must preserve upstream classification and evidence scope",
+    "destination context may change framing but not facts",
+    "never imitate destination editorial voice or imply endorsement",
+    "fiction must remain explicitly fiction",
+    "candidate variants are internal drafts only",
+    "no outreach submission scheduling or publication"
+  ]
+}
