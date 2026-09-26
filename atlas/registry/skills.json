@@ -120,6 +120,11 @@
       "id": "relevance_routing",
       "does": "Map an ADVANCE signal to people or groups with a specific reason to care, preserving the evidence and classification boundary.",
       "does_not": "Choose platforms, manufacture audiences, or equate reach with relevance."
+    },
+    {
+      "id": "destination_discovery",
+      "does": "Find and evidence real current destinations where an approved relevance route may legitimately belong.",
+      "does_not": "Assume publishing permission, choose a final route, generate content, or publish."
     }
   ]
 }

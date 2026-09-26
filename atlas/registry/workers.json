@@ -527,6 +527,36 @@
       ]
     },
     {
+      "id": "destination_discovery_worker",
+      "group": "publication",
+      "job": "Discover real current destinations for approved relevance routes and record evidence of fit and access constraints",
+      "skills": [
+        "destination_discovery",
+        "source_trace",
+        "boundary_audit"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "search current external landscape",
+        "verify destination existence",
+        "record audience fit evidence",
+        "record access and permission constraints"
+      ],
+      "may_not": [
+        "publish or contact destinations",
+        "assume permission from relevance",
+        "generate distribution variants",
+        "change the approved reader"
+      ],
+      "escalate_when": [
+        "destination participation rules are unclear",
+        "outreach would represent Atlas publicly",
+        "community or institutional participation requires permission"
+      ]
+    },
+    {
       "id": "distribution_editor",
       "group": "publication",
       "job": "Derive social/discovery assets from the verified edition",

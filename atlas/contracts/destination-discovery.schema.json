@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "atlas-destination-discovery",
+  "purpose": "Discover real current destinations where an approved relevance route may legitimately belong, without creating or publishing content.",
+  "input_rule": "Only ROUTE entries from an approved relevance register are eligible.",
+  "destination_states": [
+    "CANDIDATE",
+    "HOLD",
+    "REJECT"
+  ],
+  "required_fields": [
+    "destination_id",
+    "name",
+    "destination_type",
+    "url",
+    "matched_signal_ids",
+    "matched_audiences",
+    "fit_reason",
+    "discovery_evidence",
+    "access_mode",
+    "permission_risk",
+    "state"
+  ],
+  "rules": [
+    "destination must currently exist and be externally verifiable",
+    "audience fit must be evidenced, not guessed",
+    "discovery does not imply permission to publish",
+    "record access or participation constraints where known",
+    "prefer specific legitimate destinations over generic platform names",
+    "do not create variants or publish at this stage"
+  ]
+}
