@@ -34,6 +34,9 @@ source_of_truth:
   publication_qa_initial: "content/AOC-001/publication-qa-v0.1.md"
   manifest_reconciliation: "content/AOC-001/manifest-reconciliation-note-2026-09-25.md"
   distribution_rules: "content/AOC-001/distribution/README.md"
+  signal_library: "content/AOC-001/distribution/signal-library-v0.1.json"
+  signal_library_contract: "atlas/contracts/signal-library.schema.json"
+  signal_library_builder: "tools/build_signal_library.py"
   distribution_candidate: "content/AOC-001/distribution/distribution-candidate-v0.1.md"
   orok_rules: "content/AOC-001/orok/README.md"
   orok_scope_decision: "content/AOC-001/orok/AOC001-OROK-SCOPE-DECISION.md"
@@ -216,6 +219,14 @@ orok_companion:
   scope_decision: "content/AOC-001/orok/AOC001-OROK-SCOPE-DECISION.md"
   rule: "OROK companion material is optional downstream enrichment unless a future edition explicitly opts into it before production. AOC-001 does not require one for release or end-to-end proof."
 
+signal_library:
+  status: "proof_generated_verified"
+  output: "content/AOC-001/distribution/signal-library-v0.1.json"
+  generator: "tools/build_signal_library.py"
+  contract: "atlas/contracts/signal-library.schema.json"
+  inputs: ["master_edition", "evidence_register", "edition_manifest"]
+  rule: "Preserve originating section, evidence provenance and fact/fiction classification. Do not publish externally from this proof."
+
 distribution_pack:
   status: "candidate_v0.1 / QA v0.6 pass / unchanged"
   candidate: "content/AOC-001/distribution/distribution-candidate-v0.1.md"
@@ -250,6 +261,9 @@ production_pipeline:
   - id: P6
     stage: "mobile_reader_build"
     status: "complete / reader v0.2 human approved / QA v0.6 pass"
+  - id: P7-SL
+    stage: "signal_library"
+    status: "proof_generated_verified"
   - id: P7
     stage: "distribution_derivatives"
     status: "complete candidate / QA v0.6 pass"
