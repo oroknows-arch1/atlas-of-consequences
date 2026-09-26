@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "register_id": "AOC-001-distribution-gates-v0.1",
+  "edition_id": "AOC-001",
+  "input_adapter_register": "content/AOC-001/distribution/destination-adapter-v0.1.json",
+  "contract": "atlas/contracts/distribution-gates.schema.json",
+  "item_count": 6,
+  "summary": {
+    "evidence_pass": 6,
+    "brand_editorial_pass": 6,
+    "risk_permission_hold": 6,
+    "execution_eligible": 0
+  },
+  "items": [
+    {
+      "adapter_id": "ADP-001",
+      "evidence_gate": {
+        "outcome": "PASS",
+        "reason": "Evidence references and causal limits preserved from the verified Atlas chain."
+      },
+      "brand_editorial_gate": {
+        "outcome": "PASS",
+        "reason": "Neutral evidence-led framing; no policy recommendation or implied government endorsement."
+      },
+      "risk_permission_gate": {
+        "outcome": "HOLD",
+        "reason": "Institutional submission requires explicit human approval and destination deadline/mechanics must be revalidated at execution time.",
+        "expiry_rule": "HOLD automatically after 2026-10-09T17:00:00+11:00 unless a new valid destination state is verified"
+      },
+      "overall": "HOLD",
+      "external_action_allowed": false
+    },
+    {
+      "adapter_id": "ADP-002",
+      "evidence_gate": {
+        "outcome": "PASS",
+        "reason": "Evidence references and causal limits preserved from the verified Atlas chain."
+      },
+      "brand_editorial_gate": {
+        "outcome": "PASS",
+        "reason": "Neutral evidence-led framing; no policy recommendation or implied government endorsement."
+      },
+      "risk_permission_gate": {
+        "outcome": "HOLD",
+        "reason": "Institutional submission requires explicit human approval and destination deadline/mechanics must be revalidated at execution time.",
+        "expiry_rule": "HOLD automatically after 2026-10-09T17:00:00+11:00 unless a new valid destination state is verified"
+      },
+      "overall": "HOLD",
+      "external_action_allowed": false
+    },
+    {
+      "adapter_id": "ADP-003",
+      "evidence_gate": {
+        "outcome": "PASS",
+        "reason": "Copper material-input evidence and no-causation boundary preserved."
+      },
+      "brand_editorial_gate": {
+        "outcome": "PASS",
+        "reason": "Industry relevance is clear without promotional or endorsement language."
+      },
+      "risk_permission_gate": {
+        "outcome": "HOLD",
+        "reason": "No verified open editorial submission path; any AIA contact requires explicit human outreach approval.",
+        "expiry_rule": null
+      },
+      "overall": "HOLD",
+      "external_action_allowed": false
+    },
+    {
+      "adapter_id": "ADP-004",
+      "evidence_gate": {
+        "outcome": "PASS",
+        "reason": "2025 regional production evidence retained with no forecast."
+      },
+      "brand_editorial_gate": {
+        "outcome": "PASS",
+        "reason": "Industry relevance is clear without promotional or endorsement language."
+      },
+      "risk_permission_gate": {
+        "outcome": "HOLD",
+        "reason": "No verified open editorial submission path; any AIA contact requires explicit human outreach approval.",
+        "expiry_rule": null
+      },
+      "overall": "HOLD",
+      "external_action_allowed": false
+    },
+    {
+      "adapter_id": "ADP-005",
+      "evidence_gate": {
+        "outcome": "PASS",
+        "reason": "Regional connection remains analytical and explicitly avoids AI-causation overclaim."
+      },
+      "brand_editorial_gate": {
+        "outcome": "PASS",
+        "reason": "Regional framing is locally relevant and does not imitate the outlet's editorial voice."
+      },
+      "risk_permission_gate": {
+        "outcome": "HOLD",
+        "reason": "Press contact represents Atlas publicly and requires explicit human approval before outreach.",
+        "expiry_rule": null
+      },
+      "overall": "HOLD",
+      "external_action_allowed": false
+    },
+    {
+      "adapter_id": "ADP-006",
+      "evidence_gate": {
+        "outcome": "PASS",
+        "reason": "Place framing remains sourced and fictional household is excluded from factual evidence."
+      },
+      "brand_editorial_gate": {
+        "outcome": "PASS",
+        "reason": "Regional framing is locally relevant and does not imitate the outlet's editorial voice."
+      },
+      "risk_permission_gate": {
+        "outcome": "HOLD",
+        "reason": "Press contact represents Atlas publicly and requires explicit human approval before outreach.",
+        "expiry_rule": null
+      },
+      "overall": "HOLD",
+      "external_action_allowed": false
+    }
+  ],
+  "blocked_scope": [
+    "destination contact",
+    "submission",
+    "scheduling",
+    "publication"
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.9",
+  "schema_version": "2.0",
   "graph_id": "atlas-edition-production",
   "orchestrator": "atlas_orchestrator",
   "rules": {
@@ -248,11 +248,35 @@
       "produces": "destination_adaptation_register"
     },
     {
+      "id": "distribution_evidence_gate",
+      "worker": "distribution_evidence_verifier",
+      "requires": [
+        "destination_adapter"
+      ],
+      "produces": "distribution_evidence_gate_result"
+    },
+    {
+      "id": "brand_editorial_gate",
+      "worker": "brand_editorial_verifier",
+      "requires": [
+        "distribution_evidence_gate"
+      ],
+      "produces": "brand_editorial_gate_result"
+    },
+    {
+      "id": "risk_permission_gate",
+      "worker": "risk_permission_verifier",
+      "requires": [
+        "brand_editorial_gate"
+      ],
+      "produces": "risk_permission_gate_result"
+    },
+    {
       "id": "publication_qa",
       "worker": "publication_qc",
       "requires": [
         "reader_build",
-        "destination_adapter"
+        "risk_permission_gate"
       ],
       "produces": "release_readiness_report"
     },
