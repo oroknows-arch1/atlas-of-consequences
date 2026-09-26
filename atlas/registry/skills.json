@@ -130,6 +130,11 @@
       "id": "route_decision",
       "does": "Choose PURSUE, HOLD or REJECT for an evidenced signal-audience-destination opportunity before creative resources are spent.",
       "does_not": "Treat destination discovery as permission, optimize for reach alone, generate variants, contact destinations, or publish."
+    },
+    {
+      "id": "variant_factory",
+      "does": "Create internal candidate expressions for PURSUE routes while preserving evidence, classification, boundaries and route context.",
+      "does_not": "Imitate destination voice, invent facts, imply endorsement, contact destinations, schedule, submit, or publish."
     }
   ]
 }
