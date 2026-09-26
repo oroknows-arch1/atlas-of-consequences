@@ -135,6 +135,11 @@
       "id": "variant_factory",
       "does": "Create internal candidate expressions for PURSUE routes while preserving evidence, classification, boundaries and route context.",
       "does_not": "Imitate destination voice, invent facts, imply endorsement, contact destinations, schedule, submit, or publish."
+    },
+    {
+      "id": "format_selection",
+      "does": "Choose and specify the production form that best serves an approved route and candidate expression.",
+      "does_not": "Create every possible format, infer publication permission, release translations, contact destinations, or publish."
     }
   ]
 }
