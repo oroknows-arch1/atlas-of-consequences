@@ -557,6 +557,36 @@
       ]
     },
     {
+      "id": "route_decider",
+      "group": "publication",
+      "job": "Make bounded PURSUE/HOLD/REJECT decisions for evidenced signal-audience-destination opportunities",
+      "skills": [
+        "route_decision",
+        "source_trace",
+        "boundary_audit"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "compare signal audience and destination fit",
+        "prefer fewer stronger routes",
+        "record permission actionability",
+        "reject poor or duplicative opportunities"
+      ],
+      "may_not": [
+        "generate variants",
+        "contact or submit to destinations",
+        "publish externally",
+        "treat reach as editorial value"
+      ],
+      "escalate_when": [
+        "a PURSUE route requires outreach submission or community participation",
+        "permission state is ambiguous",
+        "route would require stronger evidence than the edition contains"
+      ]
+    },
+    {
       "id": "distribution_editor",
       "group": "publication",
       "job": "Derive social/discovery assets from the verified edition",
