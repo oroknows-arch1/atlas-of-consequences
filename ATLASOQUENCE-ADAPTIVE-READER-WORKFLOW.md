@@ -1,6 +1,6 @@
 # Atlasoquence Adaptive Reader — Workflow Lock v0.1
 
-**Status:** ACTIVE TEST CONTRACT  
+**Status:** ACTIVE TEST CONTRACT · v0.2  
 **Scope:** Atlasoquence reader/workflow experiments beginning with AOC-001  
 **Purpose:** Prevent architecture drift while testing the proposed replacement for the legacy linear Atlas reader.
 
@@ -32,11 +32,12 @@ The proposed reader opens into an edition shell rather than immediately forcing 
 
 The shell should:
 1. establish the edition identity and central world change;
-2. expose a **Perspectives menu**;
-3. let the user choose where to enter;
-4. generate/render a coherent reading route for that perspective;
-5. preserve access to evidence, place, story and consequences as appropriate to that route;
-6. let the reader move between perspectives without pretending each perspective is a separate edition.
+2. expose a **Perspectives menu** immediately after the edition entrance;
+3. when routing context exists, visually highlight the perspective connected to the incoming marketing signal without auto-entering it;
+4. let the user choose where to enter;
+5. generate/render a coherent reading route for that perspective;
+6. preserve access to evidence, place, story and consequences as appropriate to that route;
+7. let the reader move between perspectives without pretending each perspective is a separate edition.
 
 The shell may be AI-generated/adaptive, but factual evidence, editorial boundaries and publication governance remain deterministic and inspectable.
 
@@ -87,7 +88,15 @@ The target is the previously approved V3/reference-board quality and interaction
 
 The working hypothesis is:
 
-**Edition → adaptive shell → Perspectives → chosen perspective → coherent route through evidence/story/place/consequences → other perspectives / evidence inspection**
+**Marketing signal → edition homepage/shell → Perspectives menu → originating perspective highlighted → reader chooses → coherent route through evidence/story/place/consequences → other perspectives / evidence inspection**
+
+The marketing source does **not** bypass the edition entrance or automatically open a perspective. Every reader enters through the edition homepage/shell and encounters the Perspectives menu.
+
+A distributed signal may carry an **edition ID + perspective ID**. The perspective ID may control only the initial visual highlight/focus of the relevant perspective in the menu. It must not automatically navigate the reader, alter evidence, generate different facts or hide the other available perspectives.
+
+The highlight communicates provenance: **this is the perspective connected to what brought you here.** It is not an algorithmic recommendation or instruction.
+
+The reader retains agency to select that highlighted perspective or choose another available perspective. The presence of the other perspectives at arrival is intentional: it immediately reveals that the world change can be understood from more than one position.
 
 The reader should feel like one living edition with multiple legitimate ways into it, not a webpage containing a stack of conventional sections and not a collection of disconnected mini-articles.
 
@@ -151,11 +160,14 @@ Before changing the reader, answer these questions:
 2. Is this item a perspective, factual evidence, story, consequence, place context or source?
 3. Am I accidentally placing a Perspective inside WHAT'S REAL?
 4. Does this change preserve the edition as the parent object?
-5. Does the Perspectives menu remain the reader's choice of entry route?
-6. Does generated presentation preserve evidence provenance and fact/fiction boundaries?
-7. Am I testing the whole proposed reader model rather than merely decorating the old linear reader?
-8. Can this be isolated inside the existing repository?
-9. Has the user explicitly approved replacing the legacy reader? If not, keep the control intact.
+5. Does every incoming marketing route still land at the edition homepage/shell before perspective selection?
+6. If an incoming perspective is known, is it highlighted as provenance rather than auto-opened or presented as a recommendation?
+7. Are all other available perspectives still visible so the reader can see the wider edition?
+8. Does the Perspectives menu remain the reader's choice of entry route?
+9. Does generated presentation preserve evidence provenance and fact/fiction boundaries?
+10. Am I testing the whole proposed reader model rather than merely decorating the old linear reader?
+11. Can this be isolated inside the existing repository?
+12. Has the user explicitly approved replacing the legacy reader? If not, keep the control intact.
 
 If any answer indicates drift, stop the implementation and return to this contract.
 
