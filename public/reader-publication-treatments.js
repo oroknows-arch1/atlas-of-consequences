@@ -421,11 +421,12 @@
   if (!intro || document.querySelector('.perspective-entry')) return;
 
   const routes = [
-    {id:'family-labour', label:'Family + labour', copy:'Work, household, skills, absence and opportunity.', targets:['story','consequences','place']},
-    {id:'markets-finance', label:'Markets + finance', copy:'Demand, constraints, supply and commercial interpretation.', targets:['report','consequences','sources']},
-    {id:'land-place', label:'Land + place', copy:'Infrastructure, extraction, territory and local pressure.', targets:['report','place','consequences']},
-    {id:'culture-community', label:'Culture + community', copy:'Community, identity and documented cultural boundaries.', targets:['place','consequences','sources']},
-    {id:'technology-infrastructure', label:'Technology + infrastructure', copy:'Compute, electricity, grids and physical materials.', targets:['report','consequences','sources']}
+    {id:'technology', label:'Technology', copy:'Compute, data centres and the physical system behind AI.', targets:['report','consequences','sources']},
+    {id:'energy-grid', label:'Energy + grid', copy:'Electricity demand, connections and grid equipment.', targets:['report','consequences','sources']},
+    {id:'minerals-resources', label:'Minerals + resources', copy:'Copper demand, production and the path into northern Chile.', targets:['report','place','consequences']},
+    {id:'family', label:'Family', copy:'Household, absence, opportunity and the human trade-offs around work.', targets:['story','consequences','place']},
+    {id:'work-skills', label:'Work + skills', copy:'Employment, rosters, technical skills and labour mobility.', targets:['story','place','consequences']},
+    {id:'markets-finance', label:'Markets + finance', copy:'Demand, constraints, concentrated supply and commercial interpretation.', targets:['report','consequences','sources']}
   ];
 
   const oldMap = document.querySelector('.edition-map');
