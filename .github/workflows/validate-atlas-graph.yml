@@ -15,6 +15,7 @@ on:
       - 'tools/validate_destination_adapter.py'
       - 'tools/validate_distribution_gates.py'
       - 'tools/validate_controlled_live_test.py'
+      - 'tools/validate_execution_gateway.py'
       - 'tools/validate_reader_invariants.py'
       - 'tools/validate_opening_controls.py'
       - 'ATLAS-OPERATING-MODEL.md'
@@ -62,6 +63,8 @@ jobs:
         run: python3 tools/validate_distribution_gates.py
       - name: Validate controlled AOC-001 live-test harness
         run: python3 tools/validate_controlled_live_test.py
+      - name: Validate distribution Execution Gateway
+        run: python3 tools/validate_execution_gateway.py
       - name: Validate human-approved AOC-001 reader invariants
         run: python3 tools/validate_reader_invariants.py
       - name: Validate approved opening control position
