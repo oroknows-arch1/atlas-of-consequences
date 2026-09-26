@@ -753,6 +753,114 @@
       ]
     },
     {
+      "id": "distribution_executor_worker",
+      "group": "distribution",
+      "job": "Execute the single authorized distribution action only when every execution precondition is satisfied",
+      "skills": [
+        "controlled_distribution_execution"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "revalidate destination state",
+        "enforce max-action scope",
+        "execute through a configured authorized channel",
+        "stop as BLOCKED_NOT_EXECUTED when capability is absent"
+      ],
+      "may_not": [
+        "fabricate external effects",
+        "expand human authorization"
+      ],
+      "escalate_when": [
+        "required evidence or authority is absent"
+      ]
+    },
+    {
+      "id": "publication_receipt_worker",
+      "group": "distribution",
+      "job": "Record the factual result of an execution attempt",
+      "skills": [
+        "execution_receipt"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "write only evidence-backed state transitions"
+      ],
+      "may_not": [
+        "fabricate external effects",
+        "expand human authorization"
+      ],
+      "escalate_when": [
+        "required evidence or authority is absent"
+      ]
+    },
+    {
+      "id": "performance_collector_worker",
+      "group": "distribution",
+      "job": "Collect supported performance observations from real receipts",
+      "skills": [
+        "performance_collection"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "write only evidence-backed state transitions"
+      ],
+      "may_not": [
+        "fabricate external effects",
+        "expand human authorization"
+      ],
+      "escalate_when": [
+        "required evidence or authority is absent"
+      ]
+    },
+    {
+      "id": "distribution_learning_worker",
+      "group": "distribution",
+      "job": "Derive bounded learning from actual performance evidence",
+      "skills": [
+        "distribution_learning"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "write only evidence-backed state transitions"
+      ],
+      "may_not": [
+        "fabricate external effects",
+        "expand human authorization"
+      ],
+      "escalate_when": [
+        "required evidence or authority is absent"
+      ]
+    },
+    {
+      "id": "routing_update_worker",
+      "group": "distribution",
+      "job": "Propose routing changes from supported learning without self-applying consequential changes",
+      "skills": [
+        "routing_update"
+      ],
+      "write_scope": [
+        "content/{edition_id}/distribution/**"
+      ],
+      "may": [
+        "write only evidence-backed state transitions"
+      ],
+      "may_not": [
+        "fabricate external effects",
+        "expand human authorization"
+      ],
+      "escalate_when": [
+        "required evidence or authority is absent"
+      ]
+    },
+    {
       "id": "publication_qc",
       "group": "qa",
       "job": "Verify release readiness against locks, graph gates and real rendered output",
