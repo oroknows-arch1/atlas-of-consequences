@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.9",
+  "schema_version": "2.0",
   "edition_id": "AOC-001",
   "title": "AI's Physical Hunger",
   "graph": "atlas/graphs/edition-production.json",
@@ -51,7 +51,9 @@
     "route_decision_register": "content/AOC-001/distribution/route-decision-v0.1.json",
     "route_decision_contract": "atlas/contracts/route-decision.schema.json",
     "variant_register": "content/AOC-001/distribution/variant-factory-v0.1.json",
-    "variant_factory_contract": "atlas/contracts/variant-factory.schema.json"
+    "variant_factory_contract": "atlas/contracts/variant-factory.schema.json",
+    "format_spec_register": "content/AOC-001/distribution/format-workers-v0.1.json",
+    "format_workers_contract": "atlas/contracts/format-workers.schema.json"
   },
   "node_state": {
     "evidence_pack": "satisfied_by_existing_artifact",
@@ -80,7 +82,8 @@
     "relevance_routing": "proof_human_approved",
     "destination_discovery": "proof_human_approved",
     "route_decision": "proof_human_approved",
-    "variant_factory": "proof_generated_pending_human_review"
+    "variant_factory": "proof_human_approved",
+    "format_workers": "proof_generated_pending_human_review"
   },
   "foreground_next": "release_human_gate",
   "notes": [
@@ -100,6 +103,7 @@
     "Relevance Routing proof routes only the 8 human-approved ADVANCE signals to audiences with explicit reasons to care; destination discovery remains blocked.",
     "Destination Discovery proof identifies real current candidate destinations with fit evidence and permission constraints; no route decision, outreach, variant generation or publication has occurred.",
     "Route Decision proof evaluates evidenced signal-audience-destination opportunities as PURSUE/HOLD/REJECT. PURSUE authorizes only candidate-expression work; outreach, submission and publication remain blocked.",
-    "Variant Factory proof creates six internal candidate expressions from six human-approved PURSUE routes. No destination contact, submission, scheduling or publication is authorized."
+    "Variant Factory proof creates six internal candidate expressions from six human-approved PURSUE routes. No destination contact, submission, scheduling or publication is authorized.",
+    "Format Workers proof selects one route-appropriate production specification for each of the six approved internal variants. Spanish localisation is only a candidate requirement and is not released without verification."
   ]
 }
