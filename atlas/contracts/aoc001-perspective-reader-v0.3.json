@@ -1,0 +1,60 @@
+{
+  "schema_version": "2.0",
+  "edition_id": "AOC-001",
+  "status": "human_approved_direction",
+  "architecture": "progressive_perspective_reader_v0.3",
+  "common_spine": {
+    "required": [
+      "WHAT'S REAL",
+      "SOURCES"
+    ],
+    "rule": "Perspective changes routing, never underlying evidence."
+  },
+  "perspectives": [
+    {
+      "id": "family-labour",
+      "label": "Family + labour",
+      "available": true,
+      "mode": "fiction_plus_documented_context"
+    },
+    {
+      "id": "markets-finance",
+      "label": "Markets + finance",
+      "available": true,
+      "mode": "analysis"
+    },
+    {
+      "id": "land-place",
+      "label": "Land + place",
+      "available": true,
+      "mode": "factual_context_plus_analysis"
+    },
+    {
+      "id": "culture-community",
+      "label": "Culture + community",
+      "available": true,
+      "mode": "factual_context",
+      "boundary": "Do not infer or speak for Indigenous/community viewpoints beyond evidence."
+    },
+    {
+      "id": "technology-infrastructure",
+      "label": "Technology + infrastructure",
+      "available": true,
+      "mode": "factual_plus_analysis"
+    }
+  ],
+  "protected_invariants": [
+    "Facts can change the fiction. Fiction must never quietly become fact.",
+    "Material factual claims remain traceable to evidence.",
+    "Connection is not causation without evidence.",
+    "Fiction is never market or investment evidence.",
+    "Full canonical edition and SOURCES remain accessible."
+  ],
+  "media": {
+    "fictional_generated_video_required": false,
+    "edition_completion_must_not_depend_on_generated_video": true,
+    "video_role": "optional_enhancement",
+    "aoc001_existing_factual_film": "legacy approved test asset; not a future-edition requirement"
+  },
+  "change_rule": "Changes to evidence, fact/fiction boundaries or causal claims require explicit approval. Perspective presentation may evolve while these invariants remain intact."
+}
