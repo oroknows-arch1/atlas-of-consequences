@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "register_id": "AOC-001-format-workers-v0.1",
+  "edition_id": "AOC-001",
+  "input_variant_register": "content/AOC-001/distribution/variant-factory-v0.1.json",
+  "contract": "atlas/contracts/format-workers.schema.json",
+  "format_count": 6,
+  "formats": [
+    {
+      "format_id": "FMT-001",
+      "variant_id": "VAR-001",
+      "route_id": "RTE-002",
+      "format_class": "structured_text",
+      "deliverable": "evidence-led consultation submission draft",
+      "language": "English",
+      "production_brief": "A concise structured submission section: documented global electricity scale, infrastructure implication, explicit Australian applicability limits, source notes.",
+      "required_labels": [
+        "FACTUAL",
+        "SOURCES_REQUIRED"
+      ],
+      "status": "SPEC_ONLY",
+      "external_action_allowed": false
+    },
+    {
+      "format_id": "FMT-002",
+      "variant_id": "VAR-002",
+      "route_id": "RTE-003",
+      "format_class": "structured_text",
+      "deliverable": "analytical consultation submission draft",
+      "language": "English",
+      "production_brief": "A short mechanism-led submission section tracing additional data-centre electricity demand into grid planning constraints without asserting unsupported location-specific causation.",
+      "required_labels": [
+        "ANALYSIS",
+        "CAUSAL_LIMITS",
+        "SOURCES_REQUIRED"
+      ],
+      "status": "SPEC_ONLY",
+      "external_action_allowed": false
+    },
+    {
+      "format_id": "FMT-003",
+      "variant_id": "VAR-003",
+      "route_id": "RTE-005",
+      "format_class": "briefing_note",
+      "deliverable": "regional industry discussion brief",
+      "language": "English; Spanish localisation candidate",
+      "production_brief": "A one-page industry discussion brief connecting physical AI infrastructure to copper as a material input, then clearly separating additional demand pressure from existing Antofagasta investment.",
+      "required_labels": [
+        "FACTUAL",
+        "NO_AI_CAUSATION_CLAIM",
+        "SOURCES_REQUIRED"
+      ],
+      "status": "SPEC_ONLY",
+      "external_action_allowed": false
+    },
+    {
+      "format_id": "FMT-004",
+      "variant_id": "VAR-004",
+      "route_id": "RTE-006",
+      "format_class": "data_card_plus_brief",
+      "deliverable": "regional evidence card with supporting note",
+      "language": "English; Spanish localisation candidate",
+      "production_brief": "Lead with the evidenced 58% regional production share, followed by a compact explanation of why existing copper concentration creates exposure to changing material demand. No forecast.",
+      "required_labels": [
+        "FACTUAL",
+        "2025_DATA",
+        "NO_FORECAST",
+        "SOURCES_REQUIRED"
+      ],
+      "status": "SPEC_ONLY",
+      "external_action_allowed": false
+    },
+    {
+      "format_id": "FMT-005",
+      "variant_id": "VAR-005",
+      "route_id": "RTE-010",
+      "format_class": "editorial_pitch",
+      "deliverable": "regional editorial pitch concept",
+      "language": "English; Spanish localisation candidate",
+      "production_brief": "A concise editorial pitch explaining Atlas's global-to-local reporting method and the Antofagasta angle, with direct links to the evidence base and no claim of publication access.",
+      "required_labels": [
+        "ANALYSIS",
+        "NO_ENDORSEMENT",
+        "SOURCES_REQUIRED"
+      ],
+      "status": "SPEC_ONLY",
+      "external_action_allowed": false
+    },
+    {
+      "format_id": "FMT-006",
+      "variant_id": "VAR-006",
+      "route_id": "RTE-011",
+      "format_class": "editorial_pitch",
+      "deliverable": "Calama place-story pitch concept",
+      "language": "English; Spanish localisation candidate",
+      "production_brief": "A place-led pitch positioning Calama as a lived city rather than a mining statistic, separating sourced place context from the edition's fictional household.",
+      "required_labels": [
+        "FACTUAL_CONTEXT",
+        "FICTION_BOUNDARY",
+        "NO_ENDORSEMENT",
+        "SOURCES_REQUIRED"
+      ],
+      "status": "SPEC_ONLY",
+      "external_action_allowed": false
+    }
+  ],
+  "blocked_scope": [
+    "translation release",
+    "destination adaptation",
+    "destination contact",
+    "outreach",
+    "submission",
+    "scheduling",
+    "publication"
+  ]
+}
