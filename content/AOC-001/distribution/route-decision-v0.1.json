@@ -123,14 +123,14 @@
     {
       "route_id": "RTE-008",
       "signal_id": "AOC001-SIG-011",
-      "audience": "resources sector and investors",
+      "audience": "resources sector professionals",
       "destination_id": "DST-005",
       "outcome": "HOLD",
       "reason_codes": [
         "FIT_STRONG",
         "ACCESS_UNCLEAR"
       ],
-      "reason": "The Antofagasta supply-chain bridge fits SONAMI's subject matter, but actionability is not established.",
+      "reason": "The Antofagasta supply-chain bridge fits SONAMI's resources-sector subject matter, but actionability is not established.",
       "permission_state": "publication surface only",
       "human_gate": false
     },
