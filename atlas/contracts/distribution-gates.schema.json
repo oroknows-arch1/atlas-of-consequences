@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "atlas-distribution-gates",
+  "purpose": "Apply independent Evidence, Brand/Editorial, and Risk/Permission gates before any external distribution action.",
+  "outcomes": [
+    "PASS",
+    "HOLD",
+    "FAIL"
+  ],
+  "rules": [
+    "gates evaluate independently",
+    "all three PASS is required before an item may become execution-eligible",
+    "PASS never executes an external action",
+    "destination expiry or changed mechanics returns Risk/Permission to HOLD",
+    "human-required outreach or institutional submission cannot be auto-authorized",
+    "a later gate cannot repair an upstream evidence failure"
+  ]
+}
