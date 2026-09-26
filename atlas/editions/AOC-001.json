@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.3",
+  "schema_version": "2.4",
   "edition_id": "AOC-001",
   "title": "AI's Physical Hunger",
   "graph": "atlas/graphs/edition-production.json",
@@ -60,7 +60,9 @@
     "distribution_gate_contract": "atlas/contracts/distribution-gates.schema.json",
     "live_test_authorization": "content/AOC-001/distribution/live-test-authorization-v0.1.json",
     "live_test_state": "content/AOC-001/distribution/live-test-state-v0.1.json",
-    "controlled_execution_contract": "atlas/contracts/controlled-execution.schema.json"
+    "controlled_execution_contract": "atlas/contracts/controlled-execution.schema.json",
+    "execution_gateway_contract": "atlas/contracts/distribution-execution-gateway.schema.json",
+    "execution_gateway_capability": "content/AOC-001/distribution/execution-gateway-capability-v0.1.json"
   },
   "node_state": {
     "evidence_pack": "satisfied_by_existing_artifact",
@@ -99,7 +101,8 @@
     "publication_receipt": "not_run",
     "performance_collector": "waiting",
     "learning_worker": "waiting",
-    "routing_update": "waiting"
+    "routing_update": "waiting",
+    "execution_gateway_preflight": "blocked_provider_unbound"
   },
   "foreground_next": "release_human_gate",
   "notes": [
@@ -123,6 +126,7 @@
     "Format Workers proof selects one route-appropriate production specification for each of the six approved internal variants. Spanish localisation is only a candidate requirement and is not released without verification.",
     "Destination Adapter proof uses current verified mechanics for PM&C, AIA and El Diario de Antofagasta. Adaptation is internal only and does not confer permission to contact, submit or publish.",
     "Distribution gates proof independently passes evidence and brand/editorial integrity for all six packages while holding all six at Risk/Permission. Zero external actions are execution-eligible without explicit human authority and current destination revalidation.",
-    "Human approval authorizes one bounded El Diario regional editorial outreach test (ADP-005) only. Execution remains BLOCKED_NOT_EXECUTED until an authorized external channel is configured and destination state is revalidated. No outcome may be fabricated downstream."
+    "Human approval authorizes one bounded El Diario regional editorial outreach test (ADP-005) only. Execution remains BLOCKED_NOT_EXECUTED until an authorized external channel is configured and destination state is revalidated. No outcome may be fabricated downstream.",
+    "Execution Gateway is provider-neutral and keeps credentials outside repository artifacts. Current capability state is NOT_CONFIGURED, so the authorized one-action test remains blocked and no external effect can occur."
   ]
 }
