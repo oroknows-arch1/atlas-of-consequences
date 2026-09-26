@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.7",
+  "schema_version": "1.8",
   "graph_id": "atlas-edition-production",
   "orchestrator": "atlas_orchestrator",
   "rules": {
@@ -232,11 +232,19 @@
       "produces": "variant_register"
     },
     {
+      "id": "format_workers",
+      "worker": "format_worker",
+      "requires": [
+        "variant_factory"
+      ],
+      "produces": "format_spec_register"
+    },
+    {
       "id": "publication_qa",
       "worker": "publication_qc",
       "requires": [
         "reader_build",
-        "variant_factory"
+        "format_workers"
       ],
       "produces": "release_readiness_report"
     },
