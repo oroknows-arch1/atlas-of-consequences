@@ -116,9 +116,10 @@ def produce_assets(run, edition, routes, requirements, output):
         try:
             if contextual:
                 if not generator or not verifier: raise RuntimeError("image generator and independent visual verifier commands are required")
+                feedback=""
                 for attempt in range(1,4):
                     try:
-                        result=invoke(generator,dict(job,attempt=attempt))
+                        result=invoke(generator,dict(job,attempt=attempt,repair_feedback=feedback))
                         source=Path(result["path"])
                         if not source.is_file(): raise RuntimeError("provider returned no binary")
                         with Image.open(source) as im:
@@ -128,7 +129,8 @@ def produce_assets(run, edition, routes, requirements, output):
                         if check.get("pass") is not True: raise RuntimeError("visual/evidence QA: "+check.get("reason","failed"))
                         shutil.copyfile(source,dest)
                         break
-                    except Exception:
+                    except Exception as error:
+                        feedback=str(error)
                         if attempt==3: raise
             else:
                 make_graphic(dest,scene,spec,scene["evidence_refs"],graphic_data.get(sid))

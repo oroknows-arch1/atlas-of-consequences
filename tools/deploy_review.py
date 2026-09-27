@@ -16,7 +16,7 @@ def api(path,key,body=None):
     with urlopen(request,timeout=30) as response:return json.load(response)
 def main(run):
     if git("branch","--show-current")!="test/automated-edition-1":raise RuntimeError("wrong branch")
-    if git("status","--porcelain"):raise RuntimeError("commit assets and reader before deployment")
+    if git("status","--porcelain","--","public"):raise RuntimeError("commit assets and reader before deployment")
     sha=git("rev-parse","HEAD")
     if git("ls-remote","origin","refs/heads/test/automated-edition-1").split()[0]!=sha:
         raise RuntimeError("review branch commit has not been pushed")

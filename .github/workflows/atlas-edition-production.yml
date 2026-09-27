@@ -24,6 +24,7 @@ jobs:
       ATLAS_IMAGE_COMMAND: python3 tools/image_provider_openai.py
       ATLAS_VISUAL_QA_COMMAND: python3 tools/visual_verifier_openai.py
       ATLAS_BENCHMARK_URL: https://atlas-of-consequences.onrender.com/adaptive/
+      NODE_PATH: /tmp/atlas-playwright/node_modules
     steps:
       - uses: actions/checkout@v4
         with:
@@ -44,7 +45,7 @@ jobs:
       - name: Produce actual assets and reader
         run: python3 tools/produce_edition.py "$RUN_DIR"
         env:
-          RUN_DIR: ${{ inputs.run_dir }}
+          RUN_DIR: ${{ inputs.run_dir || 'content/AUTOMATED-TEST-001' }}
       - name: Persist binaries and reader on test branch
         run: |
           git config user.name "atlas-production-worker"
@@ -53,34 +54,23 @@ jobs:
           git commit -m "Produce Atlas review candidate assets and reader"
           git push origin HEAD:test/automated-edition-1
         env:
-          RUN_DIR: ${{ inputs.run_dir }}
-      - name: Deploy pinned commit to existing review service
-        run: python3 tools/deploy_review.py "$RUN_DIR"
+          RUN_DIR: ${{ inputs.run_dir || 'content/AUTOMATED-TEST-001' }}
+      - name: Deploy, inspect and repair bounded defects
+        run: python3 tools/review_loop.py "$RUN_DIR"
         env:
-          RUN_DIR: ${{ inputs.run_dir }}
-      - name: Inspect deployed phone and desktop reader
-        run: |
-          REVIEW_URL=$(python3 -c 'import json,os;print(json.load(open(os.environ["RUN_DIR"]+"/deployment-receipt.json"))["url"])')
-          node tools/rendered_qa.cjs "$REVIEW_URL" "$RUN_DIR/rendered-qa.json" "$RUN_DIR/screenshots"
-        env:
-          RUN_DIR: ${{ inputs.run_dir }}
-          NODE_PATH: /tmp/atlas-playwright/node_modules
-      - name: Independent rendered and benchmark visual review
-        run: python3 tools/review_rendered.py "$RUN_DIR"
-        env:
-          RUN_DIR: ${{ inputs.run_dir }}
+          RUN_DIR: ${{ inputs.run_dir || 'content/AUTOMATED-TEST-001' }}
       - name: Publication completeness gate
         run: python3 tools/publication_gate.py "$RUN_DIR"
         env:
-          RUN_DIR: ${{ inputs.run_dir }}
+          RUN_DIR: ${{ inputs.run_dir || 'content/AUTOMATED-TEST-001' }}
       - name: Store inspectable receipts and screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: atlas-production-receipts
           path: |
-            ${{ inputs.run_dir }}/*receipt.json
-            ${{ inputs.run_dir }}/rendered-qa.json
-            ${{ inputs.run_dir }}/visual-review.json
-            ${{ inputs.run_dir }}/benchmark-parity.json
-            ${{ inputs.run_dir }}/screenshots/*.png
+            ${{ inputs.run_dir || 'content/AUTOMATED-TEST-001' }}/*receipt.json
+            ${{ inputs.run_dir || 'content/AUTOMATED-TEST-001' }}/rendered-qa.json
+            ${{ inputs.run_dir || 'content/AUTOMATED-TEST-001' }}/visual-review.json
+            ${{ inputs.run_dir || 'content/AUTOMATED-TEST-001' }}/benchmark-parity.json
+            ${{ inputs.run_dir || 'content/AUTOMATED-TEST-001' }}/screenshots/*.png
