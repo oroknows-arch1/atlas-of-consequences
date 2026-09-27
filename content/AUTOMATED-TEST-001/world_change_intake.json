@@ -1,0 +1,10 @@
+{
+  "stage":"world_change_intake","status":"PASS","produced_by":"atlas_world_change_research / ChatGPT web research 2026-09-27",
+  "output":{
+    "candidate_id":"AET1-WC-001",
+    "statement":"Persistent Strait of Hormuz disruption has reconfigured fertilizer supply chains, producing a severe initial price and trade shock followed by uneven adaptation, alternative sourcing and public intervention while important input and shipping constraints remain.",
+    "evidence_refs":["SRC-FAO-0924","SRC-WB-CMO-0428","SRC-IFPRI-0921","SRC-WB-BD-0626","SRC-BD-MOA-0816","SRC-AU-DAFF-0819"],
+    "selection_state":"APPROVED_FOR_TEST",
+    "known_limits":["Shock is not equivalent to current shortage.","Price risk is not proof of crop failure or hunger.","Forecasts are not observed outcomes.","National stock sufficiency is not proof of frictionless local access."]
+  }
+}
