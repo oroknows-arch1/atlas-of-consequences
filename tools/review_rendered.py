@@ -3,6 +3,7 @@
 import base64,json,os,sys
 from pathlib import Path
 from urllib.request import Request,urlopen
+from urllib.error import HTTPError
 from production_state import binding, read, write, require_current
 
 def picture(path):return {"type":"input_image","image_url":"data:image/png;base64,"+base64.b64encode(path.read_bytes()).decode()}
@@ -31,7 +32,20 @@ def main(run):
     body={"model":os.environ.get("ATLAS_VISION_MODEL","gpt-4.1"),"input":[{"role":"user","content":content}]}
     request=Request("https://api.openai.com/v1/responses",data=json.dumps(body).encode(),
                     headers={"Authorization":"Bearer "+key,"Content-Type":"application/json"})
-    with urlopen(request,timeout=180) as res:response=json.load(res)
+    response=None
+    for attempt in range(1,5):
+        try:
+            with urlopen(request,timeout=180) as res:
+                response=json.load(res)
+            break
+        except HTTPError as error:
+            if error.code != 429 or attempt == 4:
+                raise
+            retry_after = float(error.headers.get('Retry-After','0') or 0)
+            import time
+            time.sleep(min(60, max(attempt * 15, retry_after)))
+    if response is None:
+        raise RuntimeError('visual review provider returned no response')
     text="".join(p.get("text","") for x in response.get("output",[]) for p in x.get("content",[]))
     verdict=json.loads(text)
     if verdict.get("status") not in {"PASS","BLOCKED"} or verdict.get("benchmark_parity") not in {"PASS","BLOCKED"}:
