@@ -20,6 +20,7 @@ from PIL import Image, ImageStat
 from production_state import binding, block, digest, reader_hashes, require_current
 from editorial_factory import produce as produce_copy
 from reader_builder import build_reader
+from provider_errors import requires_external_action
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_GATES = ("selected-edition-gate", "story_plausibility_gate")
@@ -169,7 +170,7 @@ def produce_assets(run, edition, routes, requirements, output):
                         break
                     except Exception as error:
                         feedback=str(error)
-                        if attempt==3: raise
+                        if requires_external_action(error) or attempt==3: raise
             else:
                 make_graphic(dest,scene,spec,scene["evidence_refs"],graphic_data.get(sid))
                 check={"pass":True,"reason":"Verified deterministic value, scope and scene source; rendered review still mandatory"}
@@ -182,7 +183,7 @@ def produce_assets(run, edition, routes, requirements, output):
                            "truth_boundary":spec["truth_boundary"],"status":"PASS",
                            "job_sha256":job_hash,"visual_qa":check})
         except Exception as exc:
-            defects.append({"worker":"visual_factory" if contextual else "asset_persistence", "scene_id":sid,"reason":str(exc)})
+            defects.append({"worker":"visual_factory" if contextual else "asset_persistence", "scene_id":sid,"reason":str(exc),"external_action_required":requires_external_action(exc)})
     write(run/"asset-persistence-receipt.json",{**binding(run),"status":"PASS" if not defects else "BLOCKED","assets":assets,"defects":defects})
     return assets,defects
 
@@ -204,7 +205,7 @@ def main():
     except Exception as exc: defects.append({"worker":"production_orchestrator","reason":str(exc)})
     receipt={**binding(run),"state":"ASSEMBLED" if reader and not defects else "BLOCKED", "assets_persisted":len(assets),
              "reader":str(reader.relative_to(ROOT)) if reader else None,"defects":defects,
-             "next_stage":"rendered_qa" if reader else "repair", "publication_authorized":False, "reader_hashes":reader_hashes(reader) if reader else {}}
+             "next_stage":"rendered_qa" if reader else "external_action" if any(d.get("external_action_required") for d in defects) else "repair", "publication_authorized":False, "reader_hashes":reader_hashes(reader) if reader else {}}
     write(run/"production-receipt.json",receipt)
     print(json.dumps(receipt,indent=2))
     return 0 if reader and not defects else 1

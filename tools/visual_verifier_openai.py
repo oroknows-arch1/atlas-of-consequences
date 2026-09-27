@@ -15,7 +15,12 @@ def main():
                  "{\"pass\": boolean, \"reason\": string}. Fail if it is a collage, generic unrelated image, "
                  "visibly wrong for the geography, misleadingly specific, poor quality, dark, cropped badly, "
                  "contains signs/text suggesting a documented site, or contradicts the visual purpose. "
-                 "A generated representative scene cannot prove a real event. "
+                 "This is generated contextual illustration, displayed with the explicit caption "
+                 "AI-generated contextual illustration — not a documentary photograph. It is not submitted "
+                 "as evidence that an event happened. Do not fail solely because it is generated or cannot "
+                 "prove a real event. Still FAIL misleading specificity, invented identifiable institutions, "
+                 "staged distress, implausible anatomy, stylized/unnatural faces or environments, weak "
+                 "continuity, and every quality or evidence-boundary defect listed above. "
                  f"Scene: {job['meaning']}. Location: {job['geography']}. Purpose: {job['purpose']}. "
                  f"Truth boundary: {job['truth_boundary']}. Context: {json.dumps(job['locality_evidence'])}. "
                  f"Continuity: {json.dumps(job['continuity'])}.")

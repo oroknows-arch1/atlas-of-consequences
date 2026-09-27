@@ -17,3 +17,8 @@ def describe(error):
         if os.environ.get(key): message=message.replace(os.environ[key],'[REDACTED]')
     message=re.sub(r'\bsk-[A-Za-z0-9_-]+','[REDACTED]',message)
     return f'Provider HTTP {error.code}: {message[:2000]}'
+
+
+def requires_external_action(error):
+    message=str(error).lower()
+    return any(code in message for code in ('moderation_blocked', 'invalid_api_key', 'insufficient_quota', 'billing_hard_limit_reached'))

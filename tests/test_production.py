@@ -82,6 +82,15 @@ class ProductionRegression(unittest.TestCase):
   partial=workflow.split('name: Persist partial assets and production receipts')[1].split('- name:')[0]
   self.assertIn('if: always()',partial)
   self.assertIn('git add public/assets public/review',partial)
+ def test_provider_safety_rejection_is_not_automatically_retried(self):
+  routes,requirements,story=producer.facts(self.run,'AET1-WC-002')
+  candidate=state.read(self.run/'selected-edition-candidate.json')
+  with patch.object(producer,'ROOT',self.root), patch.dict('os.environ',{'ATLAS_IMAGE_COMMAND':'generator','ATLAS_VISUAL_QA_COMMAND':'verifier'}):
+   with patch.object(producer,'invoke',side_effect=RuntimeError('Provider HTTP 400: code=moderation_blocked')) as invoke:
+    assets,defects=producer.produce_assets(self.run,'AET1-WC-002',routes,requirements[:1],candidate)
+  self.assertEqual(invoke.call_count,1)
+  self.assertEqual(assets,[])
+  self.assertTrue(defects[0]['external_action_required'])
  def test_missing_production_can_never_be_candidate(self):
   result=gate.evaluate(self.run)
   self.assertEqual(result['status'],'BLOCKED')
