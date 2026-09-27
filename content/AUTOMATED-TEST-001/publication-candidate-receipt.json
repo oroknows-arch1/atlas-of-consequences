@@ -3,8 +3,24 @@
   "status": "BLOCKED",
   "known_required_items": [
     {
-      "worker": "production_orchestrator",
-      "reason": "Production in progress; previous review verdict invalidated"
+      "worker": "visual-review",
+      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/visual-review.json'"
+    },
+    {
+      "worker": "benchmark-parity",
+      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/benchmark-parity.json'"
+    },
+    {
+      "worker": "visual-review",
+      "reason": "different reader build was checked"
+    },
+    {
+      "worker": "benchmark-parity",
+      "reason": "different reader build was checked"
+    },
+    {
+      "worker": "rendered_qa",
+      "reason": "visual verdict references different screenshots"
     }
   ],
   "publication_authorized": false

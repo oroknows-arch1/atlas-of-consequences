@@ -423,15 +423,15 @@
     },
     {
       "path": "screenshots/phone-route-H4.png",
-      "sha256": "fad9e1cdc9c53f62213cfac2be1303062aeab3df6c3cd3f25296eaeac947cb3d"
+      "sha256": "c656ec8b8fdeef59736c4d8fdddd8691e1eac690705349fd51fb9e34a772ebe2"
     },
     {
       "path": "screenshots/phone-route-H5.png",
-      "sha256": "c3242ce8461cce3d28c12bfdaa68de15ccef7bf5ec939b246707a58cc62a7240"
+      "sha256": "110ca80961620fc961de9960de633ef8ae1fc2e9e5093e1c76501cbd5f6693ee"
     },
     {
       "path": "screenshots/phone-route-H6.png",
-      "sha256": "b5fd466476433c189f1992139ef252cee9e4a537306bb8a6004dbbe864c8da09"
+      "sha256": "bbb948e4282e226e19d77c942530874805b14a8a45fcd3d9d1b231d9836ce20d"
     },
     {
       "path": "screenshots/phone-story.png",
@@ -471,15 +471,15 @@
     },
     {
       "path": "screenshots/desktop-route-H4.png",
-      "sha256": "aaecaa6db0c7e485a13cfd71a856a068fbd1e9ef01f5c30ed49558790e65a385"
+      "sha256": "f90ab4715047c2c9c5df8a81a3068451e84c1a758c63011fb3841450d10ce839"
     },
     {
       "path": "screenshots/desktop-route-H5.png",
-      "sha256": "685e3d2bbcb8efab8de3721e6c595a7058ca1a24ae7291ffae5f65fcadfb4c58"
+      "sha256": "53e517b5f356c20b139f241f537bdd313c3b48dab7d5a860c1e1c680711c0c59"
     },
     {
       "path": "screenshots/desktop-route-H6.png",
-      "sha256": "45cef4651d701e859d66dc0090a92ba39f0b23764d75af99a19bd3e049081502"
+      "sha256": "7e4af44617124483478fb63b1e1444f12657c0ec6adce60f975a9995641d9e7d"
     },
     {
       "path": "screenshots/desktop-story.png",
@@ -507,23 +507,23 @@
     },
     {
       "path": "screenshots/benchmark-route-1.png",
-      "sha256": "2ce4fbfba45e5d985eb36331c45fde09db25a14fe580dfc7d3f5991c76d8045c"
+      "sha256": "e03134250e58e8303da2262f239547d08b4986a2e74237a7072ad1fe6ee84973"
     },
     {
       "path": "screenshots/benchmark-route-2.png",
-      "sha256": "0b2e8c7655c5af83007fb2d9bae80ab92d9515309573c8dc6074f45eee30ae51"
+      "sha256": "23fe879ee8b59900780bbd041df7e8d0750076e8a2abae5142b696ded2916785"
     },
     {
       "path": "screenshots/benchmark-route-3.png",
-      "sha256": "1847a09d235dc4958441f6000ea7c3f76ea6b73b587569cdbb8caa1733ce4d99"
+      "sha256": "5065b1a45cb97204a69f97a4cb298e9d133f1064a5ca0d235cc78363b2cfa02d"
     },
     {
       "path": "screenshots/benchmark-route-4.png",
-      "sha256": "76674b6be22a571e5aecb2456ffd6d8b50676304ce6e587d9fa33c24f75c4c25"
+      "sha256": "e41440dc5ddf60c9e2efa2319ec34e3918f88a8fbda4886d8c7fc668b4158e6a"
     },
     {
       "path": "screenshots/benchmark-route-5.png",
-      "sha256": "5e94b2ad17d8dafb7ea7d2a2f0c3faeaa5a95af64ee468a0e86f182267de341e"
+      "sha256": "6895e59f98a6fae797c5d28585c25e5b6a765e041a0ee842e4bbe984b500e155"
     }
   ],
   "edition_id": "AET1-WC-002",
@@ -533,5 +533,5 @@
     "public/review/aet1-wc-002/reader.css": "bf200dce66bb9fe708c91a1c9b56edb506e59eafcd3c3c45c6cfb533c6d95823",
     "public/review/aet1-wc-002/reader.js": "46d13944688cfcfa92f026c8dc96b5f12da174862908a1540b129ddd1e7a3f82"
   },
-  "deploy_id": "dep-dasoa0vpn0mc739a3g4g"
+  "deploy_id": "dep-dasobfbbc2fs7385gicg"
 }
