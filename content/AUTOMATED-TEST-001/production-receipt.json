@@ -1,45 +1,16 @@
 {
   "edition_id": "AET1-WC-002",
+  "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
   "state": "BLOCKED",
-  "assets_persisted": 3,
+  "assets_persisted": 0,
   "reader": null,
   "defects": [
     {
-      "worker": "visual_factory",
-      "scene_id": "H1-S1",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H2-S1",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H2-S2",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H2-S3",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H4-S1",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H5-S1",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H6-S1",
-      "reason": "image generator and independent visual verifier commands are required"
+      "worker": "production_orchestrator",
+      "reason": "publication section missing readable copy"
     }
   ],
   "next_stage": "repair",
-  "publication_authorized": false
+  "publication_authorized": false,
+  "reader_hashes": {}
 }
