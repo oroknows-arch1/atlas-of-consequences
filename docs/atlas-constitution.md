@@ -110,3 +110,14 @@ The more consequential, culturally specific, unusual or harmful an invented even
 STORY therefore passes a separate plausibility gate before edition assembly. The gate records which conditions are directly evidenced, which are supported comparatively, which rely on ordinary human plausibility, and which proposed events are rejected.
 
 **Evidence establishes the conditions. Comparative knowledge expands the plausible consequence space. Fiction may connect those conditions through invented people, events, choices, relationships and emotions, but must never disguise inference or invention as documented fact.**
+
+
+## Manufacturing-trace coverage invariant
+
+Every manual operation required to manufacture an approved benchmark must become an executable automated worker, an automated QA/gate, or an explicit human-authority gate. Nothing in the successful manufacturing trace may disappear during automation. Editorial or feature parity alone is insufficient: manufacturing parity is mandatory.
+
+This applies to editions, visuals, localisation, audio, distribution, alternative readers and future Atlas products. A benchmark establishes quality and completeness, never fixed subjects, geography, Perspective counts or media topology. Established production approvals become automated acceptance criteria. Routine repair is owned by workers, not the publisher.
+
+NO IMAGERY = NO EDITION. Required visuals need actual binaries, visual/evidence QA, durable publication paths, hashes/provenance, integration, deployed rendering and rendered QA. Intent, prompts, temporary URLs and placeholders do not count.
+
+PUBLICATION_CANDIDATE is the sole human-review handoff: all required work complete, current deployment inspected, no known required defect. Otherwise BLOCKED routes to its production owner. Actual publication always requires explicit human authority.

@@ -7,7 +7,8 @@
     "video_generation_mandatory": false,
     "edition_selection": "all necessary evidence-derived Perspectives plus a grounded human/emotional consequence must pass before route/scene generation",
     "story_plausibility": "FACT remains direct-evidence strict; STORY may use comparative knowledge and bounded human plausibility, but invention must remain clearly fictional and cannot become factual evidence.",
-    "review_ready_definition": "Human review begins only at PUBLICATION_CANDIDATE: all required editorial content, required visual binaries, persistence receipts, reader integration, source treatment, mobile behavior and benchmark QA must pass. No placeholders, pending required assets, or known publication work may remain."
+    "review_ready_definition": "Human review begins only at PUBLICATION_CANDIDATE: all required editorial content, required visual binaries, persistence receipts, reader integration, source treatment, mobile behavior and benchmark QA must pass. No placeholders, pending required assets, or known publication work may remain.",
+    "manufacturing_trace_coverage": "Every operation in an approved benchmark manufacturing trace must map to an executable automated worker, automated gate, or explicit human-authority gate. Manufacturing parity is required in addition to editorial parity."
   },
   "nodes": [
     {
@@ -262,5 +263,13 @@
     "unpersisted_required_asset": "BLOCKED; return to asset_persistence_gate until binary path and hash exist.",
     "benchmark_parity_failure": "BLOCKED; repair the failing production layer and rerun QA. Human review is not the repair loop.",
     "publication_qa_with_known_items": "invalid state; publication QA cannot PASS with known required review/publication items."
+  },
+  "production_execution": {
+    "workflow": ".github/workflows/atlas-edition-production.yml",
+    "coverage_contract": "atlas/contracts/manufacturing-trace.json",
+    "coverage_gate": "tools/validate_manufacturing_trace.py",
+    "continuation_inputs": "tools/production_state.py:INPUTS",
+    "terminal_gate": "tools/publication_gate.py",
+    "human_gate": "Publication only; established production decisions are automated criteria."
   }
 }

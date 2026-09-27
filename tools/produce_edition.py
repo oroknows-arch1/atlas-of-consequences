@@ -17,6 +17,9 @@ import shutil
 import subprocess
 import sys
 from PIL import Image, ImageStat
+from production_state import binding, block, digest, reader_hashes, require_current
+from editorial_factory import produce as produce_copy
+from reader_builder import build_reader
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_GATES = ("selected-edition-gate", "story_plausibility_gate")
@@ -37,7 +40,20 @@ def facts(run, candidate):
         receipt=read(run/(name+".json"))
         if receipt.get("status")!="PASS": raise RuntimeError(f"{name} did not pass")
         identity=receipt.get("output",{}).get("candidate_id")
-        if identity and identity!=candidate: raise RuntimeError(f"{name} belongs to {identity}, not {candidate}")
+        if identity!=candidate: raise RuntimeError(f"{name} lacks verified identity for {candidate}")
+    selection=read(run/'selected-edition-gate.json')['output']
+    for gate in ('informational_completeness_gate', 'human_emotional_hook_gate',
+                 'geographic_grounding_gate', 'causal_boundary_precheck', 'visual_context_viability'):
+        if selection.get(gate)!='PASS': raise RuntimeError(f'{gate} did not pass')
+    source_list=read(run/'source-register.json')
+    source_ids={s['id'] for s in source_list}
+    if len(source_ids)!=len(source_list): raise RuntimeError('duplicate source IDs')
+    for source in source_list:
+        if not all(source.get(k) for k in ('id','title','url','supports','limitation')) or not source['url'].startswith('https://'):
+            raise RuntimeError('source register incomplete')
+    selected=read(run/'selected-edition-candidate.json')
+    if selected.get('human_emotional_hook',{}).get('state')!='PASS': raise RuntimeError('human consequence missing')
+    if {s['id'] for s in selected['evidence_basis']}-source_ids: raise RuntimeError('accepted evidence lacks sources')
     names=("route_scene_generation", "causal_boundary_gate", "visual_requirements",
            "image_provider_routing", "story_synthesis", "story_plausibility_gate")
     receipts={n:read(run/(n+".json")) for n in names}
@@ -55,6 +71,14 @@ def facts(run, candidate):
     if [(r["perspective_id"], [s["scene_id"] for s in r["scenes"]]) for r in original] != [(r["perspective_id"], [s["scene_id"] for s in r["scenes"]]) for r in bounded]:
         raise RuntimeError("bounded route topology differs from accepted route topology")
     requirements=receipts["visual_requirements"]["output"]["requirements"]
+    scene_ids=[s['scene_id'] for r in bounded for s in r['scenes']]
+    if len(scene_ids)!=len(set(scene_ids)): raise RuntimeError('duplicate scene IDs')
+    for route in bounded:
+        for scene in route['scenes']:
+            if not scene.get('evidence_refs') or set(scene['evidence_refs'])-source_ids:
+                raise RuntimeError('scene references unregistered evidence')
+    if {v['scene_id'] for v in requirements}!=set(scene_ids) or len(requirements)!=len(scene_ids):
+        raise RuntimeError('visual requirements must cover every scene exactly once')
     routed=receipts["image_provider_routing"]["output"]["visuals"]
     if {v["scene_id"] for v in routed}!={v["scene_id"] for v in requirements}:
         raise RuntimeError("visual routing and requirements refer to different scenes")
@@ -100,6 +124,14 @@ def produce_assets(run, edition, routes, requirements, output):
     if context.get("candidate_id")!=edition or not context.get("locality_evidence"):
         return [],[{"worker":"visual_factory","reason":"visual context is not evidenced for this edition"}]
     assets=[]; defects=[]
+    old_path=run/"asset-persistence-receipt.json"
+    previous={}
+    if old_path.exists():
+        old=read(old_path)
+        try:
+            require_current(run,old)
+            previous={a["scene_id"]:a for a in old.get("assets",[])}
+        except ValueError: pass
     for spec in requirements:
         if not spec["required"]: continue
         sid=spec["scene_id"]
@@ -110,9 +142,15 @@ def produce_assets(run, edition, routes, requirements, output):
              "evidence_refs":scene["evidence_refs"],"truth_boundary":spec["truth_boundary"],
              "geography":output["geographic_core"],
              "visual_type":spec["visual_type"],"purpose":spec["purpose"],
-             "fiction_status":"FACT_CONTEXTUAL", "continuity":context.get("visual_bible",{}),
+             "fiction_status":spec.get("fiction_status", "FACT_CONTEXTUAL"), "continuity":context.get("visual_bible",{}),
              "locality_evidence":context["locality_evidence"],
              "style":"grounded editorial documentary, natural daylight, coherent warm-neutral grade; no text, identifiable signage or claimed event"}
+        job_hash=hashlib.sha256(json.dumps(job,sort_keys=True).encode()).hexdigest()
+        old=previous.get(sid,{})
+        if (dest.is_file() and old.get("sha256")==digest(dest)
+                and old.get("job_sha256")==job_hash and old.get("visual_qa",{}).get("pass") is True):
+            assets.append(old)
+            continue
         try:
             if contextual:
                 if not generator or not verifier: raise RuntimeError("image generator and independent visual verifier commands are required")
@@ -134,46 +172,20 @@ def produce_assets(run, edition, routes, requirements, output):
                         if attempt==3: raise
             else:
                 make_graphic(dest,scene,spec,scene["evidence_refs"],graphic_data.get(sid))
+                check={"pass":True,"reason":"Verified deterministic value, scope and scene source; rendered review still mandatory"}
                 result={"provider":"ATLAS_DETERMINISTIC_GRAPHIC","provenance":"scene meaning and evidence refs"}
             binary=dest.read_bytes()
             if not binary: raise RuntimeError("empty binary")
             assets.append({"scene_id":sid,"path":"/assets/"+edition.lower()+"/"+dest.name,
                            "sha256":hashlib.sha256(binary).hexdigest(),"bytes":len(binary),
                            "provenance":result.get("provenance"),"provider":result.get("provider"),
-                           "truth_boundary":spec["truth_boundary"],"status":"PASS"})
+                           "truth_boundary":spec["truth_boundary"],"status":"PASS",
+                           "job_sha256":job_hash,"visual_qa":check})
         except Exception as exc:
             defects.append({"worker":"visual_factory" if contextual else "asset_persistence", "scene_id":sid,"reason":str(exc)})
-    write(run/"asset-persistence-receipt.json",{"edition_id":edition,"status":"PASS" if not defects else "BLOCKED","assets":assets,"defects":defects})
+    write(run/"asset-persistence-receipt.json",{**binding(run),"status":"PASS" if not defects else "BLOCKED","assets":assets,"defects":defects})
     return assets,defects
 
-def build_reader(run, edition, candidate, routes, story, assets):
-    by_scene={x["scene_id"]:x for x in assets}
-    source_file=run/"source-register.json"
-    if not source_file.exists(): raise RuntimeError("structured source register missing")
-    sources=read(source_file)
-    if not sources or any(not x.get("url") or not x.get("id") for x in sources): raise RuntimeError("source register incomplete")
-    refs={x["id"] for x in sources}
-    for route in routes:
-        for scene in route["scenes"]:
-            if set(scene.get("evidence_refs",[]))-refs: raise RuntimeError(f"{scene['scene_id']}: source ID lacks register entry")
-    navigation=''.join(f'<a href="#route-{escape(r["perspective_id"])}">{escape(r["perspective"])}</a>' for r in routes)
-    panels=[]
-    for route in routes:
-        sections=[]
-        for scene in route["scenes"]:
-            asset=by_scene.get(scene["scene_id"])
-            media=f'<figure><img src="{escape(asset["path"])}" alt="{escape(scene["meaning"])}" loading="lazy"><figcaption>{escape(asset["truth_boundary"])} · Contextual/explanatory visual</figcaption></figure>' if asset else ''
-            citations=''.join(f'<a href="#source-{escape(ref)}">{escape(ref)}</a> ' for ref in scene.get("evidence_refs",[]))
-            sections.append(f'<section class="scene" id="{escape(scene["scene_id"])}">{media}<div class="scene-copy"><small>{escape(scene["state"])} · {escape(scene["scene_id"] )}</small><h3>{escape(scene["meaning"])}</h3><p>{escape(scene["causal_boundary"])}</p><p class="refs">{citations}</p></div></section>')
-        panels.append(f'<section class="route" id="route-{escape(route["perspective_id"])}"><nav><a href="#perspectives">← Perspectives</a><span>{escape(route["perspective"])}</span></nav><h2>{escape(route["perspective"])}</h2>{"".join(sections)}<footer><b>{escape(route["perspective"])} · ROUTE COMPLETE</b><p>Choose what to explore next.</p><a href="#perspectives">Choose a Perspective ↑</a></footer></section>')
-    story_paragraphs=''.join(f'<p>{escape(p)}</p>' for p in story["story"])
-    source_cards=''.join(f'<details id="source-{escape(x["id"])}"><summary>{escape(x["id"])} · {escape(x["title"])}</summary><p>{escape(x["supports"])}</p><p>Limit: {escape(x["limitation"])}</p><a href="{escape(x["url"])}" rel="noopener">Open source ↗</a></details>' for x in sources)
-    page=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101719"><title>{escape(candidate['working_title'])} · Atlasoquence</title><link rel="stylesheet" href="reader.css"></head><body><main><header class="hero"><div class="top"><b>ATLASOQUENCE</b><span>{escape(edition)} · PUBLICATION CANDIDATE</span></div><div class="hero-copy"><small>{escape(candidate['geographic_core'])} · WORLD CHANGE</small><h1>{escape(candidate['working_title'])}</h1><p>{escape(candidate['world_change'])}</p><a href="#perspectives">Choose a Perspective ↓</a></div></header><section class="menu" id="perspectives"><small>PERSPECTIVES</small><h2>One change. Choose your way in.</h2><p>Each route ends deliberately. Your next choice is yours.</p><div class="cards">{navigation}</div></section>{''.join(panels)}<section class="story" id="story"><div class="story-inner"><small>STORY / FICTION</small><h2>{escape(story['title'])}</h2><p class="boundary">{escape(story['boundary'])}</p>{story_paragraphs}<aside><b>FICTION BOUNDARY</b><p>The named people, dialogue and household events are invented. They are not testimony or documented cases.</p></aside></div></section><section class="sources" id="sources"><small>WHAT'S REAL · SOURCES</small><h2>Inspect the evidence.</h2>{source_cards}<p>Facts can change the fiction. Fiction must never quietly become fact.</p></section></main></body></html>'''
-    target=ROOT/"public"/"review"/edition.lower()
-    target.mkdir(parents=True,exist_ok=True)
-    (target/"index.html").write_text(page,encoding="utf8")
-    shutil.copyfile(ROOT/"public"/"review"/"reader-production.css",target/"reader.css")
-    return target/"index.html"
 
 def main():
     ap=argparse.ArgumentParser()
@@ -181,16 +193,18 @@ def main():
     args=ap.parse_args()
     run=args.run_dir.resolve()
     candidate=read(run/"selected-edition-candidate.json")
+    block(run, "production_orchestrator", "Production in progress; previous review verdict invalidated")
     edition=candidate["candidate_id"]
     defects=[]; assets=[]; reader=None
     try:
         routes,requirements,story=facts(run,edition)
+        copy=produce_copy(run,routes)
         assets,defects=produce_assets(run,edition,routes,requirements,candidate)
-        if not defects: reader=build_reader(run,edition,candidate,routes,story,assets)
+        if not defects: reader=build_reader(run,edition,candidate,routes,story,assets,copy)
     except Exception as exc: defects.append({"worker":"production_orchestrator","reason":str(exc)})
-    receipt={"edition_id":edition,"state":"ASSEMBLED" if reader and not defects else "BLOCKED", "assets_persisted":len(assets),
+    receipt={**binding(run),"state":"ASSEMBLED" if reader and not defects else "BLOCKED", "assets_persisted":len(assets),
              "reader":str(reader.relative_to(ROOT)) if reader else None,"defects":defects,
-             "next_stage":"rendered_qa" if reader else "repair", "publication_authorized":False}
+             "next_stage":"rendered_qa" if reader else "repair", "publication_authorized":False, "reader_hashes":reader_hashes(reader) if reader else {}}
     write(run/"production-receipt.json",receipt)
     print(json.dumps(receipt,indent=2))
     return 0 if reader and not defects else 1

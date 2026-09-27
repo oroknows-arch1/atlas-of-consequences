@@ -3,6 +3,7 @@
 import base64,json,os,re,sys
 from pathlib import Path
 from urllib.request import Request,urlopen
+from production_state import read, write, reader_hashes
 
 ROOT=Path(__file__).resolve().parents[1]
 def main(run):
@@ -16,7 +17,7 @@ def main(run):
     allowed=("crop","dark","readab","typograph","overflow","off-centre","off-center","safe area","spacing","alignment","contrast","uniform")
     if not faults or any(not any(word in str(f).lower() for word in allowed) for f in faults):
         raise RuntimeError("defects require source, asset, editorial or evidence repair, not CSS")
-    screenshot=(run/"screenshots"/"phone.png").read_bytes()
+    screenshot=(run/"screenshots"/"phone-edition.png").read_bytes()
     prompt=("Return ONLY a small CSS patch to repair these observed defects in the deployed Atlas reader: "
             +json.dumps(faults)+". Current CSS: "+css.read_text()[-16000:]
             +". Preserve every route, image, caption, source and FICTION boundary. "
@@ -34,6 +35,9 @@ def main(run):
     if re.search(r'@import|url\s*\(|display\s*:\s*none|visibility\s*:\s*hidden|opacity\s*:\s*0\b|content\s*:',patch,re.I):
         raise RuntimeError("CSS repair would hide or fetch content")
     css.write_text(css.read_text()+"\n/* Automated rendered repair; verify again before release. */\n"+patch+"\n")
+    receipt=read(run/'production-receipt.json')
+    receipt['reader_hashes']=reader_hashes(css.parent/'index.html')
+    write(run/'production-receipt.json',receipt)
     print("Reader CSS repair applied; deployment and visual QA must rerun")
 if __name__=="__main__":
     try:main(Path(sys.argv[1]))

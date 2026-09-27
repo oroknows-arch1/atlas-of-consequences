@@ -1,0 +1,121 @@
+"""Synthetic fixtures test fail-closed behavior; they are never publication evidence."""
+import copy
+import json
+import shutil
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+from unittest.mock import patch
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
+import production_state as state
+import publication_gate as gate
+import produce_edition as producer
+import reader_builder as builder
+from validate_manufacturing_trace import validate as trace_validate
+from editorial_factory import validate_copy
+
+class ProductionRegression(unittest.TestCase):
+ def setUp(self):
+  self.temp=tempfile.TemporaryDirectory()
+  self.root=Path(self.temp.name)
+  self.run=self.root/'run'
+  source=state.ROOT/'content/AUTOMATED-TEST-001'
+  self.run.mkdir()
+  for name in state.INPUTS: shutil.copyfile(source/name,self.run/name)
+  self.bind=state.binding(self.run)
+ def tearDown(self): self.temp.cleanup()
+ def change(self,name,fn):
+  value=state.read(self.run/name);fn(value);state.write(self.run/name,value)
+ def test_valid_heat_input_is_separate_from_legacy_candidate(self):
+  routes,requirements,story=producer.facts(self.run,'AET1-WC-002')
+  self.assertTrue(routes and requirements and story)
+ def test_gate_rejects_unbound_selection(self):
+  self.change('selected-edition-gate.json',lambda x:x['output'].pop('candidate_id'))
+  with self.assertRaisesRegex(RuntimeError,'identity'):producer.facts(self.run,'AET1-WC-002')
+ def test_gate_rejects_lost_required_perspective(self):
+  self.change('causal_boundary_gate.json',lambda x:x['output']['routes'].pop())
+  with self.assertRaises(RuntimeError):producer.facts(self.run,'AET1-WC-002')
+ def test_gate_rejects_unknown_scene_source(self):
+  self.change('causal_boundary_gate.json',lambda x:x['output']['routes'][0]['scenes'][0]['evidence_refs'].append('FAKE'))
+  with self.assertRaisesRegex(RuntimeError,'unregistered'):producer.facts(self.run,'AET1-WC-002')
+ def test_receipt_invalidated_by_story_change(self):
+  self.change('story_synthesis.json',lambda x:x['output'].update(title='Changed'))
+  with self.assertRaises(ValueError):state.require_current(self.run,self.bind)
+ def test_internal_meanings_are_not_publication_copy(self):
+  routes=state.read(self.run/'causal_boundary_gate.json')['output']['routes']
+  with self.assertRaises(ValueError):validate_copy({'scenes':{}},routes,{'WB-HEAT-2025'})
+ def test_missing_production_can_never_be_candidate(self):
+  result=gate.evaluate(self.run)
+  self.assertEqual(result['status'],'BLOCKED')
+  self.assertNotIn('review_url',result)
+ def fixture(self):
+  assets=[]
+  for r in state.read(self.run/'visual_requirements.json')['output']['requirements']:
+   if not r['required']:continue
+   p=self.root/'public/assets'/f"{r['scene_id']}.png";p.parent.mkdir(parents=True,exist_ok=True)
+   p.write_bytes(b'synthetic gate fixture, not an image')
+   assets.append({'scene_id':r['scene_id'],'path':'/assets/'+p.name,'sha256':state.digest(p),'bytes':p.stat().st_size,
+                  'provenance':'synthetic test','provider':'fixture','visual_qa':{'pass':True}})
+  reader=self.root/'public/review/test/index.html';reader.parent.mkdir(parents=True)
+  reader.write_text(' '.join(a['path'] for a in assets))
+  hashes={'public/review/test/index.html':state.digest(reader)}
+  state.write(self.run/'editorial-copy.json',{})
+  shot=self.run/'screenshots/phone.png';shot.parent.mkdir();shot.write_bytes(b'synthetic screenshot')
+  shots=[{'path':'screenshots/phone.png','sha256':state.digest(shot)}]
+  common={**self.bind,'status':'PASS','reader_hashes':hashes,'deploy_id':'synthetic-deploy'}
+  data={
+   'production-receipt':{**common,'state':'ASSEMBLED','defects':[],'reader':'public/review/test/index.html'},
+   'asset-persistence-receipt':{**common,'assets':assets},
+   'editorial-qa':{**common,'copy_sha256':state.digest(self.run/'editorial-copy.json')},
+   'deployment-receipt':{**common,'branch':'test/automated-edition-1','commit':'synthetic','deployment_result':'live','url':'https://review.example/review/test/','base_url':'https://review.example'},
+   'source-qa':common,
+   'rendered-qa':{**common,'url':'https://review.example/review/test/','observations':[{'device':'fixture'}],'screenshots':shots},
+   'visual-review':{**common,'screenshots':shots},'benchmark-parity':{**common,'screenshots':shots}}
+  for name,value in data.items():state.write(self.run/(name+'.json'),value)
+ def evaluate(self):
+  from urllib.parse import urlparse
+  def local(url,timeout):return (self.root/'public'/urlparse(url).path.lstrip('/')).open('rb')
+  with patch.object(state,'ROOT',self.root),patch.object(gate,'ROOT',self.root):return gate.evaluate(self.run,fetch=local)
+ def test_complete_synthetic_receipts_then_tampered_asset(self):
+  self.fixture()
+  self.assertEqual(self.evaluate()['status'],'PUBLICATION_CANDIDATE')
+  next((self.root/'public/assets').iterdir()).write_bytes(b'changed')
+  self.assertEqual(self.evaluate()['status'],'BLOCKED')
+ def test_stale_visual_pass_cannot_survive_new_deployment(self):
+  self.fixture()
+  self.change('visual-review.json',lambda x:x.update(deploy_id='old'))
+  self.assertEqual(self.evaluate()['status'],'BLOCKED')
+ def test_reader_change_invalidates_all_rendered_passes(self):
+  self.fixture();(self.root/'public/review/test/index.html').write_text('changed')
+  self.assertEqual(self.evaluate()['status'],'BLOCKED')
+ def test_visual_pass_with_known_defect_is_blocked(self):
+  self.fixture();self.change('visual-review.json',lambda x:x.update(defects=['bad crop']))
+  self.assertEqual(self.evaluate()['status'],'BLOCKED')
+ def test_missing_required_image_blocks_even_if_all_pass_labels_remain(self):
+  self.fixture();self.change('asset-persistence-receipt.json',lambda x:x['assets'].pop())
+  self.assertEqual(self.evaluate()['status'],'BLOCKED')
+ def test_trace_operation_cannot_disappear(self):
+  contract=state.read(state.ROOT/'atlas/contracts/manufacturing-trace.json')
+  self.assertEqual(trace_validate(contract),[])
+  contract['operations'].pop(0)
+  self.assertTrue(trace_validate(contract))
+ def test_reader_is_not_a_fixed_six_perspective_template(self):
+  route={'perspective_id':'P1','perspective':'Synthetic first','scenes':[{'scene_id':'S1','meaning':'Synthetic meaning'}]}
+  second={'perspective_id':'P2','perspective':'Synthetic second','scenes':[{'scene_id':'S2','meaning':'Synthetic other meaning'}]}
+  block={'heading':'Synthetic publication heading','paragraphs':[{'text':'Synthetic prose','state':'FACT','evidence_refs':['WB-HEAT-2025']}]}
+  copy={'opening':block,'place':block,'consequences':block,'scenes':{'S1':block,'S2':block}}
+  assets=[{'scene_id':'S1','provider':'fixture','path':'/assets/test.png','truth_boundary':'Synthetic contextual visual'}]
+  target=self.root/'public/review';target.mkdir(parents=True)
+  for name in ('reader-production.css','reader-production.js'):shutil.copyfile(state.ROOT/'public/review'/name,target/name)
+  with patch.object(builder,'ROOT',self.root):
+   page=builder.build_reader(self.run,'SYNTHETIC',{'working_title':'Synthetic title','geographic_core':'Synthetic place','world_change':'Synthetic change'},[route,second],{'title':'Synthetic story','boundary':'Fiction, invented','story':['Synthetic story']},assets,copy)
+  text=page.read_text()
+  self.assertEqual(text.count('data-view class="route"'),2)
+  self.assertIn('AI-generated contextual illustration',text)
+  self.assertNotIn('PUBLICATION CANDIDATE',text)
+  self.assertIn('reader.js',text)
+ def test_path_escape_rejected(self):
+  with self.assertRaises(ValueError):state.public_path('/../../outside')
+
+if __name__=='__main__':unittest.main()

@@ -3,6 +3,7 @@
 import json, os, subprocess, sys, time
 from pathlib import Path
 from urllib.request import Request, urlopen
+from production_state import binding, require_current, reader_hashes
 
 ROOT=Path(__file__).resolve().parents[1]
 SERVICE="srv-dase6m8jo6nc73bdh1ig"
@@ -21,9 +22,14 @@ def main(run):
     if git("ls-remote","origin","refs/heads/test/automated-edition-1").split()[0]!=sha:
         raise RuntimeError("review branch commit has not been pushed")
     receipt=json.loads((run/"production-receipt.json").read_text())
+    require_current(run,receipt)
+    if receipt.get("reader_hashes")!=reader_hashes(ROOT/receipt["reader"]): raise RuntimeError("reader changed after assembly")
     if receipt["defects"] or not receipt["reader"]: raise RuntimeError("production layers incomplete")
     key=os.environ.get("RENDER_API_KEY")
     if not key: raise RuntimeError("RENDER_API_KEY unavailable")
+    service=api(f"/services/{SERVICE}",key)
+    if service.get("branch")!="test/automated-edition-1": raise RuntimeError("review service is not bound to test branch")
+    if service.get("repo", "").removesuffix(".git")!="https://github.com/oroknows-arch1/atlas-of-consequences": raise RuntimeError("review service uses another repository")
     task=api(f"/services/{SERVICE}/deploys",key,{"commitId":sha})
     deploy_id=task["id"]
     status=None
@@ -33,7 +39,8 @@ def main(run):
         if status=="live":break
         if status in {"build_failed","update_failed","canceled","deactivated"}:break
         time.sleep(10)
-    result={"edition_id":receipt["edition_id"],"branch":"test/automated-edition-1","commit":sha,
+    if status=="live" and data.get("commit",{}).get("id")!=sha: raise RuntimeError("deployed commit differs from requested commit")
+    result={**binding(run),"reader_hashes":receipt["reader_hashes"],"branch":"test/automated-edition-1","commit":sha,
             "target":SERVICE,"deploy_id":deploy_id,"deployment_result":status,
             "base_url":BASE,"url":BASE+"/"+receipt["reader"].removeprefix("public/").removesuffix("index.html"),
             "asset_integration_status":"PASS","status":"PASS" if status=="live" else "BLOCKED"}
