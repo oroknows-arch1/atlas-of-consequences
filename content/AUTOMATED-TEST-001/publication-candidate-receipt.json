@@ -1,11 +1,7 @@
 {
   "edition_id": "AET1-WC-002",
-  "status": "BLOCKED",
-  "known_required_items": [
-    {
-      "worker": "production_orchestrator",
-      "reason": "Production in progress; previous review verdict invalidated"
-    }
-  ],
-  "publication_authorized": false
+  "status": "PUBLICATION_CANDIDATE",
+  "known_required_items": [],
+  "publication_authorized": false,
+  "review_url": "https://atlas-automated-edition-test-1.onrender.com/review/aet1-wc-002/"
 }
