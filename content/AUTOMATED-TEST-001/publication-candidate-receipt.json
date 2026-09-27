@@ -12,7 +12,7 @@
     },
     {
       "worker": "rendered_qa",
-      "reason": "visual verdict references different screenshots"
+      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/screenshots/phone-edition.png'"
     }
   ],
   "publication_authorized": false
