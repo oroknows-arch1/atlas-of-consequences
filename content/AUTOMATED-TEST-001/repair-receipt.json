@@ -109,6 +109,31 @@
           "scene_id": "route-H5"
         }
       ]
+    },
+    {
+      "attempt": 3,
+      "defects": [
+        {
+          "worker": "reader_treatment",
+          "reason": "On 'phone-perspectives.png', the main type in 'Choose your way in.' is overflowing its container, leading to visually cut-off text and breaking uniform navigation presentation.",
+          "scene_id": "phone-perspectives"
+        },
+        {
+          "worker": "reader_treatment",
+          "reason": "On 'phone-perspectives.png', the primary route/edition selection tiles ('The Heat', etc.) appear vertically compressed with minimal internal padding, creating poor typographic balance and low visual affordance compared to the quality benchmark expectations.",
+          "scene_id": "phone-perspectives"
+        },
+        {
+          "worker": "editorial_factory",
+          "reason": "Some desktop content, particularly in 'The Heat' and 'The Shift' (H1, H2), is marginally thin, with repetitive summary and limited editorial depth relative to the detailed FACT content in mobile views and opening sections. The images are effectively descriptive but the written content in some route views could be more developed for depth and specificity.",
+          "scene_id": "desktop-route-H1"
+        },
+        {
+          "worker": "editorial_factory",
+          "reason": "Minor generic phrasing in 'The Heat' route (H1) and 'The Shift' route (H2) diminishes geographic and situational specificity. While context is established, expansion is needed to anchor material in unique findings—especially as the mobile content demonstrates capacity for greater depth.",
+          "scene_id": "desktop-route-H2"
+        }
+      ]
     }
   ]
 }
