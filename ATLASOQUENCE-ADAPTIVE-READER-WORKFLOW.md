@@ -187,6 +187,26 @@ Generated editorial imagery may communicate systems, atmosphere, geography and c
 
 The visual system should make each edition feel alive and specific to the world change while remaining recognisably Atlasoquence.
 
+### Adaptive conveyance, evidence states and interface lightness
+
+Atlasoquence may adapt how verified information is conveyed without adapting what is true.
+
+The reader may influence route, depth, presentation and supported medium. Every adaptation must resolve back to the same governed edition evidence graph. The reader can influence presentation and route; the reader cannot influence reality.
+
+Material information must be able to retain an explicit state: KNOWN, UNCERTAIN, CONTESTED, UNKNOWN, UNAVAILABLE, or FICTION / EDITORIAL INTERPRETATION. Missing information is not automatically a publication blocker. It can describe where present knowledge ends. UNKNOWN or UNAVAILABLE must never trigger invented completion, synthetic certainty or unsupported visual specificity.
+
+Complexity belongs in the system, not with the reader. Increased adaptive capability must not produce a control-heavy interface or require the reader to understand Atlasoquence architecture.
+
+The interface target is:
+
+**maximum intelligence underneath → minimum cognitive load above**
+
+Use progressive disclosure. At any moment, expose only the choices useful to the reader's current position. Prefer natural actions such as choose a Perspective, continue, go deeper, inspect evidence or explore a connected Perspective over technical modes, settings panels or dense control surfaces.
+
+Unknown or incomplete knowledge should be communicated in ordinary editorial language, such as what is not known yet, rather than exposing internal system terminology unless deeper inspection is requested.
+
+The governed edition must remain separable from today's rendering medium so future displays, spatial interfaces, audio systems, wearables or other peripheral devices can convey the same evidence, provenance and editorial boundaries without rebuilding the truth layer.
+
 ### Benchmark rule
 
 AOC-001 should be used to answer:
