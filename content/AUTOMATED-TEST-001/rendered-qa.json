@@ -403,7 +403,7 @@
   "screenshots": [
     {
       "path": "screenshots/phone-edition.png",
-      "sha256": "ac2dab085e095ddc4b0fab7ba810f3971b516e0b513dbc567a9332d34746d615"
+      "sha256": "e7f889354a31f3fa85c2006d2fc5f80cff3f7070b4bc9a3ee3d174741f68e75e"
     },
     {
       "path": "screenshots/phone-perspectives.png",
@@ -411,11 +411,11 @@
     },
     {
       "path": "screenshots/phone-route-H1.png",
-      "sha256": "5766d004b9ab060ce06c044b951e8633f066437b746f4ea236a4cc0a807afbd8"
+      "sha256": "a9e6f0ecb27ba616ca64491cb484c020c4edf411485af30b30e5e1be1a7d1987"
     },
     {
       "path": "screenshots/phone-route-H2.png",
-      "sha256": "c1275a696c97c9c25d416c321e2bf0539b4a5581a4b5d1e95a877bf2bb2036bd"
+      "sha256": "4958301b48522a218fb3efd6b5e961aba7e93a4469ee1ec4683de6cda1f299a9"
     },
     {
       "path": "screenshots/phone-route-H3.png",
@@ -423,15 +423,15 @@
     },
     {
       "path": "screenshots/phone-route-H4.png",
-      "sha256": "0af0f399b2e0c3e5a098e36871dcc9034a77ca90c708dd2f1ab6e2ec899b2b0d"
+      "sha256": "57fd03f3e3eac16d1b72fc376ab235867959a1ebfb3c4ab88aefbf322ca6427a"
     },
     {
       "path": "screenshots/phone-route-H5.png",
-      "sha256": "4580d302256538fa174dd3e5fdb1451d9df69fd002f87f69fc9dd3678321e769"
+      "sha256": "e8199f338e85eef7f8fcbb01a2d26836d3cf725d36112f8e4c3d232d4ca38f67"
     },
     {
       "path": "screenshots/phone-route-H6.png",
-      "sha256": "44ec56e8ee7e28dba56806f37722c8d45e424857e13bbe6cae518a788d59a435"
+      "sha256": "bfc86fef97c2d7c81d23e587c3d400179894af0b687d61699c259670c61d77a8"
     },
     {
       "path": "screenshots/phone-story.png",
@@ -463,7 +463,7 @@
     },
     {
       "path": "screenshots/desktop-route-H2.png",
-      "sha256": "4cd57d8a1d16b620073ca6f376741ea2dac4bfea04f768e933add872b7349b2a"
+      "sha256": "9a66594b4a9fbc612b9797b0ffedc7df537ca59a8f8f5c95479e54355e76ce82"
     },
     {
       "path": "screenshots/desktop-route-H3.png",
@@ -471,15 +471,15 @@
     },
     {
       "path": "screenshots/desktop-route-H4.png",
-      "sha256": "7a987f3182f99e79f422d1f4813226ba6160347159d3ebdda7c734576b8fba6e"
+      "sha256": "bb412649ef891e9214adffabd228565ec82f3dcefce19f7cf16c843f57807869"
     },
     {
       "path": "screenshots/desktop-route-H5.png",
-      "sha256": "1cc9aa3fa4401de422ba38cefaeeee22a8f50c0b3399fca1211b992acff8a2fa"
+      "sha256": "c7c685f3e72e778b7b085b68d3351386a8644b9928532ec10e9b501ecc0067e7"
     },
     {
       "path": "screenshots/desktop-route-H6.png",
-      "sha256": "4d4aa682357e6ccb17fb06117c6a4e7bddfaee54550b0f523283c9cbc592e331"
+      "sha256": "b4a9a062ab7ea26ceaa08ab5a4a338e95111e31a6de4b7e1fd41041adb1c9af8"
     },
     {
       "path": "screenshots/desktop-story.png",
@@ -503,27 +503,27 @@
     },
     {
       "path": "screenshots/benchmark-route-0.png",
-      "sha256": "f6ac3d6dbd812ae2be307790e7152ab91dad41b4c16df09ec7c36eba49069fdf"
+      "sha256": "845b1b8cdfbb066834b9e2b0a6a6cac3bcc085482ad5bd73a62f2a4c3f51a3a5"
     },
     {
       "path": "screenshots/benchmark-route-1.png",
-      "sha256": "56a5451391a1cc8ca12eceede138bc029c74bcb36d35ea31d43a4aa4bcbe30cb"
+      "sha256": "fc773b51782c245bcfce5a672cf256a62cf1aed88ee447245b5a73396da404d8"
     },
     {
       "path": "screenshots/benchmark-route-2.png",
-      "sha256": "aeb57398407d67de6ccc4e2effeb0788c7029d3d30589a4c5b8a4590404b08b0"
+      "sha256": "28e75869cfccdc6815fae10728c65810c35c0f7e99b6d1e5aeabd14a707bbfa0"
     },
     {
       "path": "screenshots/benchmark-route-3.png",
-      "sha256": "9798532cfba04ab94caff0159ebc3be89d896b7bb0da2326bd57a7dbd266cf83"
+      "sha256": "f928ff97d596de3dcdaf94083c6c94a8764f51bffd223d39dc772426251d7afb"
     },
     {
       "path": "screenshots/benchmark-route-4.png",
-      "sha256": "e1283a69193ce17683199a017f825963a1f0723cef8a15d3ae08b0388936aa50"
+      "sha256": "4c275aec3185fe56fa96c82c01464815ce2d0937e5ea5eeff4701b210eb43ea9"
     },
     {
       "path": "screenshots/benchmark-route-5.png",
-      "sha256": "3fdcbe88ae4e313aedd2c0ad80d097634bbefbd1911388393528890182155d72"
+      "sha256": "10d98eea8b8a30e9c6c60e0d2300ee46658a8e14bfee0f90075525852aaeaf04"
     }
   ],
   "edition_id": "AET1-WC-002",
@@ -533,5 +533,5 @@
     "public/review/aet1-wc-002/reader.css": "bf200dce66bb9fe708c91a1c9b56edb506e59eafcd3c3c45c6cfb533c6d95823",
     "public/review/aet1-wc-002/reader.js": "46d13944688cfcfa92f026c8dc96b5f12da174862908a1540b129ddd1e7a3f82"
   },
-  "deploy_id": "dep-dasnn317lnhs73a0fjtg"
+  "deploy_id": "dep-dasnq28jo6nc73ck5es0"
 }
