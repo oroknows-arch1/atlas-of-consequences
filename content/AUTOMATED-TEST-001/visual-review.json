@@ -2,15 +2,15 @@
   "edition_id": "AET1-WC-002",
   "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
   "reader_hashes": {
-    "public/review/aet1-wc-002/index.html": "d5ea56a2efe1128d7ed9aebe53a902de3da055feccab8e14ac38abf540498834",
+    "public/review/aet1-wc-002/index.html": "1ff060ca0411ed200f0d3f4045b5daab28888be9563112454e159a50da2bad98",
     "public/review/aet1-wc-002/reader.css": "bf200dce66bb9fe708c91a1c9b56edb506e59eafcd3c3c45c6cfb533c6d95823",
     "public/review/aet1-wc-002/reader.js": "46d13944688cfcfa92f026c8dc96b5f12da174862908a1540b129ddd1e7a3f82"
   },
-  "deploy_id": "dep-dasodbe0tbcc738amf60",
+  "deploy_id": "dep-dasoh959fdbs73ec7lf0",
   "screenshots": [
     {
       "path": "screenshots/phone-edition.png",
-      "sha256": "61f20e27f529aa3dccffed3a90c824d829a33a1eb4c5391369412ba6d74ebb64"
+      "sha256": "1e01118c647a74398c4c0fd16477d1715fea16bb15665effa8fbeac9a911715c"
     },
     {
       "path": "screenshots/phone-perspectives.png",
@@ -18,27 +18,27 @@
     },
     {
       "path": "screenshots/phone-route-H1.png",
-      "sha256": "cbaf349410b7d80161db3cb843c8d660fa33cd8024a0e6d9d98b596a3b738958"
+      "sha256": "1baa742911cce64c250b6e0a4b866c5ca36a0242cb3d137435db84ac71a297ee"
     },
     {
       "path": "screenshots/phone-route-H2.png",
-      "sha256": "861ef68432ce081f05698e5aa440c1003bdcab82e8a95f4ae29aff18898e89e1"
+      "sha256": "1f53216739c1821fe1ed9c99d4e5b70ce93641c22196634689514d114380ffed"
     },
     {
       "path": "screenshots/phone-route-H3.png",
-      "sha256": "8f4eff767ed3e8b65b55ab4fa714be83b3b3bf58a1daf7b00989a6a6a7967deb"
+      "sha256": "91a21de1c649111ea077be659a47c49ca506f685010e3d39c42852cafaa5bafe"
     },
     {
       "path": "screenshots/phone-route-H4.png",
-      "sha256": "c656ec8b8fdeef59736c4d8fdddd8691e1eac690705349fd51fb9e34a772ebe2"
+      "sha256": "7bf9bc2647e7532d1aa84f3ded230f8df3e7b9aaf6ded2cd608bc95336d0bd9e"
     },
     {
       "path": "screenshots/phone-route-H5.png",
-      "sha256": "110ca80961620fc961de9960de633ef8ae1fc2e9e5093e1c76501cbd5f6693ee"
+      "sha256": "1697ac42a34712d65ac383531efd1d170253c839dea5f02ebfb1f176f86aa8ef"
     },
     {
       "path": "screenshots/phone-route-H6.png",
-      "sha256": "bbb948e4282e226e19d77c942530874805b14a8a45fcd3d9d1b231d9836ce20d"
+      "sha256": "de14dc6755132b3127d76b1bfff484e7208aa859ed052c4374c28cba73a59ce5"
     },
     {
       "path": "screenshots/phone-story.png",
@@ -46,11 +46,11 @@
     },
     {
       "path": "screenshots/phone-consequences.png",
-      "sha256": "7f7f4ffa5731d4deef261119602556b0ed390fe640615956eb0f69631bbf1a95"
+      "sha256": "a60ac94380897baa9d5fec653fd71c50015ec8e5de1a7e6e4cac094235dbd101"
     },
     {
       "path": "screenshots/phone-place.png",
-      "sha256": "d572a4afcf46c91cc1682f74c01af2d7fb71e649f38dd1d88bb2021d0e688fc8"
+      "sha256": "67f22daf5218f81a254fd28ae3ff577d869cfda46ece659b556bdd25d5ea12d1"
     },
     {
       "path": "screenshots/phone-sources.png",
@@ -58,7 +58,7 @@
     },
     {
       "path": "screenshots/desktop-edition.png",
-      "sha256": "f1ace08366797e2d9681f478c2393b7274de0dbb1413055b0dd0f0efa63bf160"
+      "sha256": "68faf2d008c639f86504eaa918a5db2571f365c9ed416220ac887dd8a4086d7e"
     },
     {
       "path": "screenshots/desktop-perspectives.png",
@@ -66,27 +66,27 @@
     },
     {
       "path": "screenshots/desktop-route-H1.png",
-      "sha256": "ca6badfad6d818300cf227c8369c29980e89e35eb516f3c0d92774d5c3ae10a2"
+      "sha256": "c364da665dab9a321874453b41e669c32957dac16b3058fb3c06c66395aa334d"
     },
     {
       "path": "screenshots/desktop-route-H2.png",
-      "sha256": "96aace47aa7834f04a594b27e8c56c5bf77b7b60c0a4885386bc1848c73ed67d"
+      "sha256": "c7d2c52b01bf2568a8b385fa202f0ae9704a2d16d67490e40dbb7cae889aab32"
     },
     {
       "path": "screenshots/desktop-route-H3.png",
-      "sha256": "9c1c6325d9868b1ce7b2a51308b10a5e3b6a3a0cdc81e23ca30f51eebbb4c0ba"
+      "sha256": "72bbacecf35561c2bbf0555ccf5b2d337a2811b9f0f128fa9b598acc48d9777c"
     },
     {
       "path": "screenshots/desktop-route-H4.png",
-      "sha256": "f90ab4715047c2c9c5df8a81a3068451e84c1a758c63011fb3841450d10ce839"
+      "sha256": "29a19a97caaf832310a6bb999c6c7d04331d361d9e7e305cda2bbf7ba3422787"
     },
     {
       "path": "screenshots/desktop-route-H5.png",
-      "sha256": "53e517b5f356c20b139f241f537bdd313c3b48dab7d5a860c1e1c680711c0c59"
+      "sha256": "f53c44e33e69771e0a073e522515f88eaa4176cf569fcbf7f11ff30e1f80632a"
     },
     {
       "path": "screenshots/desktop-route-H6.png",
-      "sha256": "7e4af44617124483478fb63b1e1444f12657c0ec6adce60f975a9995641d9e7d"
+      "sha256": "2e5376116388c3b7c4f376f684ee47526013eae96d82e8d00cf94f3f1f01d146"
     },
     {
       "path": "screenshots/desktop-story.png",
@@ -94,11 +94,11 @@
     },
     {
       "path": "screenshots/desktop-consequences.png",
-      "sha256": "157e5fa46abfa51394e9fdf1e154cc099504da6eb648b9d5383fc5e8f9f7f5ff"
+      "sha256": "afc766c198ebc314ea6e61cbdc4d20fa5948da8f0b48d50a0e824dc08fd67d5a"
     },
     {
       "path": "screenshots/desktop-place.png",
-      "sha256": "379e9f3525aeed355bb290c2d805ba7c73f3779dc8c13836c3f3d8d55b95877e"
+      "sha256": "635ce2b632ee88428a50ade13c645dfa30e19f74cd14800c233e88045fb5113e"
     },
     {
       "path": "screenshots/desktop-sources.png",
@@ -106,59 +106,94 @@
     },
     {
       "path": "screenshots/benchmark-phone.png",
-      "sha256": "13cf4ffd3deee457978c324ac633b09a4d544a7f8d37c8c66e5f94a5e93aef2a"
+      "sha256": "5e044098b6d1ea027d9df0804cdd8a73e0234cf610778728e645963511ff19a0"
     },
     {
       "path": "screenshots/benchmark-route-0.png",
-      "sha256": "c42ba3aa590f641de15e15147207e4d8f8829a57aab067bceb563fda7936fc2e"
+      "sha256": "ec84c56aa2fef4758d85e5e22ddea644091d38bf814113e1fa7bf69a01e71025"
     },
     {
       "path": "screenshots/benchmark-route-1.png",
-      "sha256": "fa570e9337a97d10b4c4756ac0d7f9e95d067e1b0bb9610b9ed11546a42b804b"
+      "sha256": "ff30dd40f3ff37780b6cc00e7beed0bdadaf2defa15daea262d1a76023cd9706"
     },
     {
       "path": "screenshots/benchmark-route-2.png",
-      "sha256": "c797aeca8c6ac942333692bb309c78554403579ce766890ff476df77e8b01426"
+      "sha256": "04207a3272952b2ba9f342e1b4019499119df2ff9d1e037c8dd40d39bc6f8f32"
     },
     {
       "path": "screenshots/benchmark-route-3.png",
-      "sha256": "a35f4d6acae940835234737383d5d4a9d262c2b6c7ed757df67104057e0268b2"
+      "sha256": "be6698399d5ba2a70ee52a9f63cbe0bdb880874ae226e6b89e4f0ace66c53870"
     },
     {
       "path": "screenshots/benchmark-route-4.png",
-      "sha256": "6df65f9578e3d659e7dd24823079a0ee4261c901efe8af6bc990514d73f3b95e"
+      "sha256": "8a79217447f62d57dfe79a6155a96a27c39f024c9d52fb63f96f3a2e6678e759"
     },
     {
       "path": "screenshots/benchmark-route-5.png",
-      "sha256": "d3fd1cabb7be39982c2de4b9f8a933bf1ad208a332b95ed74e367f62303654e9"
+      "sha256": "2f9e141b942c177ce3ee4a6efc39ce081c45d80212345f21e6d176aec6eaf917"
     }
   ],
   "status": "BLOCKED",
   "defects": [
     {
       "worker": "reader_treatment",
-      "reason": "Typography flaw: multiple large headings (e.g., 'Choose your way in.') consistently break onto two lines awkwardly, orphaning 'in.' on a separate line; this is present in several screens (phone-edition.png, phone-perspectives.png, phone-route-H1.png, etc.), reducing readability and indicating insufficient typographic fitting for mobile.",
-      "scene_id": "phone-edition / phone-perspectives / phone-route-H1 (and all other phone-route-H*)"
+      "reason": "Inconsistent crop and treatment in key editorial scenes; phone-edition.png title box misaligned and crops in phone-route-H5.png and phone-route-H4.png show inconsistent padding and framing versus benchmark.",
+      "scene_id": "phone-edition.png"
     },
     {
-      "worker": "reader_treatment",
-      "reason": "Visual darkness: background and body text contrast is marginal in scenes with large blocks of text (e.g., phone-edition.png, phone-route-H*). Text is readable but falls close to WCAG contrast limits, especially for long-form body.",
-      "scene_id": "phone-edition / phone-route-H1 / phone-route-H2 / phone-route-H3 / phone-route-H4 / phone-route-H5 / phone-route-H6"
+      "worker": "reader_builder",
+      "reason": "NAV/structure lacks a clear edition index or persistent route indicator; navigation between routes only available at the end of each route, making user flow less clear than benchmark which signals active routes and perspective entry at all times.",
+      "scene_id": "phone-route-H1.png"
+    },
+    {
+      "worker": "editorial_factory",
+      "reason": "Several route openings (notably The Fix, The Heat) repeat similar visual contexts and editorial summary at top; in-batch visual and copy repetition reduces both editorial depth and route distinctiveness versus the richer, more differentiated scene-building and context in benchmark.",
+      "scene_id": "phone-route-H1.png"
     },
     {
       "worker": "visual_factory",
-      "reason": "Visual/imagery continuity: All phone-route-H* sections use variations of the same or extremely similar AI-generated Dhaka street or indoor illustration, resulting in generic repetition and weak visual context for differentiated sections ('The Shift', 'The Home', 'The Fix', etc.). Scenes risk generic illustration bias and non-specific geographic reference.",
-      "scene_id": "phone-route-H1 / phone-route-H2 / phone-route-H3 / phone-route-H4 / phone-route-H5 / phone-route-H6"
+      "reason": "Visual continuity is weak: phone-route-H2.png/phone-route-H6.png reuse the same AI illustration types and compositional angles, resulting in generic, repetitive imagery that lacks strong narrative continuity or a clear sense of place as seen in benchmark, where each perspective/route is anchored by distinctive subject matter and contextual cues.",
+      "scene_id": "phone-route-H2.png"
     },
     {
       "worker": "editorial_factory",
-      "reason": "Content depth: Section introductions and route completes are overly brief and formulaic (e.g., 'Where would you like to go next?'), lacking differentiated insight or meaningful transition to next content, blocking editorial completeness.",
-      "scene_id": "phone-route-H1 / phone-route-H2 / phone-route-H3 / phone-route-H4 / phone-route-H5 / phone-route-H6"
+      "reason": "Some sections border on thin content/not enough editorial drilling: several route conclusions rely on highly general statements (e.g. 'adaptation is uneven', 'relief or continued burden'), with insufficient geographic or situational specificity compared to the benchmark's explicit localizations and real-world detail.",
+      "scene_id": "phone-route-H3.png"
+    },
+    {
+      "worker": "asset_persistence",
+      "reason": "Contextual imagery for key household, child/school, and work scenes are missing real, detailed environmental or situational cues; AI-generated images are too generic and do not convey enough geographic specificity, in contrast to the documentary realism and location signals present in benchmark.",
+      "scene_id": "phone-route-H4.png"
     },
     {
       "worker": "editorial_factory",
-      "reason": "FACT/STORY/INTERPRETATION tags show correct formal presence, but copy is thinly differentiated across several routes and does not consistently deliver unique editorial value for each segment, risking thin content.",
-      "scene_id": "phone-route-H1 / phone-route-H2 / phone-route-H3 / phone-route-H4 / phone-route-H5 / phone-route-H6"
+      "reason": "Some sections, such as 'The Heat' and 'The Shift', present thin or reiterative factual content with limited new editorial insight or depth beyond summary statements. More detail, direct citation, or synthesis is needed for full editorial sufficiency.",
+      "scene_id": "desktop-route-H1"
+    },
+    {
+      "worker": "editorial_factory",
+      "reason": "Explanatory graphic on 'The Heat' (Heat index) is overly generic; lacks supporting labels, source context, or clear connection to the surrounding editorial content. Does not add meaningful explanatory value.",
+      "scene_id": "desktop-route-H1"
+    },
+    {
+      "worker": "visual_factory",
+      "reason": "Some scene transitions (e.g., route screens, story, consequences) show variable scene brightness and color grading, causing mild visual discontinuity between stories and factual/route panels.",
+      "scene_id": null
+    },
+    {
+      "worker": "visual_factory",
+      "reason": "Three scenes (H4, H5, H6) use visually similar AI-generated contextual illustrations for Dhaka that repeat a nearly identical alleyway setting. This fails visual continuity requirements by over-relying on generic, non-documentary, and overlapping visuals across different narrative contexts.",
+      "scene_id": "H4"
+    },
+    {
+      "worker": "visual_factory",
+      "reason": "Three scenes (H4, H5, H6) use visually similar AI-generated contextual illustrations for Dhaka that repeat a nearly identical alleyway setting. This fails visual continuity requirements by over-relying on generic, non-documentary, and overlapping visuals across different narrative contexts.",
+      "scene_id": "H5"
+    },
+    {
+      "worker": "visual_factory",
+      "reason": "Three scenes (H4, H5, H6) use visually similar AI-generated contextual illustrations for Dhaka that repeat a nearly identical alleyway setting. This fails visual continuity requirements by over-relying on generic, non-documentary, and overlapping visuals across different narrative contexts.",
+      "scene_id": "H6"
     }
   ]
 }

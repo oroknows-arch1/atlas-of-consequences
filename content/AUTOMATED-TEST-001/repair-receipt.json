@@ -5,28 +5,63 @@
       "defects": [
         {
           "worker": "reader_treatment",
-          "reason": "Typography flaw: multiple large headings (e.g., 'Choose your way in.') consistently break onto two lines awkwardly, orphaning 'in.' on a separate line; this is present in several screens (phone-edition.png, phone-perspectives.png, phone-route-H1.png, etc.), reducing readability and indicating insufficient typographic fitting for mobile.",
-          "scene_id": "phone-edition / phone-perspectives / phone-route-H1 (and all other phone-route-H*)"
+          "reason": "Inconsistent crop and treatment in key editorial scenes; phone-edition.png title box misaligned and crops in phone-route-H5.png and phone-route-H4.png show inconsistent padding and framing versus benchmark.",
+          "scene_id": "phone-edition.png"
         },
         {
-          "worker": "reader_treatment",
-          "reason": "Visual darkness: background and body text contrast is marginal in scenes with large blocks of text (e.g., phone-edition.png, phone-route-H*). Text is readable but falls close to WCAG contrast limits, especially for long-form body.",
-          "scene_id": "phone-edition / phone-route-H1 / phone-route-H2 / phone-route-H3 / phone-route-H4 / phone-route-H5 / phone-route-H6"
+          "worker": "reader_builder",
+          "reason": "NAV/structure lacks a clear edition index or persistent route indicator; navigation between routes only available at the end of each route, making user flow less clear than benchmark which signals active routes and perspective entry at all times.",
+          "scene_id": "phone-route-H1.png"
+        },
+        {
+          "worker": "editorial_factory",
+          "reason": "Several route openings (notably The Fix, The Heat) repeat similar visual contexts and editorial summary at top; in-batch visual and copy repetition reduces both editorial depth and route distinctiveness versus the richer, more differentiated scene-building and context in benchmark.",
+          "scene_id": "phone-route-H1.png"
         },
         {
           "worker": "visual_factory",
-          "reason": "Visual/imagery continuity: All phone-route-H* sections use variations of the same or extremely similar AI-generated Dhaka street or indoor illustration, resulting in generic repetition and weak visual context for differentiated sections ('The Shift', 'The Home', 'The Fix', etc.). Scenes risk generic illustration bias and non-specific geographic reference.",
-          "scene_id": "phone-route-H1 / phone-route-H2 / phone-route-H3 / phone-route-H4 / phone-route-H5 / phone-route-H6"
+          "reason": "Visual continuity is weak: phone-route-H2.png/phone-route-H6.png reuse the same AI illustration types and compositional angles, resulting in generic, repetitive imagery that lacks strong narrative continuity or a clear sense of place as seen in benchmark, where each perspective/route is anchored by distinctive subject matter and contextual cues.",
+          "scene_id": "phone-route-H2.png"
         },
         {
           "worker": "editorial_factory",
-          "reason": "Content depth: Section introductions and route completes are overly brief and formulaic (e.g., 'Where would you like to go next?'), lacking differentiated insight or meaningful transition to next content, blocking editorial completeness.",
-          "scene_id": "phone-route-H1 / phone-route-H2 / phone-route-H3 / phone-route-H4 / phone-route-H5 / phone-route-H6"
+          "reason": "Some sections border on thin content/not enough editorial drilling: several route conclusions rely on highly general statements (e.g. 'adaptation is uneven', 'relief or continued burden'), with insufficient geographic or situational specificity compared to the benchmark's explicit localizations and real-world detail.",
+          "scene_id": "phone-route-H3.png"
+        },
+        {
+          "worker": "asset_persistence",
+          "reason": "Contextual imagery for key household, child/school, and work scenes are missing real, detailed environmental or situational cues; AI-generated images are too generic and do not convey enough geographic specificity, in contrast to the documentary realism and location signals present in benchmark.",
+          "scene_id": "phone-route-H4.png"
         },
         {
           "worker": "editorial_factory",
-          "reason": "FACT/STORY/INTERPRETATION tags show correct formal presence, but copy is thinly differentiated across several routes and does not consistently deliver unique editorial value for each segment, risking thin content.",
-          "scene_id": "phone-route-H1 / phone-route-H2 / phone-route-H3 / phone-route-H4 / phone-route-H5 / phone-route-H6"
+          "reason": "Some sections, such as 'The Heat' and 'The Shift', present thin or reiterative factual content with limited new editorial insight or depth beyond summary statements. More detail, direct citation, or synthesis is needed for full editorial sufficiency.",
+          "scene_id": "desktop-route-H1"
+        },
+        {
+          "worker": "editorial_factory",
+          "reason": "Explanatory graphic on 'The Heat' (Heat index) is overly generic; lacks supporting labels, source context, or clear connection to the surrounding editorial content. Does not add meaningful explanatory value.",
+          "scene_id": "desktop-route-H1"
+        },
+        {
+          "worker": "visual_factory",
+          "reason": "Some scene transitions (e.g., route screens, story, consequences) show variable scene brightness and color grading, causing mild visual discontinuity between stories and factual/route panels.",
+          "scene_id": null
+        },
+        {
+          "worker": "visual_factory",
+          "reason": "Three scenes (H4, H5, H6) use visually similar AI-generated contextual illustrations for Dhaka that repeat a nearly identical alleyway setting. This fails visual continuity requirements by over-relying on generic, non-documentary, and overlapping visuals across different narrative contexts.",
+          "scene_id": "H4"
+        },
+        {
+          "worker": "visual_factory",
+          "reason": "Three scenes (H4, H5, H6) use visually similar AI-generated contextual illustrations for Dhaka that repeat a nearly identical alleyway setting. This fails visual continuity requirements by over-relying on generic, non-documentary, and overlapping visuals across different narrative contexts.",
+          "scene_id": "H5"
+        },
+        {
+          "worker": "visual_factory",
+          "reason": "Three scenes (H4, H5, H6) use visually similar AI-generated contextual illustrations for Dhaka that repeat a nearly identical alleyway setting. This fails visual continuity requirements by over-relying on generic, non-documentary, and overlapping visuals across different narrative contexts.",
+          "scene_id": "H6"
         }
       ]
     }

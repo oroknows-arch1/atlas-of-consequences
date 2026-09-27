@@ -8,8 +8,8 @@
   "next_stage": "rendered_qa",
   "publication_authorized": false,
   "reader_hashes": {
-    "public/review/aet1-wc-002/index.html": "1ff060ca0411ed200f0d3f4045b5daab28888be9563112454e159a50da2bad98",
-    "public/review/aet1-wc-002/reader.css": "bf200dce66bb9fe708c91a1c9b56edb506e59eafcd3c3c45c6cfb533c6d95823",
+    "public/review/aet1-wc-002/index.html": "d9089a152e2cc94f1378a70bf0fec1d44eeb14c5a8a266fcd5334a36b1c98f1e",
+    "public/review/aet1-wc-002/reader.css": "4f8323420000e154a1e8c89957960fc05b6a9b8d9df9fee33e3333452b13b090",
     "public/review/aet1-wc-002/reader.js": "46d13944688cfcfa92f026c8dc96b5f12da174862908a1540b129ddd1e7a3f82"
   }
 }
