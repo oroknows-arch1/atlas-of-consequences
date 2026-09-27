@@ -24,6 +24,21 @@
           "scene_id": "phone-route-H4, phone-route-H5, phone-route-H6"
         }
       ]
+    },
+    {
+      "attempt": 2,
+      "defects": [
+        {
+          "worker": "editorial_factory",
+          "reason": "Thin editorial depth: All Dhaka heat route screens (H1-H6) over-rely on summary, contain only broad overview/facts, and lack specific examples, perspectives, or story depth beyond generic heat impacts. Needs more human detail, uncertainty, or micro-level reportage.",
+          "scene_id": "phone-route-H1"
+        },
+        {
+          "worker": "visual_factory",
+          "reason": "Visual genericism/uniformity: Multiple Dhaka route screens (H1-H6) re-use nearly identical AI-generated imagery or context without scene-specific, source-driven, or sequential visual narrative. Room/scene cues are too generic and do not reinforce editorial specificity.",
+          "scene_id": "phone-route-H1"
+        }
+      ]
     }
   ]
 }
