@@ -29,6 +29,10 @@
           "scene_id": "phone-route-H1 / phone-route-H3 / phone-route-H6"
         }
       ]
+    },
+    {
+      "attempt": 2,
+      "defects": []
     }
   ]
 }

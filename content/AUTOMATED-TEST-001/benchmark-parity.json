@@ -6,7 +6,7 @@
     "public/review/aet1-wc-002/reader.css": "bf200dce66bb9fe708c91a1c9b56edb506e59eafcd3c3c45c6cfb533c6d95823",
     "public/review/aet1-wc-002/reader.js": "46d13944688cfcfa92f026c8dc96b5f12da174862908a1540b129ddd1e7a3f82"
   },
-  "deploy_id": "dep-daso2nnpn0mc739958ug",
+  "deploy_id": "dep-daso3al9fdbs73eafcb0",
   "screenshots": [
     {
       "path": "screenshots/phone-edition.png",
@@ -38,7 +38,7 @@
     },
     {
       "path": "screenshots/phone-route-H6.png",
-      "sha256": "bfc86fef97c2d7c81d23e587c3d400179894af0b687d61699c259670c61d77a8"
+      "sha256": "44ec56e8ee7e28dba56806f37722c8d45e424857e13bbe6cae518a788d59a435"
     },
     {
       "path": "screenshots/phone-story.png",
@@ -106,33 +106,33 @@
     },
     {
       "path": "screenshots/benchmark-phone.png",
-      "sha256": "13cf4ffd3deee457978c324ac633b09a4d544a7f8d37c8c66e5f94a5e93aef2a"
+      "sha256": "29f3961f17c7f38f389ae19d5442408425112a57680b4ec78686c7ea36a3ea56"
     },
     {
       "path": "screenshots/benchmark-route-0.png",
-      "sha256": "35830395485bb8befb4346be97a3a38288b471b64c9adf4e4dc1acfa8f76d2d7"
+      "sha256": "732b144f272647e2d08814b469cb684a39b1a65e172bfede13c5532c6feab682"
     },
     {
       "path": "screenshots/benchmark-route-1.png",
-      "sha256": "2eedc13045c61fcaec73d0d1c8d1409ac95c27f851c358052c088e82dcec002e"
+      "sha256": "85710659e9f1c6e0c096f0468c43fd4ab8ebae84a0ffef4b1464c80e2366806f"
     },
     {
       "path": "screenshots/benchmark-route-2.png",
-      "sha256": "0349c6175e59bfbbe00ac58d5ac688dc717ec295aa47e77de4665f8af8a6fca9"
+      "sha256": "37a7d6f3ac5776d88c68a7ec567a579fba16de158d9410328381bdf8ac0fffaa"
     },
     {
       "path": "screenshots/benchmark-route-3.png",
-      "sha256": "25c1a1fbf79f618e02cbc2f46f382df1111fd542c80ba280e303c23bfd3415bc"
+      "sha256": "d3060c20a26ef04e98b0993d76f0eb5562bcee5c3203a1f6e19d59dc68a400dd"
     },
     {
       "path": "screenshots/benchmark-route-4.png",
-      "sha256": "fe6c447c189bdc252693a973f3074ebb7d501d5ebb0916c874e21a6879a6ea0f"
+      "sha256": "60d7f25048415ad5f329ca5f681aa698e228fdf638aab04d8e47e44dac03a997"
     },
     {
       "path": "screenshots/benchmark-route-5.png",
-      "sha256": "acfa1f4c84ee982278bffbb6531875b2a285c47933102b3bac88ac2786ee2a69"
+      "sha256": "53748bb108a3e141aaad797884670a95481b5d955809b80a90cb5f1cd8e2f331"
     }
   ],
-  "status": "BLOCKED",
-  "reason": "The submitted phone edition lacks sufficient editorial depth, route-specific narrative specificity, and consistent visual/graphic progressiveness found in the AOC-001 benchmark. Benchmarks use a broader range of original visuals, greater continuity, and clearly avoid visual redundancy or generic imagery, supporting far more robust sense of place and story. The test batch demonstrates thin content, repeated/underspecified visuals, and editorial shallowness on key routes (notably H5, H6), preventing parity. | All screenshots present complete, readable, and editorially sound content with specific geographic and factual references. There is clear distinction between fact and story, all evidence is sourced, and visual/typographic consistency is maintained. Images are contextually appropriate, midtones are clear, crops avoid clipping, and no overflow or missing assets are observed. No publication-critical work appears incomplete or below the AOC-001 standard. | All supplied screenshots show high editorial specificity, clear and readable typography, sufficient midtone/contrast (no darkness or washout), consistent visual structure and navigation, justified crop and image content, correct labeling of AI/contextual images, good source citation practice, and clear STORY/FACT/UNCERTAIN boundaries. No overflow, missing assets, or thin/generic content. All editorial and structure expectations for a complete, high-quality batch are met."
+  "status": "PASS",
+  "reason": "All phone-edition and phone-route images show strong editorial depth, relevant and non-generic visuals, and clear geographic/contextual specificity for Dhaka, Bangladesh. Images are cropped properly, maintain typographic hierarchy, and are visually uniform without overflow, centering, or contrast issues. All visuals are context-explained and labelled as required, and all sections are complete with FACT/STORY visibility, safe areas, and relevant sources. Benchmark images provide proper parity: readable, visually uniform, contextually on-topic, consistent in treatment, and structurally analogous. No missing images, thin content, generic placeholders, or unfinished/structural issues detected in any inspected scene. | All supplied images display strong editorial depth, clear midtones, and legible typography with no evidence of crop, overflow, or centering issues. Visual continuity, color, and safe area usage are proper for both mobile and desktop layouts. Story/Fact boundaries and sources are well-marked and visible. Geographic specificity is clear, and all references are internally consistent. No generic/placeholder content or missing images detected; all evidence meets or exceeds the depth and treatment of benchmark sets. | All inspected images demonstrate clear navigation, visual parity, consistent and readable typography, safe and uniform crops, centered headline/typography blocks, and appropriate use of safe areas and context/continuity. FACT/STORY/UNCERTAIN labels and source references are visible and clear in every relevant section. Editorial depth and geographic specificity are provided in every scene. All images are present with appropriate captions/disclaimers for AI/contextual illustrations, ensuring no false specificity. No overflow, darkness, cropping, or readability issues observed. No evidence of thin/generic content or missing required editorial work."
 }
