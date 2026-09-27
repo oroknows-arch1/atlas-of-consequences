@@ -1,7 +1,8 @@
 {
   "CORNELL-HEAT-2026": {
     "fallback_urls": [
-      "https://www.ilr.cornell.edu/sites/default/files-d8/2026-09/gli-six-seasons-four-summers-report-sep-2026-final.pdf"
+      "https://www.ilr.cornell.edu/sites/default/files-d8/2026-09/gli-six-seasons-four-summers-report-sep-2026-final.pdf",
+      "https://news.cornell.edu/stories/2026/09/cooling-investments-apparel-factories-can-pay-themselves"
     ]
   }
 }
