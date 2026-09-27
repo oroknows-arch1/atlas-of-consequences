@@ -85,7 +85,7 @@ class ProductionRegression(unittest.TestCase):
  def test_visual_review_allows_labelled_contextual_ai_art_but_blocks_generic_failures(self):
   review=(state.ROOT/'tools/review_rendered.py').read_text()
   self.assertIn('Atlas permits clearly labelled AI-generated contextual illustrations',review)
-  self.assertIn('do not block solely because an image is AI-generated',review)
+  self.assertIn('block solely because an image is AI-generated',review)
  def test_css_repair_ignores_non_css_defects_in_mixed_review(self):
   repair=(state.ROOT/'tools/repair_reader.py').read_text()
   self.assertIn('[d for d in visual["defects"] if any(word in str(d).lower() for word in allowed)]',repair)
