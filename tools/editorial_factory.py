@@ -68,9 +68,20 @@ Facts must stay within supplied direct evidence, population, period and scope. D
 local detail, personal testimony or stronger causality. Explicitly explain unresolved questions.
 Do not rewrite the approved STORY or copy any AOC-001 structure. No fixed scene or Perspective counts.'''
     feedback = []
+    last_error = None
     for attempt in range(1, 4):
-        copy = model_json(instructions, {'evidence': bundle, 'repair_feedback': feedback})
-        validate_copy(copy, routes, {x['id'] for x in bundle['source-register']})
+        try:
+            copy = model_json(instructions, {'evidence': bundle, 'repair_feedback': feedback})
+            validate_copy(copy, routes, {x['id'] for x in bundle['source-register']})
+        except (ValueError, KeyError, TypeError) as error:
+            # Malformed/thin publication copy is a repairable editorial defect, not
+            # a reason to terminate the production orchestrator on the first draft.
+            last_error = str(error)
+            feedback = [last_error]
+            write(receipt, {**binding(run), 'status': 'BLOCKED',
+                            'defects': feedback, 'attempt': attempt,
+                            'verifier': os.environ.get('ATLAS_EDITORIAL_MODEL', 'gpt-4.1')})
+            continue
         verdict = model_json('''Independently verify publication prose against only the supplied accepted
 evidence. Return JSON {"status":"PASS|BLOCKED","defects":[str]}.
 Block unsupported facts, mismatched source attribution, changed Perspective/scene meaning, disguised
@@ -84,7 +95,7 @@ You did not write this text. Return PASS only with zero defects.''', {'evidence'
                         'verifier': os.environ.get('ATLAS_EDITORIAL_MODEL', 'gpt-4.1')})
         if read(receipt)['status'] == 'PASS':
             return copy
-    raise RuntimeError('editorial verification exhausted repairs: ' + json.dumps(feedback))
+    raise RuntimeError('editorial verification exhausted repairs: ' + json.dumps(feedback or [last_error or 'unknown editorial defect']))
 
 if __name__ == '__main__':
     run = Path(sys.argv[1])
