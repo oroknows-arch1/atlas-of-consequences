@@ -1,0 +1,13 @@
+{
+  "stage":"geography_resolution","status":"PASS","produced_by":"locality_researcher / evidence-led geography resolution 2026-09-27",
+  "output":{
+    "geography":[
+      {"label":"Strait of Hormuz / Persian Gulf","resolution":"maritime chokepoint and production region","evidence_refs":["SRC-FAO-0924","SRC-WB-CMO-0428","SRC-IFPRI-0921"]},
+      {"label":"Bangladesh","resolution":"country","evidence_refs":["SRC-WB-BD-0626","SRC-BD-MOA-0816","SRC-BSS-0915","SRC-BSS-0919"]},
+      {"label":"Rajshahi, Bangladesh","resolution":"division/city evidence checkpoint, not yet household locality","evidence_refs":["SRC-BSS-RAJSHAHI-0908"]}
+    ],
+    "primary_grounding_candidate":"Bangladesh",
+    "secondary_comparator":"Australia",
+    "resolution_boundary":"Do not descend to a named village, farm or household until locality-level evidence is collected. Rajshahi can evidence regional stock conditions but is not automatically the story location."
+  }
+}
