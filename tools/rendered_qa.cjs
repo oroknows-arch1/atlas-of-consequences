@@ -76,12 +76,14 @@ const [url, receiptPath, screenshotDir]=process.argv.slice(2);
   else{
     const page=await browser.newPage({viewport:{width:390,height:844}});
     let r;
-    for(let attempt=1;attempt<=3;attempt++){
+    for(let attempt=1;attempt<=5;attempt++){
       try{
         r=await page.goto(process.env.ATLAS_BENCHMARK_URL,{waitUntil:'networkidle',timeout:60000});
         if(r?.status()!==429)break;
-      }catch(error){if(attempt===3)throw error}
-      await new Promise(resolve=>setTimeout(resolve,attempt*5000));
+      }catch(error){if(attempt===5)throw error}
+      const retryAfter=Number(r?.headers()?.['retry-after']||0);
+      const delay=Math.min(60000,Math.max(attempt*15000,retryAfter*1000));
+      await new Promise(resolve=>setTimeout(resolve,delay));
     }
     if(!r?.ok())throw Error('benchmark unavailable');
     await capture(page,'benchmark-phone');
