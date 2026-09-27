@@ -1,0 +1,34 @@
+{
+  "history": [
+    {
+      "attempt": 1,
+      "defects": [
+        {
+          "worker": "visual_factory",
+          "reason": "Visual continuity inconsistency between asset style and uniformity across route images (e.g., some scenes reuse the same AI-generated visual context for Bangladeshi urban and informal home/factory settings, diminishing sense of progression and context change).",
+          "scene_id": "phone-route-H1 / phone-route-H3 / phone-route-H6"
+        },
+        {
+          "worker": "visual_factory",
+          "reason": "Generic or repetitive AI-generated contextual images weaken geographic and narrative specificity required for the edition, notably in home, street, and factory illustrations.",
+          "scene_id": "phone-route-H1 / phone-route-H3 / phone-route-H6"
+        },
+        {
+          "worker": "reader_treatment",
+          "reason": "Typography treatments inconsistent in some route headers (e.g. multiline breaks, box-style cropping of oversized route headers), which affects readability and centering.",
+          "scene_id": "phone-edition / phone-perspectives / phone-route-H1"
+        },
+        {
+          "worker": "reader_builder",
+          "reason": "Some routes (especially phone-route-H5, phone-route-H6) have thin editorial content lacking sufficient depth or scene-scale specificity for a robust narrative. More context or detail is needed for parity with benchmark editions.",
+          "scene_id": "phone-route-H5 / phone-route-H6"
+        },
+        {
+          "worker": "visual_factory",
+          "reason": "Multiple routes repeat the same or visually near-identical AI-generated asset. This undermines continuity and weakens the sense of narrative progression.",
+          "scene_id": "phone-route-H1 / phone-route-H3 / phone-route-H6"
+        }
+      ]
+    }
+  ]
+}
