@@ -31,7 +31,12 @@ def build_reader(run, edition, candidate, routes, story, assets, copy):
     hero_asset = next((a for a in assets if a['provider'] != 'ATLAS_DETERMINISTIC_GRAPHIC'), None)
     if not hero_asset:
         raise ValueError('publication reader requires contextual imagery')
-    sources_html = ''.join(f'<details id="source-{esc(s["id"])}"><summary>{esc(s["id"])} · {esc(s["title"])}</summary><p>Supports: {esc(s["supports"])}</p><p>Limit: {esc(s["limitation"])}</p><a href="{esc(s["url"])}" rel="noopener">Open source ↗</a></details>' for s in sources)
+    def source_links(source):
+        links = [f'<a href="{esc(source["url"])}" rel="noopener">Open source ↗</a>']
+        for fallback in source.get("fallback_urls", []):
+            links.append(f'<a href="{esc(fallback)}" rel="noopener">Canonical access ↗</a>')
+        return " · ".join(links)
+    sources_html = ''.join(f'<details id="source-{esc(s["id"])}"><summary>{esc(s["id"])} · {esc(s["title"])}</summary><p>Supports: {esc(s["supports"])}</p><p>Limit: {esc(s["limitation"])}</p>{source_links(s)}</details>' for s in sources)
     story_html = ''.join(f'<p>{esc(p)}</p>' for p in story['story'])
     page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><title>{esc(candidate['working_title'])} · Atlasoquence</title><link rel="stylesheet" href="reader.css"><script src="reader.js" defer></script></head><body>
 <header class="edition-header"><a href="#edition">ATLASOQUENCE · {esc(candidate['working_title'])}</a><nav aria-label="Edition"><a href="#perspectives">Perspectives</a><a href="#story">STORY</a><a href="#place">PLACE</a><a href="#sources">SOURCES</a></nav><small>UNPUBLISHED · AUTOMATED QA BUILD</small></header><main>

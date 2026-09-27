@@ -12,6 +12,7 @@ import production_state as state
 import publication_gate as gate
 import produce_edition as producer
 import reader_builder as builder
+import source_qa
 from validate_manufacturing_trace import validate as trace_validate
 from editorial_factory import validate_copy
 
@@ -148,6 +149,26 @@ class ProductionRegression(unittest.TestCase):
   self.assertEqual(saved['policy_version'],'safe-visual-v2')
   self.assertIn('original_rejection',saved['events'][0]['kind'])
   self.assertEqual(result['routing_provenance']['route'],'safe_equivalent_primary')
+ def test_source_fallback_preserves_primary_failure_and_passes_declared_canonical(self):
+  class Response:
+   status=200
+   url='https://canonical.example/source.pdf'
+   def __enter__(self): return self
+   def __exit__(self,*args): pass
+   def read(self,n): return b'%PDF-1.7'
+  def opener(request,timeout):
+   if request.full_url == 'https://primary.example/source': raise RuntimeError('HTTP Error 403: Forbidden')
+   return Response()
+  result=source_qa.resolve_source({'id':'S','url':'https://primary.example/source','fallback_urls':['https://canonical.example/source.pdf']},opener)
+  self.assertEqual(result['status'],'PASS')
+  self.assertTrue(result['fallback_used'])
+  self.assertEqual(result['resolved_url'],'https://canonical.example/source.pdf')
+  self.assertEqual(result['attempts'][0]['status'],'BLOCKED')
+ def test_source_without_declared_fallback_fails_closed(self):
+  def opener(request,timeout): raise RuntimeError('HTTP Error 403: Forbidden')
+  result=source_qa.resolve_source({'id':'S','url':'https://primary.example/source'},opener)
+  self.assertEqual(result['status'],'BLOCKED')
+  self.assertFalse(result.get('fallback_used',False))
  def test_missing_production_can_never_be_candidate(self):
   result=gate.evaluate(self.run)
   self.assertEqual(result['status'],'BLOCKED')
