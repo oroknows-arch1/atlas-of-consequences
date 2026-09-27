@@ -137,6 +137,17 @@ class ProductionRegression(unittest.TestCase):
    for _ in range(2):
     with self.assertRaisesRegex(RuntimeError,'provider_route_blocked'):routing.request_asset(self.run,{'scene_id':'TEST'},'primary',invoke)
    self.assertEqual(invoke.call_count,2)
+ def test_provider_policy_revision_reopens_cached_alternative_without_losing_rejection(self):
+  import provider_routing as routing
+  proposal={'decision':'SAFE_ALTERNATIVE','composition':'empty classroom with desks and exercise books','reason':'same purpose'}
+  verdict={'safe':True,'meaning_preserved':True,'boundary_preserved':True,'reason':'same purpose'}
+  with patch.dict('os.environ',{'ATLAS_SAFE_VISUAL_REEXPRESSION':'1'}), patch.object(routing,'model_json',side_effect=[proposal,verdict]):
+   invoke=unittest.mock.Mock(side_effect=[RuntimeError('moderation_blocked'),{'path':'binary'}])
+   result=routing.request_asset(self.run,{'scene_id':'TEST','meaning':'school disruption','truth_boundary':'boundary'},'primary',invoke)
+  saved=state.read(self.run/'provider-routing-receipt.json')['scenes']['TEST']
+  self.assertEqual(saved['policy_version'],'safe-visual-v2')
+  self.assertIn('original_rejection',saved['events'][0]['kind'])
+  self.assertEqual(result['routing_provenance']['route'],'safe_equivalent_primary')
  def test_missing_production_can_never_be_candidate(self):
   result=gate.evaluate(self.run)
   self.assertEqual(result['status'],'BLOCKED')

@@ -5,6 +5,8 @@ import os
 from production_state import binding, read, write, require_current
 from editorial_factory import model_json, object_schema
 
+POLICY_VERSION = 'safe-visual-v2'
+
 PROPOSAL=object_schema({'decision':{'type':'string','enum':['SAFE_ALTERNATIVE','BLOCKED']},
                        'composition':{'type':'string'},'reason':{'type':'string'}})
 VERDICT=object_schema({'safe':{'type':'boolean'},'meaning_preserved':{'type':'boolean'},
@@ -21,6 +23,15 @@ def request_asset(run,job,command,invoke):
     key=hashlib.sha256(json.dumps(stable,sort_keys=True).encode()).hexdigest()
     record=history['scenes'].setdefault(sid,{'job_sha256':key,'original_job':stable,'events':[]})
     if record['job_sha256']!=key: raise RuntimeError('provider routing receipt belongs to a different visual job')
+    if record.get('policy_version') != POLICY_VERSION:
+        record['policy_version'] = POLICY_VERSION
+        record.pop('alternative', None)
+        record.pop('equivalence_qa', None)
+        record.pop('safe_primary_rejected', None)
+        record.pop('alternate_rejected', None)
+        save_needed = True
+    else:
+        save_needed = False
     def save():write(path,history)
     # Import the actual earlier refusal; never submit that same rejected request again.
     previous=run/'asset-persistence-receipt.json'
@@ -29,6 +40,7 @@ def request_asset(run,job,command,invoke):
             if defect.get('scene_id')==sid and 'moderation_blocked' in defect.get('reason',''):
                 record['events'].append({'kind':'original_rejection','provider':command,'reason':defect['reason'],'imported_from':'asset-persistence-receipt.json'})
                 save()
+    if save_needed: save()
     if not record['events']:
         try:return invoke(command,job)
         except RuntimeError as error:
@@ -38,9 +50,10 @@ def request_asset(run,job,command,invoke):
     if 'alternative' not in record:
         proposal=model_json('''A contextual image request was rejected by the provider. Do NOT evade safety
 systems, disguise rejected content, or advise bypassing a refusal. Decide whether a genuinely safer,
-ordinary environment-only illustration can serve the SAME accepted editorial purpose. No people,
-bodies, distress, illness, injury, violence or reenactment. Use buildings, airflow, objects and ambient
-conditions only where relevant. Do not invent a real incident or imply a documented closure/site.
+ordinary environment-only illustration can serve the SAME accepted editorial purpose. No people, bodies, distress, illness, injury, violence or reenactment. Use buildings, airflow, objects
+and ambient conditions only where relevant. For school/child consequences, use school objects such as
+empty desks, closed exercise books, fans, shut classroom doors or empty corridors to communicate the
+relationship between heat and disrupted schooling without depicting children or a specific closure. Do not invent a real incident or imply a documented closure/site.
 Keep geography, evidence limits, scene meaning and truth boundary unchanged. Return BLOCKED if these
 constraints cannot honestly fulfil the purpose. If possible propose ONE explicit composition, describing
 what is shown, not instructions to the provider about moderation. No alternate factual claims.''',
