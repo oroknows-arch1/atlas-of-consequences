@@ -1,39 +1,194 @@
 {
-  "schema_version":"1.0",
-  "graph_id":"automated-edition-generation",
-  "purpose":"Generate a reviewable edition structure from a verified world change without copying AOC-001 structure.",
-  "invariants":{
-    "provider_availability_or_credit_exhaustion":"may change HOW a visual requirement is fulfilled; must never change evidence, Perspective structure, scene meaning, or factual boundary",
-    "video_generation_mandatory":false
+  "schema_version": "1.0",
+  "graph_id": "automated-edition-generation",
+  "purpose": "Generate a reviewable edition structure from a verified world change without copying AOC-001 structure.",
+  "invariants": {
+    "provider_availability_or_credit_exhaustion": "may change HOW a visual requirement is fulfilled; must never change evidence, Perspective structure, scene meaning, or factual boundary",
+    "video_generation_mandatory": false,
+    "edition_selection": "all necessary evidence-derived Perspectives plus a grounded human/emotional consequence must pass before route/scene generation"
   },
-  "nodes":[
-    {"id":"world_change_intake","mode":"MODEL_RESEARCH","produces":"world_change_candidate"},
-    {"id":"evidence_graph","mode":"MODEL_RESEARCH","requires":["world_change_intake"],"produces":"evidence_graph"},
-    {"id":"evidence_gate","mode":"BOUNDED_VERIFY","requires":["evidence_graph"],"produces":"verified_evidence_graph"},
-    {"id":"geography_resolution","mode":"MODEL_RESEARCH","requires":["evidence_gate"],"produces":"supported_geography"},
-    {"id":"perspective_candidates","mode":"MODEL_CREATE","requires":["evidence_gate","geography_resolution"],"produces":"perspective_candidates"},
-    {"id":"perspective_gate","mode":"BOUNDED_DECISION","decision_layer":"JEV_WHEN_USEFUL","requires":["perspective_candidates"],"produces":"accepted_and_rejected_perspectives"},
-    {"id":"route_scene_generation","mode":"MODEL_CREATE","requires":["perspective_gate"],"produces":"routes_and_scene_meanings"},
-    {"id":"causal_boundary_gate","mode":"BOUNDED_VERIFY","requires":["route_scene_generation","evidence_gate"],"produces":"bounded_routes"},
-    {"id":"visual_requirements","mode":"MODEL_CREATE","requires":["causal_boundary_gate","geography_resolution"],"produces":"visual_requirements"},
-    {"id":"image_provider_routing","mode":"BOUNDED_DECISION","decision_layer":"JEV_WHEN_USEFUL","requires":["visual_requirements"],"rule":"route by visual purpose, truth boundary, capability and availability; provider availability/credits may alter fulfilment method only","fallback_order":["CHATGPT_IMAGES","DETERMINISTIC","SOURCED_MEDIA","NONE"],"runway_policy":"exception provider only; never required for edition completion","produces":"provider_decisions"},
-    {"id":"edition_manifest","mode":"DETERMINISTIC","requires":["provider_decisions","bounded_routes","verified_evidence_graph"],"produces":"generated_edition_manifest"},
-    {"id":"invariant_validation","mode":"DETERMINISTIC","requires":["edition_manifest"],"produces":"validation_receipt"},
-    {"id":"asset_generation","mode":"MODEL_CREATE_OR_TOOL","condition":"only validated scenes with required=true and approved truth boundary; video is optional","requires":["invariant_validation"],"produces":"contextual_assets"},
-    {"id":"asset_evidence_qa","mode":"BOUNDED_VERIFY","requires":["asset_generation","verified_evidence_graph"],"produces":"asset_qa_receipt"},
-    {"id":"reader_assembly","mode":"DETERMINISTIC","requires":["asset_evidence_qa","edition_manifest"],"produces":"reviewable_reader"},
-    {"id":"publication_qa","mode":"BOUNDED_VERIFY","requires":["reader_assembly"],"produces":"release_readiness_report"},
-    {"id":"human_publication_gate","mode":"HUMAN_GATE","requires":["publication_qa"],"condition":"explicit publication approval required"},
-    {"id":"distribution_handoff","mode":"DETERMINISTIC","requires":["human_publication_gate"],"produces":"signal_library_input"}
+  "nodes": [
+    {
+      "id": "world_change_intake",
+      "mode": "MODEL_RESEARCH",
+      "produces": "world_change_candidate"
+    },
+    {
+      "id": "evidence_graph",
+      "mode": "MODEL_RESEARCH",
+      "requires": [
+        "world_change_intake"
+      ],
+      "produces": "evidence_graph"
+    },
+    {
+      "id": "evidence_gate",
+      "mode": "BOUNDED_VERIFY",
+      "requires": [
+        "evidence_graph"
+      ],
+      "produces": "verified_evidence_graph"
+    },
+    {
+      "id": "geography_resolution",
+      "mode": "MODEL_RESEARCH",
+      "requires": [
+        "evidence_gate"
+      ],
+      "produces": "supported_geography"
+    },
+    {
+      "id": "perspective_candidates",
+      "mode": "MODEL_CREATE",
+      "requires": [
+        "evidence_gate",
+        "geography_resolution"
+      ],
+      "produces": "perspective_candidates"
+    },
+    {
+      "id": "perspective_gate",
+      "mode": "BOUNDED_DECISION",
+      "decision_layer": "JEV_WHEN_USEFUL",
+      "requires": [
+        "perspective_candidates"
+      ],
+      "produces": "accepted_and_rejected_perspectives"
+    },
+    {
+      "id": "edition_selection_gate",
+      "mode": "BOUNDED_DECISION",
+      "decision_layer": "JEV_WHEN_USEFUL",
+      "requires": [
+        "evidence_gate",
+        "geography_resolution",
+        "perspective_gate"
+      ],
+      "rule": "PASS only when every Perspective determined necessary for informational completeness is evidence-supported and at least one grounded human/emotional consequence is evidenced; otherwise mark NOT_READY or WATCH and continue to next EMRADAR candidate",
+      "produces": "edition_selection_decision"
+    },
+    {
+      "id": "route_scene_generation",
+      "mode": "MODEL_CREATE",
+      "requires": [
+        "edition_selection_gate"
+      ],
+      "produces": "routes_and_scene_meanings"
+    },
+    {
+      "id": "causal_boundary_gate",
+      "mode": "BOUNDED_VERIFY",
+      "requires": [
+        "route_scene_generation",
+        "evidence_gate"
+      ],
+      "produces": "bounded_routes"
+    },
+    {
+      "id": "visual_requirements",
+      "mode": "MODEL_CREATE",
+      "requires": [
+        "causal_boundary_gate",
+        "geography_resolution"
+      ],
+      "produces": "visual_requirements"
+    },
+    {
+      "id": "image_provider_routing",
+      "mode": "BOUNDED_DECISION",
+      "decision_layer": "JEV_WHEN_USEFUL",
+      "requires": [
+        "visual_requirements"
+      ],
+      "rule": "route by visual purpose, truth boundary, capability and availability; provider availability/credits may alter fulfilment method only",
+      "fallback_order": [
+        "CHATGPT_IMAGES",
+        "DETERMINISTIC",
+        "SOURCED_MEDIA",
+        "NONE"
+      ],
+      "runway_policy": "exception provider only; never required for edition completion",
+      "produces": "provider_decisions"
+    },
+    {
+      "id": "edition_manifest",
+      "mode": "DETERMINISTIC",
+      "requires": [
+        "provider_decisions",
+        "bounded_routes",
+        "verified_evidence_graph"
+      ],
+      "produces": "generated_edition_manifest"
+    },
+    {
+      "id": "invariant_validation",
+      "mode": "DETERMINISTIC",
+      "requires": [
+        "edition_manifest"
+      ],
+      "produces": "validation_receipt"
+    },
+    {
+      "id": "asset_generation",
+      "mode": "MODEL_CREATE_OR_TOOL",
+      "condition": "only validated scenes with required=true and approved truth boundary; video is optional",
+      "requires": [
+        "invariant_validation"
+      ],
+      "produces": "contextual_assets"
+    },
+    {
+      "id": "asset_evidence_qa",
+      "mode": "BOUNDED_VERIFY",
+      "requires": [
+        "asset_generation",
+        "verified_evidence_graph"
+      ],
+      "produces": "asset_qa_receipt"
+    },
+    {
+      "id": "reader_assembly",
+      "mode": "DETERMINISTIC",
+      "requires": [
+        "asset_evidence_qa",
+        "edition_manifest"
+      ],
+      "produces": "reviewable_reader"
+    },
+    {
+      "id": "publication_qa",
+      "mode": "BOUNDED_VERIFY",
+      "requires": [
+        "reader_assembly"
+      ],
+      "produces": "release_readiness_report"
+    },
+    {
+      "id": "human_publication_gate",
+      "mode": "HUMAN_GATE",
+      "requires": [
+        "publication_qa"
+      ],
+      "condition": "explicit publication approval required"
+    },
+    {
+      "id": "distribution_handoff",
+      "mode": "DETERMINISTIC",
+      "requires": [
+        "human_publication_gate"
+      ],
+      "produces": "signal_library_input"
+    }
   ],
-  "failure_policy":{
-    "missing_evidence":"preserve UNKNOWN or UNAVAILABLE; do not fabricate",
-    "weak_perspective":"reject perspective",
-    "unsupported_geography":"reduce geographic resolution",
-    "unsupported_causality":"qualify or break edge",
-    "unsafe_visual_specificity":"use explanatory/generic contextual visual or NONE",
-    "provider_unavailable_or_credits_exhausted":"reroute visual fulfilment without changing evidence, Perspective structure, scene meaning, or factual boundary",
-    "video_unavailable":"continue with still, deterministic, sourced-media or no-motion fulfilment as appropriate",
-    "validation_failure":"halt before asset generation or publication"
+  "failure_policy": {
+    "missing_evidence": "preserve UNKNOWN or UNAVAILABLE; do not fabricate",
+    "weak_perspective": "reject perspective",
+    "unsupported_geography": "reduce geographic resolution",
+    "unsupported_causality": "qualify or break edge",
+    "unsafe_visual_specificity": "use explanatory/generic contextual visual or NONE",
+    "provider_unavailable_or_credits_exhausted": "reroute visual fulfilment without changing evidence, Perspective structure, scene meaning, or factual boundary",
+    "video_unavailable": "continue with still, deterministic, sourced-media or no-motion fulfilment as appropriate",
+    "validation_failure": "halt before asset generation or publication",
+    "incomplete_edition_candidate": "mark NOT_READY or WATCH, record failed gates, and continue through remaining EMRADAR scan candidates; do not generate scenes/assets to rescue it"
   }
 }
