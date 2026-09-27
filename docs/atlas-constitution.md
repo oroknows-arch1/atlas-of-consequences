@@ -69,3 +69,20 @@ Audio/audiobook production is an approved future capability, not a v0.1 requirem
 Prove one complete edition before scaling the system.
 
 One ecosystem. One locality. One complete story experience. Visible evidence. Clear fact/fiction boundary. OROK companion material. One complete social Publishing Package.
+
+
+## Atlas edition selection rule
+
+EMRADAR discovers consequential change; discovery alone does not qualify a change for an Atlas edition.
+
+An EMRADAR candidate may enter edition generation only when verified evidence supports a complete, multidimensional account of the Perspectives necessary to understand that specific change and includes a grounded human consequence with genuine emotional relevance.
+
+Perspectives are derived from the evidence and are not a fixed taxonomy. However, every Perspective that the selection process determines is necessary for informational completeness must clear its evidence threshold. Atlas must not remove a necessary Perspective merely to make a candidate publishable.
+
+A human/emotional hook must arise from evidenced consequences: for example livelihood, opportunity, security, family, identity, displacement, aspiration, cost, health, time, belonging, conflict or adaptation. Atlas must not manufacture suffering, locality, causality or emotion to rescue an incomplete candidate.
+
+If a necessary Perspective, geographic grounding, human consequence or other required edition-selection gate cannot be supported, the candidate is NOT READY or WATCH. Atlas records the failure and continues through the remaining EMRADAR scan candidates.
+
+The selection objective is not to publish the first interesting change. It is to select a change whose attention-worthy information sphere can be represented as a connected whole: facts, systems, place, people, consequences, uncertainty, relevant markets/institutions, adaptation and what follows.
+
+A candidate may be reconsidered when new evidence fills its failed gates.
