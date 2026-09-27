@@ -73,8 +73,22 @@ def evaluate(run, fetch=urlopen):
             raise ValueError('wrong review deployment')
         targets=[(a['path'],a['sha256']) for a in assets]+[('/'+p.removeprefix('public/'),h) for p,h in hashes.items()]
         for path, expected in targets:
-            with fetch(deploy['base_url'].rstrip('/')+path,timeout=25) as response:
-                if hashlib.sha256(response.read()).hexdigest()!=expected: raise ValueError('deployed bytes differ: '+path)
+            matched=False
+            last_actual=None
+            for attempt in range(1,4):
+                request_url=deploy['base_url'].rstrip('/')+path
+                try:
+                    from urllib.request import Request
+                    with fetch(Request(request_url,headers={'Cache-Control':'no-cache'}),timeout=25) as response:
+                        last_actual=hashlib.sha256(response.read()).hexdigest()
+                    if last_actual==expected:
+                        matched=True
+                        break
+                except Exception:
+                    if attempt==3: raise
+                import time
+                time.sleep(attempt*3)
+            if not matched: raise ValueError('deployed bytes differ: '+path)
     if not errors: check('deployment',deployed_bytes)
     result={'edition_id':edition,'status':'BLOCKED' if errors else 'PUBLICATION_CANDIDATE',
             'known_required_items':errors,'publication_authorized':False}
