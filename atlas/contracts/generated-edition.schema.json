@@ -2,7 +2,7 @@
   "$schema":"https://json-schema.org/draft/2020-12/schema",
   "title":"Atlasoquence Generated Edition Manifest",
   "type":"object",
-  "required":["schema_version","edition_id","world_change","evidence_graph","geography","perspectives","reader","publication"],
+  "required":["schema_version","edition_id","world_change","evidence_graph","geography","perspectives","reader","visual_fulfilment","publication"],
   "properties":{
     "schema_version":{"const":"1.0"},
     "edition_id":{"type":"string"},
@@ -20,13 +20,17 @@
         "knowledge_stop":{"type":"boolean"},
         "visual":{"type":"object","required":["required","purpose","truth_boundary","provider_decision"],"properties":{
           "required":{"type":"boolean"},"purpose":{"type":"string"},"truth_boundary":{"type":"string"},
-          "provider_decision":{"enum":["CHATGPT_IMAGES","RUNWAY","SPECIALIST","NONE","PENDING"]},
+          "provider_decision":{"enum":["CHATGPT_IMAGES","RUNWAY","SPECIALIST","DETERMINISTIC","SOURCED_MEDIA","NONE","PENDING"]},
           "asset_path":{"type":["string","null"]}
         }}
       }}}
     }}},
     "reader":{"type":"object","required":["reader_selects_perspective","routes_do_not_auto_chain","universal_baseline"],"properties":{
       "reader_selects_perspective":{"const":true},"routes_do_not_auto_chain":{"const":true},"universal_baseline":{"const":true}
+    }},
+    "visual_fulfilment":{"type":"object","required":["provider_availability_cannot_change_editorial_structure","video_generation_mandatory"],"properties":{
+      "provider_availability_cannot_change_editorial_structure":{"const":true},
+      "video_generation_mandatory":{"const":false}
     }},
     "publication":{"type":"object","required":["state","human_approval_required"],"properties":{
       "state":{"enum":["DRAFT","REVIEW_READY","BLOCKED","APPROVED"]},"human_approval_required":{"const":true}
