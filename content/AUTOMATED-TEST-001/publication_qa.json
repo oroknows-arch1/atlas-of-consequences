@@ -1,65 +1,47 @@
 {
   "stage": "publication_qa",
-  "status": "PASS",
-  "produced_by": "Atlas deterministic review QA / 2026-09-27",
+  "status": "BLOCKED",
+  "produced_by": "Atlas publication-completeness repair / 2026-09-27",
   "output": {
     "edition_id": "AET1-WC-002",
-    "release_state": "REVIEW_READY_NOT_PUBLISHED",
-    "checks": [
+    "release_state": "BLOCKED",
+    "reason": "Previous PASS was invalid because required contextual visual binaries were not generated, persisted and integrated. Human review was exposed before publication completeness.",
+    "passed_layers": [
+      "candidate selection",
+      "evidence graph",
+      "Perspective derivation",
+      "route generation",
+      "causal boundaries",
+      "comparative knowledge",
+      "STORY plausibility",
+      "source-register repair"
+    ],
+    "failed_layers": [
       {
-        "name": "edition selected by gate",
-        "result": "PASS"
+        "node": "asset_generation",
+        "failure": "Required contextual visual set incomplete."
       },
       {
-        "name": "all necessary perspectives represented",
-        "result": "PASS"
+        "node": "asset_persistence_gate",
+        "failure": "Generated visual continuity board is not yet persisted as publication assets with hashes/targets."
       },
       {
-        "name": "human emotional hook evidenced",
-        "result": "PASS"
+        "node": "reader_integration_gate",
+        "failure": "Required contextual assets are not wired into the reader."
       },
       {
-        "name": "factual uncertainty preserved",
-        "result": "PASS"
-      },
-      {
-        "name": "fiction visibly labelled",
-        "result": "PASS"
-      },
-      {
-        "name": "story plausibility gate",
-        "result": "PASS"
-      },
-      {
-        "name": "reader chooses perspective",
-        "result": "PASS"
-      },
-      {
-        "name": "routes end before next choice",
-        "result": "PASS"
-      },
-      {
-        "name": "mobile responsive baseline",
-        "result": "PASS"
-      },
-      {
-        "name": "video optional",
-        "result": "PASS"
-      },
-      {
-        "name": "AOC-001 untouched",
-        "result": "PASS"
-      },
-      {
-        "name": "human publication authority",
-        "result": "PASS"
+        "node": "benchmark_parity_qa",
+        "failure": "Cannot pass AOC-001 parity without complete imagery/media and integrated publication treatment."
       }
     ],
-    "known_review_items": [
-      "Deterministic review visuals validate layout and meaning; final contextual still-image set can be generated/replaced after editorial review without changing evidence or routes.",
-      "Review should test whether STORY feels sufficiently local to Dhaka before publication.",
-      "Source-link presentation should be expanded in final publication build."
+    "known_required_items": [
+      "Generate the complete required visual set from the approved continuity system.",
+      "Persist each required binary with provenance/hash.",
+      "Integrate each asset into its intended Perspective/STORY scene.",
+      "Run visual/evidence QA, mobile QA, source QA and benchmark parity QA.",
+      "Only then emit PUBLICATION_CANDIDATE."
     ],
-    "publication_authorized": false
+    "publication_authorized": false,
+    "human_review_required_now": false
   }
 }
