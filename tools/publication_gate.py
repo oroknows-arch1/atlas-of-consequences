@@ -76,7 +76,7 @@ def evaluate(run, fetch=urlopen):
             matched=False
             last_actual=None
             for attempt in range(1,4):
-                request_url=deploy['base_url'].rstrip('/')+path
+                request_url=deploy['base_url'].rstrip('/')+path+'?atlas_verify='+expected[:16]+'&attempt='+str(attempt)
                 try:
                     from urllib.request import Request
                     request=Request(request_url,headers={'Cache-Control':'no-cache'})

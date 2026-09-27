@@ -104,6 +104,7 @@ class ProductionRegression(unittest.TestCase):
  def test_publication_gate_retries_stale_deployed_bytes(self):
   gate=(state.ROOT/'tools/publication_gate.py').read_text()
   self.assertIn("Cache-Control':'no-cache'",gate)
+  self.assertIn('atlas_verify',gate)
   self.assertIn('range(1,4)',gate)
  def test_deployment_worker_verifies_live_asset_hashes(self):
   deploy=(state.ROOT/'tools/deploy_review.py').read_text()

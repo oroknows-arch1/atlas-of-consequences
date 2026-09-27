@@ -51,7 +51,7 @@ def main(run):
             try:
                 integrated=True
                 for path,expected in asset_targets:
-                    with urlopen(Request(BASE.rstrip("/") + path,headers={"Cache-Control":"no-cache"}),timeout=25) as response:
+                    with urlopen(Request(BASE.rstrip("/") + path + "?atlas_verify=" + expected[:16] + "&attempt=" + str(_),headers={"Cache-Control":"no-cache"}),timeout=25) as response:
                         actual=hashlib.sha256(response.read()).hexdigest()
                     if actual!=expected:
                         integrated=False
