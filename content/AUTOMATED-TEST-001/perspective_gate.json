@@ -1,13 +1,68 @@
 {
-  "stage":"perspective_gate","status":"PASS","produced_by":"bounded perspective gate / evidence sufficiency decision 2026-09-27",
-  "output":{
-    "perspectives":[
-      {"id":"P1","name":"The Chokepoint","status":"ACCEPTED","rationale":"Independent evidence chain supports concentration, disruption, price shock and uneven adaptation.","evidence_nodes":["N1","N2","N3","N4"]},
-      {"id":"P2","name":"The Buffer","status":"ACCEPTED","rationale":"Bangladesh evidence supports import exposure, emergency finance/procurement and maintained national stocks without claiming shortage.","evidence_nodes":["N5","N6","N7"]},
-      {"id":"P3","name":"The Farm Gate","status":"REJECTED","rationale":"Current pack lacks sufficient farmer/locality evidence for actual price, access, application or yield effects.","evidence_nodes":["N5","N7","N10"]},
-      {"id":"P4","name":"The Plate","status":"REJECTED","rationale":"Current pack does not establish a direct household food-price or food-security effect attributable specifically to fertilizer.","evidence_nodes":["N3","N11","N12"]},
-      {"id":"P5","name":"The Alternate Route","status":"ACCEPTED","rationale":"Australia provides a separately evidenced comparator route showing exposure, intervention and recovery without a shortage outcome.","evidence_nodes":["N8","N9","N1"]}
+  "stage": "perspective_gate",
+  "status": "PASS",
+  "produced_by": "bounded perspective gate / evidence sufficiency decision 2026-09-27",
+  "output": {
+    "perspectives": [
+      {
+        "id": "P1",
+        "name": "The Chokepoint",
+        "status": "ACCEPTED",
+        "rationale": "Independent evidence chain supports concentration, disruption, price shock and uneven adaptation.",
+        "evidence_nodes": [
+          "N1",
+          "N2",
+          "N3",
+          "N4"
+        ]
+      },
+      {
+        "id": "P2",
+        "name": "The Buffer",
+        "status": "ACCEPTED",
+        "rationale": "Bangladesh evidence supports import exposure, emergency finance/procurement and maintained national stocks without claiming shortage.",
+        "evidence_nodes": [
+          "N5",
+          "N6",
+          "N7"
+        ]
+      },
+      {
+        "id": "P3",
+        "name": "The Farm Gate",
+        "status": "REJECTED",
+        "rationale": "Current pack lacks sufficient farmer/locality evidence for actual price, access, application or yield effects.",
+        "evidence_nodes": [
+          "N5",
+          "N7",
+          "N10"
+        ]
+      },
+      {
+        "id": "P4",
+        "name": "The Plate",
+        "status": "REJECTED",
+        "rationale": "Current pack does not establish a direct household food-price or food-security effect attributable specifically to fertilizer.",
+        "evidence_nodes": [
+          "N3",
+          "N11",
+          "N12"
+        ]
+      },
+      {
+        "id": "P5",
+        "name": "The Alternate Route",
+        "status": "ACCEPTED",
+        "rationale": "Australia provides a separately evidenced comparator route showing exposure, intervention and recovery without a shortage outcome.",
+        "evidence_nodes": [
+          "N8",
+          "N9",
+          "N1"
+        ]
+      }
     ],
-    "decision_note":"Three routes survive. Two intuitive human-impact routes are deliberately rejected rather than filled with inference."
+    "decision_note": "Three routes survive. Two intuitive human-impact routes are deliberately rejected rather than filled with inference.",
+    "edition_selection_result": "NOT_READY",
+    "next_action": "Do not proceed to route/scene generation; continue EMRADAR candidate scan."
   }
 }
