@@ -1,0 +1,19 @@
+{
+  "stage":"perspective_gate",
+  "status":"PASS",
+  "produced_by":"perspective derivation + Atlas completeness gate / 2026-09-27",
+  "output":{
+    "candidate_id":"AET1-WC-002",
+    "perspectives":[
+      {"id":"H1","name":"The Heat","status":"ACCEPTED","necessary":true,"evidence_basis":["WB-HEAT-2025"],"purpose":"Establish what physically changed: long-run warming, heat index, urban heat and duration/exposure."},
+      {"id":"H2","name":"The Shift","status":"ACCEPTED","necessary":true,"evidence_basis":["IIED-HEAT-2026","RMG-WORKER-2025","CORNELL-HEAT-2026"],"purpose":"Follow heat into work: factory floors, construction/rickshaw work, health strain, breaks, productivity and missed days."},
+      {"id":"H3","name":"The Pay Packet","status":"ACCEPTED","necessary":true,"evidence_basis":["IIED-HEAT-2026","WB-HEAT-2025"],"purpose":"Follow lost work and reduced capacity into worker income, household budgets and the wider economy."},
+      {"id":"H4","name":"The Home","status":"ACCEPTED","necessary":true,"evidence_basis":["IIED-HEAT-2026","CORNELL-HEAT-2026"],"purpose":"Follow heat beyond the workplace into recovery, housing and household exposure."},
+      {"id":"H5","name":"The Next Generation","status":"ACCEPTED","necessary":true,"evidence_basis":["UNICEF-EDU-2025","WB-HEAT-2025"],"purpose":"Show how the same heat system reaches children through health risk and disrupted schooling without claiming every closure was caused only by heat."},
+      {"id":"H6","name":"The Fix","status":"ACCEPTED","necessary":true,"evidence_basis":["CORNELL-HEAT-2026","IIED-HEAT-2026"],"purpose":"Follow adaptation: cooling, ventilation, building changes, workplace standards, finance and social protection; distinguish tested interventions from proposals."}
+    ],
+    "completeness_result":"PASS",
+    "human_emotional_hook_result":"PASS",
+    "aoc001_template_check":"PASS — perspectives were derived from heat evidence and are not AOC-001's six-category taxonomy."
+  }
+}
