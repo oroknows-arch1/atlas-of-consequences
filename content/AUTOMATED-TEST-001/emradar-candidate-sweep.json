@@ -1,0 +1,41 @@
+{
+  "scan_id":"AET1-SWEEP-2026-09-27",
+  "purpose":"Find the first fresh EMRADAR world change that clears Atlas edition-selection completeness and human/emotional relevance gates.",
+  "rules":[
+    "Do not select for similarity to AOC-001.",
+    "Every Perspective determined necessary for informational completeness must be evidence-supported.",
+    "A grounded human/emotional consequence must be evidenced, not manufactured.",
+    "Failure means WATCH/NOT_READY and continue scanning."
+  ],
+  "candidates":[
+    {
+      "id":"AET1-WC-001",
+      "change":"Hormuz disruption and fertilizer supply-chain reconfiguration",
+      "decision":"NOT_READY",
+      "failed_gates":["farm-level consequence evidence","household/food consequence attribution"],
+      "state":"WATCH"
+    },
+    {
+      "id":"AET1-WC-002",
+      "change":"Bangladesh heat stress and changing labour productivity/adaptation",
+      "decision":"RESEARCH_NEXT",
+      "selection_reason":"Potentially connects measured climate/heat change, dense urban/industrial geography, worker productivity, household income/time/health burdens, employer adaptation and infrastructure response. Must verify current evidence before selection.",
+      "state":"CANDIDATE"
+    },
+    {
+      "id":"AET1-WC-003",
+      "change":"Global critical-mineral processing diversification outside China",
+      "decision":"HOLD_FOR_COMPARISON",
+      "selection_reason":"Strong structural/market/institutional evidence likely, but human/emotional last-mile must be demonstrated rather than inferred.",
+      "state":"CANDIDATE"
+    },
+    {
+      "id":"AET1-WC-004",
+      "change":"GLP-1 medicine expansion reshaping obesity treatment, food demand and health systems",
+      "decision":"HOLD_FOR_COMPARISON",
+      "selection_reason":"Potentially rich health, household, industry and market consequences; requires careful current evidence and health-boundary handling.",
+      "state":"CANDIDATE"
+    }
+  ],
+  "next_action":"Stress-test AET1-WC-002 first, then continue until a candidate passes all Atlas selection gates."
+}
