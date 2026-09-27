@@ -45,6 +45,19 @@ class ProductionRegression(unittest.TestCase):
  def test_internal_meanings_are_not_publication_copy(self):
   routes=state.read(self.run/'causal_boundary_gate.json')['output']['routes']
   with self.assertRaises(ValueError):validate_copy({'scenes':{}},routes,{'WB-HEAT-2025'})
+ def test_malformed_editorial_paragraph_is_repairable_validation_error(self):
+  routes=state.read(self.run/'causal_boundary_gate.json')['output']['routes']
+  source_ids={x['id'] for x in state.read(self.run/'source-register.json')}
+  block={'heading':'Synthetic','paragraphs':['plain text is invalid here']}
+  malformed={'opening':block,'place':block,'consequences':block,
+             'scenes':{s['scene_id']:block for r in routes for s in r['scenes']}}
+  with self.assertRaisesRegex(ValueError,'structured object'):validate_copy(malformed,routes,source_ids)
+ def test_malformed_editorial_section_is_repairable_validation_error(self):
+  routes=state.read(self.run/'causal_boundary_gate.json')['output']['routes']
+  source_ids={x['id'] for x in state.read(self.run/'source-register.json')}
+  malformed={'opening':'plain text','place':'plain text','consequences':'plain text',
+             'scenes':{s['scene_id']:'plain text' for r in routes for s in r['scenes']}}
+  with self.assertRaisesRegex(ValueError,'structured object'):validate_copy(malformed,routes,source_ids)
  def test_missing_production_can_never_be_candidate(self):
   result=gate.evaluate(self.run)
   self.assertEqual(result['status'],'BLOCKED')
