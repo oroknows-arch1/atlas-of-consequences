@@ -76,3 +76,15 @@
 .perspective-hotspot:focus-visible{outline:2px solid #fff}
 .perspective-hotspot.incoming-perspective{box-shadow:inset 0 0 0 2px rgba(255,255,255,.92),inset 0 0 42px rgba(255,255,255,.10)}
 @media(min-width:800px){.visual-perspective-menu{padding-left:8vw;padding-right:8vw}.visual-perspective-menu .menu-head{padding-left:0;padding-right:0}}
+
+/* Phone QA 2026-09-27: Perspectives must take possession of viewport after hero transition. */
+#perspectives{scroll-margin-top:0}
+.visual-perspective-menu{min-height:100svh;padding-top:max(18px,env(safe-area-inset-top));}
+.visual-perspective-menu .menu-head{max-width:none;margin:0 auto 18px}
+.perspective-menu-image{width:100%;max-width:none;margin:0;overflow:hidden}
+@media(max-width:600px){
+  .visual-perspective-menu{padding-top:max(16px,env(safe-area-inset-top))}
+  .visual-perspective-menu .menu-head{padding:0 18px 10px;margin:0}
+  .perspective-menu-image{width:100vw;max-width:none}
+  .perspective-menu-image>img{width:118%;max-width:none;transform:translateX(-7.6%);transform-origin:top center}
+}
