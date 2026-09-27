@@ -41,3 +41,10 @@
 .video-entry:not(.film-complete) .edition-geo-bg{opacity:0}
 
 .skip-film{top:max(58px,calc(env(safe-area-inset-top) + 46px));right:16px;bottom:auto}
+
+/* AOC-001 approved six-Perspective overview. The image establishes the edition system;
+   interactive route cards remain the reader-choice layer below it. */
+.perspectives-system{position:relative;max-width:980px;margin:0 auto 28px;border:1px solid rgba(255,255,255,.18);overflow:hidden;background:#090b0c}
+.perspectives-system img{display:block;width:100%;height:auto}
+.perspectives-system figcaption{position:absolute;left:12px;bottom:12px;padding:7px 9px;background:rgba(5,7,8,.72);backdrop-filter:blur(10px);font-size:7px;letter-spacing:.18em;text-transform:uppercase}
+@media(max-width:600px){.perspectives-system{margin-left:-18px;margin-right:-18px;border-left:0;border-right:0}.perspectives-system img{width:180%;max-width:none;transform:translateX(-22%)}.perspectives-system figcaption{left:18px}}
