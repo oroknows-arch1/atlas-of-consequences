@@ -38,41 +38,6 @@
       "reason": "image generator and independent visual verifier commands are required"
     },
     {
-      "worker": "visual_factory",
-      "scene_id": "H1-S1",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H2-S1",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H2-S2",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H2-S3",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H4-S1",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H5-S1",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H6-S1",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
       "gate": "assets",
       "reason": "missing ['H1-S1', 'H2-S1', 'H2-S2', 'H2-S3', 'H4-S1', 'H5-S1', 'H6-S1']"
     },
