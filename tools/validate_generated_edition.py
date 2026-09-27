@@ -3,6 +3,7 @@ import json, sys
 from pathlib import Path
 
 ALLOWED={"KNOWN","UNCERTAIN","CONTESTED","UNKNOWN","UNAVAILABLE","FICTION_EDITORIAL"}
+PROVIDERS={"CHATGPT_IMAGES","RUNWAY","SPECIALIST","DETERMINISTIC","SOURCED_MEDIA","NONE","PENDING"}
 
 def fail(msgs):
     print("AUTOMATED EDITION INVARIANTS: FAIL")
@@ -34,7 +35,7 @@ def main(path):
             visual=scene.get("visual",{})
             if visual.get("required") and not visual.get("truth_boundary"):
                 errors.append(f"{sid}: required visual lacks truth boundary")
-            if visual.get("provider_decision") not in {"CHATGPT_IMAGES","RUNWAY","SPECIALIST","NONE","PENDING"}:
+            if visual.get("provider_decision") not in PROVIDERS:
                 errors.append(f"{sid}: invalid provider decision")
             if state in {"UNKNOWN","UNAVAILABLE"} and not scene.get("knowledge_stop"):
                 errors.append(f"{sid}: UNKNOWN/UNAVAILABLE must be an explicit knowledge stop")
@@ -42,6 +43,11 @@ def main(path):
     if reader.get("reader_selects_perspective") is not True: errors.append("reader must choose the active Perspective")
     if reader.get("routes_do_not_auto_chain") is not True: errors.append("completed Perspective must not auto-chain into another")
     if reader.get("universal_baseline") is not True: errors.append("universal readable/navigable baseline required")
+    visual_policy=data.get("visual_fulfilment",{})
+    if visual_policy.get("provider_availability_cannot_change_editorial_structure") is not True:
+        errors.append("provider availability/credit exhaustion must not change evidence, Perspective structure, scene meaning, or factual boundary")
+    if visual_policy.get("video_generation_mandatory") is not False:
+        errors.append("video generation must remain optional")
     pub=data.get("publication",{})
     if pub.get("human_approval_required") is not True: errors.append("human publication authority must be preserved")
     if pub.get("state")=="APPROVED": errors.append("automated test validator does not authorize publication")
