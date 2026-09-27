@@ -25,20 +25,33 @@ def model_json(instruction, data):
     return json.loads(''.join(p.get('text', '') for x in result.get('output', []) for p in x.get('content', [])))
 
 def validate_copy(copy, routes, source_ids):
+    if not isinstance(copy, dict):
+        raise ValueError('editorial response must be a JSON object')
+    scenes = copy.get('scenes')
+    if not isinstance(scenes, dict):
+        raise ValueError('editorial scenes must be a JSON object keyed by accepted scene ID')
     expected = [s['scene_id'] for r in routes for s in r['scenes']]
-    if set(copy.get('scenes', {})) != set(expected):
+    if set(scenes) != set(expected):
         raise ValueError('editorial copy must cover exactly the accepted scenes')
     for name in ('opening', 'place', 'consequences'):
         if not copy.get(name):
             raise ValueError(f'missing publication section: {name}')
-    blocks = [copy[n] for n in ('opening', 'place', 'consequences')] + list(copy['scenes'].values())
+    blocks = [copy[n] for n in ('opening', 'place', 'consequences')] + list(scenes.values())
     for item in blocks:
-        if not item.get('heading') or not item.get('paragraphs'):
+        if not isinstance(item, dict):
+            raise ValueError('publication section must be a structured object')
+        paragraphs = item.get('paragraphs')
+        if not item.get('heading') or not isinstance(paragraphs, list) or not paragraphs:
             raise ValueError('publication section missing readable copy')
-        for paragraph in item['paragraphs']:
+        for paragraph in paragraphs:
+            if not isinstance(paragraph, dict):
+                raise ValueError('editorial paragraph must be a structured object')
             if not isinstance(paragraph.get('text'), str) or not paragraph['text'].strip():
                 raise ValueError('empty editorial paragraph')
-            if not paragraph.get('evidence_refs') or set(paragraph['evidence_refs']) - source_ids:
+            refs = paragraph.get('evidence_refs')
+            if not isinstance(refs, list) or not refs or any(not isinstance(ref, str) for ref in refs):
+                raise ValueError('paragraph evidence refs must be a non-empty list of source IDs')
+            if set(refs) - source_ids:
                 raise ValueError('unregistered paragraph evidence')
             if paragraph.get('state') not in ('FACT', 'UNCERTAIN', 'INTERPRETATION'):
                 raise ValueError('missing paragraph truth boundary')
