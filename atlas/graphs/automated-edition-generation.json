@@ -5,7 +5,8 @@
   "invariants": {
     "provider_availability_or_credit_exhaustion": "may change HOW a visual requirement is fulfilled; must never change evidence, Perspective structure, scene meaning, or factual boundary",
     "video_generation_mandatory": false,
-    "edition_selection": "all necessary evidence-derived Perspectives plus a grounded human/emotional consequence must pass before route/scene generation"
+    "edition_selection": "all necessary evidence-derived Perspectives plus a grounded human/emotional consequence must pass before route/scene generation",
+    "story_plausibility": "FACT remains direct-evidence strict; STORY may use comparative knowledge and bounded human plausibility, but invention must remain clearly fictional and cannot become factual evidence."
   },
   "nodes": [
     {
@@ -85,6 +86,37 @@
       "produces": "bounded_routes"
     },
     {
+      "id": "comparative_knowledge_retrieval",
+      "mode": "MODEL_RESEARCH",
+      "requires": [
+        "causal_boundary_gate",
+        "geography_resolution"
+      ],
+      "rule": "Retrieve contextual/comparative evidence only to expand STORY plausibility; it cannot upgrade a factual claim.",
+      "produces": "comparative_knowledge_graph"
+    },
+    {
+      "id": "story_synthesis",
+      "mode": "MODEL_CREATE",
+      "requires": [
+        "causal_boundary_gate",
+        "comparative_knowledge_retrieval"
+      ],
+      "rule": "May invent clearly fictional people, relationships, dialogue, choices, ordinary events and emotions inside evidence-established conditions.",
+      "produces": "story_candidate"
+    },
+    {
+      "id": "story_plausibility_gate",
+      "mode": "BOUNDED_VERIFY",
+      "requires": [
+        "story_synthesis",
+        "comparative_knowledge_retrieval",
+        "evidence_gate"
+      ],
+      "rule": "Verify fiction does not contradict facts, disguise comparison as local occurrence, overstate prevalence, or import severe/culturally specific events without sufficient contextual support.",
+      "produces": "bounded_story"
+    },
+    {
       "id": "visual_requirements",
       "mode": "MODEL_CREATE",
       "requires": [
@@ -116,7 +148,8 @@
       "requires": [
         "provider_decisions",
         "bounded_routes",
-        "verified_evidence_graph"
+        "verified_evidence_graph",
+        "bounded_story"
       ],
       "produces": "generated_edition_manifest"
     },
@@ -189,6 +222,7 @@
     "provider_unavailable_or_credits_exhausted": "reroute visual fulfilment without changing evidence, Perspective structure, scene meaning, or factual boundary",
     "video_unavailable": "continue with still, deterministic, sourced-media or no-motion fulfilment as appropriate",
     "validation_failure": "halt before asset generation or publication",
-    "incomplete_edition_candidate": "mark NOT_READY or WATCH, record failed gates, and continue through remaining EMRADAR scan candidates; do not generate scenes/assets to rescue it"
+    "incomplete_edition_candidate": "mark NOT_READY or WATCH, record failed gates, and continue through remaining EMRADAR scan candidates; do not generate scenes/assets to rescue it",
+    "story_plausibility_failure": "revise or remove the fictional event; do not weaken factual boundaries or misrepresent comparative evidence as local occurrence"
   }
 }
