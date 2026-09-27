@@ -207,6 +207,18 @@ Unknown or incomplete knowledge should be communicated in ordinary editorial lan
 
 The governed edition must remain separable from today's rendering medium so future displays, spatial interfaces, audio systems, wearables or other peripheral devices can convey the same evidence, provenance and editorial boundaries without rebuilding the truth layer.
 
+#### Device-agnostic delivery invariant
+
+Atlasoquence is device-agnostic and capability-adaptive. No edition may depend on a particular phone brand, operating system, browser vendor, screen shape, input method or proprietary device feature to remain understandable.
+
+The same governed edition must remain usable wherever Atlasoquence can be viewed. Establish a universal readable/navigable baseline first, then progressively enhance it according to capabilities actually available on the viewing device.
+
+Touch, mouse/trackpad, keyboard, assistive technology, reduced-motion preferences, different viewport sizes/orientations and future interaction hardware must not create different factual editions.
+
+Motion, video, audio, hover, haptics, spatial presentation and other richer capabilities are enhancements. If unavailable, unsupported or intentionally disabled, the evidence, meaning, provenance, navigation and reader agency must survive through an appropriate fallback.
+
+Test representative capability classes rather than designing around a single handset.
+
 ### Benchmark rule
 
 AOC-001 should be used to answer:
