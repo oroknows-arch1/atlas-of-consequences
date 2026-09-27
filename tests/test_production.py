@@ -149,6 +149,11 @@ class ProductionRegression(unittest.TestCase):
   self.assertEqual(saved['policy_version'],'safe-visual-v2')
   self.assertIn('original_rejection',saved['events'][0]['kind'])
   self.assertEqual(result['routing_provenance']['route'],'safe_equivalent_primary')
+ def test_visual_review_batches_screenshots_and_retries_rate_limits(self):
+  review=(state.ROOT/'tools/review_rendered.py').read_text()
+  self.assertIn('for i in range(0,len(candidate),5)',review)
+  self.assertIn('error.code != 429',review)
+  self.assertIn('Retry-After',review)
  def test_visual_review_retries_transient_rate_limits(self):
   review=(state.ROOT/'tools/review_rendered.py').read_text()
   self.assertIn('error.code != 429',review)
