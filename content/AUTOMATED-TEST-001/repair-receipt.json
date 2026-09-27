@@ -64,6 +64,51 @@
           "scene_id": "H6"
         }
       ]
+    },
+    {
+      "attempt": 2,
+      "defects": [
+        {
+          "worker": "reader_treatment",
+          "reason": "All phone-edition screenshots show excessively dark backgrounds with off-white/pale text but have low midtone separation, risking readability especially for long passages. Some headings appear too close to container edges. Box outlines and misaligned baselines also distract in titles.",
+          "scene_id": "phone-edition|phone-perspectives|phone-route-H1|phone-route-H2|phone-route-H3|phone-route-H4|phone-route-H5|phone-route-H6"
+        },
+        {
+          "worker": "reader_builder",
+          "reason": "The Perspective selection in 'phone-perspectives.png' is too generic: labels are broad without summary, depth, or scene teaser, lacking editorial/geographical specificity. Fails minimum depth for edition routing.",
+          "scene_id": "phone-perspectives"
+        },
+        {
+          "worker": "visual_factory",
+          "reason": "Route illustrations (H1–H6) do not fully clarify location or context relative to subject—they show generic stylized scenes attributed to Dhaka, but edges are soft and scenes can be exchanged without loss of meaning, suggesting a lack of strong continuity or geographic specificity.",
+          "scene_id": "phone-route-H1|phone-route-H2|phone-route-H3|phone-route-H4|phone-route-H5|phone-route-H6"
+        },
+        {
+          "worker": "editorial_factory",
+          "reason": "Several topics in 'phone-route-H5' and 'phone-route-H6' are under-explained. Uncertain labels are applied in some cases where concise detail is needed for adaptation/future risk, but specifics or even a clear research gap is not described.",
+          "scene_id": "phone-route-H5|phone-route-H6"
+        },
+        {
+          "worker": "reader_builder",
+          "reason": "Thin editorial depth in several sections—story, consequences, and especially route scenes could provide deeper local specificity, more detail, or varied narrative. Content is clear but borderline generic for required publication standards.",
+          "scene_id": "multiple"
+        },
+        {
+          "worker": "visual_factory",
+          "reason": "Visual context/continuity is strongly unified, but two route scenes (Shift, Heat) reuse similar AI-generated imagery for contextual urban Dhaka, risking generic repetition and insufficient visual diversity.",
+          "scene_id": "desktop-route-H1, desktop-route-H2"
+        },
+        {
+          "worker": "visual_factory",
+          "reason": "Two images (route-H4, route-H6) use AI-generated contextual illustrations as scene banners for 'The Home' and 'The Fix'. These are clearly labeled as not documentary, but generic/AI contextual art is blocked for key banner visuals unless sourced, documentary, or essential to editorial context. This impedes uniform visual continuity and context.",
+          "scene_id": "route-H4"
+        },
+        {
+          "worker": "visual_factory",
+          "reason": "Classroom illustration in 'The Next Generation' (route-H5) is also an AI-generated contextual scene, not a documentary image, and is flagged as suboptimal. Editorial note recommends sourced/contextual school heat imagery. Overuse of generic illustrations impedes specificity and breaks visual continuity.",
+          "scene_id": "route-H5"
+        }
+      ]
     }
   ]
 }

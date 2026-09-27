@@ -3,58 +3,62 @@
 [hidden]{display:none!important}.edition-header{padding:18px max(24px,env(safe-area-inset-left));border-bottom:1px solid #536067}.edition-header>a{font:600 16px Georgia,serif}.edition-header nav{display:flex;flex-wrap:wrap;gap:18px;margin:12px 0}.edition-header small{font-size:10px;letter-spacing:.12em;color:#c8baa8}.hero{min-height:0;display:block}.hero figure{margin:32px 0 0}.hero img{width:100%;max-height:65svh;object-fit:cover}.hero figcaption{font-size:12px}.opening{max-width:900px;padding:30px 7vw 80px}.opening h2{font:700 clamp(30px,4vw,50px)/1.1 Georgia,serif}.opening p{font-size:20px}h1{font:700 clamp(40px,7vw,90px)/1.02 Georgia,serif}.scene h2{font:700 clamp(28px,3.3vw,49px)/1.12 Georgia,serif;margin:20px 0}.scene-copy small{font-size:11px}.scene:not(:has(figure)){grid-template-columns:1fr;max-width:850px}.sources h2{font-size:clamp(32px,5vw,60px)}.refs{overflow-wrap:anywhere}a:focus-visible{outline:3px solid #e3ac79;outline-offset:5px}body{padding-bottom:env(safe-area-inset-bottom)}@media(max-width:700px){.cards{grid-template-columns:1fr}.opening{padding:24px}.hero{padding-bottom:20px}.scene img{object-fit:contain;max-height:none}.hero h1{font-size:clamp(38px,10vw,64px)}}
 
 /* Automated rendered repair; verify again before release. */
-.phone-edition-titlebox {
-  position: absolute;
-  top: 14px;
-  left: 0;
-  right: 0;
-  margin: 0 0 0 0;
-  max-width: 90%;
-  background: rgba(32,48,54,0.98);
-  border: 2px solid #f4eee4;
-  border-radius: 4px;
-  padding: 14px 18px 12px 18px;
-  z-index: 3;
-  font-size: 2.1rem;
-  font-family: Georgia, serif;
-  font-weight: 700;
-  line-height: 1.13;
-  color: #f4eee4;
-  box-shadow: 0 2px 12px rgba(16,23,25,0.17);
+body {
+  background: #171e20;
+  color: #f6f2ec;
+  text-shadow: 0 1px 0 rgba(16,19,20,0.04);
 }
-
-/* Improved crop and framing for phone scene images */
-#phone-route-H5 img,
-#phone-route-H4 img {
-  object-fit: cover!important;
-  object-position: 50% 56%!important;
+.scene, .scene-copy, .route, .hero, .story, .sources {
+  box-shadow: none;
+}
+.scene h2, .scene h3, .hero h1, .route h2 {
+  margin-left: 3px;
+  margin-right: 3px;
+  padding-left: 2px;
+  padding-right: 2px;
+  letter-spacing: -.01em;
+}
+.scene h2, .scene h3, .hero h1 {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+.hero h1, .scene h2, .scene h3, .route h2 {
   border-radius: 3px;
-  background: #111;
-  max-height: 56svh;
-  margin-bottom: 8px;
-  filter: brightness(1.03) contrast(1.13);
-  box-shadow: 0 2px 11px 0 rgba(20,26,28,.13);
+  background: none;
+  border: none;
 }
-
-/* Add subtle environmental cues and better spatial padding for H4 */
-#phone-route-H4 figure {
-  padding: 0 7vw 0 7vw;
-  background: linear-gradient(180deg,rgba(32,48,54,.13) 0 20%,transparent 90%);
+.scene h2, .scene h3, .hero h1 {
+  margin-bottom: 18px;
 }
-
-@media (max-width:700px) {
-  .phone-edition-titlebox {
-    left: 10px;
-    right: 10px;
-    padding: 11px 9px 10px 13px;
-    font-size: 1.18rem;
-    max-width: 98vw;
+.scene img, .hero img {
+  filter: brightness(1.12) contrast(1.14) saturate(1.09);
+  object-position: 50% 46%;
+}
+.scene, .route, .hero, .story, .sources {
+  border: none;
+}
+@media(max-width:700px) {
+  body {
+    background: #151a1c;
+    color: #f9f7f2;
   }
-  #phone-route-H5 img,
-  #phone-route-H4 img {
-    max-height: 38svh;
+  .scene h2, .scene h3, .hero h1, .route h2 {
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    padding-left: 2px;
+    padding-right: 2px;
   }
-  #phone-route-H4 figure {
-    padding: 0 1vw;
+  .scene img, .hero img {
+    filter: brightness(1.17) contrast(1.14) saturate(1.08);
+    object-position: 50% 43%;
   }
+}
+.hero h1, .scene h2, .scene h3 {
+  box-shadow: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+}
+.cards a, .scene-copy, .scene h2, .scene h3 {
+  vertical-align: middle;
 }
