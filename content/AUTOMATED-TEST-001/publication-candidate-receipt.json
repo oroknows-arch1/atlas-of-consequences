@@ -3,8 +3,8 @@
   "status": "BLOCKED",
   "known_required_items": [
     {
-      "worker": "rendered_qa",
-      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/screenshots/phone-edition.png'"
+      "worker": "production_orchestrator",
+      "reason": "Production in progress; previous review verdict invalidated"
     }
   ],
   "publication_authorized": false
