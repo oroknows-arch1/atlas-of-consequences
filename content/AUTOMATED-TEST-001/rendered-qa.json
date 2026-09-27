@@ -1,0 +1,537 @@
+{
+  "url": "https://atlas-automated-edition-test-1.onrender.com/review/aet1-wc-002/",
+  "status": "PASS",
+  "errors": [],
+  "observations": [
+    {
+      "device": "phone",
+      "id": "edition",
+      "visible": [
+        "edition"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 1
+    },
+    {
+      "device": "phone",
+      "id": "perspectives",
+      "visible": [
+        "perspectives"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 0
+    },
+    {
+      "device": "phone",
+      "id": "route-H1",
+      "visible": [
+        "route-H1"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 2
+    },
+    {
+      "device": "phone",
+      "id": "route-H2",
+      "visible": [
+        "route-H2"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 3
+    },
+    {
+      "device": "phone",
+      "id": "route-H3",
+      "visible": [
+        "route-H3"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 1
+    },
+    {
+      "device": "phone",
+      "id": "route-H4",
+      "visible": [
+        "route-H4"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 1
+    },
+    {
+      "device": "phone",
+      "id": "route-H5",
+      "visible": [
+        "route-H5"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 1
+    },
+    {
+      "device": "phone",
+      "id": "route-H6",
+      "visible": [
+        "route-H6"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 2
+    },
+    {
+      "device": "phone",
+      "id": "story",
+      "visible": [
+        "story"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 0
+    },
+    {
+      "device": "phone",
+      "id": "consequences",
+      "visible": [
+        "consequences"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 0
+    },
+    {
+      "device": "phone",
+      "id": "place",
+      "visible": [
+        "place"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 0
+    },
+    {
+      "device": "phone",
+      "id": "sources",
+      "visible": [
+        "sources"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 0
+    },
+    {
+      "device": "small-phone",
+      "id": "edition",
+      "visible": [
+        "edition"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 1
+    },
+    {
+      "device": "small-phone",
+      "id": "perspectives",
+      "visible": [
+        "perspectives"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 0
+    },
+    {
+      "device": "small-phone",
+      "id": "route-H1",
+      "visible": [
+        "route-H1"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 2
+    },
+    {
+      "device": "small-phone",
+      "id": "route-H2",
+      "visible": [
+        "route-H2"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 3
+    },
+    {
+      "device": "small-phone",
+      "id": "route-H3",
+      "visible": [
+        "route-H3"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 1
+    },
+    {
+      "device": "small-phone",
+      "id": "route-H4",
+      "visible": [
+        "route-H4"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 1
+    },
+    {
+      "device": "small-phone",
+      "id": "route-H5",
+      "visible": [
+        "route-H5"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 1
+    },
+    {
+      "device": "small-phone",
+      "id": "route-H6",
+      "visible": [
+        "route-H6"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 2
+    },
+    {
+      "device": "small-phone",
+      "id": "story",
+      "visible": [
+        "story"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 0
+    },
+    {
+      "device": "small-phone",
+      "id": "consequences",
+      "visible": [
+        "consequences"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 0
+    },
+    {
+      "device": "small-phone",
+      "id": "place",
+      "visible": [
+        "place"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 0
+    },
+    {
+      "device": "small-phone",
+      "id": "sources",
+      "visible": [
+        "sources"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 0
+    },
+    {
+      "device": "desktop",
+      "id": "edition",
+      "visible": [
+        "edition"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 1
+    },
+    {
+      "device": "desktop",
+      "id": "perspectives",
+      "visible": [
+        "perspectives"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 0
+    },
+    {
+      "device": "desktop",
+      "id": "route-H1",
+      "visible": [
+        "route-H1"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 2
+    },
+    {
+      "device": "desktop",
+      "id": "route-H2",
+      "visible": [
+        "route-H2"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 3
+    },
+    {
+      "device": "desktop",
+      "id": "route-H3",
+      "visible": [
+        "route-H3"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 1
+    },
+    {
+      "device": "desktop",
+      "id": "route-H4",
+      "visible": [
+        "route-H4"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 1
+    },
+    {
+      "device": "desktop",
+      "id": "route-H5",
+      "visible": [
+        "route-H5"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 1
+    },
+    {
+      "device": "desktop",
+      "id": "route-H6",
+      "visible": [
+        "route-H6"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 2
+    },
+    {
+      "device": "desktop",
+      "id": "story",
+      "visible": [
+        "story"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 0
+    },
+    {
+      "device": "desktop",
+      "id": "consequences",
+      "visible": [
+        "consequences"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 0
+    },
+    {
+      "device": "desktop",
+      "id": "place",
+      "visible": [
+        "place"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 0
+    },
+    {
+      "device": "desktop",
+      "id": "sources",
+      "visible": [
+        "sources"
+      ],
+      "brokenImages": [],
+      "overflow": false,
+      "placeholder": false,
+      "imageCount": 0
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "screenshots/phone-edition.png",
+      "sha256": "e7f889354a31f3fa85c2006d2fc5f80cff3f7070b4bc9a3ee3d174741f68e75e"
+    },
+    {
+      "path": "screenshots/phone-perspectives.png",
+      "sha256": "abe53654faa1edc5c450ab848492f6f630bdc1101b4edff5577c4dbc5f60947b"
+    },
+    {
+      "path": "screenshots/phone-route-H1.png",
+      "sha256": "a9e6f0ecb27ba616ca64491cb484c020c4edf411485af30b30e5e1be1a7d1987"
+    },
+    {
+      "path": "screenshots/phone-route-H2.png",
+      "sha256": "4958301b48522a218fb3efd6b5e961aba7e93a4469ee1ec4683de6cda1f299a9"
+    },
+    {
+      "path": "screenshots/phone-route-H3.png",
+      "sha256": "0d7f4a2d8f1c16eb45c9b179829f1c76db1fcbfd64c76fd16d3933f23c7e1917"
+    },
+    {
+      "path": "screenshots/phone-route-H4.png",
+      "sha256": "57fd03f3e3eac16d1b72fc376ab235867959a1ebfb3c4ab88aefbf322ca6427a"
+    },
+    {
+      "path": "screenshots/phone-route-H5.png",
+      "sha256": "e8199f338e85eef7f8fcbb01a2d26836d3cf725d36112f8e4c3d232d4ca38f67"
+    },
+    {
+      "path": "screenshots/phone-route-H6.png",
+      "sha256": "bfc86fef97c2d7c81d23e587c3d400179894af0b687d61699c259670c61d77a8"
+    },
+    {
+      "path": "screenshots/phone-story.png",
+      "sha256": "3d613c74c3f16f528fb95aada2a4f4714518f6dff03eeb409f5e84778683f583"
+    },
+    {
+      "path": "screenshots/phone-consequences.png",
+      "sha256": "a93b50d0f738ed6ad6d8297018d36952b4331015c2042218f23ac1fc4fdb89c5"
+    },
+    {
+      "path": "screenshots/phone-place.png",
+      "sha256": "4b659e41b99b32dc07671eea7bf1d8b328a0ef9a9504506502f1c9f699c13d3c"
+    },
+    {
+      "path": "screenshots/phone-sources.png",
+      "sha256": "1ed06871a814cf4358526045bfe3b68609300e146f6e203d1b16d79e64281be2"
+    },
+    {
+      "path": "screenshots/desktop-edition.png",
+      "sha256": "54dad0ae1ef4420c8651b0301f02cb01e18c26adeb632564653b29761469a176"
+    },
+    {
+      "path": "screenshots/desktop-perspectives.png",
+      "sha256": "8a2fed0b36bf181af52c9f4b407cb63b23017096c1c8114f6c9197c9f04e7166"
+    },
+    {
+      "path": "screenshots/desktop-route-H1.png",
+      "sha256": "11cd6b3640b40d24a25d1161b57cacfc559b08a89e8fec732b368fba122eedc1"
+    },
+    {
+      "path": "screenshots/desktop-route-H2.png",
+      "sha256": "9a66594b4a9fbc612b9797b0ffedc7df537ca59a8f8f5c95479e54355e76ce82"
+    },
+    {
+      "path": "screenshots/desktop-route-H3.png",
+      "sha256": "5b59ccfec7072acde190be0ce755e9c160aeb5e59921a2469ce7b73cd25f8199"
+    },
+    {
+      "path": "screenshots/desktop-route-H4.png",
+      "sha256": "bb412649ef891e9214adffabd228565ec82f3dcefce19f7cf16c843f57807869"
+    },
+    {
+      "path": "screenshots/desktop-route-H5.png",
+      "sha256": "c7c685f3e72e778b7b085b68d3351386a8644b9928532ec10e9b501ecc0067e7"
+    },
+    {
+      "path": "screenshots/desktop-route-H6.png",
+      "sha256": "b4a9a062ab7ea26ceaa08ab5a4a338e95111e31a6de4b7e1fd41041adb1c9af8"
+    },
+    {
+      "path": "screenshots/desktop-story.png",
+      "sha256": "eb88089fb800c12e2b2312b08d251cdb4919161b9c72b1bb7bb4d40d92c931d2"
+    },
+    {
+      "path": "screenshots/desktop-consequences.png",
+      "sha256": "bba8c407366a6d567c0b785a6c2c9766637008c4a9c2ccfeadd3a11543ce77f1"
+    },
+    {
+      "path": "screenshots/desktop-place.png",
+      "sha256": "44940b85a312f4640402451db19c3af08d895ff3ac0aacb8ebc0ed42a84b7b95"
+    },
+    {
+      "path": "screenshots/desktop-sources.png",
+      "sha256": "d74ca6574a827592f787d3aa686edfc55f125d2f98c021a4163fb58b4f89a110"
+    },
+    {
+      "path": "screenshots/benchmark-phone.png",
+      "sha256": "8dfe3ff6bb4a9af61cd7230eae0dd8464493300fc69c8d80ccc05d230b9939e9"
+    },
+    {
+      "path": "screenshots/benchmark-route-0.png",
+      "sha256": "845b1b8cdfbb066834b9e2b0a6a6cac3bcc085482ad5bd73a62f2a4c3f51a3a5"
+    },
+    {
+      "path": "screenshots/benchmark-route-1.png",
+      "sha256": "2e6099616be1ac8c743e598cd69a3e0d53258e3e93c408fe16d2dcb4c8f5d8e1"
+    },
+    {
+      "path": "screenshots/benchmark-route-2.png",
+      "sha256": "2e5a53cf326db03e1364fca413f1a7d9bb6e6e6b9165996d2ccce59973794a87"
+    },
+    {
+      "path": "screenshots/benchmark-route-3.png",
+      "sha256": "763ffda60a657283d89dab94b0db1b924c3e54f0a1eb00a2ea49185626b31dce"
+    },
+    {
+      "path": "screenshots/benchmark-route-4.png",
+      "sha256": "57daabd567322a2b90c771bb011d14bbed57f45671c5ddad8171db067c2fd38f"
+    },
+    {
+      "path": "screenshots/benchmark-route-5.png",
+      "sha256": "81e0472fb46717af05c99cc81cc63277d0d0bd990a22a5f24ab657f9266230aa"
+    }
+  ],
+  "edition_id": "AET1-WC-002",
+  "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
+  "reader_hashes": {
+    "public/review/aet1-wc-002/index.html": "3e5f332b547b5ef5ebc15899664624e93a99624a0e4fcddba785b2c4e453a047",
+    "public/review/aet1-wc-002/reader.css": "bf200dce66bb9fe708c91a1c9b56edb506e59eafcd3c3c45c6cfb533c6d95823",
+    "public/review/aet1-wc-002/reader.js": "46d13944688cfcfa92f026c8dc96b5f12da174862908a1540b129ddd1e7a3f82"
+  },
+  "deploy_id": "dep-dasngbh7lnhs739vkq0g"
+}
