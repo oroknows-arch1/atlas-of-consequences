@@ -69,6 +69,19 @@ class ProductionRegression(unittest.TestCase):
   paragraph=section['properties']['paragraphs']['items']
   self.assertEqual(paragraph['properties']['evidence_refs']['items']['enum'],['SOURCE'])
   self.assertEqual(set(paragraph['required']),{'text','state','evidence_refs'})
+ def test_provider_error_keeps_diagnosis_and_redacts_key(self):
+  import io
+  from urllib.error import HTTPError
+  from provider_errors import describe
+  error=HTTPError('https://api.openai.com',400,'Bad Request',{},io.BytesIO(b'{"error":{"code":"invalid_request","message":"problem with sk-secret"}}'))
+  text=describe(error)
+  self.assertIn('invalid_request',text)
+  self.assertNotIn('sk-secret',text)
+ def test_partial_asset_persistence_runs_after_failure(self):
+  workflow=(state.ROOT/'.github/workflows/atlas-edition-production.yml').read_text()
+  partial=workflow.split('name: Persist partial assets and production receipts')[1].split('- name:')[0]
+  self.assertIn('if: always()',partial)
+  self.assertIn('git add public/assets public/review',partial)
  def test_missing_production_can_never_be_candidate(self):
   result=gate.evaluate(self.run)
   self.assertEqual(result['status'],'BLOCKED')

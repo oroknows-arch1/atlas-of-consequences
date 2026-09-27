@@ -76,10 +76,10 @@ jobs:
       - name: Publication completeness gate
         if: always()
         run: python3 tools/publication_gate.py "$RUN_DIR"
-      - name: Persist production receipts
+      - name: Persist partial assets and production receipts
         if: always()
         run: |
-          git add "$RUN_DIR" ':!**/screenshots/**'
+          git add public/assets public/review "$RUN_DIR" ':!**/screenshots/**'
           if ! git diff --cached --quiet; then
             git commit -m 'Record Atlas production verdict [skip ci]'
             git push origin HEAD:test/automated-edition-1
@@ -90,5 +90,6 @@ jobs:
         with:
           name: atlas-production-receipts
           path: |
+            public/assets/aet1-wc-002/
             ${{ env.RUN_DIR }}/*.json
             ${{ env.RUN_DIR }}/screenshots/*.png

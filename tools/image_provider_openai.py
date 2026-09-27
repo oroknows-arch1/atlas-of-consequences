@@ -2,6 +2,7 @@
 """Repository-owned image generation adapter. Reads one scene job from stdin."""
 import base64, json, os, sys, tempfile
 from urllib.request import Request, urlopen
+from provider_errors import describe
 
 def main():
     job=json.load(sys.stdin)
@@ -27,4 +28,4 @@ def main():
                       "provenance":"generated representative editorial scene from bounded visual job "+job["scene_id"]}))
 if __name__=="__main__":
     try: main()
-    except Exception as e: print(str(e),file=sys.stderr);sys.exit(1)
+    except Exception as e: print(describe(e),file=sys.stderr);sys.exit(1)
