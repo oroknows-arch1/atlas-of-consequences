@@ -6,7 +6,7 @@
     "public/review/aet1-wc-002/reader.css": "bf200dce66bb9fe708c91a1c9b56edb506e59eafcd3c3c45c6cfb533c6d95823",
     "public/review/aet1-wc-002/reader.js": "46d13944688cfcfa92f026c8dc96b5f12da174862908a1540b129ddd1e7a3f82"
   },
-  "deploy_id": "dep-daso79rncjis73b0qs9g",
+  "deploy_id": "dep-dasoa0vpn0mc739a3g4g",
   "screenshots": [
     {
       "path": "screenshots/phone-edition.png",
@@ -106,44 +106,49 @@
     },
     {
       "path": "screenshots/benchmark-phone.png",
-      "sha256": "5e044098b6d1ea027d9df0804cdd8a73e0234cf610778728e645963511ff19a0"
+      "sha256": "13cf4ffd3deee457978c324ac633b09a4d544a7f8d37c8c66e5f94a5e93aef2a"
     },
     {
       "path": "screenshots/benchmark-route-0.png",
-      "sha256": "3dc893c5a72435471f020c16d6e36f6e6e922e4cb188397e6048683d8c137ba2"
+      "sha256": "ec84c56aa2fef4758d85e5e22ddea644091d38bf814113e1fa7bf69a01e71025"
     },
     {
       "path": "screenshots/benchmark-route-1.png",
-      "sha256": "160eeffceb494c6fbffa07be74ec00d1b5c70b1c87c62b8f06e15fea6d1b3ac8"
+      "sha256": "2ce4fbfba45e5d985eb36331c45fde09db25a14fe580dfc7d3f5991c76d8045c"
     },
     {
       "path": "screenshots/benchmark-route-2.png",
-      "sha256": "3afb1e5e6bbb4778ded6241639e93acdf62291cfc9eb4413db3ebf9ce0f0398d"
+      "sha256": "0b2e8c7655c5af83007fb2d9bae80ab92d9515309573c8dc6074f45eee30ae51"
     },
     {
       "path": "screenshots/benchmark-route-3.png",
-      "sha256": "fd200470486467b6693ffa9379f38a608368d26012bb93cd504fa2ef64394659"
+      "sha256": "1847a09d235dc4958441f6000ea7c3f76ea6b73b587569cdbb8caa1733ce4d99"
     },
     {
       "path": "screenshots/benchmark-route-4.png",
-      "sha256": "769cbbb6226d2e7b9194b301b9ee494ac5fc22d0df0eaf09780012cefaba30c9"
+      "sha256": "76674b6be22a571e5aecb2456ffd6d8b50676304ce6e587d9fa33c24f75c4c25"
     },
     {
       "path": "screenshots/benchmark-route-5.png",
-      "sha256": "d3fd1cabb7be39982c2de4b9f8a933bf1ad208a332b95ed74e367f62303654e9"
+      "sha256": "5e94b2ad17d8dafb7ea7d2a2f0c3faeaa5a95af64ee468a0e86f182267de341e"
     }
   ],
   "status": "BLOCKED",
   "defects": [
     {
-      "worker": "editorial_factory",
-      "reason": "Thin content: 'The Pay Packet', 'The Home', 'The Next Generation', and 'The Fix' routes in the Dhaka sequence have minimal editorial elaboration and lack sufficient explanatory, interpretive, or narrative depth. Scene transitions and route completion in these sections offer limited added value beyond raw survey data, weakening editorial substance.",
-      "scene_id": "phone-route-H3, phone-route-H4, phone-route-H5, phone-route-H6"
+      "worker": "visual_factory",
+      "reason": "Overreliance on AI-generated contextual imagery across multiple scenes (H4, H5, H6). Visuals are generic, lack publication-specific narrative integration, and disclaimers highlight absence of documentary or location-specific evidence. This breaks continuity and weakens geographic/contextual specificity.",
+      "scene_id": "H4"
     },
     {
       "worker": "visual_factory",
-      "reason": "Context and visual continuity: The Dhaka sequence visuals are heavily repeated and show multiple instances of nearly-identical or duplicative AI-generated contextual imagery across different sections ('The Heat', 'The Shift', 'The Home', 'The Fix'), reducing scene distinction and weakening visualization of different thematic areas.",
-      "scene_id": "phone-route-H1, phone-route-H2, phone-route-H4, phone-route-H6"
+      "reason": "AI-art illustration is not documentary or evidentiary. Disclaimers call for stronger contextual specificity or direct evidence-based visual material, especially for editorial depth and narrative confidence.",
+      "scene_id": "H5"
+    },
+    {
+      "worker": "visual_factory",
+      "reason": "Image does not distinguish or document any named intervention, location, or result. Copyright note highlights artificiality, and the graphic fails to advance the scene's specificity requirement.",
+      "scene_id": "H6"
     }
   ]
 }

@@ -5,53 +5,18 @@
       "defects": [
         {
           "worker": "visual_factory",
-          "reason": "Visual context is repetitive and generic throughout the Bangladesh heat publication. Many images are AI-generated with repeated street/factory/home scenes lacking locally unique, publication-defining visual specificity. There are no documentary, data, or report images that strengthen location or issue context beyond generic scenes.",
-          "scene_id": "phone-route-H1–H6"
-        },
-        {
-          "worker": "reader_treatment",
-          "reason": "Several headings (\"Choose your way in.\", route titles) show overflows and crop artifacts on mobile: excessive padding leaves too little space for longer section titles, causing broken line breaks and visually awkward centering/layout, especially on route screens.",
-          "scene_id": "phone-perspectives, phone-route-H1–H6"
+          "reason": "Overreliance on AI-generated contextual imagery across multiple scenes (H4, H5, H6). Visuals are generic, lack publication-specific narrative integration, and disclaimers highlight absence of documentary or location-specific evidence. This breaks continuity and weakens geographic/contextual specificity.",
+          "scene_id": "H4"
         },
         {
           "worker": "visual_factory",
-          "reason": "Dark mode legibility is inconsistent: some captions and sources in deeper sections risk low contrast against the background, especially at the bottom of dark images; does not fully meet midtone/readability standards under all viewing conditions.",
-          "scene_id": "phone-route-H1–H6"
-        },
-        {
-          "worker": "editorial_factory",
-          "reason": "The Bangladesh heat publication shows editorial thinness in routes 'The Pay Packet', 'The Next Generation', and 'The Fix'—surface-level explanation, vague attribution, or insufficient concrete example/detail. Factual depth and geographic/context specificity are not sufficiently developed in these areas. 'The Home' and 'The Next Generation' rely heavily on repeating similar summary points without new evidence or multidimensional narrative.",
-          "scene_id": "phone-route-H4, phone-route-H5, phone-route-H6"
-        }
-      ]
-    },
-    {
-      "attempt": 2,
-      "defects": [
-        {
-          "worker": "editorial_factory",
-          "reason": "Thin editorial depth: All Dhaka heat route screens (H1-H6) over-rely on summary, contain only broad overview/facts, and lack specific examples, perspectives, or story depth beyond generic heat impacts. Needs more human detail, uncertainty, or micro-level reportage.",
-          "scene_id": "phone-route-H1"
+          "reason": "AI-art illustration is not documentary or evidentiary. Disclaimers call for stronger contextual specificity or direct evidence-based visual material, especially for editorial depth and narrative confidence.",
+          "scene_id": "H5"
         },
         {
           "worker": "visual_factory",
-          "reason": "Visual genericism/uniformity: Multiple Dhaka route screens (H1-H6) re-use nearly identical AI-generated imagery or context without scene-specific, source-driven, or sequential visual narrative. Room/scene cues are too generic and do not reinforce editorial specificity.",
-          "scene_id": "phone-route-H1"
-        }
-      ]
-    },
-    {
-      "attempt": 3,
-      "defects": [
-        {
-          "worker": "editorial_factory",
-          "reason": "Thin content: 'The Pay Packet', 'The Home', 'The Next Generation', and 'The Fix' routes in the Dhaka sequence have minimal editorial elaboration and lack sufficient explanatory, interpretive, or narrative depth. Scene transitions and route completion in these sections offer limited added value beyond raw survey data, weakening editorial substance.",
-          "scene_id": "phone-route-H3, phone-route-H4, phone-route-H5, phone-route-H6"
-        },
-        {
-          "worker": "visual_factory",
-          "reason": "Context and visual continuity: The Dhaka sequence visuals are heavily repeated and show multiple instances of nearly-identical or duplicative AI-generated contextual imagery across different sections ('The Heat', 'The Shift', 'The Home', 'The Fix'), reducing scene distinction and weakening visualization of different thematic areas.",
-          "scene_id": "phone-route-H1, phone-route-H2, phone-route-H4, phone-route-H6"
+          "reason": "Image does not distinguish or document any named intervention, location, or result. Copyright note highlights artificiality, and the graphic fails to advance the scene's specificity requirement.",
+          "scene_id": "H6"
         }
       ]
     }
