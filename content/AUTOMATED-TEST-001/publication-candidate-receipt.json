@@ -12,7 +12,7 @@
     },
     {
       "worker": "editorial-qa",
-      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/editorial-qa.json'"
+      "reason": "gate did not PASS"
     },
     {
       "worker": "deployment-receipt",

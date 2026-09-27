@@ -7,7 +7,7 @@
   "defects": [
     {
       "worker": "production_orchestrator",
-      "reason": "'str' object has no attribute 'get'"
+      "reason": "editorial verification exhausted repairs: [\"publication section must be a structured object\"]"
     }
   ],
   "next_stage": "repair",
