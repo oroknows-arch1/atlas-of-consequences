@@ -82,6 +82,13 @@ class ProductionRegression(unittest.TestCase):
   text=describe(error)
   self.assertIn('invalid_request',text)
   self.assertNotIn('sk-secret',text)
+ def test_repair_router_maps_route_defects_and_runs_mixed_workers(self):
+  loop=(state.ROOT/'tools/review_loop.py').read_text()
+  self.assertIn('affected_scene_ids',loop)
+  self.assertIn("owners & {'visual_factory','asset_persistence','editorial_factory'}",loop)
+  self.assertIn("if 'reader_treatment' in owners",loop)
+  import review_loop
+  self.assertEqual(review_loop.affected_scene_ids([{'scene_id':'phone-route-H4–H6'}],['H1-S1','H4-S1','H6-S2']),{'H4-S1','H6-S2'})
  def test_deployment_worker_verifies_live_asset_hashes(self):
   deploy=(state.ROOT/'tools/deploy_review.py').read_text()
   self.assertIn('asset_integration_status',deploy)

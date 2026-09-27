@@ -1,8 +1,5 @@
-#!/usr/bin/env python3
 """Bounded repair routing. Routine failures return to their production owner."""
-import json
-import subprocess
-import sys
+import json, re, subprocess, sys
 from pathlib import Path
 from production_state import ROOT, binding, block, read, write
 
@@ -14,30 +11,41 @@ def persist(run_dir, message):
     if subprocess.run(['git','diff','--cached','--quiet'],cwd=ROOT).returncode==0: return True
     return not(command('git','commit','-m',message) or command('git','push','origin','HEAD:test/automated-edition-1'))
 
+def affected_scene_ids(defects, available):
+    """Translate route-level visual defects into the persisted scene assets they own."""
+    route_ids=set()
+    for defect in defects:
+        text=' '.join(str(defect.get(key,'')) for key in ('scene_id','reason'))
+        route_ids.update(re.findall(r'\bH[1-9][0-9]*\b',text))
+    if not route_ids:
+        return set(available)
+    return {scene for scene in available if scene.split('-')[0] in route_ids}
+
 def repair(run_dir, defects):
     owners={d.get('worker') for d in defects}
-    if owners <= {'reader_treatment'}:
-        return not command(sys.executable,'tools/repair_reader.py',str(run_dir))
-    if owners & {'visual_factory','asset_persistence','editorial_factory','reader_builder'}:
+    success=True
+    if owners & {'visual_factory','asset_persistence','editorial_factory'}:
         if 'editorial_factory' in owners:
             (run_dir/'editorial-qa.json').unlink(missing_ok=True)
         if 'visual_factory' in owners:
             path=run_dir/'asset-persistence-receipt.json'
             receipt=read(path)
-            ids={d.get('scene_id') for d in defects if d.get('worker')=='visual_factory'}
-            receipt['assets']=[a for a in receipt['assets'] if a['scene_id'] not in ids and None not in ids]
+            available=[a['scene_id'] for a in receipt.get('assets',[])]
+            ids=affected_scene_ids([d for d in defects if d.get('worker')=='visual_factory'],available)
+            receipt['assets']=[a for a in receipt['assets'] if a['scene_id'] not in ids]
             write(path,receipt)
-        return not command(sys.executable,'tools/produce_edition.py',str(run_dir))
+        success = not command(sys.executable,'tools/produce_edition.py',str(run_dir))
+    if 'reader_treatment' in owners:
+        success = (not command(sys.executable,'tools/repair_reader.py',str(run_dir))) and success
     if owners <= {'source_registrar'}:
-        return not command(sys.executable,'tools/source_qa.py',str(run_dir))
-    return False
+        success = not command(sys.executable,'tools/source_qa.py',str(run_dir))
+    return success
 
 def main(directory):
     run_dir=Path(directory)
     history=[]
     for attempt in range(1,4):
         block(run_dir,'production_orchestrator',f'Review/repair attempt {attempt} in progress')
-        # Never reuse a prior deployment or visual verdict after a failed command.
         for name in ('deployment-receipt','rendered-qa','visual-review','benchmark-parity'):
             (run_dir/(name+'.json')).unlink(missing_ok=True)
         if command(sys.executable,'tools/deploy_review.py',str(run_dir)):
