@@ -90,7 +90,9 @@
       const marker = document.createElement('span');
       marker.className = 'incoming-marker';
       marker.textContent = 'CONNECTED TO WHAT BROUGHT YOU HERE';
-      card.querySelector('div')?.prepend(marker);
+      const markerHost = card.querySelector('div');
+      if (markerHost) markerHost.prepend(marker);
+      else card.setAttribute('aria-description', marker.textContent);
     }
   }
 
@@ -104,8 +106,8 @@
     route.hidden = false;
     return true;
   };
-  document.querySelectorAll('.perspective.active[data-perspective]').forEach(card => {
-    card.addEventListener('click', () => openRoute(card.dataset.perspective));
+  document.querySelectorAll('[data-perspective][href]').forEach(entry => {
+    entry.addEventListener('click', () => openRoute(entry.dataset.perspective));
   });
   document.querySelectorAll('.route-exit, .route header a[href="#perspectives"]').forEach(exitLink => {
     exitLink.addEventListener('click', () => closeRoutes());
