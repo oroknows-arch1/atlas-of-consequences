@@ -4,19 +4,29 @@
       "attempt": 1,
       "defects": [
         {
-          "worker": "visual_factory",
-          "reason": "Overreliance on AI-generated contextual imagery across multiple scenes (H4, H5, H6). Visuals are generic, lack publication-specific narrative integration, and disclaimers highlight absence of documentary or location-specific evidence. This breaks continuity and weakens geographic/contextual specificity.",
-          "scene_id": "H4"
+          "worker": "reader_treatment",
+          "reason": "Typography flaw: multiple large headings (e.g., 'Choose your way in.') consistently break onto two lines awkwardly, orphaning 'in.' on a separate line; this is present in several screens (phone-edition.png, phone-perspectives.png, phone-route-H1.png, etc.), reducing readability and indicating insufficient typographic fitting for mobile.",
+          "scene_id": "phone-edition / phone-perspectives / phone-route-H1 (and all other phone-route-H*)"
+        },
+        {
+          "worker": "reader_treatment",
+          "reason": "Visual darkness: background and body text contrast is marginal in scenes with large blocks of text (e.g., phone-edition.png, phone-route-H*). Text is readable but falls close to WCAG contrast limits, especially for long-form body.",
+          "scene_id": "phone-edition / phone-route-H1 / phone-route-H2 / phone-route-H3 / phone-route-H4 / phone-route-H5 / phone-route-H6"
         },
         {
           "worker": "visual_factory",
-          "reason": "AI-art illustration is not documentary or evidentiary. Disclaimers call for stronger contextual specificity or direct evidence-based visual material, especially for editorial depth and narrative confidence.",
-          "scene_id": "H5"
+          "reason": "Visual/imagery continuity: All phone-route-H* sections use variations of the same or extremely similar AI-generated Dhaka street or indoor illustration, resulting in generic repetition and weak visual context for differentiated sections ('The Shift', 'The Home', 'The Fix', etc.). Scenes risk generic illustration bias and non-specific geographic reference.",
+          "scene_id": "phone-route-H1 / phone-route-H2 / phone-route-H3 / phone-route-H4 / phone-route-H5 / phone-route-H6"
         },
         {
-          "worker": "visual_factory",
-          "reason": "Image does not distinguish or document any named intervention, location, or result. Copyright note highlights artificiality, and the graphic fails to advance the scene's specificity requirement.",
-          "scene_id": "H6"
+          "worker": "editorial_factory",
+          "reason": "Content depth: Section introductions and route completes are overly brief and formulaic (e.g., 'Where would you like to go next?'), lacking differentiated insight or meaningful transition to next content, blocking editorial completeness.",
+          "scene_id": "phone-route-H1 / phone-route-H2 / phone-route-H3 / phone-route-H4 / phone-route-H5 / phone-route-H6"
+        },
+        {
+          "worker": "editorial_factory",
+          "reason": "FACT/STORY/INTERPRETATION tags show correct formal presence, but copy is thinly differentiated across several routes and does not consistently deliver unique editorial value for each segment, risking thin content.",
+          "scene_id": "phone-route-H1 / phone-route-H2 / phone-route-H3 / phone-route-H4 / phone-route-H5 / phone-route-H6"
         }
       ]
     }
