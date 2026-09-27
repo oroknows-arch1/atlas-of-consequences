@@ -19,7 +19,10 @@ def ask_batch(files, key):
             "or source_registrar (source). Inspect every supplied image for crop, readable midtones, visual "
             "continuity/uniformity, typography, overflow, centering, safe areas, sources, FACT/STORY visibility, "
             "editorial depth and geographic specificity. Do not require the benchmark Perspective count, subjects, "
-            "route sequence or media structure. Block thin content, generic visuals or any required publication work. "
+            "route sequence or media structure. Atlas permits clearly labelled AI-generated contextual illustrations; do not "
+            "block solely because an image is AI-generated or non-documentary. Block only a scene-specific failure: "
+            "generic or repeated treatment that loses the stated meaning/locality, misleading documentary implication, "
+            "broken continuity, unreadability, missing content, or other required publication work. "
             "PASS requires zero defects. This is one batch of a complete inspection; do not assume unseen screenshots pass.")
     content=[{"type":"input_text","text":prompt}]+[picture(p) for p in files]
     models=[]
