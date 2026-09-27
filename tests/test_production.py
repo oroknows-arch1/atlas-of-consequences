@@ -58,6 +58,17 @@ class ProductionRegression(unittest.TestCase):
   malformed={'opening':'plain text','place':'plain text','consequences':'plain text',
              'scenes':{s['scene_id']:'plain text' for r in routes for s in r['scenes']}}
   with self.assertRaisesRegex(ValueError,'structured object'):validate_copy(malformed,routes,source_ids)
+ def test_editorial_api_schema_covers_exact_scene_ids_and_nested_objects(self):
+  from editorial_factory import copy_schema
+  routes=[{'scenes':[{'scene_id':'ONE'},{'scene_id':'TWO'}]}]
+  schema=copy_schema(routes,{'SOURCE'})
+  self.assertEqual(schema['properties']['scenes']['required'],['ONE','TWO'])
+  section=schema['properties']['scenes']['properties']['ONE']
+  self.assertEqual(section['type'],'object')
+  self.assertFalse(section['additionalProperties'])
+  paragraph=section['properties']['paragraphs']['items']
+  self.assertEqual(paragraph['properties']['evidence_refs']['items']['enum'],['SOURCE'])
+  self.assertEqual(set(paragraph['required']),{'text','state','evidence_refs'})
  def test_missing_production_can_never_be_candidate(self):
   result=gate.evaluate(self.run)
   self.assertEqual(result['status'],'BLOCKED')

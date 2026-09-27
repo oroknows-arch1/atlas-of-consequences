@@ -11,17 +11,35 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 from production_state import binding, block, digest, read, require_current, write
 
-def model_json(instruction, data):
+def object_schema(properties):
+    return {'type':'object','properties':properties,'required':list(properties),'additionalProperties':False}
+
+def copy_schema(routes, source_ids):
+    paragraph=object_schema({'text':{'type':'string'},
+        'state':{'type':'string','enum':['FACT','UNCERTAIN','INTERPRETATION']},
+        'evidence_refs':{'type':'array','items':{'type':'string','enum':sorted(source_ids)}}})
+    section=object_schema({'heading':{'type':'string'},'paragraphs':{'type':'array','items':paragraph}})
+    scenes=object_schema({scene['scene_id']:section for route in routes for scene in route['scenes']})
+    return object_schema({'opening':section,'place':section,'consequences':section,'scenes':scenes})
+
+VERDICT_SCHEMA=object_schema({'status':{'type':'string','enum':['PASS','BLOCKED']},
+                             'defects':{'type':'array','items':{'type':'string'}}})
+
+def model_json(instruction, data, schema):
     key = os.environ.get('OPENAI_API_KEY')
     if not key:
         raise RuntimeError('OPENAI_API_KEY unavailable')
     body = {'model': os.environ.get('ATLAS_EDITORIAL_MODEL', 'gpt-4.1'),
             'input': [{'role': 'user', 'content': instruction + '\n' + json.dumps(data)}],
-            'text': {'format': {'type': 'json_object'}}}
+            'text': {'format': {'type': 'json_schema','name':'atlas_editorial','strict':True,'schema':schema}}}
     request = Request('https://api.openai.com/v1/responses', data=json.dumps(body).encode(),
                       headers={'Authorization': 'Bearer ' + key, 'Content-Type': 'application/json'})
     with urlopen(request, timeout=180) as response:
         result = json.load(response)
+    if result.get('status') != 'completed':
+        raise ValueError('editorial API response incomplete: '+str(result.get('incomplete_details')))
+    if any(p.get('type')=='refusal' for x in result.get('output',[]) for p in x.get('content',[])):
+        raise ValueError('editorial API response refused')
     return json.loads(''.join(p.get('text', '') for x in result.get('output', []) for p in x.get('content', [])))
 
 def validate_copy(copy, routes, source_ids):
@@ -71,8 +89,8 @@ def produce(run, routes):
               ('selected-edition-candidate', 'selected-edition-gate', 'selected-edition-perspectives',
                'causal_boundary_gate', 'source-register', 'visual-context', 'visual-data')}
     instructions = '''Write publication copy from this accepted evidence bundle, using no outside claims.
-Return JSON: {"opening":{"heading":str,"paragraphs":[{"text":str,"state":"FACT|UNCERTAIN|INTERPRETATION","evidence_refs":[source_id]}]},
-"place":same,"consequences":same,"scenes":{scene_id:same}}.
+Return the exact supplied JSON schema. Every section and every scene is an object containing
+a heading and paragraph objects. Use only the accepted source IDs for evidence_refs.
 Opening must explain the change, place, who is affected and causal limits in substantial readable prose.
 PLACE must be geographically grounded at the supported resolution. CONSEQUENCES must separate observed
 effects from uncertainty and interpretation. Each accepted scene must have developed prose, not an outline.
@@ -84,7 +102,9 @@ Do not rewrite the approved STORY or copy any AOC-001 structure. No fixed scene 
     last_error = None
     for attempt in range(1, 4):
         try:
-            copy = model_json(instructions, {'evidence': bundle, 'repair_feedback': feedback})
+            copy = model_json(instructions, {'evidence': bundle, 'repair_feedback': feedback},
+                              copy_schema(routes, {x['id'] for x in bundle['source-register']}))
+            write(run/'editorial-draft.json',copy)
             validate_copy(copy, routes, {x['id'] for x in bundle['source-register']})
         except (ValueError, KeyError, TypeError) as error:
             # Malformed/thin publication copy is a repairable editorial defect, not
@@ -100,7 +120,7 @@ evidence. Return JSON {"status":"PASS|BLOCKED","defects":[str]}.
 Block unsupported facts, mismatched source attribution, changed Perspective/scene meaning, disguised
 uncertainty, instructions displayed as article text, thin/outline-only copy, incomplete opening/place/
 consequences, or exaggerated causality. Every paragraph source must support the actual assertion.
-You did not write this text. Return PASS only with zero defects.''', {'evidence': bundle, 'copy': copy})
+You did not write this text. Return PASS only with zero defects.''', {'evidence': bundle, 'copy': copy}, VERDICT_SCHEMA)
         feedback = verdict.get('defects', ['invalid verifier response'])
         write(target, copy)
         write(receipt, {**binding(run), 'status': 'PASS' if verdict.get('status') == 'PASS' and feedback == [] else 'BLOCKED',
