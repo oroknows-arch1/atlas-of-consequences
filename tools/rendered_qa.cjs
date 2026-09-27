@@ -75,7 +75,14 @@ const [url, receiptPath, screenshotDir]=process.argv.slice(2);
   if(!process.env.ATLAS_BENCHMARK_URL)errors.push('benchmark URL missing');
   else{
     const page=await browser.newPage({viewport:{width:390,height:844}});
-    const r=await page.goto(process.env.ATLAS_BENCHMARK_URL,{waitUntil:'networkidle',timeout:60000});
+    let r;
+    for(let attempt=1;attempt<=3;attempt++){
+      try{
+        r=await page.goto(process.env.ATLAS_BENCHMARK_URL,{waitUntil:'networkidle',timeout:60000});
+        if(r?.status()!==429)break;
+      }catch(error){if(attempt===3)throw error}
+      await new Promise(resolve=>setTimeout(resolve,attempt*5000));
+    }
     if(!r?.ok())throw Error('benchmark unavailable');
     await capture(page,'benchmark-phone');
     const entries=await page.locator('[data-perspective]').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href')));
