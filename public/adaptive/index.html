@@ -22,7 +22,7 @@
   <div class="perspective locked" data-perspective="work-skills"><div><small>ACTIVE PERSPECTIVE · ROUTE NOT YET BUILT</small><h2>Work + Skills</h2><p>Follow labour, technical skills, rosters and opportunity around the changing system.</p></div></div>
   <div class="perspective locked" data-perspective="markets-finance"><div><small>ACTIVE PERSPECTIVE · ROUTE NOT YET BUILT</small><h2>Markets + Finance</h2><p>Follow demand, investment, value and the market consequences of the same change.</p></div></div>
 </section>
-<section id="energy-grid" class="route">
+<section id="energy-grid" class="route perspective-route" data-route="energy-grid" hidden>
   <header><a href="#perspectives">← Perspectives</a><span>ENERGY + GRID</span></header>
   <article class="scene"><img src="../assets/aoc001-data-center-aisle.png" alt=""><div class="scene-copy"><small>01 · LOAD</small><h2>AI begins as computation. The grid experiences it as demand.</h2><p>Data centres contain servers, storage, networking and cooling systems. The IEA estimates they consumed about 415 TWh of electricity in 2024—around 1.5% of global electricity consumption.</p><em>Evidence · IEA · Energy and AI</em></div></article>
   <article class="scene"><img src="../assets/aoc001-south-america-night-orbit.png" alt=""><div class="scene-copy"><small>02 · GROWTH</small><h2>The load does not stay inside the building.</h2><p>The IEA expects global data-centre electricity use to more than double by 2030 in its base case, with AI an important driver alongside other digital services. Where new capacity connects matters because electricity systems are physical and local.</p><em>Evidence · IEA · projection, not certainty</em></div></article>
@@ -31,8 +31,7 @@
   <article class="scene"><img src="../assets/aoc001-chile-copper-orbit.png" alt=""><div class="scene-copy"><small>05 · MATERIAL SYSTEM</small><h2>The grid turns energy demand into material demand.</h2><p>Electricity infrastructure uses physical equipment and materials, including copper. This is the hand-off to the Minerals + Resources perspective: the same change can now be followed through a different lane.</p><em>Connection · Energy + Grid → Minerals + Resources</em></div></article>
   <section class="boundary route-end"><small>ENERGY + GRID · PERSPECTIVE COMPLETE</small><h2>This route ends here.</h2><p>AI and data-centre growth can add electricity demand and increase pressure on grid connections and equipment. It does not prove that every data centre creates the same load, that every grid faces the same constraint, or that AI alone caused a particular local infrastructure project.</p><a class="route-exit" href="#perspectives">Choose what to explore next ↑</a></section>
 </section>
-<div class="route-divider" aria-hidden="true"><span>END · ENERGY + GRID</span></div>
-<section id="minerals" class="route">
+<section id="minerals" class="route perspective-route" data-route="minerals-resources" hidden>
   <header><a href="#perspectives">← Perspectives</a><span>MINERALS + RESOURCES</span></header>
   <article class="scene"><img src="../assets/aoc001-data-center-aisle.png" alt=""><div class="scene-copy"><small>01 · COMPUTE</small><h2>The question feels weightless. The system answering it is not.</h2><p>AI models run inside physical infrastructure: servers, storage, networking and cooling. The IEA estimates data centres used about 415 TWh of electricity in 2024, around 1.5% of global electricity consumption.</p><em>Evidence · IEA · SR-01–03</em></div></article>
   <article class="scene"><img src="../assets/aoc001-copper-cables.png" alt=""><div class="scene-copy"><small>02 · GRID + MATERIALS</small><h2>More computation reaches beyond the server rack.</h2><p>Growing capacity needs electricity connections, transformers, substations, cables and other grid equipment. Copper is one of the materials used across data centres and the wider electricity system.</p><em>Evidence · IEA · SR-02–04</em></div></article>
@@ -40,7 +39,7 @@
   <article class="scene"><img src="../assets/aoc001-chile-copper-orbit.png" alt=""><div class="scene-copy"><small>04 · CHILE</small><h2>The chain narrows toward a major copper-producing country.</h2><p>Chile is one of the world’s major copper producers. Within Chile, Antofagasta is the dominant production centre; Cochilco projected it at 58% of national copper production in 2025.</p><em>Evidence · Cochilco · SR-05–06</em></div></article>
   <article class="scene"><img src="../assets/aoc001-antofagasta-coast-atacama.png" alt=""><div class="scene-copy"><small>05 · ANTOFAGASTA</small><h2>Desert, coast, cities and mines share one regional system.</h2><p>This establishes a place where global material demand meets an existing copper economy. It does not establish that AI caused a particular mine expansion.</p><em>Evidence boundary preserved</em></div></article>
   <article class="scene"><img src="../assets/aoc001-chuquicamata-mine-blue-hour.png" alt=""><div class="scene-copy"><small>06 · CALAMA / CHUQUICAMATA</small><h2>The material chain arrives beside a real city.</h2><p>Chuquicamata lies about 15 km north of Calama. Codelco reports 266 thousand tonnes of fine copper produced in 2025 and 3,992 direct employees at year end. Calama itself is more than a mine: it is a city of households, schools, businesses and ordinary life.</p><em>Evidence · Codelco + UCN · SR-07–12</em></div></article>
-  <section class="boundary"><small>ATLASOQUENCE BOUNDARY</small><h2>What this perspective does — and does not — establish.</h2><p>AI/data-centre growth adds pressure inside a much larger electricity and copper demand system. This route does not claim AI caused an existing Antofagasta mine expansion, a particular job, or the fictional events in the Daniela and Mauricio story.</p><a href="#perspectives">Choose another perspective ↑</a></section>
+  <section class="boundary route-end"><small>MINERALS + RESOURCES · PERSPECTIVE COMPLETE</small><h2>This route ends here.</h2><p>AI/data-centre growth adds pressure inside a much larger electricity and copper demand system. This route does not claim AI caused an existing Antofagasta mine expansion, a particular job, or the fictional events in the Daniela and Mauricio story.</p><a class="route-exit" href="#perspectives">Choose what to explore next ↑</a></section>
 </section>
 </main>
 <script>
@@ -57,6 +56,23 @@
       card.querySelector('div')?.prepend(marker);
     }
   }
+
+
+  const routes = [...document.querySelectorAll('.perspective-route')];
+  const closeRoutes = () => routes.forEach(route => { route.hidden = true; });
+  const openRoute = (perspective) => {
+    const route = routes.find(item => item.dataset.route === perspective);
+    if (!route) return false;
+    closeRoutes();
+    route.hidden = false;
+    return true;
+  };
+  document.querySelectorAll('.perspective.active[data-perspective]').forEach(card => {
+    card.addEventListener('click', () => openRoute(card.dataset.perspective));
+  });
+  document.querySelectorAll('.route-exit, .route header a[href="#perspectives"]').forEach(exitLink => {
+    exitLink.addEventListener('click', () => closeRoutes());
+  });
 
   const hero = document.querySelector('.video-entry');
   const video = document.querySelector('.hero-video');
