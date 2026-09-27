@@ -19,6 +19,10 @@ PRE_ASSEMBLY=[
  "causal_boundary_gate","visual_requirements","image_provider_routing"
 ]
 
+def candidate_identity(stage):
+    output=stage.get("output",{})
+    return output.get("candidate_id") or output.get("edition_id")
+
 def load(p): return json.loads(Path(p).read_text(encoding="utf-8"))
 def dump(p,obj):
     p=Path(p); p.parent.mkdir(parents=True,exist_ok=True)
@@ -49,6 +53,12 @@ def main():
     if errors:
         print("AUTOMATED EDITION RUNNER: BLOCKED")
         for e in errors: print(f"- {e}")
+        return 1
+
+    identities={name:candidate_identity(stage) for name,stage in stages.items() if candidate_identity(stage)}
+    if len(set(identities.values()))!=1:
+        print("AUTOMATED EDITION RUNNER: BLOCKED — mixed candidate identities")
+        for name,identity in identities.items(): print(f"- {name}: {identity}")
         return 1
 
     world=stages["world_change_intake"]["output"]

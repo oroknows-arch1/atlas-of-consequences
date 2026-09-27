@@ -1,0 +1,73 @@
+{
+  "edition_id": "AET1-WC-002",
+  "status": "BLOCKED",
+  "assets": [
+    {
+      "scene_id": "H1-S2",
+      "path": "/assets/aet1-wc-002/h1-s2.svg",
+      "sha256": "945b50aee121844101ede9737cbcade185bcd1860a6afcb38d0d5570349b23eb",
+      "bytes": 794,
+      "provenance": "scene meaning and evidence refs",
+      "provider": "ATLAS_DETERMINISTIC_GRAPHIC",
+      "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data.",
+      "status": "PASS"
+    },
+    {
+      "scene_id": "H3-S2",
+      "path": "/assets/aet1-wc-002/h3-s2.svg",
+      "sha256": "325fcab676d3503832b836cd4a6ccc958ad228b804986ba9438e3373e26209bf",
+      "bytes": 776,
+      "provenance": "scene meaning and evidence refs",
+      "provider": "ATLAS_DETERMINISTIC_GRAPHIC",
+      "truth_boundary": "Clearly label estimates and source period.",
+      "status": "PASS"
+    },
+    {
+      "scene_id": "H6-S2",
+      "path": "/assets/aet1-wc-002/h6-s2.svg",
+      "sha256": "140539346c111ea92473c0bcdf203012f25688ed7ae3af34e343a53df89156d5",
+      "bytes": 796,
+      "provenance": "scene meaning and evidence refs",
+      "provider": "ATLAS_DETERMINISTIC_GRAPHIC",
+      "truth_boundary": "Use sourced numbers in deterministic graphic; no guarantee framing.",
+      "status": "PASS"
+    }
+  ],
+  "defects": [
+    {
+      "worker": "visual_factory",
+      "scene_id": "H1-S1",
+      "reason": "image generator and independent visual verifier commands are required"
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H2-S1",
+      "reason": "image generator and independent visual verifier commands are required"
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H2-S2",
+      "reason": "image generator and independent visual verifier commands are required"
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H2-S3",
+      "reason": "image generator and independent visual verifier commands are required"
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H4-S1",
+      "reason": "image generator and independent visual verifier commands are required"
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H5-S1",
+      "reason": "image generator and independent visual verifier commands are required"
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H6-S1",
+      "reason": "image generator and independent visual verifier commands are required"
+    }
+  ]
+}

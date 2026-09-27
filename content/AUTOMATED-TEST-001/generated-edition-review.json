@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "edition_id": "AET1-WC-002",
   "title": "When the Heat Comes Inside",
-  "status": "REVIEW_READY",
+  "status": "BLOCKED",
   "publication_authorized": false,
   "world_change": "Persistent heat in Bangladesh is becoming a labour, health, household, education and economic constraint.",
   "geography": [
@@ -30,10 +30,10 @@
     "universal_baseline": true
   },
   "visual_fulfilment": {
-    "mode": "DETERMINISTIC_REVIEW_BUILD",
+    "mode": "REQUIRED_CONTEXTUAL_BINARIES_PENDING",
     "provider_availability_cannot_change_editorial_structure": true,
     "video_generation_mandatory": false,
-    "note": "Review build uses deterministic visual treatment; generated contextual still persistence is not required to validate edition structure."
+    "note": "Editorial review build is not a publication candidate. Required contextual binaries, persistence, deployment and rendered QA remain mandatory."
   },
   "gates": {
     "edition_selection": "PASS",

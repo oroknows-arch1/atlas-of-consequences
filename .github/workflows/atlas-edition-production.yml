@@ -1,0 +1,76 @@
+name: Atlas edition production candidate
+on:
+  workflow_dispatch:
+    inputs:
+      run_dir:
+        description: Repository directory with approved candidate and stage receipts
+        required: true
+        default: content/AUTOMATED-TEST-001
+jobs:
+  produce-and-review:
+    if: github.ref == 'refs/heads/test/automated-edition-1'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      OPENAI_API_KEY: ${{ secrets.ATLAS_OPENAI_API_KEY }}
+      RENDER_API_KEY: ${{ secrets.ATLAS_RENDER_API_KEY }}
+      ATLAS_IMAGE_COMMAND: python3 tools/image_provider_openai.py
+      ATLAS_VISUAL_QA_COMMAND: python3 tools/visual_verifier_openai.py
+      ATLAS_BENCHMARK_URL: https://atlas-of-consequences.onrender.com/adaptive/
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: test/automated-edition-1
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image and browser dependencies
+        run: |
+          python3 -m pip install Pillow
+          npm install --prefix /tmp/atlas-playwright playwright
+          /tmp/atlas-playwright/node_modules/.bin/playwright install --with-deps chromium
+      - name: Produce actual assets and reader
+        run: python3 tools/produce_edition.py "$RUN_DIR"
+        env:
+          RUN_DIR: ${{ inputs.run_dir }}
+      - name: Persist binaries and reader on test branch
+        run: |
+          git config user.name "atlas-production-worker"
+          git config user.email "atlas-production-worker@users.noreply.github.com"
+          git add public/assets public/review "$RUN_DIR/asset-persistence-receipt.json" "$RUN_DIR/production-receipt.json"
+          git commit -m "Produce Atlas review candidate assets and reader"
+          git push origin HEAD:test/automated-edition-1
+        env:
+          RUN_DIR: ${{ inputs.run_dir }}
+      - name: Deploy pinned commit to existing review service
+        run: python3 tools/deploy_review.py "$RUN_DIR"
+        env:
+          RUN_DIR: ${{ inputs.run_dir }}
+      - name: Inspect deployed phone and desktop reader
+        run: |
+          REVIEW_URL=$(python3 -c 'import json,os;print(json.load(open(os.environ["RUN_DIR"]+"/deployment-receipt.json"))["url"])')
+          node tools/rendered_qa.cjs "$REVIEW_URL" "$RUN_DIR/rendered-qa.json" "$RUN_DIR/screenshots"
+        env:
+          RUN_DIR: ${{ inputs.run_dir }}
+          NODE_PATH: /tmp/atlas-playwright/node_modules
+      - name: Independent rendered and benchmark visual review
+        run: python3 tools/review_rendered.py "$RUN_DIR"
+        env:
+          RUN_DIR: ${{ inputs.run_dir }}
+      - name: Publication completeness gate
+        run: python3 tools/publication_gate.py "$RUN_DIR"
+        env:
+          RUN_DIR: ${{ inputs.run_dir }}
+      - name: Store inspectable receipts and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-production-receipts
+          path: |
+            ${{ inputs.run_dir }}/*receipt.json
+            ${{ inputs.run_dir }}/rendered-qa.json
+            ${{ inputs.run_dir }}/visual-review.json
+            ${{ inputs.run_dir }}/benchmark-parity.json
+            ${{ inputs.run_dir }}/screenshots/*.png
