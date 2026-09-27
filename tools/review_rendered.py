@@ -22,23 +22,30 @@ def ask_batch(files, key):
             "route sequence or media structure. Block thin content, generic visuals or any required publication work. "
             "PASS requires zero defects. This is one batch of a complete inspection; do not assume unseen screenshots pass.")
     content=[{"type":"input_text","text":prompt}]+[picture(p) for p in files]
-    body={"model":os.environ.get("ATLAS_VISION_MODEL","gpt-4.1"),"input":[{"role":"user","content":content}]}
-    request=Request("https://api.openai.com/v1/responses",data=json.dumps(body).encode(),
-                    headers={"Authorization":"Bearer "+key,"Content-Type":"application/json"})
-    for attempt in range(1,5):
-        try:
-            with urlopen(request,timeout=180) as res: response=json.load(res)
-            text="".join(p.get("text","") for x in response.get("output",[]) for p in x.get("content",[]))
-            verdict=json.loads(text)
-            if verdict.get("status") not in {"PASS","BLOCKED"} or verdict.get("benchmark_parity") not in {"PASS","BLOCKED"}:
-                raise RuntimeError("invalid visual review")
-            if not isinstance(verdict.get("defects"),list) or any(not isinstance(d,dict) or not d.get("worker") or not d.get("reason") for d in verdict["defects"]):
-                raise RuntimeError("invalid structured visual defects")
-            return verdict
-        except HTTPError as error:
-            if error.code != 429 or attempt == 4: raise
-            retry_after=float(error.headers.get("Retry-After","0") or 0)
-            time.sleep(min(60,max(attempt*15,retry_after)))
+    models=[]
+    for model in (os.environ.get("ATLAS_VISION_MODEL","gpt-4.1"),"gpt-4o-mini"):
+        if model not in models: models.append(model)
+    last_error=None
+    for model in models:
+        body={"model":model,"input":[{"role":"user","content":content}]}
+        request=Request("https://api.openai.com/v1/responses",data=json.dumps(body).encode(),
+                        headers={"Authorization":"Bearer "+key,"Content-Type":"application/json"})
+        for attempt in range(1,4):
+            try:
+                with urlopen(request,timeout=180) as res: response=json.load(res)
+                text="".join(p.get("text","") for x in response.get("output",[]) for p in x.get("content",[]))
+                verdict=json.loads(text)
+                if verdict.get("status") not in {"PASS","BLOCKED"} or verdict.get("benchmark_parity") not in {"PASS","BLOCKED"}:
+                    raise RuntimeError("invalid visual review")
+                if not isinstance(verdict.get("defects"),list) or any(not isinstance(d,dict) or not d.get("worker") or not d.get("reason") for d in verdict["defects"]):
+                    raise RuntimeError("invalid structured visual defects")
+                return verdict
+            except HTTPError as error:
+                last_error=error
+                if error.code != 429 or attempt == 3: break
+                retry_after=float(error.headers.get("Retry-After","0") or 0)
+                time.sleep(min(60,max(attempt*15,retry_after)))
+    if last_error: raise last_error
     raise RuntimeError("visual review provider returned no response")
 
 def main(run):
@@ -49,7 +56,7 @@ def main(run):
     if not files or not any('benchmark-route-' in s['path'] for s in shots): raise RuntimeError('candidate views and actual benchmark routes required')
     benchmark=[p for p in files if 'benchmark-' in str(p)]
     candidate=[p for p in files if 'benchmark-' not in str(p)]
-    batches=[candidate[i:i+5] for i in range(0,len(candidate),5)]
+    batches=[candidate[i:i+8] for i in range(0,len(candidate),8)]
     if benchmark: batches[0]=batches[0]+benchmark
     verdicts=[ask_batch(batch,key) for batch in batches]
     defects=[d for verdict in verdicts for d in verdict.get("defects",[])]
