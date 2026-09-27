@@ -1,0 +1,18 @@
+{
+  "stage":"edition_selection_gate",
+  "status":"PASS",
+  "produced_by":"Atlas edition selection gate / 2026-09-27",
+  "output":{
+    "candidate_id":"AET1-WC-002",
+    "decision":"SELECTED",
+    "advance_to_route_generation":true,
+    "informational_completeness_gate":"PASS",
+    "human_emotional_hook_gate":"PASS",
+    "geographic_grounding_gate":"PASS",
+    "causal_boundary_precheck":"PASS",
+    "visual_context_viability":"PASS",
+    "reason":"Current evidence supports the necessary chain from measured heat change through work, health, income, home life, children/education and adaptation. The human stakes are directly evidenced rather than inferred.",
+    "publication_authorized":false,
+    "next_action":"Begin autonomous route and scene derivation; publication remains behind the human publication gate."
+  }
+}
