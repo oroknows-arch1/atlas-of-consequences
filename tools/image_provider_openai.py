@@ -16,6 +16,14 @@ def main():
             "This is a representative scene, not a photograph of a documented event, identified worker, school or factory. "
             "No visible text, logos or invented signage. No melodrama. Natural light, clear midtones, 3:2 wide composition. "
             f"Revision attempt {job.get('attempt',1)}. Fix this previous visual QA failure: {job.get('repair_feedback') or 'none'}.")
+    if job.get('safe_composition'):
+        prompt=("Create a grounded editorial illustration of an ordinary environment. "
+                +job['safe_composition']+". No people, bodies, distress, injury or reenactment. "
+                +f"Geography: {job['geography']}. Editorial meaning: {job['meaning']}. "
+                +f"Purpose: {job['purpose']}. Boundary: {job['truth_boundary']}. "
+                +f"Visual continuity: {json.dumps(job['continuity'])}. "
+                +"Natural daylight, readable midtones, 3:2 composition. No text or logos. "
+                +"Representative contextual illustration, not evidence of a specific event or site.")
     body=json.dumps({"model":os.environ.get("ATLAS_IMAGE_MODEL","gpt-image-1"),
                      "prompt":prompt,"size":"1536x1024","quality":"medium","output_format":"png","n":1}).encode()
     request=Request("https://api.openai.com/v1/images/generations",data=body,

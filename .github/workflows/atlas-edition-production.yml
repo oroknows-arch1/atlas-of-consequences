@@ -28,6 +28,7 @@ jobs:
     env:
       OPENAI_API_KEY: ${{ secrets.ATLASOQUENCE_GITHUB_PRODUCTION }}
       RENDER_API_KEY: ${{ secrets.ATLASOQUENCE_GITHUB_ACTIONS }}
+      ATLAS_SAFE_VISUAL_REEXPRESSION: '1'
       ATLAS_IMAGE_COMMAND: python3 tools/image_provider_openai.py
       ATLAS_VISUAL_QA_COMMAND: python3 tools/visual_verifier_openai.py
       ATLAS_BENCHMARK_URL: https://atlas-of-consequences.onrender.com/adaptive/

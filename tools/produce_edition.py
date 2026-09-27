@@ -21,6 +21,7 @@ from production_state import binding, block, digest, reader_hashes, require_curr
 from editorial_factory import produce as produce_copy
 from reader_builder import build_reader
 from provider_errors import requires_external_action
+from provider_routing import request_asset
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_GATES = ("selected-edition-gate", "story_plausibility_gate")
@@ -158,7 +159,7 @@ def produce_assets(run, edition, routes, requirements, output):
                 feedback=""
                 for attempt in range(1,4):
                     try:
-                        result=invoke(generator,dict(job,attempt=attempt,repair_feedback=feedback))
+                        result=request_asset(run,dict(job,attempt=attempt,repair_feedback=feedback),generator,invoke)
                         source=Path(result["path"])
                         if not source.is_file(): raise RuntimeError("provider returned no binary")
                         with Image.open(source) as im:
@@ -181,7 +182,7 @@ def produce_assets(run, edition, routes, requirements, output):
                            "sha256":hashlib.sha256(binary).hexdigest(),"bytes":len(binary),
                            "provenance":result.get("provenance"),"provider":result.get("provider"),
                            "truth_boundary":spec["truth_boundary"],"status":"PASS",
-                           "job_sha256":job_hash,"visual_qa":check})
+                           "job_sha256":job_hash,"visual_qa":check,"routing_provenance":result.get("routing_provenance")})
         except Exception as exc:
             defects.append({"worker":"visual_factory" if contextual else "asset_persistence", "scene_id":sid,"reason":str(exc),"external_action_required":requires_external_action(exc)})
     write(run/"asset-persistence-receipt.json",{**binding(run),"status":"PASS" if not defects else "BLOCKED","assets":assets,"defects":defects})

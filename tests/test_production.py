@@ -91,6 +91,48 @@ class ProductionRegression(unittest.TestCase):
   self.assertEqual(invoke.call_count,1)
   self.assertEqual(assets,[])
   self.assertTrue(defects[0]['external_action_required'])
+ def test_provider_alternative_preserves_original_rejection_and_job(self):
+  import provider_routing as routing
+  job={'scene_id':'TEST','meaning':'unchanged meaning','truth_boundary':'unchanged boundary'}
+  proposal={'decision':'SAFE_ALTERNATIVE','composition':'ordinary empty room','reason':'safer environment'}
+  verdict={'safe':True,'meaning_preserved':True,'boundary_preserved':True,'reason':'same purpose'}
+  with patch.dict('os.environ',{'ATLAS_SAFE_VISUAL_REEXPRESSION':'1'}), patch.object(routing,'model_json',side_effect=[proposal,verdict]):
+   invoke=unittest.mock.Mock(side_effect=[RuntimeError('moderation_blocked request_id=original'),{'path':'binary'}])
+   result=routing.request_asset(self.run,job,'primary',invoke)
+  self.assertEqual(invoke.call_count,2)
+  replacement=invoke.call_args.args[1]
+  self.assertEqual(replacement['meaning'],job['meaning'])
+  self.assertEqual(replacement['truth_boundary'],job['truth_boundary'])
+  saved=state.read(self.run/'provider-routing-receipt.json')['scenes']['TEST']
+  self.assertIn('request_id=original',saved['events'][0]['reason'])
+  self.assertEqual(result['routing_provenance']['route'],'safe_equivalent_primary')
+ def test_changed_meaning_cannot_enable_safe_alternative(self):
+  import provider_routing as routing
+  proposal={'decision':'SAFE_ALTERNATIVE','composition':'room','reason':'test'}
+  verdict={'safe':True,'meaning_preserved':False,'boundary_preserved':True,'reason':'lost meaning'}
+  with patch.dict('os.environ',{'ATLAS_SAFE_VISUAL_REEXPRESSION':'1'}), patch.object(routing,'model_json',side_effect=[proposal,verdict]):
+   invoke=unittest.mock.Mock(side_effect=RuntimeError('moderation_blocked'))
+   with self.assertRaisesRegex(RuntimeError,'provider_route_blocked'):routing.request_asset(self.run,{'scene_id':'TEST'},'primary',invoke)
+   self.assertEqual(invoke.call_count,1)
+ def test_authorized_alternate_receives_only_verified_safe_composition(self):
+  import provider_routing as routing
+  proposal={'decision':'SAFE_ALTERNATIVE','composition':'room','reason':'test'}
+  verdict={'safe':True,'meaning_preserved':True,'boundary_preserved':True,'reason':'same purpose'}
+  with patch.dict('os.environ',{'ATLAS_SAFE_VISUAL_REEXPRESSION':'1','ATLAS_APPROVED_ALTERNATE_IMAGE_COMMAND':'approved-alternate'}), patch.object(routing,'model_json',side_effect=[proposal,verdict]):
+   invoke=unittest.mock.Mock(side_effect=[RuntimeError('moderation_blocked'),RuntimeError('moderation_blocked'),{'path':'binary'}])
+   result=routing.request_asset(self.run,{'scene_id':'TEST'},'primary',invoke)
+  self.assertEqual(invoke.call_args.args[0],'approved-alternate')
+  self.assertEqual(invoke.call_args.args[1]['safe_composition'],'room')
+  self.assertEqual(result['routing_provenance']['route'],'authorized_alternate')
+ def test_refused_safe_alternative_is_not_resubmitted_on_restart(self):
+  import provider_routing as routing
+  proposal={'decision':'SAFE_ALTERNATIVE','composition':'room','reason':'test'}
+  verdict={'safe':True,'meaning_preserved':True,'boundary_preserved':True,'reason':'same purpose'}
+  with patch.dict('os.environ',{'ATLAS_SAFE_VISUAL_REEXPRESSION':'1','ATLAS_APPROVED_ALTERNATE_IMAGE_COMMAND':''}), patch.object(routing,'model_json',side_effect=[proposal,verdict]):
+   invoke=unittest.mock.Mock(side_effect=RuntimeError('moderation_blocked'))
+   for _ in range(2):
+    with self.assertRaisesRegex(RuntimeError,'provider_route_blocked'):routing.request_asset(self.run,{'scene_id':'TEST'},'primary',invoke)
+   self.assertEqual(invoke.call_count,2)
  def test_missing_production_can_never_be_candidate(self):
   result=gate.evaluate(self.run)
   self.assertEqual(result['status'],'BLOCKED')

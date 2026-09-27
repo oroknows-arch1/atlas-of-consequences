@@ -21,4 +21,4 @@ def describe(error):
 
 def requires_external_action(error):
     message=str(error).lower()
-    return any(code in message for code in ('moderation_blocked', 'invalid_api_key', 'insufficient_quota', 'billing_hard_limit_reached'))
+    return any(code in message for code in ('provider_route_blocked', 'moderation_blocked', 'invalid_api_key', 'insufficient_quota', 'billing_hard_limit_reached'))
