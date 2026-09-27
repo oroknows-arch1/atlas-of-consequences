@@ -88,3 +88,9 @@
   .perspective-menu-image{width:100vw;max-width:none}
   .perspective-menu-image>img{width:118%;max-width:none;transform:translateX(-7.6%);transform-origin:top center}
 }
+
+/* QA correction: preserve the complete approved menu composition on narrow phones. */
+@media(max-width:600px){
+  .perspective-menu-image{width:100vw;overflow:visible}
+  .perspective-menu-image>img{display:block;width:100%;max-width:100%;height:auto;transform:none!important}
+}
