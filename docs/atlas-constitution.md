@@ -86,3 +86,27 @@ If a necessary Perspective, geographic grounding, human consequence or other req
 The selection objective is not to publish the first interesting change. It is to select a change whose attention-worthy information sphere can be represented as a connected whole: facts, systems, place, people, consequences, uncertainty, relevant markets/institutions, adaptation and what follows.
 
 A candidate may be reconsidered when new evidence fills its failed gates.
+
+
+## Fictional plausibility and comparative knowledge
+
+The factual layer and the fictional layer use different evidence thresholds.
+
+FACTUAL claims remain directly evidence-bound and must preserve provenance, geography, population, period, uncertainty and causal limits.
+
+STORY may explore consequences beyond events directly documented in the edition's factual sources. Its plausibility horizon may use, in descending contextual strength:
+1. direct local evidence;
+2. broader local or national context;
+3. evidence from genuinely comparable populations, environments or systems;
+4. established cross-context human conditions and ordinary emotional behaviour;
+5. bounded fictional synthesis.
+
+Comparative evidence establishes plausibility, not occurrence. Atlas must never present an outcome documented elsewhere as proof that the same outcome occurred in the edition locality.
+
+Within a clearly labelled fictional narrative, Atlas may invent characters, relationships, dialogue, choices, ordinary events, household dynamics and emotions when they are credible within the evidence-established world and do not contradict known facts.
+
+The more consequential, culturally specific, unusual or harmful an invented event is, the stronger and more local its plausibility support must be. Severe outcomes must not be imported from weak analogies merely for drama.
+
+STORY therefore passes a separate plausibility gate before edition assembly. The gate records which conditions are directly evidenced, which are supported comparatively, which rely on ordinary human plausibility, and which proposed events are rejected.
+
+**Evidence establishes the conditions. Comparative knowledge expands the plausible consequence space. Fiction may connect those conditions through invented people, events, choices, relationships and emotions, but must never disguise inference or invention as documented fact.**
