@@ -7,31 +7,101 @@
       "source_id": "WB-HEAT-2025",
       "url": "https://www.worldbank.org/en/news/press-release/2025/09/16/bangladesh-faces-health-and-economic-risks-from-rising-temperature-world-bank",
       "status": "PASS",
-      "resolved_url": "https://www.worldbank.org/en/news/press-release/2025/09/16/bangladesh-faces-health-and-economic-risks-from-rising-temperature-world-bank"
+      "resolved_url": "https://www.worldbank.org/en/news/press-release/2025/09/16/bangladesh-faces-health-and-economic-risks-from-rising-temperature-world-bank",
+      "fallback_used": false,
+      "attempts": [
+        {
+          "url": "https://www.worldbank.org/en/news/press-release/2025/09/16/bangladesh-faces-health-and-economic-risks-from-rising-temperature-world-bank",
+          "attempt": 1,
+          "status": "PASS"
+        }
+      ]
     },
     {
       "source_id": "IIED-HEAT-2026",
       "url": "https://www.iied.org/22755iied",
       "status": "PASS",
-      "resolved_url": "https://www.iied.org/22755iied"
+      "resolved_url": "https://www.iied.org/22755iied",
+      "fallback_used": false,
+      "attempts": [
+        {
+          "url": "https://www.iied.org/22755iied",
+          "attempt": 1,
+          "status": "PASS"
+        }
+      ]
     },
     {
       "source_id": "CORNELL-HEAT-2026",
       "url": "https://www.ilr.cornell.edu/global-labor-institute/report-summary/six-seasons-four-summers-how-solve-fashions-high-heat-problem",
       "status": "BLOCKED",
+      "attempts": [
+        {
+          "url": "https://www.ilr.cornell.edu/global-labor-institute/report-summary/six-seasons-four-summers-how-solve-fashions-high-heat-problem",
+          "attempt": 1,
+          "status": "BLOCKED",
+          "reason": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.ilr.cornell.edu/global-labor-institute/report-summary/six-seasons-four-summers-how-solve-fashions-high-heat-problem",
+          "attempt": 2,
+          "status": "BLOCKED",
+          "reason": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.ilr.cornell.edu/global-labor-institute/report-summary/six-seasons-four-summers-how-solve-fashions-high-heat-problem",
+          "attempt": 3,
+          "status": "BLOCKED",
+          "reason": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.ilr.cornell.edu/sites/default/files-d8/2026-09/gli-six-seasons-four-summers-report-sep-2026-final.pdf",
+          "attempt": 1,
+          "status": "BLOCKED",
+          "reason": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.ilr.cornell.edu/sites/default/files-d8/2026-09/gli-six-seasons-four-summers-report-sep-2026-final.pdf",
+          "attempt": 2,
+          "status": "BLOCKED",
+          "reason": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.ilr.cornell.edu/sites/default/files-d8/2026-09/gli-six-seasons-four-summers-report-sep-2026-final.pdf",
+          "attempt": 3,
+          "status": "BLOCKED",
+          "reason": "HTTP Error 403: Forbidden"
+        }
+      ],
       "reason": "HTTP Error 403: Forbidden"
     },
     {
       "source_id": "RMG-WORKER-2025",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12188113/",
       "status": "PASS",
-      "resolved_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12188113/"
+      "resolved_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12188113/",
+      "fallback_used": false,
+      "attempts": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12188113/",
+          "attempt": 1,
+          "status": "PASS"
+        }
+      ]
     },
     {
       "source_id": "UNICEF-EDU-2025",
       "url": "https://www.unicef.org/bangladesh/en/press-releases/33-million-children-bangladesh-had-schooling-disrupted-climate-crises-2024unicef",
       "status": "PASS",
-      "resolved_url": "https://www.unicef.org/bangladesh/en/press-releases/33-million-children-bangladesh-had-schooling-disrupted-climate-crises-2024unicef"
+      "resolved_url": "https://www.unicef.org/bangladesh/en/press-releases/33-million-children-bangladesh-had-schooling-disrupted-climate-crises-2024unicef",
+      "fallback_used": false,
+      "attempts": [
+        {
+          "url": "https://www.unicef.org/bangladesh/en/press-releases/33-million-children-bangladesh-had-schooling-disrupted-climate-crises-2024unicef",
+          "attempt": 1,
+          "status": "PASS"
+        }
+      ]
     }
   ]
 }

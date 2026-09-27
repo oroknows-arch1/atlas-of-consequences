@@ -1,79 +1,73 @@
 {
   "opening": {
-    "heading": "When Heat Moves Indoors: Changing Realities for Bangladesh’s Workers and Families",
+    "heading": "When the Heat Comes Inside: An Epochal Change in Bangladesh",
     "paragraphs": [
       {
-        "text": "In Dhaka, Bangladesh, rising heat is shifting from being an occasional dangerous spell to an ongoing limitation affecting work, health, home life, and the national economy. Evidence collected in 2025 and 2026 shows that what was previously considered a weather event is now becoming a constant presence in daily routines. Households, workers, and children all face the effects of this persistent heat. While practical responses like cooling interventions and social protection show measured potential to lighten the burden, not every risk or adaptation is fully understood or accessible.",
-        "state": "FACT",
-        "evidence_refs": [
-          "WB-HEAT-2025",
-          "IIED-HEAT-2026",
-          "CORNELL-HEAT-2026",
-          "RMG-WORKER-2025",
-          "UNICEF-EDU-2025"
-        ]
-      },
-      {
-        "text": "This change is grounded by evidence in the environment, in the way people work, the income they bring home, and the spaces where they recover. Workers in the apparel sector and in Dhaka’s informal economy experience lost hours and health strain. Children and households face class disruption and new health challenges. The causal story is supported for the surveyed populations and periods, but national patterns, exact impacts, and future changes remain limited by the scope and granularity of these studies.",
-        "state": "FACT",
-        "evidence_refs": [
-          "WB-HEAT-2025",
-          "IIED-HEAT-2026",
-          "CORNELL-HEAT-2026",
-          "RMG-WORKER-2025",
-          "UNICEF-EDU-2025"
-        ]
-      },
-      {
-        "text": "Not all questions are resolved: Estimates of lost workdays are nationally modeled rather than observed in every segment. Not every school closure or income loss is caused solely by heat. Capacity to adapt—such as affording cooling—varies widely. Adaptation and resilience are dynamic, with some interventions measured, and others remaining in the realm of policy or uncertainty.",
-        "state": "INTERPRETATION",
-        "evidence_refs": [
-          "WB-HEAT-2025",
-          "IIED-HEAT-2026",
-          "CORNELL-HEAT-2026",
-          "UNICEF-EDU-2025"
-        ]
-      }
-    ]
-  },
-  "place": {
-    "heading": "Dhaka, Bangladesh: The Heart of Heat’s New Frontier",
-    "paragraphs": [
-      {
-        "text": "The core of the observed change is Dhaka and the greater Dhaka region, as evidenced in surveys, studied factories, and household interviews. The evidence details urban and peri-urban areas, representative worker homes, and selected industrial sites, rather than every street or neighborhood. Bangladesh’s capital city stands as the focal point, amplified by its density, built environment, and humid climate.",
-        "state": "FACT",
-        "evidence_refs": [
-          "IIED-HEAT-2026",
-          "CORNELL-HEAT-2026",
-          "RMG-WORKER-2025"
-        ]
-      },
-      {
-        "text": "While national health and economic estimates span all of Bangladesh, specific working and living conditions are drawn from sampled populations in Dhaka. Broader extrapolations are constrained by the limits of each dataset.",
+        "text": "In Bangladesh, rising heat has shifted from being an occasional weather hazard to a persistent feature that shapes daily life, labor, and wellbeing. Evidence gathered from 2024-2026 reveals that this transformation is not simply about more hot days, but about a new normal in which heat acts as a multi-dimensional constraint—impacting work, health, household dynamics, and the broader economy. In the heart of these changes lie Dhaka and its surrounding region, a dense urban setting where heat’s effects are magnified by built environments and humidity.",
         "state": "FACT",
         "evidence_refs": [
           "WB-HEAT-2025",
           "IIED-HEAT-2026",
           "CORNELL-HEAT-2026"
         ]
-      }
-    ]
-  },
-  "consequences": {
-    "heading": "Consequences: What Has Been Observed, What Remains Uncertain",
-    "paragraphs": [
+      },
       {
-        "text": "Observed effects include widespread physical and mental health challenges directly linked to heat among Bangladesh’s workforce. National analysis estimates 250 million workdays lost in 2024 due to heat effects. In Dhaka, workers in factories and informal settings experience headaches, dizziness, fatigue, and lost income, all evidenced by worker surveys and interviews. Schools across Bangladesh, including Dhaka, experienced closures, disrupting children’s learning and health.",
+        "text": "Those most affected include urban and informal workers, garment-factory employees, children, and families living in rented, uninsulated homes. Heat does not stop at the factory gates; it follows people into recovery spaces, households, and schools, exposing both economic life and family routines to strain. Recent studies support that practical cooling and social protection measures can reduce at least part of this burden, though full relief depends on how adaptation is distributed—and new uncertainties arise in who benefits and who is left vulnerable.",
         "state": "FACT",
         "evidence_refs": [
-          "WB-HEAT-2025",
           "IIED-HEAT-2026",
-          "RMG-WORKER-2025",
+          "CORNELL-HEAT-2026",
           "UNICEF-EDU-2025"
         ]
       },
       {
-        "text": "There is uncertainty and open interpretation about the precise extent to which heat alone drives outcomes like total income loss, long-term educational disruption, or future adaptation strategies. Not every home or institution faces the same capacity for recovery or cooling, and household-level consequences of individual school closures or workplace adaptation decisions remain unresolved by current evidence.",
+        "text": "There are clear boundaries to what is currently known. While large-scale workday loss and health impacts are quantified for the nation, evidence comes from sampled worker populations, factories, and homes rather than every individual or neighborhood. Not all disruptions, such as school closures, can be attributed to heat alone, and the detail of household coping or the future allocation of adaptation resources is not resolved by the available studies.",
+        "state": "FACT",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "UNICEF-EDU-2025"
+        ]
+      }
+    ]
+  },
+  "place": {
+    "heading": "Dhaka, Bangladesh: Urban Heat at the Heart of the Evidence",
+    "paragraphs": [
+      {
+        "text": "The core of this documented change is Dhaka, Bangladesh’s largest city, along with its surrounding region. Study sources encompass sampled apparel factories, informal-worker households, and schools in Dhaka, reflecting both the city’s dense urban landscape and the daily movements of its residents. While the evidence builds a detailed picture of urban and peri-urban experience, it does not claim to represent all rural or distant communities across the country.",
+        "state": "FACT",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026",
+          "IIED-HEAT-2026"
+        ]
+      },
+      {
+        "text": "At the national scale, models and surveys describe the aggregate impact on Bangladesh’s economy and labor force. However, specific findings—on indoor heat, cooling, and household adaptation—remain grounded in data collected within the Dhaka metropolitan area and its informal settlements.",
+        "state": "FACT",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "CORNELL-HEAT-2026"
+        ]
+      }
+    ]
+  },
+  "consequences": {
+    "heading": "Consequences: What Is Known and What Remains Uncertain",
+    "paragraphs": [
+      {
+        "text": "Observed effects include widespread health symptoms among workers, large-scale lost workdays, income pressure on affected households, and learning and wellbeing impacts for children during heatwaves and school closures. Studies also find that both workplace and home environments contribute to the intensity of heat exposure, and that tested cooling measures can mitigate some of these effects in sampled environments.",
+        "state": "FACT",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "RMG-WORKER-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "UNICEF-EDU-2025"
+        ]
+      },
+      {
+        "text": "Uncertain or unresolved issues include the exact scale of household coping gaps, differences in adaptation capacity across neighborhoods, the lasting impact of disrupted schooling on family income or learning, and how future adaptation costs and benefits will be distributed. Evidence supports inequality in exposure and recovery, but does not specify household-level future outcomes or policy responses.",
         "state": "UNCERTAIN",
         "evidence_refs": [
           "IIED-HEAT-2026",
@@ -86,10 +80,10 @@
   },
   "scenes": {
     "H1-S1": {
-      "heading": "A Persistent Heat, Not Just a Passing Storm",
+      "heading": "Heat as a Persistent Condition",
       "paragraphs": [
         {
-          "text": "Recent national analysis shows that Bangladesh’s extreme heat has become a recurring and persistent condition, rather than a periodic hazard. The evidence for more than 16,000 people points to a climate where high temperatures are sustained for longer periods, increasing risks and exposures throughout the year.",
+          "text": "Long-term national analysis points to heat in Bangladesh moving beyond exceptional spikes; it has become a persistent part of the environment. The health and productivity costs, measured among over 16,000 people, include substantial physical and mental health impacts and contribute to enormous annual losses in work time. This transformation signals that populations are now navigating a prolonged heat season rather than isolated episodes.",
           "state": "FACT",
           "evidence_refs": [
             "WB-HEAT-2025"
@@ -98,10 +92,10 @@
       ]
     },
     "H1-S2": {
-      "heading": "Humidity and Urban Form Shape Human Heat Exposure",
+      "heading": "Urban Heat: Dense Cities and Humidity Intensify the Challenge",
       "paragraphs": [
         {
-          "text": "Dhaka’s dense urban layout amplifies the impact of high heat. Elevated humidity causes people to experience temperatures beyond the simple air reading, making urban heat a bigger burden on health and comfort than in drier settings. National evidence attributes a significant part of this human burden to the combined effects of built-up areas and persistent humidity.",
+          "text": "In Dhaka, the human impact of heat is shaped not just by temperature, but by humidity and concentrated urban forms. Humidity increases the heat index, amplifying how the warmth feels and raising health risks even when air temperature alone may not seem extreme. Such compounded effects are now recognized as a major factor in the burden reported by city residents.",
           "state": "FACT",
           "evidence_refs": [
             "WB-HEAT-2025"
@@ -110,10 +104,10 @@
       ]
     },
     "H2-S1": {
-      "heading": "Heat on the Clock: Workdays Shaped by Strain, Hydration, and Breaks",
+      "heading": "Heat on the Factory Floor and in the Street",
       "paragraphs": [
         {
-          "text": "Surveyed workers across Dhaka’s factories and informal economy report a consistent experience of physical strain, dehydration, exhaustion, and the need for increased breaks during hot periods. Fatigue, headaches, and sometimes absenteeism manifest as heat exposure builds up during the working day. The evidence demonstrates a daily negotiation between productivity, health, and the realities of a longer, hotter season.",
+          "text": "Surveyed workers in Dhaka’s garment factories and informal sectors report significant physical strain, headaches, dizziness, and dehydration during periods of high heat. Evidence links these symptoms to absenteeism and productivity declines, as workers must choose between enduring exposure or taking breaks—which can mean lost income. Hydration and cooling remain challenges, with barriers documented in both factory and street work environments.",
           "state": "FACT",
           "evidence_refs": [
             "RMG-WORKER-2025",
@@ -123,10 +117,10 @@
       ]
     },
     "H2-S2": {
-      "heading": "Factories: Heat Inside Reflects the Climate Outside",
+      "heading": "Factories Do Not Block Out the Heat",
       "paragraphs": [
         {
-          "text": "A year-long study in the Dhaka region found that in selected apparel factories, indoor temperatures track high with outdoor seasons. For much of the year—a documented seven-month heat-stress season—indoor heat persists, creating sustained stressful working conditions. These findings are drawn from sampled factories and do not represent all workplaces across Bangladesh.",
+          "text": "Even indoors, in sampled Dhaka-region apparel factories, workers experience a seven-month heat-stress season. Year-long monitoring shows that environmental controls and building structures are often insufficient to keep indoor conditions safe and comfortable. While the evidence is specific to the factories studied and not all such workplaces nationwide, it underscores the porous barrier between the outdoor climate and people’s working environments.",
           "state": "FACT",
           "evidence_refs": [
             "CORNELL-HEAT-2026"
@@ -135,10 +129,10 @@
       ]
     },
     "H2-S3": {
-      "heading": "Informal Workers: Earning Less to Avoid the Heat",
+      "heading": "Informal Workers Face a Trade-Off: Heat or Lost Income",
       "paragraphs": [
         {
-          "text": "For many informal outdoor workers surveyed in Dhaka, the only escape from severe heat is to reduce time spent on the job—resulting in lost hours and immediate income sacrifice. The experience of these workers in the study period shows that protecting health during extreme heat directly competes with the need to earn a living.",
+          "text": "For informal outdoor workers in Dhaka, the burden of heat goes beyond discomfort—it often translates directly to lost paid hours. Survey data from 175 households reveal that avoidance of extreme conditions comes at an economic cost borne most heavily by those with the least resilience. The reported effects are specific to these surveyed workers and the period of study.",
           "state": "FACT",
           "evidence_refs": [
             "IIED-HEAT-2026"
@@ -147,10 +141,10 @@
       ]
     },
     "H3-S1": {
-      "heading": "Lost Workdays Put Pressure on Household Budgets",
+      "heading": "Heat Translates into Household Income Pressure",
       "paragraphs": [
         {
-          "text": "Survey data from informal-worker households in Dhaka demonstrate that lost workdays are often translated directly into lost wages for families. This reduced capacity to earn leads to mounting financial strain in the affected households. These losses are limited to surveyed populations and reflect the experience during the study period.",
+          "text": "Missed work and reduced productivity are not only workplace problems; they affect entire households. Surveyed families reliant on daily wages must manage budget shortfalls when one or more working members lose income due to heat-related illness or absence. While quantitative detail applies to the studied populations, the pressure on income security is a documented pattern.",
           "state": "FACT",
           "evidence_refs": [
             "IIED-HEAT-2026"
@@ -159,10 +153,10 @@
       ]
     },
     "H3-S2": {
-      "heading": "National Scale: Heat Removes Millions from the Economy",
+      "heading": "National Economic Impact: Hundreds of Millions of Days Lost",
       "paragraphs": [
         {
-          "text": "National models estimate that Bangladesh lost about 250 million workdays to heat exposure in 2024. This cumulative loss turns heat from an individual or household concern into a measurable constraint on the country’s economic output. These figures are national estimates based on health and productivity modeling rather than direct observation for every worker.",
+          "text": "At a national scale, estimated models for 2024 indicate that Bangladesh lost about 250 million workdays to heat exposure. While these figures are modeled, rather than tallied from every workplace, they represent a major macroeconomic constraint—reflecting how persistent heat now shapes the country’s economic outcomes.",
           "state": "FACT",
           "evidence_refs": [
             "WB-HEAT-2025"
@@ -171,10 +165,10 @@
       ]
     },
     "H4-S1": {
-      "heading": "Heat at Home: Where Recovery is Not Guaranteed",
+      "heading": "After Work, the Heat Follows Home",
       "paragraphs": [
         {
-          "text": "Research in the Dhaka region finds that going home at the end of a shift often does not end heat exposure. Interviews and field data from worker households reveal that indoor heat can persist overnight, particularly where cooling is inaccessible or housing is less resistant to temperature. This makes homes part of the ongoing heat system rather than a refuge from it.",
+          "text": "The end of a work shift does not mark the end of heat exposure for many in Dhaka. Sampled evidence from worker homes reflects that, for many families, rented and informal dwellings retain heat, and recovery is slow or incomplete. This continuous cycle of exposure affects household vitality and the ability to rest before the next workday.",
           "state": "FACT",
           "evidence_refs": [
             "CORNELL-HEAT-2026",
@@ -184,10 +178,10 @@
       ]
     },
     "H4-S2": {
-      "heading": "Coping: Recovery Depends on Access and Resources",
+      "heading": "Unequal Capacity for Recovery at Home",
       "paragraphs": [
         {
-          "text": "Capacity to recover from heat exposure is shaped by a household’s resources, housing conditions, and access to cooling. The available evidence documents unequal coping ability among surveyed homes and workers, but does not allow for a generalized claim about every household’s methods or expenditures. Details about locality-specific strategies and spending remain unresolved in this evidence.",
+          "text": "Not all households can recover from heat in the same way. Evidence shows differences in access to cooling, quality of housing, and available resources. However, the details of how households seek relief or allocate spending remains unresolved in this evidence set, and further locality or case-specific data would be needed for concrete narration.",
           "state": "UNCERTAIN",
           "evidence_refs": [
             "CORNELL-HEAT-2026",
@@ -197,10 +191,10 @@
       ]
     },
     "H5-S1": {
-      "heading": "Heatwave Disrupts Children’s Health and Education",
+      "heading": "Children’s Health and Learning Disrupted by Heat",
       "paragraphs": [
         {
-          "text": "Bangladesh faced nationwide school closures in 2024 as extreme heat events, among other hazards, made conditions unsafe for students. UNICEF reports show that children’s learning and health were disrupted—evidenced most acutely during heatwaves—though not every closure can be attributed exclusively to high temperatures.",
+          "text": "Heatwaves in 2024 led to school closures across Bangladesh, contributing to interruptions of both learning and child health. While school closures result from multiple hazards, heat plays a notable and documented role, making children and families part of this widening web of heat impact.",
           "state": "FACT",
           "evidence_refs": [
             "UNICEF-EDU-2025"
@@ -209,10 +203,10 @@
       ]
     },
     "H5-S2": {
-      "heading": "Learning Loss and Household Shift: Still Unresolved",
+      "heading": "Household and Child Burden: The Unclear Effects of School Disruption",
       "paragraphs": [
         {
-          "text": "Though evidence confirms that school closures displaced the location of learning and caregiving—shifting part of the burden back onto households—the precise effects on family economics, children’s time use, or long-term outcomes are not fully documented by current sources. The consequences at the household level remain open questions.",
+          "text": "The shift of schooling out of classrooms and into homes places additional demands on household labor and children’s time. However, this evidence bundle does not provide quantitative detail on impacts such as household childcare, lost hours, or educational outcomes, leaving the specific scale and family-level consequences unresolved.",
           "state": "UNCERTAIN",
           "evidence_refs": [
             "UNICEF-EDU-2025"
@@ -221,10 +215,10 @@
       ]
     },
     "H6-S1": {
-      "heading": "Real Adaptation: Measured Cooling and Changed Work Practices",
+      "heading": "Adapting to Heat: Measured and Practical Responses",
       "paragraphs": [
         {
-          "text": "Studies in Dhaka show that adaptation to heat can take several tested forms. Physical interventions such as improved shade, ventilation, and hydration access were implemented in select workplaces and homes. Adjustments to work hours and breaks, where applied, showed measurable benefits for health and productivity in the sampled settings. These are based on what was actually reported and recorded, separated from speculative or as-yet-untested recommendations.",
+          "text": "Interventions such as increased airflow, shade, cooling technologies, hydration supports, and adjustments in work schedules have been tested in both home and factory environments. Evidence from surveyed workplaces and households indicates that these measures can reduce part of the physical and economic burden, although their extent and uptake are not universal.",
           "state": "FACT",
           "evidence_refs": [
             "CORNELL-HEAT-2026",
@@ -234,10 +228,10 @@
       ]
     },
     "H6-S2": {
-      "heading": "The Economics of Cooling: Payback and Limits",
+      "heading": "Cooling Investments: Economic Return, With Caveats",
       "paragraphs": [
         {
-          "text": "In studied apparel factories in the Dhaka region, specific cooling investments were found to offer a potential payback in reduced productivity losses over one to four years. These economic estimates are tied to the sample and conditions of the Cornell study; they do not guarantee a specific return in all contexts.",
+          "text": "In the sampled apparel factories, certain investments in cooling and ventilation demonstrated the potential for financial payback within one to four years through reduced heat-related losses. These findings are specific to the studied settings and do not guarantee similar returns elsewhere.",
           "state": "FACT",
           "evidence_refs": [
             "CORNELL-HEAT-2026"
@@ -246,10 +240,10 @@
       ]
     },
     "H6-S3": {
-      "heading": "Adapting Unevenly: Who Gets Cooled and Who Gets Left Out?",
+      "heading": "Who Gets Protected? Adaptation and Unequal Exposure",
       "paragraphs": [
         {
-          "text": "Survey and national data both indicate that the ability to afford or access heat adaptation—including cooling and protective measures—varies widely, raising questions about distribution and lingering vulnerability. While these patterns are evidenced, how future policy or resource allocation will resolve these inequalities remains undetermined by current research.",
+          "text": "The ability to afford or access effective adaptation varies greatly. While improved cooling and social protection can mitigate some heat effects, documented evidence points to persistent inequality in who is shielded and who continues to bear the brunt of rising temperatures. The future of how adaptation resources and costs will be allocated across urban populations remains unresolved, forming an ongoing policy and social challenge.",
           "state": "UNCERTAIN",
           "evidence_refs": [
             "IIED-HEAT-2026",

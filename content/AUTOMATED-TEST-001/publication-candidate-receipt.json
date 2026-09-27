@@ -3,20 +3,12 @@
   "status": "BLOCKED",
   "known_required_items": [
     {
-      "worker": "production-receipt",
-      "reason": "production incomplete"
-    },
-    {
-      "worker": "asset-persistence-receipt",
-      "reason": "gate did not PASS"
-    },
-    {
       "worker": "deployment-receipt",
       "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/deployment-receipt.json'"
     },
     {
       "worker": "source-qa",
-      "reason": "stale or foreign receipt: input_sha256"
+      "reason": "gate did not PASS"
     },
     {
       "worker": "rendered-qa",
@@ -29,14 +21,6 @@
     {
       "worker": "benchmark-parity",
       "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/benchmark-parity.json'"
-    },
-    {
-      "worker": "asset_persistence",
-      "reason": "required asset coverage mismatch"
-    },
-    {
-      "worker": "reader_builder",
-      "reason": "reader output missing"
     },
     {
       "worker": "deployment-receipt",
