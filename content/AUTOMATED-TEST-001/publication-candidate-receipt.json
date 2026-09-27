@@ -3,8 +3,8 @@
   "status": "BLOCKED",
   "known_required_items": [
     {
-      "worker": "production_orchestrator",
-      "reason": "Production in progress; previous review verdict invalidated"
+      "worker": "deployment",
+      "reason": "deployed bytes differ: /assets/aet1-wc-002/h2-s3.png"
     }
   ],
   "publication_authorized": false

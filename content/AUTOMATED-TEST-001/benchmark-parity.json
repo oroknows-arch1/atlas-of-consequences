@@ -1,0 +1,138 @@
+{
+  "edition_id": "AET1-WC-002",
+  "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
+  "reader_hashes": {
+    "public/review/aet1-wc-002/index.html": "a735d6026fe6f9a3ee0a9110ba681d69536a7d18dad385063b0a50f5ee2b74b3",
+    "public/review/aet1-wc-002/reader.css": "bf200dce66bb9fe708c91a1c9b56edb506e59eafcd3c3c45c6cfb533c6d95823",
+    "public/review/aet1-wc-002/reader.js": "46d13944688cfcfa92f026c8dc96b5f12da174862908a1540b129ddd1e7a3f82"
+  },
+  "deploy_id": "dep-dasor059fdbs73edcls0",
+  "screenshots": [
+    {
+      "path": "screenshots/phone-edition.png",
+      "sha256": "a1a7e93c3ade9e726d60796f27cc5451bc056a15b445565e4bee689a6712164c"
+    },
+    {
+      "path": "screenshots/phone-perspectives.png",
+      "sha256": "abe53654faa1edc5c450ab848492f6f630bdc1101b4edff5577c4dbc5f60947b"
+    },
+    {
+      "path": "screenshots/phone-route-H1.png",
+      "sha256": "1a4731bd3fe58d457756ef42b4c5e7cf4b0bafbdb9213efe804be50f1593bd3c"
+    },
+    {
+      "path": "screenshots/phone-route-H2.png",
+      "sha256": "f05288c265951e47b6b2abe9e243e1ed259c1d2dc952d75368477030c11fea99"
+    },
+    {
+      "path": "screenshots/phone-route-H3.png",
+      "sha256": "51f15bddb8e96e944ea43ccd0641b4c796ee15cd4fdb1845f315c23fc9c69be7"
+    },
+    {
+      "path": "screenshots/phone-route-H4.png",
+      "sha256": "6dcf1cbdca92df38cd6a7dc9aae25eb79651b6211826718b99811604986cc603"
+    },
+    {
+      "path": "screenshots/phone-route-H5.png",
+      "sha256": "f66d73740e667f9372e9f241de37701cd1957d0433b26eaf7431a8d72630d19f"
+    },
+    {
+      "path": "screenshots/phone-route-H6.png",
+      "sha256": "1c833fbbf0b4e858d2c4b355334a8891aed8d89c19411da9f829b91f83dbb87a"
+    },
+    {
+      "path": "screenshots/phone-story.png",
+      "sha256": "3d613c74c3f16f528fb95aada2a4f4714518f6dff03eeb409f5e84778683f583"
+    },
+    {
+      "path": "screenshots/phone-consequences.png",
+      "sha256": "f117fd83654b5cee0446412ae642432ac5541519aa5bc35966b96b4e1b616727"
+    },
+    {
+      "path": "screenshots/phone-place.png",
+      "sha256": "72f5f2caa3eb2929bd2714c2835e7318a049a5e4b1c25192bae819dcd171c40f"
+    },
+    {
+      "path": "screenshots/phone-sources.png",
+      "sha256": "1ed06871a814cf4358526045bfe3b68609300e146f6e203d1b16d79e64281be2"
+    },
+    {
+      "path": "screenshots/desktop-edition.png",
+      "sha256": "d6efa496eebdc937485c72e20f18702411a9e1254290673f2079e4940266d029"
+    },
+    {
+      "path": "screenshots/desktop-perspectives.png",
+      "sha256": "8a2fed0b36bf181af52c9f4b407cb63b23017096c1c8114f6c9197c9f04e7166"
+    },
+    {
+      "path": "screenshots/desktop-route-H1.png",
+      "sha256": "3d3dfbbf261dc79b9a16676f21497e896ef93e43bd053a506a360787e36a20e1"
+    },
+    {
+      "path": "screenshots/desktop-route-H2.png",
+      "sha256": "954a11270c26788970a1fccc995ad0f20fc2acf39d6a990c018afd70356ed84c"
+    },
+    {
+      "path": "screenshots/desktop-route-H3.png",
+      "sha256": "dbf1756f4c3f7aff189b28a73199b6c3f735aaf80c2d32f15f936e858a346cbd"
+    },
+    {
+      "path": "screenshots/desktop-route-H4.png",
+      "sha256": "9d791c1141d6670774f51e36220763947a1aab392ced10ac804775bef939d9df"
+    },
+    {
+      "path": "screenshots/desktop-route-H5.png",
+      "sha256": "eb7f5d09421c30b3bdd5455b58b954335c31331be013a97d02d7d27a83256373"
+    },
+    {
+      "path": "screenshots/desktop-route-H6.png",
+      "sha256": "06098eeedb203664e638aba43a3a890f419264293191c8d87c3c3ea1db200e86"
+    },
+    {
+      "path": "screenshots/desktop-story.png",
+      "sha256": "eb88089fb800c12e2b2312b08d251cdb4919161b9c72b1bb7bb4d40d92c931d2"
+    },
+    {
+      "path": "screenshots/desktop-consequences.png",
+      "sha256": "41721d02ce0993f7dc91adaae505e93e48e98ba5685fa47a38f4f76323b3b2e9"
+    },
+    {
+      "path": "screenshots/desktop-place.png",
+      "sha256": "3aaa09061041f3f4e2896d1201ef1c58d29152193541b17a6ad165c48ee94bd1"
+    },
+    {
+      "path": "screenshots/desktop-sources.png",
+      "sha256": "d74ca6574a827592f787d3aa686edfc55f125d2f98c021a4163fb58b4f89a110"
+    },
+    {
+      "path": "screenshots/benchmark-phone.png",
+      "sha256": "13cf4ffd3deee457978c324ac633b09a4d544a7f8d37c8c66e5f94a5e93aef2a"
+    },
+    {
+      "path": "screenshots/benchmark-route-0.png",
+      "sha256": "253b27d19df3598aad1104e52dd487c4aae0dca012d9e9db98612cca7167a573"
+    },
+    {
+      "path": "screenshots/benchmark-route-1.png",
+      "sha256": "594776bd85916b71b7404406a45a2277725b4dcfe309f700aad022a606b5a61b"
+    },
+    {
+      "path": "screenshots/benchmark-route-2.png",
+      "sha256": "9cfc66c1bdc95d97eafc1c11c814f1cf4efb2ea432b6c2cd4a17a770bd3886d4"
+    },
+    {
+      "path": "screenshots/benchmark-route-3.png",
+      "sha256": "c2a42f7fc0e11029cfc40fb50ecb82833dda9135680e7238f2d6cde02dc2ea78"
+    },
+    {
+      "path": "screenshots/benchmark-route-4.png",
+      "sha256": "46cb907de40f30428aabe889689e35e4f9a9c5128e6b2b891d1acd5fdeb2ec9d"
+    },
+    {
+      "path": "screenshots/benchmark-route-5.png",
+      "sha256": "9c366e18ff0a462f1a34319a064a297bc48e73800de25864e71c5c7268b46788"
+    }
+  ],
+  "status": "PASS",
+  "reason": "All phone-edition and phone-route screenshots show strong alignment with AOC-001 benchmarks in crop, safe areas, midtone readability, uniform structure, typographic clarity, editorial depth and locality. No evidence is unreadable, uncropped, overflowing, or miscentered. All images are intact and sources/facts are clearly presented. AI-generated illustrations are clearly and repeatedly labelled, per Atlas policy, and do not imply non-factual or documentary content. Copy is geographically specific, discloses uncertainties, and contains route/section structure matching the class-lead benchmarks. No continuity breaks or asset loss. Benchmark images confirm parity in treatment, context, and navigation, with no structural or visual regression evident. | All screenshots exhibit consistent structure, clear navigation, visible and readable typography, appropriate image crops, well-separated FACT and STORY boundaries, geographic specificity, contextually appropriate illustrations with clear AI disclaimers, and no missing or overflowing content. All sources are properly attributed, and there is no misleading implication of documentary fact. No editorial, visual, asset, or structural failures are observed. Meets or exceeds AOC-001 benchmark standards. | All inspected images follow Atlas publication standards: clear navigation and structure (reader_builder), readable midtones and strong text-background contrast (reader_treatment), consistent visual style and continuity (visual_factory), all images and explanatory graphics present (asset_persistence), editorial content is accurate, detailed, and clearly marked as fact, uncertainty, or fiction as appropriate (editorial_factory), and sources are clearly cited and connected to statements (source_registrar). No overflow, cropping, centering, or safe area issues are present. AI-generated context illustrations are clearly and sufficiently labeled. No missing or unreadable content."
+}
