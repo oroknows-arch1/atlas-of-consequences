@@ -5,34 +5,25 @@
       "defects": [
         {
           "worker": "visual_factory",
-          "reason": "Visual continuity inconsistency between asset style and uniformity across route images (e.g., some scenes reuse the same AI-generated visual context for Bangladeshi urban and informal home/factory settings, diminishing sense of progression and context change).",
-          "scene_id": "phone-route-H1 / phone-route-H3 / phone-route-H6"
-        },
-        {
-          "worker": "visual_factory",
-          "reason": "Generic or repetitive AI-generated contextual images weaken geographic and narrative specificity required for the edition, notably in home, street, and factory illustrations.",
-          "scene_id": "phone-route-H1 / phone-route-H3 / phone-route-H6"
+          "reason": "Visual context is repetitive and generic throughout the Bangladesh heat publication. Many images are AI-generated with repeated street/factory/home scenes lacking locally unique, publication-defining visual specificity. There are no documentary, data, or report images that strengthen location or issue context beyond generic scenes.",
+          "scene_id": "phone-route-H1–H6"
         },
         {
           "worker": "reader_treatment",
-          "reason": "Typography treatments inconsistent in some route headers (e.g. multiline breaks, box-style cropping of oversized route headers), which affects readability and centering.",
-          "scene_id": "phone-edition / phone-perspectives / phone-route-H1"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "Some routes (especially phone-route-H5, phone-route-H6) have thin editorial content lacking sufficient depth or scene-scale specificity for a robust narrative. More context or detail is needed for parity with benchmark editions.",
-          "scene_id": "phone-route-H5 / phone-route-H6"
+          "reason": "Several headings (\"Choose your way in.\", route titles) show overflows and crop artifacts on mobile: excessive padding leaves too little space for longer section titles, causing broken line breaks and visually awkward centering/layout, especially on route screens.",
+          "scene_id": "phone-perspectives, phone-route-H1–H6"
         },
         {
           "worker": "visual_factory",
-          "reason": "Multiple routes repeat the same or visually near-identical AI-generated asset. This undermines continuity and weakens the sense of narrative progression.",
-          "scene_id": "phone-route-H1 / phone-route-H3 / phone-route-H6"
+          "reason": "Dark mode legibility is inconsistent: some captions and sources in deeper sections risk low contrast against the background, especially at the bottom of dark images; does not fully meet midtone/readability standards under all viewing conditions.",
+          "scene_id": "phone-route-H1–H6"
+        },
+        {
+          "worker": "editorial_factory",
+          "reason": "The Bangladesh heat publication shows editorial thinness in routes 'The Pay Packet', 'The Next Generation', and 'The Fix'—surface-level explanation, vague attribution, or insufficient concrete example/detail. Factual depth and geographic/context specificity are not sufficiently developed in these areas. 'The Home' and 'The Next Generation' rely heavily on repeating similar summary points without new evidence or multidimensional narrative.",
+          "scene_id": "phone-route-H4, phone-route-H5, phone-route-H6"
         }
       ]
-    },
-    {
-      "attempt": 2,
-      "defects": []
     }
   ]
 }

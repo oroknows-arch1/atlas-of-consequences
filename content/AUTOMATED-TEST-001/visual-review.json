@@ -6,7 +6,7 @@
     "public/review/aet1-wc-002/reader.css": "bf200dce66bb9fe708c91a1c9b56edb506e59eafcd3c3c45c6cfb533c6d95823",
     "public/review/aet1-wc-002/reader.js": "46d13944688cfcfa92f026c8dc96b5f12da174862908a1540b129ddd1e7a3f82"
   },
-  "deploy_id": "dep-daso3al9fdbs73eafcb0",
+  "deploy_id": "dep-daso5b0473hc7396ue50",
   "screenshots": [
     {
       "path": "screenshots/phone-edition.png",
@@ -58,7 +58,7 @@
     },
     {
       "path": "screenshots/desktop-edition.png",
-      "sha256": "54dad0ae1ef4420c8651b0301f02cb01e18c26adeb632564653b29761469a176"
+      "sha256": "c74706da439b1c80bbd8d0d26bee5ccf9b29fce2b13ea75f3fd76cf4d7a4553d"
     },
     {
       "path": "screenshots/desktop-perspectives.png",
@@ -66,11 +66,11 @@
     },
     {
       "path": "screenshots/desktop-route-H1.png",
-      "sha256": "11cd6b3640b40d24a25d1161b57cacfc559b08a89e8fec732b368fba122eedc1"
+      "sha256": "5c0dd35ff8aeb70d64bfbbedf9304e0abd09a7a32d1c8acd822dc5a529527af4"
     },
     {
       "path": "screenshots/desktop-route-H2.png",
-      "sha256": "9a66594b4a9fbc612b9797b0ffedc7df537ca59a8f8f5c95479e54355e76ce82"
+      "sha256": "4cd57d8a1d16b620073ca6f376741ea2dac4bfea04f768e933add872b7349b2a"
     },
     {
       "path": "screenshots/desktop-route-H3.png",
@@ -78,11 +78,11 @@
     },
     {
       "path": "screenshots/desktop-route-H4.png",
-      "sha256": "bb412649ef891e9214adffabd228565ec82f3dcefce19f7cf16c843f57807869"
+      "sha256": "7a987f3182f99e79f422d1f4813226ba6160347159d3ebdda7c734576b8fba6e"
     },
     {
       "path": "screenshots/desktop-route-H5.png",
-      "sha256": "c7c685f3e72e778b7b085b68d3351386a8644b9928532ec10e9b501ecc0067e7"
+      "sha256": "1cc9aa3fa4401de422ba38cefaeeee22a8f50c0b3399fca1211b992acff8a2fa"
     },
     {
       "path": "screenshots/desktop-route-H6.png",
@@ -106,33 +106,54 @@
     },
     {
       "path": "screenshots/benchmark-phone.png",
-      "sha256": "29f3961f17c7f38f389ae19d5442408425112a57680b4ec78686c7ea36a3ea56"
+      "sha256": "8dfe3ff6bb4a9af61cd7230eae0dd8464493300fc69c8d80ccc05d230b9939e9"
     },
     {
       "path": "screenshots/benchmark-route-0.png",
-      "sha256": "732b144f272647e2d08814b469cb684a39b1a65e172bfede13c5532c6feab682"
+      "sha256": "1544578831ef05fede7e565f696e5759ae72aec0f7bf42ba4acac0c875428690"
     },
     {
       "path": "screenshots/benchmark-route-1.png",
-      "sha256": "85710659e9f1c6e0c096f0468c43fd4ab8ebae84a0ffef4b1464c80e2366806f"
+      "sha256": "bb6e0755492f3298ac1fed3bddb6337cd84e842366b78b3dc45edb5975815bfc"
     },
     {
       "path": "screenshots/benchmark-route-2.png",
-      "sha256": "37a7d6f3ac5776d88c68a7ec567a579fba16de158d9410328381bdf8ac0fffaa"
+      "sha256": "fb8082d365b17d96d8f633c034c7db0aac8e75c1ef42134ca721368eb280e4c1"
     },
     {
       "path": "screenshots/benchmark-route-3.png",
-      "sha256": "d3060c20a26ef04e98b0993d76f0eb5562bcee5c3203a1f6e19d59dc68a400dd"
+      "sha256": "8f14a4a1b8b64f864c1be84196a10efee6d38ee9c5414d21c22c7880b5ea73bb"
     },
     {
       "path": "screenshots/benchmark-route-4.png",
-      "sha256": "60d7f25048415ad5f329ca5f681aa698e228fdf638aab04d8e47e44dac03a997"
+      "sha256": "2309fc4c44a5f93a98d7cd793b16b6299b3ae548c439cd17b97e352b919d78d0"
     },
     {
       "path": "screenshots/benchmark-route-5.png",
-      "sha256": "53748bb108a3e141aaad797884670a95481b5d955809b80a90cb5f1cd8e2f331"
+      "sha256": "4e8743f048dd310ade7077c36f1e7162e02d3675380dce7102cb70d6469f062c"
     }
   ],
-  "status": "PASS",
-  "defects": []
+  "status": "BLOCKED",
+  "defects": [
+    {
+      "worker": "visual_factory",
+      "reason": "Visual context is repetitive and generic throughout the Bangladesh heat publication. Many images are AI-generated with repeated street/factory/home scenes lacking locally unique, publication-defining visual specificity. There are no documentary, data, or report images that strengthen location or issue context beyond generic scenes.",
+      "scene_id": "phone-route-H1–H6"
+    },
+    {
+      "worker": "reader_treatment",
+      "reason": "Several headings (\"Choose your way in.\", route titles) show overflows and crop artifacts on mobile: excessive padding leaves too little space for longer section titles, causing broken line breaks and visually awkward centering/layout, especially on route screens.",
+      "scene_id": "phone-perspectives, phone-route-H1–H6"
+    },
+    {
+      "worker": "visual_factory",
+      "reason": "Dark mode legibility is inconsistent: some captions and sources in deeper sections risk low contrast against the background, especially at the bottom of dark images; does not fully meet midtone/readability standards under all viewing conditions.",
+      "scene_id": "phone-route-H1–H6"
+    },
+    {
+      "worker": "editorial_factory",
+      "reason": "The Bangladesh heat publication shows editorial thinness in routes 'The Pay Packet', 'The Next Generation', and 'The Fix'—surface-level explanation, vague attribution, or insufficient concrete example/detail. Factual depth and geographic/context specificity are not sufficiently developed in these areas. 'The Home' and 'The Next Generation' rely heavily on repeating similar summary points without new evidence or multidimensional narrative.",
+      "scene_id": "phone-route-H4, phone-route-H5, phone-route-H6"
+    }
+  ]
 }
