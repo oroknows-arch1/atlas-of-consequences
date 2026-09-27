@@ -2,18 +2,14 @@
   "edition_id": "AET1-WC-002",
   "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
   "state": "BLOCKED",
-  "assets_persisted": 8,
+  "assets_persisted": 9,
   "reader": null,
   "defects": [
     {
       "worker": "visual_factory",
-      "scene_id": "H2-S2",
-      "reason": "visual/evidence QA: The image quality is strong and compositionally sound, and the visual context appears accurate for an indoor factory in Dhaka with visible heat and ventilation challenges. However, the image appears staged or generated and cannot document an actual factory or real event, which violates the guidance about not proving a real event in a representative scene. Additionally, the faces and layout are somewhat stylized, strengthening the sense that the visual is not evidentiary, which may mislead viewers regarding documentary authenticity."
-    },
-    {
-      "worker": "visual_factory",
       "scene_id": "H5-S1",
-      "reason": "Provider HTTP 400: type=image_generation_user_error; code=moderation_blocked; message=Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID req_178549ab8c2e42449b71ddc0b8ed383d."
+      "reason": "visual/evidence QA: The image shows a generic school courtyard/building in warm tones under apparent heat, but there are no children or visible indication of health or schooling disruption. The scene is empty, so it fails to convey the consequence of heat on children in terms of health risk or school disruption as required by the prompt. The visual does not directly illustrate the contextual impact or continuity purpose.",
+      "external_action_required": false
     }
   ],
   "next_stage": "repair",

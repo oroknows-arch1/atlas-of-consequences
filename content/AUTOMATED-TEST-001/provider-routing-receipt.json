@@ -1,0 +1,139 @@
+{
+  "edition_id": "AET1-WC-002",
+  "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
+  "scenes": {
+    "H2-S2": {
+      "job_sha256": "8132809971243a1b9c631ee641c498641c509e204dd4c40c3eb41fa9faadbcf2",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "H2-S2",
+        "meaning": "Factories are not insulated from the climate outside; indoor heat can persist across a long season.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026"
+        ],
+        "truth_boundary": "Do not depict a named factory unless sourced media supports it.",
+        "geography": "Dhaka, Bangladesh",
+        "visual_type": "contextual apparel-factory still",
+        "purpose": "Show indoor factory heat and ventilation/cooling context.",
+        "fiction_status": "FACT_CONTEXTUAL",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial documentary, natural daylight, coherent warm-neutral grade; no text, identifiable signage or claimed event"
+      },
+      "events": [
+        {
+          "kind": "original_rejection",
+          "provider": "python3 tools/image_provider_openai.py",
+          "reason": "Provider HTTP 400: type=image_generation_user_error; code=moderation_blocked; message=Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID req_541dc8332a2946b488e3789a1ea9dece."
+        }
+      ],
+      "alternative": {
+        "decision": "SAFE_ALTERNATIVE",
+        "composition": "The image shows the interior of an anonymous, generic factory floor in Dhaka, Bangladesh, focused on architecture and environmental conditions. Large ceiling fans and open windows dominate the scene, with sunlight streaming in and reflecting off pale concrete floors. Rows of garment worktables, empty of people or products, stretch into the background. The building is constructed in typical local style, with exposed brick walls and high ceilings, subtly weathered by humid conditions. Outside the windows, lush greenery and residential rooftops hint at the monsoon season. The lighting is warm, and the air inside appears still, suggesting persistent indoor heat and the reliance on basic ventilation solutions. There is no signage or identifying detail, ensuring the setting remains an undistinguished, ordinary apparel factory environment in Dhaka.",
+        "reason": "This composition uses only ambient elements—architecture, lighting, ordinary objects, and weather conditions—to illustrate the persistence of indoor heat in a Dhaka apparel factory while respecting editorial truth boundaries, geography, and the absence of any speculative or distressing event. It avoids any depiction of people, specific incidents, or identifying marks, thus serving the same accepted editorial purpose safely."
+      },
+      "equivalence_qa": {
+        "safe": true,
+        "meaning_preserved": true,
+        "boundary_preserved": true,
+        "reason": "The proposed composition depicts a generic, anonymous garment factory interior in Dhaka, focusing solely on environment, ventilation, and ambient heat without showing people, distress, or identifiable institutional features. It maintains the geography, avoids prohibited content, preserves the core editorial meaning, and does not encode any rejected or speculative depiction. All relevant truth boundaries and visual continuity guidelines are maintained."
+      }
+    },
+    "H5-S1": {
+      "job_sha256": "64ad37e1a410ebcc6d2a95f90e49aa4860e96e275eca1c6b7ebda2c309289cfd",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "H5-S1",
+        "meaning": "Heat reaches children through health risk and disruption to schooling.",
+        "evidence_refs": [
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced.",
+        "geography": "Dhaka, Bangladesh",
+        "visual_type": "sourced media or contextual still",
+        "purpose": "Ground child/school consequence.",
+        "fiction_status": "FACT_CONTEXTUAL",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial documentary, natural daylight, coherent warm-neutral grade; no text, identifiable signage or claimed event"
+      },
+      "events": [
+        {
+          "kind": "original_rejection",
+          "provider": "python3 tools/image_provider_openai.py",
+          "reason": "Provider HTTP 400: type=image_generation_user_error; code=moderation_blocked; message=Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID req_178549ab8c2e42449b71ddc0b8ed383d.",
+          "imported_from": "asset-persistence-receipt.json"
+        }
+      ],
+      "alternative": {
+        "decision": "SAFE_ALTERNATIVE",
+        "composition": "A sunlit exterior view of a generic Dhaka school building constructed with concrete, corrugated roofing, and open, shaded walkways. The surroundings show a planted courtyard with robust greenery and some classroom windows open, capturing the effect of ambient heat and local humidity. No people or recognizable signage are visible. The image focuses on the built environment’s interaction with the hot, humid weather—harsh sunlight casts defined shadows, and faint atmospheric haze signals monsoon-season heaviness. There is no suggestion of closure or an incident, just a contextual setting illustrating how high temperatures could influence spaces where children typically study.",
+        "reason": "This composition shows only the physical and environmental conditions relevant to the editorial meaning—how heat can affect schooling infrastructure in Dhaka—without depicting any people, distress, or specific events. It does not invent a closure, avoids institution-specific identification, and thus remains within the required truth boundary and avoids prohibited content."
+      },
+      "equivalence_qa": {
+        "safe": true,
+        "meaning_preserved": true,
+        "boundary_preserved": true,
+        "reason": "The proposed visual is an ordinary, generic depiction of a Dhaka school environment, focusing on the physical impact of heat and humidity without people or specific incident depiction. It neither stages nor implies a specific event, does not fabricate closure, avoids all prohibited identifiers, and thus preserves the editorial meaning and truth boundary. The context of how heat affects school life is retained, matching the factual, contextual purpose without suggesting any unsourced or fictionalized narrative."
+      }
+    }
+  }
+}

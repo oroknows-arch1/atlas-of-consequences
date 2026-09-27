@@ -49,6 +49,26 @@
       }
     },
     {
+      "scene_id": "H2-S2",
+      "path": "/assets/aet1-wc-002/h2-s2.png",
+      "sha256": "d633ea6140ee49f3639003b8640979e363bdde4335768e30fcba42c36580c910",
+      "bytes": 2560489,
+      "provenance": "generated representative editorial scene from bounded visual job H2-S2",
+      "provider": "gpt-image-1",
+      "truth_boundary": "Do not depict a named factory unless sourced media supports it.",
+      "status": "PASS",
+      "job_sha256": "8132809971243a1b9c631ee641c498641c509e204dd4c40c3eb41fa9faadbcf2",
+      "visual_qa": {
+        "pass": true,
+        "reason": "The image depicts a sunlit interior of what appears to be a generic, unnamed factory or workshop area with open windows and ceiling fans, aligning with the climate and ventilation context for Dhaka, Bangladesh. There are no signs of staged distress, no institutional or facility signage, no named locations or individuals, and no stylized or unnatural elements. The palette, lighting, and architectural details are consistent with the stated visual continuity guidelines. The scene provides appropriate context for heat and ventilation without misleading specificity or quality defects."
+      },
+      "routing_provenance": {
+        "receipt": "provider-routing-receipt.json",
+        "scene_id": "H2-S2",
+        "route": "safe_equivalent_primary"
+      }
+    },
+    {
       "scene_id": "H2-S3",
       "path": "/assets/aet1-wc-002/h2-s3.png",
       "sha256": "b50973f4584d3c89c389664d0864912af03ca6a2e7f2714c5e25157aa57e5332",
@@ -127,13 +147,9 @@
   "defects": [
     {
       "worker": "visual_factory",
-      "scene_id": "H2-S2",
-      "reason": "visual/evidence QA: The image quality is strong and compositionally sound, and the visual context appears accurate for an indoor factory in Dhaka with visible heat and ventilation challenges. However, the image appears staged or generated and cannot document an actual factory or real event, which violates the guidance about not proving a real event in a representative scene. Additionally, the faces and layout are somewhat stylized, strengthening the sense that the visual is not evidentiary, which may mislead viewers regarding documentary authenticity."
-    },
-    {
-      "worker": "visual_factory",
       "scene_id": "H5-S1",
-      "reason": "Provider HTTP 400: type=image_generation_user_error; code=moderation_blocked; message=Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID req_178549ab8c2e42449b71ddc0b8ed383d."
+      "reason": "visual/evidence QA: The image shows a generic school courtyard/building in warm tones under apparent heat, but there are no children or visible indication of health or schooling disruption. The scene is empty, so it fails to convey the consequence of heat on children in terms of health risk or school disruption as required by the prompt. The visual does not directly illustrate the contextual impact or continuity purpose.",
+      "external_action_required": false
     }
   ]
 }
