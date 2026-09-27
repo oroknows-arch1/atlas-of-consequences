@@ -82,6 +82,10 @@ class ProductionRegression(unittest.TestCase):
   text=describe(error)
   self.assertIn('invalid_request',text)
   self.assertNotIn('sk-secret',text)
+ def test_visual_review_retries_malformed_provider_output(self):
+  review=(state.ROOT/'tools/review_rendered.py').read_text()
+  self.assertIn('json.JSONDecodeError',review)
+  self.assertIn('time.sleep(2)',review)
  def test_repair_router_maps_route_defects_and_runs_mixed_workers(self):
   loop=(state.ROOT/'tools/review_loop.py').read_text()
   self.assertIn('affected_scene_ids',loop)

@@ -45,6 +45,10 @@ def ask_batch(files, key):
                 if error.code != 429 or attempt == 3: break
                 retry_after=float(error.headers.get("Retry-After","0") or 0)
                 time.sleep(min(60,max(attempt*15,retry_after)))
+            except (json.JSONDecodeError, ValueError, RuntimeError) as error:
+                last_error=error
+                if attempt == 3: break
+                time.sleep(2)
     if last_error: raise last_error
     raise RuntimeError("visual review provider returned no response")
 
