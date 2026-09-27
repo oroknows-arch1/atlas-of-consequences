@@ -3,8 +3,64 @@
   "status": "BLOCKED",
   "known_required_items": [
     {
-      "worker": "capability_preflight",
-      "reason": "Missing: OPENAI_API_KEY, RENDER_API_KEY"
+      "worker": "production-receipt",
+      "reason": "stale or foreign receipt: input_sha256"
+    },
+    {
+      "worker": "asset-persistence-receipt",
+      "reason": "stale or foreign receipt: input_sha256"
+    },
+    {
+      "worker": "editorial-qa",
+      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/editorial-qa.json'"
+    },
+    {
+      "worker": "deployment-receipt",
+      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/deployment-receipt.json'"
+    },
+    {
+      "worker": "source-qa",
+      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/source-qa.json'"
+    },
+    {
+      "worker": "rendered-qa",
+      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/rendered-qa.json'"
+    },
+    {
+      "worker": "visual-review",
+      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/visual-review.json'"
+    },
+    {
+      "worker": "benchmark-parity",
+      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/benchmark-parity.json'"
+    },
+    {
+      "worker": "asset_persistence",
+      "reason": "required asset coverage mismatch"
+    },
+    {
+      "worker": "reader_builder",
+      "reason": "reader output missing"
+    },
+    {
+      "worker": "deployment-receipt",
+      "reason": "different reader build was checked"
+    },
+    {
+      "worker": "rendered-qa",
+      "reason": "different reader build was checked"
+    },
+    {
+      "worker": "visual-review",
+      "reason": "different reader build was checked"
+    },
+    {
+      "worker": "benchmark-parity",
+      "reason": "different reader build was checked"
+    },
+    {
+      "worker": "rendered_qa",
+      "reason": "rendered evidence missing"
     }
   ],
   "publication_authorized": false
