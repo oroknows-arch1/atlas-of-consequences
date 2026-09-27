@@ -82,6 +82,10 @@ class ProductionRegression(unittest.TestCase):
   text=describe(error)
   self.assertIn('invalid_request',text)
   self.assertNotIn('sk-secret',text)
+ def test_production_workflow_resumes_from_branch_tip(self):
+  workflow=(state.ROOT/'.github/workflows/atlas-edition-production.yml').read_text()
+  self.assertIn('ref: test/automated-edition-1',workflow)
+  self.assertIn('cancel-in-progress: false',workflow)
  def test_partial_asset_persistence_runs_after_failure(self):
   workflow=(state.ROOT/'.github/workflows/atlas-edition-production.yml').read_text()
   partial=workflow.split('name: Persist partial assets and production receipts')[1].split('- name:')[0]

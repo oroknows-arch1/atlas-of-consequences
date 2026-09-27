@@ -37,7 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.sha }}
+          ref: test/automated-edition-1
           persist-credentials: true
       - name: Bind execution to test branch
         run: |
