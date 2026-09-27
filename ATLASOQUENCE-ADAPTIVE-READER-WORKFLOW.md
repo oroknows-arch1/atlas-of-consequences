@@ -114,6 +114,19 @@ The stable entrance hierarchy is:
 
 Do not carry the opening film forward as a scroll-scrub background in the adaptive reader. Geographic context owns the persistent edition-home state.
 
+
+### Perspective transition invariant
+
+A Perspective is a reader-chosen route, not one segment in an endlessly scrolling stack.
+
+The standard transition is:
+
+**Perspective → complete route → conscious next choice → next Perspective**
+
+Only the Perspective the reader explicitly selects should be exposed as the active reading route. Reaching its completion state must not allow ordinary continued scrolling to reveal another Perspective. The completion state returns agency to the reader through the Perspectives menu; another route appears only after a conscious selection.
+
+This is an interaction boundary, not merely end-of-route wording. Implementations may keep routes in one document or runtime for efficiency, but inactive Perspectives must remain outside the active reading flow.
+
 ## 7. Architecture separation during testing
 
 Do not destroy the legacy reader to run this experiment.
