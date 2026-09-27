@@ -82,6 +82,10 @@ class ProductionRegression(unittest.TestCase):
   text=describe(error)
   self.assertIn('invalid_request',text)
   self.assertNotIn('sk-secret',text)
+ def test_css_repair_ignores_non_css_defects_in_mixed_review(self):
+  repair=(state.ROOT/'tools/repair_reader.py').read_text()
+  self.assertIn('[d for d in visual["defects"] if any(word in str(d).lower() for word in allowed)]',repair)
+  self.assertIn('if not faults:',repair)
  def test_visual_review_retries_malformed_provider_output(self):
   review=(state.ROOT/'tools/review_rendered.py').read_text()
   self.assertIn('json.JSONDecodeError',review)

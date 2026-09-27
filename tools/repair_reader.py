@@ -13,9 +13,9 @@ def main(run):
     css=ROOT/"public"/"review"/candidate["candidate_id"].lower()/"reader.css"
     dom=json.loads((run/"rendered-qa.json").read_text())
     visual=json.loads((run/"visual-review.json").read_text())
-    faults=dom["errors"]+visual["defects"]
     allowed=("crop","dark","readab","typograph","overflow","off-centre","off-center","safe area","spacing","alignment","contrast","uniform")
-    if not faults or any(not any(word in str(f).lower() for word in allowed) for f in faults):
+    faults=dom["errors"]+[d for d in visual["defects"] if any(word in str(d).lower() for word in allowed)]
+    if not faults:
         raise RuntimeError("defects require source, asset, editorial or evidence repair, not CSS")
     screenshot=(run/"screenshots"/"phone-edition.png").read_bytes()
     prompt=("Return ONLY a small CSS patch to repair these observed defects in the deployed Atlas reader: "
