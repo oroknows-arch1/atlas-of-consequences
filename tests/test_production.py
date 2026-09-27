@@ -17,6 +17,10 @@ from editorial_factory import validate_copy
 
 class ProductionRegression(unittest.TestCase):
  def setUp(self):
+  # Unit fixtures must never inherit production provider policy or live credentials.
+  environment=patch.dict('os.environ',{'ATLAS_SAFE_VISUAL_REEXPRESSION':'0','OPENAI_API_KEY':'','RENDER_API_KEY':''})
+  environment.start()
+  self.addCleanup(environment.stop)
   self.temp=tempfile.TemporaryDirectory()
   self.root=Path(self.temp.name)
   self.run=self.root/'run'
