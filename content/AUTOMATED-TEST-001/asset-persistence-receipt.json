@@ -1,23 +1,8 @@
 {
   "edition_id": "AET1-WC-002",
-  "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
-  "status": "PASS",
+  "input_sha256": "945da2c9b662255a5af556c71e4f7b92bc09dd1546fb07ec019708785bfee9c4",
+  "status": "BLOCKED",
   "assets": [
-    {
-      "scene_id": "H1-S1",
-      "path": "/assets/aet1-wc-002/h1-s1.png",
-      "sha256": "cf19dd8fcc8ff944fa0cb266f24682304d03aef056b1e026530e636652ebc09b",
-      "bytes": 2345776,
-      "provenance": "generated representative editorial scene from bounded visual job H1-S1",
-      "provider": "gpt-image-1",
-      "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact.",
-      "status": "PASS",
-      "job_sha256": "c5860863183566862eb26291d0c56dea09006faf6c6526a77153e72b5132a972",
-      "visual_qa": {
-        "pass": true,
-        "reason": "The image depicts an identifiable Dhaka urban environment with multiple people engaged in ordinary outdoor activity, consistent with a persistent heat condition. The palette matches the specified warm, sunlit tones, and the scene lacks signs, specific institutional references, or fabricated events. It does not appear to be a collage or of poor quality, and is contextually appropriate for the intended purpose without misleading specificity."
-      }
-    },
     {
       "scene_id": "H1-S2",
       "path": "/assets/aet1-wc-002/h1-s2.svg",
@@ -31,57 +16,8 @@
       "visual_qa": {
         "pass": true,
         "reason": "Verified deterministic value, scope and scene source; rendered review still mandatory"
-      }
-    },
-    {
-      "scene_id": "H2-S1",
-      "path": "/assets/aet1-wc-002/h2-s1.png",
-      "sha256": "7abf038b041e536be3caf522cbe77cbe4e6955bdc006a34b04af5cf6f26aa279",
-      "bytes": 2413050,
-      "provenance": "generated representative editorial scene from bounded visual job H2-S1",
-      "provider": "gpt-image-1",
-      "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant.",
-      "status": "PASS",
-      "job_sha256": "863940ab35f47d66d5a89ea4f1af575524fe874868cb1a2f9cc76ac21eb5a3bf",
-      "visual_qa": {
-        "pass": true,
-        "reason": "The visual depicts generic, contextual physical work strain in a Dhaka street setting consistent with the intended palette, framing, and context. There are no signs of collage, misleading specificity, visible institutional signage, or identification of study participants. The scene is observational and representative without poverty spectacle or staged distress. No text or contradictory elements are present."
-      }
-    },
-    {
-      "scene_id": "H2-S2",
-      "path": "/assets/aet1-wc-002/h2-s2.png",
-      "sha256": "d633ea6140ee49f3639003b8640979e363bdde4335768e30fcba42c36580c910",
-      "bytes": 2560489,
-      "provenance": "generated representative editorial scene from bounded visual job H2-S2",
-      "provider": "gpt-image-1",
-      "truth_boundary": "Do not depict a named factory unless sourced media supports it.",
-      "status": "PASS",
-      "job_sha256": "8132809971243a1b9c631ee641c498641c509e204dd4c40c3eb41fa9faadbcf2",
-      "visual_qa": {
-        "pass": true,
-        "reason": "The image depicts a sunlit interior of what appears to be a generic, unnamed factory or workshop area with open windows and ceiling fans, aligning with the climate and ventilation context for Dhaka, Bangladesh. There are no signs of staged distress, no institutional or facility signage, no named locations or individuals, and no stylized or unnatural elements. The palette, lighting, and architectural details are consistent with the stated visual continuity guidelines. The scene provides appropriate context for heat and ventilation without misleading specificity or quality defects."
       },
-      "routing_provenance": {
-        "receipt": "provider-routing-receipt.json",
-        "scene_id": "H2-S2",
-        "route": "safe_equivalent_primary"
-      }
-    },
-    {
-      "scene_id": "H2-S3",
-      "path": "/assets/aet1-wc-002/h2-s3.png",
-      "sha256": "b50973f4584d3c89c389664d0864912af03ca6a2e7f2714c5e25157aa57e5332",
-      "bytes": 2404202,
-      "provenance": "generated representative editorial scene from bounded visual job H2-S3",
-      "provider": "gpt-image-1",
-      "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case.",
-      "status": "PASS",
-      "job_sha256": "d1e5e389fba006d92367fce13946236f0dbddea90fe15d944de1f402bcdef9e6",
-      "visual_qa": {
-        "pass": true,
-        "reason": "The image shows distinct unnamed people engaged in ordinary activities consistent with informal outdoor work in a Dhaka urban environment. There are no signs of collage, poor quality, or misleading specificity. The palette and lighting match the required sunlit, warm, natural tones. There is no identifying signage, named facility, or visible fabricated incident, and no text or institution names are present. The scene does not claim to depict a real event, but illustrates the contextual dilemma relevant to the prompt."
-      }
+      "routing_provenance": null
     },
     {
       "scene_id": "H3-S2",
@@ -96,57 +32,8 @@
       "visual_qa": {
         "pass": true,
         "reason": "Verified deterministic value, scope and scene source; rendered review still mandatory"
-      }
-    },
-    {
-      "scene_id": "H4-S1",
-      "path": "/assets/aet1-wc-002/h4-s1.png",
-      "sha256": "ad294e6544306cad649e6e921f483f9985490bfc35e8bf1f2d283ef8d12eb239",
-      "bytes": 2214654,
-      "provenance": "generated representative editorial scene from bounded visual job H4-S1",
-      "provider": "gpt-image-1",
-      "truth_boundary": "Contextual home scene only; no invented named household or false documentary specificity.",
-      "status": "PASS",
-      "job_sha256": "dad0e3d5287d79736210b83829729aad5d39f9ca7c2da6dedd648415a64b4a8d",
-      "visual_qa": {
-        "pass": true,
-        "reason": "The image shows an ordinary domestic scene in a modest Dhaka household, illustrating continued heat exposure after a shift. The palette, lighting, and setting are appropriate and contextually accurate for Dhaka/greater Dhaka. There is no documentary claim, no visible signage or text, no staged distress, and no poverty spectacle. The framing is natural and fits the stated visual continuity and purpose."
-      }
-    },
-    {
-      "scene_id": "H5-S1",
-      "path": "/assets/aet1-wc-002/h5-s1.png",
-      "sha256": "4fe9eadaa575d2423a44001b06f444ec3e9b24b33b11c77d814d14937ce2ae07",
-      "bytes": 2251412,
-      "provenance": "generated representative editorial scene from bounded visual job H5-S1",
-      "provider": "gpt-image-1",
-      "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced.",
-      "status": "PASS",
-      "job_sha256": "64ad37e1a410ebcc6d2a95f90e49aa4860e96e275eca1c6b7ebda2c309289cfd",
-      "visual_qa": {
-        "pass": true,
-        "reason": "The image shows a sunlit, empty classroom with open windows, wooden desks, and benches, matching the contextual visual purpose of illustrating heat-related disruption to schooling in Dhaka. There are no visible signs, text, or identifiers, and the setting fits the geographical and architectural context. The palette, lighting, and framing meet the specified continuity criteria, and there is no misleading specificity or staged distress."
       },
-      "routing_provenance": {
-        "receipt": "provider-routing-receipt.json",
-        "scene_id": "H5-S1",
-        "route": "safe_equivalent_primary"
-      }
-    },
-    {
-      "scene_id": "H6-S1",
-      "path": "/assets/aet1-wc-002/h6-s1.png",
-      "sha256": "d463b3b17c88863d9bf0e35f10b2a7a191e459215ca82182fba9d48d1d909665",
-      "bytes": 2331305,
-      "provenance": "generated representative editorial scene from bounded visual job H6-S1",
-      "provider": "gpt-image-1",
-      "truth_boundary": "Distinguish examples/recommendations from installed systems at a named site.",
-      "status": "PASS",
-      "job_sha256": "22ca4cf4692d806b7c3a9f7fef7a35c0332330f6738762a558b44a0baada2264",
-      "visual_qa": {
-        "pass": true,
-        "reason": "The image depicts an ordinary Dhaka alley or courtyard setting with people engaging in daily activities, including visible cooling measures such as a standing fan and shade cloth. There is no indication of collage, unrelated visuals, or misleading specificity. The quality, lighting, colors, and composition match the continuity and palette requirements. No named site, signage, or fabricated incident is present, and the scene succeeds in making heat adaptation tangible as required."
-      }
+      "routing_provenance": null
     },
     {
       "scene_id": "H6-S2",
@@ -161,8 +48,52 @@
       "visual_qa": {
         "pass": true,
         "reason": "Verified deterministic value, scope and scene source; rendered review still mandatory"
-      }
+      },
+      "routing_provenance": null
     }
   ],
-  "defects": []
+  "defects": [
+    {
+      "worker": "visual_factory",
+      "scene_id": "H1-S1",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H2-S1",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H2-S2",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H2-S3",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H4-S1",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H5-S1",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H6-S1",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    }
+  ]
 }

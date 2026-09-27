@@ -1,15 +1,54 @@
 {
   "edition_id": "AET1-WC-002",
-  "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
-  "state": "ASSEMBLED",
-  "assets_persisted": 10,
-  "reader": "public/review/aet1-wc-002/index.html",
-  "defects": [],
-  "next_stage": "rendered_qa",
+  "input_sha256": "945da2c9b662255a5af556c71e4f7b92bc09dd1546fb07ec019708785bfee9c4",
+  "state": "BLOCKED",
+  "assets_persisted": 3,
+  "reader": null,
+  "defects": [
+    {
+      "worker": "visual_factory",
+      "scene_id": "H1-S1",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H2-S1",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H2-S2",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H2-S3",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H4-S1",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H5-S1",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "H6-S1",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    }
+  ],
+  "next_stage": "repair",
   "publication_authorized": false,
-  "reader_hashes": {
-    "public/review/aet1-wc-002/index.html": "099357900aecf2b80ade649f2bd40df56d8a462eb25d20ccb320500aa17f846a",
-    "public/review/aet1-wc-002/reader.css": "bf200dce66bb9fe708c91a1c9b56edb506e59eafcd3c3c45c6cfb533c6d95823",
-    "public/review/aet1-wc-002/reader.js": "46d13944688cfcfa92f026c8dc96b5f12da174862908a1540b129ddd1e7a3f82"
-  }
+  "reader_hashes": {}
 }
