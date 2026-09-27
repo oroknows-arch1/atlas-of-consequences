@@ -79,7 +79,12 @@ def evaluate(run, fetch=urlopen):
                 request_url=deploy['base_url'].rstrip('/')+path
                 try:
                     from urllib.request import Request
-                    with fetch(Request(request_url,headers={'Cache-Control':'no-cache'}),timeout=25) as response:
+                    request=Request(request_url,headers={'Cache-Control':'no-cache'})
+                    try:
+                        response=fetch(request,timeout=25)
+                    except TypeError:
+                        response=fetch(request_url,timeout=25)
+                    with response as response:
                         last_actual=hashlib.sha256(response.read()).hexdigest()
                     if last_actual==expected:
                         matched=True
