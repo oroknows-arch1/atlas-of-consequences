@@ -60,3 +60,19 @@
 .markets-fallback{background:radial-gradient(circle at 70% 25%,rgba(64,89,105,.38),transparent 32%),linear-gradient(145deg,#182126,#07090a 68%)}
 .visual-pending:before{content:'VISUAL ASSET PENDING';position:absolute;z-index:3;top:18px;right:18px;font-size:7px;letter-spacing:.14em;opacity:.65}
 @media(max-width:600px){.menu{padding-left:0;padding-right:0}.menu-head{padding-left:18px;padding-right:18px}.menu .perspective{width:100%;max-width:none;min-height:82svh;margin-bottom:1px;border-left:0;border-right:0}}
+
+/* Approved AOC-001 visual is the Perspective menu itself. */
+.visual-perspective-menu{padding-left:0;padding-right:0;padding-bottom:0}
+.visual-perspective-menu .menu-head{padding-left:18px;padding-right:18px}
+.perspective-menu-image{position:relative;width:100%;max-width:1024px;margin:0 auto;line-height:0;background:#050708}
+.perspective-menu-image>img{display:block;width:100%;height:auto}
+.perspective-hotspot{position:absolute;z-index:4;left:0;right:0;display:block;text-decoration:none;outline-offset:-4px}
+.perspective-hotspot:nth-of-type(1){top:0;height:18.36%}
+.perspective-hotspot:nth-of-type(2){top:18.36%;height:14.39%}
+.perspective-hotspot:nth-of-type(3){top:32.75%;height:14.97%}
+.perspective-hotspot:nth-of-type(4){top:47.72%;height:15.69%}
+.perspective-hotspot:nth-of-type(5){top:63.41%;height:16.02%}
+.perspective-hotspot:nth-of-type(6){top:79.43%;height:20.57%}
+.perspective-hotspot:focus-visible{outline:2px solid #fff}
+.perspective-hotspot.incoming-perspective{box-shadow:inset 0 0 0 2px rgba(255,255,255,.92),inset 0 0 42px rgba(255,255,255,.10)}
+@media(min-width:800px){.visual-perspective-menu{padding-left:8vw;padding-right:8vw}.visual-perspective-menu .menu-head{padding-left:0;padding-right:0}}
