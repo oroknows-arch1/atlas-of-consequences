@@ -159,7 +159,7 @@ class ProductionRegression(unittest.TestCase):
   review=(state.ROOT/'tools/review_rendered.py').read_text()
   self.assertIn('error.code != 429',review)
   self.assertIn("Retry-After",review)
-  self.assertIn('range(1,5)',review)
+  self.assertIn('range(1,4)',review)
  def test_source_fallback_preserves_primary_failure_and_passes_declared_canonical(self):
   class Response:
    status=200
