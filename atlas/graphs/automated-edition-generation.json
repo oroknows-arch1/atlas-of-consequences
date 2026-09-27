@@ -1,12 +1,13 @@
 {
   "schema_version": "1.0",
   "graph_id": "automated-edition-generation",
-  "purpose": "Generate a reviewable edition structure from a verified world change without copying AOC-001 structure.",
+  "purpose": "Generate a publication-ready Atlasoquence edition from a verified world change, benchmarked against AOC-001, before human editorial/release review.",
   "invariants": {
     "provider_availability_or_credit_exhaustion": "may change HOW a visual requirement is fulfilled; must never change evidence, Perspective structure, scene meaning, or factual boundary",
     "video_generation_mandatory": false,
     "edition_selection": "all necessary evidence-derived Perspectives plus a grounded human/emotional consequence must pass before route/scene generation",
-    "story_plausibility": "FACT remains direct-evidence strict; STORY may use comparative knowledge and bounded human plausibility, but invention must remain clearly fictional and cannot become factual evidence."
+    "story_plausibility": "FACT remains direct-evidence strict; STORY may use comparative knowledge and bounded human plausibility, but invention must remain clearly fictional and cannot become factual evidence.",
+    "review_ready_definition": "Human review begins only at PUBLICATION_CANDIDATE: all required editorial content, required visual binaries, persistence receipts, reader integration, source treatment, mobile behavior and benchmark QA must pass. No placeholders, pending required assets, or known publication work may remain."
   },
   "nodes": [
     {
@@ -168,7 +169,8 @@
       "requires": [
         "invariant_validation"
       ],
-      "produces": "contextual_assets"
+      "produces": "generated_asset_set_with_binary_receipts",
+      "rule": "Every visual_requirements item with required=true must resolve to a real generated/sourced/deterministic binary or the edition remains BLOCKED. Visual intent, storyboard, prompt, placeholder, gradient or provider decision is not an asset."
     },
     {
       "id": "asset_evidence_qa",
@@ -177,24 +179,56 @@
         "asset_generation",
         "verified_evidence_graph"
       ],
-      "produces": "asset_qa_receipt"
+      "produces": "verified_asset_set",
+      "rule": "Verify every required asset exists as a binary, has provenance/fiction status, satisfies visual meaning and truth boundary, and is publication-usable."
     },
     {
       "id": "reader_assembly",
       "mode": "DETERMINISTIC",
       "requires": [
         "asset_evidence_qa",
-        "edition_manifest"
+        "edition_manifest",
+        "bounded_story"
       ],
-      "produces": "reviewable_reader"
+      "produces": "publication_candidate_reader",
+      "rule": "Assemble the complete editorial edition with all required assets wired into their intended scenes; placeholder or missing required media blocks completion."
+    },
+    {
+      "id": "asset_persistence_gate",
+      "mode": "DETERMINISTIC",
+      "requires": [
+        "asset_evidence_qa"
+      ],
+      "rule": "PASS only when each required visual has a persistent repository/publication path, content hash and integration target. Ephemeral generation URLs or unpersisted outputs fail.",
+      "produces": "asset_persistence_receipt"
+    },
+    {
+      "id": "reader_integration_gate",
+      "mode": "DETERMINISTIC",
+      "requires": [
+        "reader_assembly",
+        "asset_persistence_gate"
+      ],
+      "rule": "PASS only when every required visual is actually referenced by the publication candidate and no placeholder/pending visual treatment remains.",
+      "produces": "reader_integration_receipt"
+    },
+    {
+      "id": "benchmark_parity_qa",
+      "mode": "BOUNDED_VERIFY",
+      "requires": [
+        "reader_integration_gate"
+      ],
+      "rule": "Compare candidate against AOC-001 benchmark dimensions: editorial depth, contextual imagery, visual continuity, fact/fiction visibility, source inspectability, route/reader behavior, mobile presentation, visual uniformity and publication completeness. Any material missing layer blocks human review.",
+      "produces": "benchmark_parity_receipt"
     },
     {
       "id": "publication_qa",
       "mode": "BOUNDED_VERIFY",
       "requires": [
-        "reader_assembly"
+        "benchmark_parity_qa"
       ],
-      "produces": "release_readiness_report"
+      "produces": "release_readiness_report",
+      "rule": "May emit PUBLICATION_CANDIDATE only when there are zero known required publication items remaining. Otherwise emit BLOCKED and route defects back to the responsible production node."
     },
     {
       "id": "human_publication_gate",
@@ -223,6 +257,10 @@
     "video_unavailable": "continue with still, deterministic, sourced-media or no-motion fulfilment as appropriate",
     "validation_failure": "halt before asset generation or publication",
     "incomplete_edition_candidate": "mark NOT_READY or WATCH, record failed gates, and continue through remaining EMRADAR scan candidates; do not generate scenes/assets to rescue it",
-    "story_plausibility_failure": "revise or remove the fictional event; do not weaken factual boundaries or misrepresent comparative evidence as local occurrence"
+    "story_plausibility_failure": "revise or remove the fictional event; do not weaken factual boundaries or misrepresent comparative evidence as local occurrence",
+    "missing_required_asset": "BLOCKED; return to asset_generation. Never substitute a placeholder and never expose as review-ready.",
+    "unpersisted_required_asset": "BLOCKED; return to asset_persistence_gate until binary path and hash exist.",
+    "benchmark_parity_failure": "BLOCKED; repair the failing production layer and rerun QA. Human review is not the repair loop.",
+    "publication_qa_with_known_items": "invalid state; publication QA cannot PASS with known required review/publication items."
   }
 }
