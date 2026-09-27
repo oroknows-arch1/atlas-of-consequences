@@ -2,15 +2,15 @@
   "edition_id": "AET1-WC-002",
   "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
   "reader_hashes": {
-    "public/review/aet1-wc-002/index.html": "8a8a83765cf47314f3e4a68b47eab3189c536019fd90cfb6692b3889cd55f6ff",
+    "public/review/aet1-wc-002/index.html": "d5ea56a2efe1128d7ed9aebe53a902de3da055feccab8e14ac38abf540498834",
     "public/review/aet1-wc-002/reader.css": "bf200dce66bb9fe708c91a1c9b56edb506e59eafcd3c3c45c6cfb533c6d95823",
     "public/review/aet1-wc-002/reader.js": "46d13944688cfcfa92f026c8dc96b5f12da174862908a1540b129ddd1e7a3f82"
   },
-  "deploy_id": "dep-daso6bg473hc739733a0",
+  "deploy_id": "dep-daso79rncjis73b0qs9g",
   "screenshots": [
     {
       "path": "screenshots/phone-edition.png",
-      "sha256": "f294b4a04db377fbafa043be105a8570243c6077fe1416e93848f7795170914f"
+      "sha256": "61f20e27f529aa3dccffed3a90c824d829a33a1eb4c5391369412ba6d74ebb64"
     },
     {
       "path": "screenshots/phone-perspectives.png",
@@ -18,27 +18,27 @@
     },
     {
       "path": "screenshots/phone-route-H1.png",
-      "sha256": "693740456d84e3c142e3c9d28ae444f7bcbda30ad9012c5cd9251093a83097ea"
+      "sha256": "cbaf349410b7d80161db3cb843c8d660fa33cd8024a0e6d9d98b596a3b738958"
     },
     {
       "path": "screenshots/phone-route-H2.png",
-      "sha256": "405d7591bfd9a9542f21287ace3036642bdac56b05d3e532d05ddd96b3955de6"
+      "sha256": "861ef68432ce081f05698e5aa440c1003bdcab82e8a95f4ae29aff18898e89e1"
     },
     {
       "path": "screenshots/phone-route-H3.png",
-      "sha256": "d23ac38ea2441f1009d02de5bfeb37157074174b8872d56d90433bdaa77aa28f"
+      "sha256": "8f4eff767ed3e8b65b55ab4fa714be83b3b3bf58a1daf7b00989a6a6a7967deb"
     },
     {
       "path": "screenshots/phone-route-H4.png",
-      "sha256": "30e30739f33be2fdbceadc1ba7b6a73bc7b2c559f40059844b31b23d27d6b42c"
+      "sha256": "fad9e1cdc9c53f62213cfac2be1303062aeab3df6c3cd3f25296eaeac947cb3d"
     },
     {
       "path": "screenshots/phone-route-H5.png",
-      "sha256": "1cfb44fa1ff2da9760358a0465b78b24c22ac842bda56c147b58647aea0cab8d"
+      "sha256": "c3242ce8461cce3d28c12bfdaa68de15ccef7bf5ec939b246707a58cc62a7240"
     },
     {
       "path": "screenshots/phone-route-H6.png",
-      "sha256": "07b06399d3de8198208bbf0c74a394da2294f6f06c92cb5493483145d6eff530"
+      "sha256": "b5fd466476433c189f1992139ef252cee9e4a537306bb8a6004dbbe864c8da09"
     },
     {
       "path": "screenshots/phone-story.png",
@@ -46,11 +46,11 @@
     },
     {
       "path": "screenshots/phone-consequences.png",
-      "sha256": "fbaf446bafb2c52d70756c5323979d98f178a955e74cdbcd2966f01ce9791334"
+      "sha256": "7f7f4ffa5731d4deef261119602556b0ed390fe640615956eb0f69631bbf1a95"
     },
     {
       "path": "screenshots/phone-place.png",
-      "sha256": "c07aa015b10053434235a4762e852bc3412e02db1282078a6e6c768481be19a0"
+      "sha256": "d572a4afcf46c91cc1682f74c01af2d7fb71e649f38dd1d88bb2021d0e688fc8"
     },
     {
       "path": "screenshots/phone-sources.png",
@@ -58,7 +58,7 @@
     },
     {
       "path": "screenshots/desktop-edition.png",
-      "sha256": "9bd1d7797c705403089e3df02904c01672e981164d5c6ff3145d02c7f646d5ac"
+      "sha256": "f1ace08366797e2d9681f478c2393b7274de0dbb1413055b0dd0f0efa63bf160"
     },
     {
       "path": "screenshots/desktop-perspectives.png",
@@ -66,27 +66,27 @@
     },
     {
       "path": "screenshots/desktop-route-H1.png",
-      "sha256": "f9d9d3bd3e0c66c96c2de0619ed13c37f4c936ccd4b0b5023c9a9e8be0cb62d4"
+      "sha256": "ca6badfad6d818300cf227c8369c29980e89e35eb516f3c0d92774d5c3ae10a2"
     },
     {
       "path": "screenshots/desktop-route-H2.png",
-      "sha256": "4cc282a98d6a78d4bf4d4247919a039ac9ed9de91523b7021ebb42a189283c52"
+      "sha256": "96aace47aa7834f04a594b27e8c56c5bf77b7b60c0a4885386bc1848c73ed67d"
     },
     {
       "path": "screenshots/desktop-route-H3.png",
-      "sha256": "33463022b4b8f44aa58bcf2930d5f3b1d7cda8846dfa34ce4348b3e8e7253505"
+      "sha256": "9c1c6325d9868b1ce7b2a51308b10a5e3b6a3a0cdc81e23ca30f51eebbb4c0ba"
     },
     {
       "path": "screenshots/desktop-route-H4.png",
-      "sha256": "6f3026d39723d4a9ac843b1bdbfc7f793b86c99ed45ec86f7db895cca00cc2af"
+      "sha256": "aaecaa6db0c7e485a13cfd71a856a068fbd1e9ef01f5c30ed49558790e65a385"
     },
     {
       "path": "screenshots/desktop-route-H5.png",
-      "sha256": "4e9e5c89360f1cc5624cf875676abc4337d2ff2d3c7707118bb9be39f9e5ef96"
+      "sha256": "685e3d2bbcb8efab8de3721e6c595a7058ca1a24ae7291ffae5f65fcadfb4c58"
     },
     {
       "path": "screenshots/desktop-route-H6.png",
-      "sha256": "813c402a37a6984c13cb5c1484c526df67f8140ae9a8a752519d69337c2f4b00"
+      "sha256": "45cef4651d701e859d66dc0090a92ba39f0b23764d75af99a19bd3e049081502"
     },
     {
       "path": "screenshots/desktop-story.png",
@@ -94,11 +94,11 @@
     },
     {
       "path": "screenshots/desktop-consequences.png",
-      "sha256": "b32ddc15a5e6ed4b336e24e8cd58f7218c416f2c67513d92b19bce731403c10f"
+      "sha256": "157e5fa46abfa51394e9fdf1e154cc099504da6eb648b9d5383fc5e8f9f7f5ff"
     },
     {
       "path": "screenshots/desktop-place.png",
-      "sha256": "54e744fda20b091ba6ff8a249aab8f756acca35dfcd5cbfdae42910a076aa6ff"
+      "sha256": "379e9f3525aeed355bb290c2d805ba7c73f3779dc8c13836c3f3d8d55b95877e"
     },
     {
       "path": "screenshots/desktop-sources.png",
@@ -106,33 +106,33 @@
     },
     {
       "path": "screenshots/benchmark-phone.png",
-      "sha256": "13cf4ffd3deee457978c324ac633b09a4d544a7f8d37c8c66e5f94a5e93aef2a"
+      "sha256": "5e044098b6d1ea027d9df0804cdd8a73e0234cf610778728e645963511ff19a0"
     },
     {
       "path": "screenshots/benchmark-route-0.png",
-      "sha256": "ec84c56aa2fef4758d85e5e22ddea644091d38bf814113e1fa7bf69a01e71025"
+      "sha256": "3dc893c5a72435471f020c16d6e36f6e6e922e4cb188397e6048683d8c137ba2"
     },
     {
       "path": "screenshots/benchmark-route-1.png",
-      "sha256": "2eedc13045c61fcaec73d0d1c8d1409ac95c27f851c358052c088e82dcec002e"
+      "sha256": "160eeffceb494c6fbffa07be74ec00d1b5c70b1c87c62b8f06e15fea6d1b3ac8"
     },
     {
       "path": "screenshots/benchmark-route-2.png",
-      "sha256": "0b9b2544b66241f5fefaf8576b6152dc44dd00811148450d91076049303fdc75"
+      "sha256": "3afb1e5e6bbb4778ded6241639e93acdf62291cfc9eb4413db3ebf9ce0f0398d"
     },
     {
       "path": "screenshots/benchmark-route-3.png",
-      "sha256": "b3946ae278dd742ed8eddc1a39511935aba23157a8637508e8c58351ce5e2d6c"
+      "sha256": "fd200470486467b6693ffa9379f38a608368d26012bb93cd504fa2ef64394659"
     },
     {
       "path": "screenshots/benchmark-route-4.png",
-      "sha256": "b2629fdadc20848961b7344d253fef2d98280ec4d04eda8f2b7840c395ee6f76"
+      "sha256": "769cbbb6226d2e7b9194b301b9ee494ac5fc22d0df0eaf09780012cefaba30c9"
     },
     {
       "path": "screenshots/benchmark-route-5.png",
-      "sha256": "68949d770e0a48e3692aa73c075384db1b78f6c28d00c39ea418fd8a640d2e27"
+      "sha256": "d3fd1cabb7be39982c2de4b9f8a933bf1ad208a332b95ed74e367f62303654e9"
     }
   ],
   "status": "PASS",
-  "reason": "All tested scenes visually and structurally align with AOC-001 benchmarks for safe areas, readable midtones, contextual visual continuity, typography, overflow handling, geographic specificity, and clear division of FACT/STORY/PLACE. The main BLOCKED cause is editorial and visual weakness, not failure to reach benchmark parity in structure or treatment. | All screenshots display appropriate navigation, structured content, readable midtones, uniform typography, consistent visual context, and no image crop or overflow issues. FACT/STORY labeling, sources, editorial depth, and geographic specificity are evident. No generic content or thin editorial seen, and all relevant publication work appears complete. All screenshots meet or exceed AOC-001 benchmark for both phone and desktop contexts. | All images meet or exceed the visual, editorial, structural, typographic, and sourcing standards observed in benchmark AOC-001. Content is visually uniform, crops and safe areas are respected, all FACT/STORY labels and source links are clearly visible, midtones and typography are readable without darkness or overflow, AI/contextual image boundaries are disclosed, geographic specificity is clear, and there is adequate editorial depth throughout. No thin content or continuity issues observed."
+  "reason": "All inspected aspects of the AOC-001 (benchmark) images are high quality, legible, and thematically comprehensive. Visuals and copy demonstrate clear continuity, editorial completeness, specificity, and vibrant, context-appropriate imagery. No defects observed relative to the photo, context, typographic or content standard. | All images meet quality and publication criteria: clear and readable content, appropriate crop and safe areas, uniform visual treatment, consistent structure, and explicit labeling of fact, story, and sources. Media context/captions are appropriate, with no misleading claims. Editorial depth, typographic treatment, and geographic specificity are robust. No structural, visual, or asset issues observed. No evidence of thin content or generics; all scenes deliver clear editorial substance. | Every screenshot in the batch was inspected for structural navigation, crop and centering, safe text and visual areas, readable midtones, consistent/dark enough backgrounds, clear typography (no overflow or truncation), visual continuity across routes, geographic and editorial specificity, explicit source citation and fact/story/uncertainty labeling. Each scene provides adequate editorial depth, geographic context, and is neither generic nor thin in content, meeting or exceeding the quality and informativeness of the AOC-001 benchmark. All visuals have appropriate caveats where necessary. No missing or improperly rendered images or sources are observed. No publication work is required at this stage."
 }
