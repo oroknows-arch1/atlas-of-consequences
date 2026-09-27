@@ -242,7 +242,9 @@ class ProductionRegression(unittest.TestCase):
   for name,value in data.items():state.write(self.run/(name+'.json'),value)
  def evaluate(self):
   from urllib.parse import urlparse
-  def local(url,timeout):return (self.root/'public'/urlparse(url).path.lstrip('/')).open('rb')
+  def local(url,timeout):
+   if hasattr(url,'full_url'): url=url.full_url
+   return (self.root/'public'/urlparse(url).path.lstrip('/')).open('rb')
   with patch.object(state,'ROOT',self.root),patch.object(gate,'ROOT',self.root):return gate.evaluate(self.run,fetch=local)
  def test_complete_synthetic_receipts_then_tampered_asset(self):
   self.fixture()
