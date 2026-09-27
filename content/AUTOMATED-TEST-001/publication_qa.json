@@ -1,0 +1,65 @@
+{
+  "stage": "publication_qa",
+  "status": "PASS",
+  "produced_by": "Atlas deterministic review QA / 2026-09-27",
+  "output": {
+    "edition_id": "AET1-WC-002",
+    "release_state": "REVIEW_READY_NOT_PUBLISHED",
+    "checks": [
+      {
+        "name": "edition selected by gate",
+        "result": "PASS"
+      },
+      {
+        "name": "all necessary perspectives represented",
+        "result": "PASS"
+      },
+      {
+        "name": "human emotional hook evidenced",
+        "result": "PASS"
+      },
+      {
+        "name": "factual uncertainty preserved",
+        "result": "PASS"
+      },
+      {
+        "name": "fiction visibly labelled",
+        "result": "PASS"
+      },
+      {
+        "name": "story plausibility gate",
+        "result": "PASS"
+      },
+      {
+        "name": "reader chooses perspective",
+        "result": "PASS"
+      },
+      {
+        "name": "routes end before next choice",
+        "result": "PASS"
+      },
+      {
+        "name": "mobile responsive baseline",
+        "result": "PASS"
+      },
+      {
+        "name": "video optional",
+        "result": "PASS"
+      },
+      {
+        "name": "AOC-001 untouched",
+        "result": "PASS"
+      },
+      {
+        "name": "human publication authority",
+        "result": "PASS"
+      }
+    ],
+    "known_review_items": [
+      "Deterministic review visuals validate layout and meaning; final contextual still-image set can be generated/replaced after editorial review without changing evidence or routes.",
+      "Review should test whether STORY feels sufficiently local to Dhaka before publication.",
+      "Source-link presentation should be expanded in final publication build."
+    ],
+    "publication_authorized": false
+  }
+}
