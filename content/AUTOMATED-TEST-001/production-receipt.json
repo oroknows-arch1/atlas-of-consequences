@@ -7,7 +7,7 @@
   "defects": [
     {
       "worker": "production_orchestrator",
-      "reason": "publication section missing readable copy"
+      "reason": "'str' object has no attribute 'get'"
     }
   ],
   "next_stage": "repair",
