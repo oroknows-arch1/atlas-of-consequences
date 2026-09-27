@@ -1,7 +1,23 @@
 {
   "edition_id": "AET1-WC-002",
+  "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
   "status": "BLOCKED",
   "assets": [
+    {
+      "scene_id": "H1-S1",
+      "path": "/assets/aet1-wc-002/h1-s1.png",
+      "sha256": "89408a5990a2707d9bb6d79e5f53adefb0633bc6aa87ce310f76584487401b3b",
+      "bytes": 2416007,
+      "provenance": "generated representative editorial scene from bounded visual job H1-S1",
+      "provider": "gpt-image-1",
+      "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact.",
+      "status": "PASS",
+      "job_sha256": "c5860863183566862eb26291d0c56dea09006faf6c6526a77153e72b5132a972",
+      "visual_qa": {
+        "pass": true,
+        "reason": "The image depicts an ordinary urban street scene in Dhaka with natural sunlight, conveying persistent heat conditions. The palette and framing fit the continuity guidance. There is no collage, poverty spectacle, misleading specificity, named facility, or identifiable signage. No staged distress, extreme event, or baked-in text is present. The visual accurately communicates the urban heat context as intended."
+      }
+    },
     {
       "scene_id": "H1-S2",
       "path": "/assets/aet1-wc-002/h1-s2.svg",
@@ -10,7 +26,57 @@
       "provenance": "scene meaning and evidence refs",
       "provider": "ATLAS_DETERMINISTIC_GRAPHIC",
       "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data.",
-      "status": "PASS"
+      "status": "PASS",
+      "job_sha256": "c4725514a258e4ae578a25ff2fe5af8bf7de5e27d0c74ee0caf185eefc709d11",
+      "visual_qa": {
+        "pass": true,
+        "reason": "Verified deterministic value, scope and scene source; rendered review still mandatory"
+      }
+    },
+    {
+      "scene_id": "H2-S1",
+      "path": "/assets/aet1-wc-002/h2-s1.png",
+      "sha256": "709b5bf0e3e3124b53aeda77554b97b067b5f6895f96fba813d3854f3942123a",
+      "bytes": 2319596,
+      "provenance": "generated representative editorial scene from bounded visual job H2-S1",
+      "provider": "gpt-image-1",
+      "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant.",
+      "status": "PASS",
+      "job_sha256": "863940ab35f47d66d5a89ea4f1af575524fe874868cb1a2f9cc76ac21eb5a3bf",
+      "visual_qa": {
+        "pass": true,
+        "reason": "The image shows an unnamed worker pausing to drink water on a sunlit street in Dhaka, consistent with the intended palette and observational, humanizing approach. The urban context aligns with Dhaka’s built environment, with no signs of staged distress, attribution to a specific institution, or identifiable facility signage. The image does not fabricate a specific heat incident, nor does it present poverty as spectacle. There is no text, collage, or misleading specificity, and the technical quality is appropriate."
+      }
+    },
+    {
+      "scene_id": "H2-S2",
+      "path": "/assets/aet1-wc-002/h2-s2.png",
+      "sha256": "cdd586fe04dbe63636e43d06db6ade96b669f8f36acfb0bde6a62abd176f73b8",
+      "bytes": 2172866,
+      "provenance": "generated representative editorial scene from bounded visual job H2-S2",
+      "provider": "gpt-image-1",
+      "truth_boundary": "Do not depict a named factory unless sourced media supports it.",
+      "status": "PASS",
+      "job_sha256": "8132809971243a1b9c631ee641c498641c509e204dd4c40c3eb41fa9faadbcf2",
+      "visual_qa": {
+        "pass": true,
+        "reason": "The image shows an indoor factory scene with ordinary activity, visible indoor heat context (fan, open door), and no identifiable signage or attribution to a named facility. The palette and lighting fit the continuity requirements, and it does not present a spectacle or misleading specifics. No text or staged distress is seen, and the scene is observational and representative."
+      }
+    },
+    {
+      "scene_id": "H2-S3",
+      "path": "/assets/aet1-wc-002/h2-s3.png",
+      "sha256": "ac2b84d7627a98a37d56016256edefab20baae824340b49e0f21b4ebec5ab81f",
+      "bytes": 2292635,
+      "provenance": "generated representative editorial scene from bounded visual job H2-S3",
+      "provider": "gpt-image-1",
+      "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case.",
+      "status": "PASS",
+      "job_sha256": "d1e5e389fba006d92367fce13946236f0dbddea90fe15d944de1f402bcdef9e6",
+      "visual_qa": {
+        "pass": true,
+        "reason": "The image depicts an ordinary Dhaka street scene with informal outdoor workers engaged in typical labor. Lighting and palette fit the described continuity (sunlit, warm neutral tones, readable midtones), and the framing is observational at street level. There is no collage effect, signs, or text suggesting a documented site, and the scene shows contextual activity with no staged distress or misattribution to named facilities or individuals. The visual truth boundary is respected."
+      }
     },
     {
       "scene_id": "H3-S2",
@@ -20,7 +86,42 @@
       "provenance": "scene meaning and evidence refs",
       "provider": "ATLAS_DETERMINISTIC_GRAPHIC",
       "truth_boundary": "Clearly label estimates and source period.",
-      "status": "PASS"
+      "status": "PASS",
+      "job_sha256": "d484f9ecf228e7f9ef2eca2da49f54564504d323fe2d271018bbce9fc24ddd12",
+      "visual_qa": {
+        "pass": true,
+        "reason": "Verified deterministic value, scope and scene source; rendered review still mandatory"
+      }
+    },
+    {
+      "scene_id": "H4-S1",
+      "path": "/assets/aet1-wc-002/h4-s1.png",
+      "sha256": "4d8f5fc52e48ca1c5a4dc01ea0c0d706888feecc3b410147f889d7681eb017e0",
+      "bytes": 2166599,
+      "provenance": "generated representative editorial scene from bounded visual job H4-S1",
+      "provider": "gpt-image-1",
+      "truth_boundary": "Contextual home scene only; no invented named household or false documentary specificity.",
+      "status": "PASS",
+      "job_sha256": "dad0e3d5287d79736210b83829729aad5d39f9ca7c2da6dedd648415a64b4a8d",
+      "visual_qa": {
+        "pass": true,
+        "reason": "The image shows a plausible domestic setting in Dhaka with natural materials, sunlit warm tones, and everyday activity. It accurately represents continued heat exposure in a typical home recovery space, contains no specific identifying details, staged distress, or text, and matches the continuity and context requirements."
+      }
+    },
+    {
+      "scene_id": "H6-S1",
+      "path": "/assets/aet1-wc-002/h6-s1.png",
+      "sha256": "4d03557e3ff73af07812f1b5325b1e61f879ee889e81529bccd5b6a5898e5718",
+      "bytes": 2401524,
+      "provenance": "generated representative editorial scene from bounded visual job H6-S1",
+      "provider": "gpt-image-1",
+      "truth_boundary": "Distinguish examples/recommendations from installed systems at a named site.",
+      "status": "PASS",
+      "job_sha256": "22ca4cf4692d806b7c3a9f7fef7a35c0332330f6738762a558b44a0baada2264",
+      "visual_qa": {
+        "pass": true,
+        "reason": "The image depicts tangible heat adaptation practices such as shade cloth, hydration, airflow (fan), and adjustments to work practices in an ordinary Dhaka street setting, aligning well with the requirements. The photo is clear, well-framed, and avoids signage, named locations, or staged distress. It does not contradict the contextual or continuity guidelines, and does not mislead about representing a specific documented site or incident."
+      }
     },
     {
       "scene_id": "H6-S2",
@@ -30,44 +131,19 @@
       "provenance": "scene meaning and evidence refs",
       "provider": "ATLAS_DETERMINISTIC_GRAPHIC",
       "truth_boundary": "Use sourced numbers in deterministic graphic; no guarantee framing.",
-      "status": "PASS"
+      "status": "PASS",
+      "job_sha256": "1c29bcbbd5332cea7114d50d3148dc5749ecab094b0baa9e3a430594c36efc01",
+      "visual_qa": {
+        "pass": true,
+        "reason": "Verified deterministic value, scope and scene source; rendered review still mandatory"
+      }
     }
   ],
   "defects": [
     {
       "worker": "visual_factory",
-      "scene_id": "H1-S1",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H2-S1",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H2-S2",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H2-S3",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H4-S1",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
       "scene_id": "H5-S1",
-      "reason": "image generator and independent visual verifier commands are required"
-    },
-    {
-      "worker": "visual_factory",
-      "scene_id": "H6-S1",
-      "reason": "image generator and independent visual verifier commands are required"
+      "reason": "HTTP Error 400: Bad Request"
     }
   ]
 }

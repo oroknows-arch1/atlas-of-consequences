@@ -8,10 +8,6 @@
     },
     {
       "worker": "asset-persistence-receipt",
-      "reason": "stale or foreign receipt: input_sha256"
-    },
-    {
-      "worker": "editorial-qa",
       "reason": "gate did not PASS"
     },
     {

@@ -1,10 +1,9 @@
 {
   "edition_id": "AET1-WC-002",
   "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
-  "status": "BLOCKED",
-  "defects": [
-    "publication section must be a structured object"
-  ],
-  "attempt": 3,
+  "status": "PASS",
+  "defects": [],
+  "copy_sha256": "8d5b99f129ab03420be9a56e1d2056e1078dabcde92e2d63d11c77a66865de96",
+  "attempt": 1,
   "verifier": "gpt-4.1"
 }
