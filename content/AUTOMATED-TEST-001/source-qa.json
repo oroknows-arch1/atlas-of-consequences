@@ -35,11 +35,47 @@
       "source_id": "CORNELL-HEAT-2026",
       "url": "https://www.ilr.cornell.edu/global-labor-institute/report-summary/six-seasons-four-summers-how-solve-fashions-high-heat-problem",
       "status": "PASS",
-      "resolved_url": "https://www.ilr.cornell.edu/global-labor-institute/report-summary/six-seasons-four-summers-how-solve-fashions-high-heat-problem",
-      "fallback_used": false,
+      "resolved_url": "https://news.cornell.edu/stories/2026/09/cooling-investments-apparel-factories-can-pay-themselves",
+      "fallback_used": true,
       "attempts": [
         {
           "url": "https://www.ilr.cornell.edu/global-labor-institute/report-summary/six-seasons-four-summers-how-solve-fashions-high-heat-problem",
+          "attempt": 1,
+          "status": "BLOCKED",
+          "reason": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.ilr.cornell.edu/global-labor-institute/report-summary/six-seasons-four-summers-how-solve-fashions-high-heat-problem",
+          "attempt": 2,
+          "status": "BLOCKED",
+          "reason": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.ilr.cornell.edu/global-labor-institute/report-summary/six-seasons-four-summers-how-solve-fashions-high-heat-problem",
+          "attempt": 3,
+          "status": "BLOCKED",
+          "reason": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.ilr.cornell.edu/sites/default/files-d8/2026-09/gli-six-seasons-four-summers-report-sep-2026-final.pdf",
+          "attempt": 1,
+          "status": "BLOCKED",
+          "reason": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.ilr.cornell.edu/sites/default/files-d8/2026-09/gli-six-seasons-four-summers-report-sep-2026-final.pdf",
+          "attempt": 2,
+          "status": "BLOCKED",
+          "reason": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.ilr.cornell.edu/sites/default/files-d8/2026-09/gli-six-seasons-four-summers-report-sep-2026-final.pdf",
+          "attempt": 3,
+          "status": "BLOCKED",
+          "reason": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://news.cornell.edu/stories/2026/09/cooling-investments-apparel-factories-can-pay-themselves",
           "attempt": 1,
           "status": "PASS"
         }

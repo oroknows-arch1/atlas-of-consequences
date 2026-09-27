@@ -3,28 +3,8 @@
   "status": "BLOCKED",
   "known_required_items": [
     {
-      "worker": "visual-review",
-      "reason": "gate did not PASS"
-    },
-    {
-      "worker": "deployment-receipt",
-      "reason": "different reader build was checked"
-    },
-    {
-      "worker": "rendered-qa",
-      "reason": "different reader build was checked"
-    },
-    {
-      "worker": "visual-review",
-      "reason": "different reader build was checked"
-    },
-    {
-      "worker": "benchmark-parity",
-      "reason": "different reader build was checked"
-    },
-    {
-      "worker": "rendered_qa",
-      "reason": "visual verdict references different screenshots"
+      "worker": "production_orchestrator",
+      "reason": "Production in progress; previous review verdict invalidated"
     }
   ],
   "publication_authorized": false
