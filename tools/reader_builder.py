@@ -16,6 +16,11 @@ def prose(block):
 
 def build_reader(run, edition, candidate, routes, story, assets, copy):
     sources = read(run/'source-register.json')
+    override_path = run/'source-access-overrides.json'
+    if override_path.exists():
+        overrides = read(override_path)
+        for source in sources:
+            source.update(overrides.get(source['id'], {}))
     by_scene = {a['scene_id']: a for a in assets}
     def media(asset, meaning):
         label = 'Explanatory graphic' if asset['provider'] == 'ATLAS_DETERMINISTIC_GRAPHIC' else 'AI-generated contextual illustration · not a documentary photograph'

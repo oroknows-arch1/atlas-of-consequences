@@ -29,8 +29,17 @@ def resolve_source(source, opener=urlopen):
     result["reason"] = attempts[-1]["reason"] if attempts else "no source URL declared"
     return result
 
+def sources(run):
+    items = read(run / "source-register.json")
+    override_path = run / "source-access-overrides.json"
+    if override_path.exists():
+        overrides = read(override_path)
+        for item in items:
+            item.update(overrides.get(item["id"], {}))
+    return items
+
 def main(run):
-    checks = [resolve_source(source) for source in read(run / "source-register.json")]
+    checks = [resolve_source(source) for source in sources(run)]
     receipt = {**binding(run), "status": "PASS" if all(c["status"] == "PASS" for c in checks) else "BLOCKED", "sources": checks}
     write(run / "source-qa.json", receipt)
     print(json.dumps(receipt, indent=2))
