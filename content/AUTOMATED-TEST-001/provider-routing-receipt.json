@@ -123,16 +123,17 @@
           "imported_from": "asset-persistence-receipt.json"
         }
       ],
+      "policy_version": "safe-visual-v2",
       "alternative": {
         "decision": "SAFE_ALTERNATIVE",
-        "composition": "A sunlit exterior view of a generic Dhaka school building constructed with concrete, corrugated roofing, and open, shaded walkways. The surroundings show a planted courtyard with robust greenery and some classroom windows open, capturing the effect of ambient heat and local humidity. No people or recognizable signage are visible. The image focuses on the built environment’s interaction with the hot, humid weather—harsh sunlight casts defined shadows, and faint atmospheric haze signals monsoon-season heaviness. There is no suggestion of closure or an incident, just a contextual setting illustrating how high temperatures could influence spaces where children typically study.",
-        "reason": "This composition shows only the physical and environmental conditions relevant to the editorial meaning—how heat can affect schooling infrastructure in Dhaka—without depicting any people, distress, or specific events. It does not invent a closure, avoids institution-specific identification, and thus remains within the required truth boundary and avoids prohibited content."
+        "composition": "A sunlit, empty classroom in Dhaka with rows of closed exercise books and empty desks. The room’s large windows are partly open to hint at attempts to cool the space, with a ceiling fan turned off above. The sunlight creates visible heat haze on the tiled floor. Outside the window, Dhaka's humid urban environment is softly visible, with diffuse leafy greenery and distant apartment buildings blurred by the strong daylight. There are no people or school names anywhere in view. The scene conveys heat and learning disruption by absence and ambient cues only.",
+        "reason": "This composition truthfully represents the effects of heat on schooling—using an ordinary environment and objects but avoiding children, distress or any implication of a specific factual closure. This meets the editorial purpose while staying firmly within evidence and geography boundaries, and avoids all restricted elements."
       },
       "equivalence_qa": {
         "safe": true,
         "meaning_preserved": true,
         "boundary_preserved": true,
-        "reason": "The proposed visual is an ordinary, generic depiction of a Dhaka school environment, focusing on the physical impact of heat and humidity without people or specific incident depiction. It neither stages nor implies a specific event, does not fabricate closure, avoids all prohibited identifiers, and thus preserves the editorial meaning and truth boundary. The context of how heat affects school life is retained, matching the factual, contextual purpose without suggesting any unsourced or fictionalized narrative."
+        "reason": "The proposed visual features an ordinary, unnamed classroom in Dhaka with heat cues but no people, signage, or specific closures depicted. It maintains the editorial meaning—heat's impact on schooling—using only environment and object clues, avoiding distress, prohibited content, or fabrication. The geography, truth boundary, and purpose are respected, and the depiction avoids any misleading claims or restricted elements."
       }
     }
   }

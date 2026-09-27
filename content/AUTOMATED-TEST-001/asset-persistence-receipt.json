@@ -1,7 +1,7 @@
 {
   "edition_id": "AET1-WC-002",
   "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
-  "status": "BLOCKED",
+  "status": "PASS",
   "assets": [
     {
       "scene_id": "H1-S1",
@@ -114,6 +114,26 @@
       }
     },
     {
+      "scene_id": "H5-S1",
+      "path": "/assets/aet1-wc-002/h5-s1.png",
+      "sha256": "4fe9eadaa575d2423a44001b06f444ec3e9b24b33b11c77d814d14937ce2ae07",
+      "bytes": 2251412,
+      "provenance": "generated representative editorial scene from bounded visual job H5-S1",
+      "provider": "gpt-image-1",
+      "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced.",
+      "status": "PASS",
+      "job_sha256": "64ad37e1a410ebcc6d2a95f90e49aa4860e96e275eca1c6b7ebda2c309289cfd",
+      "visual_qa": {
+        "pass": true,
+        "reason": "The image shows a sunlit, empty classroom with open windows, wooden desks, and benches, matching the contextual visual purpose of illustrating heat-related disruption to schooling in Dhaka. There are no visible signs, text, or identifiers, and the setting fits the geographical and architectural context. The palette, lighting, and framing meet the specified continuity criteria, and there is no misleading specificity or staged distress."
+      },
+      "routing_provenance": {
+        "receipt": "provider-routing-receipt.json",
+        "scene_id": "H5-S1",
+        "route": "safe_equivalent_primary"
+      }
+    },
+    {
       "scene_id": "H6-S1",
       "path": "/assets/aet1-wc-002/h6-s1.png",
       "sha256": "d463b3b17c88863d9bf0e35f10b2a7a191e459215ca82182fba9d48d1d909665",
@@ -144,12 +164,5 @@
       }
     }
   ],
-  "defects": [
-    {
-      "worker": "visual_factory",
-      "scene_id": "H5-S1",
-      "reason": "visual/evidence QA: The image shows a generic school courtyard/building in warm tones under apparent heat, but there are no children or visible indication of health or schooling disruption. The scene is empty, so it fails to convey the consequence of heat on children in terms of health risk or school disruption as required by the prompt. The visual does not directly illustrate the contextual impact or continuity purpose.",
-      "external_action_required": false
-    }
-  ]
+  "defects": []
 }

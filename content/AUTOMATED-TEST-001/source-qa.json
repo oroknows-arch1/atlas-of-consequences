@@ -1,0 +1,37 @@
+{
+  "edition_id": "AET1-WC-002",
+  "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
+  "status": "BLOCKED",
+  "sources": [
+    {
+      "source_id": "WB-HEAT-2025",
+      "url": "https://www.worldbank.org/en/news/press-release/2025/09/16/bangladesh-faces-health-and-economic-risks-from-rising-temperature-world-bank",
+      "status": "PASS",
+      "resolved_url": "https://www.worldbank.org/en/news/press-release/2025/09/16/bangladesh-faces-health-and-economic-risks-from-rising-temperature-world-bank"
+    },
+    {
+      "source_id": "IIED-HEAT-2026",
+      "url": "https://www.iied.org/22755iied",
+      "status": "PASS",
+      "resolved_url": "https://www.iied.org/22755iied"
+    },
+    {
+      "source_id": "CORNELL-HEAT-2026",
+      "url": "https://www.ilr.cornell.edu/global-labor-institute/report-summary/six-seasons-four-summers-how-solve-fashions-high-heat-problem",
+      "status": "BLOCKED",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source_id": "RMG-WORKER-2025",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12188113/",
+      "status": "PASS",
+      "resolved_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12188113/"
+    },
+    {
+      "source_id": "UNICEF-EDU-2025",
+      "url": "https://www.unicef.org/bangladesh/en/press-releases/33-million-children-bangladesh-had-schooling-disrupted-climate-crises-2024unicef",
+      "status": "PASS",
+      "resolved_url": "https://www.unicef.org/bangladesh/en/press-releases/33-million-children-bangladesh-had-schooling-disrupted-climate-crises-2024unicef"
+    }
+  ]
+}
