@@ -6,7 +6,7 @@
     "public/review/aet1-wc-002/reader.css": "bf200dce66bb9fe708c91a1c9b56edb506e59eafcd3c3c45c6cfb533c6d95823",
     "public/review/aet1-wc-002/reader.js": "46d13944688cfcfa92f026c8dc96b5f12da174862908a1540b129ddd1e7a3f82"
   },
-  "deploy_id": "dep-dasor059fdbs73edcls0",
+  "deploy_id": "dep-dasotoo473hc739a6qgg",
   "screenshots": [
     {
       "path": "screenshots/phone-edition.png",
@@ -110,27 +110,27 @@
     },
     {
       "path": "screenshots/benchmark-route-0.png",
-      "sha256": "253b27d19df3598aad1104e52dd487c4aae0dca012d9e9db98612cca7167a573"
+      "sha256": "ec84c56aa2fef4758d85e5e22ddea644091d38bf814113e1fa7bf69a01e71025"
     },
     {
       "path": "screenshots/benchmark-route-1.png",
-      "sha256": "594776bd85916b71b7404406a45a2277725b4dcfe309f700aad022a606b5a61b"
+      "sha256": "9dd50585a58bd19343d9d5e260367fac4d9892f7bee1e607612db44e293e22c3"
     },
     {
       "path": "screenshots/benchmark-route-2.png",
-      "sha256": "9cfc66c1bdc95d97eafc1c11c814f1cf4efb2ea432b6c2cd4a17a770bd3886d4"
+      "sha256": "23fe879ee8b59900780bbd041df7e8d0750076e8a2abae5142b696ded2916785"
     },
     {
       "path": "screenshots/benchmark-route-3.png",
-      "sha256": "c2a42f7fc0e11029cfc40fb50ecb82833dda9135680e7238f2d6cde02dc2ea78"
+      "sha256": "c888486335c3ccb545ad9af9a511ae2da259e936a41bfeb139d950439e9eb340"
     },
     {
       "path": "screenshots/benchmark-route-4.png",
-      "sha256": "46cb907de40f30428aabe889689e35e4f9a9c5128e6b2b891d1acd5fdeb2ec9d"
+      "sha256": "e41440dc5ddf60c9e2efa2319ec34e3918f88a8fbda4886d8c7fc668b4158e6a"
     },
     {
       "path": "screenshots/benchmark-route-5.png",
-      "sha256": "9c366e18ff0a462f1a34319a064a297bc48e73800de25864e71c5c7268b46788"
+      "sha256": "69d6b75b9252a8973c247c4d73467860d6495fd1d00e39ad3c906d1095a7a9a2"
     }
   ],
   "status": "PASS",
