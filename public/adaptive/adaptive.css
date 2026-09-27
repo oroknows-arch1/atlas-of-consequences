@@ -48,3 +48,15 @@
 .perspectives-system img{display:block;width:100%;height:auto}
 .perspectives-system figcaption{position:absolute;left:12px;bottom:12px;padding:7px 9px;background:rgba(5,7,8,.72);backdrop-filter:blur(10px);font-size:7px;letter-spacing:.18em;text-transform:uppercase}
 @media(max-width:600px){.perspectives-system{margin-left:-18px;margin-right:-18px;border-left:0;border-right:0}.perspectives-system img{width:180%;max-width:none;transform:translateX(-22%)}.perspectives-system figcaption{left:18px}}
+
+/* Perspective menu is the visual system: vertical, scrollable, interactive. */
+.perspectives-system{display:none!important}
+.menu .perspective{min-height:min(78svh,760px);margin:0 auto 14px;border-radius:0}
+.menu .perspective>img{opacity:.72;filter:brightness(.72) saturate(.92)}
+.menu .perspective:after{background:linear-gradient(180deg,rgba(5,7,8,.06) 0%,rgba(5,7,8,.18) 42%,rgba(5,7,8,.90) 88%,#050708 100%)}
+.menu .perspective h2{font-size:clamp(38px,10vw,62px);max-width:12ch}
+.menu .perspective p{font-size:17px;max-width:34ch}
+.perspective-fallback{position:absolute!important;z-index:0!important;inset:0!important;left:0!important;right:0!important;bottom:0!important;background:radial-gradient(circle at 65% 30%,rgba(115,91,68,.35),transparent 35%),linear-gradient(145deg,#25211d,#090b0c 65%)}
+.markets-fallback{background:radial-gradient(circle at 70% 25%,rgba(64,89,105,.38),transparent 32%),linear-gradient(145deg,#182126,#07090a 68%)}
+.visual-pending:before{content:'VISUAL ASSET PENDING';position:absolute;z-index:3;top:18px;right:18px;font-size:7px;letter-spacing:.14em;opacity:.65}
+@media(max-width:600px){.menu{padding-left:0;padding-right:0}.menu-head{padding-left:18px;padding-right:18px}.menu .perspective{width:100%;max-width:none;min-height:82svh;margin-bottom:1px;border-left:0;border-right:0}}
