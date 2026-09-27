@@ -1,39 +1,244 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "title":"Atlasoquence Generated Edition Manifest",
-  "type":"object",
-  "required":["schema_version","edition_id","world_change","evidence_graph","geography","perspectives","reader","visual_fulfilment","publication"],
-  "properties":{
-    "schema_version":{"const":"1.0"},
-    "edition_id":{"type":"string"},
-    "world_change":{"type":"object","required":["statement","evidence_refs"]},
-    "evidence_graph":{"type":"string"},
-    "geography":{"type":"array","items":{"type":"object","required":["label","resolution","evidence_refs"],"properties":{"label":{"type":"string"},"resolution":{"type":"string"},"evidence_refs":{"type":"array","items":{"type":"string"}}}}},
-    "perspectives":{"type":"array","minItems":1,"items":{"type":"object","required":["id","name","status","rationale","evidence_nodes","route"],"properties":{
-      "id":{"type":"string"},"name":{"type":"string"},"status":{"enum":["ACCEPTED","REJECTED"]},"rationale":{"type":"string"},
-      "evidence_nodes":{"type":"array","items":{"type":"string"}},
-      "route":{"type":"array","items":{"type":"object","required":["scene_id","meaning","state","evidence_refs","visual"],"properties":{
-        "scene_id":{"type":"string"},"meaning":{"type":"string"},
-        "state":{"enum":["KNOWN","UNCERTAIN","CONTESTED","UNKNOWN","UNAVAILABLE","FICTION_EDITORIAL"]},
-        "evidence_refs":{"type":"array","items":{"type":"string"}},
-        "causal_boundary":{"type":"string"},
-        "knowledge_stop":{"type":"boolean"},
-        "visual":{"type":"object","required":["required","purpose","truth_boundary","provider_decision"],"properties":{
-          "required":{"type":"boolean"},"purpose":{"type":"string"},"truth_boundary":{"type":"string"},
-          "provider_decision":{"enum":["CHATGPT_IMAGES","RUNWAY","SPECIALIST","DETERMINISTIC","SOURCED_MEDIA","NONE","PENDING"]},
-          "asset_path":{"type":["string","null"]}
-        }}
-      }}}
-    }}},
-    "reader":{"type":"object","required":["reader_selects_perspective","routes_do_not_auto_chain","universal_baseline"],"properties":{
-      "reader_selects_perspective":{"const":true},"routes_do_not_auto_chain":{"const":true},"universal_baseline":{"const":true}
-    }},
-    "visual_fulfilment":{"type":"object","required":["provider_availability_cannot_change_editorial_structure","video_generation_mandatory"],"properties":{
-      "provider_availability_cannot_change_editorial_structure":{"const":true},
-      "video_generation_mandatory":{"const":false}
-    }},
-    "publication":{"type":"object","required":["state","human_approval_required"],"properties":{
-      "state":{"enum":["DRAFT","REVIEW_READY","BLOCKED","APPROVED"]},"human_approval_required":{"const":true}
-    }}
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Atlasoquence Generated Edition Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "edition_id",
+    "world_change",
+    "evidence_graph",
+    "geography",
+    "perspectives",
+    "reader",
+    "visual_fulfilment",
+    "publication"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "edition_id": {
+      "type": "string"
+    },
+    "world_change": {
+      "type": "object",
+      "required": [
+        "statement",
+        "evidence_refs"
+      ]
+    },
+    "evidence_graph": {
+      "type": "string"
+    },
+    "geography": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "label",
+          "resolution",
+          "evidence_refs"
+        ],
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "resolution": {
+            "type": "string"
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "perspectives": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "status",
+          "rationale",
+          "evidence_nodes",
+          "route"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "ACCEPTED",
+              "REJECTED"
+            ]
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "evidence_nodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "route": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "scene_id",
+                "meaning",
+                "state",
+                "evidence_refs",
+                "visual"
+              ],
+              "properties": {
+                "scene_id": {
+                  "type": "string"
+                },
+                "meaning": {
+                  "type": "string"
+                },
+                "state": {
+                  "enum": [
+                    "KNOWN",
+                    "UNCERTAIN",
+                    "CONTESTED",
+                    "UNKNOWN",
+                    "UNAVAILABLE",
+                    "FICTION_EDITORIAL"
+                  ]
+                },
+                "evidence_refs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "causal_boundary": {
+                  "type": "string"
+                },
+                "knowledge_stop": {
+                  "type": "boolean"
+                },
+                "visual": {
+                  "type": "object",
+                  "required": [
+                    "required",
+                    "purpose",
+                    "truth_boundary",
+                    "provider_decision"
+                  ],
+                  "properties": {
+                    "required": {
+                      "type": "boolean"
+                    },
+                    "purpose": {
+                      "type": "string"
+                    },
+                    "truth_boundary": {
+                      "type": "string"
+                    },
+                    "provider_decision": {
+                      "enum": [
+                        "CHATGPT_IMAGES",
+                        "RUNWAY",
+                        "SPECIALIST",
+                        "DETERMINISTIC",
+                        "SOURCED_MEDIA",
+                        "NONE",
+                        "PENDING"
+                      ]
+                    },
+                    "asset_path": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "reader": {
+      "type": "object",
+      "required": [
+        "reader_selects_perspective",
+        "routes_do_not_auto_chain",
+        "universal_baseline"
+      ],
+      "properties": {
+        "reader_selects_perspective": {
+          "const": true
+        },
+        "routes_do_not_auto_chain": {
+          "const": true
+        },
+        "universal_baseline": {
+          "const": true
+        }
+      }
+    },
+    "visual_fulfilment": {
+      "type": "object",
+      "required": [
+        "provider_availability_cannot_change_editorial_structure",
+        "video_generation_mandatory",
+        "all_required_assets_persisted",
+        "all_required_assets_integrated",
+        "placeholders_remaining"
+      ],
+      "properties": {
+        "provider_availability_cannot_change_editorial_structure": {
+          "const": true
+        },
+        "video_generation_mandatory": {
+          "const": false
+        },
+        "all_required_assets_persisted": {
+          "type": "boolean"
+        },
+        "all_required_assets_integrated": {
+          "type": "boolean"
+        },
+        "placeholders_remaining": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "required": [
+        "state",
+        "human_approval_required"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "DRAFT",
+            "BLOCKED",
+            "PUBLICATION_CANDIDATE",
+            "APPROVED"
+          ]
+        },
+        "human_approval_required": {
+          "const": true
+        }
+      }
+    }
   }
 }
