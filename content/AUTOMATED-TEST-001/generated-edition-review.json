@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "edition_id": "AET1-WC-002",
+  "title": "When the Heat Comes Inside",
+  "status": "REVIEW_READY",
+  "publication_authorized": false,
+  "world_change": "Persistent heat in Bangladesh is becoming a labour, health, household, education and economic constraint.",
+  "geography": [
+    "Bangladesh",
+    "Dhaka / greater Dhaka"
+  ],
+  "perspectives": [
+    "The Heat",
+    "The Shift",
+    "The Pay Packet",
+    "The Home",
+    "The Next Generation",
+    "The Fix"
+  ],
+  "story": {
+    "title": "The Room After Work",
+    "state": "FICTION",
+    "plausibility_gate": "PASS",
+    "fact_fiction_boundary_visible": true
+  },
+  "reader": {
+    "path": "public/review/heat/index.html",
+    "reader_selects_perspective": true,
+    "routes_do_not_auto_chain": true,
+    "universal_baseline": true
+  },
+  "visual_fulfilment": {
+    "mode": "DETERMINISTIC_REVIEW_BUILD",
+    "provider_availability_cannot_change_editorial_structure": true,
+    "video_generation_mandatory": false,
+    "note": "Review build uses deterministic visual treatment; generated contextual still persistence is not required to validate edition structure."
+  },
+  "gates": {
+    "edition_selection": "PASS",
+    "causal_boundary": "PASS_WITH_QUALIFICATIONS",
+    "story_plausibility": "PASS",
+    "human_emotional_hook": "PASS",
+    "publication": "HUMAN_APPROVAL_REQUIRED"
+  }
+}
