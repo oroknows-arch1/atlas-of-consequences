@@ -23,30 +23,16 @@ def affected_scene_ids(defects, available):
 
 def repair(run_dir, defects):
     owners={d.get('worker') for d in defects}
-    success=True
-    # Coverage gaps belong to visual planning and may not invalidate a sound asset.
-    if any(d.get('code')=='VISUAL_COVERAGE_GAP' for d in defects):
+    # A rendered complaint about missing context is not evidence that a verified
+    # binary or approved paragraph is corrupt. Keep both receipts and route the
+    # finding to visual planning / reader source for a bounded repair.
+    if owners & {'visual_factory','asset_persistence','editorial_factory','reader_builder'}:
         return False
-    if os.environ.get('ATLAS_READER_ONLY')=='1' and owners & {'visual_factory','asset_persistence','editorial_factory'}:
-        return False
-    if owners & {'visual_factory','asset_persistence','editorial_factory'}:
-        if 'editorial_factory' in owners:
-            (run_dir/'editorial-qa.json').unlink(missing_ok=True)
-        if 'visual_factory' in owners:
-            path=run_dir/'asset-persistence-receipt.json'
-            receipt=read(path)
-            available=[a['scene_id'] for a in receipt.get('assets',[])]
-            ids={d['scene_id'] for d in defects if d.get('worker')=='visual_factory'
-                 and d.get('scene_id') in available}
-            if not ids:return False  # Ambiguous route defects need inspection, not broad regeneration.
-            receipt['assets']=[a for a in receipt['assets'] if a['scene_id'] not in ids]
-            write(path,receipt)
-        success = not command(sys.executable,'tools/produce_edition.py',str(run_dir))
     if 'reader_treatment' in owners:
-        success = (not command(sys.executable,'tools/repair_reader.py',str(run_dir))) and success
+        return not command(sys.executable,'tools/repair_reader.py',str(run_dir))
     if owners <= {'source_registrar'}:
-        success = not command(sys.executable,'tools/source_qa.py',str(run_dir))
-    return success
+        return not command(sys.executable,'tools/source_qa.py',str(run_dir))
+    return False
 
 def main(directory):
     run_dir=Path(directory)

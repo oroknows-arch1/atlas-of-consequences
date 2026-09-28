@@ -8,3 +8,23 @@
 .opening-frame:nth-child(2):last-child{animation-name:atlas-opening-last}@keyframes atlas-opening-last{0%,28%{opacity:0;transform:scale(1.13) translate3d(2%,0,0)}45%,100%{opacity:1;transform:scale(1.02) translate3d(-2%,-2%,0)}}
 h1[tabindex="-1"],h2[tabindex="-1"]{outline:none}.diagram-choice>img{object-fit:contain;width:48%;left:auto;right:0;filter:none;opacity:1}.diagram-choice:after{background:linear-gradient(90deg,#050708 48%,transparent 70%)}.diagram-choice .perspective-copy{width:60%}.diagram-choice p{font-size:14px}.diagram-choice .arrow{bottom:12px}
 @media(max-width:350px){.scene h2{font-size:32px}.scene-copy p{font-size:17px;line-height:1.42}.scene-copy{padding-bottom:max(44px,env(safe-area-inset-bottom))}.refs{margin-top:10px}}
+
+/* AOC-001's vertical image-led discovery, derived for any route count. */
+.menu{padding-top:max(18px,env(safe-area-inset-top))}
+.menu-head{max-width:680px;margin:0 auto;padding:0 22px 22px}
+.perspective-list{width:100%;max-width:none}
+.perspective{min-height:78svh;margin:0;border:0;border-bottom:1px solid #ffffff26}
+.perspective>img{object-position:center;filter:brightness(1.03) saturate(.96)}
+.perspective:after{background:linear-gradient(180deg,transparent 12%,rgba(5,7,8,.12) 36%,rgba(5,7,8,.86) 100%)}
+.perspective-copy{position:absolute;bottom:0;left:0;width:100%;max-width:850px;padding:36px max(22px,9vw) 70px}
+.perspective h2{font:400 clamp(42px,8vw,72px)/.96 Georgia,serif;text-transform:none;letter-spacing:-.025em;max-width:12ch}
+.perspective p{font:17px/1.42 Georgia,serif;max-width:34ch}
+.perspective .arrow{bottom:34px;right:28px}
+.diagram-choice>img{width:100%;left:0;right:auto;object-fit:cover;opacity:.9}
+.diagram-choice:after{background:linear-gradient(180deg,transparent 12%,rgba(5,7,8,.08) 35%,#050708 100%)}
+.diagram-choice .perspective-copy{width:100%}
+/* Keep midtones legible while concentrating shadow behind the copy. */
+.scene>img{filter:brightness(1.08) contrast(1.02) saturate(.98)}
+.scene:after{background:linear-gradient(180deg,transparent 10%,rgba(5,7,8,.08) 42%,rgba(5,7,8,.35) 68%,rgba(5,7,8,.82) 100%)}
+.scene-copy{padding-top:80px}
+@media(max-width:600px){.perspective{min-height:82svh}.perspective-copy{padding:30px 22px 82px}.perspective h2{font-size:clamp(38px,11vw,58px)}.perspective .arrow{bottom:28px}.scene-copy{padding-top:90px}}

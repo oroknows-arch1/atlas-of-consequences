@@ -147,6 +147,7 @@ def produce_assets(run, edition, routes, requirements, output):
         if old.get('edition_id')==edition:
             previous={a["scene_id"]:a for a in old.get("assets",[]) if not a.get('beat_id')}
             previous_beats=[a for a in old.get('assets',[]) if a.get('beat_id')
+                            and a['scene_id'] in scenes
                             and public_path(a['path']).is_file()
                             and digest(public_path(a['path']))==a.get('sha256')
                             and a.get('visual_qa',{}).get('pass') is True]
@@ -215,20 +216,20 @@ def fill_coverage(run, edition, routes, requirements, assets, copy, output):
     generator=os.environ.get('ATLAS_IMAGE_COMMAND');verifier=os.environ.get('ATLAS_VISUAL_QA_COMMAND')
     if not generator or not verifier:
         return assets,[{'worker':'visual_factory','reason':'Missing authorized image generator and independent verifier','external_action_required':True}]
-    spec_by_id={s['scene_id']:s for s in requirements}
     context=read(run/'visual-context.json')
     defects=[]
     for gap in coverage['gaps']:
-        sid=gap['scene'];spec=spec_by_id[sid];beat=gap['beat_id']
+        sid=gap['scene'];beat=gap['beat_id']
         intent=gap['intent']
+        visual_type=intent['visual_type']
         job={'edition_id':edition,'scene_id':beat,'parent_scene_id':sid,
              'meaning':intent['scene_meaning'],'beat_text':intent['beat_text'],
              'evidence_refs':intent['evidence_refs'],'truth_boundary':intent['truth_boundary'],
-             'visual_type':spec['visual_type'],'purpose':intent['purpose'],
+             'visual_type':visual_type,'purpose':intent['purpose'],
              'geography':output['geographic_core'],'continuity':context['visual_bible'],
              'locality_evidence':context['locality_evidence'],
              'style':'grounded editorial, distinct composition for this beat, no invented incident or text baked into image'}
-        deterministic='deterministic' in spec['visual_type'].lower()
+        deterministic='deterministic' in visual_type.lower()
         dest=ROOT/'public/assets'/edition.lower()/(beat.lower()+('.svg' if deterministic else '.png'))
         feedback=''
         try:
@@ -257,7 +258,7 @@ def fill_coverage(run, edition, routes, requirements, assets, copy, output):
                            'sha256':digest(dest),'bytes':dest.stat().st_size,
                            'beat_text_sha256':hashlib.sha256(intent['beat_text'].encode()).hexdigest(),
                            'provenance':result.get('provenance'),'provider':result.get('provider'),
-                           'truth_boundary':spec['truth_boundary'],'status':'PASS',
+                           'truth_boundary':intent['truth_boundary'],'status':'PASS',
                            'job_sha256':hashlib.sha256(json.dumps(job,sort_keys=True).encode()).hexdigest(),
                            'visual_qa':check,'routing_provenance':result.get('routing_provenance')})
         except Exception as error:

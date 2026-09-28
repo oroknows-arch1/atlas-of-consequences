@@ -97,7 +97,7 @@ class ProductionRegression(unittest.TestCase):
  def test_repair_router_maps_route_defects_and_runs_mixed_workers(self):
   loop=(state.ROOT/'tools/review_loop.py').read_text()
   self.assertIn('affected_scene_ids',loop)
-  self.assertIn("owners & {'visual_factory','asset_persistence','editorial_factory'}",loop)
+  self.assertIn("owners & {'visual_factory','asset_persistence','editorial_factory','reader_builder'}",loop)
   self.assertIn("if 'reader_treatment' in owners",loop)
   import review_loop
   self.assertEqual(review_loop.affected_scene_ids([{'scene_id':'phone-route-H4–H6'}],['H1-S1','H4-S1','H6-S2']),{'H4-S1','H6-S2'})
@@ -249,6 +249,17 @@ class ProductionRegression(unittest.TestCase):
   reader.write_text(' '.join(a['path'] for a in assets))
   hashes={'public/review/test/index.html':state.digest(reader)}
   state.write(self.run/'editorial-copy.json',editorial)
+  from visual_coverage import plan as visual_plan
+  routes=state.read(self.run/'causal_boundary_gate.json')['output']['routes']
+  specs=state.read(self.run/'visual_requirements.json')['output']['requirements']
+  for gap in visual_plan(self.run,routes,specs,assets,editorial)['gaps']:
+   beat=gap['beat_id'];p=self.root/'public/assets'/f'{beat}.png';p.write_bytes(b'synthetic missing-beat visual')
+   assets.append({'scene_id':gap['scene'],'beat_id':beat,'path':'/assets/'+p.name,
+                  'beat_text_sha256':__import__('hashlib').sha256(gap['intent']['beat_text'].encode()).hexdigest(),
+                  'sha256':state.digest(p),'bytes':p.stat().st_size,'provenance':'synthetic test',
+                  'provider':'fixture','visual_qa':{'pass':True}})
+  reader.write_text(' '.join(a['path'] for a in assets))
+  hashes={'public/review/test/index.html':state.digest(reader)}
   shot=self.run/'screenshots/phone.png';shot.parent.mkdir();shot.write_bytes(b'synthetic screenshot')
   shots=[{'path':'screenshots/phone.png','sha256':state.digest(shot)}]
   common={**self.bind,'status':'PASS','reader_hashes':hashes,'deploy_id':'synthetic-deploy'}
@@ -300,9 +311,14 @@ class ProductionRegression(unittest.TestCase):
   block={'heading':'Synthetic publication heading','paragraphs':[{'text':'Synthetic prose','state':'FACT','evidence_refs':['WB-HEAT-2025']}]}
   copy={'opening':block,'place':block,'consequences':block,'scenes':{'S1':block,'S2':block}}
   assets=[{'scene_id':'S1','provider':'fixture','path':'/assets/test.png','sha256':'synthetic-1','truth_boundary':'Synthetic contextual visual'}, {'scene_id':'S2','provider':'fixture','path':'/assets/test-2.png','sha256':'synthetic-2','truth_boundary':'Another contextual visual'}]
+  for key,sid in (('opening','reality-scene'),('place','place-scene'),('consequences','consequences-scene')):
+   assets.append({'scene_id':sid,'beat_id':sid+'-B1','provider':'fixture',
+                  'path':'/assets/'+sid+'.png','sha256':'synthetic-'+sid,
+                  'beat_text_sha256':__import__('hashlib').sha256(block['paragraphs'][0]['text'].encode()).hexdigest(),
+                  'truth_boundary':'Synthetic contextual visual'})
   state.write(self.run/'visual_requirements.json',{'output':{'requirements':[
-   {'scene_id':'S1','required':True,'purpose':'Synthetic scene','truth_boundary':'No claim'},
-   {'scene_id':'S2','required':True,'purpose':'Synthetic other scene','truth_boundary':'No claim'}]}})
+   {'scene_id':'S1','required':True,'purpose':'Synthetic scene','truth_boundary':'No claim','visual_type':'editorial contextual still'},
+   {'scene_id':'S2','required':True,'purpose':'Synthetic other scene','truth_boundary':'No claim','visual_type':'editorial contextual still'}]}})
   target=self.root/'public/review';target.mkdir(parents=True)
   for name in ('reader-production.css','reader-production.js'):shutil.copyfile(state.ROOT/'public/review'/name,target/name)
   with patch.object(builder,'ROOT',self.root), patch('market_finance.validate',return_value={'status':'PASS'}):

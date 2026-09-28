@@ -80,21 +80,17 @@ class FactoryCoverage(unittest.TestCase):
         receipt=visual_plan(self.run,self.routes,self.requirements,self.assets,self.copy)
         self.assertEqual(receipt['status'],'BLOCKED')
         self.assertEqual(receipt['planned_beats']['H1-S1-B1']['asset_path'],'/assets/aet1-wc-002/h1-s1.png')
-        self.assertTrue(any(g['beat_id']=='H1-S1-B2' for g in receipt['gaps']))
+        self.assertTrue(any(g['beat_id']=='H3-S1-B1' for g in receipt['gaps']))
         self.assertEqual(receipt['required_count'],sum(len(beats_for(self.copy['scenes'][s['scene_id']]))
-                     for r in self.routes for s in r['scenes'] if next(v for v in self.requirements if v['scene_id']==s['scene_id'])['required']))
+                     for r in self.routes for s in r['scenes'])+
+                     sum(len(beats_for(self.copy[key])) for key in ('opening','place','consequences')))
 
     def test_distinct_coverage_passes_and_consecutive_repetition_fails(self):
         assets=copy.deepcopy(self.assets)
-        for r in self.routes:
-            for s in r['scenes']:
-                spec=next(v for v in self.requirements if v['scene_id']==s['scene_id'])
-                if not spec['required']:continue
-                for i,(_,beat_text) in enumerate(beats_for(self.copy['scenes'][s['scene_id']]),1):
-                    if i==1:continue
-                    assets.append({'scene_id':s['scene_id'],'beat_id':f'{s["scene_id"]}-B{i}',
-                                   'path':f'/assets/test/{s["scene_id"]}-B{i}.png','sha256':f'beat-{i}',
-                                   'beat_text_sha256':__import__('hashlib').sha256(beat_text.encode()).hexdigest()})
+        for gap in visual_plan(self.run,self.routes,self.requirements,assets,self.copy)['gaps']:
+            beat=gap['beat_id'];assets.append({'scene_id':gap['scene'],'beat_id':beat,
+                   'path':f'/assets/test/{beat}.png','sha256':beat,
+                   'beat_text_sha256':__import__('hashlib').sha256(gap['intent']['beat_text'].encode()).hexdigest()})
         self.assertEqual(visual_plan(self.run,self.routes,self.requirements,assets,self.copy)['status'],'PASS')
         repeat=next(a for a in assets if a.get('beat_id')=='H1-S1-B2')
         repeat['path']=next(a for a in assets if a['scene_id']=='H1-S1' and not a.get('beat_id'))['path']
@@ -135,7 +131,7 @@ class FactoryCoverage(unittest.TestCase):
             assets,defects=produce_assets(self.run,'AET1-WC-002',self.routes,self.requirements,
                                           read(self.run/'selected-edition-candidate.json'))
         self.assertEqual(defects,[])
-        self.assertEqual(len(assets),10)
+        self.assertEqual(len(assets),len(self.assets))
         self.assertEqual({a['sha256'] for a in assets},{a['sha256'] for a in self.assets})
 
     def test_provider_routing_rebinds_only_identical_jobs_after_route_selection(self):
