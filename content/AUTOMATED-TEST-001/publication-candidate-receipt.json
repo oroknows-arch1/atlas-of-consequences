@@ -3,8 +3,28 @@
   "status": "BLOCKED",
   "known_required_items": [
     {
-      "worker": "reader_builder",
-      "reason": "Reader grammar changed; fresh deployment and parity required"
+      "worker": "visual-review",
+      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/visual-review.json'"
+    },
+    {
+      "worker": "benchmark-parity",
+      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/benchmark-parity.json'"
+    },
+    {
+      "worker": "visual-review",
+      "reason": "different reader build was checked"
+    },
+    {
+      "worker": "benchmark-parity",
+      "reason": "different reader build was checked"
+    },
+    {
+      "worker": "reader_contract",
+      "reason": "reader grammar parity missing or obsolete"
+    },
+    {
+      "worker": "rendered_qa",
+      "reason": "visual verdict references different screenshots"
     }
   ],
   "publication_authorized": false
