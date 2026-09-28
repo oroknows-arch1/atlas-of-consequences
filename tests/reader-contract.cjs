@@ -1,5 +1,5 @@
 // Browser regression: the exact previously approved article reader must fail.
-const assert=require('assert/strict'),fs=require('fs'),http=require('http'),path=require('path'),os=require('os'),{spawnSync}=require('child_process');
+const assert=require('assert/strict'),fs=require('fs'),http=require('http'),path=require('path');
 const {chromium}=require('playwright'),{inspect,inspectOpening,checkComposition}=require('../tools/reader_contract.cjs');
 const root=path.resolve(__dirname,'..');
 (async()=>{
@@ -19,14 +19,13 @@ const root=path.resolve(__dirname,'..');
   await p.goto(base+'/review/aet1-wc-002/');await p.waitForTimeout(8400);assert.equal(await p.locator('.hero').getAttribute('data-opening-state'),'completed','timed opening must naturally reveal identity');
   const reduced=await b.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});await reduced.goto(base+'/review/aet1-wc-002/');assert.equal(await reduced.locator('.hero').getAttribute('data-opening-state'),'reduced-motion');assert((await inspectOpening(reduced)).copyOpacity>.9);await reduced.close();
   await p.goto(base+'/review/aet1-wc-002/');await p.addStyleTag({content:'.opening-frame{animation:none!important}'});assert.equal((await inspectOpening(p)).running,false,'static opening mutation must be rejected');
-  const temp=fs.mkdtempSync(path.join(os.tmpdir(),'atlas-film-test-')),film=path.join(temp,'sample.mp4');
-  const encode=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-f','lavfi','-i','color=c=black:s=64x64:r=12','-t','5','-c:v','libx264','-pix_fmt','yuv420p',film]);assert.equal(encode.status,0,encode.stderr?.toString());
+  const film=path.join(root,'public/assets/aoc001-report-video-candidate-v0.4.mp4');assert(fs.statSync(film).size>100000,'read-only canonical film fixture required');
   const filmPage=await b.newPage({viewport:{width:390,height:844}});
   const source=fs.readFileSync(path.join(root,'public/review/aet1-wc-002/index.html'),'utf8');
   const filmHtml=source.replace('data-opening-mode="verified_image_sequence"','data-opening-mode="approved_film"').replace(/<div class="opening-sequence".*?<\/div>/,'<video class="hero-video" autoplay muted playsinline preload="auto"><source src="/test-film.mp4" type="video/mp4"></video>');
   await filmPage.route('**/review/aet1-wc-002/',r=>r.fulfill({status:200,contentType:'text/html',body:filmHtml}));
   await filmPage.route('**/test-film.mp4',r=>r.fulfill({status:200,contentType:'video/mp4',body:fs.readFileSync(film)}));
-  await filmPage.goto(base+'/review/aet1-wc-002/');await filmPage.waitForFunction(()=>document.querySelector('video').readyState>=2);const before=await inspectOpening(filmPage);assert.equal(before.mode,'approved_film');assert(before.muted&&before.inline&&before.duration>=4&&before.copyOpacity<.1);await filmPage.waitForTimeout(600);assert((await inspectOpening(filmPage)).time>before.time,'approved film must advance');await filmPage.locator('.skip-film').click();await filmPage.waitForTimeout(1000);assert.equal(await filmPage.locator('.hero').getAttribute('data-opening-state'),'skipped');await filmPage.close();fs.rmSync(temp,{recursive:true,force:true});
+  await filmPage.goto(base+'/review/aet1-wc-002/');await filmPage.waitForFunction(()=>document.querySelector('video').readyState>=2);const before=await inspectOpening(filmPage);assert.equal(before.mode,'approved_film');assert(before.muted&&before.inline&&before.duration>=4&&before.copyOpacity<.1);await filmPage.waitForTimeout(600);assert((await inspectOpening(filmPage)).time>before.time,'approved film must advance');await filmPage.locator('.skip-film').click();await filmPage.waitForTimeout(1000);assert.equal(await filmPage.locator('.hero').getAttribute('data-opening-state'),'skipped');await filmPage.close();
   for(const [name,css,expected] of [
    ['article',' .scene{min-height:0;display:block;width:70vw}.scene>img{position:static;height:200px}', 'pacing'],
    ['image loss','.scene>img{width:20%}', 'dominance'],
