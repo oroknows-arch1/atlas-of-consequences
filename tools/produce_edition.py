@@ -17,11 +17,13 @@ import shutil
 import subprocess
 import sys
 from PIL import Image, ImageStat
-from production_state import binding, block, digest, reader_hashes, require_current
+from production_state import binding, block, digest, reader_hashes, require_current, public_path
 from editorial_factory import produce as produce_copy
 from reader_builder import build_reader
 from provider_errors import requires_external_action
 from provider_routing import request_asset
+from market_finance import validate as validate_markets
+from visual_coverage import plan as visual_plan
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_GATES = ("selected-edition-gate", "story_plausibility_gate")
@@ -127,12 +129,16 @@ def produce_assets(run, edition, routes, requirements, output):
         return [],[{"worker":"visual_factory","reason":"visual context is not evidenced for this edition"}]
     assets=[]; defects=[]
     old_path=run/"asset-persistence-receipt.json"
-    previous={}
+    previous={};previous_beats=[]
     if old_path.exists():
         old=read(old_path)
         try:
             require_current(run,old)
-            previous={a["scene_id"]:a for a in old.get("assets",[])}
+            previous={a["scene_id"]:a for a in old.get("assets",[]) if not a.get('beat_id')}
+            previous_beats=[a for a in old.get('assets',[]) if a.get('beat_id')
+                            and public_path(a['path']).is_file()
+                            and digest(public_path(a['path']))==a.get('sha256')
+                            and a.get('visual_qa',{}).get('pass') is True]
         except ValueError: pass
     for spec in requirements:
         if not spec["required"]: continue
@@ -185,8 +191,68 @@ def produce_assets(run, edition, routes, requirements, output):
                            "job_sha256":job_hash,"visual_qa":check,"routing_provenance":result.get("routing_provenance")})
         except Exception as exc:
             defects.append({"worker":"visual_factory" if contextual else "asset_persistence", "scene_id":sid,"reason":str(exc),"external_action_required":requires_external_action(exc)})
+    assets.extend(previous_beats)
     write(run/"asset-persistence-receipt.json",{**binding(run),"status":"PASS" if not defects else "BLOCKED","assets":assets,"defects":defects})
     return assets,defects
+
+
+def fill_coverage(run, edition, routes, requirements, assets, copy, output):
+    """Retain verified assets and request only missing contextual beat coverage."""
+    coverage=visual_plan(run,routes,requirements,assets,copy)
+    if not coverage['gaps']: return assets, []
+    if os.environ.get('ATLAS_ALLOW_COVERAGE_GENERATION')!='1':
+        return assets,[{'worker':'visual_factory',**gap,'reason':gap['reason']+'; generation authorization/capability required'} for gap in coverage['gaps']]
+    generator=os.environ.get('ATLAS_IMAGE_COMMAND');verifier=os.environ.get('ATLAS_VISUAL_QA_COMMAND')
+    if not generator or not verifier:
+        return assets,[{'worker':'visual_factory','reason':'Missing authorized image generator and independent verifier','external_action_required':True}]
+    spec_by_id={s['scene_id']:s for s in requirements}
+    context=read(run/'visual-context.json')
+    defects=[]
+    for gap in coverage['gaps']:
+        sid=gap['scene'];spec=spec_by_id[sid];beat=gap['beat_id']
+        if 'deterministic' in spec['visual_type'].lower() or spec['visual_type'].upper()=='NONE':
+            defects.append({'worker':'visual_factory',**gap,'reason':'A distinct sourced graphic/data treatment must be planned upstream for this beat'})
+            continue
+        intent=gap['intent']
+        job={'edition_id':edition,'scene_id':beat,'parent_scene_id':sid,
+             'meaning':intent['scene_meaning'],'beat_text':intent['beat_text'],
+             'evidence_refs':intent['evidence_refs'],'truth_boundary':intent['truth_boundary'],
+             'visual_type':spec['visual_type'],'purpose':intent['purpose'],
+             'geography':output['geographic_core'],'continuity':context['visual_bible'],
+             'locality_evidence':context['locality_evidence'],
+             'style':'grounded editorial, distinct composition for this beat, no invented incident or text baked into image'}
+        dest=ROOT/'public/assets'/edition.lower()/(beat.lower()+'.png')
+        feedback=''
+        try:
+            for attempt in range(1,4):
+                try:
+                    result=request_asset(run,dict(job,attempt=attempt,repair_feedback=feedback),generator,invoke)
+                    source=Path(result['path'])
+                    with Image.open(source) as image:
+                        if image.format!='PNG':raise RuntimeError('image provider must return PNG')
+                    validate_binary(source,True)
+                    check=invoke(verifier,dict(job,asset_path=str(source),provider=result.get('provider')))
+                    if check.get('pass') is not True:raise RuntimeError('visual/evidence QA: '+check.get('reason','failed'))
+                    shutil.copyfile(source,dest)
+                    break
+                except Exception as error:
+                    feedback=str(error)
+                    if requires_external_action(error) or attempt==3:raise
+            assets=[a for a in assets if a.get('beat_id')!=beat]
+            assets.append({'scene_id':sid,'beat_id':beat,'path':'/assets/'+edition.lower()+'/'+dest.name,
+                           'sha256':digest(dest),'bytes':dest.stat().st_size,
+                           'beat_text_sha256':hashlib.sha256(intent['beat_text'].encode()).hexdigest(),
+                           'provenance':result.get('provenance'),'provider':result.get('provider'),
+                           'truth_boundary':spec['truth_boundary'],'status':'PASS',
+                           'job_sha256':hashlib.sha256(json.dumps(job,sort_keys=True).encode()).hexdigest(),
+                           'visual_qa':check,'routing_provenance':result.get('routing_provenance')})
+        except Exception as error:
+            defects.append({'worker':'visual_factory',**gap,'reason':str(error),
+                            'external_action_required':requires_external_action(error)})
+    write(run/'asset-persistence-receipt.json',{**binding(run),'status':'PASS' if not defects else 'BLOCKED',
+                                                'assets':assets,'defects':defects})
+    coverage=visual_plan(run,routes,requirements,assets,copy)
+    return assets,defects+[{'worker':'visual_factory',**g} for g in coverage['gaps'] if g['beat_id'] not in {d.get('beat_id') for d in defects}]
 
 
 def main():
@@ -200,8 +266,10 @@ def main():
     defects=[]; assets=[]; reader=None
     try:
         routes,requirements,story=facts(run,edition)
+        validate_markets(run,routes)
         copy=produce_copy(run,routes)
         assets,defects=produce_assets(run,edition,routes,requirements,candidate)
+        if not defects: assets,defects=fill_coverage(run,edition,routes,requirements,assets,copy,candidate)
         if not defects: reader=build_reader(run,edition,candidate,routes,story,assets,copy)
     except Exception as exc: defects.append({"worker":"production_orchestrator","reason":str(exc)})
     receipt={**binding(run),"state":"ASSEMBLED" if reader and not defects else "BLOCKED", "assets_persisted":len(assets),

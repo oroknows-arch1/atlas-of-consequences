@@ -25,13 +25,23 @@ def label(asset):
     return ('Explanatory graphic' if asset['provider']=='ATLAS_DETERMINISTIC_GRAPHIC' else 'AI-generated contextual illustration · not a documentary photograph')+'. '+asset['truth_boundary']
 
 def build_reader(run,edition,candidate,routes,story,assets,copy):
-    sources=read(run/'source-register.json');by_scene={a['scene_id']:a for a in assets}
+    from market_finance import validate as validate_markets
+    from visual_coverage import plan as visual_plan
+    validate_markets(run,routes)
+    coverage=visual_plan(run,routes,read(run/'visual_requirements.json')['output']['requirements'],assets,copy)
+    if coverage['gaps']:
+        raise ValueError('VISUAL_COVERAGE_GAP: '+str(len(coverage['gaps']))+' rendered beats require distinct, verified imagery; inspect visual-coverage.json')
+    sources=read(run/'source-register.json');by_scene={a['scene_id']:a for a in assets if not a.get('beat_id')}
+    by_path={a['path']:a for a in assets}
     hero_asset=next((a for a in assets if a['provider']!='ATLAS_DETERMINISTIC_GRAPHIC'),None)
     if not hero_asset:raise ValueError('publication reader requires contextual imagery')
-    def scenes(block, sid, asset=None):
+    def scenes(block, sid, asset=None, route_beat=False):
         parts=[(p,t) for p in block['paragraphs'] for t in chunks(p['text'])]
         result=[]
         for i,(p,text) in enumerate(parts):
+            if route_beat:
+                planned=coverage['planned_beats'][f'{sid}-B{i+1}']
+                asset=by_path.get(planned['asset_path'])
             graphic=asset and asset['provider']=='ATLAS_DETERMINISTIC_GRAPHIC'
             cls='graphic' if graphic else 'scene-overlay' if asset else 'text-scene'
             picture=f'<img src="{esc(asset["path"])}" alt="{esc(block["heading"])}" loading="lazy">' if asset else ''
@@ -45,7 +55,7 @@ def build_reader(run,edition,candidate,routes,story,assets,copy):
         route_image=next((a for a in route_assets if a['provider']!='ATLAS_DETERMINISTIC_GRAPHIC'),None)
         menu_asset=route_image or next(iter(route_assets),None)
         if not menu_asset:menu_asset=hero_asset
-        body=''.join(scenes(copy['scenes'][s['scene_id']],s['scene_id'],by_scene.get(s['scene_id']) or route_image) for s in route['scenes'])
+        body=''.join(scenes(copy['scenes'][s['scene_id']],s['scene_id'],route_beat=True) for s in route['scenes'])
         boundaries=''.join(f'<li>{esc(s["causal_boundary"])}</li>' for s in route['scenes'] if s.get('causal_boundary'))
         end=f'<footer class="boundary route-end"><small>{esc(route["perspective"])} · PERSPECTIVE COMPLETE</small><h2>This route ends here.</h2><p>Follow another part of this connected world.</p><details><summary>What this evidence can—and cannot—say</summary><ul>{boundaries}</ul></details><a class="route-exit" href="#perspectives">Choose what to explore next ↑</a><a class="route-exit" href="#story">STORY / FICTION</a></footer>'
         panels.append(f'<section data-view class="route" id="route-{esc(route["perspective_id"])}" hidden><nav class="route-nav"><a href="#perspectives">← Perspectives</a><span>{esc(route["perspective"])}</span></nav>{body}{end}</section>')

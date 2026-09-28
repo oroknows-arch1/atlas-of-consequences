@@ -1,7 +1,11 @@
 {
   "edition_id": "AET1-WC-002",
-  "status": "PUBLICATION_CANDIDATE",
-  "known_required_items": [],
-  "publication_authorized": false,
-  "review_url": "https://atlas-automated-edition-test-1.onrender.com/review/aet1-wc-002/"
+  "status": "BLOCKED",
+  "known_required_items": [
+    {
+      "worker": "factory_coverage",
+      "reason": "MARKETS_FINANCE_DOMAIN_GAP: evidence-backed Perspective selection must be repaired before production; VISUAL_COVERAGE_GAP: 16 rendered beats unresolved"
+    }
+  ],
+  "publication_authorized": false
 }

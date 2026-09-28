@@ -5,7 +5,8 @@
   "invariants": {
     "provider_availability_or_credit_exhaustion": "may change HOW a visual requirement is fulfilled; must never change evidence, Perspective structure, scene meaning, or factual boundary",
     "video_generation_mandatory": false,
-    "edition_selection": "all necessary evidence-derived Perspectives plus a grounded human/emotional consequence must pass before route/scene generation",
+    "edition_selection": "all necessary evidence-derived Perspectives plus a grounded human/emotional consequence must pass before route/scene generation; EMRADAR-derived editions require an explicit evidence-backed Markets/Finance domain route without prescribing its name or count",
+    "visual_coverage": "rendered beat count follows edition copy and Perspective scene topology; each image-led beat needs a matched, verified visual intent and asset; consecutive reuse requires reviewed narrative justification; missing coverage routes upstream as VISUAL_COVERAGE_GAP",
     "story_plausibility": "FACT remains direct-evidence strict; STORY may use comparative knowledge and bounded human plausibility, but invention must remain clearly fictional and cannot become factual evidence.",
     "review_ready_definition": "Human review begins only at PUBLICATION_CANDIDATE: all required editorial content, required visual binaries, persistence receipts, reader integration, source treatment, mobile behavior and benchmark QA must pass. No placeholders, pending required assets, or known publication work may remain.",
     "manufacturing_trace_coverage": "Every operation in an approved benchmark manufacturing trace must map to an executable automated worker, automated gate, or explicit human-authority gate. Manufacturing parity is required in addition to editorial parity."
@@ -67,7 +68,7 @@
         "geography_resolution",
         "perspective_gate"
       ],
-      "rule": "PASS only when every Perspective determined necessary for informational completeness is evidence-supported and at least one grounded human/emotional consequence is evidenced; otherwise mark NOT_READY or WATCH and continue to next EMRADAR candidate",
+      "rule": "PASS only when every necessary Perspective is evidence-supported, at least one grounded human/emotional consequence is evidenced, and EMRADAR-origin editions contain an explicit evidence-backed Markets/Finance domain route; otherwise reselect before route or asset production",
       "produces": "edition_selection_decision"
     },
     {
@@ -125,7 +126,7 @@
         "causal_boundary_gate",
         "geography_resolution"
       ],
-      "produces": "visual_requirements"
+      "produces": "scene and rendered-beat visual requirements; asset count follows publication copy, never a fixed quota"
     },
     {
       "id": "image_provider_routing",

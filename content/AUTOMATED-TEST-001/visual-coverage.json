@@ -1,0 +1,1121 @@
+{
+  "edition_id": "AET1-WC-002",
+  "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
+  "status": "BLOCKED",
+  "planned_beats": {
+    "H1-S1-B1": {
+      "perspective": "H1",
+      "scene": "H1-S1",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Heat is becoming a persistent condition rather than only an exceptional day.",
+        "beat_text": "Over recent years, heat in Bangladesh has shifted from a sporadic challenge to a persistent presence.",
+        "purpose": "Establish persistent urban heat as the environmental condition.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact."
+      },
+      "asset_path": "/assets/aet1-wc-002/h1-s1.png",
+      "asset_sha256": "7d9343b5cc2d3bb0d5c72f06a1ffd7d4da04fdb69341391c5f92bbbbf07389b4"
+    },
+    "H1-S1-B2": {
+      "perspective": "H1",
+      "scene": "H1-S1",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Heat is becoming a persistent condition rather than only an exceptional day.",
+        "beat_text": "Rather than disrupting life only during brief heatwaves, rising temperatures now extend across a prolonged season, pressing into daily work and home routines for months on end.",
+        "purpose": "Establish persistent urban heat as the environmental condition.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H1-S1-B3": {
+      "perspective": "H1",
+      "scene": "H1-S1",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Heat is becoming a persistent condition rather than only an exceptional day.",
+        "beat_text": "National studies involving over sixteen thousand people show that this is no longer a matter of an occasional hazard but a lasting change that alters how work, rest, and health play out in Dhaka and across the country.",
+        "purpose": "Establish persistent urban heat as the environmental condition.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H1-S2-B1": {
+      "perspective": "H1",
+      "scene": "H1-S2",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Dense urban form and humidity can turn temperature into a larger human heat burden.",
+        "beat_text": "Dhaka’s dense urban form amplifies heat risk through accumulated warmth in concrete, limited airflow, and high humidity, which increases the physical heat felt by residents.",
+        "purpose": "Explain urban heat/humidity burden.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data."
+      },
+      "asset_path": "/assets/aet1-wc-002/h1-s2.svg",
+      "asset_sha256": "945b50aee121844101ede9737cbcade185bcd1860a6afcb38d0d5570349b23eb"
+    },
+    "H1-S2-B2": {
+      "perspective": "H1",
+      "scene": "H1-S2",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Dense urban form and humidity can turn temperature into a larger human heat burden.",
+        "beat_text": "Even when air temperatures remain similar, humidity intensifies the burden on the human body, extending discomfort and health strain.",
+        "purpose": "Explain urban heat/humidity burden.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H1-S2-B3": {
+      "perspective": "H1",
+      "scene": "H1-S2",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Dense urban form and humidity can turn temperature into a larger human heat burden.",
+        "beat_text": "The scale of this effect is shaped by the city's structure, making the urban heat index a significant aspect of daily life that goes beyond the thermometer’s reading.",
+        "purpose": "Explain urban heat/humidity burden.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H2-S1-B1": {
+      "perspective": "H2",
+      "scene": "H2-S1",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Heat enters the working day through physical strain, hydration needs, breaks and reduced capacity.",
+        "beat_text": "For Dhaka’s workers, heat directly enters the working day. Garment workers and informal laborers contend with physical strain, increased need for hydration, unscheduled breaks, and, in some cases, an inability to finish the day’s work.",
+        "purpose": "Humanize physical work strain without fabricating an identified victim.",
+        "evidence_refs": [
+          "RMG-WORKER-2025",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant."
+      },
+      "asset_path": "/assets/aet1-wc-002/h2-s1.png",
+      "asset_sha256": "27e07ada18ce8be654ca134ef24b37f06efaed65cb18460287607999e163e8af"
+    },
+    "H2-S1-B2": {
+      "perspective": "H2",
+      "scene": "H2-S1",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Heat enters the working day through physical strain, hydration needs, breaks and reduced capacity.",
+        "beat_text": "Documented interviews and surveys point to frequent symptoms of heat stress, including headaches, dizziness, and fatigue, along with missed days and lost income.",
+        "purpose": "Humanize physical work strain without fabricating an identified victim.",
+        "evidence_refs": [
+          "RMG-WORKER-2025",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H2-S1-B3": {
+      "perspective": "H2",
+      "scene": "H2-S1",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Heat enters the working day through physical strain, hydration needs, breaks and reduced capacity.",
+        "beat_text": "These effects are not attributed to a single day or individual but have become a measurable pattern affecting many in the labor force.",
+        "purpose": "Humanize physical work strain without fabricating an identified victim.",
+        "evidence_refs": [
+          "RMG-WORKER-2025",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H2-S2-B1": {
+      "perspective": "H2",
+      "scene": "H2-S2",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Factories are not insulated from the climate outside; indoor heat can persist across a long season.",
+        "beat_text": "Evidence from a year-long study of Dhaka-region apparel factories found that heat is not left at the factory gate. Even indoors, high temperatures can persist across a seven-month heat-stress season.",
+        "purpose": "Show indoor factory heat and ventilation/cooling context.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026"
+        ],
+        "truth_boundary": "Do not depict a named factory unless sourced media supports it."
+      },
+      "asset_path": "/assets/aet1-wc-002/h2-s2.png",
+      "asset_sha256": "497e05fa16b2213f2b38ebaace3b96100e48f089597d97ba5548fd6e781103b6"
+    },
+    "H2-S2-B2": {
+      "perspective": "H2",
+      "scene": "H2-S2",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Factories are not insulated from the climate outside; indoor heat can persist across a long season.",
+        "beat_text": "The sampled factories showed that external climate translates to indoor conditions, with workers facing sustained exposure throughout much of the year.",
+        "purpose": "Show indoor factory heat and ventilation/cooling context.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026"
+        ],
+        "truth_boundary": "Do not depict a named factory unless sourced media supports it."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H2-S2-B3": {
+      "perspective": "H2",
+      "scene": "H2-S2",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Factories are not insulated from the climate outside; indoor heat can persist across a long season.",
+        "beat_text": "However, these findings are specific to the sampled sites and do not establish that all factories experience these conditions.",
+        "purpose": "Show indoor factory heat and ventilation/cooling context.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026"
+        ],
+        "truth_boundary": "Do not depict a named factory unless sourced media supports it."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H2-S3-B1": {
+      "perspective": "H2",
+      "scene": "H2-S3",
+      "required": true,
+      "intent": {
+        "scene_meaning": "For informal outdoor workers, avoiding heat can mean giving up paid hours.",
+        "beat_text": "For informal outdoor workers, avoiding heat often comes at the cost of lost paid hours.",
+        "purpose": "Show the time-versus-income dilemma for outdoor work.",
+        "evidence_refs": [
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case."
+      },
+      "asset_path": "/assets/aet1-wc-002/h2-s3.png",
+      "asset_sha256": "7a130665b148d1f4630821dee6736c1da27a2b56a9b3d09e6ee61ba3fd9d7eaf"
+    },
+    "H2-S3-B2": {
+      "perspective": "H2",
+      "scene": "H2-S3",
+      "required": true,
+      "intent": {
+        "scene_meaning": "For informal outdoor workers, avoiding heat can mean giving up paid hours.",
+        "beat_text": "Surveyed households reported a direct link between extreme heat and missed work, as some workers choose or are forced to reduce hours or skip shifts entirely.",
+        "purpose": "Show the time-versus-income dilemma for outdoor work.",
+        "evidence_refs": [
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H2-S3-B3": {
+      "perspective": "H2",
+      "scene": "H2-S3",
+      "required": true,
+      "intent": {
+        "scene_meaning": "For informal outdoor workers, avoiding heat can mean giving up paid hours.",
+        "beat_text": "The result is an immediate pressure on household finances, recorded for the population covered by the survey and not extrapolated to all workers in the city.",
+        "purpose": "Show the time-versus-income dilemma for outdoor work.",
+        "evidence_refs": [
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H3-S1-B1": {
+      "perspective": "H3",
+      "scene": "H3-S1",
+      "required": false,
+      "intent": {
+        "scene_meaning": "Lost workdays turn heat exposure into household income pressure.",
+        "beat_text": "When heat forces workers to miss days or reduce their capacity, the impact is felt directly in the pay packet.",
+        "purpose": "Income consequence is better carried by text/data than invented money imagery.",
+        "evidence_refs": [
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Use deterministic data treatment if visualized."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H3-S1-B2": {
+      "perspective": "H3",
+      "scene": "H3-S1",
+      "required": false,
+      "intent": {
+        "scene_meaning": "Lost workdays turn heat exposure into household income pressure.",
+        "beat_text": "Surveyed informal-worker households in Dhaka experienced missed work translating into lost income, with the heat burden carrying through to budgets, nutrition, and essentials.",
+        "purpose": "Income consequence is better carried by text/data than invented money imagery.",
+        "evidence_refs": [
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Use deterministic data treatment if visualized."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H3-S1-B3": {
+      "perspective": "H3",
+      "scene": "H3-S1",
+      "required": false,
+      "intent": {
+        "scene_meaning": "Lost workdays turn heat exposure into household income pressure.",
+        "beat_text": "These losses are measured within the surveyed group and cannot be assumed for all households in the region.",
+        "purpose": "Income consequence is better carried by text/data than invented money imagery.",
+        "evidence_refs": [
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Use deterministic data treatment if visualized."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H3-S2-B1": {
+      "perspective": "H3",
+      "scene": "H3-S2",
+      "required": true,
+      "intent": {
+        "scene_meaning": "At national scale, accumulated lost work becomes a macroeconomic constraint.",
+        "beat_text": "The economic impact of lost work mounts quickly at a national scale. Modeling based on survey and health analysis estimated that Bangladesh lost roughly 250 million workdays to heat in 2024.",
+        "purpose": "Scale household losses into national workday/economic burden.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Clearly label estimates and source period."
+      },
+      "asset_path": "/assets/aet1-wc-002/h3-s2.svg",
+      "asset_sha256": "325fcab676d3503832b836cd4a6ccc958ad228b804986ba9438e3373e26209bf"
+    },
+    "H3-S2-B2": {
+      "perspective": "H3",
+      "scene": "H3-S2",
+      "required": true,
+      "intent": {
+        "scene_meaning": "At national scale, accumulated lost work becomes a macroeconomic constraint.",
+        "beat_text": "This modeled figure is not a direct measurement of every workplace, but it is a clear indicator of how persistent heat now acts as a macroeconomic constraint.",
+        "purpose": "Scale household losses into national workday/economic burden.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Clearly label estimates and source period."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H4-S1-B1": {
+      "perspective": "H4",
+      "scene": "H4-S1",
+      "required": true,
+      "intent": {
+        "scene_meaning": "The end of a shift does not necessarily end heat exposure; homes can remain part of the heat system.",
+        "beat_text": "The end of a shift does not guarantee relief from heat. Evidence from sampled worker homes and household surveys confirms that for many in Dhaka, indoor spaces remain hot well into the evening and night.",
+        "purpose": "Show that exposure continues into domestic recovery space.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Contextual home scene only; no invented named household or false documentary specificity."
+      },
+      "asset_path": "/assets/aet1-wc-002/h4-s1.png",
+      "asset_sha256": "ecf4d75bb4e7e6801157f4e71a3de4d7b8a907a74aab8c4b217dc3bcaae947ef"
+    },
+    "H4-S1-B2": {
+      "perspective": "H4",
+      "scene": "H4-S1",
+      "required": true,
+      "intent": {
+        "scene_meaning": "The end of a shift does not necessarily end heat exposure; homes can remain part of the heat system.",
+        "beat_text": "The challenge of recovering from daytime exposure is compounded by crowded living arrangements and limited cooling, linking the workplace and the home in a single, ongoing heat system.",
+        "purpose": "Show that exposure continues into domestic recovery space.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Contextual home scene only; no invented named household or false documentary specificity."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H4-S2-B1": {
+      "perspective": "H4",
+      "scene": "H4-S2",
+      "required": false,
+      "intent": {
+        "scene_meaning": "Recovery depends on housing, cooling access, time and household resources.",
+        "beat_text": "Not all Dhaka households cope with heat in the same way or have equal access to resources that could lessen its toll.",
+        "purpose": "Avoid over-specifying unresolved household coping behavior.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "No factual visual claim beyond supported unequal cooling/recovery capacity."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H4-S2-B2": {
+      "perspective": "H4",
+      "scene": "H4-S2",
+      "required": false,
+      "intent": {
+        "scene_meaning": "Recovery depends on housing, cooling access, time and household resources.",
+        "beat_text": "Studies show that recovery from heat exposure depends on factors like quality of housing, ability to afford cooling or ventilation, household size, and schedules. Some surveyed households report significant difficulty in recuperating before the next day’s heat arrives.",
+        "purpose": "Avoid over-specifying unresolved household coping behavior.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "No factual visual claim beyond supported unequal cooling/recovery capacity."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H4-S2-B3": {
+      "perspective": "H4",
+      "scene": "H4-S2",
+      "required": false,
+      "intent": {
+        "scene_meaning": "Recovery depends on housing, cooling access, time and household resources.",
+        "beat_text": "However, evidence does not cover every strategy or expenditure for all localities, leaving unresolved how coping varies across the city.",
+        "purpose": "Avoid over-specifying unresolved household coping behavior.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "No factual visual claim beyond supported unequal cooling/recovery capacity."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H5-S1-B1": {
+      "perspective": "H5",
+      "scene": "H5-S1",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Heat reaches children through health risk and disruption to schooling.",
+        "beat_text": "Children in Bangladesh encounter the consequences of rising heat through increased health risks and disruption to their education.",
+        "purpose": "Ground child/school consequence.",
+        "evidence_refs": [
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced."
+      },
+      "asset_path": "/assets/aet1-wc-002/h5-s1.png",
+      "asset_sha256": "5d6d6d077a81c112eb748a1de64af42ea3c7ac87e8ad008e7fa4dff3cead86c9"
+    },
+    "H5-S1-B2": {
+      "perspective": "H5",
+      "scene": "H5-S1",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Heat reaches children through health risk and disruption to schooling.",
+        "beat_text": "In 2024, heatwaves contributed to school closures across the country, and affected children faced interrupted learning and heightened vulnerability during extreme heat periods.",
+        "purpose": "Ground child/school consequence.",
+        "evidence_refs": [
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H5-S1-B3": {
+      "perspective": "H5",
+      "scene": "H5-S1",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Heat reaches children through health risk and disruption to schooling.",
+        "beat_text": "While school disruption is caused by several climate-related hazards, heat was a documented factor in these closures.",
+        "purpose": "Ground child/school consequence.",
+        "evidence_refs": [
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H5-S2-B1": {
+      "perspective": "H5",
+      "scene": "H5-S2",
+      "required": false,
+      "intent": {
+        "scene_meaning": "School interruption shifts part of the burden back into households and children's time.",
+        "beat_text": "When schools close due to heat, some of the resulting burden shifts back to households, affecting childcare and the use of children's time.",
+        "purpose": "Household consequence remains partly unresolved.",
+        "evidence_refs": [
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Do not invent childcare/learning-loss scene as documentary evidence."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H5-S2-B2": {
+      "perspective": "H5",
+      "scene": "H5-S2",
+      "required": false,
+      "intent": {
+        "scene_meaning": "School interruption shifts part of the burden back into households and children's time.",
+        "beat_text": "However, there is not enough direct evidence to quantify impacts on household income, learning loss, or childcare arrangements for individual families. The ripple effects of interruptions remain an area for further research.",
+        "purpose": "Household consequence remains partly unresolved.",
+        "evidence_refs": [
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Do not invent childcare/learning-loss scene as documentary evidence."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H6-S1-B1": {
+      "perspective": "H6",
+      "scene": "H6-S1",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Heat adaptation can be physical and operational: shade, airflow, cooling, hydration and work practices.",
+        "beat_text": "Efforts to adapt to heat are already measurable in Dhaka's workplaces and homes. Tested interventions include increased shading, improved airflow, provision of water and hydration breaks, and adjustments to work practices.",
+        "purpose": "Make adaptation tangible through airflow/cooling/shade/hydration/work-practice systems.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Distinguish examples/recommendations from installed systems at a named site."
+      },
+      "asset_path": "/assets/aet1-wc-002/h6-s1.png",
+      "asset_sha256": "3200e0ea9a826934b4b37121a95e1319454d8a80ce063c0b063944d4dd1b7520"
+    },
+    "H6-S1-B2": {
+      "perspective": "H6",
+      "scene": "H6-S1",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Heat adaptation can be physical and operational: shade, airflow, cooling, hydration and work practices.",
+        "beat_text": "Some factories and surveyed households have adopted these physical and operational changes, with recently collected evidence highlighting the benefits in worker comfort and reduced strain within the measured samples.",
+        "purpose": "Make adaptation tangible through airflow/cooling/shade/hydration/work-practice systems.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Distinguish examples/recommendations from installed systems at a named site."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H6-S2-B1": {
+      "perspective": "H6",
+      "scene": "H6-S2",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Some factory cooling investments can repay through reduced heat-related losses.",
+        "beat_text": "Studies in selected Dhaka-region apparel factories demonstrate that certain cooling investments, such as modern ventilation or cooling installations, can pay for themselves through reductions in heat-related losses within one to four years.",
+        "purpose": "Explain cooling intervention economics.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026"
+        ],
+        "truth_boundary": "Use sourced numbers in deterministic graphic; no guarantee framing."
+      },
+      "asset_path": "/assets/aet1-wc-002/h6-s2.svg",
+      "asset_sha256": "140539346c111ea92473c0bcdf203012f25688ed7ae3af34e343a53df89156d5"
+    },
+    "H6-S2-B2": {
+      "perspective": "H6",
+      "scene": "H6-S2",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Some factory cooling investments can repay through reduced heat-related losses.",
+        "beat_text": "These estimates are calculated for the studied sites and reflect specific economic and physical conditions—they are not guaranteed returns for all factories or interventions.",
+        "purpose": "Explain cooling intervention economics.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026"
+        ],
+        "truth_boundary": "Use sourced numbers in deterministic graphic; no guarantee framing."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H6-S3-B1": {
+      "perspective": "H6",
+      "scene": "H6-S3",
+      "required": false,
+      "intent": {
+        "scene_meaning": "Adaptation is also a distribution question: who can afford protection and who bears the residual heat.",
+        "beat_text": "Adaptation to heat in Dhaka is also a question of distribution. Evidence confirms marked inequality in access to cooling and protective measures: some workers, factories, and households are better able to protect themselves, while others remain highly exposed.",
+        "purpose": "Leave unresolved distribution question primarily to text/evidence.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Do not symbolize poverty or suffering with unsupported imagery."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    },
+    "H6-S3-B2": {
+      "perspective": "H6",
+      "scene": "H6-S3",
+      "required": false,
+      "intent": {
+        "scene_meaning": "Adaptation is also a distribution question: who can afford protection and who bears the residual heat.",
+        "beat_text": "This unequal capacity now shapes vulnerability, and future allocation of adaptation costs and benefits remains an open question that current evidence cannot resolve.",
+        "purpose": "Leave unresolved distribution question primarily to text/evidence.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Do not symbolize poverty or suffering with unsupported imagery."
+      },
+      "asset_path": null,
+      "asset_sha256": null
+    }
+  },
+  "required_count": 26,
+  "verified_count": 10,
+  "gaps": [
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H1",
+      "scene": "H1-S1",
+      "beat_id": "H1-S1-B2",
+      "intent": {
+        "scene_meaning": "Heat is becoming a persistent condition rather than only an exceptional day.",
+        "beat_text": "Rather than disrupting life only during brief heatwaves, rising temperatures now extend across a prolonged season, pressing into daily work and home routines for months on end.",
+        "purpose": "Establish persistent urban heat as the environmental condition.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H1",
+      "scene": "H1-S1",
+      "beat_id": "H1-S1-B3",
+      "intent": {
+        "scene_meaning": "Heat is becoming a persistent condition rather than only an exceptional day.",
+        "beat_text": "National studies involving over sixteen thousand people show that this is no longer a matter of an occasional hazard but a lasting change that alters how work, rest, and health play out in Dhaka and across the country.",
+        "purpose": "Establish persistent urban heat as the environmental condition.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H1",
+      "scene": "H1-S2",
+      "beat_id": "H1-S2-B2",
+      "intent": {
+        "scene_meaning": "Dense urban form and humidity can turn temperature into a larger human heat burden.",
+        "beat_text": "Even when air temperatures remain similar, humidity intensifies the burden on the human body, extending discomfort and health strain.",
+        "purpose": "Explain urban heat/humidity burden.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H1",
+      "scene": "H1-S2",
+      "beat_id": "H1-S2-B3",
+      "intent": {
+        "scene_meaning": "Dense urban form and humidity can turn temperature into a larger human heat burden.",
+        "beat_text": "The scale of this effect is shaped by the city's structure, making the urban heat index a significant aspect of daily life that goes beyond the thermometer’s reading.",
+        "purpose": "Explain urban heat/humidity burden.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H2",
+      "scene": "H2-S1",
+      "beat_id": "H2-S1-B2",
+      "intent": {
+        "scene_meaning": "Heat enters the working day through physical strain, hydration needs, breaks and reduced capacity.",
+        "beat_text": "Documented interviews and surveys point to frequent symptoms of heat stress, including headaches, dizziness, and fatigue, along with missed days and lost income.",
+        "purpose": "Humanize physical work strain without fabricating an identified victim.",
+        "evidence_refs": [
+          "RMG-WORKER-2025",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H2",
+      "scene": "H2-S1",
+      "beat_id": "H2-S1-B3",
+      "intent": {
+        "scene_meaning": "Heat enters the working day through physical strain, hydration needs, breaks and reduced capacity.",
+        "beat_text": "These effects are not attributed to a single day or individual but have become a measurable pattern affecting many in the labor force.",
+        "purpose": "Humanize physical work strain without fabricating an identified victim.",
+        "evidence_refs": [
+          "RMG-WORKER-2025",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H2",
+      "scene": "H2-S2",
+      "beat_id": "H2-S2-B2",
+      "intent": {
+        "scene_meaning": "Factories are not insulated from the climate outside; indoor heat can persist across a long season.",
+        "beat_text": "The sampled factories showed that external climate translates to indoor conditions, with workers facing sustained exposure throughout much of the year.",
+        "purpose": "Show indoor factory heat and ventilation/cooling context.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026"
+        ],
+        "truth_boundary": "Do not depict a named factory unless sourced media supports it."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H2",
+      "scene": "H2-S2",
+      "beat_id": "H2-S2-B3",
+      "intent": {
+        "scene_meaning": "Factories are not insulated from the climate outside; indoor heat can persist across a long season.",
+        "beat_text": "However, these findings are specific to the sampled sites and do not establish that all factories experience these conditions.",
+        "purpose": "Show indoor factory heat and ventilation/cooling context.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026"
+        ],
+        "truth_boundary": "Do not depict a named factory unless sourced media supports it."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H2",
+      "scene": "H2-S3",
+      "beat_id": "H2-S3-B2",
+      "intent": {
+        "scene_meaning": "For informal outdoor workers, avoiding heat can mean giving up paid hours.",
+        "beat_text": "Surveyed households reported a direct link between extreme heat and missed work, as some workers choose or are forced to reduce hours or skip shifts entirely.",
+        "purpose": "Show the time-versus-income dilemma for outdoor work.",
+        "evidence_refs": [
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H2",
+      "scene": "H2-S3",
+      "beat_id": "H2-S3-B3",
+      "intent": {
+        "scene_meaning": "For informal outdoor workers, avoiding heat can mean giving up paid hours.",
+        "beat_text": "The result is an immediate pressure on household finances, recorded for the population covered by the survey and not extrapolated to all workers in the city.",
+        "purpose": "Show the time-versus-income dilemma for outdoor work.",
+        "evidence_refs": [
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H3",
+      "scene": "H3-S2",
+      "beat_id": "H3-S2-B2",
+      "intent": {
+        "scene_meaning": "At national scale, accumulated lost work becomes a macroeconomic constraint.",
+        "beat_text": "This modeled figure is not a direct measurement of every workplace, but it is a clear indicator of how persistent heat now acts as a macroeconomic constraint.",
+        "purpose": "Scale household losses into national workday/economic burden.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Clearly label estimates and source period."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H4",
+      "scene": "H4-S1",
+      "beat_id": "H4-S1-B2",
+      "intent": {
+        "scene_meaning": "The end of a shift does not necessarily end heat exposure; homes can remain part of the heat system.",
+        "beat_text": "The challenge of recovering from daytime exposure is compounded by crowded living arrangements and limited cooling, linking the workplace and the home in a single, ongoing heat system.",
+        "purpose": "Show that exposure continues into domestic recovery space.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Contextual home scene only; no invented named household or false documentary specificity."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H5",
+      "scene": "H5-S1",
+      "beat_id": "H5-S1-B2",
+      "intent": {
+        "scene_meaning": "Heat reaches children through health risk and disruption to schooling.",
+        "beat_text": "In 2024, heatwaves contributed to school closures across the country, and affected children faced interrupted learning and heightened vulnerability during extreme heat periods.",
+        "purpose": "Ground child/school consequence.",
+        "evidence_refs": [
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H5",
+      "scene": "H5-S1",
+      "beat_id": "H5-S1-B3",
+      "intent": {
+        "scene_meaning": "Heat reaches children through health risk and disruption to schooling.",
+        "beat_text": "While school disruption is caused by several climate-related hazards, heat was a documented factor in these closures.",
+        "purpose": "Ground child/school consequence.",
+        "evidence_refs": [
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H6",
+      "scene": "H6-S1",
+      "beat_id": "H6-S1-B2",
+      "intent": {
+        "scene_meaning": "Heat adaptation can be physical and operational: shade, airflow, cooling, hydration and work practices.",
+        "beat_text": "Some factories and surveyed households have adopted these physical and operational changes, with recently collected evidence highlighting the benefits in worker comfort and reduced strain within the measured samples.",
+        "purpose": "Make adaptation tangible through airflow/cooling/shade/hydration/work-practice systems.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Distinguish examples/recommendations from installed systems at a named site."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H6",
+      "scene": "H6-S2",
+      "beat_id": "H6-S2-B2",
+      "intent": {
+        "scene_meaning": "Some factory cooling investments can repay through reduced heat-related losses.",
+        "beat_text": "These estimates are calculated for the studied sites and reflect specific economic and physical conditions—they are not guaranteed returns for all factories or interventions.",
+        "purpose": "Explain cooling intervention economics.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026"
+        ],
+        "truth_boundary": "Use sourced numbers in deterministic graphic; no guarantee framing."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    }
+  ],
+  "upstream_feedback": [
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H1",
+      "scene": "H1-S1",
+      "beat_id": "H1-S1-B2",
+      "intent": {
+        "scene_meaning": "Heat is becoming a persistent condition rather than only an exceptional day.",
+        "beat_text": "Rather than disrupting life only during brief heatwaves, rising temperatures now extend across a prolonged season, pressing into daily work and home routines for months on end.",
+        "purpose": "Establish persistent urban heat as the environmental condition.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H1",
+      "scene": "H1-S1",
+      "beat_id": "H1-S1-B3",
+      "intent": {
+        "scene_meaning": "Heat is becoming a persistent condition rather than only an exceptional day.",
+        "beat_text": "National studies involving over sixteen thousand people show that this is no longer a matter of an occasional hazard but a lasting change that alters how work, rest, and health play out in Dhaka and across the country.",
+        "purpose": "Establish persistent urban heat as the environmental condition.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H1",
+      "scene": "H1-S2",
+      "beat_id": "H1-S2-B2",
+      "intent": {
+        "scene_meaning": "Dense urban form and humidity can turn temperature into a larger human heat burden.",
+        "beat_text": "Even when air temperatures remain similar, humidity intensifies the burden on the human body, extending discomfort and health strain.",
+        "purpose": "Explain urban heat/humidity burden.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H1",
+      "scene": "H1-S2",
+      "beat_id": "H1-S2-B3",
+      "intent": {
+        "scene_meaning": "Dense urban form and humidity can turn temperature into a larger human heat burden.",
+        "beat_text": "The scale of this effect is shaped by the city's structure, making the urban heat index a significant aspect of daily life that goes beyond the thermometer’s reading.",
+        "purpose": "Explain urban heat/humidity burden.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H2",
+      "scene": "H2-S1",
+      "beat_id": "H2-S1-B2",
+      "intent": {
+        "scene_meaning": "Heat enters the working day through physical strain, hydration needs, breaks and reduced capacity.",
+        "beat_text": "Documented interviews and surveys point to frequent symptoms of heat stress, including headaches, dizziness, and fatigue, along with missed days and lost income.",
+        "purpose": "Humanize physical work strain without fabricating an identified victim.",
+        "evidence_refs": [
+          "RMG-WORKER-2025",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H2",
+      "scene": "H2-S1",
+      "beat_id": "H2-S1-B3",
+      "intent": {
+        "scene_meaning": "Heat enters the working day through physical strain, hydration needs, breaks and reduced capacity.",
+        "beat_text": "These effects are not attributed to a single day or individual but have become a measurable pattern affecting many in the labor force.",
+        "purpose": "Humanize physical work strain without fabricating an identified victim.",
+        "evidence_refs": [
+          "RMG-WORKER-2025",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H2",
+      "scene": "H2-S2",
+      "beat_id": "H2-S2-B2",
+      "intent": {
+        "scene_meaning": "Factories are not insulated from the climate outside; indoor heat can persist across a long season.",
+        "beat_text": "The sampled factories showed that external climate translates to indoor conditions, with workers facing sustained exposure throughout much of the year.",
+        "purpose": "Show indoor factory heat and ventilation/cooling context.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026"
+        ],
+        "truth_boundary": "Do not depict a named factory unless sourced media supports it."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H2",
+      "scene": "H2-S2",
+      "beat_id": "H2-S2-B3",
+      "intent": {
+        "scene_meaning": "Factories are not insulated from the climate outside; indoor heat can persist across a long season.",
+        "beat_text": "However, these findings are specific to the sampled sites and do not establish that all factories experience these conditions.",
+        "purpose": "Show indoor factory heat and ventilation/cooling context.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026"
+        ],
+        "truth_boundary": "Do not depict a named factory unless sourced media supports it."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H2",
+      "scene": "H2-S3",
+      "beat_id": "H2-S3-B2",
+      "intent": {
+        "scene_meaning": "For informal outdoor workers, avoiding heat can mean giving up paid hours.",
+        "beat_text": "Surveyed households reported a direct link between extreme heat and missed work, as some workers choose or are forced to reduce hours or skip shifts entirely.",
+        "purpose": "Show the time-versus-income dilemma for outdoor work.",
+        "evidence_refs": [
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H2",
+      "scene": "H2-S3",
+      "beat_id": "H2-S3-B3",
+      "intent": {
+        "scene_meaning": "For informal outdoor workers, avoiding heat can mean giving up paid hours.",
+        "beat_text": "The result is an immediate pressure on household finances, recorded for the population covered by the survey and not extrapolated to all workers in the city.",
+        "purpose": "Show the time-versus-income dilemma for outdoor work.",
+        "evidence_refs": [
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H3",
+      "scene": "H3-S2",
+      "beat_id": "H3-S2-B2",
+      "intent": {
+        "scene_meaning": "At national scale, accumulated lost work becomes a macroeconomic constraint.",
+        "beat_text": "This modeled figure is not a direct measurement of every workplace, but it is a clear indicator of how persistent heat now acts as a macroeconomic constraint.",
+        "purpose": "Scale household losses into national workday/economic burden.",
+        "evidence_refs": [
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Clearly label estimates and source period."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H4",
+      "scene": "H4-S1",
+      "beat_id": "H4-S1-B2",
+      "intent": {
+        "scene_meaning": "The end of a shift does not necessarily end heat exposure; homes can remain part of the heat system.",
+        "beat_text": "The challenge of recovering from daytime exposure is compounded by crowded living arrangements and limited cooling, linking the workplace and the home in a single, ongoing heat system.",
+        "purpose": "Show that exposure continues into domestic recovery space.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Contextual home scene only; no invented named household or false documentary specificity."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H5",
+      "scene": "H5-S1",
+      "beat_id": "H5-S1-B2",
+      "intent": {
+        "scene_meaning": "Heat reaches children through health risk and disruption to schooling.",
+        "beat_text": "In 2024, heatwaves contributed to school closures across the country, and affected children faced interrupted learning and heightened vulnerability during extreme heat periods.",
+        "purpose": "Ground child/school consequence.",
+        "evidence_refs": [
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H5",
+      "scene": "H5-S1",
+      "beat_id": "H5-S1-B3",
+      "intent": {
+        "scene_meaning": "Heat reaches children through health risk and disruption to schooling.",
+        "beat_text": "While school disruption is caused by several climate-related hazards, heat was a documented factor in these closures.",
+        "purpose": "Ground child/school consequence.",
+        "evidence_refs": [
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H6",
+      "scene": "H6-S1",
+      "beat_id": "H6-S1-B2",
+      "intent": {
+        "scene_meaning": "Heat adaptation can be physical and operational: shade, airflow, cooling, hydration and work practices.",
+        "beat_text": "Some factories and surveyed households have adopted these physical and operational changes, with recently collected evidence highlighting the benefits in worker comfort and reduced strain within the measured samples.",
+        "purpose": "Make adaptation tangible through airflow/cooling/shade/hydration/work-practice systems.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Distinguish examples/recommendations from installed systems at a named site."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    },
+    {
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "H6",
+      "scene": "H6-S2",
+      "beat_id": "H6-S2-B2",
+      "intent": {
+        "scene_meaning": "Some factory cooling investments can repay through reduced heat-related losses.",
+        "beat_text": "These estimates are calculated for the studied sites and reflect specific economic and physical conditions—they are not guaranteed returns for all factories or interventions.",
+        "purpose": "Explain cooling intervention economics.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026"
+        ],
+        "truth_boundary": "Use sourced numbers in deterministic graphic; no guarantee framing."
+      },
+      "reason": "This rendered beat has no current distinct verified asset"
+    }
+  ]
+}

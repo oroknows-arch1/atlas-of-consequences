@@ -218,6 +218,16 @@ class ProductionRegression(unittest.TestCase):
   self.assertEqual(result['status'],'BLOCKED')
   self.assertNotIn('review_url',result)
  def fixture(self):
+  selected=state.read(self.run/'selected-edition-perspectives.json')
+  selected['output']['perspectives'][-1]['primary_domain']='markets_finance'
+  selected['output']['perspectives'][-1]['entry_label']='Finance and adaptation'
+  state.write(self.run/'selected-edition-perspectives.json',selected)
+  routes=state.read(self.run/'causal_boundary_gate.json')
+  for scene,mechanism in zip(routes['output']['routes'][-1]['scenes'][1:],
+                             ['capital_and_payback','allocation_and_uncertainty']):
+   scene['domains']=['markets_finance'];scene['finance_mechanism']=mechanism
+  state.write(self.run/'causal_boundary_gate.json',routes)
+  self.bind=state.binding(self.run)
   assets=[]
   for r in state.read(self.run/'visual_requirements.json')['output']['requirements']:
    if not r['required']:continue
@@ -225,10 +235,20 @@ class ProductionRegression(unittest.TestCase):
    p.write_bytes(b'synthetic gate fixture, not an image')
    assets.append({'scene_id':r['scene_id'],'path':'/assets/'+p.name,'sha256':state.digest(p),'bytes':p.stat().st_size,
                   'provenance':'synthetic test','provider':'fixture','visual_qa':{'pass':True}})
+   from visual_coverage import beats_for
+   editorial=state.read(state.ROOT/'content/AUTOMATED-TEST-001/editorial-copy.json')
+   for i,(_,beat_text) in enumerate(beats_for(editorial['scenes'][r['scene_id']]),1):
+    if i==1:continue
+    beat=f"{r['scene_id']}-B{i}"
+    extra=self.root/'public/assets'/f'{beat}.png';extra.write_bytes(b'synthetic independent beat')
+    assets.append({'scene_id':r['scene_id'],'beat_id':beat,'path':'/assets/'+extra.name,
+                   'beat_text_sha256':__import__('hashlib').sha256(beat_text.encode()).hexdigest(),
+                   'sha256':state.digest(extra),'bytes':extra.stat().st_size,
+                   'provenance':'synthetic test','provider':'fixture','visual_qa':{'pass':True}})
   reader=self.root/'public/review/test/index.html';reader.parent.mkdir(parents=True)
   reader.write_text(' '.join(a['path'] for a in assets))
   hashes={'public/review/test/index.html':state.digest(reader)}
-  state.write(self.run/'editorial-copy.json',{})
+  state.write(self.run/'editorial-copy.json',editorial)
   shot=self.run/'screenshots/phone.png';shot.parent.mkdir();shot.write_bytes(b'synthetic screenshot')
   shots=[{'path':'screenshots/phone.png','sha256':state.digest(shot)}]
   common={**self.bind,'status':'PASS','reader_hashes':hashes,'deploy_id':'synthetic-deploy'}
@@ -280,9 +300,12 @@ class ProductionRegression(unittest.TestCase):
   block={'heading':'Synthetic publication heading','paragraphs':[{'text':'Synthetic prose','state':'FACT','evidence_refs':['WB-HEAT-2025']}]}
   copy={'opening':block,'place':block,'consequences':block,'scenes':{'S1':block,'S2':block}}
   assets=[{'scene_id':'S1','provider':'fixture','path':'/assets/test.png','sha256':'synthetic-1','truth_boundary':'Synthetic contextual visual'}, {'scene_id':'S2','provider':'fixture','path':'/assets/test-2.png','sha256':'synthetic-2','truth_boundary':'Another contextual visual'}]
+  state.write(self.run/'visual_requirements.json',{'output':{'requirements':[
+   {'scene_id':'S1','required':True,'purpose':'Synthetic scene','truth_boundary':'No claim'},
+   {'scene_id':'S2','required':True,'purpose':'Synthetic other scene','truth_boundary':'No claim'}]}})
   target=self.root/'public/review';target.mkdir(parents=True)
   for name in ('reader-production.css','reader-production.js'):shutil.copyfile(state.ROOT/'public/review'/name,target/name)
-  with patch.object(builder,'ROOT',self.root):
+  with patch.object(builder,'ROOT',self.root), patch('market_finance.validate',return_value={'status':'PASS'}):
    page=builder.build_reader(self.run,'SYNTHETIC',{'working_title':'Synthetic title','geographic_core':'Synthetic place','world_change':'Synthetic change'},[route,second],{'title':'Synthetic story','boundary':'Fiction, invented','story':['Synthetic story']},assets,copy)
   text=page.read_text()
   self.assertEqual(text.count('data-view class="route" id="route-'),2)

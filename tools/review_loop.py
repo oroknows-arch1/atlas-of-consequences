@@ -24,6 +24,9 @@ def affected_scene_ids(defects, available):
 def repair(run_dir, defects):
     owners={d.get('worker') for d in defects}
     success=True
+    # Coverage gaps belong to visual planning and may not invalidate a sound asset.
+    if any(d.get('code')=='VISUAL_COVERAGE_GAP' for d in defects):
+        return False
     if os.environ.get('ATLAS_READER_ONLY')=='1' and owners & {'visual_factory','asset_persistence','editorial_factory'}:
         return False
     if owners & {'visual_factory','asset_persistence','editorial_factory'}:
@@ -33,7 +36,9 @@ def repair(run_dir, defects):
             path=run_dir/'asset-persistence-receipt.json'
             receipt=read(path)
             available=[a['scene_id'] for a in receipt.get('assets',[])]
-            ids=affected_scene_ids([d for d in defects if d.get('worker')=='visual_factory'],available)
+            ids={d['scene_id'] for d in defects if d.get('worker')=='visual_factory'
+                 and d.get('scene_id') in available}
+            if not ids:return False  # Ambiguous route defects need inspection, not broad regeneration.
             receipt['assets']=[a for a in receipt['assets'] if a['scene_id'] not in ids]
             write(path,receipt)
         success = not command(sys.executable,'tools/produce_edition.py',str(run_dir))

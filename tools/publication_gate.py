@@ -7,6 +7,8 @@ from pathlib import Path
 from urllib.request import urlopen
 from production_state import ROOT, digest, public_path, read, require_current, write
 from produce_edition import facts
+from market_finance import validate as validate_markets
+from visual_coverage import plan as visual_plan
 
 def evaluate(run, fetch=urlopen):
     errors=[]
@@ -29,10 +31,23 @@ def evaluate(run, fetch=urlopen):
         check(name,load)
     production=receipts.get('production-receipt',{})
     assets=receipts.get('asset-persistence-receipt',{}).get('assets',[])
+    def verify_domains_and_visuals():
+        routes, requirements, _ = facts(run, edition)
+        domain_error=None
+        try: validate_markets(run, routes)
+        except ValueError as error: domain_error=str(error)
+        coverage=visual_plan(run,routes,requirements,assets,read(run/'editorial-copy.json'))
+        problems=[x for x in (domain_error,
+                  'VISUAL_COVERAGE_GAP: '+str(len(coverage['gaps']))+' rendered beats unresolved'
+                  if coverage['status']!='PASS' else None) if x]
+        if problems:raise ValueError('; '.join(problems))
+    check('factory_coverage',verify_domains_and_visuals)
     def verify_assets():
         required={v['scene_id'] for v in read(run/'visual_requirements.json')['output']['requirements'] if v['required']}
-        ids=[a['scene_id'] for a in assets]
+        ids=[a['scene_id'] for a in assets if not a.get('beat_id')]
         if set(ids)!=required or len(ids)!=len(set(ids)): raise ValueError('required asset coverage mismatch')
+        beat_ids=[a['beat_id'] for a in assets if a.get('beat_id')]
+        if len(beat_ids)!=len(set(beat_ids)):raise ValueError('duplicate beat assets')
         for asset in assets:
             if not asset.get('provenance') or not asset.get('provider') or asset.get('visual_qa',{}).get('pass') is not True:
                 raise ValueError('asset lacks independent QA or provenance')
