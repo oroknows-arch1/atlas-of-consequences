@@ -21,6 +21,9 @@ class GrammarGateRegression(unittest.TestCase):
  def test_unverified_opening_image_blocks(self):
   self.fixture();self.change('opening-system.json',lambda d:d['assets'][0].update(sha256='wrong'))
   self.assertEqual(self.evaluate()['status'],'BLOCKED')
+ def test_skip_without_natural_completion_does_not_pass_sequence(self):
+  self.fixture();self.change('reader-contract-qa.json',lambda d:d['motion'][0].update(natural=False))
+  self.assertEqual(self.evaluate()['status'],'BLOCKED')
  def test_approved_film_path_requires_visual_qa_and_hash(self):
   self.fixture();film=json.loads((self.run/'opening-media.json').read_text())
   self.change('opening-system.json',lambda d:d.update(mode='approved_film',film={'path':film['path'],'sha256':film['sha256']},assets=[]))

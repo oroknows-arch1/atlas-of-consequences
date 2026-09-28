@@ -243,7 +243,7 @@ class ProductionRegression(unittest.TestCase):
    'deployment-receipt':{**common,'branch':'test/automated-edition-1','commit':'synthetic','deployment_result':'live','url':'https://review.example/review/test/','base_url':'https://review.example'},
    'source-qa':common,
    'rendered-qa':{**common,'url':'https://review.example/review/test/','observations':[{'device':'fixture'}],'screenshots':shots},
-   'visual-review':{**common,'screenshots':shots},'benchmark-parity':{**common,'screenshots':shots,'contract_version':'atlas-reader-v2','contract_status':'PASS'},'reader-contract-qa':{**common,'version':'atlas-reader-v2','screenshots':shots,'measurements':[{'synthetic':True}],'motion':[{'mode':'verified_image_sequence','skip':True} for _ in range(3)],'canonical':[{'synthetic':True}]}}
+   'visual-review':{**common,'screenshots':shots},'benchmark-parity':{**common,'screenshots':shots,'contract_version':'atlas-reader-v2','contract_status':'PASS'},'reader-contract-qa':{**common,'version':'atlas-reader-v2','screenshots':shots,'measurements':[{'synthetic':True}],'motion':[{'mode':'verified_image_sequence','skip':True,'natural':True} for _ in range(3)],'canonical':[{'synthetic':True}]}}
   for name,value in data.items():state.write(self.run/(name+'.json'),value)
  def evaluate(self):
   from urllib.parse import urlparse

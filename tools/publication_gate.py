@@ -68,6 +68,7 @@ def evaluate(run, fetch=urlopen):
         opening=read(run/'opening-system.json');require_current(run,opening)
         if opening.get('status')!='PASS' or opening.get('mode') not in grammar['opening_modes']: raise ValueError('approved opening system missing')
         if len(contract['motion'])!=len(grammar['viewports']) or any(m.get('mode')!=opening['mode'] or not m.get('skip') for m in contract['motion']): raise ValueError('cinematic opening interaction evidence missing')
+        if opening['mode']=='verified_image_sequence' and any(m.get('natural') is not True for m in contract['motion']): raise ValueError('timed cinematic reveal evidence missing')
         if opening['mode']=='approved_film':
             media=read(run/'opening-media.json');require_current(run,media)
             if media.get('status')!='PASS' or media.get('visual_qa',{}).get('status')!='PASS' or media.get('kind')!='motion_video' or opening.get('film')!={'path':media.get('path'),'sha256':media.get('sha256')}: raise ValueError('verified opening film missing')

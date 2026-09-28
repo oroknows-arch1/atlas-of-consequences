@@ -59,11 +59,19 @@ async function audit(browser,url,capture){
    motion.push({device:v.name,...initial,later:{transform:later.transform,opacity:later.opacity},middle:middle.frameOpacities,final:final.frameOpacities});
   }else errors.push(v.name+': cinematic opening missing');
   if(initial.mode==='approved_film'||initial.mode==='verified_image_sequence'){
-   await page.locator('.skip-film').click();await page.waitForTimeout(1000);
-   if(!await page.locator('.hero').evaluate(e=>e.classList.contains('film-complete')))errors.push(v.name+': skip did not reveal identity');
+   if(initial.mode==='verified_image_sequence'){
+    try{await page.waitForFunction(()=>document.querySelector('.hero')?.dataset.openingState==='completed',null,{timeout:5000});motion[motion.length-1].natural=true;}
+    catch{errors.push(v.name+': timed opening did not complete naturally');}
+   }else if(await page.locator('.skip-film').isVisible())await page.locator('.skip-film').click();
+   const skipPage=await browser.newPage({viewport:{width:v.width,height:v.height}});
+   await skipPage.goto(url,{waitUntil:'domcontentloaded'});
+   await skipPage.locator('.skip-film').click();await skipPage.waitForTimeout(1000);
+   const skipped=await inspectOpening(skipPage);
+   if(await skipPage.locator('.hero').getAttribute('data-opening-state')!=='skipped'||skipped.copyOpacity<.9||!await skipPage.locator('a.enter').isVisible())errors.push(v.name+': skip did not reveal identity/navigation');
+   motion[motion.length-1].skip=true;await skipPage.close();
+   await page.waitForTimeout(1000);
    const revealed=await inspectOpening(page);
-   if(revealed.copyOpacity<.9||!await page.locator('a.enter').isVisible())errors.push(v.name+': identity/navigation not revealed');
-   motion[motion.length-1].skip=true;
+   if(revealed.copyOpacity<.9||!await page.locator('a.enter').isVisible())errors.push(v.name+': natural opening/film reveal incomplete');
   }
   await page.waitForTimeout(700);
   const hero=await inspect(page);await capture(page,`${v.name}-identity`);
