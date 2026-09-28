@@ -5,6 +5,10 @@
     {
       "worker": "factory_coverage",
       "reason": "MARKETS_FINANCE_DOMAIN_GAP: evidence-backed Perspective selection must be repaired before production; VISUAL_COVERAGE_GAP: 16 rendered beats unresolved"
+    },
+    {
+      "worker": "rendered_qa",
+      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/screenshots/phone-edition.png'"
     }
   ],
   "publication_authorized": false
