@@ -1,15 +1,15 @@
 {
   "edition_id": "AET1-WC-002",
-  "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
+  "input_sha256": "940f86c72ebe1724ee8e8ccf40050c3426dbad5ac2760b9748bbaf7727eb1e35",
   "reader_hashes": {
-    "public/review/aet1-wc-002/index.html": "0511c6894f9d278f3eb429e4e893bbd7a46c79984904267512b68bb3b4286d56",
+    "public/review/aet1-wc-002/index.html": "e2b5d12199b22281c30dc3d0525b73c0e4aa865a094a2b102f69eb12ce6225f2",
     "public/review/aet1-wc-002/reader.css": "a698fbeefc571f08aa3fa0c3e544bff75bb2c942ef0276b96c2a359db0a6b041",
     "public/review/aet1-wc-002/reader.js": "8a58059ddc70322a9e4d1a9be004420fd8564b5a5d3fbb3beacbd82ff3630df4"
   },
   "branch": "test/automated-edition-1",
-  "commit": "7de621de2e4a4e0d64c9d8720f61701384e591e3",
+  "commit": "366072cab03715c7f835ceeb39bd9a101c84fce9",
   "target": "srv-dase6m8jo6nc73bdh1ig",
-  "deploy_id": "dep-dat3pd8jo6nc73e4r1tg",
+  "deploy_id": "dep-datbofuk1f9s73fldie0",
   "deployment_result": "live",
   "base_url": "https://atlas-automated-edition-test-1.onrender.com",
   "url": "https://atlas-automated-edition-test-1.onrender.com/review/aet1-wc-002/",

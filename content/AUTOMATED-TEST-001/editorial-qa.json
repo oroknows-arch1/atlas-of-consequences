@@ -1,9 +1,0 @@
-{
-  "edition_id": "AET1-WC-002",
-  "input_sha256": "940f86c72ebe1724ee8e8ccf40050c3426dbad5ac2760b9748bbaf7727eb1e35",
-  "status": "PASS",
-  "defects": [],
-  "copy_sha256": "11736f7c0a051accf3a14eb76f54cadcc9b2f7b9c84166b232504d6a699b251e",
-  "attempt": 1,
-  "verifier": "previous verified copy preserved; new finance route independently model-verified"
-}
