@@ -47,7 +47,9 @@ def assemble(run, output, outline):
         if spec['visual_type']=='deterministic data graphic':
             datum=old_data.get(lead['source_scene'])
             if not datum or datum['source_id'] not in refs:
-                raise ValueError('finance graphic has no evidenced datum')
+                raise ValueError(f'{sid} ({lead["source_scene"]}) cannot be a deterministic data graphic: '
+                                 'no evidenced datum. Choose an editorial contextual still or NONE; '
+                                 'only graphic_eligible_source_scenes may use a graphic')
             graphics[sid]=datum
         scenes.append({'scene_id':sid,'meaning':lead['intent'],'state':'UNCERTAIN' if i==len(outline) else 'KNOWN',
                        'evidence_refs':lead['evidence_refs'],'causal_boundary':lead['boundary'],
@@ -83,17 +85,24 @@ def main(run):
     # Give the writer only already accepted scene copy, exact source scopes and the
     # proposed evidence leads. It cannot import outside investment claims.
     original=read(run/'editorial-copy.json')
+    data=read(run/'visual-data.json')
+    graphic_sources=[lead['source_scene'] for lead in outline
+                     if lead['source_scene'] in data and data[lead['source_scene']]['source_id'] in lead['evidence_refs']]
     context={'candidate':read(run/'selected-edition-candidate.json'),
              'outline':outline,'source_register':read(run/'source-register.json'),
              'previously_verified_copy':{x['source_scene']:original['scenes'][x['source_scene']] for x in outline},
-             'known_financial_gaps':proposal['financial_evidence_missing']}
+             'known_financial_gaps':proposal['financial_evidence_missing'],
+             'graphic_eligible_source_scenes':graphic_sources}
     instruction='''Create one visible Markets/Finance Perspective from the supplied, previously verified evidence.
 Write one scene for each mechanism in outline order. Preserve each lead's exact factual scope and causal
 boundary. Explain measured economic exposure, studied cooling payback and unequal ability to invest or
 protect; identify unknown company exposure and valuation explicitly. Never name a security, predict price,
 recommend buy/hold/sell, or invent investability. The route name is adaptive. Develop readable, sourced
 scene prose and visual purposes. Prefer a distinct contextual asset or sourced data graphic for an
-image-led beat; NONE is permitted only where evidence makes imagery inappropriate. Return JSON schema.'''
+image-led beat. A deterministic data graphic is permitted ONLY for source scenes in
+graphic_eligible_source_scenes; for every other scene choose an editorial contextual still or NONE.
+The visual purpose for a contextual still must describe context, never imply a measured chart.
+NONE is permitted only where evidence makes imagery inappropriate. Return JSON schema.'''
     feedback=[]
     for attempt in range(1,4):
         try:
