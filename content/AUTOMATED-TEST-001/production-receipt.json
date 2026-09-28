@@ -1,15 +1,24 @@
 {
   "edition_id": "AET1-WC-002",
-  "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
-  "state": "ASSEMBLED",
-  "assets_persisted": 10,
-  "reader": "public/review/aet1-wc-002/index.html",
-  "reader_hashes": {
-    "public/review/aet1-wc-002/index.html": "0511c6894f9d278f3eb429e4e893bbd7a46c79984904267512b68bb3b4286d56",
-    "public/review/aet1-wc-002/reader.css": "a698fbeefc571f08aa3fa0c3e544bff75bb2c942ef0276b96c2a359db0a6b041",
-    "public/review/aet1-wc-002/reader.js": "8a58059ddc70322a9e4d1a9be004420fd8564b5a5d3fbb3beacbd82ff3630df4"
-  },
-  "defects": [],
-  "next_stage": "rendered_qa",
-  "publication_authorized": false
+  "input_sha256": "67ff6769437b1bd8bd9af58b8904abeaa8cab85390e4e5788b6baa784564171a",
+  "state": "BLOCKED",
+  "assets_persisted": 11,
+  "reader": null,
+  "defects": [
+    {
+      "worker": "visual_factory",
+      "scene_id": "MF1-S1",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "MF1-S3",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    }
+  ],
+  "next_stage": "repair",
+  "publication_authorized": false,
+  "reader_hashes": {}
 }

@@ -1,7 +1,7 @@
 {
   "edition_id": "AET1-WC-002",
-  "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
-  "status": "PASS",
+  "input_sha256": "67ff6769437b1bd8bd9af58b8904abeaa8cab85390e4e5788b6baa784564171a",
+  "status": "BLOCKED",
   "assets": [
     {
       "scene_id": "H1-S1",
@@ -170,7 +170,36 @@
         "reason": "Verified deterministic value, scope and scene source; rendered review still mandatory"
       },
       "routing_provenance": null
+    },
+    {
+      "scene_id": "MF1-S2",
+      "path": "/assets/aet1-wc-002/mf1-s2.svg",
+      "sha256": "140539346c111ea92473c0bcdf203012f25688ed7ae3af34e343a53df89156d5",
+      "bytes": 796,
+      "provenance": "scene meaning and evidence refs",
+      "provider": "ATLAS_DETERMINISTIC_GRAPHIC",
+      "truth_boundary": "Graphic must display only the measured payback periods and heat-season distribution for the studied garment factories, labeling these as site-specific; may not generalize to all factories.",
+      "status": "PASS",
+      "job_sha256": "eee02f594bbe2a23e65578d841935f34999162085922e74996d805fc92b81673",
+      "visual_qa": {
+        "pass": true,
+        "reason": "Verified deterministic value, scope and scene source; rendered review still mandatory"
+      },
+      "routing_provenance": null
     }
   ],
-  "defects": []
+  "defects": [
+    {
+      "worker": "visual_factory",
+      "scene_id": "MF1-S1",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    },
+    {
+      "worker": "visual_factory",
+      "scene_id": "MF1-S3",
+      "reason": "stale or foreign receipt: input_sha256",
+      "external_action_required": false
+    }
+  ]
 }

@@ -247,6 +247,43 @@
           ]
         }
       ]
+    },
+    "MF1-S1": {
+      "heading": "Income Pressures from Lost Work",
+      "paragraphs": [
+        {
+          "text": "When heat forces workers to miss days or reduce their capacity, the impact is felt directly in the pay packet. Surveyed informal-worker households in Dhaka experienced missed work translating into lost income, with the heat burden carrying through to budgets, nutrition, and essentials. These losses are measured within the surveyed group and cannot be assumed for all households in the region.",
+          "state": "FACT",
+          "evidence_refs": [
+            "IIED-HEAT-2026"
+          ]
+        }
+      ]
+    },
+    "MF1-S2": {
+      "heading": "Investing in Cooling: Measured Returns",
+      "paragraphs": [
+        {
+          "text": "Studies in selected Dhaka-region apparel factories demonstrate that certain cooling investments, such as modern ventilation or cooling installations, can pay for themselves through reductions in heat-related losses within one to four years. These estimates are calculated for the studied sites and reflect specific economic and physical conditions—they are not guaranteed returns for all factories or interventions.",
+          "state": "FACT",
+          "evidence_refs": [
+            "CORNELL-HEAT-2026"
+          ]
+        }
+      ]
+    },
+    "MF1-S3": {
+      "heading": "Who Gets Protection, Who Bears the Heat?",
+      "paragraphs": [
+        {
+          "text": "Adaptation to heat in Dhaka is also a question of distribution. Evidence confirms marked inequality in access to cooling and protective measures: some workers, factories, and households are better able to protect themselves, while others remain highly exposed. This unequal capacity now shapes vulnerability, and future allocation of adaptation costs and benefits remains an open question that current evidence cannot resolve.",
+          "state": "UNCERTAIN",
+          "evidence_refs": [
+            "IIED-HEAT-2026",
+            "WB-HEAT-2025"
+          ]
+        }
+      ]
     }
   }
 }
