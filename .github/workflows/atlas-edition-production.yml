@@ -68,7 +68,15 @@ jobs:
           /tmp/atlas-playwright/node_modules/.bin/playwright install --with-deps chromium
       - name: Fulfil only missing visual beats and assemble reader
         run: python3 tools/produce_edition.py "$RUN_DIR"
+      - name: Persist verified assets and reader before browser regression
+        run: |
+          git add public/assets public/review "$RUN_DIR"
+          if ! git diff --cached --quiet; then
+            git commit -m 'Preserve verified Atlas production stage [skip ci]'
+            git push origin HEAD:test/automated-edition-1
+          fi
       - name: Reject prior reader divergence and design mutations
+        timeout-minutes: 5
         run: node tests/reader-contract.cjs
       - name: Verify source accessibility
         run: python3 tools/source_qa.py "$RUN_DIR"
