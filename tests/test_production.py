@@ -184,7 +184,7 @@ class ProductionRegression(unittest.TestCase):
   self.assertEqual(result['routing_provenance']['route'],'safe_equivalent_primary')
  def test_visual_review_batches_screenshots_and_retries_rate_limits(self):
   review=(state.ROOT/'tools/review_rendered.py').read_text()
-  self.assertIn('for i in range(0,len(candidate),8)',review)
+  self.assertIn('for i in range(0,len(candidate),4)',review)
   self.assertIn('gpt-4o-mini',review)
   self.assertIn('error.code != 429',review)
   self.assertIn('Retry-After',review)

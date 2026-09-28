@@ -114,6 +114,18 @@ def make_graphic(path, scene, requirement, source_ids, datum):
     # SVG is a persistent image binary, but it must carry actual explanation, not a gradient substitute.
     path.write_bytes(svg.encode("utf8"))
 
+def make_beat_graphic(path, intent, datum, source_ids):
+    """A different, source-bound explanation for a different prose beat."""
+    import textwrap
+    if not datum or datum.get('source_id') not in source_ids or not datum.get('value'):
+        raise ValueError('beat graphic lacks verified datum and source')
+    excerpt=intent['beat_text'].split('. ')[0].strip().rstrip('.')
+    lines=textwrap.wrap(excerpt,width=48)
+    if not lines or len(lines)>4:raise ValueError('beat graphic needs a concise evidenced statement')
+    body=''.join(f'<text x="90" y="{465+i*65}">{escape(line)}</text>' for i,line in enumerate(lines))
+    svg=f'''<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900"><rect width="1600" height="900" fill="#15252a"/><path d="M90 230H1510" stroke="#d5874a" stroke-width="5"/><text x="90" y="110" font-family="sans-serif" font-size="26" letter-spacing="5" fill="#ecb98c">ATLASOQUENCE · EXPLANATORY</text><text x="90" y="355" font-family="Georgia,serif" font-size="110" fill="#f3eadb">{escape(datum['value'])}</text><g font-family="Georgia,serif" font-size="48" fill="#f3eadb">{body}</g><text x="90" y="810" font-family="sans-serif" font-size="24" fill="#e2dccf">Scope: {escape(datum['scope'])} · Source: {escape(datum['source_id'])}</text></svg>'''
+    path.write_bytes(svg.encode())
+
 def produce_assets(run, edition, routes, requirements, output):
     generator=os.environ.get("ATLAS_IMAGE_COMMAND")
     verifier=os.environ.get("ATLAS_VISUAL_QA_COMMAND")
@@ -132,14 +144,12 @@ def produce_assets(run, edition, routes, requirements, output):
     previous={};previous_beats=[]
     if old_path.exists():
         old=read(old_path)
-        try:
-            require_current(run,old)
+        if old.get('edition_id')==edition:
             previous={a["scene_id"]:a for a in old.get("assets",[]) if not a.get('beat_id')}
             previous_beats=[a for a in old.get('assets',[]) if a.get('beat_id')
                             and public_path(a['path']).is_file()
                             and digest(public_path(a['path']))==a.get('sha256')
                             and a.get('visual_qa',{}).get('pass') is True]
-        except ValueError: pass
     for spec in requirements:
         if not spec["required"]: continue
         sid=spec["scene_id"]
@@ -210,9 +220,6 @@ def fill_coverage(run, edition, routes, requirements, assets, copy, output):
     defects=[]
     for gap in coverage['gaps']:
         sid=gap['scene'];spec=spec_by_id[sid];beat=gap['beat_id']
-        if 'deterministic' in spec['visual_type'].lower() or spec['visual_type'].upper()=='NONE':
-            defects.append({'worker':'visual_factory',**gap,'reason':'A distinct sourced graphic/data treatment must be planned upstream for this beat'})
-            continue
         intent=gap['intent']
         job={'edition_id':edition,'scene_id':beat,'parent_scene_id':sid,
              'meaning':intent['scene_meaning'],'beat_text':intent['beat_text'],
@@ -221,23 +228,30 @@ def fill_coverage(run, edition, routes, requirements, assets, copy, output):
              'geography':output['geographic_core'],'continuity':context['visual_bible'],
              'locality_evidence':context['locality_evidence'],
              'style':'grounded editorial, distinct composition for this beat, no invented incident or text baked into image'}
-        dest=ROOT/'public/assets'/edition.lower()/(beat.lower()+'.png')
+        deterministic='deterministic' in spec['visual_type'].lower()
+        dest=ROOT/'public/assets'/edition.lower()/(beat.lower()+('.svg' if deterministic else '.png'))
         feedback=''
         try:
-            for attempt in range(1,4):
-                try:
-                    result=request_asset(run,dict(job,attempt=attempt,repair_feedback=feedback),generator,invoke)
-                    source=Path(result['path'])
-                    with Image.open(source) as image:
-                        if image.format!='PNG':raise RuntimeError('image provider must return PNG')
-                    validate_binary(source,True)
-                    check=invoke(verifier,dict(job,asset_path=str(source),provider=result.get('provider')))
-                    if check.get('pass') is not True:raise RuntimeError('visual/evidence QA: '+check.get('reason','failed'))
-                    shutil.copyfile(source,dest)
-                    break
-                except Exception as error:
-                    feedback=str(error)
-                    if requires_external_action(error) or attempt==3:raise
+            if deterministic:
+                datum=read(run/'visual-data.json').get(sid)
+                make_beat_graphic(dest,intent,datum,set(intent['evidence_refs']))
+                result={'provider':'ATLAS_DETERMINISTIC_GRAPHIC','provenance':'distinct evidenced beat treatment'}
+                check={'pass':True,'reason':'Deterministic source, scope and unique beat statement; rendered QA still required'}
+            else:
+                for attempt in range(1,4):
+                    try:
+                        result=request_asset(run,dict(job,attempt=attempt,repair_feedback=feedback),generator,invoke)
+                        source=Path(result['path'])
+                        with Image.open(source) as image:
+                            if image.format!='PNG':raise RuntimeError('image provider must return PNG')
+                        validate_binary(source,True)
+                        check=invoke(verifier,dict(job,asset_path=str(source),provider=result.get('provider')))
+                        if check.get('pass') is not True:raise RuntimeError('visual/evidence QA: '+check.get('reason','failed'))
+                        shutil.copyfile(source,dest)
+                        break
+                    except Exception as error:
+                        feedback=str(error)
+                        if requires_external_action(error) or attempt==3:raise
             assets=[a for a in assets if a.get('beat_id')!=beat]
             assets.append({'scene_id':sid,'beat_id':beat,'path':'/assets/'+edition.lower()+'/'+dest.name,
                            'sha256':digest(dest),'bytes':dest.stat().st_size,

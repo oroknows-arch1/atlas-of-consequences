@@ -8,6 +8,11 @@ from production_state import binding, read, write, require_current
 
 def picture(path): return {"type":"input_image","image_url":"data:image/png;base64,"+base64.b64encode(path.read_bytes()).decode()}
 
+OBJECT=lambda fields:{'type':'object','properties':fields,'required':list(fields),'additionalProperties':False}
+VERDICT_SCHEMA=OBJECT({'status':{'type':'string','enum':['PASS','BLOCKED']},
+  'defects':{'type':'array','items':OBJECT({'worker':{'type':'string'},'reason':{'type':'string'},'scene_id':{'type':'string'}})},
+  'benchmark_parity':{'type':'string','enum':['PASS','BLOCKED']},'parity_reason':{'type':'string'}})
+
 def ask_batch(files, key):
     names=[str(p) for p in files]
     prompt=("Independently inspect this batch of rendered publication screenshots. Files are in this order: "
@@ -30,13 +35,19 @@ def ask_batch(files, key):
         if model not in models: models.append(model)
     last_error=None
     for model in models:
-        body={"model":model,"input":[{"role":"user","content":content}]}
+        body={"model":model,"input":[{"role":"user","content":content}],
+              "max_output_tokens":2000,
+              "text":{"format":{"type":"json_schema","name":"atlas_rendered_review",
+                                "strict":True,"schema":VERDICT_SCHEMA}}}
         request=Request("https://api.openai.com/v1/responses",data=json.dumps(body).encode(),
                         headers={"Authorization":"Bearer "+key,"Content-Type":"application/json"})
         for attempt in range(1,4):
             try:
                 with urlopen(request,timeout=180) as res: response=json.load(res)
+                if response.get('status')!='completed':
+                    raise RuntimeError('incomplete visual review: '+str(response.get('incomplete_details')))
                 text="".join(p.get("text","") for x in response.get("output",[]) for p in x.get("content",[]))
+                if not text:raise RuntimeError('empty visual review output')
                 verdict=json.loads(text)
                 if verdict.get("status") not in {"PASS","BLOCKED"} or verdict.get("benchmark_parity") not in {"PASS","BLOCKED"}:
                     raise RuntimeError("invalid visual review")
@@ -63,7 +74,7 @@ def main(run):
     if not files or not any('benchmark-' in s['path'] and '-route-' in s['path'] for s in shots): raise RuntimeError('candidate views and actual benchmark routes required')
     benchmark=[p for p in files if 'benchmark-' in str(p)]
     candidate=[p for p in files if 'benchmark-' not in str(p)]
-    batches=[candidate[i:i+8] for i in range(0,len(candidate),8)]
+    batches=[candidate[i:i+4] for i in range(0,len(candidate),4)]
     # Every batch receives same-viewport canonical context, not only the first.
     batches=[batch+[p for p in benchmark if any(('phone-' in str(c) and 'phone-' in str(p)) or ('desktop-' in str(c) and 'desktop-' in str(p)) for c in batch) and any(k in str(p) for k in ('opening','identity','menu','route-0'))] for batch in batches]
     verdicts=[ask_batch(batch,key) for batch in batches]

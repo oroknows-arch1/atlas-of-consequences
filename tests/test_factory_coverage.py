@@ -10,6 +10,8 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
 from production_state import INPUTS, ROOT, read, write
 from market_finance import validate as finance_validate
 from visual_coverage import beats_for, plan as visual_plan
+from finance_route_worker import assemble
+from produce_edition import produce_assets
 
 
 class FactoryCoverage(unittest.TestCase):
@@ -78,6 +80,37 @@ class FactoryCoverage(unittest.TestCase):
         after=visual_plan(self.run,self.routes,self.requirements,self.assets,self.copy)
         self.assertGreater(after['required_count'],before['required_count'])
         self.assertGreater(len(after['gaps']),len(before['gaps']))
+
+    def test_finance_assembly_uses_existing_evidence_and_adaptive_name(self):
+        outline=read(self.run/'markets-finance-coverage.json')['proposal']['route_outline'] if (self.run/'markets-finance-coverage.json').exists() else __import__('market_finance').plan(self.run,self.routes)['route_outline']
+        output={'name':'The Cooling Ledger','entry_label':'Finance and cooling',
+                'scenes':[{'mechanism':x['mechanism'],'heading':'Evidence, costs and limits',
+                           'paragraphs':[{'text':x['intent'],'state':'UNCERTAIN' if i==2 else 'FACT',
+                                          'evidence_refs':x['evidence_refs']}],
+                           'visual':{'required':True,'purpose':'Show the evidenced mechanism',
+                                     'truth_boundary':x['boundary'],'visual_type':'editorial contextual still'}}
+                          for i,x in enumerate(outline)]}
+        route,perspective,blocks,requirements,routing,graphics=assemble(self.run,output,outline)
+        self.assertEqual(perspective['primary_domain'],'markets_finance')
+        self.assertEqual(len(route['scenes']),len(outline))
+        self.assertEqual({x['scene_id'] for x in requirements},set(blocks))
+        self.assertFalse(graphics)
+
+    def test_changed_route_binding_keeps_unchanged_verified_binary_jobs(self):
+        source=ROOT/'content/AUTOMATED-TEST-001'
+        shutil.copyfile(source/'asset-persistence-receipt.json',self.run/'asset-persistence-receipt.json')
+        selected=read(self.run/'selected-edition-gate.json')
+        selected['output']['markets_finance_domain']='pending_repair'
+        write(self.run/'selected-edition-gate.json',selected)
+        # The global fingerprint changed, but each old scene job and binary did not.
+        import os
+        from unittest.mock import patch
+        with patch.dict(os.environ,{'ATLAS_IMAGE_COMMAND':'','ATLAS_VISUAL_QA_COMMAND':''}):
+            assets,defects=produce_assets(self.run,'AET1-WC-002',self.routes,self.requirements,
+                                          read(self.run/'selected-edition-candidate.json'))
+        self.assertEqual(defects,[])
+        self.assertEqual(len(assets),10)
+        self.assertEqual({a['sha256'] for a in assets},{a['sha256'] for a in self.assets})
 
 
 if __name__=='__main__':unittest.main()

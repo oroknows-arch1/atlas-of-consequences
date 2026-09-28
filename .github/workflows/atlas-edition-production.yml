@@ -29,7 +29,8 @@ jobs:
     env:
       OPENAI_API_KEY: ${{ secrets.ATLASOQUENCE_GITHUB_PRODUCTION }}
       RENDER_API_KEY: ${{ secrets.ATLASOQUENCE_GITHUB_ACTIONS }}
-      ATLAS_READER_ONLY: '1'
+      ATLAS_READER_ONLY: '0'
+      ATLAS_ALLOW_COVERAGE_GENERATION: '1'
       ATLAS_SAFE_VISUAL_REEXPRESSION: '1'
       ATLAS_IMAGE_COMMAND: python3 tools/image_provider_openai.py
       ATLAS_VISUAL_QA_COMMAND: python3 tools/visual_verifier_openai.py
@@ -59,12 +60,14 @@ jobs:
       - name: Verify production capabilities
         id: capabilities
         run: python3 tools/production_preflight.py "$RUN_DIR"
+      - name: Select and independently verify finance route
+        run: python3 tools/finance_route_worker.py "$RUN_DIR"
       - name: Install browser dependencies
         run: |
           npm install --prefix /tmp/atlas-playwright playwright
           /tmp/atlas-playwright/node_modules/.bin/playwright install --with-deps chromium
-      - name: Reassemble existing verified reader only
-        run: python3 tools/reassemble_reader.py "$RUN_DIR"
+      - name: Fulfil only missing visual beats and assemble reader
+        run: python3 tools/produce_edition.py "$RUN_DIR"
       - name: Reject prior reader divergence and design mutations
         run: node tests/reader-contract.cjs
       - name: Verify source accessibility
