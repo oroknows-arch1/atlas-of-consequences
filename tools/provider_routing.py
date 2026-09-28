@@ -17,7 +17,14 @@ def request_asset(run,job,command,invoke):
         return invoke(command,job)
     path=run/'provider-routing-receipt.json'
     history=read(path) if path.exists() else {**binding(run),'scenes':{}}
-    require_current(run,history)
+    current=binding(run)
+    if history.get('edition_id')!=current['edition_id']:
+        raise ValueError('provider routing receipt belongs to another edition')
+    # The edition fingerprint changes when a verified route is appended. Routing
+    # decisions remain reusable only for the identical scene job, checked below.
+    if history.get('input_sha256')!=current['input_sha256']:
+        history['input_sha256']=current['input_sha256']
+        write(path,history)
     sid=job['scene_id']
     stable={k:v for k,v in job.items() if k not in ('attempt','repair_feedback')}
     key=hashlib.sha256(json.dumps(stable,sort_keys=True).encode()).hexdigest()

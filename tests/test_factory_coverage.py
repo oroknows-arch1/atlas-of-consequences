@@ -12,6 +12,8 @@ from market_finance import validate as finance_validate
 from visual_coverage import beats_for, plan as visual_plan
 from finance_route_worker import assemble
 from produce_edition import produce_assets
+from provider_routing import request_asset
+from production_state import binding
 
 
 class FactoryCoverage(unittest.TestCase):
@@ -111,6 +113,23 @@ class FactoryCoverage(unittest.TestCase):
         self.assertEqual(defects,[])
         self.assertEqual(len(assets),10)
         self.assertEqual({a['sha256'] for a in assets},{a['sha256'] for a in self.assets})
+
+    def test_provider_routing_rebinds_only_identical_jobs_after_route_selection(self):
+        import os
+        from unittest.mock import patch
+        job={'scene_id':'H1-S1','meaning':'Accepted meaning'}
+        old={**binding(self.run),'scenes':{'H1-S1':{'job_sha256':__import__('hashlib').sha256(
+            __import__('json').dumps(job,sort_keys=True).encode()).hexdigest(),
+            'original_job':job,'events':[],'policy_version':'safe-visual-v2'}}}
+        write(self.run/'provider-routing-receipt.json',old)
+        selected=read(self.run/'selected-edition-gate.json');selected['output']['markets_finance_domain']='PASS'
+        write(self.run/'selected-edition-gate.json',selected)
+        with patch.dict(os.environ,{'ATLAS_SAFE_VISUAL_REEXPRESSION':'1'}):
+            result=request_asset(self.run,job,'test-provider',lambda command,payload:{'path':'verified'})
+            self.assertEqual(result['path'],'verified')
+            self.assertEqual(read(self.run/'provider-routing-receipt.json')['input_sha256'],binding(self.run)['input_sha256'])
+            with self.assertRaisesRegex(RuntimeError,'different visual job'):
+                request_asset(self.run,dict(job,meaning='Changed meaning'),'test-provider',lambda *a:None)
 
 
 if __name__=='__main__':unittest.main()

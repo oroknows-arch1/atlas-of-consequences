@@ -9,6 +9,7 @@ from market_finance import DOMAIN, MECHANISMS, SIGNALS, plan, validate
 from production_state import binding, digest, read, require_current, write
 
 SCENE_ID='MF1'
+PLACEHOLDER_NAMES={'adaptive','finance','markets/finance','perspective','untitled'}
 P=object_schema({'text':{'type':'string'},'state':{'type':'string','enum':['FACT','UNCERTAIN','INTERPRETATION']},
                  'evidence_refs':{'type':'array','items':{'type':'string'}}})
 V=object_schema({'required':{'type':'boolean'},'purpose':{'type':'string'},
@@ -75,6 +76,25 @@ def main(run):
         try:
             receipt=read(existing);require_current(run,receipt)
             if receipt['status']=='PASS' and validate(run,read(run/'causal_boundary_gate.json')['output']['routes'])['status']=='PASS':
+                if receipt['name'].strip().lower() in PLACEHOLDER_NAMES:
+                    routes=read(run/'causal_boundary_gate.json')['output']['routes']
+                    name=plan(run,[r for r in routes if r['perspective_id']!=SCENE_ID])['suggested_name']
+                    selected=read(run/'selected-edition-perspectives.json')
+                    for p in selected['output']['perspectives']:
+                        if p['id']==SCENE_ID:p['name']=name
+                    write(run/'selected-edition-perspectives.json',selected)
+                    for path in ('route_scene_generation.json','causal_boundary_gate.json'):
+                        data=read(run/path)
+                        for route in data['output']['routes']:
+                            if route['perspective_id']==SCENE_ID:route['perspective']=name
+                        write(run/path,data)
+                    qa=read(run/'editorial-qa.json')
+                    validate_copy(read(run/'editorial-copy.json'),read(run/'causal_boundary_gate.json')['output']['routes'],
+                                  {s['id'] for s in read(run/'source-register.json')})
+                    qa.update(binding(run));qa['copy_sha256']=digest(run/'editorial-copy.json')
+                    write(run/'editorial-qa.json',qa)
+                    receipt.update(binding(run));receipt['name']=name;write(existing,receipt)
+                    validate(run,read(run/'causal_boundary_gate.json')['output']['routes'])
                 return receipt
         except (KeyError,ValueError):pass
     routes=read(run/'causal_boundary_gate.json')['output']['routes']
@@ -107,6 +127,8 @@ NONE is permitted only where evidence makes imagery inappropriate. Return JSON s
     for attempt in range(1,4):
         try:
             output=model_json(instruction+'\nRepair feedback: '+json.dumps(feedback),context,SCHEMA)
+            if output['name'].strip().lower() in PLACEHOLDER_NAMES:
+                output['name']=proposal['suggested_name']
             route,perspective,blocks,requirements,routing,graphics=assemble(run,output,outline)
         except (ValueError, KeyError, TypeError) as error:
             feedback=[str(error)]
