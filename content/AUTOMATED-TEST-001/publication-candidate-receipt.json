@@ -1,31 +1,7 @@
 {
   "edition_id": "AET1-WC-002",
-  "status": "BLOCKED",
-  "known_required_items": [
-    {
-      "worker": "visual-review",
-      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/visual-review.json'"
-    },
-    {
-      "worker": "benchmark-parity",
-      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/benchmark-parity.json'"
-    },
-    {
-      "worker": "visual-review",
-      "reason": "different reader build was checked"
-    },
-    {
-      "worker": "benchmark-parity",
-      "reason": "different reader build was checked"
-    },
-    {
-      "worker": "reader_contract",
-      "reason": "reader grammar parity missing or obsolete"
-    },
-    {
-      "worker": "rendered_qa",
-      "reason": "visual verdict references different screenshots"
-    }
-  ],
-  "publication_authorized": false
+  "status": "PUBLICATION_CANDIDATE",
+  "known_required_items": [],
+  "publication_authorized": false,
+  "review_url": "https://atlas-automated-edition-test-1.onrender.com/review/aet1-wc-002/"
 }
