@@ -22,11 +22,35 @@ class FactoryCoverage(unittest.TestCase):
         self.run=Path(self.temp.name)
         source=ROOT/'content/AUTOMATED-TEST-001'
         for name in INPUTS:shutil.copyfile(source/name,self.run/name)
+        # Construct the preselection state from the current accepted edition.
+        # Production may append routes and assets after these regression tests
+        # are written; that progress must not mutate the negative fixture.
+        for name in ('route_scene_generation.json','causal_boundary_gate.json'):
+            data=read(self.run/name)
+            data['output']['routes']=[r for r in data['output']['routes'] if r['perspective_id']!='MF1']
+            write(self.run/name,data)
+        data=read(self.run/'selected-edition-perspectives.json')
+        data['output']['perspectives']=[p for p in data['output']['perspectives'] if p['id']!='MF1']
+        write(self.run/'selected-edition-perspectives.json',data)
+        for name,key in (('visual_requirements.json','requirements'),('image_provider_routing.json','visuals')):
+            data=read(self.run/name)
+            data['output'][key]=[item for item in data['output'][key] if not item['scene_id'].startswith('MF1-')]
+            write(self.run/name,data)
+        data=read(self.run/'visual-data.json')
+        for key in list(data):
+            if key.startswith('MF1-'):del data[key]
+        write(self.run/'visual-data.json',data)
+        data=read(self.run/'selected-edition-gate.json')
+        data['output']['markets_finance_domain']='pending_repair'
+        write(self.run/'selected-edition-gate.json',data)
         shutil.copyfile(source/'emradar-candidate-sweep.json',self.run/'emradar-candidate-sweep.json')
         self.routes=read(self.run/'causal_boundary_gate.json')['output']['routes']
         self.requirements=read(self.run/'visual_requirements.json')['output']['requirements']
-        self.assets=read(source/'asset-persistence-receipt.json')['assets']
+        self.assets=[a for a in read(source/'asset-persistence-receipt.json')['assets'] if not a['scene_id'].startswith('MF1-')]
         self.copy=read(source/'editorial-copy.json')
+        self.copy['scenes']={sid:scene for sid,scene in self.copy['scenes'].items() if not sid.startswith('MF1-')}
+        from market_finance import plan
+        write(self.run/'markets-finance-coverage.json',{'proposal':plan(self.run,self.routes)})
 
     def test_emradar_cannot_pass_with_finance_mentions_buried_in_other_routes(self):
         with self.assertRaisesRegex(ValueError,'MARKETS_FINANCE_DOMAIN_GAP'):
