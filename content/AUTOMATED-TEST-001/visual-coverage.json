@@ -14,7 +14,8 @@
         "evidence_refs": [
           "WB-HEAT-2025"
         ],
-        "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact."
+        "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact.",
+        "visual_type": "contextual editorial still or sourced city heat imagery"
       },
       "asset_path": "/assets/aet1-wc-002/h1-s1.png",
       "asset_sha256": "7d9343b5cc2d3bb0d5c72f06a1ffd7d4da04fdb69341391c5f92bbbbf07389b4"
@@ -30,7 +31,8 @@
         "evidence_refs": [
           "WB-HEAT-2025"
         ],
-        "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact."
+        "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact.",
+        "visual_type": "contextual editorial still or sourced city heat imagery"
       },
       "asset_path": "/assets/aet1-wc-002/h1-s1-b2.png",
       "asset_sha256": "1076aa3af71c414b3ca163df647876aabc8a7bb513be3c11b75168266a0b7a7c"
@@ -46,7 +48,8 @@
         "evidence_refs": [
           "WB-HEAT-2025"
         ],
-        "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact."
+        "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact.",
+        "visual_type": "contextual editorial still or sourced city heat imagery"
       },
       "asset_path": "/assets/aet1-wc-002/h1-s1-b3.png",
       "asset_sha256": "b11c406f86d6b5aca7e646531a7f1b8df21fd86dca467dfe2a0b06dabe57eb10"
@@ -62,7 +65,8 @@
         "evidence_refs": [
           "WB-HEAT-2025"
         ],
-        "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data."
+        "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data.",
+        "visual_type": "deterministic explanatory graphic"
       },
       "asset_path": "/assets/aet1-wc-002/h1-s2.svg",
       "asset_sha256": "945b50aee121844101ede9737cbcade185bcd1860a6afcb38d0d5570349b23eb"
@@ -78,7 +82,8 @@
         "evidence_refs": [
           "WB-HEAT-2025"
         ],
-        "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data."
+        "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data.",
+        "visual_type": "deterministic explanatory graphic"
       },
       "asset_path": "/assets/aet1-wc-002/h1-s2-b2.svg",
       "asset_sha256": "0dd2780426db5e1a0730bd45b99014172d6ff0a43c5c3b81c8e851996d435c07"
@@ -94,7 +99,8 @@
         "evidence_refs": [
           "WB-HEAT-2025"
         ],
-        "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data."
+        "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data.",
+        "visual_type": "deterministic explanatory graphic"
       },
       "asset_path": "/assets/aet1-wc-002/h1-s2-b3.svg",
       "asset_sha256": "04e8d063416aaf2002c167aad2f1f5a6d3aa15fae02069b69a0b58daecb9bb2a"
@@ -111,7 +117,8 @@
           "RMG-WORKER-2025",
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant."
+        "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant.",
+        "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/h2-s1.png",
       "asset_sha256": "27e07ada18ce8be654ca134ef24b37f06efaed65cb18460287607999e163e8af"
@@ -128,7 +135,8 @@
           "RMG-WORKER-2025",
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant."
+        "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant.",
+        "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/h2-s1-b2.png",
       "asset_sha256": "6d2868074e66f90daab33c1145b71914d564736707ab1e2a4d014220eaf9b8d2"
@@ -145,7 +153,8 @@
           "RMG-WORKER-2025",
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant."
+        "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant.",
+        "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/h2-s1-b3.png",
       "asset_sha256": "dab540c7751fd2949d706ffc92825b6437fa71abda098e2a0061b6eb63994303"
@@ -161,7 +170,8 @@
         "evidence_refs": [
           "CORNELL-HEAT-2026"
         ],
-        "truth_boundary": "Do not depict a named factory unless sourced media supports it."
+        "truth_boundary": "Do not depict a named factory unless sourced media supports it.",
+        "visual_type": "contextual apparel-factory still"
       },
       "asset_path": "/assets/aet1-wc-002/h2-s2.png",
       "asset_sha256": "497e05fa16b2213f2b38ebaace3b96100e48f089597d97ba5548fd6e781103b6"
@@ -177,7 +187,8 @@
         "evidence_refs": [
           "CORNELL-HEAT-2026"
         ],
-        "truth_boundary": "Do not depict a named factory unless sourced media supports it."
+        "truth_boundary": "Do not depict a named factory unless sourced media supports it.",
+        "visual_type": "contextual apparel-factory still"
       },
       "asset_path": "/assets/aet1-wc-002/h2-s2-b2.png",
       "asset_sha256": "211c430c899ceb3fb5439350e70a2b3a0f85738c0d0140a42ee3edfdd8ebbb06"
@@ -193,7 +204,8 @@
         "evidence_refs": [
           "CORNELL-HEAT-2026"
         ],
-        "truth_boundary": "Do not depict a named factory unless sourced media supports it."
+        "truth_boundary": "Do not depict a named factory unless sourced media supports it.",
+        "visual_type": "contextual apparel-factory still"
       },
       "asset_path": "/assets/aet1-wc-002/h2-s2-b3.png",
       "asset_sha256": "66c21ce9b52ed76519d215ff6ce0c3b5f23a9ce9ef9e42e2d3e43ca3eecbdf20"
@@ -209,7 +221,8 @@
         "evidence_refs": [
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case."
+        "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case.",
+        "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/h2-s3.png",
       "asset_sha256": "7a130665b148d1f4630821dee6736c1da27a2b56a9b3d09e6ee61ba3fd9d7eaf"
@@ -225,7 +238,8 @@
         "evidence_refs": [
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case."
+        "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case.",
+        "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/h2-s3-b2.png",
       "asset_sha256": "e1a076e73ae994914b6bc53b5068556e287b46daca0878dac797e2d219aeb842"
@@ -241,7 +255,8 @@
         "evidence_refs": [
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case."
+        "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case.",
+        "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/h2-s3-b3.png",
       "asset_sha256": "58a6e31f4e3489a4581e80dc5625e3f74ebdf1eee9d4fcd293f019cfd9c1e528"
@@ -249,50 +264,53 @@
     "H3-S1-B1": {
       "perspective": "H3",
       "scene": "H3-S1",
-      "required": false,
+      "required": true,
       "intent": {
         "scene_meaning": "Lost workdays turn heat exposure into household income pressure.",
         "beat_text": "When heat forces workers to miss days or reduce their capacity, the impact is felt directly in the pay packet.",
-        "purpose": "Income consequence is better carried by text/data than invented money imagery.",
+        "purpose": "Contextualize the evidenced scene: Lost workdays turn heat exposure into household income pressure.",
         "evidence_refs": [
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Use deterministic data treatment if visualized."
+        "truth_boundary": "Do not extrapolate surveyed percentage losses to all Dhaka households.",
+        "visual_type": "editorial contextual still"
       },
-      "asset_path": null,
-      "asset_sha256": null
+      "asset_path": "/assets/aet1-wc-002/h3-s1-b1.png",
+      "asset_sha256": "f55931820aa867c340004fe5fc74c49159e3b6b1b193a0e261c930c16cf0812b"
     },
     "H3-S1-B2": {
       "perspective": "H3",
       "scene": "H3-S1",
-      "required": false,
+      "required": true,
       "intent": {
         "scene_meaning": "Lost workdays turn heat exposure into household income pressure.",
         "beat_text": "Surveyed informal-worker households in Dhaka experienced missed work translating into lost income, with the heat burden carrying through to budgets, nutrition, and essentials.",
-        "purpose": "Income consequence is better carried by text/data than invented money imagery.",
+        "purpose": "Contextualize the evidenced scene: Lost workdays turn heat exposure into household income pressure.",
         "evidence_refs": [
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Use deterministic data treatment if visualized."
+        "truth_boundary": "Do not extrapolate surveyed percentage losses to all Dhaka households.",
+        "visual_type": "editorial contextual still"
       },
-      "asset_path": null,
-      "asset_sha256": null
+      "asset_path": "/assets/aet1-wc-002/h3-s1-b2.png",
+      "asset_sha256": "ab7fe846bd401c72d4d0b761e3d530d315279a8a5312c7f2b2221571510423d2"
     },
     "H3-S1-B3": {
       "perspective": "H3",
       "scene": "H3-S1",
-      "required": false,
+      "required": true,
       "intent": {
         "scene_meaning": "Lost workdays turn heat exposure into household income pressure.",
         "beat_text": "These losses are measured within the surveyed group and cannot be assumed for all households in the region.",
-        "purpose": "Income consequence is better carried by text/data than invented money imagery.",
+        "purpose": "Contextualize the evidenced scene: Lost workdays turn heat exposure into household income pressure.",
         "evidence_refs": [
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Use deterministic data treatment if visualized."
+        "truth_boundary": "Do not extrapolate surveyed percentage losses to all Dhaka households.",
+        "visual_type": "editorial contextual still"
       },
-      "asset_path": null,
-      "asset_sha256": null
+      "asset_path": "/assets/aet1-wc-002/h3-s1-b3.png",
+      "asset_sha256": "37763d3c2d102789031a840a17ecf5a16fd60259e24804b0ebcbfe50ab14354e"
     },
     "H3-S2-B1": {
       "perspective": "H3",
@@ -305,7 +323,8 @@
         "evidence_refs": [
           "WB-HEAT-2025"
         ],
-        "truth_boundary": "Clearly label estimates and source period."
+        "truth_boundary": "Clearly label estimates and source period.",
+        "visual_type": "deterministic data graphic"
       },
       "asset_path": "/assets/aet1-wc-002/h3-s2.svg",
       "asset_sha256": "325fcab676d3503832b836cd4a6ccc958ad228b804986ba9438e3373e26209bf"
@@ -321,7 +340,8 @@
         "evidence_refs": [
           "WB-HEAT-2025"
         ],
-        "truth_boundary": "Clearly label estimates and source period."
+        "truth_boundary": "Clearly label estimates and source period.",
+        "visual_type": "deterministic data graphic"
       },
       "asset_path": "/assets/aet1-wc-002/h3-s2-b2.svg",
       "asset_sha256": "d0c19adca6a07fa0b0d0c3aace6f4ec68a6fa72e5f09c1869e701b0ef383deec"
@@ -338,7 +358,8 @@
           "CORNELL-HEAT-2026",
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Contextual home scene only; no invented named household or false documentary specificity."
+        "truth_boundary": "Contextual home scene only; no invented named household or false documentary specificity.",
+        "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/h4-s1.png",
       "asset_sha256": "ecf4d75bb4e7e6801157f4e71a3de4d7b8a907a74aab8c4b217dc3bcaae947ef"
@@ -355,7 +376,8 @@
           "CORNELL-HEAT-2026",
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Contextual home scene only; no invented named household or false documentary specificity."
+        "truth_boundary": "Contextual home scene only; no invented named household or false documentary specificity.",
+        "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/h4-s1-b2.png",
       "asset_sha256": "5f771bcfe53eecbdb2932247f4b216c343a0c2f81385fb837b651e49741ed486"
@@ -363,53 +385,56 @@
     "H4-S2-B1": {
       "perspective": "H4",
       "scene": "H4-S2",
-      "required": false,
+      "required": true,
       "intent": {
         "scene_meaning": "Recovery depends on housing, cooling access, time and household resources.",
         "beat_text": "Not all Dhaka households cope with heat in the same way or have equal access to resources that could lessen its toll.",
-        "purpose": "Avoid over-specifying unresolved household coping behavior.",
+        "purpose": "Contextualize the evidenced scene: Recovery depends on housing, cooling access, time and household resources.",
         "evidence_refs": [
           "CORNELL-HEAT-2026",
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "No factual visual claim beyond supported unequal cooling/recovery capacity."
+        "truth_boundary": "Evidence supports unequal capacity to cope, not a universal household experience.",
+        "visual_type": "editorial contextual still"
       },
-      "asset_path": null,
-      "asset_sha256": null
+      "asset_path": "/assets/aet1-wc-002/h4-s2-b1.png",
+      "asset_sha256": "2ccc7f83561f7b6dfd0591a820b3ccc754f5af13874751631f667e49bbee8f9f"
     },
     "H4-S2-B2": {
       "perspective": "H4",
       "scene": "H4-S2",
-      "required": false,
+      "required": true,
       "intent": {
         "scene_meaning": "Recovery depends on housing, cooling access, time and household resources.",
         "beat_text": "Studies show that recovery from heat exposure depends on factors like quality of housing, ability to afford cooling or ventilation, household size, and schedules. Some surveyed households report significant difficulty in recuperating before the next day’s heat arrives.",
-        "purpose": "Avoid over-specifying unresolved household coping behavior.",
+        "purpose": "Contextualize the evidenced scene: Recovery depends on housing, cooling access, time and household resources.",
         "evidence_refs": [
           "CORNELL-HEAT-2026",
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "No factual visual claim beyond supported unequal cooling/recovery capacity."
+        "truth_boundary": "Evidence supports unequal capacity to cope, not a universal household experience.",
+        "visual_type": "editorial contextual still"
       },
-      "asset_path": null,
-      "asset_sha256": null
+      "asset_path": "/assets/aet1-wc-002/h4-s2-b2.png",
+      "asset_sha256": "cc990027a63f3d195190b4713133b656140e9bc86ff89ad655a2a900114aa4af"
     },
     "H4-S2-B3": {
       "perspective": "H4",
       "scene": "H4-S2",
-      "required": false,
+      "required": true,
       "intent": {
         "scene_meaning": "Recovery depends on housing, cooling access, time and household resources.",
         "beat_text": "However, evidence does not cover every strategy or expenditure for all localities, leaving unresolved how coping varies across the city.",
-        "purpose": "Avoid over-specifying unresolved household coping behavior.",
+        "purpose": "Contextualize the evidenced scene: Recovery depends on housing, cooling access, time and household resources.",
         "evidence_refs": [
           "CORNELL-HEAT-2026",
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "No factual visual claim beyond supported unequal cooling/recovery capacity."
+        "truth_boundary": "Evidence supports unequal capacity to cope, not a universal household experience.",
+        "visual_type": "editorial contextual still"
       },
-      "asset_path": null,
-      "asset_sha256": null
+      "asset_path": "/assets/aet1-wc-002/h4-s2-b3.png",
+      "asset_sha256": "39173e09a81f8c888f566dd6b4609bf034afc432af1861d25e1aaf2171726bcd"
     },
     "H5-S1-B1": {
       "perspective": "H5",
@@ -422,7 +447,8 @@
         "evidence_refs": [
           "UNICEF-EDU-2025"
         ],
-        "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced."
+        "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced.",
+        "visual_type": "sourced media or contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/h5-s1.png",
       "asset_sha256": "5d6d6d077a81c112eb748a1de64af42ea3c7ac87e8ad008e7fa4dff3cead86c9"
@@ -438,7 +464,8 @@
         "evidence_refs": [
           "UNICEF-EDU-2025"
         ],
-        "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced."
+        "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced.",
+        "visual_type": "sourced media or contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/h5-s1-b2.png",
       "asset_sha256": "eafa38ce315fd3b7972a9059be625f353b8297414590fe7c85b018a768382c77"
@@ -454,7 +481,8 @@
         "evidence_refs": [
           "UNICEF-EDU-2025"
         ],
-        "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced."
+        "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced.",
+        "visual_type": "sourced media or contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/h5-s1-b3.png",
       "asset_sha256": "3067c44530e9e088ad95d29239598e9d32989a714d67b5bf08aa43040a657150"
@@ -462,34 +490,36 @@
     "H5-S2-B1": {
       "perspective": "H5",
       "scene": "H5-S2",
-      "required": false,
+      "required": true,
       "intent": {
         "scene_meaning": "School interruption shifts part of the burden back into households and children's time.",
         "beat_text": "When schools close due to heat, some of the resulting burden shifts back to households, affecting childcare and the use of children's time.",
-        "purpose": "Household consequence remains partly unresolved.",
+        "purpose": "Contextualize the evidenced scene: School interruption shifts part of the burden back into households and children's time.",
         "evidence_refs": [
           "UNICEF-EDU-2025"
         ],
-        "truth_boundary": "Do not invent childcare/learning-loss scene as documentary evidence."
+        "truth_boundary": "Do not quantify household childcare, learning loss or income effects without specific evidence.",
+        "visual_type": "editorial contextual still"
       },
-      "asset_path": null,
-      "asset_sha256": null
+      "asset_path": "/assets/aet1-wc-002/h5-s2-b1.png",
+      "asset_sha256": "fdf3072c5acee43ddc800a1d80ab66e9f908f9816828bd82475dffb1233bae3e"
     },
     "H5-S2-B2": {
       "perspective": "H5",
       "scene": "H5-S2",
-      "required": false,
+      "required": true,
       "intent": {
         "scene_meaning": "School interruption shifts part of the burden back into households and children's time.",
         "beat_text": "However, there is not enough direct evidence to quantify impacts on household income, learning loss, or childcare arrangements for individual families. The ripple effects of interruptions remain an area for further research.",
-        "purpose": "Household consequence remains partly unresolved.",
+        "purpose": "Contextualize the evidenced scene: School interruption shifts part of the burden back into households and children's time.",
         "evidence_refs": [
           "UNICEF-EDU-2025"
         ],
-        "truth_boundary": "Do not invent childcare/learning-loss scene as documentary evidence."
+        "truth_boundary": "Do not quantify household childcare, learning loss or income effects without specific evidence.",
+        "visual_type": "editorial contextual still"
       },
-      "asset_path": null,
-      "asset_sha256": null
+      "asset_path": "/assets/aet1-wc-002/h5-s2-b2.png",
+      "asset_sha256": "1d47a3d2d37fed97a660bc4bac27bd1675dca976a62db8ded2aa4ccb2723e10b"
     },
     "H6-S1-B1": {
       "perspective": "H6",
@@ -503,7 +533,8 @@
           "CORNELL-HEAT-2026",
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Distinguish examples/recommendations from installed systems at a named site."
+        "truth_boundary": "Distinguish examples/recommendations from installed systems at a named site.",
+        "visual_type": "explanatory/contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/h6-s1.png",
       "asset_sha256": "3200e0ea9a826934b4b37121a95e1319454d8a80ce063c0b063944d4dd1b7520"
@@ -520,7 +551,8 @@
           "CORNELL-HEAT-2026",
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Distinguish examples/recommendations from installed systems at a named site."
+        "truth_boundary": "Distinguish examples/recommendations from installed systems at a named site.",
+        "visual_type": "explanatory/contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/h6-s1-b2.png",
       "asset_sha256": "6abd85fc5bbf4c49bda2da1d9af90e850a50cc1a1a7344ffa3aaf5703aaf8e95"
@@ -536,7 +568,8 @@
         "evidence_refs": [
           "CORNELL-HEAT-2026"
         ],
-        "truth_boundary": "Use sourced numbers in deterministic graphic; no guarantee framing."
+        "truth_boundary": "Use sourced numbers in deterministic graphic; no guarantee framing.",
+        "visual_type": "deterministic data graphic"
       },
       "asset_path": "/assets/aet1-wc-002/h6-s2.svg",
       "asset_sha256": "140539346c111ea92473c0bcdf203012f25688ed7ae3af34e343a53df89156d5"
@@ -552,7 +585,8 @@
         "evidence_refs": [
           "CORNELL-HEAT-2026"
         ],
-        "truth_boundary": "Use sourced numbers in deterministic graphic; no guarantee framing."
+        "truth_boundary": "Use sourced numbers in deterministic graphic; no guarantee framing.",
+        "visual_type": "deterministic data graphic"
       },
       "asset_path": "/assets/aet1-wc-002/h6-s2-b2.svg",
       "asset_sha256": "4e794351d33c19975c074850bea8d852333508621a92370a2f1b512eaf45d92c"
@@ -560,36 +594,38 @@
     "H6-S3-B1": {
       "perspective": "H6",
       "scene": "H6-S3",
-      "required": false,
+      "required": true,
       "intent": {
         "scene_meaning": "Adaptation is also a distribution question: who can afford protection and who bears the residual heat.",
         "beat_text": "Adaptation to heat in Dhaka is also a question of distribution. Evidence confirms marked inequality in access to cooling and protective measures: some workers, factories, and households are better able to protect themselves, while others remain highly exposed.",
-        "purpose": "Leave unresolved distribution question primarily to text/evidence.",
+        "purpose": "Contextualize the evidenced scene: Adaptation is also a distribution question: who can afford protection and who bears the residual heat.",
         "evidence_refs": [
           "IIED-HEAT-2026",
           "WB-HEAT-2025"
         ],
-        "truth_boundary": "Do not symbolize poverty or suffering with unsupported imagery."
+        "truth_boundary": "Frame as evidenced inequality/exposure and policy question; do not assign motives or predict policy outcomes.",
+        "visual_type": "editorial contextual still"
       },
-      "asset_path": null,
-      "asset_sha256": null
+      "asset_path": "/assets/aet1-wc-002/h6-s3-b1.png",
+      "asset_sha256": "279c02e70dd54c21c758e75dc0086b5176ca4cb20ed5109bac0b95aad5ee35c8"
     },
     "H6-S3-B2": {
       "perspective": "H6",
       "scene": "H6-S3",
-      "required": false,
+      "required": true,
       "intent": {
         "scene_meaning": "Adaptation is also a distribution question: who can afford protection and who bears the residual heat.",
         "beat_text": "This unequal capacity now shapes vulnerability, and future allocation of adaptation costs and benefits remains an open question that current evidence cannot resolve.",
-        "purpose": "Leave unresolved distribution question primarily to text/evidence.",
+        "purpose": "Contextualize the evidenced scene: Adaptation is also a distribution question: who can afford protection and who bears the residual heat.",
         "evidence_refs": [
           "IIED-HEAT-2026",
           "WB-HEAT-2025"
         ],
-        "truth_boundary": "Do not symbolize poverty or suffering with unsupported imagery."
+        "truth_boundary": "Frame as evidenced inequality/exposure and policy question; do not assign motives or predict policy outcomes.",
+        "visual_type": "editorial contextual still"
       },
-      "asset_path": null,
-      "asset_sha256": null
+      "asset_path": "/assets/aet1-wc-002/h6-s3-b2.png",
+      "asset_sha256": "30f2fd08bc2e5d6719060d102199193478aa76444864ce75df5dea4bdc228012"
     },
     "MF1-S1-B1": {
       "perspective": "MF1",
@@ -602,7 +638,8 @@
         "evidence_refs": [
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Visual should represent conditions and adaptation efforts seen in Dhaka informal settings, not quantify losses or extend survey findings to unsampled groups."
+        "truth_boundary": "Visual should represent conditions and adaptation efforts seen in Dhaka informal settings, not quantify losses or extend survey findings to unsampled groups.",
+        "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/mf1-s1.png",
       "asset_sha256": "9b5ed79e61bf33cec76817c6f792189835edfc5291730aab0e0a87b342a4e193"
@@ -618,7 +655,8 @@
         "evidence_refs": [
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Visual should represent conditions and adaptation efforts seen in Dhaka informal settings, not quantify losses or extend survey findings to unsampled groups."
+        "truth_boundary": "Visual should represent conditions and adaptation efforts seen in Dhaka informal settings, not quantify losses or extend survey findings to unsampled groups.",
+        "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/mf1-s1-b2.png",
       "asset_sha256": "ae163e99849e1c10bbc374a30375273e2ddf556ae3199f0c0fe2bf844de4a51c"
@@ -634,7 +672,8 @@
         "evidence_refs": [
           "IIED-HEAT-2026"
         ],
-        "truth_boundary": "Visual should represent conditions and adaptation efforts seen in Dhaka informal settings, not quantify losses or extend survey findings to unsampled groups."
+        "truth_boundary": "Visual should represent conditions and adaptation efforts seen in Dhaka informal settings, not quantify losses or extend survey findings to unsampled groups.",
+        "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/mf1-s1-b3.png",
       "asset_sha256": "adf6eac4d70af4944e30e5a5e0131ec1efa04162a8c56371d93f237e75623331"
@@ -650,7 +689,8 @@
         "evidence_refs": [
           "CORNELL-HEAT-2026"
         ],
-        "truth_boundary": "Graphic must display only the measured payback periods and heat-season distribution for the studied garment factories, labeling these as site-specific; may not generalize to all factories."
+        "truth_boundary": "Graphic must display only the measured payback periods and heat-season distribution for the studied garment factories, labeling these as site-specific; may not generalize to all factories.",
+        "visual_type": "deterministic data graphic"
       },
       "asset_path": "/assets/aet1-wc-002/mf1-s2.svg",
       "asset_sha256": "140539346c111ea92473c0bcdf203012f25688ed7ae3af34e343a53df89156d5"
@@ -666,7 +706,8 @@
         "evidence_refs": [
           "CORNELL-HEAT-2026"
         ],
-        "truth_boundary": "Graphic must display only the measured payback periods and heat-season distribution for the studied garment factories, labeling these as site-specific; may not generalize to all factories."
+        "truth_boundary": "Graphic must display only the measured payback periods and heat-season distribution for the studied garment factories, labeling these as site-specific; may not generalize to all factories.",
+        "visual_type": "deterministic data graphic"
       },
       "asset_path": "/assets/aet1-wc-002/mf1-s2-b2.svg",
       "asset_sha256": "4e794351d33c19975c074850bea8d852333508621a92370a2f1b512eaf45d92c"
@@ -683,7 +724,8 @@
           "IIED-HEAT-2026",
           "WB-HEAT-2025"
         ],
-        "truth_boundary": "Visual should illustrate real, contrasting access to cooling but must not display inferred statistics or staged comparisons."
+        "truth_boundary": "Visual should illustrate real, contrasting access to cooling but must not display inferred statistics or staged comparisons.",
+        "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/mf1-s3.png",
       "asset_sha256": "b71ad5fc2bffae4c892ea64111acedf2416365edca5b7f82d7e50f112b4dbf8e"
@@ -700,14 +742,340 @@
           "IIED-HEAT-2026",
           "WB-HEAT-2025"
         ],
-        "truth_boundary": "Visual should illustrate real, contrasting access to cooling but must not display inferred statistics or staged comparisons."
+        "truth_boundary": "Visual should illustrate real, contrasting access to cooling but must not display inferred statistics or staged comparisons.",
+        "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aet1-wc-002/mf1-s3-b2.png",
       "asset_sha256": "a0675a468f9059761de3d28b17a89451fef528ffb974fae0c9201c69397e3c67"
+    },
+    "reality-scene-B1": {
+      "perspective": "reality",
+      "scene": "reality-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "When the Heat Comes Inside",
+        "beat_text": "Dhaka, Bangladesh faces a heat transformation: what was once seen as an episodic weather hazard now persists as a labor, health, household, and economic constraint.",
+        "purpose": "Illustrate the sourced opening passage without staging a documented event.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/reality-scene-b1.png",
+      "asset_sha256": "a1a021bdfa5532ad566e7085fd5a187eb80ca466aa2fcf1b0e31c63ab5158e09"
+    },
+    "reality-scene-B2": {
+      "perspective": "reality",
+      "scene": "reality-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "When the Heat Comes Inside",
+        "beat_text": "Recent 2026 studies reveal that heat is no longer limited to rare, extreme hot days but has become a persistent burden, directly affecting daily life and the functioning of key sectors.",
+        "purpose": "Illustrate the sourced opening passage without staging a documented event.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/reality-scene-b2.png",
+      "asset_sha256": "8aebc6236f3cc64d16b8eb8337ad8b46bc5582b6150f8df6c4f7c55c0cd54be9"
+    },
+    "reality-scene-B3": {
+      "perspective": "reality",
+      "scene": "reality-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "When the Heat Comes Inside",
+        "beat_text": "Across the city’s workers, families, and children, the impacts reach from the factory floor and rickshaw routes, into crowded homes, and all the way to classrooms.",
+        "purpose": "Illustrate the sourced opening passage without staging a documented event.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/reality-scene-b3.png",
+      "asset_sha256": "ec30999802d5535d9783b1dcb1b553f13e302f88bee8165b6c158302ce2cff62"
+    },
+    "reality-scene-B4": {
+      "perspective": "reality",
+      "scene": "reality-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "When the Heat Comes Inside",
+        "beat_text": "This change is anchored in extensive local and national analysis covering health, work, and household resilience.",
+        "purpose": "Illustrate the sourced opening passage without staging a documented event.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/reality-scene-b4.png",
+      "asset_sha256": "54a6bc86d545100708251b8168ea3303717319f438208d17e5db940fb5339d31"
+    },
+    "reality-scene-B5": {
+      "perspective": "reality",
+      "scene": "reality-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "When the Heat Comes Inside",
+        "beat_text": "Surveys of Dhaka households and workplaces, interviews with garment workers, national workday modeling, and records of educational disruption draw a picture covering both formal and informal sectors.",
+        "purpose": "Illustrate the sourced opening passage without staging a documented event.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/reality-scene-b5.png",
+      "asset_sha256": "f3b9b45c2d092020b522277df84ddaf5847996ad38a93e4510d0c99303309ab5"
+    },
+    "reality-scene-B6": {
+      "perspective": "reality",
+      "scene": "reality-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "When the Heat Comes Inside",
+        "beat_text": "Yet, this evidence tracks specifically surveyed people, places, and periods; findings cannot be universally applied to all individuals or settings in Bangladesh.",
+        "purpose": "Illustrate the sourced opening passage without staging a documented event.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/reality-scene-b6.png",
+      "asset_sha256": "42a4f088964ca9211f912b332ebf617c30e53ec2220891d07b2a84c15baa1de4"
+    },
+    "reality-scene-B7": {
+      "perspective": "reality",
+      "scene": "reality-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "When the Heat Comes Inside",
+        "beat_text": "The research makes clear that heat’s burden is uneven, and while new interventions in cooling and social protection show promise, not every solution works everywhere, nor is every consequence fully understood.",
+        "purpose": "Illustrate the sourced opening passage without staging a documented event.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/reality-scene-b7.png",
+      "asset_sha256": "162ef490ce070c9b0a598df1158c72e185a0c5047bf9937f97f4942b2789345f"
+    },
+    "consequences-scene-B1": {
+      "perspective": "consequences",
+      "scene": "consequences-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Observed Effects and Uncertainties",
+        "beat_text": "Observed effects include significant health strain, lost workdays, missed income, and disrupted schooling due to heat exposure. For many workers, heat leads to symptoms such as headaches, dizziness, fatigue, and absenteeism, as well as lost household earnings.",
+        "purpose": "Illustrate the sourced consequences passage without staging a documented event.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/consequences-scene-b1.png",
+      "asset_sha256": "3db2c30fd1164db915fbb1465580b86e8e8aac3d8e2d44d077cd18a5eb8d8a83"
+    },
+    "consequences-scene-B2": {
+      "perspective": "consequences",
+      "scene": "consequences-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Observed Effects and Uncertainties",
+        "beat_text": "At the national level, 2024 saw an estimated 250 million workdays lost to heat, and recurring school closures affected child health and learning.",
+        "purpose": "Illustrate the sourced consequences passage without staging a documented event.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/consequences-scene-b2.png",
+      "asset_sha256": "67dbc2878a5f21d698b52a0b79ad02ab08d0a008ec83ea3c1466c6186d9831de"
+    },
+    "consequences-scene-B3": {
+      "perspective": "consequences",
+      "scene": "consequences-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Observed Effects and Uncertainties",
+        "beat_text": "However, this evidence is drawn from survey populations and modeled estimates, not the full national experience.",
+        "purpose": "Illustrate the sourced consequences passage without staging a documented event.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/consequences-scene-b3.png",
+      "asset_sha256": "ca495c9183c522587cdddedf7623375505e9b33e21e826c0411e1ad4a8db4eef"
+    },
+    "consequences-scene-B4": {
+      "perspective": "consequences",
+      "scene": "consequences-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Observed Effects and Uncertainties",
+        "beat_text": "Uncertainties remain about how every household copes with heat or how income risks are distributed.",
+        "purpose": "Illustrate the sourced consequences passage without staging a documented event.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "UNICEF-EDU-2025",
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/consequences-scene-b4.png",
+      "asset_sha256": "d76a4bf18f1c3593e9839b1f55959913bdd45d23340ea3c1eff2bbc763f24334"
+    },
+    "consequences-scene-B5": {
+      "perspective": "consequences",
+      "scene": "consequences-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Observed Effects and Uncertainties",
+        "beat_text": "Not all Dhaka factories or families have the same ability to adapt, and while some interventions show measurable benefits, the future allocation of costs and who bears the greatest residual heat burden is unresolved.",
+        "purpose": "Illustrate the sourced consequences passage without staging a documented event.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "UNICEF-EDU-2025",
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/consequences-scene-b5.png",
+      "asset_sha256": "a3e3af510ffebd0559c434ff0f1d57a8ba6fee04b76c23095d8dc2a8af2c9493"
+    },
+    "consequences-scene-B6": {
+      "perspective": "consequences",
+      "scene": "consequences-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Observed Effects and Uncertainties",
+        "beat_text": "The particular outcomes of school closures and household-level effects remain areas where more precise evidence is needed.",
+        "purpose": "Illustrate the sourced consequences passage without staging a documented event.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "UNICEF-EDU-2025",
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/consequences-scene-b6.png",
+      "asset_sha256": "0ec0f47b2cef6dfd8c31573c966bc72d929a6b18931719b7eca09a362d533720"
+    },
+    "place-scene-B1": {
+      "perspective": "place",
+      "scene": "place-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Dhaka, Bangladesh: Heat in the City",
+        "beat_text": "Evidence centers on Dhaka and the greater Dhaka region of Bangladesh. This highly urbanized environment, characterized by dense construction and minimal green spaces, experiences pronounced heat retention.",
+        "purpose": "Illustrate the sourced place passage without staging a documented event.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/place-scene-b1.png",
+      "asset_sha256": "da20ff7dc82e914ca6dfad718b4ea0f75782893dc4bd752c30ef5f349ee6b312"
+    },
+    "place-scene-B2": {
+      "perspective": "place",
+      "scene": "place-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Dhaka, Bangladesh: Heat in the City",
+        "beat_text": "The research draws from measurements and surveys involving informal worker households, sampled apparel factories, worker homes, and school disruptions in and around this city.",
+        "purpose": "Illustrate the sourced place passage without staging a documented event.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/place-scene-b2.png",
+      "asset_sha256": "e93629ed5710ee42f187c2d2ea4912eaf8ab32adf4f3bb8a79219d6aa5bc112f"
+    },
+    "place-scene-B3": {
+      "perspective": "place",
+      "scene": "place-scene",
+      "required": true,
+      "intent": {
+        "scene_meaning": "Dhaka, Bangladesh: Heat in the City",
+        "beat_text": "Although findings reflect real people and workplaces surveyed in Dhaka, these do not represent every part of Bangladesh or every household’s exact experience of heat.",
+        "purpose": "Illustrate the sourced place passage without staging a documented event.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "asset_path": "/assets/aet1-wc-002/place-scene-b3.png",
+      "asset_sha256": "e3b0db814d02a3d1b76fcf6f34318287d9a6d0bcf28810d05d25ddee0b0de8c2"
     }
   },
-  "required_count": 33,
-  "verified_count": 33,
+  "required_count": 59,
+  "verified_count": 59,
   "gaps": [],
   "upstream_feedback": []
 }

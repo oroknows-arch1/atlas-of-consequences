@@ -1311,6 +1311,1441 @@
       },
       "events": [],
       "policy_version": "safe-visual-v2"
+    },
+    "H3-S1-B1": {
+      "job_sha256": "81b5db255feb575ca2dad64f1343fbd9a53bd8539a7fb30bc57306dda20c36fb",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "H3-S1-B1",
+        "parent_scene_id": "H3-S1",
+        "meaning": "Lost workdays turn heat exposure into household income pressure.",
+        "beat_text": "When heat forces workers to miss days or reduce their capacity, the impact is felt directly in the pay packet.",
+        "evidence_refs": [
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Do not extrapolate surveyed percentage losses to all Dhaka households.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Contextualize the evidenced scene: Lost workdays turn heat exposure into household income pressure.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "H3-S1-B2": {
+      "job_sha256": "7e8b3192a670512e2132f58bb7f221a2717ea93de5f1861bbfc00a70a79e5f0e",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "H3-S1-B2",
+        "parent_scene_id": "H3-S1",
+        "meaning": "Lost workdays turn heat exposure into household income pressure.",
+        "beat_text": "Surveyed informal-worker households in Dhaka experienced missed work translating into lost income, with the heat burden carrying through to budgets, nutrition, and essentials.",
+        "evidence_refs": [
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Do not extrapolate surveyed percentage losses to all Dhaka households.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Contextualize the evidenced scene: Lost workdays turn heat exposure into household income pressure.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "H3-S1-B3": {
+      "job_sha256": "7d55d287c33def3b1e1b5b678a114e1571895f5b7c5c1b59f77aedbf5f9cb105",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "H3-S1-B3",
+        "parent_scene_id": "H3-S1",
+        "meaning": "Lost workdays turn heat exposure into household income pressure.",
+        "beat_text": "These losses are measured within the surveyed group and cannot be assumed for all households in the region.",
+        "evidence_refs": [
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Do not extrapolate surveyed percentage losses to all Dhaka households.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Contextualize the evidenced scene: Lost workdays turn heat exposure into household income pressure.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "H4-S2-B1": {
+      "job_sha256": "54214167ff97f1d8d81e0abf3c26bcd8f42bee91d3650529eb2c67dcb3040f77",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "H4-S2-B1",
+        "parent_scene_id": "H4-S2",
+        "meaning": "Recovery depends on housing, cooling access, time and household resources.",
+        "beat_text": "Not all Dhaka households cope with heat in the same way or have equal access to resources that could lessen its toll.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Evidence supports unequal capacity to cope, not a universal household experience.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Contextualize the evidenced scene: Recovery depends on housing, cooling access, time and household resources.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "H4-S2-B2": {
+      "job_sha256": "28533380bf9a5077e45b4edd50856b28484d6f989db9dbcdca8f5ba8a74c8fea",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "H4-S2-B2",
+        "parent_scene_id": "H4-S2",
+        "meaning": "Recovery depends on housing, cooling access, time and household resources.",
+        "beat_text": "Studies show that recovery from heat exposure depends on factors like quality of housing, ability to afford cooling or ventilation, household size, and schedules. Some surveyed households report significant difficulty in recuperating before the next day’s heat arrives.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Evidence supports unequal capacity to cope, not a universal household experience.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Contextualize the evidenced scene: Recovery depends on housing, cooling access, time and household resources.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "H4-S2-B3": {
+      "job_sha256": "2a5f4055fa4232965b49382f27166aa1f0c4d384aefc285cd4d8c3bd280d4e5a",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "H4-S2-B3",
+        "parent_scene_id": "H4-S2",
+        "meaning": "Recovery depends on housing, cooling access, time and household resources.",
+        "beat_text": "However, evidence does not cover every strategy or expenditure for all localities, leaving unresolved how coping varies across the city.",
+        "evidence_refs": [
+          "CORNELL-HEAT-2026",
+          "IIED-HEAT-2026"
+        ],
+        "truth_boundary": "Evidence supports unequal capacity to cope, not a universal household experience.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Contextualize the evidenced scene: Recovery depends on housing, cooling access, time and household resources.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "H5-S2-B1": {
+      "job_sha256": "c3b6a144e03aaf3cb78d7c4591bc6bbe127a9cac65ca9cf118ba1e1c4a09d545",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "H5-S2-B1",
+        "parent_scene_id": "H5-S2",
+        "meaning": "School interruption shifts part of the burden back into households and children's time.",
+        "beat_text": "When schools close due to heat, some of the resulting burden shifts back to households, affecting childcare and the use of children's time.",
+        "evidence_refs": [
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Do not quantify household childcare, learning loss or income effects without specific evidence.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Contextualize the evidenced scene: School interruption shifts part of the burden back into households and children's time.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "H5-S2-B2": {
+      "job_sha256": "6d88857867442afbcd96d9bc3ceb53c6cae0702b7c110d66aa15676a67867216",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "H5-S2-B2",
+        "parent_scene_id": "H5-S2",
+        "meaning": "School interruption shifts part of the burden back into households and children's time.",
+        "beat_text": "However, there is not enough direct evidence to quantify impacts on household income, learning loss, or childcare arrangements for individual families. The ripple effects of interruptions remain an area for further research.",
+        "evidence_refs": [
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Do not quantify household childcare, learning loss or income effects without specific evidence.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Contextualize the evidenced scene: School interruption shifts part of the burden back into households and children's time.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "H6-S3-B1": {
+      "job_sha256": "b1e127fa8d4b3ce7a751e0f7a2423cabf3b44c2648e4a88e522f1262421efc80",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "H6-S3-B1",
+        "parent_scene_id": "H6-S3",
+        "meaning": "Adaptation is also a distribution question: who can afford protection and who bears the residual heat.",
+        "beat_text": "Adaptation to heat in Dhaka is also a question of distribution. Evidence confirms marked inequality in access to cooling and protective measures: some workers, factories, and households are better able to protect themselves, while others remain highly exposed.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Frame as evidenced inequality/exposure and policy question; do not assign motives or predict policy outcomes.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Contextualize the evidenced scene: Adaptation is also a distribution question: who can afford protection and who bears the residual heat.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [
+        {
+          "kind": "original_rejection",
+          "provider": "python3 tools/image_provider_openai.py",
+          "reason": "Provider HTTP 400: type=image_generation_user_error; code=moderation_blocked; message=Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID req_ca0dad854eb94cafb253334c97923779."
+        }
+      ],
+      "policy_version": "safe-visual-v2",
+      "alternative": {
+        "decision": "SAFE_ALTERNATIVE",
+        "composition": "A split street-level view of Dhaka's urban environment on a warm, hazy afternoon. On one side, a commercial building with visible external AC units and a shaded, walled entrance; near it, closed windows and a rooftop water tank. On the other side, an older, informal brick-built residential structure: open windows with curtains billowing, an oscillating electric fan visible on a table through one window, and an array of metal water pitchers stored on an outdoor shelf in the shade. The street contains ordinary objects—rickety bicycles parked by a wall, tarpaulin covers providing makeshift shade to a small shop, and the dappled sunlight accentuating contrasts in ambient comfort. The composition communicates evidence of inequality in access to cooling and adaptation methods in Dhaka, without referencing any named persons, incident, or facility.",
+        "reason": "This composition uses ordinary elements of the Dhaka urban landscape and household objects to indicate differential access to heat adaptation (e.g., AC, shade, fans, water storage) between formal and informal settings. It avoids depicting people, distress, or named/misrepresented sites, and maintains the editorial purpose of contextualizing the distributional challenge of heat adaptation in Dhaka, as evidenced by the cited sources."
+      },
+      "equivalence_qa": {
+        "safe": true,
+        "meaning_preserved": true,
+        "boundary_preserved": true,
+        "reason": "The proposed image depicts only ordinary environments and objects in Dhaka, contrasting different access to heat adaptation without showing people, distress, or any banned content. It respects the editorial meaning by illustrating distributional inequality in access to cooling methods, aligns with the geographical and contextual requirements, and maintains the factual truth boundary established for this beat. No rejected or concealed depictions are present, and the composition does not misrepresent or fictionalize any event or site."
+      }
+    },
+    "H6-S3-B2": {
+      "job_sha256": "356932153d538c75ea64cbdde0f8de2e291ad19a61ddd243454db68a3affd9ec",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "H6-S3-B2",
+        "parent_scene_id": "H6-S3",
+        "meaning": "Adaptation is also a distribution question: who can afford protection and who bears the residual heat.",
+        "beat_text": "This unequal capacity now shapes vulnerability, and future allocation of adaptation costs and benefits remains an open question that current evidence cannot resolve.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Frame as evidenced inequality/exposure and policy question; do not assign motives or predict policy outcomes.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Contextualize the evidenced scene: Adaptation is also a distribution question: who can afford protection and who bears the residual heat.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "reality-scene-B1": {
+      "job_sha256": "3adb142ba04e1a9823c1c94bd895f5384e4fd6adaa1efcdf7c6fa02b25dd3aed",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "reality-scene-B1",
+        "parent_scene_id": "reality-scene",
+        "meaning": "When the Heat Comes Inside",
+        "beat_text": "Dhaka, Bangladesh faces a heat transformation: what was once seen as an episodic weather hazard now persists as a labor, health, household, and economic constraint.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced opening passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "reality-scene-B2": {
+      "job_sha256": "a32e2c37c126439037ea06f066461c9c6cb332c5210b30349dcac4fed8d0b5f5",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "reality-scene-B2",
+        "parent_scene_id": "reality-scene",
+        "meaning": "When the Heat Comes Inside",
+        "beat_text": "Recent 2026 studies reveal that heat is no longer limited to rare, extreme hot days but has become a persistent burden, directly affecting daily life and the functioning of key sectors.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced opening passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "reality-scene-B3": {
+      "job_sha256": "a70888c75bf7e9b848e5741a2cb0f19767c483331aa11bce20d1bdf54c448d25",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "reality-scene-B3",
+        "parent_scene_id": "reality-scene",
+        "meaning": "When the Heat Comes Inside",
+        "beat_text": "Across the city’s workers, families, and children, the impacts reach from the factory floor and rickshaw routes, into crowded homes, and all the way to classrooms.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced opening passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [
+        {
+          "kind": "original_rejection",
+          "provider": "python3 tools/image_provider_openai.py",
+          "reason": "Provider HTTP 400: type=image_generation_user_error; code=moderation_blocked; message=Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID req_0605a54880814798b5900666406f0983."
+        }
+      ],
+      "policy_version": "safe-visual-v2",
+      "alternative": {
+        "decision": "SAFE_ALTERNATIVE",
+        "composition": "A shaded street in a Dhaka neighborhood during a hot afternoon, showing the exterior of a generic multi-story school building with closed windows and doors. In the foreground, empty school desks and closed exercise books are visible through an open classroom doorway. Nearby, a pedestal fan sits idle. The humid atmosphere is suggested by sunlight filtering through moist air, and heat shimmers are visible above a paved courtyard. In the background, factory chimneys and the silhouette of rickshaws hint at the broader city context, without showing any people. The color palette uses sunlit warm neutrals, restrained terracotta, and teal-grey shadows for a naturally hot, humid ambiance.",
+        "reason": "This scene uses only ordinary objects, ambient conditions, school furniture, and city context to illustrate the wide-reaching effects of heat on homes, workplaces, and education in Dhaka. It avoids showing people, distress, or suggestive details, providing a truthful contextual editorial image that fits the assignment and evidence limits."
+      },
+      "equivalence_qa": {
+        "safe": true,
+        "meaning_preserved": true,
+        "boundary_preserved": true,
+        "reason": "The proposed visual composition strictly features ordinary objects (school building, desks, fan, chimneys, rickshaws) and environment with no people, distress, or injury. It accurately depicts a heat-affected Dhaka city scene—linking home, work, and school impacts—without staged events or prohibited content. No rejected or concealed imagery is embedded. The editorial meaning, geography, truth boundary, and visual continuity are preserved according to all assignment instructions and evidence scope."
+      }
+    },
+    "reality-scene-B4": {
+      "job_sha256": "45e3d816b340aea7dfdb602b4ac83dfa85089e6603d8f775f33a41a6f5b0f0bc",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "reality-scene-B4",
+        "parent_scene_id": "reality-scene",
+        "meaning": "When the Heat Comes Inside",
+        "beat_text": "This change is anchored in extensive local and national analysis covering health, work, and household resilience.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced opening passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "reality-scene-B5": {
+      "job_sha256": "4594ecd82e17b46692688c37225b30438fcf999e4d37a50e4a50d9cf0d73f93f",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "reality-scene-B5",
+        "parent_scene_id": "reality-scene",
+        "meaning": "When the Heat Comes Inside",
+        "beat_text": "Surveys of Dhaka households and workplaces, interviews with garment workers, national workday modeling, and records of educational disruption draw a picture covering both formal and informal sectors.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced opening passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "reality-scene-B6": {
+      "job_sha256": "9b5fdefcdcd47903bedd0dddec56f5676033175aedcda7d92af7ab21d5059bf7",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "reality-scene-B6",
+        "parent_scene_id": "reality-scene",
+        "meaning": "When the Heat Comes Inside",
+        "beat_text": "Yet, this evidence tracks specifically surveyed people, places, and periods; findings cannot be universally applied to all individuals or settings in Bangladesh.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced opening passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "reality-scene-B7": {
+      "job_sha256": "8e1cd7f1a767e119f188e790a4b01b6e4b52f3ce173f3a753f29ec720f4d26f5",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "reality-scene-B7",
+        "parent_scene_id": "reality-scene",
+        "meaning": "When the Heat Comes Inside",
+        "beat_text": "The research makes clear that heat’s burden is uneven, and while new interventions in cooling and social protection show promise, not every solution works everywhere, nor is every consequence fully understood.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced opening passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [
+        {
+          "kind": "original_rejection",
+          "provider": "python3 tools/image_provider_openai.py",
+          "reason": "Provider HTTP 400: type=image_generation_user_error; code=moderation_blocked; message=Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID req_2ee648649fbc4c22a812d7db259b3aee."
+        }
+      ],
+      "policy_version": "safe-visual-v2",
+      "alternative": {
+        "decision": "SAFE_ALTERNATIVE",
+        "composition": "An ordinary editorial illustration set in Dhaka, Bangladesh, at street level: the scene shows the exterior of a modest apartment building with open windows and ceiling fans visible inside, as well as a row of closed shopfronts below. The sun casts strong, warm light across the street, heightening the sense of heat and humidity. A corrugated metal water tank sits on the roof, and potted plants droop on shaded balconies. In the foreground, an empty school corridor is visible through a compound gate—desks are aligned inside a classroom with windows propped open, but there are no people present. The air appears hazy, evocative of heat, and there are no signs or text indicating institutional identity.",
+        "reason": "This composition relies solely on representative buildings, objects, and ambient heat cues to convey the impact of heat on daily environments, in keeping with the editorial scope. It avoids depicting people, distress, or any staged incident while truthfully reflecting the context described in the sourced research and avoids attribution to a specific event or location."
+      },
+      "equivalence_qa": {
+        "safe": true,
+        "meaning_preserved": true,
+        "boundary_preserved": true,
+        "reason": "The proposed illustration is comprised entirely of ordinary buildings and environmental cues, with no people, distress, injury, or prohibited content depicted. The scene captures the editorial context of everyday heat exposure in Dhaka—open windows, ceiling fans, hazy air—without implying an actual event, incident, or specific location. This fulfills the requirement of contextual illustration by conveying the typical effects of heat on urban environments, as sourced in the research, while avoiding staging or reenactment. There is no encoding or concealment of rejected imagery, and the editorial purpose, geography, and truth boundaries are maintained."
+      }
+    },
+    "consequences-scene-B1": {
+      "job_sha256": "36bb3795a289c23d8c55eaf294525c85b8f5f776d917ff0e654465c676299102",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "consequences-scene-B1",
+        "parent_scene_id": "consequences-scene",
+        "meaning": "Observed Effects and Uncertainties",
+        "beat_text": "Observed effects include significant health strain, lost workdays, missed income, and disrupted schooling due to heat exposure. For many workers, heat leads to symptoms such as headaches, dizziness, fatigue, and absenteeism, as well as lost household earnings.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced consequences passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "consequences-scene-B2": {
+      "job_sha256": "919eb269cf59dab0593ccc1f554057be666a4335ad25add0a3a1bd5aae98362e",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "consequences-scene-B2",
+        "parent_scene_id": "consequences-scene",
+        "meaning": "Observed Effects and Uncertainties",
+        "beat_text": "At the national level, 2024 saw an estimated 250 million workdays lost to heat, and recurring school closures affected child health and learning.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced consequences passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "consequences-scene-B3": {
+      "job_sha256": "c6d096bdd4edfcb8facd9e7d542ddd05f3935be7c332f24ff6a55ec0adc92e5f",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "consequences-scene-B3",
+        "parent_scene_id": "consequences-scene",
+        "meaning": "Observed Effects and Uncertainties",
+        "beat_text": "However, this evidence is drawn from survey populations and modeled estimates, not the full national experience.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced consequences passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "consequences-scene-B4": {
+      "job_sha256": "5acd83ef78f4c9723dedd2720c939480717e21a1f48e79fdee7ccf424aa9ddd7",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "consequences-scene-B4",
+        "parent_scene_id": "consequences-scene",
+        "meaning": "Observed Effects and Uncertainties",
+        "beat_text": "Uncertainties remain about how every household copes with heat or how income risks are distributed.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "UNICEF-EDU-2025",
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced consequences passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "consequences-scene-B5": {
+      "job_sha256": "e2b9b53b07176146a71bf36eb064def6d409a4c42777660a0ed1c6da71da2696",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "consequences-scene-B5",
+        "parent_scene_id": "consequences-scene",
+        "meaning": "Observed Effects and Uncertainties",
+        "beat_text": "Not all Dhaka factories or families have the same ability to adapt, and while some interventions show measurable benefits, the future allocation of costs and who bears the greatest residual heat burden is unresolved.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "UNICEF-EDU-2025",
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced consequences passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "consequences-scene-B6": {
+      "job_sha256": "3fc8e70a2aabf4b5476069ce309d9b8613cbfb072f11d212f9f1490b6740974e",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "consequences-scene-B6",
+        "parent_scene_id": "consequences-scene",
+        "meaning": "Observed Effects and Uncertainties",
+        "beat_text": "The particular outcomes of school closures and household-level effects remain areas where more precise evidence is needed.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "UNICEF-EDU-2025",
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced consequences passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "place-scene-B1": {
+      "job_sha256": "326aae943561636718bb9dd06597aa9e4f291c92d31c38b805be09345c24d5ff",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "place-scene-B1",
+        "parent_scene_id": "place-scene",
+        "meaning": "Dhaka, Bangladesh: Heat in the City",
+        "beat_text": "Evidence centers on Dhaka and the greater Dhaka region of Bangladesh. This highly urbanized environment, characterized by dense construction and minimal green spaces, experiences pronounced heat retention.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced place passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "place-scene-B2": {
+      "job_sha256": "b7136d6f2202d992912d2d841efdb156ae83d2d603c12e09dd540d24818892d8",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "place-scene-B2",
+        "parent_scene_id": "place-scene",
+        "meaning": "Dhaka, Bangladesh: Heat in the City",
+        "beat_text": "The research draws from measurements and surveys involving informal worker households, sampled apparel factories, worker homes, and school disruptions in and around this city.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced place passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
+    },
+    "place-scene-B3": {
+      "job_sha256": "dd4e88a8679720664b1857ba8601ec1f7d4b0a842e96ed486b862c68bfc3f22d",
+      "original_job": {
+        "edition_id": "AET1-WC-002",
+        "scene_id": "place-scene-B3",
+        "parent_scene_id": "place-scene",
+        "meaning": "Dhaka, Bangladesh: Heat in the City",
+        "beat_text": "Although findings reflect real people and workplaces surveyed in Dhaka, these do not represent every part of Bangladesh or every household’s exact experience of heat.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still",
+        "purpose": "Illustrate the sourced place passage without staging a documented event.",
+        "geography": "Dhaka, Bangladesh",
+        "continuity": {
+          "palette": "sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+          "camera": "observational street-level framing, natural materials and ordinary activity, no staged distress",
+          "continuity": "Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+          "bans": [
+            "identifiable institution signage",
+            "named facility",
+            "claimed actual study participant",
+            "fabricated specific heat incident",
+            "poverty spectacle",
+            "text baked into photograph"
+          ]
+        },
+        "locality_evidence": [
+          {
+            "source_id": "IIED-HEAT-2026",
+            "scope": "Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"
+          },
+          {
+            "source_id": "CORNELL-HEAT-2026",
+            "scope": "Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"
+          },
+          {
+            "source_id": "RMG-WORKER-2025",
+            "scope": "Two Dhaka garment factories; worker conditions do not establish the look of any named factory"
+          },
+          {
+            "source_id": "UNICEF-EDU-2025",
+            "scope": "Bangladesh school disruption and heatwave closures; no specific school is identified"
+          }
+        ],
+        "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
+      },
+      "events": [],
+      "policy_version": "safe-visual-v2"
     }
   }
 }

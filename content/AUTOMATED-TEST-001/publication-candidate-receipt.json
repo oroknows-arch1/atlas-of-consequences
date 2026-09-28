@@ -3,10 +3,6 @@
   "status": "BLOCKED",
   "known_required_items": [
     {
-      "worker": "editorial-qa",
-      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/editorial-qa.json'"
-    },
-    {
       "worker": "visual-review",
       "reason": "gate did not PASS"
     },
@@ -15,8 +11,12 @@
       "reason": "gate did not PASS"
     },
     {
-      "worker": "reader_builder",
-      "reason": "unverified editorial copy"
+      "worker": "deployment-receipt",
+      "reason": "different reader build was checked"
+    },
+    {
+      "worker": "rendered-qa",
+      "reason": "different reader build was checked"
     },
     {
       "worker": "visual-review",
@@ -24,6 +24,10 @@
     },
     {
       "worker": "benchmark-parity",
+      "reason": "different reader build was checked"
+    },
+    {
+      "worker": "reader-contract-qa",
       "reason": "different reader build was checked"
     },
     {
@@ -32,7 +36,7 @@
     },
     {
       "worker": "rendered_qa",
-      "reason": "visual verdict references different screenshots"
+      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/screenshots/phone-edition.png'"
     }
   ],
   "publication_authorized": false
