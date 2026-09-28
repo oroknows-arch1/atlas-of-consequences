@@ -1,0 +1,21 @@
+{
+  "edition_id": "AET1-WC-002",
+  "input_sha256": "904326b36e29572a3c9b9d513c048757afe724d07846b6a292bbbdafde349abe",
+  "status": "PASS",
+  "mode": "verified_image_sequence",
+  "assets": [
+    {
+      "path": "/assets/aet1-wc-002/h1-s1.png",
+      "sha256": "7d9343b5cc2d3bb0d5c72f06a1ffd7d4da04fdb69341391c5f92bbbbf07389b4"
+    },
+    {
+      "path": "/assets/aet1-wc-002/h2-s1.png",
+      "sha256": "27e07ada18ce8be654ca134ef24b37f06efaed65cb18460287607999e163e8af"
+    },
+    {
+      "path": "/assets/aet1-wc-002/h2-s2.png",
+      "sha256": "497e05fa16b2213f2b38ebaace3b96100e48f089597d97ba5548fd6e781103b6"
+    }
+  ],
+  "film": null
+}

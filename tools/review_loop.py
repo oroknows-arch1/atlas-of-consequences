@@ -1,5 +1,5 @@
 """Bounded repair routing. Routine failures return to their production owner."""
-import json, re, subprocess, sys
+import os, json, re, subprocess, sys
 from pathlib import Path
 from production_state import ROOT, binding, block, read, write
 
@@ -24,6 +24,8 @@ def affected_scene_ids(defects, available):
 def repair(run_dir, defects):
     owners={d.get('worker') for d in defects}
     success=True
+    if os.environ.get('ATLAS_READER_ONLY')=='1' and owners & {'visual_factory','asset_persistence','editorial_factory'}:
+        return False
     if owners & {'visual_factory','asset_persistence','editorial_factory'}:
         if 'editorial_factory' in owners:
             (run_dir/'editorial-qa.json').unlink(missing_ok=True)
@@ -46,7 +48,7 @@ def main(directory):
     history=[]
     for attempt in range(1,4):
         block(run_dir,'production_orchestrator',f'Review/repair attempt {attempt} in progress')
-        for name in ('deployment-receipt','rendered-qa','visual-review','benchmark-parity'):
+        for name in ('deployment-receipt','rendered-qa','visual-review','benchmark-parity','reader-contract-qa'):
             (run_dir/(name+'.json')).unlink(missing_ok=True)
         if command(sys.executable,'tools/deploy_review.py',str(run_dir)):
             history.append({'attempt':attempt,'worker':'deployment_worker','result':'BLOCKED'})
@@ -59,6 +61,11 @@ def main(directory):
         dom=read(run_dir/'rendered-qa.json')
         dom.update(binding(run_dir),reader_hashes=deploy['reader_hashes'],deploy_id=deploy['deploy_id'])
         write(run_dir/'rendered-qa.json',dom)
+        if not (run_dir/'reader-contract-qa.json').exists():
+            block(run_dir,'reader_contract','Browser could not complete canonical comparison; no parity receipt exists'); return 1
+        contract=read(run_dir/'reader-contract-qa.json')
+        contract.update(binding(run_dir),reader_hashes=deploy['reader_hashes'],deploy_id=deploy['deploy_id'])
+        write(run_dir/'reader-contract-qa.json',contract)
         vision_result=command(sys.executable,'tools/review_rendered.py',str(run_dir))
         if not (run_dir/'visual-review.json').exists():
             block(run_dir,'rendered_qa','Independent visual review did not return a verdict'); return 1
@@ -67,8 +74,10 @@ def main(directory):
         for error in dom.get('errors',[]):
             owner='asset_persistence' if 'missing image' in error else 'reader_treatment' if 'overflow' in error else 'reader_builder'
             defects.append({'worker':owner,'reason':error})
+        if contract['status']!='PASS':
+            defects.extend({'worker':'reader_builder','reason':e} for e in contract['errors'])
         if vision_result and not defects:
-            defects.append({'worker':'editorial_factory','reason':read(run_dir/'benchmark-parity.json').get('reason','benchmark parity failed')})
+            defects.append({'worker':'reader_builder','reason':read(run_dir/'benchmark-parity.json').get('reason','benchmark parity failed')})
         history.append({'attempt':attempt,'defects':defects})
         write(run_dir/'repair-receipt.json',{'history':history})
         if not defects and not vision_result:

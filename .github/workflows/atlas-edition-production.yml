@@ -7,6 +7,7 @@ on:
       - 'tools/**'
       - 'tests/**'
       - 'atlas/contracts/manufacturing-trace.json'
+      - 'atlas/contracts/reader-grammar.json'
       - 'public/review/reader-production.*'
       - 'content/AUTOMATED-TEST-001/**'
   workflow_dispatch:
@@ -28,6 +29,7 @@ jobs:
     env:
       OPENAI_API_KEY: ${{ secrets.ATLASOQUENCE_GITHUB_PRODUCTION }}
       RENDER_API_KEY: ${{ secrets.ATLASOQUENCE_GITHUB_ACTIONS }}
+      ATLAS_READER_ONLY: '1'
       ATLAS_SAFE_VISUAL_REEXPRESSION: '1'
       ATLAS_IMAGE_COMMAND: python3 tools/image_provider_openai.py
       ATLAS_VISUAL_QA_COMMAND: python3 tools/visual_verifier_openai.py
@@ -61,8 +63,10 @@ jobs:
         run: |
           npm install --prefix /tmp/atlas-playwright playwright
           /tmp/atlas-playwright/node_modules/.bin/playwright install --with-deps chromium
-      - name: Produce verified copy, actual assets and reader
-        run: python3 tools/produce_edition.py "$RUN_DIR"
+      - name: Reassemble existing verified reader only
+        run: python3 tools/reassemble_reader.py "$RUN_DIR"
+      - name: Reject prior reader divergence and design mutations
+        run: node tests/reader-contract.cjs
       - name: Verify source accessibility
         run: python3 tools/source_qa.py "$RUN_DIR"
       - name: Persist binaries and reader on test branch

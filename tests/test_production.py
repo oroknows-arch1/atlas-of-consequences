@@ -232,6 +232,10 @@ class ProductionRegression(unittest.TestCase):
   shot=self.run/'screenshots/phone.png';shot.parent.mkdir();shot.write_bytes(b'synthetic screenshot')
   shots=[{'path':'screenshots/phone.png','sha256':state.digest(shot)}]
   common={**self.bind,'status':'PASS','reader_hashes':hashes,'deploy_id':'synthetic-deploy'}
+  grammar=self.root/'atlas/contracts/reader-grammar.json';grammar.parent.mkdir(parents=True);state.write(grammar,{'version':'atlas-reader-v2','opening_modes':['approved_film','verified_image_sequence'],'viewports':[1,2,3]})
+  film=self.root/'public/assets/opening.mp4';film.write_bytes(b'synthetic motion fixture')
+  state.write(self.run/'opening-media.json',{**self.bind,'status':'PASS','kind':'motion_video','path':'/assets/opening.mp4','sha256':state.digest(film),'visual_qa':{'status':'PASS'}})
+  state.write(self.run/'opening-system.json',{**self.bind,'status':'PASS','mode':'verified_image_sequence','assets':[{'path':a['path'],'sha256':a['sha256']} for a in assets[:2]],'film':None})
   data={
    'production-receipt':{**common,'state':'ASSEMBLED','defects':[],'reader':'public/review/test/index.html'},
    'asset-persistence-receipt':{**common,'assets':assets},
@@ -239,7 +243,7 @@ class ProductionRegression(unittest.TestCase):
    'deployment-receipt':{**common,'branch':'test/automated-edition-1','commit':'synthetic','deployment_result':'live','url':'https://review.example/review/test/','base_url':'https://review.example'},
    'source-qa':common,
    'rendered-qa':{**common,'url':'https://review.example/review/test/','observations':[{'device':'fixture'}],'screenshots':shots},
-   'visual-review':{**common,'screenshots':shots},'benchmark-parity':{**common,'screenshots':shots}}
+   'visual-review':{**common,'screenshots':shots},'benchmark-parity':{**common,'screenshots':shots,'contract_version':'atlas-reader-v2','contract_status':'PASS'},'reader-contract-qa':{**common,'version':'atlas-reader-v2','screenshots':shots,'measurements':[{'synthetic':True}],'motion':[{'mode':'verified_image_sequence','skip':True} for _ in range(3)],'canonical':[{'synthetic':True}]}}
   for name,value in data.items():state.write(self.run/(name+'.json'),value)
  def evaluate(self):
   from urllib.parse import urlparse
@@ -275,13 +279,13 @@ class ProductionRegression(unittest.TestCase):
   second={'perspective_id':'P2','perspective':'Synthetic second','scenes':[{'scene_id':'S2','meaning':'Synthetic other meaning'}]}
   block={'heading':'Synthetic publication heading','paragraphs':[{'text':'Synthetic prose','state':'FACT','evidence_refs':['WB-HEAT-2025']}]}
   copy={'opening':block,'place':block,'consequences':block,'scenes':{'S1':block,'S2':block}}
-  assets=[{'scene_id':'S1','provider':'fixture','path':'/assets/test.png','truth_boundary':'Synthetic contextual visual'}]
+  assets=[{'scene_id':'S1','provider':'fixture','path':'/assets/test.png','sha256':'synthetic-1','truth_boundary':'Synthetic contextual visual'}, {'scene_id':'S2','provider':'fixture','path':'/assets/test-2.png','sha256':'synthetic-2','truth_boundary':'Another contextual visual'}]
   target=self.root/'public/review';target.mkdir(parents=True)
   for name in ('reader-production.css','reader-production.js'):shutil.copyfile(state.ROOT/'public/review'/name,target/name)
   with patch.object(builder,'ROOT',self.root):
    page=builder.build_reader(self.run,'SYNTHETIC',{'working_title':'Synthetic title','geographic_core':'Synthetic place','world_change':'Synthetic change'},[route,second],{'title':'Synthetic story','boundary':'Fiction, invented','story':['Synthetic story']},assets,copy)
   text=page.read_text()
-  self.assertEqual(text.count('data-view class="route"'),2)
+  self.assertEqual(text.count('data-view class="route" id="route-'),2)
   self.assertIn('AI-generated contextual illustration',text)
   self.assertNotIn('PUBLICATION CANDIDATE',text)
   self.assertIn('reader.js',text)

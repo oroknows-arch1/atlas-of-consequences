@@ -1,0 +1,18 @@
+{
+  "version": "atlas-reader-v2",
+  "canonical_url": "https://atlas-of-consequences.onrender.com/adaptive/",
+  "canonical_commit": "99aac2b898cf751df9573abb6e5d43ba2e3a1a8b",
+  "viewports": [{"name":"phone","width":390,"height":844},{"name":"small-phone","width":320,"height":740},{"name":"desktop","width":1440,"height":900}],
+  "invariants": {
+    "hero": "Full viewport cover imagery; cinematic motion before identity; completion/skip reveals geographical home; reduced-motion alternative. Approved film or verified-image sequence",
+    "perspectives": "Vertical image-led selection, legible live labels and route explanations, arbitrary count, deliberate route choice",
+    "scene": "Full-width minimum viewport contextual imagery, overlaid serif hierarchy, warm-neutral grade and transparent gradient; no article/card substitution",
+    "pacing": "One bounded prose beat per visual screen, source references and truth labels remain attached; no truncation",
+    "navigation": "One chosen route, explicit end, return to choices, working deep links, reload, back, source links, focus and reduced motion",
+    "boundaries": "FACT/UNCERTAIN/STORY labels, AI illustration captions, source limits and fictional boundary stay visible"
+  },
+  "adaptive": ["Perspective count and names", "number of scenes", "sentence-boundary pagination", "image crop for viewport", "contain explanatory graphics without cropping labels", "text-only evidence boundaries", "edition-specific motion and geography"],
+  "thresholds": {"scene_min_viewport":0.98,"image_width_fraction":0.98,"image_height_fraction":0.98,"heading_min_px":32,"heading_max_px":60,"body_min_px":17,"body_max_px":21,"hero_heading_min_px":50,"hero_heading_max_px":96,"max_prose_words":70,"copy_max_viewport_fraction":0.80,"brightness_min":0.82,"brightness_max":1.05,"perspective_min_height":160},
+  "cinematic_opening_required": true,
+  "opening_modes": ["approved_film", "verified_image_sequence"]
+}

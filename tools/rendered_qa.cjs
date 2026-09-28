@@ -4,14 +4,15 @@ const fs=require('fs');
 const path=require('path');
 const crypto=require('crypto');
 const {chromium}=require('playwright');
+const contract=require('./reader_contract.cjs');
 const [url, receiptPath, screenshotDir]=process.argv.slice(2);
 (async()=>{
  const errors=[],observations=[],screenshots=[];
- const browser=await chromium.launch({headless:true});
+ const browser=await chromium.launch({headless:true,executablePath:process.env.ATLAS_CHROMIUM_PATH||undefined,args:process.env.ATLAS_CHROMIUM_PATH?['--no-sandbox']:[]});
  fs.mkdirSync(screenshotDir,{recursive:true});
  async function capture(page,name){
    const file=path.join(screenshotDir,name+'.png');
-   await page.screenshot({path:file,fullPage:true});
+   await page.screenshot({path:file,fullPage:false});
    screenshots.push({path:path.relative(path.dirname(receiptPath),file),sha256:crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')});
  }
  try {
@@ -50,7 +51,7 @@ const [url, receiptPath, screenshotDir]=process.argv.slice(2);
       if(await page.locator('.route:not([hidden])').count()!==1)errors.push('routes auto-chain');
       await view.locator('footer a[href="#perspectives"]').click();
       await page.waitForFunction(()=>!document.getElementById('perspectives').hidden);
-      await page.locator(`.cards a[href="#${id}"]`).click();
+      await page.locator(`.perspective-list a[href="#${id}"]`).click();
       await page.waitForFunction(id=>!document.getElementById(id).hidden,id);
       await page.reload({waitUntil:'networkidle'});
       if(await view.getAttribute('hidden')!==null)errors.push('route reload failed '+id);
@@ -62,7 +63,7 @@ const [url, receiptPath, screenshotDir]=process.argv.slice(2);
     if(config.name!=='small-phone')await capture(page,`${config.name}-${id}`);
     observations.push({device:config.name,...checks});
    }
-   if(!await page.locator('.story .boundary').textContent().then(t=>/fiction|invented/i.test(t)))errors.push('fiction boundary missing');
+   if(!await page.locator('.story .boundary-label').textContent().then(t=>/fiction|invented/i.test(t)))errors.push('fiction boundary missing');
    const sourceLink=page.locator('.refs a').first();
    if(await sourceLink.count()){
      const hash=await sourceLink.getAttribute('href');
@@ -72,29 +73,8 @@ const [url, receiptPath, screenshotDir]=process.argv.slice(2);
    }
    await page.close();
   }
-  if(!process.env.ATLAS_BENCHMARK_URL)errors.push('benchmark URL missing');
-  else{
-    const page=await browser.newPage({viewport:{width:390,height:844}});
-    let r;
-    for(let attempt=1;attempt<=5;attempt++){
-      try{
-        r=await page.goto(process.env.ATLAS_BENCHMARK_URL,{waitUntil:'networkidle',timeout:60000});
-        if(r?.status()!==429)break;
-      }catch(error){if(attempt===5)throw error}
-      const retryAfter=Number(r?.headers()?.['retry-after']||0);
-      const delay=Math.min(60000,Math.max(attempt*15000,retryAfter*1000));
-      await new Promise(resolve=>setTimeout(resolve,delay));
-    }
-    if(!r?.ok())throw Error('benchmark unavailable');
-    await capture(page,'benchmark-phone');
-    const entries=await page.locator('[data-perspective]').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href')));
-    for(const [i,href] of entries.entries()){
-      await page.locator(`[data-perspective][href="${href}"]`).first().evaluate(a=>a.click());
-      await page.locator(`${href} img`).evaluateAll(async images=>{await Promise.all(images.map(async i=>{i.loading='eager';try{await i.decode()}catch{}}))});
-      await capture(page,`benchmark-route-${i}`);
-    }
-    await page.close();
-  }
+  const result=await contract.audit(browser,url,capture);
+  fs.writeFileSync(path.join(path.dirname(receiptPath),'reader-contract-qa.json'),JSON.stringify({...result,url,screenshots},null,2)+'\n');
  }catch(error){errors.push(error.message)}
  finally{await browser.close()}
  fs.writeFileSync(receiptPath,JSON.stringify({url,status:errors.length?'BLOCKED':'PASS',errors,observations,screenshots},null,2)+'\n');

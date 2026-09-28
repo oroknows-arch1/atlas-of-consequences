@@ -10,7 +10,7 @@ def main(run):
     key=os.environ.get("OPENAI_API_KEY")
     if not key:raise RuntimeError("OPENAI_API_KEY unavailable")
     candidate=json.loads((run/"selected-edition-candidate.json").read_text())
-    css=ROOT/"public"/"review"/candidate["candidate_id"].lower()/"reader.css"
+    css=ROOT/"public/review/reader-production.css"
     dom=json.loads((run/"rendered-qa.json").read_text())
     visual=json.loads((run/"visual-review.json").read_text())
     allowed=("crop","dark","readab","typograph","overflow","off-centre","off-center","safe area","spacing","alignment","contrast","uniform")
@@ -20,7 +20,7 @@ def main(run):
     screenshot=(run/"screenshots"/"phone-edition.png").read_bytes()
     prompt=("Return ONLY a small CSS patch to repair these observed defects in the deployed Atlas reader: "
             +json.dumps(faults)+". Current CSS: "+css.read_text()[-16000:]
-            +". Preserve every route, image, caption, source and FICTION boundary. "
+            +". Preserve the Atlas reader grammar: full-screen image layers, film entry, visual Perspective selection, serif hierarchy, all captions and boundaries. Use reusable classes only, never edition IDs, scene IDs or nth-child selectors. "
              "Do not hide, remove, crop away or obscure content. Only adjust layout, object-position, brightness, "
              "spacing, contrast or typography. Do not include markdown fences or explanations.")
     payload={"model":os.environ.get("ATLAS_REPAIR_MODEL","gpt-4.1"),
@@ -32,11 +32,14 @@ def main(run):
     patch="".join(p.get("text","") for x in data.get("output",[]) for p in x.get("content",[])).strip()
     if not patch or len(patch)>5000 or "{" not in patch or patch.count("{")!=patch.count("}"):
         raise RuntimeError("invalid CSS repair")
-    if re.search(r'@import|url\s*\(|display\s*:\s*none|visibility\s*:\s*hidden|opacity\s*:\s*0\b|content\s*:',patch,re.I):
+    if re.search(r'#|nth-child|@import|url\s*\(|display\s*:\s*none|visibility\s*:\s*hidden|opacity\s*:\s*0\b|content\s*:',patch,re.I):
         raise RuntimeError("CSS repair would hide or fetch content")
     css.write_text(css.read_text()+"\n/* Automated rendered repair; verify again before release. */\n"+patch+"\n")
+    import shutil
+    target=ROOT/'public/review'/candidate['candidate_id'].lower()
+    shutil.copyfile(css,target/'reader.css')
     receipt=read(run/'production-receipt.json')
-    receipt['reader_hashes']=reader_hashes(css.parent/'index.html')
+    receipt['reader_hashes']=reader_hashes(target/'index.html')
     write(run/'production-receipt.json',receipt)
     print("Reader CSS repair applied; deployment and visual QA must rerun")
 if __name__=="__main__":

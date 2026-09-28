@@ -19,7 +19,7 @@ def ask_batch(files, key):
             "or source_registrar (source). Inspect every supplied image for crop, readable midtones, visual "
             "continuity/uniformity, typography, overflow, centering, safe areas, sources, FACT/STORY visibility, "
             "editorial depth and geographic specificity. Do not require the benchmark Perspective count, subjects, "
-            "route sequence or media structure. Atlas permits clearly labelled AI-generated contextual illustrations; do not "
+            "route sequence. The publication grammar IS required: full-screen cover imagery, overlaid restrained serif scene titles, image-led vertical Perspective discovery, low text density and cinematic entry. A conventional article, image-above-text stack, or link-card grid is BLOCKED even when readable. Compare candidate and benchmark at the same viewport. Explanatory graphics must remain fully readable; text-only boundary beats and sources can differ. Atlas permits clearly labelled AI-generated contextual illustrations; do not "
             "block solely because an image is AI-generated or non-documentary. Block only a scene-specific failure: "
             "generic or repeated treatment that loses the stated meaning/locality, misleading documentary implication, "
             "broken continuity, unreadability, missing content, or other required publication work. "
@@ -60,20 +60,23 @@ def main(run):
     if not key: raise RuntimeError("OPENAI_API_KEY unavailable")
     rendered=read(run/'rendered-qa.json'); deploy=read(run/'deployment-receipt.json'); require_current(run,rendered)
     shots=rendered.get('screenshots',[]); files=[run/s['path'] for s in shots]
-    if not files or not any('benchmark-route-' in s['path'] for s in shots): raise RuntimeError('candidate views and actual benchmark routes required')
+    if not files or not any('benchmark-' in s['path'] and '-route-' in s['path'] for s in shots): raise RuntimeError('candidate views and actual benchmark routes required')
     benchmark=[p for p in files if 'benchmark-' in str(p)]
     candidate=[p for p in files if 'benchmark-' not in str(p)]
     batches=[candidate[i:i+8] for i in range(0,len(candidate),8)]
-    if benchmark: batches[0]=batches[0]+benchmark
+    # Every batch receives same-viewport canonical context, not only the first.
+    batches=[batch+[p for p in benchmark if any(('phone-' in str(c) and 'phone-' in str(p)) or ('desktop-' in str(c) and 'desktop-' in str(p)) for c in batch) and any(k in str(p) for k in ('opening','identity','menu','route-0'))] for batch in batches]
     verdicts=[ask_batch(batch,key) for batch in batches]
     defects=[d for verdict in verdicts for d in verdict.get("defects",[])]
     status="PASS" if all(v["status"]=="PASS" for v in verdicts) and not defects else "BLOCKED"
-    parity="PASS" if all(v["benchmark_parity"]=="PASS" for v in verdicts) else "BLOCKED"
+    contract=read(run/'reader-contract-qa.json'); require_current(run,contract)
+    if contract.get('reader_hashes')!=deploy['reader_hashes'] or contract.get('deploy_id')!=deploy['deploy_id']: raise RuntimeError('stale reader contract QA')
+    parity="PASS" if status=='PASS' and contract['status']=='PASS' and all(v["benchmark_parity"]=="PASS" for v in verdicts) else "BLOCKED"
     parity_reason=" | ".join(v.get("parity_reason","") for v in verdicts)
     edition=json.loads((run/"selected-edition-candidate.json").read_text())["candidate_id"]
     common={**binding(run),"reader_hashes":deploy['reader_hashes'],"deploy_id":deploy['deploy_id'],"screenshots":shots}
     write(run/"visual-review.json",{**common,"status":status,"defects":defects})
-    write(run/"benchmark-parity.json",{**common,"status":parity,"reason":parity_reason})
+    write(run/"benchmark-parity.json",{**common,"status":parity,"reason":parity_reason,"contract_version":contract["version"],"contract_status":contract["status"]})
     print(json.dumps({"status":status,"benchmark_parity":parity,"batches":len(batches),"defects":defects},indent=2))
     return status!="PASS" or parity!="PASS"
 
