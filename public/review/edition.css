@@ -24,11 +24,15 @@
    hotspots and all menu, route and mobile rules come from adaptive.css. */
 .edition-menu-art{position:relative;line-height:normal}
 .edition-menu-slice{position:relative;height:clamp(190px,19vw,260px);overflow:hidden;background:#090b0c}
-.edition-menu-slice>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.66) saturate(.92)}
+.edition-menu-slice>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.82) saturate(1.08)}
 .edition-menu-slice:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,7,8,.84),rgba(5,7,8,.17) 76%);pointer-events:none}
 .edition-menu-label{position:absolute;z-index:1;left:3.5%;top:13%;width:70%;text-shadow:0 2px 12px #000}
 .edition-menu-label b{display:block;font:12px/1.3 Arial,sans-serif;letter-spacing:.2em}
-.edition-menu-label strong{display:block;margin:12px 0;font:400 clamp(25px,3vw,38px)/1 Georgia,serif}
-.edition-menu-label span{display:block;max-width:38ch;font:clamp(13px,1.4vw,17px)/1.35 Georgia,serif}
-@media(max-width:600px){.edition-menu-slice{height:clamp(178px,24svh,215px)}.edition-menu-label{left:18px;top:13%;width:78%}.edition-menu-label strong{margin:7px 0;font-size:25px}.edition-menu-label span{font-size:13px}}
+.edition-menu-label strong{display:block;margin:10px 0 20px;font:400 clamp(24px,3vw,35px)/1.08 Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase}
+.edition-menu-label strong:after{content:'';display:block;width:58px;height:4px;margin-top:13px;background:#48a6d5}
+.edition-menu-slice:nth-child(3n + 2) strong:after{background:#df8d26}
+.edition-menu-slice:nth-child(3n) strong:after{background:#42b968}
+.edition-menu-label span{display:block;max-width:43ch;font:clamp(12px,1.3vw,17px)/1.35 Arial,sans-serif}
+.edition-menu-slice:before{content:'→';position:absolute;z-index:2;right:3%;bottom:15%;width:42px;height:42px;border:2px solid #fff;border-radius:50%;text-align:center;font:30px/38px Arial,sans-serif}
+@media(max-width:600px){.edition-menu-slice{height:clamp(178px,24svh,215px)}.edition-menu-label{left:18px;top:12%;width:75%}.edition-menu-label strong{margin:7px 0 11px;font-size:21px}.edition-menu-label strong:after{width:42px;height:3px;margin-top:8px}.edition-menu-label span{font-size:12px;max-width:31ch}.edition-menu-slice:before{right:12px;bottom:14%;width:28px;height:28px;font:20px/25px Arial,sans-serif}}
 @media(prefers-reduced-motion:reduce){.opening-frame{animation:none}.opening-frame:first-child{opacity:1}}

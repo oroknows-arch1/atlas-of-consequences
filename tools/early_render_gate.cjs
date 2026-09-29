@@ -82,8 +82,22 @@ const server=http.createServer((req,res)=>{
   check(measures.length>0&&measures.every(m=>m.height>=height*.98&&m.width>=width*.98&&(m.heading===null||m.heading>=32)&&m.serif&&m.body>=17&&m.image&&m.words<=70&&m.truth&&m.source),`${name}: scene pacing, type, image or truth boundary`);
   check(await route.locator('.scene').evaluateAll(nodes=>{const groups={};for(const e of nodes){const id=e.dataset.scene;groups[id]=(groups[id]||0)+e.querySelectorAll('h2').length}return Object.values(groups).every(n=>n===1)}),`${name}: repeated or missing scene heading`);
   check(await route.locator('.text-scene,.graphic,.perspective-row').count()===0,`${name}: unintended text panel or recreated menu card`);
+  check(await page.locator('.perspective-route').evaluateAll(routes=>routes.every(route=>{
+    const groups={};const prose=new Set();
+    for(const scene of route.querySelectorAll('.scene')){
+      groups[scene.dataset.scene]=(groups[scene.dataset.scene]||0)+scene.querySelectorAll('h2').length;
+      const p=scene.querySelector('[data-prose]')?.textContent.trim();
+      if(!scene.querySelector('img')||!p||prose.has(p)||scene.matches('.text-scene,.graphic'))return false;
+      prose.add(p);
+    }
+    return Object.values(groups).every(count=>count===1);
+  })),`${name}: duplicate content, heading or blank panel in any route`);
   check(measures.every(m=>m.fit!=='cover'||(m.imageWidth>=m.width*.98&&m.imageHeight>=m.height*.98&&m.layer&&m.gradient)),`${name}: image dominance and overlay continuity`);
   const file=path.join(dir,`${name}-scene.png`);await route.locator('.scene').first().screenshot({path:file});shots.push({path:path.relative(root,file),sha256:sha(file)});
+  if(name!=='desktop'&&await route.locator('.scene').count()>1){
+   const continued=path.join(dir,`${name}-continued-scene.png`);
+   await route.locator('.scene').nth(1).screenshot({path:continued});shots.push({path:path.relative(root,continued),sha256:sha(continued)});
+  }
   console.log(`${name}: scene and navigation`);
   await page.reload();check(await route.isVisible(),`${name}: deep link reload`);
   await page.locator('.route-exit').first().click();check(await page.locator('#perspectives').isVisible(),`${name}: return to choices`);
