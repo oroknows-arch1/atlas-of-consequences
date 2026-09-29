@@ -3,8 +3,40 @@
   "status": "BLOCKED",
   "known_required_items": [
     {
-      "worker": "production_orchestrator",
-      "reason": "Production in progress; previous review verdict invalidated"
+      "worker": "visual-review",
+      "reason": "gate did not PASS"
+    },
+    {
+      "worker": "benchmark-parity",
+      "reason": "gate did not PASS"
+    },
+    {
+      "worker": "deployment-receipt",
+      "reason": "different reader build was checked"
+    },
+    {
+      "worker": "rendered-qa",
+      "reason": "different reader build was checked"
+    },
+    {
+      "worker": "visual-review",
+      "reason": "different reader build was checked"
+    },
+    {
+      "worker": "benchmark-parity",
+      "reason": "different reader build was checked"
+    },
+    {
+      "worker": "reader-contract-qa",
+      "reason": "different reader build was checked"
+    },
+    {
+      "worker": "reader_contract",
+      "reason": "reader grammar parity missing or obsolete"
+    },
+    {
+      "worker": "rendered_qa",
+      "reason": "[Errno 2] No such file or directory: 'content/AUTOMATED-TEST-001/screenshots/phone-edition.png'"
     }
   ],
   "publication_authorized": false
