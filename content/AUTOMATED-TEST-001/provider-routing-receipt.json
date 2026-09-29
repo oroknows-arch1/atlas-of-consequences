@@ -2530,8 +2530,25 @@
         ],
         "style": "grounded editorial, distinct composition for this beat, no invented incident or text baked into image"
       },
-      "events": [],
-      "policy_version": "safe-visual-v2"
+      "events": [
+        {
+          "kind": "original_rejection",
+          "provider": "python3 tools/image_provider_openai.py",
+          "reason": "Provider HTTP 400: type=image_generation_user_error; code=moderation_blocked; message=Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID req_6d1f1291e2754bde93f12bb413f41585."
+        }
+      ],
+      "policy_version": "safe-visual-v2",
+      "alternative": {
+        "decision": "SAFE_ALTERNATIVE",
+        "composition": "A shaded Dhaka street scene showing the exteriors of different kinds of modest apartment buildings and a low-rise factory, their windows thrown open and electric fans visible through some openings. Laundry hangs in shaded courtyards, and closed shop shutters suggest businesses coping with heat. Potted plants and buckets are left outside entrances. In the mid-ground, a misty sun and humid haze catch on overhead wires, visually hinting at discomfort and adaptation without depicting people.",
+        "reason": "This composition evokes Dhaka's built environments where adaptation to heat is ongoing. It uses buildings, ventilation measures, urban haze, and ambient everyday objects to illustrate the uneven distribution of coping strategies and unresolved burdens, matching the passage’s focus on observed effects and uncertainties. It avoids people and prohibits staging an incident, yet clearly contextualizes environmental and infrastructural disparities, meeting editorial standards and truth boundaries."
+      },
+      "equivalence_qa": {
+        "safe": true,
+        "meaning_preserved": true,
+        "boundary_preserved": true,
+        "reason": "The proposed composition shows ordinary environment and object imagery—Dhaka buildings, factory exteriors, typical signs of heat adaptation (open windows, fans, laundry, closed shops, potted plants)—without any people or depictions of distress, injury, or disallowed content. It does not stage or encode any prohibited incident, avoids fabricated or institution-specific representations, and leans on environmental cues to illustrate infrastructural adaptation and ongoing uncertainty as required by the passage. The editorial meaning (uneven adaptation, unresolved burdens) is preserved by showing ordinary and authentic physical environments with visual cues of their coping mechanisms, in line with both the truth boundary and the intended scope. Thus, this proposal can be approved."
+      }
     },
     "consequences-scene-B6": {
       "job_sha256": "3fc8e70a2aabf4b5476069ce309d9b8613cbfb072f11d212f9f1490b6740974e",

@@ -1,15 +1,57 @@
 {
   "edition_id": "AET1-WC-002",
   "input_sha256": "940f86c72ebe1724ee8e8ccf40050c3426dbad5ac2760b9748bbaf7727eb1e35",
-  "state": "ASSEMBLED",
-  "assets_persisted": 59,
-  "reader": "public/review/aet1-wc-002/index.html",
-  "defects": [],
-  "next_stage": "rendered_qa",
+  "state": "BLOCKED",
+  "assets_persisted": 57,
+  "reader": null,
+  "defects": [
+    {
+      "worker": "visual_factory",
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "reality",
+      "scene": "reality-scene",
+      "beat_id": "reality-scene-B3",
+      "intent": {
+        "scene_meaning": "When the Heat Comes Inside",
+        "beat_text": "Across the city’s workers, families, and children, the impacts reach from the factory floor and rickshaw routes, into crowded homes, and all the way to classrooms.",
+        "purpose": "Illustrate the sourced opening passage without staging a documented event.",
+        "evidence_refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "reason": "visual/evidence QA: The scene depicts an environment that appears to be a school compound with classroom furniture, a visible electric fan, and two rickshaws outside. This setting suggests a named institution or specific school environment, which is prohibited by the continuity and context guidance. Additionally, the presence of visible books/notebooks on desks and the layout of the building may be interpreted as referencing a documented institution. The street and rickshaw background context is plausible, but the composite foreground and staging risks misleading specificity regarding site attribution. The quality and palette are acceptable, but the institutional visual cues fail the specified bans.",
+      "external_action_required": false
+    },
+    {
+      "worker": "visual_factory",
+      "code": "VISUAL_COVERAGE_GAP",
+      "perspective": "consequences",
+      "scene": "consequences-scene",
+      "beat_id": "consequences-scene-B5",
+      "intent": {
+        "scene_meaning": "Observed Effects and Uncertainties",
+        "beat_text": "Not all Dhaka factories or families have the same ability to adapt, and while some interventions show measurable benefits, the future allocation of costs and who bears the greatest residual heat burden is unresolved.",
+        "purpose": "Illustrate the sourced consequences passage without staging a documented event.",
+        "evidence_refs": [
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "UNICEF-EDU-2025",
+          "WB-HEAT-2025"
+        ],
+        "truth_boundary": "Contextual illustration only; paragraph evidence and scope govern factual claims.",
+        "visual_type": "editorial contextual still"
+      },
+      "reason": "visual/evidence QA: The image includes the word 'FACTORY' as signage, which is explicitly banned per continuity (no identifiable institution signage or text suggesting a documented site). While otherwise contextually appropriate, this signage constitutes a quality boundary and evidence-boundary defect.",
+      "external_action_required": false
+    }
+  ],
+  "next_stage": "repair",
   "publication_authorized": false,
-  "reader_hashes": {
-    "public/review/aet1-wc-002/index.html": "d65aade6ccd019f15e07f804780ed4c3319d6f68ff3729a4967e274d70b0eace",
-    "public/review/aet1-wc-002/reader.css": "af47ae88e9c62ff039012b1e84350ec3ab16303fbdad40943442726343b0aee5",
-    "public/review/aet1-wc-002/reader.js": "8a58059ddc70322a9e4d1a9be004420fd8564b5a5d3fbb3beacbd82ff3630df4"
-  }
+  "reader_hashes": {}
 }

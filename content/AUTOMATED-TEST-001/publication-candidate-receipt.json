@@ -3,12 +3,32 @@
   "status": "BLOCKED",
   "known_required_items": [
     {
+      "worker": "production-receipt",
+      "reason": "production incomplete"
+    },
+    {
+      "worker": "asset-persistence-receipt",
+      "reason": "gate did not PASS"
+    },
+    {
       "worker": "visual-review",
       "reason": "gate did not PASS"
     },
     {
       "worker": "benchmark-parity",
       "reason": "gate did not PASS"
+    },
+    {
+      "worker": "factory_coverage",
+      "reason": "VISUAL_COVERAGE_GAP: 59 rendered beats unresolved"
+    },
+    {
+      "worker": "asset_persistence",
+      "reason": "required asset coverage mismatch"
+    },
+    {
+      "worker": "reader_builder",
+      "reason": "reader output missing"
     },
     {
       "worker": "deployment-receipt",
