@@ -65,6 +65,13 @@ jobs:
         run: python3 tools/assemble_verified_reader.py "$RUN_DIR"
       - name: Verify every rendered route and asset
         run: node tools/full_render_gate.cjs "$RUN_DIR"
+      - name: Persist passed reader before review deployment
+        run: |
+          git add public/review "$RUN_DIR/early-reader-gate.json" "$RUN_DIR/full-reader-gate.json" "$RUN_DIR/production-receipt.json" "$RUN_DIR/visual-coverage.json" "$RUN_DIR/opening-system.json"
+          if ! git diff --cached --quiet; then
+            git commit -m 'Preserve passed inherited reader before review deploy [skip ci]'
+            git push origin HEAD:test/automated-edition-1
+          fi
       - name: Deploy inherited reader to isolated review service
         env:
           RENDER_API_KEY: ${{ secrets.ATLASOQUENCE_GITHUB_ACTIONS }}

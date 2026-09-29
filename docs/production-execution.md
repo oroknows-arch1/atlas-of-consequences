@@ -18,6 +18,10 @@ runs. This workflow never authorizes official publication.
 `tools/reader_builder.py` now populates the AOC-001 adaptive reader surface and copies
 `public/adaptive/adaptive.css` byte for byte. The generated edition's editorial data,
 routes, sources, story, place, visual references and purposeful endings are inputs.
+The Perspective menu uses the canonical `visual-perspective-menu` and
+`perspective-hotspot` interaction structure. Each accepted route supplies one
+continuous image region and live text; no fixed six-route composite asset is
+embedded in the factory.
 `public/review/reader-production.*` is an archived generic implementation; the
 automated workflow and builder do not load it. The canonical `public/adaptive/`
 edition is read only. The gate receipt is

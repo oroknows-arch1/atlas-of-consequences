@@ -92,7 +92,7 @@ async function finish(status){
    }
   }
   check(sceneCount===receipt.beat_count,`${name}: rendered ${sceneCount} beats, planned ${receipt.beat_count}`);
-  const nonScene=await page.locator('.hero img,.perspective img').evaluateAll(async images=>{
+  const nonScene=await page.locator('.hero img,.perspective-row img').evaluateAll(async images=>{
    await Promise.all(images.map(async image=>{image.loading='eager';await image.decode().catch(()=>{})}));
    return images.map(image=>({path:new URL(image.src).pathname,ok:image.naturalWidth>0}));
   });

@@ -128,6 +128,7 @@ class ProductionRegression(unittest.TestCase):
   self.assertIn('full_render_gate.cjs "$RUN_DIR" --live',workflow)
   self.assertIn('review_inherited_live.py',workflow)
   self.assertIn('publication_gate_inherited.py',workflow)
+  self.assertLess(workflow.index('Persist passed reader before review deployment'),workflow.index('Deploy inherited reader to isolated review service'))
  def test_provider_safety_rejection_is_not_automatically_retried(self):
   routes,requirements,story=producer.facts(self.run,'AET1-WC-002')
   candidate=state.read(self.run/'selected-edition-candidate.json')
@@ -330,6 +331,8 @@ class ProductionRegression(unittest.TestCase):
    page=builder.build_reader(self.run,'SYNTHETIC',{'working_title':'Synthetic title','geographic_core':'Synthetic place','world_change':'Synthetic change'},[route,second],{'title':'Synthetic story','boundary':'Fiction, invented','story':['Synthetic story']},assets,copy,structural=True)
   text=page.read_text()
   self.assertEqual(text.count('data-perspective="P'),2)
+  self.assertIn('class="menu visual-perspective-menu"',text)
+  self.assertEqual(text.count('class="perspective-hotspot"'),2)
   self.assertIn('id="route-P1" class="route perspective-route" data-route="P1"',text)
   self.assertIn('id="route-P2" class="route perspective-route" data-route="P2"',text)
   self.assertIn('AI-generated contextual illustration',text)

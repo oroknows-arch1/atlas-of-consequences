@@ -51,11 +51,13 @@ const server=http.createServer((req,res)=>{
   for(const [label,selector] of [['opening','.hero'],['perspectives','#perspectives']]){
    if(label==='perspectives'){
     await page.locator('.enter').click();
-    const loaded=await page.locator('#perspectives .perspective img').evaluateAll(async images=>{
+    const loaded=await page.locator('#perspectives .perspective-row img').evaluateAll(async images=>{
      await Promise.all(images.map(async image=>{image.loading='eager';await image.decode().catch(()=>{})}));
      return images.every(image=>image.naturalWidth>0);
     });
     check(loaded,`${name}: every Perspective image must decode before visual approval`);
+    check(await page.locator('.perspective-menu-image .perspective-hotspot').count()===expected,
+      `${name}: canonical hotspot menu must match accepted Perspectives`);
    }
    const file=path.join(dir,`${name}-${label}.png`);await page.locator(selector).screenshot({path:file});shots.push({path:path.relative(root,file),sha256:sha(file)});
   }
