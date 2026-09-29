@@ -27,7 +27,7 @@ const server=http.createServer((req,res)=>{
  const shots=[];
  for(const [name,width,height] of [['phone',390,844],['small-phone',320,740],['desktop',1440,900]]){
   console.log(`Rendering ${name}`);
-  const page=await browser.newPage({viewport:{width,height},reducedMotion:'reduce'});
+  const page=await browser.newPage({viewport:{width,height},reducedMotion:'no-preference'});
   page.setDefaultTimeout(12000);
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base,{waitUntil:'networkidle'});
@@ -40,6 +40,12 @@ const server=http.createServer((req,res)=>{
   await page.locator('.skip-film').click();
   console.log(`${name}: opening`);
   check(await page.locator('.hero').evaluate(e=>e.classList.contains('film-complete')),`${name}: skip/reveal`);
+  if(name==='phone'){
+   const reduced=await browser.newPage({viewport:{width,height},reducedMotion:'reduce'});
+   await reduced.goto(base,{waitUntil:'networkidle'});
+   check(await reduced.locator('.hero').evaluate(e=>e.classList.contains('film-complete')),`${name}: reduced-motion reveal`);
+   await reduced.close();
+  }
   const dir=path.join(run,'early-gate-shots');fs.mkdirSync(dir,{recursive:true});
   for(const [label,selector] of [['opening','.hero'],['perspectives','#perspectives']]){
    if(label==='perspectives')await page.locator('.enter').click();
