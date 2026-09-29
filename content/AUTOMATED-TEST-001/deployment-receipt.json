@@ -8,9 +8,9 @@
     "public/review/aet1-wc-002/index.html": "a8d698dc1d6747cdb7d933b4fae9b952498c2ced9fe33c56daecd752f1f53dcc"
   },
   "branch": "test/automated-edition-1",
-  "commit": "1c9d288fbb963b7169dca94b0a71e026eb8a9769",
+  "commit": "9dc24bef98d823f83fd0113af97683617e61e609",
   "target": "srv-dase6m8jo6nc73bdh1ig",
-  "deploy_id": "dep-dau0rjegekts73chdv8g",
+  "deploy_id": "dep-dau0ucnavr4c73f8ve1g",
   "deployment_result": "live",
   "base_url": "https://atlas-automated-edition-test-1.onrender.com",
   "url": "https://atlas-automated-edition-test-1.onrender.com/review/aet1-wc-002/",

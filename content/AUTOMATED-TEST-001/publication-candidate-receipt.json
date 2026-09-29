@@ -1,31 +1,8 @@
 {
   "edition_id": "AET1-WC-002",
-  "status": "BLOCKED",
-  "known_required_items": [
-    {
-      "worker": "visual-review",
-      "reason": "gate did not PASS"
-    },
-    {
-      "worker": "benchmark-parity",
-      "reason": "gate did not PASS"
-    },
-    {
-      "worker": "visual-review",
-      "reason": "different reader build was checked"
-    },
-    {
-      "worker": "benchmark-parity",
-      "reason": "different reader build was checked"
-    },
-    {
-      "worker": "reader_contract",
-      "reason": "reader grammar parity missing or obsolete"
-    },
-    {
-      "worker": "rendered_qa",
-      "reason": "visual verdict references different screenshots"
-    }
-  ],
-  "publication_authorized": false
+  "input_sha256": "940f86c72ebe1724ee8e8ccf40050c3426dbad5ac2760b9748bbaf7727eb1e35",
+  "status": "PUBLICATION_CANDIDATE",
+  "known_required_items": [],
+  "publication_authorized": false,
+  "review_url": "https://atlas-automated-edition-test-1.onrender.com/review/aet1-wc-002/"
 }
