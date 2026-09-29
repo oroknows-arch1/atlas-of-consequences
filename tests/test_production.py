@@ -117,10 +117,12 @@ class ProductionRegression(unittest.TestCase):
   self.assertIn('cancel-in-progress: true',workflow)
  def test_partial_asset_persistence_runs_after_failure(self):
   workflow=(state.ROOT/'.github/workflows/atlas-edition-production.yml').read_text()
-  partial=workflow.split('name: Persist early gate checkpoint')[1].split('- name:')[0]
+  partial=workflow.split('name: Persist verified reader checkpoint')[1].split('- name:')[0]
   self.assertIn('if: always()',partial)
   self.assertIn('git add public/review',partial)
   self.assertNotIn('produce_edition.py',workflow)
+  self.assertIn('assemble_verified_reader.py',workflow)
+  self.assertIn('full_render_gate.cjs',workflow)
  def test_provider_safety_rejection_is_not_automatically_retried(self):
   routes,requirements,story=producer.facts(self.run,'AET1-WC-002')
   candidate=state.read(self.run/'selected-edition-candidate.json')

@@ -29,14 +29,8 @@ jobs:
     permissions:
       contents: write
     env:
-      OPENAI_API_KEY: ${{ secrets.ATLASOQUENCE_GITHUB_PRODUCTION }}
-      RENDER_API_KEY: ${{ secrets.ATLASOQUENCE_GITHUB_ACTIONS }}
       ATLAS_READER_ONLY: '1'
       ATLAS_ALLOW_COVERAGE_GENERATION: '0'
-      ATLAS_SAFE_VISUAL_REEXPRESSION: '1'
-      ATLAS_IMAGE_COMMAND: python3 tools/image_provider_openai.py
-      ATLAS_VISUAL_QA_COMMAND: python3 tools/visual_verifier_openai.py
-      ATLAS_BENCHMARK_URL: https://atlas-of-consequences.onrender.com/adaptive/
       NODE_PATH: /tmp/atlas-playwright/node_modules
       RUN_DIR: ${{ inputs.run_dir || 'content/AUTOMATED-TEST-001' }}
     steps:
@@ -67,15 +61,19 @@ jobs:
         run: python3 tools/early_reader_gate.py "$RUN_DIR"
       - name: Render and verify structural checkpoint
         run: node tools/early_render_gate.cjs "$RUN_DIR"
-      - name: Persist early gate checkpoint
+      - name: Assemble from all persisted verified beats
+        run: python3 tools/assemble_verified_reader.py "$RUN_DIR"
+      - name: Verify every rendered route and asset
+        run: node tools/full_render_gate.cjs "$RUN_DIR"
+      - name: Persist verified reader checkpoint
         if: always()
         run: |
-          git add public/review "$RUN_DIR/early-reader-gate.json"
+          git add public/review "$RUN_DIR/early-reader-gate.json" "$RUN_DIR/full-reader-gate.json" "$RUN_DIR/production-receipt.json" "$RUN_DIR/visual-coverage.json" "$RUN_DIR/opening-system.json"
           if ! git diff --cached --quiet; then
             git commit -m 'Verify inherited AOC reader structural checkpoint [skip ci]'
             git push origin HEAD:test/automated-edition-1
           fi
-      - name: Store early rendered screenshots
+      - name: Store rendered gate screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -83,3 +81,5 @@ jobs:
           path: |
             ${{ env.RUN_DIR }}/early-reader-gate.json
             ${{ env.RUN_DIR }}/early-gate-shots/*.png
+            ${{ env.RUN_DIR }}/full-reader-gate.json
+            ${{ env.RUN_DIR }}/full-gate-shots/*.png

@@ -5,11 +5,12 @@
   "assets_persisted": 59,
   "reader": "public/review/aet1-wc-002/index.html",
   "defects": [],
-  "next_stage": "rendered_qa",
+  "next_stage": "full_rendered_qa",
   "publication_authorized": false,
   "reader_hashes": {
-    "public/review/aet1-wc-002/index.html": "d65aade6ccd019f15e07f804780ed4c3319d6f68ff3729a4967e274d70b0eace",
-    "public/review/aet1-wc-002/reader.css": "cb1e33ae0dab63e6ccbc098c1d95536ca5c877310b9c24cb45437615eda65856",
-    "public/review/aet1-wc-002/reader.js": "8a58059ddc70322a9e4d1a9be004420fd8564b5a5d3fbb3beacbd82ff3630df4"
+    "public/review/aet1-wc-002/adaptive.css": "eb0232e2eb66595eb724ae33226f0b489bd62b1569898e1a756c7b4fb921b2a2",
+    "public/review/aet1-wc-002/adaptive.js": "06ce4fb5feeec35e7f85d9632a2a73f575df26ab7514dd513323bfe7599a8c74",
+    "public/review/aet1-wc-002/edition.css": "c2979899420372e4a629beac92a816870554e41609315921edf7d2f12fe34b7e",
+    "public/review/aet1-wc-002/index.html": "a8d698dc1d6747cdb7d933b4fae9b952498c2ced9fe33c56daecd752f1f53dcc"
   }
 }

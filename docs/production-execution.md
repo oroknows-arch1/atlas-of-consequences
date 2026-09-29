@@ -2,10 +2,13 @@
 
 ## Current bounded execution: inherited adaptive reader
 
-The test branch workflow currently stops at an **early rendered structural gate**. It runs
-`tools/early_reader_gate.py` with the accepted edition data and the existing verified
-asset receipt, then `tools/early_render_gate.cjs` at three viewport sizes. It does not
-call the image provider, `produce_edition.py`, deployment, or publication gate.
+The test branch workflow first runs the **early rendered structural gate** using
+`tools/early_reader_gate.py` and `tools/early_render_gate.cjs` at three viewport
+sizes. Once it passes, `tools/assemble_verified_reader.py` requires current
+editorial QA and hashes for all 59 persisted assets, proves complete distinct beat
+coverage, and rebuilds the reader without structural placeholders. The full render
+gate visits every route and beat at the same viewports. No image provider, editorial
+API, deployment, or publication gate runs in this bounded workflow.
 
 `tools/reader_builder.py` now populates the AOC-001 adaptive reader surface and copies
 `public/adaptive/adaptive.css` byte for byte. The generated edition's editorial data,
@@ -14,8 +17,10 @@ routes, sources, story, place, visual references and purposeful endings are inpu
 automated workflow and builder do not load it. The canonical `public/adaptive/`
 edition is read only. The gate receipt is
 `content/AUTOMATED-TEST-001/early-reader-gate.json`; browser screenshots are stored
-as a workflow artifact. A PASS proves the reader structure and interaction with
-persisted images. It does not claim final visual coverage or authorize publication.
+as a workflow artifact. `full-reader-gate.json` records the all-route/all-asset
+result. The obsolete generated `reader.css` and `reader.js` are removed. A PASS
+proves the local reader wiring and rendering with persisted assets, not deployed
+bytes, independent publication review, or publication authority.
 
 The production steps below describe the later full chain and must not be invoked
 until the early gate has passed and this bounded execution is explicitly advanced.
