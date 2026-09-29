@@ -69,7 +69,7 @@ async function finish(status){
     check(await route.locator('.purposeful-ending').count()===1,`${name}/${id}: purposeful ending missing`);
     check(await route.locator('.route-exit[href="#perspectives"]').count()===1,`${name}/${id}: choice return missing`);
    }
-   if((id===routes[0]||id===routes[routes.length-1])&&name!=='small-phone'){
+   if(observations.length&&(id===routes[0]||id===routes[routes.length-2])&&name!=='small-phone'){
     const file=path.join(run,'full-gate-shots',`${name}-${id}.png`);fs.mkdirSync(path.dirname(file),{recursive:true});
     await route.locator('.scene').first().screenshot({path:file});shots.push({path:path.relative(root,file),sha256:sha(file)});
    }
