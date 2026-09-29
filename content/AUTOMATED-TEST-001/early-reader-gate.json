@@ -12,27 +12,35 @@
   "screenshots": [
     {
       "path": "content/AUTOMATED-TEST-001/early-gate-shots/phone-opening.png",
-      "sha256": "0ab4f7d532c059d4b3fd6f5e7b486d23bd73467a80bcb3d5213fd2620cb8d7a5"
+      "sha256": "3f03d533fc0231ffe6005be188e72cebcee8d680f6df4b457c305c58aa062e3a"
     },
     {
       "path": "content/AUTOMATED-TEST-001/early-gate-shots/phone-perspectives.png",
-      "sha256": "5d11aee8ef2415d5a5c612197e7b7f0f48b8674d99fdea1a9d31aea0e736236a"
+      "sha256": "bf2f85a543ba89f9d408957c9eb93690affd2edb656839a6da46d7ae1ac88a71"
     },
     {
       "path": "content/AUTOMATED-TEST-001/early-gate-shots/phone-scene.png",
       "sha256": "2acc1af3cdfc3fb850eeae8cd2031c9d2e70eb464b63ab79a273e422d2a37253"
     },
     {
+      "path": "content/AUTOMATED-TEST-001/early-gate-shots/phone-continued-scene.png",
+      "sha256": "b0e37fbce8016ffdd7540cc2b53e1090f9454283d18cec7e51e57313f69df816"
+    },
+    {
       "path": "content/AUTOMATED-TEST-001/early-gate-shots/small-phone-opening.png",
-      "sha256": "06402c331e60253dda86a22dd7ab69368a8072d8979aa9e14b9bda53200bfc0f"
+      "sha256": "03a74fb2715192c9d313228d264b43adefbb69625058dec5f587cf824585338a"
     },
     {
       "path": "content/AUTOMATED-TEST-001/early-gate-shots/small-phone-perspectives.png",
-      "sha256": "2b85ad58e64e12a25c2ac54541c8c08ff898570ab4d3a90afb95a97862c12b11"
+      "sha256": "54dd6df75b297aba1437a7b8a6af2a8f89f4b49e0c763852ef943422fbb2b607"
     },
     {
       "path": "content/AUTOMATED-TEST-001/early-gate-shots/small-phone-scene.png",
       "sha256": "35098e1b8b24e7b8169664e6136411a6942a7c26b3696491628b57cca6f4725d"
+    },
+    {
+      "path": "content/AUTOMATED-TEST-001/early-gate-shots/small-phone-continued-scene.png",
+      "sha256": "e275fe4ffc7d6e798628a7dde8f4a25d96819f17917b0a227321171ea064847d"
     },
     {
       "path": "content/AUTOMATED-TEST-001/early-gate-shots/desktop-opening.png",
@@ -40,7 +48,7 @@
     },
     {
       "path": "content/AUTOMATED-TEST-001/early-gate-shots/desktop-perspectives.png",
-      "sha256": "f00a1fd3ede78f4490c5a37eb5b90a4bea6619c9f526f85f1eb4c667545687db"
+      "sha256": "20db1ba6de44bcebbe8ec6792b438d162f493ae9a1fcdd2a5b03de94739b8dab"
     },
     {
       "path": "content/AUTOMATED-TEST-001/early-gate-shots/desktop-scene.png",
