@@ -84,7 +84,11 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
         if isinstance(purpose,str): purpose={'label':'Explore further','text':purpose}
         purpose_html='<aside class="purposeful-ending"><small>%s</small><p>%s</p>%s</aside>'%(esc(purpose.get('label','A way forward')),esc(purpose.get('text','Inspect the evidence and follow the related people, places or organisations.')),('<a href="%s" rel="noopener">%s ↗</a>'%(esc(purpose['url']),esc(purpose.get('link_label','Explore')))) if purpose.get('url') else '')
         panels.append(route(rid,r['perspective'],blocks,{'text':'The evidence has limits. Follow the sources and choose what to explore next.','extra':purpose_html+'<details><summary>What the evidence can and cannot say</summary><ul>'+limits+'</ul></details>'}))
-        asset=next((by_scene.get(s['scene_id']) for s in r['scenes'] if by_scene.get(s['scene_id']) and by_scene[s['scene_id']]['provider']!='ATLAS_DETERMINISTIC_GRAPHIC'),hero)
+        asset=next((by_scene[s['scene_id']] for s in r['scenes'] if s['scene_id'] in by_scene and by_scene[s['scene_id']]['provider']!='ATLAS_DETERMINISTIC_GRAPHIC'),None)
+        if not asset:
+            asset=next((by_beat[f'{s["scene_id"]}-B1'] for s in r['scenes']
+                        if f'{s["scene_id"]}-B1' in by_beat and by_beat[f'{s["scene_id"]}-B1']['provider']!='ATLAS_DETERMINISTIC_GRAPHIC'),None)
+        if not asset:asset=hero
         entries.append('<div class="perspective-row"><img src="%s" alt="" loading="lazy"><div class="perspective-copy"><b>%02d / %02d</b><h2>%s</h2><p>%s</p></div><a class="perspective-hotspot" href="#%s" data-perspective="%s" aria-label="Enter %s perspective"></a></div>'%(esc(asset['path']),i,len(routes),esc(r['perspective']),esc(r['scenes'][0]['meaning']),esc(rid),esc(r['perspective_id']),esc(r['perspective'])))
     shared=[]
     for key,title in [('reality','WHAT’S REAL'),('consequences','CONSEQUENCES'),('place','PLACE')]:

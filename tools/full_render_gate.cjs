@@ -97,6 +97,8 @@ async function finish(status){
    return images.map(image=>({path:new URL(image.src).pathname,ok:image.naturalWidth>0}));
   });
   for(const a of nonScene){if(a.ok)used.add(a.path);else defects.push(`${name}: opening/menu image failed to decode ${a.path}`)}
+  const menuPaths=await page.locator('.perspective-row img').evaluateAll(images=>images.map(image=>new URL(image.src).pathname));
+  check(new Set(menuPaths).size===menuPaths.length,`${name}: Perspective menu repeats imagery despite complete verified asset coverage`);
   check([...expected].every(p=>used.has(p)),`${name}: persisted visual missing from rendered reader: ${[...expected].filter(p=>!used.has(p)).join(', ')}`);
   await page.evaluate(()=>{location.hash='story'});await page.locator('#story').waitFor({state:'visible'});
   check((await page.locator('#story').innerText()).includes('FICTION'),`${name}: story truth boundary missing`);
