@@ -3,7 +3,7 @@
   "input_sha256": "940f86c72ebe1724ee8e8ccf40050c3426dbad5ac2760b9748bbaf7727eb1e35",
   "status": "PASS",
   "reader": "public/review/aet1-wc-002/index.html",
-  "reader_sha256": "a8d698dc1d6747cdb7d933b4fae9b952498c2ced9fe33c56daecd752f1f53dcc",
+  "reader_sha256": "5751bd41339c93b22ddac52ee47d1e0a1b81f66e25afa778fda0771d50482ecf",
   "asset_count": 59,
   "beat_count": 59,
   "asset_generation_authorized": false,
@@ -16,40 +16,40 @@
     },
     {
       "path": "live-gate-shots/phone-perspectives.png",
-      "sha256": "0ef2f7b175414ef7c79c1d2ce26bdeb213ef61df3540e53c8a9d2f9193cf1713"
+      "sha256": "7c57031355ad8f77ea3044fb0ac8e9a119bb43739cdc5bd2d079e876e6c0455c"
     },
     {
       "path": "live-gate-shots/phone-route-H1.png",
-      "sha256": "55bcf71af5296b84105bab53f84860a265181053b4e40b6760bf8f74582ccf90"
+      "sha256": "3ee0e5410b08a98828cb54b70428c6cbeeee69bb5c0ff5a0384f31e650effd55"
     },
     {
       "path": "live-gate-shots/phone-place.png",
-      "sha256": "d51a71b1e14fa8b5b05ccbbec9d1e0241878005895d94d1286e0669fdbb3f3d4"
+      "sha256": "2b475fe153fecced49e8628ffb33365027297ff1a2a3c6354a3958c9dedcc558"
     },
     {
       "path": "live-gate-shots/desktop-opening.png",
-      "sha256": "2ab858adaffc4069309373c1b47ac2508c50122b8a704d69425832df5611451d"
+      "sha256": "59432a1becf5b6a4a1f568a1aa2826fd89a50d5363094760751cc00a3a0c7809"
     },
     {
       "path": "live-gate-shots/desktop-perspectives.png",
-      "sha256": "77d873bd05fe374e8cddeea83f5e02caec52cb568f35b88e57f83831fde71b62"
+      "sha256": "da1827bc87e7420e2a72d6f5c4df11f78516bb5c3d3441b5ff789376cf889126"
     },
     {
       "path": "live-gate-shots/desktop-route-H1.png",
-      "sha256": "ad0b7dae8dd6f66f779c1c2181efbcb85099ed9f44192cd0169694e88272a2e2"
+      "sha256": "a2c1b75ab88e6eec98d506bd211434fc6cce18a5a28a1f8c7990941a36eaaa71"
     },
     {
       "path": "live-gate-shots/desktop-place.png",
-      "sha256": "41bd005d467b774d531f0b2931a2acce8ef9e73f2f1324ad57b91eba5fca2e9b"
+      "sha256": "370d0be38678b6d3841425cb7fe85238e43f4e6707394dad74fe1f5db7fe2f60"
     }
   ],
   "reader_hashes": {
     "public/review/aet1-wc-002/adaptive.css": "eb0232e2eb66595eb724ae33226f0b489bd62b1569898e1a756c7b4fb921b2a2",
     "public/review/aet1-wc-002/adaptive.js": "06ce4fb5feeec35e7f85d9632a2a73f575df26ab7514dd513323bfe7599a8c74",
-    "public/review/aet1-wc-002/edition.css": "c2979899420372e4a629beac92a816870554e41609315921edf7d2f12fe34b7e",
-    "public/review/aet1-wc-002/index.html": "a8d698dc1d6747cdb7d933b4fae9b952498c2ced9fe33c56daecd752f1f53dcc"
+    "public/review/aet1-wc-002/edition.css": "eb5f798999e2d93a01103807a953d5f0711c9a3f1b1d372c59a1c906817f110f",
+    "public/review/aet1-wc-002/index.html": "5751bd41339c93b22ddac52ee47d1e0a1b81f66e25afa778fda0771d50482ecf"
   },
-  "deploy_id": "dep-dau0ucnavr4c73f8ve1g",
+  "deploy_id": "dep-dau11hh42hec73de8mbg",
   "url": "https://atlas-automated-edition-test-1.onrender.com/review/aet1-wc-002/",
-  "commit": "9dc24bef98d823f83fd0113af97683617e61e609"
+  "commit": "69c198896b2d756bf5637594a5b01bd4011b9eb3"
 }
