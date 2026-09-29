@@ -326,6 +326,8 @@ class ProductionRegression(unittest.TestCase):
   self.assertIn('id="route-P1" class="route perspective-route" data-route="P1"',text)
   self.assertIn('id="route-P2" class="route perspective-route" data-route="P2"',text)
   self.assertIn('AI-generated contextual illustration',text)
+  self.assertIn('Follow the evidence',text)
+  self.assertIn('href="#source-WB-HEAT-2025"',text)
   self.assertNotIn('PUBLICATION CANDIDATE',text)
   self.assertIn('adaptive.js',text)
   self.assertEqual(state.digest(page.parent/'adaptive.css'),state.digest(state.ROOT/'public/adaptive/adaptive.css'))

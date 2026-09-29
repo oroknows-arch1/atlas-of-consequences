@@ -33,9 +33,10 @@ const server=http.createServer((req,res)=>{
   await page.goto(base,{waitUntil:'networkidle'});
   let state=await page.evaluate(()=>{
    const h=document.querySelector('.hero'),t=h.querySelector('h1'),s=getComputedStyle(t),bg=h.querySelector('.edition-geo-bg');
-   return {height:h.getBoundingClientRect().height,heading:parseFloat(s.fontSize),serif:s.fontFamily.includes('Georgia'),cover:getComputedStyle(bg).objectFit==='cover',count:document.querySelectorAll('[data-perspective]').length,broken:[...document.images].filter(i=>i.complete&&!i.naturalWidth).length,overflow:document.documentElement.scrollWidth>innerWidth+2,copy:getComputedStyle(t).opacity};
+   return {height:h.getBoundingClientRect().height,heading:parseFloat(s.fontSize),serif:s.fontFamily.includes('Georgia'),cover:getComputedStyle(bg).objectFit==='cover',deckWords:h.parentElement.querySelector('p').textContent.trim().split(/\s+/).length,count:document.querySelectorAll('[data-perspective]').length,broken:[...document.images].filter(i=>i.complete&&!i.naturalWidth).length,overflow:document.documentElement.scrollWidth>innerWidth+2,copy:getComputedStyle(t).opacity};
   });
   check(state.height>=height*.98&&state.serif&&state.heading>=50&&state.cover,`${name}: canonical opening composition`);
+  check(state.deckWords<=28,`${name}: opening deck overwhelms the inherited hero`);
   check(state.count===expected&&state.broken===0&&!state.overflow,`${name}: Perspective count, image decoding or viewport overflow`);
   await page.locator('.skip-film').click();
   console.log(`${name}: opening`);
@@ -48,7 +49,14 @@ const server=http.createServer((req,res)=>{
   }
   const dir=path.join(run,'early-gate-shots');fs.mkdirSync(dir,{recursive:true});
   for(const [label,selector] of [['opening','.hero'],['perspectives','#perspectives']]){
-   if(label==='perspectives')await page.locator('.enter').click();
+   if(label==='perspectives'){
+    await page.locator('.enter').click();
+    const loaded=await page.locator('#perspectives .perspective img').evaluateAll(async images=>{
+     await Promise.all(images.map(async image=>{image.loading='eager';await image.decode().catch(()=>{})}));
+     return images.every(image=>image.naturalWidth>0);
+    });
+    check(loaded,`${name}: every Perspective image must decode before visual approval`);
+   }
    const file=path.join(dir,`${name}-${label}.png`);await page.locator(selector).screenshot({path:file});shots.push({path:path.relative(root,file),sha256:sha(file)});
   }
   console.log(`${name}: Perspective menu`);
