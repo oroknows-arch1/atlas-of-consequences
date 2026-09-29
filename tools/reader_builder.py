@@ -53,16 +53,18 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
             bits.extend((p,t) for t in chunks(p['text']))
         result=[]
         for n,(p,text) in enumerate(bits,1):
-            beat=by_beat.get(f'{sid}-B{n}') or (asset if n==1 else None)
+            beat=by_beat.get(f'{sid}-B{n}') or asset
             # A structural preview may repeat a verified image; it never calls
             # that repetition finished visual coverage or publication evidence.
             if not beat and structural: beat=asset or hero
             graphic=beat and beat['provider']=='ATLAS_DETERMINISTIC_GRAPHIC'
-            cls='graphic' if graphic else 'scene-overlay' if beat else 'text-scene'
+            cls='scene-overlay'
             image='<img src="%s" alt="%s" loading="lazy">'%(esc(beat['path']),esc(block['heading'])) if beat else ''
             caption=('<em class="asset-boundary">%s · %s</em>'%('Explanatory graphic' if graphic else 'AI-generated contextual illustration · not a documentary photograph',esc(beat['truth_boundary']))) if beat else ''
             refs=' '.join('<a href="#source-%s">%s</a>'%(esc(ref),esc(ref)) for ref in p['evidence_refs'])
-            result.append('<article class="scene %s" id="%s-part-%d" data-scene="%s">%s<div class="scene-copy"><small>%s · %02d / %02d</small><h2>%s</h2><p data-prose>%s</p><em>Evidence · %s</em>%s</div></article>'%(cls,esc(sid),n,esc(sid),image,esc(p['state']),n,len(bits),esc(block['heading']),esc(text),refs,caption))
+            if not beat: raise ValueError('scene has no verified visual: '+sid)
+            heading='<h2>%s</h2>'%esc(block['heading']) if n==1 else ''
+            result.append('<article class="scene %s" id="%s-part-%d" data-scene="%s">%s<div class="scene-copy"><small>%s · %02d / %02d</small>%s<p data-prose>%s</p><em>Evidence · %s</em>%s</div></article>'%(cls,esc(sid),n,esc(sid),image,esc(p['state']),n,len(bits),heading,esc(text),refs,caption))
         return ''.join(result)
 
     def route(key,title,blocks,ending=None):
@@ -89,7 +91,12 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
             asset=next((by_beat[f'{s["scene_id"]}-B1'] for s in r['scenes']
                         if f'{s["scene_id"]}-B1' in by_beat and by_beat[f'{s["scene_id"]}-B1']['provider']!='ATLAS_DETERMINISTIC_GRAPHIC'),None)
         if not asset:asset=hero
-        entries.append('<div class="perspective-row"><img src="%s" alt="" loading="lazy"><div class="perspective-copy"><b>%02d / %02d</b><h2>%s</h2><p>%s</p></div><a class="perspective-hotspot" href="#%s" data-perspective="%s" aria-label="Enter %s perspective"></a></div>'%(esc(asset['path']),i,len(routes),esc(r['perspective']),esc(r['scenes'][0]['meaning']),esc(rid),esc(r['perspective_id']),esc(r['perspective'])))
+        entries.append((asset,r,rid))
+    # The AOC-001 menu owns one continuous image surface and sibling hotspots.
+    # Its artwork is edition data: verified stills and labels form a compact
+    # contiguous surface, while the inherited hotspot/controller code runs it.
+    slices=''.join('<div class="edition-menu-slice"><img src="%s" alt="" loading="lazy"><div class="edition-menu-label"><b>%02d / %02d</b><strong>%s</strong><span>%s</span></div></div>'%(esc(asset['path']),i,len(entries),esc(r['perspective']),esc(r['scenes'][0]['meaning'])) for i,(asset,r,rid) in enumerate(entries,1))
+    hotspots=''.join('<a class="perspective-hotspot" style="top:%s%%;height:%s%%" href="#%s" data-perspective="%s" aria-label="Enter %s perspective"></a>'%(100*i/len(entries),100/len(entries),esc(rid),esc(r['perspective_id']),esc(r['perspective'])) for i,(asset,r,rid) in enumerate(entries))
     shared=[]
     for key,title in [('reality','WHAT’S REAL'),('consequences','CONSEQUENCES'),('place','PLACE')]:
         shared.append(route(key,title,[(key+'-scene',copy['opening' if key=='reality' else key])]))
@@ -99,7 +106,7 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
     menu='<nav class="edition-links"><a href="#reality">WHAT’S REAL</a> · <a href="#story">STORY / FICTION</a> · <a href="#consequences">CONSEQUENCES</a> · <a href="#place">PLACE</a> · <a href="#sources">SOURCES</a></nav>'
     deck=candidate.get('hero_deck') or routes[0]['scenes'][0]['meaning']
     if len(deck.split())>28: raise ValueError('opening deck exceeds canonical reader pacing')
-    page='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#050708"><meta name="robots" content="noindex,nofollow"><title>%s · Atlasoquence</title><link rel="stylesheet" href="adaptive.css"><link rel="stylesheet" href="edition.css"><script src="adaptive.js" defer></script></head><body data-reader-family="aoc001-adaptive" data-opening-mode="%s"><main id="shell"><section class="hero video-entry" id="home"><img class="edition-geo-bg" src="%s" alt="%s · contextual illustration">%s<div class="shade"></div><div class="film-mark"><span>ATLASOQUENCE</span><span>%s</span></div><button class="skip-film" type="button">Skip opening ↓</button><div class="top reveal-copy"><span>ATLASOQUENCE</span><span>%s · READER TEST</span></div><div class="hero-copy reveal-copy"><div class="eyebrow">A CHANGING WORLD · MULTIPLE WAYS IN</div><h1>%s</h1><p>%s</p><a class="enter" href="#perspectives">Choose a perspective ↓</a></div></section><section id="perspectives" class="menu visual-perspective-menu"><div class="menu-head"><span>PERSPECTIVES</span><p>%d perspectives. One connected world. Scroll, then choose where you want to enter.</p></div><div class="perspective-menu-image">%s</div>%s</section>%s%s%s<section class="route sources" id="sources" hidden><header><a href="#perspectives">← Perspectives</a><span>SOURCES</span></header><div class="boundary"><h2>Inspect the evidence.</h2>%s<p>Facts can change the fiction. Fiction must never quietly become fact.</p></div></section></main></body></html>'''%(esc(candidate['working_title']),mode,esc(hero['path']),esc(candidate['geographic_core']),opening,esc(edition),esc(edition),esc(candidate['working_title']),esc(deck),len(routes),''.join(entries),menu,''.join(panels),''.join(shared),story_panel,source_html)
+    page='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#050708"><meta name="robots" content="noindex,nofollow"><title>%s · Atlasoquence</title><link rel="stylesheet" href="adaptive.css"><link rel="stylesheet" href="edition.css"><script src="adaptive.js" defer></script></head><body data-reader-family="aoc001-adaptive" data-opening-mode="%s"><main id="shell"><section class="hero video-entry" id="home"><img class="edition-geo-bg" src="%s" alt="%s · contextual illustration">%s<div class="shade"></div><div class="film-mark"><span>ATLASOQUENCE</span><span>%s</span></div><button class="skip-film" type="button">Skip opening ↓</button><div class="top reveal-copy"><span>ATLASOQUENCE</span><span>%s · READER TEST</span></div><div class="hero-copy reveal-copy"><div class="eyebrow">A CHANGING WORLD · MULTIPLE WAYS IN</div><h1>%s</h1><p>%s</p><a class="enter" href="#perspectives">Choose a perspective ↓</a></div></section><section id="perspectives" class="menu visual-perspective-menu"><div class="menu-head"><span>PERSPECTIVES</span><p>%d perspectives. One connected world. Scroll, then choose where you want to enter.</p></div><div class="perspective-menu-image"><div class="edition-menu-art">%s</div>%s</div>%s</section>%s%s%s<section class="route perspective-route sources" id="sources" data-route="sources" hidden><header><a href="#perspectives">← Perspectives</a><span>SOURCES</span></header><div class="boundary"><h2>Inspect the evidence.</h2>%s<p>Facts can change the fiction. Fiction must never quietly become fact.</p></div></section></main></body></html>'''%(esc(candidate['working_title']),mode,esc(hero['path']),esc(candidate['geographic_core']),opening,esc(edition),esc(edition),esc(candidate['working_title']),esc(deck),len(routes),slices,hotspots,menu,''.join(panels),''.join(shared),story_panel,source_html)
     target=ROOT/'public/review'/edition.lower(); target.mkdir(parents=True,exist_ok=True)
     (target/'index.html').write_text(page,encoding='utf8')
     shutil.copyfile(CANONICAL/'adaptive.css',target/'adaptive.css')

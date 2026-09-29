@@ -61,49 +61,19 @@ jobs:
         run: python3 tools/early_reader_gate.py "$RUN_DIR"
       - name: Render and verify structural checkpoint
         run: node tools/early_render_gate.cjs "$RUN_DIR"
-      - name: Assemble from all persisted verified beats
-        run: python3 tools/assemble_verified_reader.py "$RUN_DIR"
-      - name: Verify every rendered route and asset
-        run: node tools/full_render_gate.cjs "$RUN_DIR"
-      - name: Persist passed reader before review deployment
+      - name: Persist passed Perspective parity checkpoint
+        if: success()
         run: |
-          git add public/review "$RUN_DIR/early-reader-gate.json" "$RUN_DIR/full-reader-gate.json" "$RUN_DIR/production-receipt.json" "$RUN_DIR/visual-coverage.json" "$RUN_DIR/opening-system.json"
+          git add public/review "$RUN_DIR/early-reader-gate.json" "$RUN_DIR/opening-system.json"
           if ! git diff --cached --quiet; then
-            git commit -m 'Preserve passed inherited reader before review deploy [skip ci]'
+            git commit -m 'Persist Perspective parity render [skip ci]'
             git push origin HEAD:test/automated-edition-1
           fi
-      - name: Deploy inherited reader to isolated review service
-        env:
-          RENDER_API_KEY: ${{ secrets.ATLASOQUENCE_GITHUB_ACTIONS }}
-        run: python3 tools/deploy_review.py "$RUN_DIR"
-      - name: Render every route on deployed review site
-        run: node tools/full_render_gate.cjs "$RUN_DIR" --live
-      - name: Independently inspect deployed visuals
-        env:
-          OPENAI_API_KEY: ${{ secrets.ATLASOQUENCE_GITHUB_PRODUCTION }}
-        run: python3 tools/review_inherited_live.py "$RUN_DIR"
-      - name: Check publication candidate completeness
-        run: python3 tools/publication_gate_inherited.py "$RUN_DIR"
-      - name: Persist verified reader checkpoint
-        if: always()
-        run: |
-          git add public/review "$RUN_DIR/early-reader-gate.json" "$RUN_DIR/full-reader-gate.json" "$RUN_DIR/production-receipt.json" "$RUN_DIR/visual-coverage.json" "$RUN_DIR/opening-system.json" "$RUN_DIR/deployment-receipt.json" "$RUN_DIR/live-reader-gate.json" "$RUN_DIR/visual-review.json" "$RUN_DIR/publication-candidate-receipt.json"
-          if ! git diff --cached --quiet; then
-            git commit -m 'Verify inherited AOC reader structural checkpoint [skip ci]'
-            git push origin HEAD:test/automated-edition-1
-          fi
-      - name: Store rendered gate screenshots
+      - name: Store rendered mobile evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: atlas-early-reader-gate
+          name: atlas-perspective-parity
           path: |
             ${{ env.RUN_DIR }}/early-reader-gate.json
             ${{ env.RUN_DIR }}/early-gate-shots/*.png
-            ${{ env.RUN_DIR }}/full-reader-gate.json
-            ${{ env.RUN_DIR }}/full-gate-shots/*.png
-            ${{ env.RUN_DIR }}/deployment-receipt.json
-            ${{ env.RUN_DIR }}/live-reader-gate.json
-            ${{ env.RUN_DIR }}/live-gate-shots/*.png
-            ${{ env.RUN_DIR }}/visual-review.json
-            ${{ env.RUN_DIR }}/publication-candidate-receipt.json

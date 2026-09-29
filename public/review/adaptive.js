@@ -16,7 +16,7 @@
   }
 
 
-  const routes = [...document.querySelectorAll('.route')];
+  const routes = [...document.querySelectorAll('.perspective-route')];
   const closeRoutes = () => routes.forEach(route => { route.hidden = true; });
   const openRoute = (perspective) => {
     const route = routes.find(item => item.dataset.route === perspective);

@@ -8,6 +8,11 @@ const publicRoot=path.join(root,'public'),reader=path.join(root,receipt.reader);
 const checks=[];
 let browser;
 function check(condition,message){if(!condition)checks.push(message)}
+const canonical=fs.readFileSync(path.join(root,'public/adaptive/index.html'),'utf8');
+const inherited=fs.readFileSync(path.join(root,'public/review/adaptive.js'),'utf8');
+const navStart="  const routes = [...document.querySelectorAll('.perspective-route')];";
+const navEnd='\n\n  const hero =';
+const nav=source=>source.slice(source.indexOf(navStart),source.indexOf(navEnd,source.indexOf(navStart)));
 const server=http.createServer((req,res)=>{
  let url;try{url=decodeURIComponent(new URL(req.url,'http://localhost').pathname)}catch{res.writeHead(400).end();return}
  let file=path.resolve(publicRoot,'.'+url);
@@ -20,6 +25,7 @@ const server=http.createServer((req,res)=>{
  check(sha(reader)===receipt.reader_sha256,'reader changed after preview receipt');
  check(sha(path.join(root,'public/adaptive/adaptive.css'))===receipt.canonical_css_sha256,'canonical CSS changed');
  check(sha(path.join(path.dirname(reader),'adaptive.css'))===receipt.canonical_css_sha256,'inherited CSS differs');
+ check(nav(canonical)===nav(inherited),'AOC-001 route controller differs');
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  browser=await chromium.launch({headless:true,args:['--no-sandbox']});
  const base=`http://127.0.0.1:${server.address().port}/${receipt.reader.replace(/^public\//,'').replace(/index.html$/,'')}`;
@@ -51,13 +57,15 @@ const server=http.createServer((req,res)=>{
   for(const [label,selector] of [['opening','.hero'],['perspectives','#perspectives']]){
    if(label==='perspectives'){
     await page.locator('.enter').click();
-    const loaded=await page.locator('#perspectives .perspective-row img').evaluateAll(async images=>{
+    const loaded=await page.locator('#perspectives .edition-menu-slice img').evaluateAll(async images=>{
      await Promise.all(images.map(async image=>{image.loading='eager';await image.decode().catch(()=>{})}));
      return images.every(image=>image.naturalWidth>0);
     });
     check(loaded,`${name}: every Perspective image must decode before visual approval`);
     check(await page.locator('.perspective-menu-image .perspective-hotspot').count()===expected,
       `${name}: canonical hotspot menu must match accepted Perspectives`);
+    check(await page.locator('.perspective-menu-image').evaluate(e=>e.querySelectorAll(':scope > .edition-menu-art').length===1 && !e.querySelector('.perspective-row') && [...e.querySelectorAll(':scope > .perspective-hotspot')].every(a=>getComputedStyle(a).height!=='0px')),
+      `${name}: menu must be one continuous artwork with canonical sibling hotspots`);
    }
    const file=path.join(dir,`${name}-${label}.png`);await page.locator(selector).screenshot({path:file});shots.push({path:path.relative(root,file),sha256:sha(file)});
   }
@@ -67,11 +75,13 @@ const server=http.createServer((req,res)=>{
   const route=page.locator(first);await route.waitFor({state:'visible'});check(await route.isVisible(),`${name}: chosen Perspective did not open`);
   await route.locator('img').evaluateAll(async images=>Promise.all(images.map(async image=>{image.loading='eager';await image.decode().catch(()=>{})})));
   const measures=await route.locator('.scene').evaluateAll(nodes=>nodes.map(e=>{
-   const h=e.querySelector('h2'),p=e.querySelector('p'),img=e.querySelector('img'),r=e.getBoundingClientRect(),s=getComputedStyle(h),c=getComputedStyle(p);
+   const h=e.querySelector('h2'),p=e.querySelector('p'),img=e.querySelector('img'),r=e.getBoundingClientRect(),s=h?getComputedStyle(h):null,c=getComputedStyle(p);
    const ir=img?.getBoundingClientRect(),is=img?getComputedStyle(img):null;
-   return {height:r.height,width:r.width,heading:parseFloat(s.fontSize),serif:s.fontFamily.includes('Georgia'),body:parseFloat(c.fontSize),image:img?img.complete&&img.naturalWidth>0:true,fit:is?.objectFit,imageWidth:ir?.width||0,imageHeight:ir?.height||0,layer:is?.position==='absolute',gradient:getComputedStyle(e,'::after').backgroundImage.includes('gradient'),words:p.textContent.trim().split(/\s+/).length,truth:!!e.querySelector('small'),source:!!e.querySelector('a[href^="#source-"]')};
+   return {height:r.height,width:r.width,heading:s?parseFloat(s.fontSize):null,serif:s?s.fontFamily.includes('Georgia'):true,body:parseFloat(c.fontSize),image:!!img&&img.complete&&img.naturalWidth>0,fit:is?.objectFit,imageWidth:ir?.width||0,imageHeight:ir?.height||0,layer:is?.position==='absolute',gradient:getComputedStyle(e,'::after').backgroundImage.includes('gradient'),words:p.textContent.trim().split(/\s+/).length,truth:!!e.querySelector('small'),source:!!e.querySelector('a[href^="#source-"]')};
   }));
-  check(measures.length>0&&measures.every(m=>m.height>=height*.98&&m.width>=width*.98&&m.heading>=32&&m.serif&&m.body>=17&&m.image&&m.words<=70&&m.truth&&m.source),`${name}: scene pacing, type, image or truth boundary`);
+  check(measures.length>0&&measures.every(m=>m.height>=height*.98&&m.width>=width*.98&&(m.heading===null||m.heading>=32)&&m.serif&&m.body>=17&&m.image&&m.words<=70&&m.truth&&m.source),`${name}: scene pacing, type, image or truth boundary`);
+  check(await route.locator('.scene').evaluateAll(nodes=>{const groups={};for(const e of nodes){const id=e.dataset.scene;groups[id]=(groups[id]||0)+e.querySelectorAll('h2').length}return Object.values(groups).every(n=>n===1)}),`${name}: repeated or missing scene heading`);
+  check(await route.locator('.text-scene,.graphic,.perspective-row').count()===0,`${name}: unintended text panel or recreated menu card`);
   check(measures.every(m=>m.fit!=='cover'||(m.imageWidth>=m.width*.98&&m.imageHeight>=m.height*.98&&m.layer&&m.gradient)),`${name}: image dominance and overlay continuity`);
   const file=path.join(dir,`${name}-scene.png`);await route.locator('.scene').first().screenshot({path:file});shots.push({path:path.relative(root,file),sha256:sha(file)});
   console.log(`${name}: scene and navigation`);
