@@ -65,10 +65,14 @@ jobs:
         run: python3 tools/assemble_verified_reader.py "$RUN_DIR"
       - name: Verify every rendered route and asset
         run: node tools/full_render_gate.cjs "$RUN_DIR"
+      - name: Deploy inherited reader to isolated review service
+        env:
+          RENDER_API_KEY: ${{ secrets.ATLASOQUENCE_GITHUB_ACTIONS }}
+        run: python3 tools/deploy_review.py "$RUN_DIR"
       - name: Persist verified reader checkpoint
         if: always()
         run: |
-          git add public/review "$RUN_DIR/early-reader-gate.json" "$RUN_DIR/full-reader-gate.json" "$RUN_DIR/production-receipt.json" "$RUN_DIR/visual-coverage.json" "$RUN_DIR/opening-system.json"
+          git add public/review "$RUN_DIR/early-reader-gate.json" "$RUN_DIR/full-reader-gate.json" "$RUN_DIR/production-receipt.json" "$RUN_DIR/visual-coverage.json" "$RUN_DIR/opening-system.json" "$RUN_DIR/deployment-receipt.json"
           if ! git diff --cached --quiet; then
             git commit -m 'Verify inherited AOC reader structural checkpoint [skip ci]'
             git push origin HEAD:test/automated-edition-1
@@ -83,3 +87,4 @@ jobs:
             ${{ env.RUN_DIR }}/early-gate-shots/*.png
             ${{ env.RUN_DIR }}/full-reader-gate.json
             ${{ env.RUN_DIR }}/full-gate-shots/*.png
+            ${{ env.RUN_DIR }}/deployment-receipt.json

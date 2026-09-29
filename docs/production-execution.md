@@ -7,8 +7,10 @@ The test branch workflow first runs the **early rendered structural gate** using
 sizes. Once it passes, `tools/assemble_verified_reader.py` requires current
 editorial QA and hashes for all 59 persisted assets, proves complete distinct beat
 coverage, and rebuilds the reader without structural placeholders. The full render
-gate visits every route and beat at the same viewports. No image provider, editorial
-API, deployment, or publication gate runs in this bounded workflow.
+gate visits every route and beat at the same viewports. After both gates pass,
+the workflow deploys only the pushed test branch to its isolated Render review
+service and checks the live hashes of all 59 assets and four reader files. No
+image provider, editorial API, or publication gate runs in this bounded workflow.
 
 `tools/reader_builder.py` now populates the AOC-001 adaptive reader surface and copies
 `public/adaptive/adaptive.css` byte for byte. The generated edition's editorial data,
@@ -19,8 +21,9 @@ edition is read only. The gate receipt is
 `content/AUTOMATED-TEST-001/early-reader-gate.json`; browser screenshots are stored
 as a workflow artifact. `full-reader-gate.json` records the all-route/all-asset
 result. The obsolete generated `reader.css` and `reader.js` are removed. A PASS
-proves the local reader wiring and rendering with persisted assets, not deployed
-bytes, independent publication review, or publication authority.
+proves the local reader wiring and rendering with persisted assets. The deployment
+receipt proves the live bytes separately. Independent publication review and
+publication authority remain separate gates.
 
 The production steps below describe the later full chain and must not be invoked
 until the early gate has passed and this bounded execution is explicitly advanced.

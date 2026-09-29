@@ -111,6 +111,7 @@ class ProductionRegression(unittest.TestCase):
   self.assertIn('asset_integration_status',deploy)
   self.assertIn('deployed bytes differ',deploy)
   self.assertIn('Cache-Control',deploy)
+  self.assertIn('receipt["reader_hashes"].items()',deploy)
  def test_production_workflow_resumes_from_branch_tip(self):
   workflow=(state.ROOT/'.github/workflows/atlas-edition-production.yml').read_text()
   self.assertIn('ref: test/automated-edition-1',workflow)
@@ -123,6 +124,7 @@ class ProductionRegression(unittest.TestCase):
   self.assertNotIn('produce_edition.py',workflow)
   self.assertIn('assemble_verified_reader.py',workflow)
   self.assertIn('full_render_gate.cjs',workflow)
+  self.assertIn('deploy_review.py',workflow)
  def test_provider_safety_rejection_is_not_automatically_retried(self):
   routes,requirements,story=producer.facts(self.run,'AET1-WC-002')
   candidate=state.read(self.run/'selected-edition-candidate.json')

@@ -43,6 +43,9 @@ def main(run):
     persisted=json.loads((run/"asset-persistence-receipt.json").read_text())
     require_current(run,persisted)
     asset_targets=[(asset["path"],asset["sha256"]) for asset in persisted.get("assets",[])]
+    # A live review must serve the inherited reader bytes as well as its artwork.
+    asset_targets += [("/"+name.removeprefix("public/"),expected)
+                      for name,expected in receipt["reader_hashes"].items()]
     base_url=BASE+"/"+receipt["reader"].removeprefix("public/").removesuffix("index.html")
     integrated=False
     last_mismatch=None
