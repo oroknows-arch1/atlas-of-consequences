@@ -12,7 +12,7 @@
   "screenshots": [
     {
       "path": "content/AUTOMATED-TEST-001/early-gate-shots/phone-opening.png",
-      "sha256": "3f03d533fc0231ffe6005be188e72cebcee8d680f6df4b457c305c58aa062e3a"
+      "sha256": "642d7f8a34af8c52930390c1f84b7944415eb675295943b0eb2f673e82331eec"
     },
     {
       "path": "content/AUTOMATED-TEST-001/early-gate-shots/phone-perspectives.png",
@@ -36,7 +36,7 @@
     },
     {
       "path": "content/AUTOMATED-TEST-001/early-gate-shots/desktop-opening.png",
-      "sha256": "d0c91ad3bd4c4f4ef4009f7d336eb0a37ff6e7b9f65f2d3330b65d310cd47df0"
+      "sha256": "5cc343cb4eb1ee2cf11535dd83d3a7ca6b3b036fcf6cebd04db25447312cc66a"
     },
     {
       "path": "content/AUTOMATED-TEST-001/early-gate-shots/desktop-perspectives.png",
