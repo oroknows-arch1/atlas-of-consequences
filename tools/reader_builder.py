@@ -95,7 +95,13 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
     # The AOC-001 menu owns one continuous image surface and sibling hotspots.
     # Its artwork is edition data: verified stills and labels form a compact
     # contiguous surface, while the inherited hotspot/controller code runs it.
-    slices=''.join('<div class="edition-menu-slice"><img src="%s" alt="" loading="lazy"><div class="edition-menu-label"><b>%02d / %02d</b><strong>%s</strong><span>%s</span></div></div>'%(esc(asset['path']),i,len(entries),esc(r['perspective']),esc(r['scenes'][0]['meaning'])) for i,(asset,r,rid) in enumerate(entries,1))
+    teasers=[]; seen_teasers=set()
+    for asset,r,rid in entries:
+        teaser=next((s['meaning'] for s in r['scenes'] if s['meaning'] not in seen_teasers),None)
+        if not teaser: raise ValueError('Perspective lacks a distinct verified menu teaser: '+rid)
+        seen_teasers.add(teaser)
+        teasers.append(teaser)
+    slices=''.join('<div class="edition-menu-slice"><img src="%s" alt="" loading="lazy"><div class="edition-menu-label"><b>%02d / %02d</b><strong>%s</strong><span>%s</span></div></div>'%(esc(asset['path']),i,len(entries),esc(r['perspective']),esc(teasers[i-1])) for i,(asset,r,rid) in enumerate(entries,1))
     hotspots=''.join('<a class="perspective-hotspot" style="top:%s%%;height:%s%%" href="#%s" data-perspective="%s" aria-label="Enter %s perspective"></a>'%(100*i/len(entries),100/len(entries),esc(rid),esc(r['perspective_id']),esc(r['perspective'])) for i,(asset,r,rid) in enumerate(entries))
     shared=[]
     for key,title in [('reality','WHAT’S REAL'),('consequences','CONSEQUENCES'),('place','PLACE')]:

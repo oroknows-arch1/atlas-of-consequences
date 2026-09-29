@@ -66,6 +66,8 @@ const server=http.createServer((req,res)=>{
       `${name}: canonical hotspot menu must match accepted Perspectives`);
     check(await page.locator('.perspective-menu-image').evaluate(e=>e.querySelectorAll(':scope > .edition-menu-art').length===1 && !e.querySelector('.perspective-row') && [...e.querySelectorAll(':scope > .perspective-hotspot')].every(a=>getComputedStyle(a).height!=='0px')),
       `${name}: menu must be one continuous artwork with canonical sibling hotspots`);
+    check(await page.locator('.edition-menu-label span').evaluateAll(nodes=>new Set(nodes.map(e=>e.textContent.trim())).size===nodes.length),
+      `${name}: duplicate Perspective menu teaser`);
    }
    const file=path.join(dir,`${name}-${label}.png`);await page.locator(selector).screenshot({path:file});shots.push({path:path.relative(root,file),sha256:sha(file)});
   }
