@@ -4,274 +4,74 @@
       "attempt": 1,
       "defects": [
         {
-          "worker": "reader_treatment",
-          "reason": "Image crops on 'phone-reality.png' and 'phone-consequences.png' are extremely dark, rendering over half the scene unreadable and providing no visible cover imagery, undermining visual grammar and cinematic vertical entry.",
-          "scene_id": "phone-reality"
-        },
-        {
-          "worker": "reader_treatment",
-          "reason": "Image on 'phone-consequences.png' is unreadably dark, with background imagery essentially indistinguishable, not matching the readable and image-led standard set by the benchmark.",
-          "scene_id": "phone-consequences"
+          "worker": "reader_builder",
+          "reason": "The phone-story.png scene lacks the required full-screen cover imagery and restrained serif scene title overlay at entry, presenting a conventional text-on-background layout instead. This is not cinematic; the opening does not express the publication grammar.",
+          "scene_id": "phone-story"
         },
         {
           "worker": "visual_factory",
-          "reason": "Visual continuity breaks across key scenes (notably from 'phone-place.png' to 'phone-reality.png' and 'phone-consequences.png'), lacking visible, full-bleed, cinematic cover imagery required for proper Perspective entry, failing to match benchmark's strong visual consistency.",
-          "scene_id": "phone-reality"
+          "reason": "For both phone-story.png and phone-sources.png, there is no opening use of image-led, cinematic entry; the experience is static and text-centric at launch. This breaks visual continuity compared to the required standards and the benchmarks, which lead with immersive full-bleed imagery.",
+          "scene_id": "phone-story"
         },
         {
           "worker": "reader_builder",
-          "reason": "The desktop-edition and desktop-perspectives scenes are not in the required Atlas publication grammar: perspectives are presented as an image-above-text stack/grid rather than vertical, image-led, cinematic scrolling entry. The navigation/structure resembles a conventional article or feature rather than the full-screen, cinematic, low-density experience required.",
-          "scene_id": "content/AUTOMATED-TEST-001/screenshots/desktop-edition.png"
+          "reason": "The navigation, hierarchy, and visual handoff from opening scene to Perspectives in both phone formats is not clear or cinematic. The segments resemble conventional article stacks, not Atlas' image-led, vertical discovery model.",
+          "scene_id": "phone-sources"
         },
         {
           "worker": "reader_builder",
-          "reason": "The desktop-perspectives scene continues the conventional editorial stack/grid; perspective entries lack cinematic full-screen discovery. This is a structural violation of the required publication grammar.",
-          "scene_id": "content/AUTOMATED-TEST-001/screenshots/desktop-perspectives.png"
+          "reason": "Scenes in the candidate publication (images 1-4) present a sequence of full-screen, cinematic imagery with overlaid serif titles, restrained text, and clear geographic specificity. However, the navigation and sequencing rely heavily on a single vertical presentation style with low in-scene editorial variance, not visually distinguishing the transition from one major Perspective to the next (e.g., 'The Next Generation', 'The Fix', 'The Economics of Cooling', and 'What's Real' are present but treated almost identically). This undermines the intended multi-Perspective discovery experience required by Atlas publication grammar, where visually unique transitions signal editorial progression and allow readers to orient by cinematic entry into new thematic territory.",
+          "scene_id": "desktop-route-H5"
         },
         {
           "worker": "reader_treatment",
-          "reason": "Scene is excessively dark; midtones are not sufficiently readable, reducing accessibility and violating required cinematic entry/readable image-led discovery (scene H3).",
-          "scene_id": "desktop-route-H3"
-        },
-        {
-          "worker": "reader_treatment",
-          "reason": "Scene is almost entirely too dark to read both copy and context. The principal cover/feature image is lost, violating the cinematic entry and editorial grammar.",
-          "scene_id": "desktop-reality.png"
-        },
-        {
-          "worker": "reader_treatment",
-          "reason": "Scene 2 (desktop-consequences.png) is essentially unreadable due to excessive darkness—the overlaid serif scene title and body text fade almost completely into the background, breaking typographic visibility and defeating core communication intent.",
-          "scene_id": "desktop-consequences"
-        },
-        {
-          "worker": "reader_treatment",
-          "reason": "Scene 3 (desktop-story.png) suffers from similar excessive darkness, with a large portion of the page's main title and body copy extremely difficult to distinguish from the background. This impairs entry and narrative setup—core publication requirements.",
-          "scene_id": "desktop-story"
+          "reason": "Some overlay text (notably on images 3 and 4) comes very close to darkness at the left margin, causing potential legibility issues and reducing the impact of restrained serif titles meant for cinematic entry. While the primary text remains readable, this risks unacceptable midtone loss per publication standards. Additionally, several images have very shallow safe margins for text overlay, particularly when geographic context is essential.",
+          "scene_id": "desktop-route-MF1"
         },
         {
           "worker": "reader_builder",
-          "reason": "First three scenes (3-5) do not use full-screen cover imagery with overlaid restrained serif scene titles; instead, they present a text-above-text stack with a boxed explanatory layer that feels conventional, not image-led, and lacks required cinematic entry. This fails the publication grammar and presents a conventional article/stack format.",
+          "reason": "Scenes 3, 4, and 5 break required publication grammar: they lack full-screen cover imagery and open with explanatory cards above text, forming a conventional text-over-background or sidebar stack rather than cinematic, image-led entry. This is inconsistent with required vertical discovery, image-forward, and low text density grammar in Atlas publications.",
           "scene_id": "phone-route-H1-scene-3"
         },
         {
           "worker": "reader_builder",
-          "reason": "Same as above: repeated conventional article/stack presentation without the required full-screen image-led presentation or cinematic entry.",
+          "reason": "Same as previous: explanatory card-first, conventional stack rather than vertical, image-led entry. Not cinematic; violates required publication grammar.",
           "scene_id": "phone-route-H1-scene-4"
         },
         {
           "worker": "reader_builder",
-          "reason": "Same as above: repeated conventional article/stack format, lacking required cinematic, image-led presentation.",
+          "reason": "Same as above: explanatory card-first, text stack rather than vertical, cinematic, image-led discovery required by Atlas grammar. Not full-screen cover imagery or cinematic entry.",
           "scene_id": "phone-route-H1-scene-5"
         },
         {
           "worker": "reader_builder",
-          "reason": "Violation of required publication grammar: Scenes 0, 1, 2, and 3 (the first four candidate images) lack full-screen cover imagery—the backgrounds are plain black/dark gradients with only text and no overlaid imagery. This treatment does not meet Atlas publication grammar, which requires full-screen cover images and cinematic, image-led entry for each scene. These screens present a conventional article structure (text on a plain background), not the required Atlas visual editorial style.",
-          "scene_id": "phone-route-H3-scene-0"
+          "reason": "The 'desktop-perspective-menu.png' uses a conventional article navigation (scrollable vertical grid with image-above-text), not the required filmic, vertical cinematic entry and restrained vertical discovery as seen in the benchmark. The text and navigation are too dense and not image-led. This fails the grammar for Atlas publication.",
+          "scene_id": "desktop-perspective-menu"
         },
         {
           "worker": "reader_builder",
-          "reason": "Same as above: No full-screen cover imagery or cinematic, image-led entry, also applies to all three subsequent scenes (scene 1, 2, 3).",
-          "scene_id": "phone-route-H3-scene-1"
+          "reason": "Scenes 2, 3, and 4 display a repetitive, conventional explanatory-card stack with dark background and high-density text blocks aligned above matching FACT/STORY panels. This is not cinematic, is not image-led, and does not provide the cinematic entry or vertical image-led progression required by publication grammar.",
+          "scene_id": "2"
         },
         {
           "worker": "reader_builder",
-          "reason": "Same as above: No full-screen cover imagery or cinematic, image-led entry, also applies to all three subsequent scenes (scene 2).",
-          "scene_id": "phone-route-H3-scene-2"
+          "reason": "Lack of a cinematic entry or full-screen cover for the 'Heat Index' explanatory sequence – treatment is visually and structurally repetitive, not in keeping with the required narrative progression or visual discovery.",
+          "scene_id": "3"
         },
         {
           "worker": "reader_builder",
-          "reason": "Same as above: No full-screen cover imagery or cinematic, image-led entry, also applies to all three subsequent scenes (scene 3).",
-          "scene_id": "phone-route-H3-scene-3"
-        },
-        {
-          "worker": "visual_factory",
-          "reason": "Scene 4 (phone-route-H4-scene-2) completely lacks any background image or visual context, breaking the required visual continuity and grammar of cinematic, image-led entry. The scene becomes a plain text-dominant card and does not conform to the Atlas publication grammar.",
-          "scene_id": "phone-route-H4-scene-2"
+          "reason": "Conventional, article-like stacked explanatory panels with text blocks — not low-density, cinematic, or guided by immersive vertical image transitions.",
+          "scene_id": "4"
         },
         {
           "worker": "reader_builder",
-          "reason": "Scenes H4-scene-3 and H4-scene-4 do not contain full-screen cover imagery. Instead, these display large areas of undifferentiated dark/no image, which is not cinematic entry and does not meet required Atlas publication grammar for vertical Perspective discovery. These screens are text-led and fail the expected immersive, image-led grammar.",
-          "scene_id": "phone-route-H4-scene-3"
+          "reason": "The layout on content/AUTOMATED-TEST-001/screenshots/desktop-route-MF1-scene-3.png and content/AUTOMATED-TEST-001/screenshots/desktop-route-MF1-scene-4.png is an image-above-text stack with explanatory card(s) followed by a text block, which is a conventional article format. This violates required cinematic entry, full-screen cover imagery, and restrained overlaid serif titles.",
+          "scene_id": "desktop-route-MF1-scene-3"
         },
         {
           "worker": "reader_builder",
-          "reason": "Scenes H4-scene-3 and H4-scene-4 present a conventional article stack: block of text beneath a small heading, occupying an entirely dark, undifferentiated background. No vertical, image-led discovery or cinematic entry. This is a critical navigation/structure failure by Atlas grammar standards.",
-          "scene_id": "phone-route-H4-scene-4"
-        },
-        {
-          "worker": "visual_factory",
-          "reason": "Scenes 2 and 3 (phone-route-H5-scene-3.png and phone-route-H5-scene-4.png) lack full-screen contextual or cover imagery, presenting as solid black/dark backgrounds with only text. This breaks the image-led, cinematic vertical discovery grammar required and interrupts visual continuity established in the sequence.",
-          "scene_id": "H5-scene-3"
-        },
-        {
-          "worker": "visual_factory",
-          "reason": "Scene 4 (phone-route-H6-scene-0.png) does provide relevant contextual illustration but text indicating recommendations/tests vs established examples should be better separated/visually distinguished to meet Atlas's standards of editorial depth and factual distinction.",
-          "scene_id": "H6-scene-0"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "The first four candidate scenes ('phone-reality-scene-0.png' to 'phone-reality-scene-3.png') are missing any substantive image or visual context expected of full-screen cinematic entry and vertical, image-led Perspective discovery. Only text is present, creating a 'text above empty' stack which fails core publication grammar requirements. The absence of cover/editorial imagery breaks narrative immersion and the visual continuity established in the benchmark sequences.",
-          "scene_id": "phone-reality-scene-0"
-        },
-        {
-          "worker": "visual_factory",
-          "reason": "Persistent lack of visual continuity across the first four scenes. All four are text-on-black, without contextual or cinematic imagery to provide depth or specificity. This is not a stylistic darkness, but a visual void that impedes visual discovery and fails to communicate 'locality' or cinematic entry as required.",
-          "scene_id": "phone-reality-scene-0"
-        },
-        {
-          "worker": "reader_treatment",
-          "reason": "Scenes 4, 5, and 6 (phone-reality-scene-4.png, phone-reality-scene-5.png, phone-reality-scene-6.png) lack full-screen cover imagery or any significant visual context behind the overlaid titles. The publication grammar requires a cinematic, image-led entry even for text-driven FACT beats. These scenes revert to a text-above-background card and do not meet required visual/immersive standards or continuity with cinematic flows.",
-          "scene_id": "phone-reality-scene-4"
-        },
-        {
-          "worker": "reader_treatment",
-          "reason": "Scenes 4, 5, and 6 (phone-reality-scene-4.png, phone-reality-scene-5.png, phone-reality-scene-6.png) also demonstrate a stacking issue: repeated type-over-solid-dark gradient without image content undermines vertical discovery and uniformity with prior/next cinematic frames. These appear as conventional text blocks rather than cinematic, image-led transitions.",
-          "scene_id": "phone-reality-scene-5"
-        },
-        {
-          "worker": "visual_factory",
-          "reason": "Scenes 4, 5, and 6 lose required visual context/uniform continuity with the rest of the Perspective, creating a break from the cinematic and geography-led sequencing seen in both candidate and benchmark scenes elsewhere.",
-          "scene_id": "phone-reality-scene-6"
-        },
-        {
-          "worker": "reader_treatment",
-          "reason": "All four candidate phone-consequences scenes (2–5) lack full-screen cover imagery and are text-only on a black background; this fails the required publication grammar for cinematic, image-led vertical navigation.",
-          "scene_id": "phone-consequences-scene-2"
-        },
-        {
-          "worker": "visual_factory",
-          "reason": "There is a break in visual continuity/uniformity: the sequence jumps from the expected image-led format (seen in all benchmark images) to flat black screens with only text, losing meaning and engagement.",
-          "scene_id": "phone-consequences-scene-3"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "Navigation and discovery structure in the candidate scenes (2–5) is non-cinematic and fails the required grammar - i.e., not visually-led; presents as a linear, conventional article sequence rather than a cinematic or Perspective-driven experience.",
-          "scene_id": "phone-consequences-scene-4"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "Candidate scenes 2, 3, and 4 use a stacked card structure with repeated 'Heat index' explainer graphics above perspective beats. This is not compliant with Atlas publication grammar: it resembles a text-above-card/grid format instead of cinematic entry, restrained serif title overlay, or image-led vertical Perspective scrolling discovery.",
-          "scene_id": "desktop-route-H1-scene-2"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "Candidate scenes 2, 3, and 4 do not exhibit cinematic entry or full-screen cover experience as required. The format uses horizontally-centered cards, disrupting visual continuity with the benchmark and breaking immersion.",
-          "scene_id": "desktop-route-H1-scene-3"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "Scene structure in candidate scenes 2, 3, and 4 fails Atlas publication grammar: the main copy sits below an explainer card, missing the seamless vertical exploration and overlaid visual treatment seen in the benchmark.",
-          "scene_id": "desktop-route-H1-scene-4"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "Three sequential 'Income Pressures from Lost Work' scenes (H3-scene-0, H3-scene-1, H3-scene-2) each present a single text block, no image, and visually/structurally replicate each other. This breaks required cinematic entry, vertical perspective discovery, and image-led scene construction. The presentation is a text-on-background stack, not expressing the cinematic grammar or visual continuity required by Atlas, and resembles an article stack.",
-          "scene_id": "desktop-route-H3-scene-0"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "Same as above: repetition and lack of visual or cinematic differentiation in H3-scene-1. Fails the publication grammar and uniformity.",
-          "scene_id": "desktop-route-H3-scene-1"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "Same as above: repetition and lack of visual or cinematic differentiation in H3-scene-2. Fails the publication grammar and uniformity.",
-          "scene_id": "desktop-route-H3-scene-2"
-        },
-        {
-          "worker": "reader_treatment",
-          "reason": "Scenes 2-4 (desktop-route-H4-scene-2.png, desktop-route-H4-scene-3.png, desktop-route-H4-scene-4.png) present as pure dark gradients with no photographic, contextual, or full-screen cover imagery. All three fail the required cinematic, image-led entry and are repetitive. Scene title and text are readable, but the absence of any image makes these scenes structurally blocked.",
-          "scene_id": "H4-scene-2"
-        },
-        {
-          "worker": "reader_treatment",
-          "reason": "Missing imagery and lack of context persists over the consecutive sequence (scenes 2, 3, 4) breaking editorial continuity and publication grammar.",
-          "scene_id": "H4-scene-3"
-        },
-        {
-          "worker": "reader_treatment",
-          "reason": "Missing full-screen cover or contextual imagery; scene is text-only with dark background, failing required cinematic entry.",
-          "scene_id": "H4-scene-4"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "The candidate batch (scenes 1-4) presents an image-led entry for only some facts (scenes 1, 2) while other beats (scenes 3, 4) revert to text-on-dark-gradient with no contextualization, imagery, or visual engagement. This breaks publication grammar, as each beat/perspective should have a cinematic, image-led entry.",
-          "scene_id": "desktop-route-H5-scene-3"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "Same as above, the lack of image or explanatory/visual context on scene 4 leads to a discontinuity with both the candidate’s earlier image-led scenes and the benchmark's consistent cinematic presentation, making it a generic beat rather than a cinematic Perspective.",
-          "scene_id": "desktop-route-H5-scene-4"
-        },
-        {
-          "worker": "visual_factory",
-          "reason": "Sudden loss of visual continuity between scenes 2 and 3 (image-led, contextual to plain black), breaking cinematic flow required by Atlas. Benchmark reference (AOC-001) shows uninterrupted vertical visual storytelling without blank or generic slides.",
-          "scene_id": "desktop-route-H5-scene-3"
-        },
-        {
-          "worker": "visual_factory",
-          "reason": "Continued visual discontinuity in scene 4 due to use of generic text-only approach.",
-          "scene_id": "desktop-route-H5-scene-4"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "Scenes 4 and 5 (Uncertain 01/02 and 02/02) do not meet publication grammar: there is no image-led, full-screen cover imagery; scene titles appear alone over a dark, empty background without visual context. This violates a primary requirement for cinematic, image-driven entry.",
-          "scene_id": "H6-scene-4"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "Scenes 4 and 5 present only stacked text over empty/dark backgrounds, resembling a conventional article intro rather than Atlas's required low-density, cinematic, image-led vertical discovery. No visual context for location or topic is provided.",
-          "scene_id": "H6-scene-5"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "Scenes desktop-reality-scene-0.png, desktop-reality-scene-1.png, and desktop-reality-scene-2.png follow a uniform template: large serif title, supporting text, and sources, but are missing any scene imagery. All have only a dark-to-blue-black gradient background. This is not cinematic or image-led, contradicting required Atlas publishing grammar for perspective discovery (image is central, not optional).",
-          "scene_id": "desktop-reality-scene-0"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "Perspective sequence for 'When the Heat Comes Inside' violates image-led cinematic entry and vertical discovery: three adjacent text-only screens with identical graphic treatment, no photographic or contextual illustration present.",
-          "scene_id": "desktop-reality-scene-1"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "Perspective discovery is implemented as copy-centric, text-limit stack with empty visual field in scenes desktop-reality-scene-0 through desktop-reality-scene-2. This structure is inconsistent with required Atlas image/story grammar. Not a cinematic/visual-entry approach.",
-          "scene_id": "desktop-reality-scene-2"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "Scenes 3-6 (scene_ids: desktop-reality-scene-3.png, desktop-reality-scene-4.png, desktop-reality-scene-5.png, desktop-reality-scene-6.png) do not provide cinematic, image-led, full-screen Perspective discovery. All display only black backgrounds with text, violating required publication grammar emphasizing visual entry, vertical image-led discovery, and restrained overlaid titling.",
-          "scene_id": "desktop-reality-scene-3.png"
-        },
-        {
-          "worker": "visual_factory",
-          "reason": "Scenes 3-6 fail visual continuity and context/continuity requirements: all present identical or near-identical black backgrounds with only typographic changes, no visual/graphical context or documentary sense of discovery.",
-          "scene_id": "desktop-reality-scene-3.png"
-        },
-        {
-          "worker": "asset_persistence",
-          "reason": "Scenes 3-6 are missing any form of visual/graphical or photographic asset, which is required for cinematic entry/discovery according to publication standards.",
-          "scene_id": "desktop-reality-scene-3.png"
-        },
-        {
-          "worker": "visual_factory",
-          "reason": "All four candidate scenes (1-4) lack the required fullscreen cover imagery. Instead, they display only dark empty backgrounds with overlaid serif titles and text. This fails the publication grammar, which mandates cinematic, image-led entry, and visual context for each entry. Furthermore, all candidate scenes are visually indistinguishable from each other due to the absence of unique or relevant imagery, leading to a breakdown of visual continuity and context.",
-          "scene_id": "desktop-consequences-scene-1"
-        },
-        {
-          "worker": "reader_builder",
-          "reason": "There is no cinematic entry or vertical Perspective discovery; the structure falls back to a text-on-background stack, which is blocked. No navigation structure is apparent beyond the minimal top-bar.",
-          "scene_id": "desktop-consequences-scene-1"
-        },
-        {
-          "worker": "editorial_factory",
-          "reason": "The lack of image context results in loss of geographic specificity and depth. The scenes are generic and do not communicate any locality or specific consequences visually, contrary to the requirement for strong, location-anchored editorial work.",
-          "scene_id": "desktop-consequences-scene-1"
-        },
-        {
-          "worker": "visual_factory",
-          "reason": "Scene 5 (content/AUTOMATED-TEST-001/screenshots/desktop-consequences-scene-5.png) lacks a full-screen cover image—background is a flat black-to-dark gradient with no contextual or illustrative imagery. This breaks cinematic entry and image-led grammar, failing visual continuity and narrative intent.",
-          "scene_id": "desktop-consequences-scene-5"
+          "reason": "Same as above: explanatory card and text section design is conventional article/image-above-text stack. This is not cinematic, does not have a full-screen image cover entry, and does not meet Atlas publication grammar.",
+          "scene_id": "desktop-route-MF1-scene-4"
         }
       ]
     }
