@@ -1,4 +1,4 @@
-name: Atlas edition production candidate
+name: Atlas bounded full-reader integration review
 on:
   push:
     branches: [test/automated-edition-1]
@@ -25,7 +25,7 @@ jobs:
   produce-and-review:
     if: github.ref == 'refs/heads/test/automated-edition-1'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     permissions:
       contents: write
     env:
@@ -61,19 +61,19 @@ jobs:
         run: python3 tools/early_reader_gate.py "$RUN_DIR"
       - name: Render and verify structural checkpoint
         run: node tools/early_render_gate.cjs "$RUN_DIR"
-      - name: Persist passed Perspective parity checkpoint
-        if: success()
-        run: |
-          git add public/review "$RUN_DIR/early-reader-gate.json" "$RUN_DIR/opening-system.json"
-          if ! git diff --cached --quiet; then
-            git commit -m 'Persist Perspective parity render [skip ci]'
-            git push origin HEAD:test/automated-edition-1
-          fi
-      - name: Store rendered mobile evidence
+      - name: Assemble from existing verified assets
+        run: python3 tools/assemble_verified_reader.py "$RUN_DIR"
+      - name: Render complete reader across mobile and desktop
+        run: node tools/full_render_gate.cjs "$RUN_DIR"
+      - name: Store full-reader evidence for visual veto
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: atlas-perspective-parity
+          name: atlas-full-reader-integration
           path: |
             ${{ env.RUN_DIR }}/early-reader-gate.json
             ${{ env.RUN_DIR }}/early-gate-shots/*.png
+            ${{ env.RUN_DIR }}/full-reader-gate.json
+            ${{ env.RUN_DIR }}/full-gate-shots/*.png
+            ${{ env.RUN_DIR }}/production-receipt.json
+            ${{ env.RUN_DIR }}/visual-coverage.json

@@ -25,6 +25,8 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
     """Structural previews reuse persisted assets without claiming asset coverage."""
     sources=read(run/'source-register.json')
     source_ids={s['id'] for s in sources}
+    source_by_id={s['id']:s for s in sources}
+    selected={p['id']:p for p in read(run/'selected-edition-perspectives.json')['output']['perspectives']}
     available=[a for a in assets if public_path(a['path']).is_file() and
                digest(public_path(a['path']))==a.get('sha256') and
                a.get('visual_qa',{}).get('pass') is True]
@@ -78,13 +80,22 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
         blocks=[(s['scene_id'],copy['scenes'][s['scene_id']]) for s in r['scenes']]
         limits=''.join('<li>%s</li>'%esc(s['causal_boundary']) for s in r['scenes'] if s.get('causal_boundary'))
         first_ref=next((ref for s in r['scenes'] for ref in s.get('evidence_refs',[]) if ref in source_ids),None)
-        purpose=r.get('purposeful_ending') or r.get('ending') or {
-            'label':'Follow the evidence',
-            'text':'Open the source connected to this Perspective and inspect what it supports and where its limits are.',
-            'url':'#source-'+first_ref if first_ref else '#sources',
-            'link_label':first_ref or 'Sources'}
+        accepted=selected.get(r['perspective_id'])
+        if accepted:
+            source_id=next((ref for ref in accepted.get('evidence_basis',[]) if ref in source_by_id),None)
+            if not source_id or not accepted.get('purpose'):
+                raise ValueError('Perspective ending lacks accepted purpose or source: '+rid)
+            source=source_by_id[source_id]
+            sourced_purpose={'label':'Follow this Perspective into the evidence',
+                'text':accepted['purpose'], 'url':source['url'],
+                'link_label':source['title'], 'source_id':source_id}
+        elif structural:
+            sourced_purpose={'label':'Preview the evidence','text':'Inspect the source and its limits.',
+                'url':'#source-'+first_ref if first_ref else '#sources','link_label':first_ref or 'Sources'}
+        else:raise ValueError('Perspective lacks accepted edition purpose: '+rid)
+        purpose=r.get('purposeful_ending') or r.get('ending') or sourced_purpose
         if isinstance(purpose,str): purpose={'label':'Explore further','text':purpose}
-        purpose_html='<aside class="purposeful-ending"><small>%s</small><p>%s</p>%s</aside>'%(esc(purpose.get('label','A way forward')),esc(purpose.get('text','Inspect the evidence and follow the related people, places or organisations.')),('<a href="%s" rel="noopener">%s ↗</a>'%(esc(purpose['url']),esc(purpose.get('link_label','Explore')))) if purpose.get('url') else '')
+        purpose_html='<aside class="purposeful-ending" data-source-id="%s"><small>%s</small><p>%s</p>%s</aside>'%(esc(purpose.get('source_id','')),esc(purpose.get('label','A way forward')),esc(purpose.get('text','Inspect the evidence and follow the related people, places or organisations.')),('<a href="%s" rel="noopener">%s ↗</a>'%(esc(purpose['url']),esc(purpose.get('link_label','Explore')))) if purpose.get('url') else '')
         panels.append(route(rid,r['perspective'],blocks,{'text':'The evidence has limits. Follow the sources and choose what to explore next.','extra':purpose_html+'<details><summary>What the evidence can and cannot say</summary><ul>'+limits+'</ul></details>'}))
         asset=next((by_scene[s['scene_id']] for s in r['scenes'] if s['scene_id'] in by_scene and by_scene[s['scene_id']]['provider']!='ATLAS_DETERMINISTIC_GRAPHIC'),None)
         if not asset:
