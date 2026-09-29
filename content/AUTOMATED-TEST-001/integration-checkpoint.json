@@ -1,0 +1,64 @@
+{
+  "edition_id": "AET1-WC-002",
+  "status": "PASS",
+  "scope": "AET1_FULL_READER_INTEGRATION_REVIEW",
+  "verified_commit": "e57727e2c46aab458fb97addc65abc9b7a1eb157",
+  "reader": "public/review/aet1-wc-002/index.html",
+  "reader_hashes": {
+    "public/review/aet1-wc-002/adaptive.css": "eb0232e2eb66595eb724ae33226f0b489bd62b1569898e1a756c7b4fb921b2a2",
+    "public/review/aet1-wc-002/adaptive.js": "082c2c33a2ae9f6985fbf11009d646154c35918222d43ee4520f37158ecc71b3",
+    "public/review/aet1-wc-002/edition.css": "e9cf8b89a160afb69e1ed712cb7f4638bc233f646656fd1cf9dc5091ae40ddd3",
+    "public/review/aet1-wc-002/index.html": "c29570e25c0a0d785d18552f2a379e067c8dc55acaa22a1e536d605dd844f64e"
+  },
+  "original_editorial_sha256": "11736f7c0a051accf3a14eb76f54cadcc9b2f7b9c84166b232504d6a699b251e",
+  "display_copy_sha256": "49da7342aa91afe602c2a6d253e4c6d7e8195bfb0f525f52ea5ce928623206c6",
+  "verified_asset_receipt_sha256": "ddda5c718cd130557b49f5ac2189230b21811b7cff3ac0c36c4c56a737ca7734",
+  "asset_count": 59,
+  "beat_count": 59,
+  "explanatory_graphics_accessible": 9,
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 320,
+      "height": 740
+    },
+    {
+      "width": 1440,
+      "height": 900
+    }
+  ],
+  "routes_checked": [
+    "route-H1",
+    "route-H2",
+    "route-H3",
+    "route-H4",
+    "route-H5",
+    "route-H6",
+    "route-MF1",
+    "reality",
+    "consequences",
+    "place",
+    "story",
+    "sources"
+  ],
+  "rendered_evidence": {
+    "run_id": 36643412260,
+    "artifact_id": 11067049277,
+    "artifact_digest": "sha256:4c0a441ed9aded2e78146d6135d1c7d38b620afba1e162ef5cc5935701ee4431",
+    "screenshot_count": 133,
+    "manifest": "content/AUTOMATED-TEST-001/full-reader-gate.json",
+    "automated_defects": [],
+    "visual_verdict": "PASS after inspection of route contact sheets and final mobile, small-phone, desktop, shared-section and ending captures"
+  },
+  "defects_repaired": [
+    "Cropped text-bearing SVG panels replaced by existing contextual visuals with accessible verified graphic links",
+    "Overlapping purposeful-ending controls spaced and source-linked",
+    "Three repeated Markets/Finance scenes given evidence-preserving route-specific display copy"
+  ],
+  "publication_authorized": false,
+  "deployment_performed": false,
+  "next_node": "AET1_ISOLATED_REVIEW_DEPLOYMENT_AND_EDITORIAL_ACCEPTANCE"
+}
