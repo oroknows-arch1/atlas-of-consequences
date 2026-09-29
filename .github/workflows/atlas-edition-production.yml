@@ -20,12 +20,12 @@ on:
         default: content/AUTOMATED-TEST-001
 concurrency:
   group: atlas-production-test-1
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   produce-and-review:
     if: github.ref == 'refs/heads/test/automated-edition-1'
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 15
     permissions:
       contents: write
     env:

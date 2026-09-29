@@ -114,7 +114,7 @@ class ProductionRegression(unittest.TestCase):
  def test_production_workflow_resumes_from_branch_tip(self):
   workflow=(state.ROOT/'.github/workflows/atlas-edition-production.yml').read_text()
   self.assertIn('ref: test/automated-edition-1',workflow)
-  self.assertIn('cancel-in-progress: false',workflow)
+  self.assertIn('cancel-in-progress: true',workflow)
  def test_partial_asset_persistence_runs_after_failure(self):
   workflow=(state.ROOT/'.github/workflows/atlas-edition-production.yml').read_text()
   partial=workflow.split('name: Persist early gate checkpoint')[1].split('- name:')[0]

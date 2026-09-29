@@ -6,6 +6,7 @@ const receipt=JSON.parse(fs.readFileSync(path.join(run,'early-reader-gate.json')
 const sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
 const publicRoot=path.join(root,'public'),reader=path.join(root,receipt.reader);
 const checks=[];
+let browser;
 function check(condition,message){if(!condition)checks.push(message)}
 const server=http.createServer((req,res)=>{
  let url;try{url=decodeURIComponent(new URL(req.url,'http://localhost').pathname)}catch{res.writeHead(400).end();return}
@@ -20,12 +21,14 @@ const server=http.createServer((req,res)=>{
  check(sha(path.join(root,'public/adaptive/adaptive.css'))===receipt.canonical_css_sha256,'canonical CSS changed');
  check(sha(path.join(path.dirname(reader),'adaptive.css'))===receipt.canonical_css_sha256,'inherited CSS differs');
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
- const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
+ browser=await chromium.launch({headless:true,args:['--no-sandbox']});
  const base=`http://127.0.0.1:${server.address().port}/${receipt.reader.replace(/^public\//,'').replace(/index.html$/,'')}`;
  const expected=JSON.parse(fs.readFileSync(path.join(run,'causal_boundary_gate.json'))).output.routes.length;
  const shots=[];
  for(const [name,width,height] of [['phone',390,844],['small-phone',320,740],['desktop',1440,900]]){
+  console.log(`Rendering ${name}`);
   const page=await browser.newPage({viewport:{width,height},reducedMotion:'reduce'});
+  page.setDefaultTimeout(12000);
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base,{waitUntil:'networkidle'});
   let state=await page.evaluate(()=>{
@@ -35,12 +38,14 @@ const server=http.createServer((req,res)=>{
   check(state.height>=height*.98&&state.serif&&state.heading>=50&&state.cover,`${name}: canonical opening composition`);
   check(state.count===expected&&state.broken===0&&!state.overflow,`${name}: Perspective count, image decoding or viewport overflow`);
   await page.locator('.skip-film').click();
+  console.log(`${name}: opening`);
   check(await page.locator('.hero').evaluate(e=>e.classList.contains('film-complete')),`${name}: skip/reveal`);
   const dir=path.join(run,'early-gate-shots');fs.mkdirSync(dir,{recursive:true});
   for(const [label,selector] of [['opening','.hero'],['perspectives','#perspectives']]){
    if(label==='perspectives')await page.locator('.enter').click();
    const file=path.join(dir,`${name}-${label}.png`);await page.locator(selector).screenshot({path:file});shots.push({path:path.relative(root,file),sha256:sha(file)});
   }
+  console.log(`${name}: Perspective menu`);
   const first=await page.locator('[data-perspective]').first().getAttribute('href');
   await page.locator('[data-perspective]').first().click();
   const route=page.locator(first);check(await route.isVisible(),`${name}: chosen Perspective did not open`);
@@ -53,6 +58,7 @@ const server=http.createServer((req,res)=>{
   check(measures.length>0&&measures.every(m=>m.height>=height*.98&&m.width>=width*.98&&m.heading>=32&&m.serif&&m.body>=17&&m.image&&m.words<=70&&m.truth&&m.source),`${name}: scene pacing, type, image or truth boundary`);
   check(measures.every(m=>m.fit!=='cover'||(m.imageWidth>=m.width*.98&&m.imageHeight>=m.height*.98&&m.layer&&m.gradient)),`${name}: image dominance and overlay continuity`);
   const file=path.join(dir,`${name}-scene.png`);await route.locator('.scene').first().screenshot({path:file});shots.push({path:path.relative(root,file),sha256:sha(file)});
+  console.log(`${name}: scene and navigation`);
   await page.reload();check(await route.isVisible(),`${name}: deep link reload`);
   await page.locator('.route-exit').first().click();check(await page.locator('#perspectives').isVisible(),`${name}: return to choices`);
   await page.goBack();check(await route.isVisible(),`${name}: browser Back`);
@@ -61,9 +67,14 @@ const server=http.createServer((req,res)=>{
   check(!errors.length,`${name}: ${errors.join('; ')}`);
   await page.close();
  }
- await browser.close();server.close();
+ await browser.close();browser=null;server.close();
  const result={...receipt,status:checks.length?'FAIL':'PASS',defects:checks,screenshots:shots,asset_generation_authorized:false,publication_authorized:false};
  fs.writeFileSync(path.join(run,'early-reader-gate.json'),JSON.stringify(result,null,2)+'\n');
  console.log(JSON.stringify({status:result.status,defects:checks,screenshots:shots.length}));
  if(checks.length)process.exitCode=1;
-})().catch(e=>{server.close();console.error(e);process.exitCode=1});
+})().catch(async e=>{
+ server.close();if(browser)await browser.close().catch(()=>{});
+ const result={...receipt,status:'FAIL',defects:[String(e)],asset_generation_authorized:false,publication_authorized:false};
+ fs.writeFileSync(path.join(run,'early-reader-gate.json'),JSON.stringify(result,null,2)+'\n');
+ console.error(e);process.exitCode=1;
+});
