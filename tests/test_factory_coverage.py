@@ -46,7 +46,11 @@ class FactoryCoverage(unittest.TestCase):
         shutil.copyfile(source/'emradar-candidate-sweep.json',self.run/'emradar-candidate-sweep.json')
         self.routes=read(self.run/'causal_boundary_gate.json')['output']['routes']
         self.requirements=read(self.run/'visual_requirements.json')['output']['requirements']
-        self.assets=[a for a in read(source/'asset-persistence-receipt.json')['assets'] if not a['scene_id'].startswith('MF1-')]
+        # Keep the intentionally incomplete, pre-beat fixture stable as the
+        # live edition accrues verified assets. Its legacy scene binaries are
+        # real and remain subject to the same hash/provenance checks.
+        self.assets=[a for a in read(source/'asset-persistence-receipt.json')['assets']
+                     if not a['scene_id'].startswith('MF1-') and not a.get('beat_id')]
         self.copy=read(source/'editorial-copy.json')
         self.copy['scenes']={sid:scene for sid,scene in self.copy['scenes'].items() if not sid.startswith('MF1-')}
         from market_finance import plan
@@ -120,7 +124,9 @@ class FactoryCoverage(unittest.TestCase):
 
     def test_changed_route_binding_keeps_unchanged_verified_binary_jobs(self):
         source=ROOT/'content/AUTOMATED-TEST-001'
-        shutil.copyfile(source/'asset-persistence-receipt.json',self.run/'asset-persistence-receipt.json')
+        receipt=read(source/'asset-persistence-receipt.json')
+        receipt['assets']=copy.deepcopy(self.assets)
+        write(self.run/'asset-persistence-receipt.json',receipt)
         selected=read(self.run/'selected-edition-gate.json')
         selected['output']['markets_finance_domain']='pending_repair'
         write(self.run/'selected-edition-gate.json',selected)
