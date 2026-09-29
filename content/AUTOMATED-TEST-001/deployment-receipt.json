@@ -5,12 +5,12 @@
     "public/review/aet1-wc-002/adaptive.css": "eb0232e2eb66595eb724ae33226f0b489bd62b1569898e1a756c7b4fb921b2a2",
     "public/review/aet1-wc-002/adaptive.js": "06ce4fb5feeec35e7f85d9632a2a73f575df26ab7514dd513323bfe7599a8c74",
     "public/review/aet1-wc-002/edition.css": "eb5f798999e2d93a01103807a953d5f0711c9a3f1b1d372c59a1c906817f110f",
-    "public/review/aet1-wc-002/index.html": "5751bd41339c93b22ddac52ee47d1e0a1b81f66e25afa778fda0771d50482ecf"
+    "public/review/aet1-wc-002/index.html": "db12e44688286c0861ff858638f8ec1369a162b7a4194d34782118774ed44a3c"
   },
   "branch": "test/automated-edition-1",
-  "commit": "69c198896b2d756bf5637594a5b01bd4011b9eb3",
+  "commit": "4fd3f5d861da2bce5071e2068fc5ab9bfe23a789",
   "target": "srv-dase6m8jo6nc73bdh1ig",
-  "deploy_id": "dep-dau11hh42hec73de8mbg",
+  "deploy_id": "dep-dau140psrm7s73adcg50",
   "deployment_result": "live",
   "base_url": "https://atlas-automated-edition-test-1.onrender.com",
   "url": "https://atlas-automated-edition-test-1.onrender.com/review/aet1-wc-002/",
