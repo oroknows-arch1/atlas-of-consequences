@@ -47,7 +47,9 @@
     reveal();
   });
   video?.addEventListener('error', reveal, { once:true });
-  if (video) video.play().catch(() => hero.classList.add('tap-to-play')); else setTimeout(reveal, 6000);
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) reveal();
+  else if (video) video.play().catch(() => hero.classList.add('tap-to-play'));
+  else setTimeout(reveal, 6000);
   hero.addEventListener('click', () => {
     if (hero.classList.contains('tap-to-play') && video?.paused) {
       video?.play().then(() => hero.classList.remove('tap-to-play')).catch(reveal);
@@ -59,7 +61,7 @@
     const destination = document.getElementById(id);
     const route = destination?.closest('.route');
     closeRoutes();
-    if (route) { route.hidden = false; if (route.id !== 'sources') route.scrollIntoView(); }
+    if (route) { route.hidden = false; if (destination.tagName === 'DETAILS') destination.open = true; route.scrollIntoView(); }
     else if (destination) destination.scrollIntoView();
   };
   addEventListener('hashchange', navigate);
