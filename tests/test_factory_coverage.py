@@ -140,6 +140,20 @@ class FactoryCoverage(unittest.TestCase):
         self.assertEqual(len(assets),len(self.assets))
         self.assertEqual({a['sha256'] for a in assets},{a['sha256'] for a in self.assets})
 
+    def test_shared_section_beats_survive_reassembly_without_regeneration(self):
+        source=ROOT/'content/AUTOMATED-TEST-001'
+        receipt=read(source/'asset-persistence-receipt.json')
+        shared={**self.assets[0], 'scene_id':'reality-scene', 'beat_id':'reality-scene-B1'}
+        receipt['assets']=copy.deepcopy(self.assets)+[shared]
+        write(self.run/'asset-persistence-receipt.json',receipt)
+        import os
+        from unittest.mock import patch
+        with patch.dict(os.environ,{'ATLAS_IMAGE_COMMAND':'','ATLAS_VISUAL_QA_COMMAND':''}):
+            assets,defects=produce_assets(self.run,'AET1-WC-002',self.routes,self.requirements,
+                                          read(self.run/'selected-edition-candidate.json'))
+        self.assertEqual(defects,[])
+        self.assertIn(shared,assets)
+
     def test_provider_routing_rebinds_only_identical_jobs_after_route_selection(self):
         import os
         from unittest.mock import patch

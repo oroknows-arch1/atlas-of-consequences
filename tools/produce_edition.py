@@ -147,7 +147,6 @@ def produce_assets(run, edition, routes, requirements, output):
         if old.get('edition_id')==edition:
             previous={a["scene_id"]:a for a in old.get("assets",[]) if not a.get('beat_id')}
             previous_beats=[a for a in old.get('assets',[]) if a.get('beat_id')
-                            and a['scene_id'] in scenes
                             and public_path(a['path']).is_file()
                             and digest(public_path(a['path']))==a.get('sha256')
                             and a.get('visual_qa',{}).get('pass') is True]
