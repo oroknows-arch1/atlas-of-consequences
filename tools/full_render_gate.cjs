@@ -108,6 +108,22 @@ async function finish(status){
    }
   }
   check(sceneCount===receipt.beat_count,`${name}: rendered ${sceneCount} beats, planned ${receipt.beat_count}`);
+  const duplicateScenes=await page.locator('.perspective-route').evaluateAll(routes=>{
+   const seen=new Map(),duplicates=[];
+   for(const route of routes){
+    for(const scene of route.querySelectorAll('.scene')){
+     const prose=scene.querySelector('[data-prose]')?.textContent.trim();
+     const heading=scene.querySelector('h2')?.textContent.trim();
+     for(const value of [prose,heading]){
+      if(!value)continue;
+      if(seen.has(value)&&seen.get(value)!==route.id)duplicates.push(`${seen.get(value)} / ${route.id}: ${value.slice(0,55)}`);
+      else seen.set(value,route.id);
+     }
+    }
+   }
+   return duplicates;
+  });
+  check(!duplicateScenes.length,`${name}: repeated content between routes: ${duplicateScenes.join('; ')}`);
   const nonScene=await page.locator('.hero img,.edition-menu-slice img').evaluateAll(async images=>{
    await Promise.all(images.map(async image=>{image.loading='eager';await image.decode().catch(()=>{})}));
    return images.map(image=>({path:new URL(image.src).pathname,ok:image.naturalWidth>0}));

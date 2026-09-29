@@ -353,6 +353,16 @@ class ProductionRegression(unittest.TestCase):
   end='\n\n  const hero ='
   controller=lambda source:source[source.index(start):source.index(end,source.index(start))]
   self.assertEqual(controller(inherited),controller(canonical))
+ def test_finance_display_variant_preserves_verified_evidence_and_beat_count(self):
+  display=state.read(state.ROOT/'content/AUTOMATED-TEST-001/reader-display-copy.json')
+  copy=state.read(state.ROOT/'content/AUTOMATED-TEST-001/editorial-copy.json')['scenes']
+  self.assertEqual(display['edition_id'],'AET1-WC-002')
+  self.assertEqual(set(display['scene_overrides']),{'MF1-S1','MF1-S2','MF1-S3'})
+  for sid,block in display['scene_overrides'].items():
+   self.assertNotEqual(block['heading'],copy[sid]['heading'])
+   for new,old in zip(block['paragraphs'],copy[sid]['paragraphs']):
+    self.assertEqual((new['state'],new['evidence_refs']),(old['state'],old['evidence_refs']))
+    self.assertEqual(len(builder.chunks(new['text'])),len(builder.chunks(old['text'])))
  def test_path_escape_rejected(self):
   with self.assertRaises(ValueError):state.public_path('/../../outside')
 

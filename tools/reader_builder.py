@@ -27,6 +27,19 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
     source_ids={s['id'] for s in sources}
     source_by_id={s['id']:s for s in sources}
     selected={p['id']:p for p in read(run/'selected-edition-perspectives.json')['output']['perspectives']}
+    display_file=run/'reader-display-copy.json'
+    display=read(display_file) if display_file.exists() else {'edition_id':edition,'scene_overrides':{}}
+    if display['edition_id']!=edition: raise ValueError('display copy belongs to another edition')
+    overrides=display['scene_overrides']
+    if set(overrides)-set(copy['scenes']): raise ValueError('display copy names an unknown scene')
+    for sid,override in overrides.items():
+        original=copy['scenes'][sid]
+        if not override.get('heading') or len(override['paragraphs'])!=len(original['paragraphs']):
+            raise ValueError('display copy changes scene structure: '+sid)
+        for new,old in zip(override['paragraphs'],original['paragraphs']):
+            if (new['state']!=old['state'] or new['evidence_refs']!=old['evidence_refs'] or
+                len(chunks(new['text']))!=len(chunks(old['text']))):
+                raise ValueError('display copy changes truth, evidence or beat coverage: '+sid)
     available=[a for a in assets if public_path(a['path']).is_file() and
                digest(public_path(a['path']))==a.get('sha256') and
                a.get('visual_qa',{}).get('pass') is True]
@@ -84,7 +97,7 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
     panels=[]; entries=[]
     for i,r in enumerate(routes,1):
         rid='route-'+r['perspective_id']
-        blocks=[(s['scene_id'],copy['scenes'][s['scene_id']]) for s in r['scenes']]
+        blocks=[(s['scene_id'],overrides.get(s['scene_id'],copy['scenes'][s['scene_id']])) for s in r['scenes']]
         limits=''.join('<li>%s</li>'%esc(s['causal_boundary']) for s in r['scenes'] if s.get('causal_boundary'))
         first_ref=next((ref for s in r['scenes'] for ref in s.get('evidence_refs',[]) if ref in source_ids),None)
         accepted=selected.get(r['perspective_id'])
