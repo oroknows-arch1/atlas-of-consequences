@@ -1,57 +1,11 @@
 {
   "edition_id": "AET1-WC-002",
   "input_sha256": "940f86c72ebe1724ee8e8ccf40050c3426dbad5ac2760b9748bbaf7727eb1e35",
-  "status": "FAIL",
+  "status": "RENDER_PENDING",
   "reader": "public/review/aet1-wc-002/index.html",
   "canonical_css_sha256": "eb0232e2eb66595eb724ae33226f0b489bd62b1569898e1a756c7b4fb921b2a2",
-  "reader_sha256": "7ec09beba7341cc0384d41d986defe4d431fb7e98f7840ac3fbc7c794e790ca7",
+  "reader_sha256": "8ec8c0f57bc7ac1358bcf7384cfa67dae5edde80d5cfeb1dd90901c7a68807ca",
   "asset_generation_authorized": false,
   "publication_authorized": false,
-  "note": "Existing verified imagery is reused for structural preview; repeated imagery is not final asset coverage.",
-  "defects": [
-    "phone: chosen Perspective did not open",
-    "phone: evidence link and source limits",
-    "small-phone: chosen Perspective did not open",
-    "small-phone: evidence link and source limits",
-    "desktop: chosen Perspective did not open",
-    "desktop: evidence link and source limits"
-  ],
-  "screenshots": [
-    {
-      "path": "content/AUTOMATED-TEST-001/early-gate-shots/phone-opening.png",
-      "sha256": "643aedb557a0dd16df01061ed1ff550a95c80b52edcc105de0338e273080b3a8"
-    },
-    {
-      "path": "content/AUTOMATED-TEST-001/early-gate-shots/phone-perspectives.png",
-      "sha256": "918b73650d8c259ece19a425c276a3e38eb669c592bf8c36d74473b12cdadfa0"
-    },
-    {
-      "path": "content/AUTOMATED-TEST-001/early-gate-shots/phone-scene.png",
-      "sha256": "55bcf71af5296b84105bab53f84860a265181053b4e40b6760bf8f74582ccf90"
-    },
-    {
-      "path": "content/AUTOMATED-TEST-001/early-gate-shots/small-phone-opening.png",
-      "sha256": "cef955eac7953478fa71e09cf9814d0b03749d0d6d309ad732aceb19897ed395"
-    },
-    {
-      "path": "content/AUTOMATED-TEST-001/early-gate-shots/small-phone-perspectives.png",
-      "sha256": "a0c913eb263cf4cb4549336e907210820d80c7432547b8e8b8dc413a4ff8681a"
-    },
-    {
-      "path": "content/AUTOMATED-TEST-001/early-gate-shots/small-phone-scene.png",
-      "sha256": "90511e56f94c6ae8ed8971b67592336c06429129b43f18fa0f2e9bb6e1adcb0a"
-    },
-    {
-      "path": "content/AUTOMATED-TEST-001/early-gate-shots/desktop-opening.png",
-      "sha256": "a1895d1db9f76647df56caf408cdbf8adc469195ffce0125bd2b80480b225bc3"
-    },
-    {
-      "path": "content/AUTOMATED-TEST-001/early-gate-shots/desktop-perspectives.png",
-      "sha256": "b6f67c015c4cfb4c2ae05e16b68ff9abf28359bd2378418c99acff42dcbb3335"
-    },
-    {
-      "path": "content/AUTOMATED-TEST-001/early-gate-shots/desktop-scene.png",
-      "sha256": "68959cb22bda3a1d09b562188a79100ebe7a557da1c69d8ff5a838a578045d5c"
-    }
-  ]
+  "note": "Existing verified imagery is reused for structural preview; repeated imagery is not final asset coverage."
 }

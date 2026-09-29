@@ -54,7 +54,7 @@ const server=http.createServer((req,res)=>{
   console.log(`${name}: Perspective menu`);
   const first=await page.locator('[data-perspective]').first().getAttribute('href');
   await page.locator('[data-perspective]').first().click();
-  const route=page.locator(first);check(await route.isVisible(),`${name}: chosen Perspective did not open`);
+  const route=page.locator(first);await route.waitFor({state:'visible'});check(await route.isVisible(),`${name}: chosen Perspective did not open`);
   await route.locator('img').evaluateAll(async images=>Promise.all(images.map(async image=>{image.loading='eager';await image.decode().catch(()=>{})})));
   const measures=await route.locator('.scene').evaluateAll(nodes=>nodes.map(e=>{
    const h=e.querySelector('h2'),p=e.querySelector('p'),img=e.querySelector('img'),r=e.getBoundingClientRect(),s=getComputedStyle(h),c=getComputedStyle(p);
@@ -67,8 +67,10 @@ const server=http.createServer((req,res)=>{
   console.log(`${name}: scene and navigation`);
   await page.reload();check(await route.isVisible(),`${name}: deep link reload`);
   await page.locator('.route-exit').first().click();check(await page.locator('#perspectives').isVisible(),`${name}: return to choices`);
-  await page.goBack();check(await route.isVisible(),`${name}: browser Back`);
+  await page.goBack();await route.waitFor({state:'visible'});check(await route.isVisible(),`${name}: browser Back`);
   await route.locator('a[href^="#source-"]').first().click();
+  await page.locator('#sources').waitFor({state:'visible'});
+  await page.locator('#sources details[open]').first().waitFor({state:'visible'});
   check(await page.locator('#sources').isVisible()&&await page.locator('details[open]').count()>0,`${name}: evidence link and source limits`);
   check(!errors.length,`${name}: ${errors.join('; ')}`);
   await page.close();

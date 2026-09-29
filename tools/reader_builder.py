@@ -68,7 +68,7 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
     def route(key,title,blocks,ending=None):
         end=ending or {'text':'This route ends here. Choose another part of this connected world.'}
         body=''.join(scene(block,sid,by_scene.get(sid)) for sid,block in blocks)
-        return '<section id="%s" class="route perspective-route" data-route="%s" hidden><header><a href="#perspectives">← Perspectives</a><span>%s</span></header>%s<section class="boundary route-end"><small>%s · PERSPECTIVE COMPLETE</small><h2>This route ends here.</h2><p>%s</p>%s<a class="route-exit" href="#perspectives">Choose what to explore next ↑</a></section></section>'%(esc(key),esc(key),esc(title),body,esc(title),esc(end['text']),end.get('extra',''))
+        return '<section id="%s" class="route perspective-route" data-route="%s" hidden><header><a href="#perspectives">← Perspectives</a><span>%s</span></header>%s<section class="boundary route-end"><small>%s · PERSPECTIVE COMPLETE</small><h2>This route ends here.</h2><p>%s</p>%s<a class="route-exit" href="#perspectives">Choose what to explore next ↑</a></section></section>'%(esc(key),esc(key.removeprefix('route-')),esc(title),body,esc(title),esc(end['text']),end.get('extra',''))
 
     panels=[]; entries=[]
     for i,r in enumerate(routes,1):
