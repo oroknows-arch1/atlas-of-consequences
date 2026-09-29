@@ -7,7 +7,7 @@ const root=path.resolve(__dirname,'..');
  const b=await chromium.launch({headless:true,executablePath:process.env.ATLAS_CHROMIUM_PATH||undefined,args:['--no-sandbox']});
  try{
   const p=await b.newPage({viewport:{width:390,height:844}}),base=`http://127.0.0.1:${server.address().port}`;
-  async function measure(url){assert((await p.goto(url)).ok());await p.waitForTimeout(800);const h=await inspect(p);await p.evaluate(()=>location.hash='perspectives');await p.waitForTimeout(700);await p.locator('#perspectives img').evaluateAll(async es=>Promise.all(es.map(e=>e.decode().catch(()=>{}))));const menu=await inspect(p);await p.evaluate(()=>location.hash='route-H1');await p.waitForTimeout(700);return {...h,entries:menu.entries,menuWidth:menu.menuWidth,scenes:(await inspect(p)).scenes}}
+  async function measure(url){assert((await p.goto(url)).ok());await p.waitForTimeout(800);const h=await inspect(p);await p.evaluate(()=>location.hash='perspectives');await p.waitForTimeout(700);await p.locator('#perspectives img').evaluateAll(async es=>Promise.race([Promise.all(es.map(e=>{e.loading='eager';return e.decode()})),new Promise((_,reject)=>setTimeout(()=>reject(Error('Perspective image decode timed out')),20000))]));const menu=await inspect(p);await p.evaluate(()=>location.hash='route-H1');await p.waitForTimeout(700);return {...h,entries:menu.entries,menuWidth:menu.menuWidth,scenes:(await inspect(p)).scenes}}
   const legacy=await measure(base+'/legacy/');assert(checkComposition(legacy).some(e=>e.includes('hero')));assert(checkComposition(legacy).some(e=>e.includes('Perspective')));assert(checkComposition(legacy).some(e=>e.includes('typography')));console.log('Legacy violations',checkComposition(legacy));console.log('PASS: previous false-positive reader rejected from actual rendered geometry');
   const candidate=await measure(base+'/review/aet1-wc-002/');assert.deepEqual(checkComposition(candidate),[]);
   await p.goto(base+'/review/aet1-wc-002/');await p.locator('.opening-frame').first().evaluate(e=>e.decode());
@@ -35,5 +35,5 @@ const root=path.resolve(__dirname,'..');
    ['card menu','.perspective-list{display:grid;grid-template-columns:1fr 1fr}','Perspective']]){
     const good=await measure(base+'/review/aet1-wc-002/');await p.addStyleTag({content:css});let bad={...good,scenes:(await inspect(p)).scenes};if(name==='card menu'){await p.evaluate(()=>location.hash='perspectives');await p.waitForTimeout(700);const m=await inspect(p);bad.entries=m.entries;bad.menuWidth=m.menuWidth}assert(checkComposition(bad).some(e=>e.includes(expected)),name);console.log('PASS:',name,'mutation rejected');
   }
- }finally{await b.close();server.close()}
+ }finally{await b.close();server.closeAllConnections();await new Promise(r=>server.close(r))}
 })().catch(e=>{console.error(e);process.exitCode=1});
