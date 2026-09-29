@@ -24,7 +24,7 @@ h1[tabindex="-1"],h2[tabindex="-1"]{outline:none}.diagram-choice>img{object-fit:
 .diagram-choice:after{background:linear-gradient(180deg,transparent 12%,rgba(5,7,8,.08) 35%,#050708 100%)}
 .diagram-choice .perspective-copy{width:100%}
 /* Keep midtones legible while concentrating shadow behind the copy. */
-.scene>img{filter:brightness(1.08) contrast(1.02) saturate(.98)}
+.scene>img{filter:brightness(1.05) contrast(1.02) saturate(.98)}
 .scene:after{background:linear-gradient(180deg,transparent 10%,rgba(5,7,8,.08) 42%,rgba(5,7,8,.35) 68%,rgba(5,7,8,.82) 100%)}
 .scene-copy{padding-top:80px}
 @media(max-width:600px){.perspective{min-height:82svh}.perspective-copy{padding:30px 22px 82px}.perspective h2{font-size:clamp(38px,11vw,58px)}.perspective .arrow{bottom:28px}.scene-copy{padding-top:90px}}
