@@ -8,7 +8,9 @@ on:
       - 'tests/**'
       - 'atlas/contracts/manufacturing-trace.json'
       - 'atlas/contracts/reader-grammar.json'
-      - 'public/review/reader-production.*'
+      - 'public/review/adaptive.js'
+      - 'public/review/edition.css'
+      - 'public/adaptive/adaptive.css'
       - 'content/AUTOMATED-TEST-001/**'
   workflow_dispatch:
     inputs:
@@ -29,8 +31,8 @@ jobs:
     env:
       OPENAI_API_KEY: ${{ secrets.ATLASOQUENCE_GITHUB_PRODUCTION }}
       RENDER_API_KEY: ${{ secrets.ATLASOQUENCE_GITHUB_ACTIONS }}
-      ATLAS_READER_ONLY: '0'
-      ATLAS_ALLOW_COVERAGE_GENERATION: '1'
+      ATLAS_READER_ONLY: '1'
+      ATLAS_ALLOW_COVERAGE_GENERATION: '0'
       ATLAS_SAFE_VISUAL_REEXPRESSION: '1'
       ATLAS_IMAGE_COMMAND: python3 tools/image_provider_openai.py
       ATLAS_VISUAL_QA_COMMAND: python3 tools/visual_verifier_openai.py
@@ -57,55 +59,27 @@ jobs:
         run: |
           python3 tools/validate_manufacturing_trace.py
           python3 -m unittest discover -s tests -v
-      - name: Verify production capabilities
-        id: capabilities
-        run: python3 tools/production_preflight.py "$RUN_DIR"
-      - name: Select and independently verify finance route
-        run: python3 tools/finance_route_worker.py "$RUN_DIR"
       - name: Install browser dependencies
         run: |
           npm install --prefix /tmp/atlas-playwright playwright
           /tmp/atlas-playwright/node_modules/.bin/playwright install --with-deps chromium
-      - name: Fulfil only missing visual beats and assemble reader
-        run: python3 tools/produce_edition.py "$RUN_DIR"
-      - name: Persist verified assets and reader before browser regression
-        run: |
-          git add public/assets public/review "$RUN_DIR"
-          if ! git diff --cached --quiet; then
-            git commit -m 'Preserve verified Atlas production stage [skip ci]'
-            git push origin HEAD:test/automated-edition-1
-          fi
-      - name: Reject prior reader divergence and design mutations
-        timeout-minutes: 5
-        run: node tests/reader-contract.cjs
-      - name: Verify source accessibility
-        run: python3 tools/source_qa.py "$RUN_DIR"
-      - name: Persist binaries and reader on test branch
-        run: |
-          git add public/assets public/review "$RUN_DIR"
-          if ! git diff --cached --quiet; then
-            git commit -m 'Produce Atlas review candidate assets and reader [skip ci]'
-            git push origin HEAD:test/automated-edition-1
-          fi
-      - name: Deploy, inspect and repair bounded defects
-        run: python3 tools/review_loop.py "$RUN_DIR"
-      - name: Publication completeness gate
-        if: always()
-        run: python3 tools/publication_gate.py "$RUN_DIR"
-      - name: Persist partial assets and production receipts
+      - name: Build inherited reader with persisted assets
+        run: python3 tools/early_reader_gate.py "$RUN_DIR"
+      - name: Render and verify structural checkpoint
+        run: node tools/early_render_gate.cjs "$RUN_DIR"
+      - name: Persist early gate checkpoint
         if: always()
         run: |
-          git add public/assets public/review "$RUN_DIR" ':!**/screenshots/**'
+          git add public/review "$RUN_DIR/early-reader-gate.json"
           if ! git diff --cached --quiet; then
-            git commit -m 'Record Atlas production verdict [skip ci]'
+            git commit -m 'Verify inherited AOC reader structural checkpoint [skip ci]'
             git push origin HEAD:test/automated-edition-1
           fi
-      - name: Store inspectable receipts and screenshots
+      - name: Store early rendered screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: atlas-production-receipts
+          name: atlas-early-reader-gate
           path: |
-            public/assets/aet1-wc-002/
-            ${{ env.RUN_DIR }}/*.json
-            ${{ env.RUN_DIR }}/screenshots/*.png
+            ${{ env.RUN_DIR }}/early-reader-gate.json
+            ${{ env.RUN_DIR }}/early-gate-shots/*.png

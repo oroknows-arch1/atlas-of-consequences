@@ -1,0 +1,24 @@
+/* Edition variables around the inherited AOC-001 adaptive reader. */
+.opening-sequence{position:absolute;inset:0;z-index:0;overflow:hidden}
+.opening-frame{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:opening-frame 6s linear forwards}
+.opening-frame:nth-child(1){animation-delay:0s}
+.opening-frame:nth-child(2){animation-delay:2s}
+.opening-frame:nth-child(3){animation-delay:4s}
+@keyframes opening-frame{0%{opacity:0;transform:scale(1.04)}15%,72%{opacity:1}100%{opacity:0;transform:scale(1)}}
+.opening-frame:last-child{animation-name:opening-last}
+@keyframes opening-last{0%{opacity:0;transform:scale(1.04)}20%,100%{opacity:1;transform:scale(1)}}
+.video-entry.film-complete .opening-sequence{opacity:0;pointer-events:none}
+.asset-boundary{font-size:8px;line-height:1.4;letter-spacing:.08em}
+.scene-copy a{color:#f5f2ea}
+.graphic>img{position:relative;display:block;width:100%;height:auto;max-height:70svh;object-fit:contain}
+.graphic{display:block;min-height:100svh;padding-top:70px}
+.graphic .scene-copy{padding-top:20px}
+.text-scene{background:#152126}
+.story-copy{max-width:680px;margin:auto;padding:24px 22px;font:19px/1.6 Georgia,serif}
+.story-copy p{margin:0 0 1.5em}
+.edition-links{max-width:700px;margin:40px auto;display:flex;flex-wrap:wrap;gap:14px;padding:0 18px;font-size:9px;letter-spacing:.12em}
+.sources details{width:100%;margin:8px 0;padding:12px 0;border-bottom:1px solid #777;font:16px/1.5 Georgia,serif}
+.sources a{overflow-wrap:anywhere}
+.purposeful-ending{margin-top:24px;border-top:1px solid #777}
+.purposeful-ending a{display:block}
+@media(prefers-reduced-motion:reduce){.opening-frame{animation:none}.opening-frame:first-child{opacity:1}}

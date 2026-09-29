@@ -1,90 +1,97 @@
-"""Edition-neutral Atlas reader assembly; no canonical edition content is embedded."""
+"""Populate the AOC-001 adaptive reader surface from accepted edition inputs.
+
+The adaptive CSS and opening/navigation controller are copied from the canonical
+reader. This module supplies editorial data; it never designs another reader.
+"""
+import hashlib
 import html
 import re
 import shutil
 from pathlib import Path
-from production_state import ROOT, read, write, binding, require_current, public_path, digest
+from production_state import ROOT, read, write, binding, digest, public_path
 
-GRAMMAR_VERSION='atlas-reader-v1'
-def esc(value): return html.escape(str(value),quote=True)
-def chunks(text, limit=38):
-    """Paginate verbatim at sentence boundaries. Never summarize or drop evidence."""
-    result=[]; current=[]
-    for sentence in re.split(r'(?<=[.!?])\s+', text.strip()):
-        if current and len((' '.join(current+[sentence])).split())>limit:
-            result.append(' '.join(current));current=[]
+CANONICAL = ROOT / 'public/adaptive'
+def esc(value): return html.escape(str(value), quote=True)
+def chunks(value, limit=38):
+    out=[]; current=[]
+    for sentence in re.split(r'(?<=[.!?])\s+', value.strip()):
+        if current and len(' '.join(current+[sentence]).split())>limit:
+            out.append(' '.join(current)); current=[]
         current.append(sentence)
-    if current:result.append(' '.join(current))
-    return result
+    if current: out.append(' '.join(current))
+    return out
 
-def prose(block):
-    return f'<h2>{esc(block["heading"])}</h2>'+''.join(f'<p><span class="state">{esc(p["state"])}</span>{esc(p["text"])}</p>'+refs(p) for p in block['paragraphs'])
-def refs(p):
-    return '<div class="refs">'+''.join(f'<a href="#source-{esc(r)}">{esc(r)}</a>' for r in p['evidence_refs'])+'</div>'
-def label(asset):
-    return ('Explanatory graphic' if asset['provider']=='ATLAS_DETERMINISTIC_GRAPHIC' else 'AI-generated contextual illustration · not a documentary photograph')+'. '+asset['truth_boundary']
-
-def build_reader(run,edition,candidate,routes,story,assets,copy):
-    from market_finance import validate as validate_markets
-    from visual_coverage import plan as visual_plan
-    validate_markets(run,routes)
-    coverage=visual_plan(run,routes,read(run/'visual_requirements.json')['output']['requirements'],assets,copy)
-    if coverage['gaps']:
-        raise ValueError('VISUAL_COVERAGE_GAP: '+str(len(coverage['gaps']))+' rendered beats require distinct, verified imagery; inspect visual-coverage.json')
-    sources=read(run/'source-register.json');by_scene={a['scene_id']:a for a in assets if not a.get('beat_id')}
-    by_path={a['path']:a for a in assets}
-    hero_asset=next((a for a in assets if a['provider']!='ATLAS_DETERMINISTIC_GRAPHIC'),None)
-    if not hero_asset:raise ValueError('publication reader requires contextual imagery')
-    def scenes(block, sid, asset=None, route_beat=False):
-        parts=[(p,t) for p in block['paragraphs'] for t in chunks(p['text'])]
-        result=[]
-        for i,(p,text) in enumerate(parts):
-            if route_beat:
-                planned=coverage['planned_beats'][f'{sid}-B{i+1}']
-                asset=by_path.get(planned['asset_path'])
-            graphic=asset and asset['provider']=='ATLAS_DETERMINISTIC_GRAPHIC'
-            cls='graphic' if graphic else 'scene-overlay' if asset else 'text-scene'
-            picture=f'<img src="{esc(asset["path"])}" alt="{esc(block["heading"])}" loading="lazy">' if asset else ''
-            if graphic:picture='<figure>'+picture+'</figure>'
-            note=f'<span class="caption">{esc(label(asset))}</span>' if asset else ''
-            result.append(f'<section class="scene {cls}" id="{esc(sid)}{("-part-"+str(i+1)) if i else ""}" data-scene="{esc(sid)}"><!-- Verbatim paragraph pagination -->{picture}<div class="scene-copy"><small>{esc(p["state"])} · {i+1:02d} / {len(parts):02d}</small><h2>{esc(block["heading"])}</h2><p data-prose>{esc(text)}</p>{refs(p)}{note}</div></section>')
-        return ''.join(result)
-    panels=[];entries=[]
-    for ix,route in enumerate(routes):
-        route_assets=[by_scene[s['scene_id']] for s in route['scenes'] if s['scene_id'] in by_scene]
-        route_image=next((a for a in route_assets if a['provider']!='ATLAS_DETERMINISTIC_GRAPHIC'),None)
-        menu_asset=route_image or next(iter(route_assets),None)
-        if not menu_asset:menu_asset=hero_asset
-        body=''.join(scenes(copy['scenes'][s['scene_id']],s['scene_id'],route_beat=True) for s in route['scenes'])
-        boundaries=''.join(f'<li>{esc(s["causal_boundary"])}</li>' for s in route['scenes'] if s.get('causal_boundary'))
-        end=f'<footer class="boundary route-end"><small>{esc(route["perspective"])} · PERSPECTIVE COMPLETE</small><h2>This route ends here.</h2><p>Follow another part of this connected world.</p><details><summary>What this evidence can—and cannot—say</summary><ul>{boundaries}</ul></details><a class="route-exit" href="#perspectives">Choose what to explore next ↑</a><a class="route-exit" href="#story">STORY / FICTION</a></footer>'
-        panels.append(f'<section data-view class="route" id="route-{esc(route["perspective_id"])}" hidden><nav class="route-nav"><a href="#perspectives">← Perspectives</a><span>{esc(route["perspective"])}</span></nav>{body}{end}</section>')
-        entries.append(f'<a class="perspective {"diagram-choice" if menu_asset["provider"]=="ATLAS_DETERMINISTIC_GRAPHIC" else ""}" href="#route-{esc(route["perspective_id"])}" data-perspective="{esc(route["perspective_id"])}" style="--accent:hsl({(ix*67+30)%360} 65% 65%)"><img src="{esc(menu_asset["path"])}" alt="" loading="lazy"><div class="perspective-copy"><small>{ix+1:02d} / {len(routes):02d}</small><h2>{esc(route["perspective"])}</h2><p>{esc(route["scenes"][0]["meaning"])}</p></div><span class="arrow" aria-hidden="true">→</span></a>')
-    source_html=''.join(f'<details id="source-{esc(s["id"])}"><summary>{esc(s["id"])} · {esc(s["title"])}</summary><p>Supports: {esc(s["supports"])}</p><p>Limit: {esc(s["limitation"])}</p><a href="{esc(s["url"])}" rel="noopener">Open source ↗</a></details>' for s in sources)
+def build_reader(run, edition, candidate, routes, story, assets, copy, *, structural=False):
+    """Structural previews reuse persisted assets without claiming asset coverage."""
+    sources=read(run/'source-register.json')
+    source_ids={s['id'] for s in sources}
+    available=[a for a in assets if public_path(a['path']).is_file() and
+               digest(public_path(a['path']))==a.get('sha256') and
+               a.get('visual_qa',{}).get('pass') is True]
+    if not available: raise ValueError('no verified persisted preview asset')
+    by_scene={a['scene_id']:a for a in available if not a.get('beat_id')}
+    by_beat={a['beat_id']:a for a in available if a.get('beat_id')}
+    contextual=[a for a in available if a['provider']!='ATLAS_DETERMINISTIC_GRAPHIC']
+    if len(contextual)<2: raise ValueError('opening requires two verified contextual assets')
+    hero=contextual[0]
     media=read(run/'opening-media.json') if (run/'opening-media.json').exists() else {}
-    if media.get('status')=='PASS':
-        require_current(run,media)
-        if media.get('visual_qa',{}).get('status')!='PASS' or digest(public_path(media['path']))!=media.get('sha256'):
-            raise ValueError('approved opening film has invalid review or binary hash')
-    film=media.get('path') if media.get('edition_id')==edition and media.get('status')=='PASS' and media.get('visual_qa',{}).get('status')=='PASS' else None
-    sequence=[a for a in assets if a['provider']!='ATLAS_DETERMINISTIC_GRAPHIC'][:3]
-    if not film and len(sequence)<2:raise ValueError('cinematic opening needs two independently verified contextual images or an approved film')
+    film=(media.get('path') if media.get('edition_id')==edition and media.get('status')=='PASS'
+          and media.get('visual_qa',{}).get('status')=='PASS' and
+          media.get('path') and digest(public_path(media['path']))==media.get('sha256') else None)
+    sequence=contextual[:3]
+    opening=('''<video class="hero-video" autoplay muted playsinline preload="auto" poster="%s"><source src="%s" type="video/mp4"></video>'''%(esc(hero['path']),esc(film))) if film else '<div class="opening-sequence" aria-hidden="true">'+''.join('<img src="%s" alt="" class="opening-frame frame-%d">'%(esc(a['path']),i+1) for i,a in enumerate(sequence))+'</div>'
     mode='approved_film' if film else 'verified_image_sequence'
-    write(run/'opening-system.json',{**binding(run),'status':'PASS','mode':mode,'assets':[{'path':a['path'],'sha256':a['sha256']} for a in sequence] if not film else [],'film':{'path':film,'sha256':media['sha256']} if film else None})
-    film_html=(f'<video class="hero-video" autoplay muted playsinline preload="auto" poster="{esc(hero_asset["path"])}"><source src="{esc(film)}" type="video/mp4"></video><div class="film-mark"><span>ATLASOQUENCE</span><span>AI-GENERATED CONTEXTUAL FILM</span></div><button class="skip-film">Skip opening ↓</button><button class="play-film" hidden>Play opening film</button>') if film else ('<div class="opening-sequence" aria-hidden="true">'+''.join(f'<img src="{esc(a["path"])}" alt="" class="opening-frame frame-{i+1}">' for i,a in enumerate(sequence))+'</div><div class="film-mark"><span>ATLASOQUENCE</span><span>A CHANGING WORLD</span></div><button class="skip-film">Skip opening ↓</button>')
-    menu_links='<nav class="menu-links"><a href="#edition">Edition</a><a href="#reality">What’s real</a><a href="#story">STORY / FICTION</a><a href="#consequences">Consequences</a><a href="#place">Place</a><a href="#sources">Sources</a></nav>'
-    # Subtitle is existing editorial copy, not newly generated factual text.
-    subtitle=routes[0]['scenes'][0]['meaning']
-    if len(subtitle.split())>32:subtitle=candidate['geographic_core']
-    story_html=''.join(f'<p>{esc(p)}</p>' for p in story['story'])
-    shared=''.join(f'<section data-view class="route" id="{key}" hidden><nav class="route-nav"><a href="#perspectives">← Perspectives</a><span>{title}</span></nav>{scenes(copy[block],key+"-scene",route_beat=True)}<footer class="boundary route-end"><h2>Where next?</h2><a href="#perspectives" class="route-exit">Choose a Perspective ↑</a></footer></section>' for key,block,title in [('reality','opening','WHAT’S REAL'),('place','place','PLACE'),('consequences','consequences','CONSEQUENCES')])
-    page=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#050708"><meta name="robots" content="noindex,nofollow"><title>{esc(candidate['working_title'])} · Atlasoquence</title><link rel="stylesheet" href="reader.css"><script src="reader.js" defer></script></head><body data-reader-grammar="{GRAMMAR_VERSION}"><main>
-<section data-view id="edition"><header class="hero video-entry" data-opening-mode="{mode}"><img class="edition-geo-bg" src="{esc(hero_asset['path'])}" alt="{esc(candidate['geographic_core'])} · contextual illustration">{film_html}<div class="shade"></div><div class="edition-mark reveal-copy"><span>ATLASOQUENCE</span><span>{esc(edition)}</span></div><div class="media-notice" hidden></div><div class="hero-copy reveal-copy"><small>{esc(candidate['geographic_core'])} · A CHANGING WORLD</small><h1 tabindex="-1">{esc(candidate['working_title'])}</h1><p>{esc(subtitle)}</p><a class="enter" href="#perspectives">Choose a perspective ↓</a></div><span class="hero-caption">AI-generated contextual illustration · not documentary evidence</span></header></section>
-<section data-view class="menu" id="perspectives" hidden><div class="menu-head"><small>PERSPECTIVES</small><h1>{len(routes)} perspectives. One connected world.</h1><p>Scroll, then choose where you want to enter.</p><span class="caption">Contextual illustrations and explanatory graphics · not documentary photographs</span></div><div class="perspective-list">{''.join(entries)}</div>{menu_links}</section>
-{''.join(panels)}{shared}
-<section data-view class="story" id="story" hidden><nav class="route-nav"><a href="#perspectives">← Perspectives</a><span>STORY / FICTION</span></nav><header class="boundary story-opening"><small>STORY / FICTION</small><h2>{esc(story['title'])}</h2><p class="boundary-label boundary">{esc(story['boundary'])}</p></header><div class="story-copy">{story_html}<aside><small>FICTION BOUNDARY</small><p>These people, dialogue and events are invented. This is not testimony.</p></aside><a class="route-exit" href="#perspectives">Choose what to explore next ↑</a></div></section>
-<section data-view class="sources" id="sources" hidden><a href="#perspectives">← Perspectives</a><h1>Inspect the evidence.</h1>{source_html}<p>Facts can change the fiction. Fiction must never quietly become fact.</p></section></main></body></html>'''
-    target=ROOT/'public/review'/edition.lower();target.mkdir(parents=True,exist_ok=True)
+    write(run/'opening-system.json',{**binding(run),'status':'PASS','mode':mode,
+          'assets':[{'path':a['path'],'sha256':a['sha256']} for a in sequence] if not film else [],
+          'film':{'path':film,'sha256':media['sha256']} if film else None})
+
+    def scene(block, sid, asset):
+        bits=[]
+        for p in block['paragraphs']:
+            if p['state'] not in ('FACT','UNCERTAIN','STORY') or set(p['evidence_refs'])-source_ids:
+                raise ValueError('unverified truth state or evidence reference')
+            bits.extend((p,t) for t in chunks(p['text']))
+        result=[]
+        for n,(p,text) in enumerate(bits,1):
+            beat=by_beat.get(f'{sid}-B{n}') or (asset if n==1 else None)
+            # A structural preview may repeat a verified image; it never calls
+            # that repetition finished visual coverage or publication evidence.
+            if not beat and structural: beat=asset or hero
+            graphic=beat and beat['provider']=='ATLAS_DETERMINISTIC_GRAPHIC'
+            cls='graphic' if graphic else 'scene-overlay' if beat else 'text-scene'
+            image='<img src="%s" alt="%s" loading="lazy">'%(esc(beat['path']),esc(block['heading'])) if beat else ''
+            caption=('<em class="asset-boundary">%s · %s</em>'%('Explanatory graphic' if graphic else 'AI-generated contextual illustration · not a documentary photograph',esc(beat['truth_boundary']))) if beat else ''
+            refs=' '.join('<a href="#source-%s">%s</a>'%(esc(ref),esc(ref)) for ref in p['evidence_refs'])
+            result.append('<article class="scene %s" id="%s-part-%d" data-scene="%s">%s<div class="scene-copy"><small>%s · %02d / %02d</small><h2>%s</h2><p data-prose>%s</p><em>Evidence · %s</em>%s</div></article>'%(cls,esc(sid),n,esc(sid),image,esc(p['state']),n,len(bits),esc(block['heading']),esc(text),refs,caption))
+        return ''.join(result)
+
+    def route(key,title,blocks,ending=None):
+        end=ending or {'text':'This route ends here. Choose another part of this connected world.'}
+        body=''.join(scene(block,sid,by_scene.get(sid)) for sid,block in blocks)
+        return '<section id="%s" class="route perspective-route" data-route="%s" hidden><header><a href="#perspectives">← Perspectives</a><span>%s</span></header>%s<section class="boundary route-end"><small>%s · PERSPECTIVE COMPLETE</small><h2>This route ends here.</h2><p>%s</p>%s<a class="route-exit" href="#perspectives">Choose what to explore next ↑</a></section></section>'%(esc(key),esc(key),esc(title),body,esc(title),esc(end['text']),end.get('extra',''))
+
+    panels=[]; entries=[]
+    for i,r in enumerate(routes,1):
+        rid='route-'+r['perspective_id']
+        blocks=[(s['scene_id'],copy['scenes'][s['scene_id']]) for s in r['scenes']]
+        limits=''.join('<li>%s</li>'%esc(s['causal_boundary']) for s in r['scenes'] if s.get('causal_boundary'))
+        purpose=r.get('purposeful_ending') or r.get('ending') or {}
+        if isinstance(purpose,str): purpose={'label':'Explore further','text':purpose}
+        purpose_html='<aside class="purposeful-ending"><small>%s</small><p>%s</p>%s</aside>'%(esc(purpose.get('label','A way forward')),esc(purpose.get('text','Inspect the evidence and follow the related people, places or organisations.')),('<a href="%s" rel="noopener">%s ↗</a>'%(esc(purpose['url']),esc(purpose.get('link_label','Explore')))) if purpose.get('url') else '')
+        panels.append(route(rid,r['perspective'],blocks,{'text':'The evidence has limits. Follow the sources and choose what to explore next.','extra':purpose_html+'<details><summary>What the evidence can and cannot say</summary><ul>'+limits+'</ul></details>'}))
+        asset=next((by_scene.get(s['scene_id']) for s in r['scenes'] if by_scene.get(s['scene_id']) and by_scene[s['scene_id']]['provider']!='ATLAS_DETERMINISTIC_GRAPHIC'),hero)
+        entries.append('<a class="perspective" href="#%s" data-perspective="%s"><img src="%s" alt="" loading="lazy"><div class="perspective-copy"><b>%02d / %02d</b><h2>%s</h2><p>%s</p></div></a>'%(esc(rid),esc(r['perspective_id']),esc(asset['path']),i,len(routes),esc(r['perspective']),esc(r['scenes'][0]['meaning'])))
+    shared=[]
+    for key,title in [('reality','WHAT’S REAL'),('consequences','CONSEQUENCES'),('place','PLACE')]:
+        shared.append(route(key,title,[(key+'-scene',copy['opening' if key=='reality' else key])]))
+    story_text=''.join('<p>%s</p>'%esc(p) for p in story['story'])
+    story_panel='<section id="story" class="route perspective-route" data-route="story" hidden><header><a href="#perspectives">← Perspectives</a><span>STORY / FICTION</span></header><section class="boundary"><small>STORY / FICTION</small><h2>%s</h2><p>%s</p><p>These people, dialogue and events are invented. This is not testimony.</p></section><div class="story-copy">%s</div><section class="boundary route-end"><a class="route-exit" href="#perspectives">Choose what to explore next ↑</a></section></section>'%(esc(story['title']),esc(story['boundary']),story_text)
+    source_html=''.join('<details id="source-%s"><summary>%s · %s</summary><p>Supports: %s</p><p>Limit: %s</p><a href="%s" rel="noopener">Open source ↗</a></details>'%(esc(s['id']),esc(s['id']),esc(s['title']),esc(s['supports']),esc(s['limitation']),esc(s['url'])) for s in sources)
+    menu='<nav class="edition-links"><a href="#reality">WHAT’S REAL</a> · <a href="#story">STORY / FICTION</a> · <a href="#consequences">CONSEQUENCES</a> · <a href="#place">PLACE</a> · <a href="#sources">SOURCES</a></nav>'
+    page='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#050708"><meta name="robots" content="noindex,nofollow"><title>%s · Atlasoquence</title><link rel="stylesheet" href="adaptive.css"><link rel="stylesheet" href="edition.css"><script src="adaptive.js" defer></script></head><body data-reader-family="aoc001-adaptive" data-opening-mode="%s"><main id="shell"><section class="hero video-entry" id="home"><img class="edition-geo-bg" src="%s" alt="%s · contextual illustration">%s<div class="shade"></div><div class="film-mark"><span>ATLASOQUENCE</span><span>%s</span></div><button class="skip-film" type="button">Skip opening ↓</button><div class="top reveal-copy"><span>ATLASOQUENCE</span><span>%s · READER TEST</span></div><div class="hero-copy reveal-copy"><div class="eyebrow">A CHANGING WORLD · MULTIPLE WAYS IN</div><h1>%s</h1><p>%s</p><a class="enter" href="#perspectives">Choose a perspective ↓</a></div></section><section id="perspectives" class="menu"><div class="menu-head"><span>PERSPECTIVES</span><p>%d perspectives. One connected world. Scroll, then choose where you want to enter.</p></div><div class="perspective-list">%s</div>%s</section>%s%s%s<section class="route sources" id="sources" hidden><header><a href="#perspectives">← Perspectives</a><span>SOURCES</span></header><div class="boundary"><h2>Inspect the evidence.</h2>%s<p>Facts can change the fiction. Fiction must never quietly become fact.</p></div></section></main></body></html>'''%(esc(candidate['working_title']),mode,esc(hero['path']),esc(candidate['geographic_core']),opening,esc(edition),esc(edition),esc(candidate['working_title']),esc(candidate.get('world_change') or routes[0]['scenes'][0]['meaning']),len(routes),''.join(entries),menu,''.join(panels),''.join(shared),story_panel,source_html)
+    target=ROOT/'public/review'/edition.lower(); target.mkdir(parents=True,exist_ok=True)
     (target/'index.html').write_text(page,encoding='utf8')
-    for source,destination in [('reader-production.css','reader.css'),('reader-production.js','reader.js')]:shutil.copyfile(ROOT/'public/review'/source,target/destination)
+    shutil.copyfile(CANONICAL/'adaptive.css',target/'adaptive.css')
+    shutil.copyfile(ROOT/'public/review/adaptive.js',target/'adaptive.js')
+    shutil.copyfile(ROOT/'public/review/edition.css',target/'edition.css')
     return target/'index.html'

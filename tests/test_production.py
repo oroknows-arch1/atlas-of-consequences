@@ -117,9 +117,10 @@ class ProductionRegression(unittest.TestCase):
   self.assertIn('cancel-in-progress: false',workflow)
  def test_partial_asset_persistence_runs_after_failure(self):
   workflow=(state.ROOT/'.github/workflows/atlas-edition-production.yml').read_text()
-  partial=workflow.split('name: Persist partial assets and production receipts')[1].split('- name:')[0]
+  partial=workflow.split('name: Persist early gate checkpoint')[1].split('- name:')[0]
   self.assertIn('if: always()',partial)
-  self.assertIn('git add public/assets public/review',partial)
+  self.assertIn('git add public/review',partial)
+  self.assertNotIn('produce_edition.py',workflow)
  def test_provider_safety_rejection_is_not_automatically_retried(self):
   routes,requirements,story=producer.facts(self.run,'AET1-WC-002')
   candidate=state.read(self.run/'selected-edition-candidate.json')
@@ -310,24 +311,22 @@ class ProductionRegression(unittest.TestCase):
   second={'perspective_id':'P2','perspective':'Synthetic second','scenes':[{'scene_id':'S2','meaning':'Synthetic other meaning'}]}
   block={'heading':'Synthetic publication heading','paragraphs':[{'text':'Synthetic prose','state':'FACT','evidence_refs':['WB-HEAT-2025']}]}
   copy={'opening':block,'place':block,'consequences':block,'scenes':{'S1':block,'S2':block}}
-  assets=[{'scene_id':'S1','provider':'fixture','path':'/assets/test.png','sha256':'synthetic-1','truth_boundary':'Synthetic contextual visual'}, {'scene_id':'S2','provider':'fixture','path':'/assets/test-2.png','sha256':'synthetic-2','truth_boundary':'Another contextual visual'}]
-  for key,sid in (('opening','reality-scene'),('place','place-scene'),('consequences','consequences-scene')):
-   assets.append({'scene_id':sid,'beat_id':sid+'-B1','provider':'fixture',
-                  'path':'/assets/'+sid+'.png','sha256':'synthetic-'+sid,
-                  'beat_text_sha256':__import__('hashlib').sha256(block['paragraphs'][0]['text'].encode()).hexdigest(),
-                  'truth_boundary':'Synthetic contextual visual'})
+  source=state.ROOT/'public/assets/aet1-wc-002/h1-s1.png'
+  source2=state.ROOT/'public/assets/aet1-wc-002/h2-s1.png'
+  assets=[{'scene_id':'S1','provider':'fixture','path':'/assets/aet1-wc-002/h1-s1.png','sha256':state.digest(source),'truth_boundary':'Synthetic contextual visual','visual_qa':{'pass':True}}, {'scene_id':'S2','provider':'fixture','path':'/assets/aet1-wc-002/h2-s1.png','sha256':state.digest(source2),'truth_boundary':'Another contextual visual','visual_qa':{'pass':True}}]
   state.write(self.run/'visual_requirements.json',{'output':{'requirements':[
    {'scene_id':'S1','required':True,'purpose':'Synthetic scene','truth_boundary':'No claim','visual_type':'editorial contextual still'},
    {'scene_id':'S2','required':True,'purpose':'Synthetic other scene','truth_boundary':'No claim','visual_type':'editorial contextual still'}]}})
   target=self.root/'public/review';target.mkdir(parents=True)
-  for name in ('reader-production.css','reader-production.js'):shutil.copyfile(state.ROOT/'public/review'/name,target/name)
+  for name in ('adaptive.js','edition.css'):shutil.copyfile(state.ROOT/'public/review'/name,target/name)
   with patch.object(builder,'ROOT',self.root), patch('market_finance.validate',return_value={'status':'PASS'}):
-   page=builder.build_reader(self.run,'SYNTHETIC',{'working_title':'Synthetic title','geographic_core':'Synthetic place','world_change':'Synthetic change'},[route,second],{'title':'Synthetic story','boundary':'Fiction, invented','story':['Synthetic story']},assets,copy)
+   page=builder.build_reader(self.run,'SYNTHETIC',{'working_title':'Synthetic title','geographic_core':'Synthetic place','world_change':'Synthetic change'},[route,second],{'title':'Synthetic story','boundary':'Fiction, invented','story':['Synthetic story']},assets,copy,structural=True)
   text=page.read_text()
-  self.assertEqual(text.count('data-view class="route" id="route-'),2)
+  self.assertEqual(text.count('data-perspective="P'),2)
   self.assertIn('AI-generated contextual illustration',text)
   self.assertNotIn('PUBLICATION CANDIDATE',text)
-  self.assertIn('reader.js',text)
+  self.assertIn('adaptive.js',text)
+  self.assertEqual(state.digest(page.parent/'adaptive.css'),state.digest(state.ROOT/'public/adaptive/adaptive.css'))
  def test_path_escape_rejected(self):
   with self.assertRaises(ValueError):state.public_path('/../../outside')
 

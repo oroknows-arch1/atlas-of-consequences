@@ -1,5 +1,25 @@
 # Production execution continuation
 
+## Current bounded execution: inherited adaptive reader
+
+The test branch workflow currently stops at an **early rendered structural gate**. It runs
+`tools/early_reader_gate.py` with the accepted edition data and the existing verified
+asset receipt, then `tools/early_render_gate.cjs` at three viewport sizes. It does not
+call the image provider, `produce_edition.py`, deployment, or publication gate.
+
+`tools/reader_builder.py` now populates the AOC-001 adaptive reader surface and copies
+`public/adaptive/adaptive.css` byte for byte. The generated edition's editorial data,
+routes, sources, story, place, visual references and purposeful endings are inputs.
+`public/review/reader-production.*` is an archived generic implementation; the
+automated workflow and builder do not load it. The canonical `public/adaptive/`
+edition is read only. The gate receipt is
+`content/AUTOMATED-TEST-001/early-reader-gate.json`; browser screenshots are stored
+as a workflow artifact. A PASS proves the reader structure and interaction with
+persisted images. It does not claim final visual coverage or authorize publication.
+
+The production steps below describe the later full chain and must not be invoked
+until the early gate has passed and this bounded execution is explicitly advanced.
+
 The runner lives in this repository and executes in GitHub Actions. Work is used to change and verify its code, not as the edition's ongoing production host.
 
 ## Accepted input and manufacturing coverage
