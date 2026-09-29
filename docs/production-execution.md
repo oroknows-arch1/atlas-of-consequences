@@ -9,8 +9,11 @@ editorial QA and hashes for all 59 persisted assets, proves complete distinct be
 coverage, and rebuilds the reader without structural placeholders. The full render
 gate visits every route and beat at the same viewports. After both gates pass,
 the workflow deploys only the pushed test branch to its isolated Render review
-service and checks the live hashes of all 59 assets and four reader files. No
-image provider, editorial API, or publication gate runs in this bounded workflow.
+service and checks the live hashes of all 59 assets and four reader files. The
+live render gate revisits every route. One independent visual inspection checks
+deployed phone and desktop screenshots, then the inherited-reader completeness
+gate can issue `PUBLICATION_CANDIDATE`. No image provider or editorial generation
+runs. This workflow never authorizes official publication.
 
 `tools/reader_builder.py` now populates the AOC-001 adaptive reader surface and copies
 `public/adaptive/adaptive.css` byte for byte. The generated edition's editorial data,
@@ -22,8 +25,9 @@ edition is read only. The gate receipt is
 as a workflow artifact. `full-reader-gate.json` records the all-route/all-asset
 result. The obsolete generated `reader.css` and `reader.js` are removed. A PASS
 proves the local reader wiring and rendering with persisted assets. The deployment
-receipt proves the live bytes separately. Independent publication review and
-publication authority remain separate gates.
+receipt proves the live bytes separately. `live-reader-gate.json`,
+`visual-review.json` and `publication-candidate-receipt.json` identify the
+deployed review verdict. Official publication remains a separate human action.
 
 The production steps below describe the later full chain and must not be invoked
 until the early gate has passed and this bounded execution is explicitly advanced.

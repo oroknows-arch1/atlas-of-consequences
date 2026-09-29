@@ -4,6 +4,9 @@ const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),run=path.resolve(process.argv[2]||'content/AUTOMATED-TEST-001');
 const receiptPath=path.join(run,'full-reader-gate.json');
 const receipt=JSON.parse(fs.readFileSync(receiptPath));
+const live=process.argv.includes('--live');
+const deployment=live?JSON.parse(fs.readFileSync(path.join(run,'deployment-receipt.json'))):null;
+const outputPath=live?path.join(run,'live-reader-gate.json'):receiptPath;
 const sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
 const publicRoot=path.join(root,'public'),reader=path.join(root,receipt.reader);
 const assets=JSON.parse(fs.readFileSync(path.join(run,'asset-persistence-receipt.json'))).assets;
@@ -20,7 +23,9 @@ const server=http.createServer((req,res)=>{
  fs.readFile(f,(error,data)=>{res.writeHead(error?404:200,{'Content-Type':mime});res.end(error?'missing':data)});
 });
 async function finish(status){
- fs.writeFileSync(receiptPath,JSON.stringify({...receipt,status,defects,screenshots:shots,
+ fs.writeFileSync(outputPath,JSON.stringify({...receipt,status,defects,screenshots:shots,
+   ...(live?{reader_hashes:deployment.reader_hashes,deploy_id:deployment.deploy_id,
+             url:deployment.url,commit:deployment.commit}:{}),
    asset_generation_authorized:false,publication_authorized:false},null,2)+'\n');
  if(browser)await browser.close().catch(()=>{});
  server.close();
@@ -30,15 +35,27 @@ async function finish(status){
 (async()=>{
  check(sha(reader)===receipt.reader_sha256,'reader changed since assembly');
  check(expected.size===receipt.asset_count,'asset receipt count changed');
+ if(live)check(deployment.status==='PASS'&&deployment.asset_integration_status==='PASS','deployment bytes not verified');
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  browser=await chromium.launch({headless:true,args:['--no-sandbox']});
- const base=`http://127.0.0.1:${server.address().port}/${receipt.reader.replace(/^public\//,'').replace(/index.html$/,'')}`;
+ const base=live?deployment.url:`http://127.0.0.1:${server.address().port}/${receipt.reader.replace(/^public\//,'').replace(/index.html$/,'')}`;
  for(const [name,width,height] of [['phone',390,844],['small-phone',320,740],['desktop',1440,900]]){
   console.log(`Full reader: ${name}`);
   const page=await browser.newPage({viewport:{width,height},reducedMotion:'reduce'});
   page.setDefaultTimeout(12000);
   const pageErrors=[];page.on('pageerror',e=>pageErrors.push(e.message));
+  page.on('response',response=>{if(response.status()>=400&&new URL(response.url()).origin===new URL(base).origin)pageErrors.push(`HTTP ${response.status()} ${response.url()}`)});
   await page.goto(base,{waitUntil:'networkidle'});
+  if(live&&name!=='small-phone'){
+   const dir=path.join(run,'live-gate-shots');fs.mkdirSync(dir,{recursive:true});
+   const opening=path.join(dir,`${name}-opening.png`);
+   await page.locator('.hero').screenshot({path:opening});shots.push({path:path.relative(run,opening),sha256:sha(opening)});
+   await page.evaluate(()=>{location.hash='perspectives'});
+   const menu=page.locator('#perspectives');await menu.waitFor({state:'visible'});
+   await menu.locator('img').evaluateAll(async images=>Promise.all(images.map(async image=>{image.loading='eager';await image.decode().catch(()=>{})})));
+   const choice=path.join(dir,`${name}-perspectives.png`);
+   await menu.screenshot({path:choice});shots.push({path:path.relative(run,choice),sha256:sha(choice)});
+  }
   const routes=await page.locator('.perspective-route').evaluateAll(es=>es.map(e=>e.id));
   const used=new Set();let sceneCount=0;
   for(const id of routes){
@@ -70,8 +87,8 @@ async function finish(status){
     check(await route.locator('.route-exit[href="#perspectives"]').count()===1,`${name}/${id}: choice return missing`);
    }
    if(observations.length&&(id===routes[0]||id===routes[routes.length-2])&&name!=='small-phone'){
-    const file=path.join(run,'full-gate-shots',`${name}-${id}.png`);fs.mkdirSync(path.dirname(file),{recursive:true});
-    await route.locator('.scene').first().screenshot({path:file});shots.push({path:path.relative(root,file),sha256:sha(file)});
+    const file=path.join(run,live?'live-gate-shots':'full-gate-shots',`${name}-${id}.png`);fs.mkdirSync(path.dirname(file),{recursive:true});
+    await route.locator('.scene').first().screenshot({path:file});shots.push({path:live?path.relative(run,file):path.relative(root,file),sha256:sha(file)});
    }
   }
   check(sceneCount===receipt.beat_count,`${name}: rendered ${sceneCount} beats, planned ${receipt.beat_count}`);

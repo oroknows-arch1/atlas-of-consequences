@@ -125,6 +125,9 @@ class ProductionRegression(unittest.TestCase):
   self.assertIn('assemble_verified_reader.py',workflow)
   self.assertIn('full_render_gate.cjs',workflow)
   self.assertIn('deploy_review.py',workflow)
+  self.assertIn('full_render_gate.cjs "$RUN_DIR" --live',workflow)
+  self.assertIn('review_inherited_live.py',workflow)
+  self.assertIn('publication_gate_inherited.py',workflow)
  def test_provider_safety_rejection_is_not_automatically_retried(self):
   routes,requirements,story=producer.facts(self.run,'AET1-WC-002')
   candidate=state.read(self.run/'selected-edition-candidate.json')
