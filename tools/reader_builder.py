@@ -47,7 +47,7 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
           'assets':[{'path':a['path'],'sha256':a['sha256']} for a in sequence] if not film else [],
           'film':{'path':film,'sha256':media['sha256']} if film else None})
 
-    def scene(block, sid, asset):
+    def scene(block, sid, asset, contextual):
         bits=[]
         for p in block['paragraphs']:
             if p['state'] not in ('FACT','UNCERTAIN','STORY') or set(p['evidence_refs'])-source_ids:
@@ -59,10 +59,13 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
             # A structural preview may repeat a verified image; it never calls
             # that repetition finished visual coverage or publication evidence.
             if not beat and structural: beat=asset or hero
-            graphic=beat and beat['provider']=='ATLAS_DETERMINISTIC_GRAPHIC'
+            graphic=beat['provider']=='ATLAS_DETERMINISTIC_GRAPHIC'
+            visual=contextual[(n-1)%len(contextual)] if graphic else beat
             cls='scene-overlay'
-            image='<img src="%s" alt="%s" loading="lazy">'%(esc(beat['path']),esc(block['heading'])) if beat else ''
-            caption=('<em class="asset-boundary">%s · %s</em>'%('Explanatory graphic' if graphic else 'AI-generated contextual illustration · not a documentary photograph',esc(beat['truth_boundary']))) if beat else ''
+            image='<img src="%s" alt="%s" loading="lazy">'%(esc(visual['path']),esc(block['heading']))
+            caption='<em class="asset-boundary">AI-generated contextual illustration · not a documentary photograph · %s</em>'%esc(visual['truth_boundary'])
+            if graphic:
+                caption+='<a class="graphic-evidence" href="%s" rel="noopener" target="_blank" data-graphic-path="%s">Inspect verified explanatory graphic ↗</a><em class="asset-boundary">%s</em>'%(esc(beat['path']),esc(beat['path']),esc(beat['truth_boundary']))
             refs=' '.join('<a href="#source-%s">%s</a>'%(esc(ref),esc(ref)) for ref in p['evidence_refs'])
             if not beat: raise ValueError('scene has no verified visual: '+sid)
             heading='<h2>%s</h2>'%esc(block['heading']) if n==1 else ''
@@ -71,7 +74,11 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
 
     def route(key,title,blocks,ending=None):
         end=ending or {'text':'This route ends here. Choose another part of this connected world.'}
-        body=''.join(scene(block,sid,by_scene.get(sid)) for sid,block in blocks)
+        scene_ids={sid for sid,_ in blocks}
+        contextual=[a for a in available if a['scene_id'] in scene_ids and a['provider']!='ATLAS_DETERMINISTIC_GRAPHIC']
+        if not contextual and structural: contextual=[hero]
+        if not contextual: raise ValueError('route lacks verified contextual visual: '+key)
+        body=''.join(scene(block,sid,by_scene.get(sid),contextual) for sid,block in blocks)
         return '<section id="%s" class="route perspective-route" data-route="%s" hidden><header><a href="#perspectives">← Perspectives</a><span>%s</span></header>%s<section class="boundary route-end"><small>%s · PERSPECTIVE COMPLETE</small><h2>This route ends here.</h2><p>%s</p>%s<a class="route-exit" href="#perspectives">Choose what to explore next ↑</a></section></section>'%(esc(key),esc(key.removeprefix('route-')),esc(title),body,esc(title),esc(end['text']),end.get('extra',''))
 
     panels=[]; entries=[]

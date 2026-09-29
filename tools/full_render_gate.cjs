@@ -89,12 +89,13 @@ async function finish(status){
     sceneCount++;if(o.path)used.add(o.path);
     check(o.width>=width*.98&&o.height>=height*.98&&(o.heading===null||o.heading>=32)&&o.serif&&o.words<=70&&o.truth&&o.source&&!o.blank,
       `${name}/${o.id}: pacing, typography or truth boundary`);
-    check(o.decoded&&(!o.path||o.fit!=='cover'||(o.imgWidth>=o.width*.98&&o.imgHeight>=o.height*.98&&o.gradient)),
+    check(o.decoded&&o.path&&!o.path.endsWith('.svg')&&(!o.path||o.fit!=='cover'||(o.imgWidth>=o.width*.98&&o.imgHeight>=o.height*.98&&o.gradient)),
       `${name}/${o.id}: image decode, dominance or continuity`);
    }
    if(id.startsWith('route-')){
     check(await route.locator('.purposeful-ending').evaluateAll(es=>es.length===1&&!!es[0].dataset.sourceId&&!!es[0].querySelector('a[href^="https://"]')&&!!es[0].querySelector('p')?.textContent.trim()),`${name}/${id}: sourced purposeful ending missing`);
     check(await route.locator('.route-exit[href="#perspectives"]').count()===1,`${name}/${id}: choice return missing`);
+    check(await route.locator('.route-end').evaluate(e=>{const a=e.querySelector('.purposeful-ending a'),details=e.querySelector('details'),exit=e.querySelector('.route-exit');return !!a&&!!details&&a.getBoundingClientRect().bottom+8<=details.getBoundingClientRect().top&&details.getBoundingClientRect().bottom+8<=exit.getBoundingClientRect().top}),`${name}/${id}: ending controls overlap`);
    }
    check(await route.locator('.scene').evaluateAll(nodes=>{const headings={};const prose=new Set();for(const node of nodes){headings[node.dataset.scene]=(headings[node.dataset.scene]||0)+node.querySelectorAll('h2').length;const text=node.querySelector('[data-prose]')?.textContent.trim();if(!text||prose.has(text))return false;prose.add(text)}return Object.values(headings).every(n=>n===1)}),`${name}/${id}: duplicate prose or scene heading`);
    if(observations.length){
@@ -112,6 +113,9 @@ async function finish(status){
    return images.map(image=>({path:new URL(image.src).pathname,ok:image.naturalWidth>0}));
   });
   for(const a of nonScene){if(a.ok)used.add(a.path);else defects.push(`${name}: opening/menu image failed to decode ${a.path}`)}
+  const graphics=await page.locator('.graphic-evidence').evaluateAll(links=>links.map(link=>new URL(link.href).pathname));
+  for(const p of graphics)used.add(p);
+  check(graphics.length===9&&graphics.every(p=>p.endsWith('.svg')&&expected.has(p)),`${name}: explanatory graphics must remain accessible, verified references`);
   const menuPaths=await page.locator('.edition-menu-slice img').evaluateAll(images=>images.map(image=>new URL(image.src).pathname));
   check(new Set(menuPaths).size===menuPaths.length,`${name}: Perspective menu repeats imagery despite complete verified asset coverage`);
   check(await page.locator('.edition-menu-label span').evaluateAll(es=>new Set(es.map(e=>e.textContent.trim())).size===es.length),`${name}: menu teaser duplication`);

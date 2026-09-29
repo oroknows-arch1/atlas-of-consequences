@@ -319,6 +319,8 @@ class ProductionRegression(unittest.TestCase):
   source=state.ROOT/'public/assets/aet1-wc-002/h1-s1.png'
   source2=state.ROOT/'public/assets/aet1-wc-002/h2-s1.png'
   assets=[{'scene_id':'S1','provider':'fixture','path':'/assets/aet1-wc-002/h1-s1.png','sha256':state.digest(source),'truth_boundary':'Synthetic contextual visual','visual_qa':{'pass':True}}, {'scene_id':'S2','provider':'fixture','path':'/assets/aet1-wc-002/h2-s1.png','sha256':state.digest(source2),'truth_boundary':'Another contextual visual','visual_qa':{'pass':True}}]
+  graphic=state.ROOT/'public/assets/aet1-wc-002/h1-s2.svg'
+  assets.append({'scene_id':'S1','beat_id':'S1-B1','provider':'ATLAS_DETERMINISTIC_GRAPHIC','path':'/assets/aet1-wc-002/h1-s2.svg','sha256':state.digest(graphic),'truth_boundary':'Synthetic explanatory chart','visual_qa':{'pass':True}})
   state.write(self.run/'visual_requirements.json',{'output':{'requirements':[
    {'scene_id':'S1','required':True,'purpose':'Synthetic scene','truth_boundary':'No claim','visual_type':'editorial contextual still'},
    {'scene_id':'S2','required':True,'purpose':'Synthetic other scene','truth_boundary':'No claim','visual_type':'editorial contextual still'}]}})
@@ -338,6 +340,8 @@ class ProductionRegression(unittest.TestCase):
   self.assertIn('id="route-P1" class="route perspective-route" data-route="P1"',text)
   self.assertIn('id="route-P2" class="route perspective-route" data-route="P2"',text)
   self.assertIn('AI-generated contextual illustration',text)
+  self.assertIn('data-graphic-path="/assets/aet1-wc-002/h1-s2.svg"',text)
+  self.assertNotIn('<img src="/assets/aet1-wc-002/h1-s2.svg"',text)
   self.assertIn('Preview the evidence',text)
   self.assertIn('href="#source-WB-HEAT-2025"',text)
   self.assertNotIn('PUBLICATION CANDIDATE',text)
