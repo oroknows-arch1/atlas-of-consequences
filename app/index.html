@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07090a">
+  <meta name="description" content="Atlas of Consequences — AOC-001: AI's Physical Hunger">
+  <title>AOC-001 — AI's Physical Hunger | Atlas of Consequences</title>
+  <link rel="preconnect" href="https://commons.wikimedia.org">
+  <link rel="preconnect" href="https://upload.wikimedia.org">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <section class="opening-sequence" id="openingSequence" aria-label="AOC-001 opening sequence">
+    <div class="opening-stage" data-stage="data-centre">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Data%20center%20roof.jpg?width=1600" alt="Roof of a data centre with cooling infrastructure and backup generators" fetchpriority="high">
+    </div>
+    <div class="opening-stage" data-stage="grid-energy">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/L%C3%ADneas%20alta%20tensi%C3%B3n%20Chile.jpg?width=1600" alt="High-voltage electricity lines in Chile">
+    </div>
+    <div class="opening-stage" data-stage="copper-mining">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mina%20de%20Chuquicamata%2C%20Calama%2C%20Chile%2C%202016-02-01%2C%20DD%20110-112%20PAN.JPG?width=1600" alt="Panoramic view of the Chuquicamata copper mine near Calama, Chile">
+    </div>
+    <div class="opening-stage" data-stage="calama">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Homes%20in%20Calama%2C%20Chile%20%2845418686415%29.jpg?width=1600" alt="Homes in Calama, Chile">
+    </div>
+    <div class="opening-stage opening-fiction" data-stage="family">
+      <img src="https://raw.githubusercontent.com/oroknows-arch1/atlas-of-consequences/main/public/assets/aoc001-family-fiction.svg" alt="Generated fictional scene of Daniela, Emilia and Tomás during an ordinary morning in Calama">
+    </div>
+
+    <div class="opening-shade" aria-hidden="true"></div>
+    <div class="opening-topline">
+      <span>ATLAS OF CONSEQUENCES</span>
+      <span>AOC-001</span>
+    </div>
+    <div class="opening-title">
+      <p class="opening-kicker">AI'S PHYSICAL HUNGER</p>
+      <h1>The machines may be digital.<br>Their hunger isn't.</h1>
+    </div>
+    <div class="opening-meta">
+      <div>
+        <span class="opening-stage-label" id="openingStageLabel">REAL · DATA CENTRE</span>
+        <span class="opening-tap">Tap to finish sequence</span>
+      </div>
+      <span class="opening-credit" id="openingCredit"><a href="https://commons.wikimedia.org/wiki/File:Data_center_roof.jpg" target="_blank" rel="noopener noreferrer">Rsparks3 · Wikimedia Commons · CC0 1.0</a></span>
+    </div>
+    <div class="opening-progress" aria-hidden="true"><span id="openingAssetProgress"></span></div>
+    <a class="opening-enter" id="openingEnter" href="#editionStart" aria-hidden="true">ENTER THE EDITION ↓</a>
+  </section>
+
+  <header class="edition-hero" id="editionStart">
+    <div class="hero-inner">
+      <p class="eyebrow">ATLAS OF CONSEQUENCES</p>
+      <p class="edition-number">AOC-001</p>
+      <h1>AI's Physical Hunger</h1>
+      <p class="atlas-rule">Facts can change the fiction. Fiction must never quietly become fact.</p>
+      <p class="reader-path" aria-label="Reader path">WHAT'S REAL → STORY → CONSEQUENCES → PLACE → SOURCES</p>
+    </div>
+  </header>
+
+  <nav class="section-nav" aria-label="Edition sections">
+    <div class="section-nav-inner">
+      <a href="#whats-real" data-nav="whats-real">WHAT'S REAL</a>
+      <a href="#story" data-nav="story">STORY</a>
+      <a href="#consequences" data-nav="consequences">CONSEQUENCES</a>
+      <a href="#place" data-nav="place">PLACE</a>
+      <a href="#sources" data-nav="sources">SOURCES</a>
+    </div>
+  </nav>
+
+  <main id="edition" class="edition" aria-live="polite">
+    <section class="loading-state" id="loadingState">
+      <p>Loading AOC-001…</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Atlas of Consequences</p>
+    <p>AOC-001</p>
+  </footer>
+
+  <noscript>
+    <p class="noscript">JavaScript is required to load the locked AOC-001 edition from its source files.</p>
+  </noscript>
+
+  <script src="./opening.js" defer></script>
+  <script src="./app.js" defer></script>
+</body>
+</html>
