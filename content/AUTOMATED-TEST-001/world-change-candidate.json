@@ -1,0 +1,32 @@
+{
+  "schema_version":"1.0",
+  "candidate_id":"AET1-WC-001",
+  "statement":"Persistent disruption around the Strait of Hormuz has reconfigured global fertilizer supply chains: Gulf-origin flows and fertilizer inputs were disrupted, prices surged, import-dependent food systems responded through alternative sourcing, financing, stockpiling and allocation, and by September nitrogen markets had partly adapted while phosphate/sulfur constraints and shipping risk remained.",
+  "observed_change":[
+    "FAO reported on 24 September 2026 that Gulf states supply 30-35% of global urea, about 50% of sulfur exports and 20-30% of ammonia; 1.5-3 million tonnes of monthly fertilizer trade had been delayed and tanker movements through Hormuz had fallen by more than 90%.",
+    "World Bank April 2026 commodity analysis recorded the fertilizer price shock, especially urea, and projected elevated 2026 fertilizer prices while noting recovery/adaptation scenarios.",
+    "By 21 September, IFPRI/Food Security Portal reported nitrogen markets returning toward pre-war levels while phosphate remained tight and sulfur had emerged as a bottleneck.",
+    "Bangladesh received World Bank emergency support for fertilizer imports and continued large procurement/stock allocation; official Bangladesh reporting in August-September stated national stocks were adequate/surplus, preventing an unsupported national-shortage claim.",
+    "Australia similarly documented import exposure and intervention, then reported urea arrivals above estimated seasonal demand by August."
+  ],
+  "evidence_refs":[
+    "FAO-2026-09-24-ROME-COALITION",
+    "WB-2026-04-COMMODITY-MARKETS-OUTLOOK",
+    "IFPRI-2026-09-21-FERTILIZER-MARKETS",
+    "WB-2026-06-26-BANGLADESH-FOOD-SECURITY",
+    "BD-MOA-2026-08-16-ADEQUATE-STOCK",
+    "BSS-2026-09-15-FERTILIZER-SURPLUS",
+    "AU-DAFF-2026-08-19-FERTILISER-WORKING-GROUP"
+  ],
+  "selection_state":"CANDIDATE",
+  "why_materially_different_from_benchmark":"This is a food-input and trade-resilience shock centered on maritime chokepoints, fertilizer chemistry, import procurement, public finance, crop timing and distribution. It does not depend on AI infrastructure, electricity demand, copper, mining, Chile, or AOC-001's six-Perspective structure.",
+  "known_limits":[
+    "Do not claim a current nationwide fertilizer shortage in Bangladesh or Australia; both documented adequate/surplus supply after intervention.",
+    "Do not convert fertilizer price/supply risk directly into observed crop failure or household hunger without location- and period-specific evidence.",
+    "Do not treat FAO/World Bank forecasts as observed outcomes.",
+    "Do not attribute all fertilizer-market movement to Hormuz; energy costs, export restrictions, production capacity, seasonal demand and other trade disruptions also matter.",
+    "Bangladesh is a strong candidate geography, not a preselected story location; geographic resolution must remain evidence-led.",
+    "Local farm-level access can diverge from national stock totals and requires separate evidence before asserting local shortage or price effects.",
+    "The shock is dynamic: nitrogen adaptation and persistent phosphate/sulfur constraints must be represented rather than frozen at the crisis peak."
+  ]
+}

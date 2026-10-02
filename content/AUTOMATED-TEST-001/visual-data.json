@@ -1,0 +1,26 @@
+{
+  "H1-S2": {
+    "value": "Heat index",
+    "caption": "Humidity changes the burden people feel beyond air temperature alone.",
+    "scope": "Dhaka city scale, not block level",
+    "source_id": "WB-HEAT-2025"
+  },
+  "H3-S2": {
+    "value": "250 million",
+    "caption": "Estimated workdays lost to heat in Bangladesh in 2024.",
+    "scope": "national model estimate, 2024",
+    "source_id": "WB-HEAT-2025"
+  },
+  "H6-S2": {
+    "value": "1–4 years",
+    "caption": "Estimated payback for studied factory cooling interventions.",
+    "scope": "sampled Dhaka-region apparel factories",
+    "source_id": "CORNELL-HEAT-2026"
+  },
+  "MF1-S2": {
+    "value": "1–4 years",
+    "caption": "Estimated payback for studied factory cooling interventions.",
+    "scope": "sampled Dhaka-region apparel factories",
+    "source_id": "CORNELL-HEAT-2026"
+  }
+}

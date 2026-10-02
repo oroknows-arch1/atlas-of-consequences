@@ -1,0 +1,744 @@
+{
+  "edition_id": "AET1-WC-002",
+  "input_sha256": "940f86c72ebe1724ee8e8ccf40050c3426dbad5ac2760b9748bbaf7727eb1e35",
+  "reader_hashes": {
+    "public/review/aet1-wc-002/index.html": "d65aade6ccd019f15e07f804780ed4c3319d6f68ff3729a4967e274d70b0eace",
+    "public/review/aet1-wc-002/reader.css": "cb1e33ae0dab63e6ccbc098c1d95536ca5c877310b9c24cb45437615eda65856",
+    "public/review/aet1-wc-002/reader.js": "8a58059ddc70322a9e4d1a9be004420fd8564b5a5d3fbb3beacbd82ff3630df4"
+  },
+  "deploy_id": "dep-dato24u0tbcc73ekt7cg",
+  "screenshots": [
+    {
+      "path": "screenshots/phone-edition.png",
+      "sha256": "ee18b6354d1d1a67ee1888a6a58458d4d456c4dde6ebe9d6d32e9fdb7ca4ded6"
+    },
+    {
+      "path": "screenshots/phone-perspectives.png",
+      "sha256": "0ad681a78f72ff721e51147a96388f9bb928a0d7f099697b77edf6e9d81167c9"
+    },
+    {
+      "path": "screenshots/phone-route-H1.png",
+      "sha256": "44d7df8a5c46411b8c54e0b2bb69596d25bd72c945a87bd086d6e843834a90e2"
+    },
+    {
+      "path": "screenshots/phone-route-H2.png",
+      "sha256": "547ed04b47dd6bfdc3c0619da03e0c1dfec298522e2de15df896ad41afe91e2b"
+    },
+    {
+      "path": "screenshots/phone-route-H3.png",
+      "sha256": "cffc725f5867cfdf03d90144203d7c9fcf111bef6af13a5c6eb9166a97c0c0a1"
+    },
+    {
+      "path": "screenshots/phone-route-H4.png",
+      "sha256": "5ff8671f9c95f32d66242399debce029aed9ffdc1d4e26bf7cfa713e83a51afd"
+    },
+    {
+      "path": "screenshots/phone-route-H5.png",
+      "sha256": "3b2ae1bfa0b180ae3b9dceff535a3b7149c50aea40e9ac93e5b653f12dcb3c60"
+    },
+    {
+      "path": "screenshots/phone-route-H6.png",
+      "sha256": "3e3790438fcb435b49b2179990ec98baeb6fb00973d6d1d346862164017172d8"
+    },
+    {
+      "path": "screenshots/phone-route-MF1.png",
+      "sha256": "8b70afd8cd32a10efa0ca670d246f3352d59686fbfe58cd16a9b4afb7bc3686b"
+    },
+    {
+      "path": "screenshots/phone-reality.png",
+      "sha256": "4e7a0ad74c6bba2142f6b1dbea63110d9f149ec70d65a0558306fd2de443ded9"
+    },
+    {
+      "path": "screenshots/phone-place.png",
+      "sha256": "aceac30ba14fd42325d1acea9ed79a7b6096428aea177e9180be129b2657f399"
+    },
+    {
+      "path": "screenshots/phone-consequences.png",
+      "sha256": "a9be4383730ad3474e9c7d5eb2b0edb3091f56fdff9c8bd984aa6ad47aa8c6a1"
+    },
+    {
+      "path": "screenshots/phone-story.png",
+      "sha256": "247b2bc9b2559bd3c45c794d27b13cf86d097a44556fa8ea3a9812f30bc2a141"
+    },
+    {
+      "path": "screenshots/phone-sources.png",
+      "sha256": "b05bd7806092a9c79af8c876669593a9968c31090ea3da6fcc41fdd511db0edf"
+    },
+    {
+      "path": "screenshots/desktop-edition.png",
+      "sha256": "6c93fcfe1b368b6004407bcefe24cde5efb3e06b13fc032122c53f110378abc4"
+    },
+    {
+      "path": "screenshots/desktop-perspectives.png",
+      "sha256": "657498e7737b4acf6f35cb192e77d65a8a00a6da1dc3ab5060e565664b4e9f8f"
+    },
+    {
+      "path": "screenshots/desktop-route-H1.png",
+      "sha256": "54a193b6e01544d7b96792f9a1f6dfb26d5c7c55ff31f39da66acd523b8d5f51"
+    },
+    {
+      "path": "screenshots/desktop-route-H2.png",
+      "sha256": "ceb4aeb7d2b751628d5aed45bf4de8f1eb61648219ad1534e669c5b89292f86a"
+    },
+    {
+      "path": "screenshots/desktop-route-H3.png",
+      "sha256": "9aa46fd5071b15c37cd3e2fc31a4345adab3fb2dfc34c563318dfb84761a55d7"
+    },
+    {
+      "path": "screenshots/desktop-route-H4.png",
+      "sha256": "b491941285a0175f5896504f24a7fd283aa07c39488e1ba23c122fc07654bf32"
+    },
+    {
+      "path": "screenshots/desktop-route-H5.png",
+      "sha256": "434f95fd143ee11f8d84d257e3a4886560fdc11b9f112fe7a63a0b6258f460e1"
+    },
+    {
+      "path": "screenshots/desktop-route-H6.png",
+      "sha256": "aa6c061231f83011e55e27d22fe7fdcc3f5e3ae4e7e75d0517e2be7b6c62d304"
+    },
+    {
+      "path": "screenshots/desktop-route-MF1.png",
+      "sha256": "d114437673fc737d7913cea26d99dfab8c0a99d5338e46f01ff0d8852992e6b2"
+    },
+    {
+      "path": "screenshots/desktop-reality.png",
+      "sha256": "8b6c0a674c6975faecda7e7b80bc137393041d328417367c0cbc8fc39ea028c6"
+    },
+    {
+      "path": "screenshots/desktop-place.png",
+      "sha256": "ccec11368acc307337df95b72e801e0a31359743bb2481306649149f1355177b"
+    },
+    {
+      "path": "screenshots/desktop-consequences.png",
+      "sha256": "90983a25dc7db4ef0c7716c669f8e097dd0ddaa1635add9c0a05336836f38521"
+    },
+    {
+      "path": "screenshots/desktop-story.png",
+      "sha256": "c9b1c757a7ca231bdfd9442dfcbb4e7510edbbd6c37736752ae96442f285ecf2"
+    },
+    {
+      "path": "screenshots/desktop-sources.png",
+      "sha256": "c3673dbe4905b0c4b06b865d86f28a327f65deb985dbd7fcfa67e3e8e05220ab"
+    },
+    {
+      "path": "screenshots/phone-opening.png",
+      "sha256": "aa7ca51f3bfc121390d2851085718abff765b279fee41b3c1e811015a2759c04"
+    },
+    {
+      "path": "screenshots/phone-opening-middle.png",
+      "sha256": "0c95338af59ecdeef4f8428501417076d7f8c175e521089034931e7ceb153409"
+    },
+    {
+      "path": "screenshots/phone-opening-final.png",
+      "sha256": "4c0e0d8aa1e0409164ead6b684a8c13ebbc2ca2c2c9ffd8ad77ca4a24497a275"
+    },
+    {
+      "path": "screenshots/phone-identity.png",
+      "sha256": "b6b7793083783519d8c85ed64761aa09e6faf7e0d975e1dca0610b8f36e7f517"
+    },
+    {
+      "path": "screenshots/phone-perspective-menu.png",
+      "sha256": "bd2706fb71f2f1cad500c0204057028ca6c76ea3006e7c6e1321e29c4b785644"
+    },
+    {
+      "path": "screenshots/phone-route-H1-scene-0.png",
+      "sha256": "336f9dc46915b65a4d05720489c26cda8b4e8254e48b56cdea949da28ebe3489"
+    },
+    {
+      "path": "screenshots/phone-route-H1-scene-1.png",
+      "sha256": "75eac40f64636ada7f97c585e75dde252191c077f68a39700cbb31fddd3b0b5d"
+    },
+    {
+      "path": "screenshots/phone-route-H1-scene-2.png",
+      "sha256": "4ea6c2acba9ef651bb8b4fd6b9064c551425d3046ec33285ea2cb60f7d8753a2"
+    },
+    {
+      "path": "screenshots/phone-route-H1-scene-3.png",
+      "sha256": "9490e822b602e09046ac28fbe5cc4556e3f1c5ecc2daf2f0e7b7c9d64b679d18"
+    },
+    {
+      "path": "screenshots/phone-route-H1-scene-4.png",
+      "sha256": "69b37893e5e244e5a7780df7d97f2f4382692c926eee98f40ed9a3f5331036dc"
+    },
+    {
+      "path": "screenshots/phone-route-H1-scene-5.png",
+      "sha256": "191fa9bc0cef7ad1b658aaba6fca4faad83e70d7a725bae0c833b8514f1a44f6"
+    },
+    {
+      "path": "screenshots/phone-route-H2-scene-0.png",
+      "sha256": "c6202593892b02b68d233b506a7b496a4e3103a8213e680dd8ff3ff8c75eaeb1"
+    },
+    {
+      "path": "screenshots/phone-route-H2-scene-1.png",
+      "sha256": "c1af8748edffdc2d2af4d3cd71b3897118aca91021d415fced8e382ebe7113e7"
+    },
+    {
+      "path": "screenshots/phone-route-H2-scene-2.png",
+      "sha256": "2866e29e663ffe99ef96e2020e23d6f87db0898912b4a8bb15590ee0725646c5"
+    },
+    {
+      "path": "screenshots/phone-route-H2-scene-3.png",
+      "sha256": "0f42c86b498e7020cb8087f4e869d7c0caecb28be2c63dfb229514ea4b11a4e4"
+    },
+    {
+      "path": "screenshots/phone-route-H2-scene-4.png",
+      "sha256": "2ba49f7cee44c31084c994c31e1513c98daa59f5bcb913802e2f4c936c01db0d"
+    },
+    {
+      "path": "screenshots/phone-route-H2-scene-5.png",
+      "sha256": "cf06e24e043da14f3dbdb0470080bec5ad6ca3688d0a6076a39d626250f1161e"
+    },
+    {
+      "path": "screenshots/phone-route-H2-scene-6.png",
+      "sha256": "6110c179a8cd5901687270cfa3c3217a3121030876065184e827ee4065b78b23"
+    },
+    {
+      "path": "screenshots/phone-route-H2-scene-7.png",
+      "sha256": "06cb7c62c329501b7b7b01082a197365e10184ed6b4423ae80c65129c9c40a2a"
+    },
+    {
+      "path": "screenshots/phone-route-H2-scene-8.png",
+      "sha256": "69fb0112e09cb9d013d0bb0152b415399f27514578d5a5b8922468db58942935"
+    },
+    {
+      "path": "screenshots/phone-route-H3-scene-0.png",
+      "sha256": "cbc147f85c0f05bdee026665b7f2201ecfc0cfc0f6403da72cf8a2a2ec84ed76"
+    },
+    {
+      "path": "screenshots/phone-route-H3-scene-1.png",
+      "sha256": "dce20c989846ae7b7574ba169b690134a5f24c1551d35fd9d0e42d238f5f8d5c"
+    },
+    {
+      "path": "screenshots/phone-route-H3-scene-2.png",
+      "sha256": "96fead644d22c8ae96fc1a84e627752f566a3274b3102066bb185dc95100b62f"
+    },
+    {
+      "path": "screenshots/phone-route-H3-scene-3.png",
+      "sha256": "4584ae236959471b853fcc5410dbfb8c1f9de89ac33bb98341045f758a83d4b6"
+    },
+    {
+      "path": "screenshots/phone-route-H3-scene-4.png",
+      "sha256": "294579256824528842d6f4c75213cca00a59930345f61a5dc2c74a46f66d559e"
+    },
+    {
+      "path": "screenshots/phone-route-H4-scene-0.png",
+      "sha256": "2fd0d5684f43f4b4a0b9a05378a9d250839b514dc1d24d04e1a537a00c1e8db0"
+    },
+    {
+      "path": "screenshots/phone-route-H4-scene-1.png",
+      "sha256": "b7ea485c17407d276ec89fb1e689f62984e3f25458be8956b6157db2087ea6be"
+    },
+    {
+      "path": "screenshots/phone-route-H4-scene-2.png",
+      "sha256": "63f7546eb382cb39de4fa8f42eaa9e7e4435d32733f711dcdcad75aa917737a7"
+    },
+    {
+      "path": "screenshots/phone-route-H4-scene-3.png",
+      "sha256": "a9674d04ab616d3c547170e21214f18335fcb49de7f03582fbea37e30f8c6f1c"
+    },
+    {
+      "path": "screenshots/phone-route-H4-scene-4.png",
+      "sha256": "7e290f5bb53908a49ecadce3c9f13875e6b5ce16b0c5ec08af7c2a11c51f8782"
+    },
+    {
+      "path": "screenshots/phone-route-H5-scene-0.png",
+      "sha256": "f2a8f571d614b31095bec39b51b4e80cec7ebd27d3a355e18ca9ffb66e384773"
+    },
+    {
+      "path": "screenshots/phone-route-H5-scene-1.png",
+      "sha256": "78c3397d96567f9f8ce87f3b2028d4d238e960e9f9cc7dd052716d6a76ec1f34"
+    },
+    {
+      "path": "screenshots/phone-route-H5-scene-2.png",
+      "sha256": "e673e1ecf9414e0f489378bc7ef7edce65eddfd882f57ff09ef5f69e08c039e3"
+    },
+    {
+      "path": "screenshots/phone-route-H5-scene-3.png",
+      "sha256": "d87feeadfa4c5a5990f7cb1c0ba29d5771b1550e5d62dfc0463f246336a3df7a"
+    },
+    {
+      "path": "screenshots/phone-route-H5-scene-4.png",
+      "sha256": "ad752676e3d484c94405a7e36ab1aab81f3b7445c8d0e5387693369aab720bec"
+    },
+    {
+      "path": "screenshots/phone-route-H6-scene-0.png",
+      "sha256": "abfac4a36409125095918cf3bc12fb19bf9625989c3cb71dea131b97a5c43adb"
+    },
+    {
+      "path": "screenshots/phone-route-H6-scene-1.png",
+      "sha256": "c6c122aed545b6e558b1592638e06e27c589af8b73befd298d9b11cf4a6e653d"
+    },
+    {
+      "path": "screenshots/phone-route-H6-scene-2.png",
+      "sha256": "83ba0500c889f1122494a196d28a61a3e283c0e1f2cdd2bec7247cc39ba13ce8"
+    },
+    {
+      "path": "screenshots/phone-route-H6-scene-3.png",
+      "sha256": "5cabe562104db95d04d48e4529c5ce4c8d44ee25bd52a3d83a8cd5dbcc8c26a5"
+    },
+    {
+      "path": "screenshots/phone-route-H6-scene-4.png",
+      "sha256": "349f9e63a893bf69797e1cf8cadf83b23c11ae6afcdec7458159e1ff89c412ed"
+    },
+    {
+      "path": "screenshots/phone-route-H6-scene-5.png",
+      "sha256": "81b4843186e055b4d97079b1406783be47ad9ef5eb0d3a43261af9d5554a5f98"
+    },
+    {
+      "path": "screenshots/phone-route-MF1-scene-0.png",
+      "sha256": "7700b731642affe11cec02aa6b827aa2b780ba3ef424d4ebeac23080956347f5"
+    },
+    {
+      "path": "screenshots/phone-route-MF1-scene-1.png",
+      "sha256": "6ce93c8e44672581ca41c9374c6281eda73270091dc4509c97de21a970345e67"
+    },
+    {
+      "path": "screenshots/phone-route-MF1-scene-2.png",
+      "sha256": "18a4ebc0bfa67a5d1e486754f13ddb6e239ab69fe30b860d888368ddadbd94b5"
+    },
+    {
+      "path": "screenshots/phone-route-MF1-scene-3.png",
+      "sha256": "33e0cc3892d11016f0bcb428d84f57ccf39512dfe32b44944261596ed244d2ec"
+    },
+    {
+      "path": "screenshots/phone-route-MF1-scene-4.png",
+      "sha256": "6102302241c8c013c5a1cb4b333f0c2dc6715076da9fc7129e4a040724fc356a"
+    },
+    {
+      "path": "screenshots/phone-route-MF1-scene-5.png",
+      "sha256": "54ae2f9d0d74042f5745f42fad10041b231b8006bcfca0667ae2bd77632d9d9a"
+    },
+    {
+      "path": "screenshots/phone-route-MF1-scene-6.png",
+      "sha256": "d5993dd4fbdc3a16224df32e5ecbdb025c53b5b7db8ef29f699765d71c0e3a86"
+    },
+    {
+      "path": "screenshots/phone-reality-scene-0.png",
+      "sha256": "5c8cff6fcdf9d96c22e4d47f0d47bcd1ec45a3d4d4bace907a5e18d9df7b3b55"
+    },
+    {
+      "path": "screenshots/phone-reality-scene-1.png",
+      "sha256": "efbc44b81967dcbca00e6210de589cda12ba1504b113036b01050e2129aaf137"
+    },
+    {
+      "path": "screenshots/phone-reality-scene-2.png",
+      "sha256": "e19005ca73a632778aa5ec404c1392243c23af9b9138fcbba69c7c12ca2a6b69"
+    },
+    {
+      "path": "screenshots/phone-reality-scene-3.png",
+      "sha256": "c550c6e94e5c5e2b5fad313440c3c9b9cf01858cf60102a2c1369368aa711bfd"
+    },
+    {
+      "path": "screenshots/phone-reality-scene-4.png",
+      "sha256": "babe0618cdcfd5f0943c8a73a78e7fd433b0dd68fc938ea06b7394584205a776"
+    },
+    {
+      "path": "screenshots/phone-reality-scene-5.png",
+      "sha256": "b79e547f3e8ee6e4f909c210b6e5d47a69969319c03390eb5e622b991f88db5e"
+    },
+    {
+      "path": "screenshots/phone-reality-scene-6.png",
+      "sha256": "817913362d3ee8899164cc5dd82538b2de9420ffe433a8890b6cc4353201cbd2"
+    },
+    {
+      "path": "screenshots/phone-place-scene-0.png",
+      "sha256": "a0001efdc2e2913ef1e2a5dfceae971585230dbe8625f58256ea739484b044e1"
+    },
+    {
+      "path": "screenshots/phone-place-scene-1.png",
+      "sha256": "cc1060203a134d809ff4346ae0d03d19c22cdafc7db6ed577d681c3cf3cc7978"
+    },
+    {
+      "path": "screenshots/phone-place-scene-2.png",
+      "sha256": "f41eac763b55ce727de52fd0bdf651fc5dab1e2af0a19da5a54298ff8aa4fb6b"
+    },
+    {
+      "path": "screenshots/phone-consequences-scene-0.png",
+      "sha256": "8d033922ea52b9ec014b098d825cfcc46d73782e085e4721d19aa586eba5aaa5"
+    },
+    {
+      "path": "screenshots/phone-consequences-scene-1.png",
+      "sha256": "3a7705c4beb3d7830d7c2dd9790e665607881308355ca43d3590c241943bdb7b"
+    },
+    {
+      "path": "screenshots/phone-consequences-scene-2.png",
+      "sha256": "ef50c6a0b9617dbebbf66471a722f8c02fe6cdc3833293c6ab09c760a161b154"
+    },
+    {
+      "path": "screenshots/phone-consequences-scene-3.png",
+      "sha256": "00c1395e3619f250fa0b3eff479df8b30624ed3c8b506b4b8bf5411b3bd3ffab"
+    },
+    {
+      "path": "screenshots/phone-consequences-scene-4.png",
+      "sha256": "f3303709cfefeec32da5e89232f5f52db2b3c4ae810b0414a56601fb8d607cd4"
+    },
+    {
+      "path": "screenshots/phone-consequences-scene-5.png",
+      "sha256": "2470c7fd30b0018c88c229d282ade7b43e44759f2d7dd6f6c95ac75323c295f3"
+    },
+    {
+      "path": "screenshots/benchmark-phone-opening.png",
+      "sha256": "51c9d308f8eebaf3c94511fc19500d5f9f51d9d078c12f2ee7b7f7d4186ec3db"
+    },
+    {
+      "path": "screenshots/benchmark-phone-identity.png",
+      "sha256": "c2e77553149c482d7e4e73e3d327b9683cab67a01938542ec412db8856aeca65"
+    },
+    {
+      "path": "screenshots/benchmark-phone-menu.png",
+      "sha256": "4910e17604dd49ea3b4721b8821196930b03ea61f1cb52055ca4cbea9e060f0e"
+    },
+    {
+      "path": "screenshots/benchmark-phone-route-0.png",
+      "sha256": "6e435887e621aacf22e7d28dd23ea35c066d452abbc0b1485b25c28e9552bc30"
+    },
+    {
+      "path": "screenshots/benchmark-phone-route-1.png",
+      "sha256": "612aed4d73ae289af4bce6c1a34a5b65452a77155bde111dc0567ae3c3d0ca91"
+    },
+    {
+      "path": "screenshots/benchmark-phone-route-2.png",
+      "sha256": "b8c3e11d1710fa2bce434ce81e391ab4bc2daff8c5e74e56f8561182b0d2d802"
+    },
+    {
+      "path": "screenshots/benchmark-phone-route-3.png",
+      "sha256": "0905fbfb7fa2d786020c36f86d8733a86b9d3b37b2e5d438396ce2a286cf4bf3"
+    },
+    {
+      "path": "screenshots/benchmark-phone-route-4.png",
+      "sha256": "1e99abc0671044b8f58e02af994b811ea3066124b7b91ce2febe4edfade9c16b"
+    },
+    {
+      "path": "screenshots/benchmark-phone-route-5.png",
+      "sha256": "a91a06eb344abceffa957964dd066830d5d008ce466f9827b52ce6d0ac42bbf5"
+    },
+    {
+      "path": "screenshots/small-phone-opening.png",
+      "sha256": "e89e2b1371d58751cf5487ff914d46786ddee28e7b3abc2d8b0ddc27fd0b882e"
+    },
+    {
+      "path": "screenshots/small-phone-opening-middle.png",
+      "sha256": "4118c07f99258f737984215d84c1d641a0b6b685cf11e5b3ea7f42684838a342"
+    },
+    {
+      "path": "screenshots/small-phone-opening-final.png",
+      "sha256": "1558a21ffc9feadda59692c39e6a7d8169469a021817e8f4de1df9310f8ae5e2"
+    },
+    {
+      "path": "screenshots/small-phone-identity.png",
+      "sha256": "4781c794769062ee19741b019145d6618ce03cf816ad7766754bf9f228bd6394"
+    },
+    {
+      "path": "screenshots/small-phone-perspective-menu.png",
+      "sha256": "ad87c1be94d69d417e01c46904bf7e17e3d8ac6ff661e9c2eec49fb483416344"
+    },
+    {
+      "path": "screenshots/benchmark-small-phone-opening.png",
+      "sha256": "c747cb97f4841a59a20d0d69d88e8cdafc440391f42e673ec3367af2687c909e"
+    },
+    {
+      "path": "screenshots/benchmark-small-phone-identity.png",
+      "sha256": "673ede5b75fec5f2882bfaa435e9fc20a2a4c75a1ce77252cc0a5f370b1c50ea"
+    },
+    {
+      "path": "screenshots/benchmark-small-phone-menu.png",
+      "sha256": "dd647fceb680abafb6121bb94c93884a0101223268e4bf660392d4debc73c30f"
+    },
+    {
+      "path": "screenshots/desktop-opening.png",
+      "sha256": "f5d36343398d34a43340a6c5e410c83cf71b4404209efa737155adfa61aafd8f"
+    },
+    {
+      "path": "screenshots/desktop-opening-middle.png",
+      "sha256": "004e92d9eac512703e471da39e868388e72dd3c48803a6c294512bd7caa0b7eb"
+    },
+    {
+      "path": "screenshots/desktop-opening-final.png",
+      "sha256": "d7979a342ea6aa2b7d26e2cce07cf5cfa1ae52467467956db3ab1b107adea7b4"
+    },
+    {
+      "path": "screenshots/desktop-identity.png",
+      "sha256": "d0bab204c93b749136a9b0ac2aae15018a9c84173d8b427f3b99266f889faf94"
+    },
+    {
+      "path": "screenshots/desktop-perspective-menu.png",
+      "sha256": "bbb9b9721029e5245673a56e454606a9021ab960d27a2b64beea628ef9b4bde8"
+    },
+    {
+      "path": "screenshots/desktop-route-H1-scene-0.png",
+      "sha256": "9ed08b220329f66d219a5f8025f3877ee82b9ece68947870824e4b5efbe56d15"
+    },
+    {
+      "path": "screenshots/desktop-route-H1-scene-1.png",
+      "sha256": "9ea3c548104c2596a06dbb6151ce55fb3e5bc1e5a805134e455bc6d22cdd7b2c"
+    },
+    {
+      "path": "screenshots/desktop-route-H1-scene-2.png",
+      "sha256": "690deda3d5c10dd031f032b62ce8b181155c197819881c2e647b00e2743a5ff6"
+    },
+    {
+      "path": "screenshots/desktop-route-H1-scene-3.png",
+      "sha256": "8bba24d7a2d1c227ef53b1e00e740772f2b3e785225d78aa7c178689afc87095"
+    },
+    {
+      "path": "screenshots/desktop-route-H1-scene-4.png",
+      "sha256": "3d65b41a86f79e7ba61e0398986caf0f3b80c69b0e0b1e03b79450637e68c374"
+    },
+    {
+      "path": "screenshots/desktop-route-H1-scene-5.png",
+      "sha256": "af959da4b106739ee65e4e1d8d036c53ff60842aa8361ba986b047af16f48034"
+    },
+    {
+      "path": "screenshots/desktop-route-H2-scene-0.png",
+      "sha256": "293be17bd596ae7a91cdefb26c3139d63165421cdd316db32638bd63cf46e8a9"
+    },
+    {
+      "path": "screenshots/desktop-route-H2-scene-1.png",
+      "sha256": "226bd439a827b1adc6431127ec4ec3b2477d5a344d4e18986346918501488cff"
+    },
+    {
+      "path": "screenshots/desktop-route-H2-scene-2.png",
+      "sha256": "53e1208dc5ff0ef5bd8af51717c47aafa4f62a4503527362220afa54ca9e29a7"
+    },
+    {
+      "path": "screenshots/desktop-route-H2-scene-3.png",
+      "sha256": "d48da6d97ae54a12b3eb45b5b03689affde8283bbeb363dc466b50fd50d1c6ef"
+    },
+    {
+      "path": "screenshots/desktop-route-H2-scene-4.png",
+      "sha256": "676290ff2597e05287e2a2d74605ceed5d8d18c250f162dc243e95db446de13b"
+    },
+    {
+      "path": "screenshots/desktop-route-H2-scene-5.png",
+      "sha256": "cf47d6df3edc83617e248458f746655f30e03d05cc21d5dbecf7cfca3a8f774a"
+    },
+    {
+      "path": "screenshots/desktop-route-H2-scene-6.png",
+      "sha256": "d11246b7e2101ff012c0b5e6103603aa94f94df85f04ad66048034dbf31a52ef"
+    },
+    {
+      "path": "screenshots/desktop-route-H2-scene-7.png",
+      "sha256": "7b467cd894f32f303637d2ca56e82d3228dcd11752c79a600275bf84a714055a"
+    },
+    {
+      "path": "screenshots/desktop-route-H2-scene-8.png",
+      "sha256": "539b5d280c65e2440207e87b4deb34d711c671edba343f5c78c5ac7b852195ce"
+    },
+    {
+      "path": "screenshots/desktop-route-H3-scene-0.png",
+      "sha256": "b8dc92ae06c6ae66012bd59333a89f51f18a8b45e68db54ca2455c8a2b3a7654"
+    },
+    {
+      "path": "screenshots/desktop-route-H3-scene-1.png",
+      "sha256": "6c832d1e25f00816ee6d1f459a54f2c52e03c302c1fdd684b25c0aa6755a9757"
+    },
+    {
+      "path": "screenshots/desktop-route-H3-scene-2.png",
+      "sha256": "95b6c3c55929318d4cae3785843539aa6e0627216cd52c982ba63776785de4d8"
+    },
+    {
+      "path": "screenshots/desktop-route-H3-scene-3.png",
+      "sha256": "1edcb9d09b363b336836061336a1d9893f390f3ebf253a02f9ea14285753f8e1"
+    },
+    {
+      "path": "screenshots/desktop-route-H3-scene-4.png",
+      "sha256": "164fa8b74e921062296006f26babfbd7fd35ca7a40b6c11eedddf5cc62343e4e"
+    },
+    {
+      "path": "screenshots/desktop-route-H4-scene-0.png",
+      "sha256": "a58273dd7b3ee05d0a5c08b0bfde0eaff491acb93fdd1db1e90971f9c6b331b3"
+    },
+    {
+      "path": "screenshots/desktop-route-H4-scene-1.png",
+      "sha256": "270557116a95c12dd6144fc3e2394be3381a99ca9a3439114eeb496748c00008"
+    },
+    {
+      "path": "screenshots/desktop-route-H4-scene-2.png",
+      "sha256": "8ab7b25b231e37e1e043a2a3b8af4e1e7a0e4855420d1c4b9d1782441f755482"
+    },
+    {
+      "path": "screenshots/desktop-route-H4-scene-3.png",
+      "sha256": "52fd7bc3c6ae1584e510d7a49571596bd19612976012d1c359f210137ee3f68f"
+    },
+    {
+      "path": "screenshots/desktop-route-H4-scene-4.png",
+      "sha256": "85058b862b0719fa03ee33a7a0e34c78072cbffaa2e31ca7539786001ff0d165"
+    },
+    {
+      "path": "screenshots/desktop-route-H5-scene-0.png",
+      "sha256": "7ea62e130abd53e7e0528fbf13483d8baf76d10ac406e5623b15872397530d1a"
+    },
+    {
+      "path": "screenshots/desktop-route-H5-scene-1.png",
+      "sha256": "94885f2d075e1a59eef00c880e97c0dc327bb5691acb2ef3c75da8c266ca8787"
+    },
+    {
+      "path": "screenshots/desktop-route-H5-scene-2.png",
+      "sha256": "60e8f507a5227a07cf1230cdba35c415da588da59b397033f31c7c88999aac75"
+    },
+    {
+      "path": "screenshots/desktop-route-H5-scene-3.png",
+      "sha256": "73d42a31cf86518081b08b2bb10191b643c7adeb975967ee2ee1998a6276dedb"
+    },
+    {
+      "path": "screenshots/desktop-route-H5-scene-4.png",
+      "sha256": "a0c05db5780a9b806ea4ac9bd6399d0621121042546fddd9e6972b16225c9e58"
+    },
+    {
+      "path": "screenshots/desktop-route-H6-scene-0.png",
+      "sha256": "61d7feadca9d9c3476799d9304f9f87ed1fdd291826099ca1afc2618a27caa3c"
+    },
+    {
+      "path": "screenshots/desktop-route-H6-scene-1.png",
+      "sha256": "c3b690b4c6bee4925f85550871930441dd380df0a13b76e85d927ea6d0f33d22"
+    },
+    {
+      "path": "screenshots/desktop-route-H6-scene-2.png",
+      "sha256": "b207346a592d55a6471d2a0281ffb92b76c21eac20442965a7fb49191d71d709"
+    },
+    {
+      "path": "screenshots/desktop-route-H6-scene-3.png",
+      "sha256": "753b69b617e7635c9a9c7c08125ca4c6315781c030476d45832f5c9ca27f0f29"
+    },
+    {
+      "path": "screenshots/desktop-route-H6-scene-4.png",
+      "sha256": "52cfa49363c630c2343cfb7b85b252084f6bef34419c2e5e0ee404a1a971c1d7"
+    },
+    {
+      "path": "screenshots/desktop-route-H6-scene-5.png",
+      "sha256": "979652a62ace683a032b607d068775f5a8209a12b38f5537a21a8fc271a3d799"
+    },
+    {
+      "path": "screenshots/desktop-route-MF1-scene-0.png",
+      "sha256": "daf6163fadda329005241fdcc533f69ae01f5096bcb3771c177faad6bbdc37a5"
+    },
+    {
+      "path": "screenshots/desktop-route-MF1-scene-1.png",
+      "sha256": "b17ddadb591919a11666cae4aa018a1b8c1991f26dc6efe6af32d551df74b0a9"
+    },
+    {
+      "path": "screenshots/desktop-route-MF1-scene-2.png",
+      "sha256": "9bb35e3ff15baabdf955b109f4845f60b55f1c557fa8442b0973c6c36f1b131e"
+    },
+    {
+      "path": "screenshots/desktop-route-MF1-scene-3.png",
+      "sha256": "ed8ae92278edd0a09d4b3434645f8a94aef00d46097cde63c09d73dd20598e79"
+    },
+    {
+      "path": "screenshots/desktop-route-MF1-scene-4.png",
+      "sha256": "ad8781da409de89149020e44203b3802b5dc569bc6da05afaafd02bbbb80ef35"
+    },
+    {
+      "path": "screenshots/desktop-route-MF1-scene-5.png",
+      "sha256": "4b9a1b47505c402a7f05d9a234a96fe9cb2de86f050dbe6bdae53788e3b288cb"
+    },
+    {
+      "path": "screenshots/desktop-route-MF1-scene-6.png",
+      "sha256": "8843c1710d19ce19c66130bf709399a12ad48de4e3b8b64f8166dbdfa42a7e28"
+    },
+    {
+      "path": "screenshots/desktop-reality-scene-0.png",
+      "sha256": "46275d44a82c5d03d675916338f5c16936638d1a31fafeaf21ea40e4118aec77"
+    },
+    {
+      "path": "screenshots/desktop-reality-scene-1.png",
+      "sha256": "b68b63d1fbd7b03822e12ba89f3c5de9bc2ca31a239cfccff9edd398dac9a433"
+    },
+    {
+      "path": "screenshots/desktop-reality-scene-2.png",
+      "sha256": "67c0b8a00bf519eca8f42915c22021fa62802a8282f3ee91b66ce35deb7804aa"
+    },
+    {
+      "path": "screenshots/desktop-reality-scene-3.png",
+      "sha256": "0837c7161c2f0e53b023630149d0bfb94bb67939b0a4794951cca0a462867c94"
+    },
+    {
+      "path": "screenshots/desktop-reality-scene-4.png",
+      "sha256": "74a3220fbf21e529a5a8592d94ca8b7642956e409f857b47ea1580a1bd5ff0b7"
+    },
+    {
+      "path": "screenshots/desktop-reality-scene-5.png",
+      "sha256": "d67b8fa3ddffab3b07d742a60790f5a0b5f9a2d43b8707af492ec7862d27f926"
+    },
+    {
+      "path": "screenshots/desktop-reality-scene-6.png",
+      "sha256": "ace597e40fd405ddf3f56d1f46db5848ed44a134260d029c1aecb3d7a2a4bbea"
+    },
+    {
+      "path": "screenshots/desktop-place-scene-0.png",
+      "sha256": "ca704116665428e47d6f3814452dde7e400e77a532bba94f4311241105b53a78"
+    },
+    {
+      "path": "screenshots/desktop-place-scene-1.png",
+      "sha256": "51e44f3ce88f8464b42ecda581f9ebfddc45ec09c762aaf1ad38c4d4485a807d"
+    },
+    {
+      "path": "screenshots/desktop-place-scene-2.png",
+      "sha256": "7d2d58f5a5b10bd8028e6ff687f186864a02ba6d04ea03f4d6a4d2bd09d9434d"
+    },
+    {
+      "path": "screenshots/desktop-consequences-scene-0.png",
+      "sha256": "9eac55b04491e435e0fdf1473dce706fd5621764d444bf6a9ba8117d5bdec3ef"
+    },
+    {
+      "path": "screenshots/desktop-consequences-scene-1.png",
+      "sha256": "590bc4205f92f40379ab1953c924d2fb337344aedb00ef4aa8ae1aeb4b0fd3e2"
+    },
+    {
+      "path": "screenshots/desktop-consequences-scene-2.png",
+      "sha256": "21ca21d6f8477e6338b77fbbd2a4cd9c788083d35fab494ed617c7d4c98e6913"
+    },
+    {
+      "path": "screenshots/desktop-consequences-scene-3.png",
+      "sha256": "9a8ae454878ac35e73c87867b5edd082d98946b0dde9443ac7358d529ba94748"
+    },
+    {
+      "path": "screenshots/desktop-consequences-scene-4.png",
+      "sha256": "1af5a2d083cb0637f7b8647246c63d2a1e542fca0fd70a03582dee24b4d2aa4e"
+    },
+    {
+      "path": "screenshots/desktop-consequences-scene-5.png",
+      "sha256": "09bf7bc9d3acd49ae1795f7ebefbeb129183c58041efc6fd6e5d420c79b723b7"
+    },
+    {
+      "path": "screenshots/benchmark-desktop-opening.png",
+      "sha256": "c4fae02b20557860f7de7b0aaed089dff9009c3c678ed5107f4f65998c968415"
+    },
+    {
+      "path": "screenshots/benchmark-desktop-identity.png",
+      "sha256": "edb9d6e974c49ce7088e2119035f945724adef665e0af5b7fc1f8dd8473e17d0"
+    },
+    {
+      "path": "screenshots/benchmark-desktop-menu.png",
+      "sha256": "24514fcd90b5c06d11fe9b73cb1ea34a1d521b2c4090a8d9e90c1db9c372b54f"
+    },
+    {
+      "path": "screenshots/benchmark-desktop-route-0.png",
+      "sha256": "c0fc002b2011b6965ac79387112ba747268979d04ed6000d17e59b89b57172e3"
+    },
+    {
+      "path": "screenshots/benchmark-desktop-route-1.png",
+      "sha256": "0613159717084d0b6a1346e0e855a886b9a2cfb43e4e13542ffe87ec558de5b6"
+    },
+    {
+      "path": "screenshots/benchmark-desktop-route-2.png",
+      "sha256": "49c003fb561b7b4c2cfdc01829e089d28de4c071e82b8a661bafe982c852b84b"
+    },
+    {
+      "path": "screenshots/benchmark-desktop-route-3.png",
+      "sha256": "28985670f2c85e9f1b781ace677415ce30624838828546b02d8887598b8ff0c9"
+    },
+    {
+      "path": "screenshots/benchmark-desktop-route-4.png",
+      "sha256": "08cf9eac8a88460b9195a903dc7a6f373b99db383d8dac042a25bd15993e5846"
+    },
+    {
+      "path": "screenshots/benchmark-desktop-route-5.png",
+      "sha256": "3a9c8326ad3080db41541b53707c984824edaac04a0330bdbad5402f2d8bb591"
+    }
+  ],
+  "status": "BLOCKED",
+  "reason": "The candidate publication matches the required Atlas publication grammar and quality as demonstrated by the benchmark: immersive full-screen cover imagery with overlaid restrained serif titles, clear labeling of non-documentary/AI-generated images, cinematic vertical discovery of perspectives, low text density, visual continuity, safe and readable typography, and appropriate editorial context and sourcing. No article-like layouts, grid views, or broken continuity are present. All scenes remain readable, on-brand, and demonstrate required editorial and geographic specificity. | All candidate images follow the required Atlas publication grammar (full-screen imagery, overlaid serif titles, image-led vertical perspectives, cinematic entry, low text density). There is clear centering, strong visual continuity, safe areas, and no typographical or cropping errors. FACT/STORY distinctions and sources are visible as required. Geographic and editorial specificity is maintained. Explanatory and context images are clearly labeled when AI-generated and do not mislead. All scenes are readable and contextually relevant, with no missing assets or broken structure. Benchmark parity is fully achieved at the shown viewports. | All candidate images closely follow required publication grammar: full-screen contextual/illustrative or documentary images, restrained overlaid serif titles, cinematic entry and vertical Perspective discovery. Text density is low and all typography is clear, hierarchically correct, and safely positioned. No readability, crop, continuity, or asset issues are detected; editorial depth and locality are established for each, and AI-generated contextual illustration is unambiguously labelled. No defects or significant divergence from benchmark standards in darkness, layout, or image treatment at the same viewport. | The candidate does not match the cinematic, image-led grammar demonstrated in the benchmarks at similar viewports. It opens conventionally with text on black and lacks the required visual entry, restrained headline overlay, and vertical Perspective scroll, breaking the visual and structural grammar. | All candidate images follow the required Atlas publication grammar with full-screen, image-led vertical Perspectives, cinematic entry, restrained serif titles, and contextual/geo-specific illustration. Typography, midtone legibility, low text density, navigation/structure, and labeling all match quality benchmarks. No conventional article, link-card grid, or image-above-text stacking detected. | Compared with the benchmark set (images 5-8), the candidate images do achieve a cinematic and image-led approach with restrained titles, but fall short in multi-Perspective differentiation and editorial grammar—a visual and navigational progression that is more pronounced in benchmark AOC-001. The benchmark presentation transitions cleanly between global, regional, and subject-specific panels, with varying photographic/aesthetic treatments to reinforce each editorial 'route.' The candidate set, while visually strong and cinematic, is too uniform between major editorial segments: it lacks the requisite visual cues and editorial segmentation to guide the reader cinematically and contextually from one major Perspective to the next. | The candidate maintains all required Atlas publication grammar elements: cinematic full-screen cover imagery, restrained serif scene titles, clear image-led vertical Perspective discovery, and geographic specificity. Text density remains low, and scene transitions are visually uniform and continuous with appropriate safe areas and no overflows. Sources are clearly labeled and correctly scoped, with AI-generated illustrations properly declared. All candidate screens follow distinct, image-led, cinematic entry and vertical navigation, consistent with the AOC-001 benchmark; no conventional article/text-image stack or grid is present. There are no defects in crop, typography, darkness/readability, or missing assets. | All candidate scenes maintain the signature Atlas publication grammar: immersive full-screen cover and scene imagery, readable restrained serif overlays, vertical Perspective-led navigation, low text densities, and cinematic structure. No structural, visual, editorial, or continuity defects are present. Typography is clear, crops are consistent and centered, and all critical information is visible at benchmark-equivalent viewports. Geographic and editorial context meets or exceeds parity. No conventional article, stack, or grid patterns are observed. | All candidate screenshots demonstrate fullscreen cover imagery, overlaid restrained serif scene titles, image-led vertical Perspective discovery, low text density, and cinematic entry as required by Atlas publication grammar. There is clear geographic specificity, editorial depth, and scene transitions are visually and contextually continuous. All elements are well-cropped, with readable text, midtone management, and safe area maintenance; explanatory graphics are fully readable and appropriately labeled. No conventional article layouts or violations found. Benchmark comparison at matched viewports reveals parity in treatment and composition. | Phone and small-phone benchmark images uphold the cinematic, image-led entry, restrained serif overlay, and vertical perspective discovery. All benchmark images deliver proper sequence and treatment per required grammar, so highlighted failures on candidate are valid concerns. | All candidate screenshots follow required Atlas publication grammar: full-screen immersive imagery, restrained serif overlays for scene titles, low text density, clear cinematic entry, overlaid FACT labels, prominent citation/sourcing lines, and transparent captions noting contextual AI-generated illustrations where relevant. Image treatments show appropriate crop, darkness, and typography for readability. No image appears missing or visually broken. The navigation, vertical discovery, and overall editorial depth/specificity are consistent with the benchmark, with no departures toward conventional article or grid formats. All explanatory graphics and overlaid text are readable throughout, with geographic and evidentiary context maintained. No scene-specific or generic failures detected. | All candidate images uphold required Atlas vertical publication grammar: cinematic, immersive fullscreen imagery leads each scene; restrained serif titling overlays each cover image; all images have correct crop and readable midtones; perspectives are visually and editorially continuous; FACT and contextual source/AI disclosure labels are visible where needed; there are no card grids, article stacks, or broken boundaries. Typography, darkness, centering, and safe areas are all correctly managed. No missing imagery; scenes remain specific and explanatory graphics/text boundaries are respected. Benchmarks and candidates maintain parity with only intended editorial and context variance. | All candidate screenshots adhere closely to the required Atlas publication grammar and visual/structural patterns demonstrated in the benchmark images. Each scene displays full-screen, cinematic and context-appropriate lead visuals, overlaid with restrained serif titles, and low-density, geographically specific editorial. Visual continuity, typography, image crop, darkness, source labeling, and both cinematic entry and vertical discovery structures are maintained. Explanatory graphics are clear and readable. No article stacks, grids, link cards, overflow, missing assets, or unreadable segments are present. Benchmarks confirm parity at both standard and small phone viewports. | All candidate scenes reflect Atlas publication grammar: strong full-screen cover imagery, restrained serif scene titles, clear cinematic entry, and vertical image-led Perspective navigation. All text is readable and maintains low density, with clear source labeling and editorial/geographic specificity. The explanatory graphics and labels are complete, and the scenes consistently match the cinematic and image-centric approach visible in the benchmarks across both phone and small-phone viewports. No issues with crop, midtones, safe areas, overflow, or missing content. AI-generated contexts are clearly labeled where present. There is no generic image-above-text structure or link-card grid, and every requirement of the grammar and parity with the benchmark is met. | Candidate screenshots consistently deliver the full-screen cover imagery, overlaid restrained serif scene titles, image-led vertical Perspective navigation, low text density, and cinematic entry required by Atlas publication standards. There is clear visual continuity, safe area integrity, and no deviation into an article stack or card grid. All text and explanatory annotations remain readable, editorial and geographic specificity are preserved, and differences from benchmark source content are within permitted contextual illustration and adaptive boundary rules. | All candidate images meet the distinctive Atlas publication requirements: full-screen cover imagery, overlaid restrained serif scene titles, image-led vertical Perspective discovery, low text density, cinematic entry, and typographic/visual standards such as safe readability, midtone legibility, and scene continuity. No conventional article, stacked-grid, or card grid paradigms are present. Comparing at viewport with benchmarks, structure and treatment are in parity, with clearly labelled AI-generated imagery where context is synthetic. No failures in readability or visual uniformity. All sources are indicated per scene, and editorial content remains at the required depth and specificity for the scene purposes. | All candidate scenes adhere to Atlas publication grammar, including cinematic, full-screen imagery, vertical Perspective discovery, clear restrained serif titling, visible source citations, and explanatory graphic treatments. Typography is clear, scene entry points are image-led, and coverage is both local and specific. Perspective and FACT/STORY structuring are correctly surfaced. Compared at same viewport, candidate treatment matches the quality, clarity, and structural format set by the benchmark, with no observed defects in navigation, readability, context, or continuity. | All candidate scenes strongly match the required publication grammar: cinematic full-bleed lead imagery, restrained overlaid serif titles, concise copy, and vertical discovery structure. No defects with navigation, structure, crop, legibility, typography, or safe area. AI-generated context images are clearly labelled and do not imply false documentary evidence. Benchmark and candidate are uniform in treatment and quality at both viewport sizes. No article-like stacking or grid; the cinematic/immersive style is preserved throughout. No missing images or copy errors. | All candidate images conform to the required Atlas publication grammar: they employ full-screen cover or explanatory images, restrained serif titles, image-led vertical perspectives, and cinematic low-density text entry. Explanatory graphics are readable, all editorial and visual treatments preserve required depth, context, and specificity. Centring, crop, safe areas, typographic hierarchy, and continuity are preserved across viewports compared to benchmark. No overflow, missing assets, or readability issues are observed. AI-generated images are clearly labeled when non-documentary. No conventional article or grid treatments are found. | All candidate screenshots fully adhere to the required Atlas publication grammar and approach, matching the cinematic, image-led, low-density vertical discovery style of the benchmark at equivalent viewports. Typography, editorial copy, cropping, sources, and visual continuity are properly handled throughout; all explanatory, geographic, and factual elements are present and readable. No scene-specific or structural defects observed. | Every candidate screenshot matches the benchmark's cinematic, image-led grammar at the same viewport: full-screen cover visuals, consistent overlaid serif scene titles, and visible vertical perspective discovery. Typography is clear, restrained, and well-positioned within safe areas. No text overflow or crop issues are present, and all contextually explanatory graphics remain readable. The style is not a generic article, grid, or image-above-text stack. Geographic and editorial specificity is preserved throughout, including clear AI-generated illustration labeling. Visual continuity and meaningful scene transitions are checked and intact. No defects detected in navigation, crop, editorial, sources, asset persistence, or visual factory dimensions. | All candidate images maintain consistent cinematic publication grammar as required: full-screen cover imagery, overlaid restrained serif scene titles, image-led vertical perspective discovery, low text density, and cinematic entry. Crops, typography, and midtones are clear and readable; required source, AI-contextual illustration labels, and editorial depth/geographic specificity are present. No navigation/structure, visual continuity, asset, or editorial failures identified when compared to benchmark scenes at the same viewport. | All candidate screenshots meet Atlas publication grammar with cinematic, full-screen cover imagery, restrained serif scene titles, visually led vertical Perspective discovery, and low text density cinematic entry. Crop, typography, centering, and safe areas are consistent with the benchmark. All images, including AI-generated contextual illustrations, are clearly labelled as such—avoiding documentary misrepresentation. No overflow, editorial, or visual continuity issues observed versus the benchmark. No missing images or sources. | All candidate screenshots display correct Atlas grammar: cinematic full-screen cover imagery, restrained serif titles over imagery, clear Perspective discovery with image-led vertical scroll, low text density, and visible FACT/STORY cues where required. Visual treatment (crop, centering, midtones, typography, and safe area) matches the benchmark in quality and structure at comparable viewports. AI-generated illustrations are clearly and adequately labeled per requirements. No defects in navigation, structure, continuity, editorial quality, or source handling were observed. There is no generic article stack or card grid; each scene adheres to image-led, cinematic entry as in the quality standard. | All candidate screenshots are in full alignment with AOC-001 benchmark grammar: cinematic image-led entry, restrained serif titles, strong use of wide, full-bleed visuals, clear geographic/editorial context (including AI illustration labeling), and midtone readability across devices. Vertical Perspective discovery and low text density are maintained. No article-stack, grid, or link-card structures found. No unreadable, missing, or misleading content. | The candidate’s perspective menu ('desktop-perspective-menu.png') uses a dense text-above-image grid rather than the horizontal, minimalist, cinematic discovery demonstrated in the AOC-001 benchmark. The article screens otherwise emulate the benchmark's cinematic style and full-bleed approach, but the Perspective selection paradigm is incorrect and blocks parity. | The supplied scenes lack the cinematic, visual-led grammar evident in the benchmark batch; particularly, the explanatory sequence is visually repetitive, strictly card-based, and not led by immersive full-screen cover images or vertical cinematic progressions as required. Benchmarks use distinct full-screen imagery or contextually specific covers for each Perspective or entry. The candidate breaks narrative and visual continuity with a text-dominant, conventional stack. | All candidate scenes demonstrate full-screen cover imagery, restrained serif scene titles, strong visual context, vertical discovery, and low text density. Cinematic entry and typographic hierarchy are on par with the benchmark standards. No detectable crop, darkness, overflow, continuity, or editorial/geographic defects. | All candidate screenshots maintain the required cinematic grammar, with full-screen cover imagery, overlaid restrained serif titles, clear FACT/STORY labeling, and vertical discovery of perspectives. Typeface, midtone readability, cautious text density, structure, and visual/tonal continuity with benchmark AOC-001 are all preserved. Labeling of AI-generated contextual illustration is correct and sufficiently clear. No article, card, or image-above-text layouts are present. All editorial, structural, and geographic requirements are met. No defects noted. | All publication scenes follow required Atlas grammar: full-screen, cinematic imagery, restrained serif overlay titles, geographic/contextual specificity and clear perspective structure. No scenes use a conventional article or grid, all FACT/STORY and sources are clear, text density is low, treatments are coherent, and editorial specificity is maintained. Visual and editorial standards match the AOC-001 benchmark at the same viewport, with no overflow, darkness, or crop issues, and all mandated labelling is present and clear, including for AI-generated context illustrations. | All candidate screenshots demonstrate required fullscreen, image-led, cinematic entry, restrained serif titles, clear FACT/STORY marking, sources, and readable editorial depth matching the benchmark. No overflow, cropping, or continuity errors are present. AI-generated context illustrations are clearly labeled with no misleading documentary implication. No required editorial, crop, typography, or asset handling is missing or faulty. | The candidate batch matches benchmark standards in navigation, full-screen cinematic imagery, vertical Perspective discovery, restrained serif titling, low text density, and clear source/caption labeling. Image treatments are consistent, with relevant geographic and contextual specificity, continuity preserved, and no missing or unreadable content. | All candidate screens exhibit fullscreen, cinematic imagery with overlaid restrained serif scene titles. Perspectives are discovered vertically and the text density is low, matching the visual and editorial grammar of benchmark (AOC-001). There are no navigation, cropping, or readability failures. The candidate scenes have visible FACT/STORY/UNCERTAIN labels, clear source attribution, context clarity for AI-generated images (as labelled), and appropriate geographic specificity where intended. No conventional article stacks or grid cards are present and no publication grammar is broken. | All candidate screenshots meet Atlas publication grammar requirements: full-screen cover imagery, overlaid restrained serif scene titles, cinematic entry, image-led vertical Perspective discovery, and low text density. No stack/grid/link-card patterns. Typography, crop, midtone treatment, and continuity are consistent with the AOC-001 benchmark. Explanatory graphic scenes retain full readability and appropriate source citing. No defects or failures detected for crop, readability, continuity, safe areas, source registration, or editorial depth/locality. | All candidate scenes follow the publication's required cinematic grammar: fullscreen cover/entry imagery, restrained serif overlays, image-led vertical discovery, low editorial text density, and clear geographic specificity. There is strong continuity, safe area discipline, readable midtones, and overlaid titles are centered or neatly placed for context. All AI-generated illustrations are clearly labeled and contextually matched to the editorial purpose, without misleading documentary implications. Sources and editorial depth are present per scene context. The structure and navigation are on parity with the benchmark, and no defects are visible in crop, typography, asset loading, or editorial treatment. No conventional article or grid structure is present. | The candidate includes conventional article-style explanatory blocks and image-above-text stacks, whereas the benchmark opening demonstrates cinematic, image-led entry with overlaid restrained serif text and low text density. The candidate's scenes 3 and 4 break visual continuity and required structure compared to standard-setting scenes. | All candidate images adhere to required Atlas publication grammar: cinematic, full-bleed or full-screen contextually relevant imagery; restrained serif overlaid titles; low text density; strong readable midtones and contrast; clear Perspective and geographic specificity; visible Fact/Story markers and sources; vertical perspective-led navigation. No conventional article stack or grid. All captions or disclaimers are visible. There are no structural, typographic, or asset persistence defects compared to the benchmark. Visual continuity and thematic integrity are well maintained. | All candidate scenes follow the publication grammar: cinematic, fullscreen imagery with overlaid serif titling, restrained and readable type on midtone-backed safe areas, vertical image-led perspective discovery, and clearly labeled, geographically specific, and editorially substantive FACT beats. No conventional article or card-grid layouts are present. Visual uniformity and continuity are maintained, crops are intentional/safe, and all explanatory and AI-generated graphics are labeled and readable. Sources and editorial depth match expectations, and no structural, visual, or editorial defects are found in comparison to the AOC-001 benchmarks. | All candidate images demonstrate cinematic, image-led cover scenes with restrained serif titling, low text density overlays, clear FACT/SCENE identifiers, and readable sources. The views are full-bleed, text areas are balanced in midtones, and editorial depth and geographic specificity are visible. Typography is readable and consistent, visual continuity is maintained throughout, there are no image or crop defects, and no scenes revert to a conventional article or menu grid. Benchmark parity is fully met. | All candidate scenes demonstrate the cinematic, image-led entry required by Atlas, with full-screen contextual illustration, restrained serif scene titles overlaid for clarity, readable typography and midtones, and clear editorial/FACT vs STORY distinctions. The structure enables vertical discovery via image, avoiding conventional article layouts. All contextual illustrations are properly labeled as non-documentary and sources are cited. Visual continuity, typographic clarity, centering, and safe area usage match the benchmark. No scene-specific failures or missing assets. | All candidate screenshots demonstrate fullscreen, cinematic, image-led scenes with overlaid restrained serif typography, consistent navigation, scrollable Perspective-led discovery, and maintain strong visual continuity as in the benchmark. Text remains readable, editorial and fact/source visibility are upheld, and geographic/contextual specificity is present or transparently addressed. No crop, midtone, type, overflow, source, or continuity errors detected in any file.",
+  "contract_version": "atlas-reader-v2",
+  "contract_status": "PASS"
+}

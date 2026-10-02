@@ -1,0 +1,12 @@
+{
+  "stage":"perspective_candidates","status":"PASS","produced_by":"perspective_derivation_worker / graph-derived 2026-09-27",
+  "output":{
+    "candidates":[
+      {"id":"P1","name":"The Chokepoint","rationale":"Explains how concentrated fertilizer/feedstock trade turns a maritime disruption into differentiated global input pressure.","evidence_nodes":["N1","N2","N3","N4"],"candidate_state":"VIABLE"},
+      {"id":"P2","name":"The Buffer","rationale":"Follows how an import-dependent food system uses finance, procurement, stocks and allocation to prevent exposure becoming shortage.","evidence_nodes":["N5","N6","N7"],"candidate_state":"VIABLE"},
+      {"id":"P3","name":"The Farm Gate","rationale":"Would follow whether national availability translates into timely, affordable access and changed fertilizer use for smallholders.","evidence_nodes":["N5","N7","N10"],"candidate_state":"INSUFFICIENT_CURRENT_EVIDENCE"},
+      {"id":"P4","name":"The Plate","rationale":"Would follow fertilizer pressure into food prices and household food security.","evidence_nodes":["N3","N11","N12"],"candidate_state":"INSUFFICIENT_CURRENT_EVIDENCE"},
+      {"id":"P5","name":"The Alternate Route","rationale":"Uses Australia as a comparator showing supplier diversification, targeted risk support and supply recovery under the same global shock.","evidence_nodes":["N8","N9","N1"],"candidate_state":"VIABLE_COMPARATOR"}
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "edition_id": "AET1-WC-002",
+  "purpose": "Route-specific display wording removes repeated full scenes without changing the verified editorial source, truth states, evidence references, or beat coverage.",
+  "scene_overrides": {
+    "MF1-S1": {
+      "heading": "Lost Work Is an Economic Exposure",
+      "paragraphs": [
+        {
+          "state": "FACT",
+          "evidence_refs": ["IIED-HEAT-2026"],
+          "text": "At the household edge of the economy, missed work becomes lost income rather than only a health statistic. IIED's surveyed informal-worker households in Dhaka reported that heat-related missed work tightened budgets for essentials; this is observed in that sample, not a region-wide income estimate. The financial question is who can absorb the lost day and who cannot; the source does not establish an investable company outcome."
+        }
+      ]
+    },
+    "MF1-S2": {
+      "heading": "Cooling as a Capital Decision",
+      "paragraphs": [
+        {
+          "state": "FACT",
+          "evidence_refs": ["CORNELL-HEAT-2026"],
+          "text": "Cornell's sampled apparel factories put a number on a possible capital response: selected ventilation and cooling investments were estimated to repay through avoided heat-related losses in one to four years. That payback is specific to the studied sites and assumptions, not a promised return across factories, cooling products, or listed companies."
+        }
+      ]
+    },
+    "MF1-S3": {
+      "heading": "The Unpriced Protection Divide",
+      "paragraphs": [
+        {
+          "state": "UNCERTAIN",
+          "evidence_refs": ["IIED-HEAT-2026", "WB-HEAT-2025"],
+          "text": "Who pays for cooling and who receives protection is a distribution question, not a settled market forecast. IIED and World Bank evidence show unequal exposure and capacity to cope; the evidence does not determine how future adaptation costs and benefits will be allocated, or establish a security-level conclusion."
+        }
+      ]
+    }
+  }
+}

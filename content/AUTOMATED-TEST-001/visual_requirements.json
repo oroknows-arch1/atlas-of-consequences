@@ -1,0 +1,129 @@
+{
+  "stage": "visual_requirements",
+  "status": "PASS",
+  "produced_by": "Atlas visual requirement derivation worker / 2026-09-27",
+  "output": {
+    "candidate_id": "AET1-WC-002",
+    "requirements": [
+      {
+        "scene_id": "H1-S1",
+        "required": true,
+        "purpose": "Establish persistent urban heat as the environmental condition.",
+        "truth_boundary": "Contextual Dhaka heat; no invented extreme event presented as documentary fact.",
+        "visual_type": "contextual editorial still or sourced city heat imagery"
+      },
+      {
+        "scene_id": "H1-S2",
+        "required": true,
+        "purpose": "Explain urban heat/humidity burden.",
+        "truth_boundary": "Prefer explanatory map/heat graphic or contextual city image; do not imply precise block-level temperature without data.",
+        "visual_type": "deterministic explanatory graphic"
+      },
+      {
+        "scene_id": "H2-S1",
+        "required": true,
+        "purpose": "Humanize physical work strain without fabricating an identified victim.",
+        "truth_boundary": "Generic/contextual worker scene may represent evidenced conditions; must not imply depicted person is a study participant.",
+        "visual_type": "editorial contextual still"
+      },
+      {
+        "scene_id": "H2-S2",
+        "required": true,
+        "purpose": "Show indoor factory heat and ventilation/cooling context.",
+        "truth_boundary": "Do not depict a named factory unless sourced media supports it.",
+        "visual_type": "contextual apparel-factory still"
+      },
+      {
+        "scene_id": "H2-S3",
+        "required": true,
+        "purpose": "Show the time-versus-income dilemma for outdoor work.",
+        "truth_boundary": "Contextual Dhaka informal work, not a claimed individual case.",
+        "visual_type": "editorial contextual still"
+      },
+      {
+        "scene_id": "H3-S1",
+        "required": false,
+        "purpose": "Income consequence is better carried by text/data than invented money imagery.",
+        "truth_boundary": "Use deterministic data treatment if visualized.",
+        "visual_type": "deterministic data graphic"
+      },
+      {
+        "scene_id": "H3-S2",
+        "required": true,
+        "purpose": "Scale household losses into national workday/economic burden.",
+        "truth_boundary": "Clearly label estimates and source period.",
+        "visual_type": "deterministic data graphic"
+      },
+      {
+        "scene_id": "H4-S1",
+        "required": true,
+        "purpose": "Show that exposure continues into domestic recovery space.",
+        "truth_boundary": "Contextual home scene only; no invented named household or false documentary specificity.",
+        "visual_type": "editorial contextual still"
+      },
+      {
+        "scene_id": "H4-S2",
+        "required": false,
+        "purpose": "Avoid over-specifying unresolved household coping behavior.",
+        "truth_boundary": "No factual visual claim beyond supported unequal cooling/recovery capacity.",
+        "visual_type": "NONE or restrained contextual still"
+      },
+      {
+        "scene_id": "H5-S1",
+        "required": true,
+        "purpose": "Ground child/school consequence.",
+        "truth_boundary": "Prefer sourced/contextual school heat imagery; do not depict a specific closure as factual unless sourced.",
+        "visual_type": "sourced media or contextual still"
+      },
+      {
+        "scene_id": "H5-S2",
+        "required": false,
+        "purpose": "Household consequence remains partly unresolved.",
+        "truth_boundary": "Do not invent childcare/learning-loss scene as documentary evidence.",
+        "visual_type": "NONE"
+      },
+      {
+        "scene_id": "H6-S1",
+        "required": true,
+        "purpose": "Make adaptation tangible through airflow/cooling/shade/hydration/work-practice systems.",
+        "truth_boundary": "Distinguish examples/recommendations from installed systems at a named site.",
+        "visual_type": "explanatory/contextual still"
+      },
+      {
+        "scene_id": "H6-S2",
+        "required": true,
+        "purpose": "Explain cooling intervention economics.",
+        "truth_boundary": "Use sourced numbers in deterministic graphic; no guarantee framing.",
+        "visual_type": "deterministic data graphic"
+      },
+      {
+        "scene_id": "H6-S3",
+        "required": false,
+        "purpose": "Leave unresolved distribution question primarily to text/evidence.",
+        "truth_boundary": "Do not symbolize poverty or suffering with unsupported imagery.",
+        "visual_type": "NONE"
+      },
+      {
+        "scene_id": "MF1-S1",
+        "required": true,
+        "purpose": "Contextualize Dhaka’s informal work environments and residential conditions during periods of extreme heat, highlighting lived experience and the visible reality of adaptation pressures.",
+        "truth_boundary": "Visual should represent conditions and adaptation efforts seen in Dhaka informal settings, not quantify losses or extend survey findings to unsampled groups.",
+        "visual_type": "editorial contextual still"
+      },
+      {
+        "scene_id": "MF1-S2",
+        "required": true,
+        "purpose": "Show trustworthy, study-specific data of heat season length and cooling payback from the referenced factory study, providing a tight visual narrative link to the site-specific economic evidence.",
+        "truth_boundary": "Graphic must display only the measured payback periods and heat-season distribution for the studied garment factories, labeling these as site-specific; may not generalize to all factories.",
+        "visual_type": "deterministic data graphic"
+      },
+      {
+        "scene_id": "MF1-S3",
+        "required": true,
+        "purpose": "Situate physically the contrast between well-cooled factories/households and those lacking protection in Dhaka, conveying the material and social divide in adaptation, not measured economic figures.",
+        "truth_boundary": "Visual should illustrate real, contrasting access to cooling but must not display inferred statistics or staged comparisons.",
+        "visual_type": "editorial contextual still"
+      }
+    ]
+  }
+}

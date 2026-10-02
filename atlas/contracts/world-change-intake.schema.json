@@ -1,0 +1,16 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"Atlasoquence World Change Intake",
+  "type":"object",
+  "required":["schema_version","candidate_id","statement","observed_change","evidence_refs","selection_state"],
+  "properties":{
+    "schema_version":{"const":"1.0"},
+    "candidate_id":{"type":"string"},
+    "statement":{"type":"string","minLength":1},
+    "observed_change":{"type":"string","minLength":1},
+    "evidence_refs":{"type":"array","minItems":1,"items":{"type":"string"}},
+    "selection_state":{"enum":["CANDIDATE","APPROVED_FOR_TEST","REJECTED"]},
+    "why_materially_different_from_benchmark":{"type":"string"},
+    "known_limits":{"type":"array","items":{"type":"string"}}
+  }
+}

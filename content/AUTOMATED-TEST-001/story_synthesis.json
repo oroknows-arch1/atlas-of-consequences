@@ -1,0 +1,36 @@
+{
+  "stage": "story_synthesis",
+  "status": "PASS",
+  "produced_by": "Atlas STORY worker / 2026-09-27",
+  "output": {
+    "candidate_id": "AET1-WC-002",
+    "label": "STORY / FICTION",
+    "title": "The Room After Work",
+    "characters": [
+      {
+        "name": "Maya",
+        "role": "fictional garment worker in greater Dhaka"
+      },
+      {
+        "name": "Rafiq",
+        "role": "fictional spouse with irregular paid work"
+      },
+      {
+        "name": "Nila",
+        "role": "fictional school-age daughter"
+      }
+    ],
+    "story": [
+      "By the time Maya reaches the stairwell, the heat of the factory has changed shape but not disappeared. Outside it was traffic, concrete and wet air. Inside the flat it has been waiting in the walls.",
+      "Nila is on the floor beside the doorway with a workbook open. School has been disrupted by the heat. In this story, that means she is home before Maya expected her. The closure is grounded in documented heat-related school disruption; this family's afternoon is invented.",
+      "Rafiq has moved the small fan so it points toward Nila. Maya stands in front of it anyway for ten seconds. Nila protests. Maya laughs, then gives it back.",
+      "There is rice to wash. Maya sits first. Her shirt is still damp at the collar. At work she drank water whenever she could. She has the dull heaviness that comes after a day spent negotiating with heat.",
+      "Rafiq asks whether she will take tomorrow off if the night stays this hot. Maya asks whether tomorrow's pay will take itself off too.",
+      "It is not a speech. It is arithmetic. A missed day can mean less money. Going in can mean carrying fatigue back through the same door tomorrow night.",
+      "Nila asks whether school will open. Neither adult knows. Rafiq says they will work it out. Maya looks at the fan, then at the window, then at her daughter.",
+      "Later, after the cooking, the three of them arrange themselves around the moving air. Nila falls asleep first. Maya and Rafiq talk quietly about whether one of them can change hours if school closes again. They disagree about what is practical, then stop because they are too tired to keep disagreeing.",
+      "Nothing catastrophic happens. That is the point. The heat does not need a dramatic ending to reorganise a day. It can take a little work, a little money, a little patience and a little sleep, then come back tomorrow."
+    ],
+    "boundary": "Maya, Rafiq, Nila, their flat, dialogue, schedule decisions and events are invented. The surrounding heat, worker strain, income risk, household exposure and school disruption are evidence-established conditions; comparative/ordinary-human knowledge supports the fictional connections."
+  }
+}

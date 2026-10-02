@@ -1,0 +1,79 @@
+name: Atlas bounded full-reader integration review
+on:
+  push:
+    branches: [test/automated-edition-1]
+    paths:
+      - '.github/workflows/atlas-edition-production.yml'
+      - 'tools/**'
+      - 'tests/**'
+      - 'atlas/contracts/manufacturing-trace.json'
+      - 'atlas/contracts/reader-grammar.json'
+      - 'public/review/adaptive.js'
+      - 'public/review/edition.css'
+      - 'public/adaptive/adaptive.css'
+      - 'content/AUTOMATED-TEST-001/**'
+  workflow_dispatch:
+    inputs:
+      run_dir:
+        description: Repository directory with approved candidate and stage receipts
+        required: true
+        default: content/AUTOMATED-TEST-001
+concurrency:
+  group: atlas-production-test-1
+  cancel-in-progress: true
+jobs:
+  produce-and-review:
+    if: github.ref == 'refs/heads/test/automated-edition-1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    env:
+      ATLAS_READER_ONLY: '1'
+      ATLAS_ALLOW_COVERAGE_GENERATION: '0'
+      NODE_PATH: /tmp/atlas-playwright/node_modules
+      RUN_DIR: ${{ inputs.run_dir || 'content/AUTOMATED-TEST-001' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: test/automated-edition-1
+          persist-credentials: true
+      - name: Bind execution to test branch
+        run: |
+          test "$RUN_DIR" = content/AUTOMATED-TEST-001 || { echo 'BLOCKED: run directory is outside this test'; exit 1; }
+          git switch -C test/automated-edition-1
+          git config user.name atlas-production-worker
+          git config user.email atlas-production-worker@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install validation dependency
+        run: python3 -m pip install Pillow
+      - name: Verify manufacturing coverage and negative gates
+        run: |
+          python3 tools/validate_manufacturing_trace.py
+          python3 -m unittest discover -s tests -v
+      - name: Install browser dependencies
+        run: |
+          npm install --prefix /tmp/atlas-playwright playwright
+          /tmp/atlas-playwright/node_modules/.bin/playwright install --with-deps chromium
+      - name: Build inherited reader with persisted assets
+        run: python3 tools/early_reader_gate.py "$RUN_DIR"
+      - name: Render and verify structural checkpoint
+        run: node tools/early_render_gate.cjs "$RUN_DIR"
+      - name: Assemble from existing verified assets
+        run: python3 tools/assemble_verified_reader.py "$RUN_DIR"
+      - name: Render complete reader across mobile and desktop
+        run: node tools/full_render_gate.cjs "$RUN_DIR"
+      - name: Store full-reader evidence for visual veto
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-full-reader-integration
+          path: |
+            ${{ env.RUN_DIR }}/early-reader-gate.json
+            ${{ env.RUN_DIR }}/early-gate-shots/*.png
+            ${{ env.RUN_DIR }}/full-reader-gate.json
+            ${{ env.RUN_DIR }}/full-gate-shots/*.png
+            ${{ env.RUN_DIR }}/production-receipt.json
+            ${{ env.RUN_DIR }}/visual-coverage.json

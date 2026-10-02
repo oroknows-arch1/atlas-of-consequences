@@ -1,0 +1,15 @@
+{
+  "stage":"evidence_gate","status":"PASS","produced_by":"evidence_verifier / ChatGPT source cross-check 2026-09-27",
+  "output":{
+    "result":"PASS_WITH_BOUNDARIES",
+    "verified_nodes":["N1","N2","N3","N4","N5","N6","N7","N8","N9","N12"],
+    "preserved_unknowns":["N10","N11"],
+    "rejected_shortcuts":[
+      "Hormuz disruption -> Bangladesh fertilizer shortage",
+      "fertilizer price surge -> Bangladesh crop failure",
+      "fertilizer shock -> household hunger",
+      "government intervention -> sole cause of adequate supply"
+    ],
+    "notes":"Current evidence supports a shock/adaptation/resilience edition. It does not support a collapse narrative."
+  }
+}

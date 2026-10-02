@@ -1,0 +1,79 @@
+{
+  "history": [
+    {
+      "attempt": 1,
+      "defects": [
+        {
+          "worker": "reader_builder",
+          "reason": "The phone-story.png scene lacks the required full-screen cover imagery and restrained serif scene title overlay at entry, presenting a conventional text-on-background layout instead. This is not cinematic; the opening does not express the publication grammar.",
+          "scene_id": "phone-story"
+        },
+        {
+          "worker": "visual_factory",
+          "reason": "For both phone-story.png and phone-sources.png, there is no opening use of image-led, cinematic entry; the experience is static and text-centric at launch. This breaks visual continuity compared to the required standards and the benchmarks, which lead with immersive full-bleed imagery.",
+          "scene_id": "phone-story"
+        },
+        {
+          "worker": "reader_builder",
+          "reason": "The navigation, hierarchy, and visual handoff from opening scene to Perspectives in both phone formats is not clear or cinematic. The segments resemble conventional article stacks, not Atlas' image-led, vertical discovery model.",
+          "scene_id": "phone-sources"
+        },
+        {
+          "worker": "reader_builder",
+          "reason": "Scenes in the candidate publication (images 1-4) present a sequence of full-screen, cinematic imagery with overlaid serif titles, restrained text, and clear geographic specificity. However, the navigation and sequencing rely heavily on a single vertical presentation style with low in-scene editorial variance, not visually distinguishing the transition from one major Perspective to the next (e.g., 'The Next Generation', 'The Fix', 'The Economics of Cooling', and 'What's Real' are present but treated almost identically). This undermines the intended multi-Perspective discovery experience required by Atlas publication grammar, where visually unique transitions signal editorial progression and allow readers to orient by cinematic entry into new thematic territory.",
+          "scene_id": "desktop-route-H5"
+        },
+        {
+          "worker": "reader_treatment",
+          "reason": "Some overlay text (notably on images 3 and 4) comes very close to darkness at the left margin, causing potential legibility issues and reducing the impact of restrained serif titles meant for cinematic entry. While the primary text remains readable, this risks unacceptable midtone loss per publication standards. Additionally, several images have very shallow safe margins for text overlay, particularly when geographic context is essential.",
+          "scene_id": "desktop-route-MF1"
+        },
+        {
+          "worker": "reader_builder",
+          "reason": "Scenes 3, 4, and 5 break required publication grammar: they lack full-screen cover imagery and open with explanatory cards above text, forming a conventional text-over-background or sidebar stack rather than cinematic, image-led entry. This is inconsistent with required vertical discovery, image-forward, and low text density grammar in Atlas publications.",
+          "scene_id": "phone-route-H1-scene-3"
+        },
+        {
+          "worker": "reader_builder",
+          "reason": "Same as previous: explanatory card-first, conventional stack rather than vertical, image-led entry. Not cinematic; violates required publication grammar.",
+          "scene_id": "phone-route-H1-scene-4"
+        },
+        {
+          "worker": "reader_builder",
+          "reason": "Same as above: explanatory card-first, text stack rather than vertical, cinematic, image-led discovery required by Atlas grammar. Not full-screen cover imagery or cinematic entry.",
+          "scene_id": "phone-route-H1-scene-5"
+        },
+        {
+          "worker": "reader_builder",
+          "reason": "The 'desktop-perspective-menu.png' uses a conventional article navigation (scrollable vertical grid with image-above-text), not the required filmic, vertical cinematic entry and restrained vertical discovery as seen in the benchmark. The text and navigation are too dense and not image-led. This fails the grammar for Atlas publication.",
+          "scene_id": "desktop-perspective-menu"
+        },
+        {
+          "worker": "reader_builder",
+          "reason": "Scenes 2, 3, and 4 display a repetitive, conventional explanatory-card stack with dark background and high-density text blocks aligned above matching FACT/STORY panels. This is not cinematic, is not image-led, and does not provide the cinematic entry or vertical image-led progression required by publication grammar.",
+          "scene_id": "2"
+        },
+        {
+          "worker": "reader_builder",
+          "reason": "Lack of a cinematic entry or full-screen cover for the 'Heat Index' explanatory sequence – treatment is visually and structurally repetitive, not in keeping with the required narrative progression or visual discovery.",
+          "scene_id": "3"
+        },
+        {
+          "worker": "reader_builder",
+          "reason": "Conventional, article-like stacked explanatory panels with text blocks — not low-density, cinematic, or guided by immersive vertical image transitions.",
+          "scene_id": "4"
+        },
+        {
+          "worker": "reader_builder",
+          "reason": "The layout on content/AUTOMATED-TEST-001/screenshots/desktop-route-MF1-scene-3.png and content/AUTOMATED-TEST-001/screenshots/desktop-route-MF1-scene-4.png is an image-above-text stack with explanatory card(s) followed by a text block, which is a conventional article format. This violates required cinematic entry, full-screen cover imagery, and restrained overlaid serif titles.",
+          "scene_id": "desktop-route-MF1-scene-3"
+        },
+        {
+          "worker": "reader_builder",
+          "reason": "Same as above: explanatory card and text section design is conventional article/image-above-text stack. This is not cinematic, does not have a full-screen image cover entry, and does not meet Atlas publication grammar.",
+          "scene_id": "desktop-route-MF1-scene-4"
+        }
+      ]
+    }
+  ]
+}
