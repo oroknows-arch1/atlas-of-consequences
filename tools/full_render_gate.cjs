@@ -9,8 +9,9 @@ const deployment=live?JSON.parse(fs.readFileSync(path.join(run,'deployment-recei
 const outputPath=live?path.join(run,'live-reader-gate.json'):receiptPath;
 const sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
 const publicRoot=path.join(root,'public'),reader=path.join(root,receipt.reader);
-const assets=JSON.parse(fs.readFileSync(path.join(run,'asset-persistence-receipt.json'))).assets;
-const expected=new Set(assets.map(a=>a.path));
+const candidate=JSON.parse(fs.readFileSync(path.join(run,'selected-edition-candidate.json')));
+const assetReceipt=JSON.parse(fs.readFileSync(path.join(run,'asset-persistence-receipt.json'))),assets=assetReceipt.assets;
+const assetPaths=assets.map(a=>a.path),expected=new Set(assetPaths);
 const defects=[],shots=[];
 let browser;
 function check(ok,reason){if(!ok)defects.push(reason)}
@@ -33,6 +34,12 @@ async function finish(status){
  if(status!=='PASS')process.exitCode=1;
 }
 (async()=>{
+ check(receipt.edition_id===candidate.candidate_id&&assetReceipt.edition_id===candidate.candidate_id,'mixed candidate identifiers');
+ check(expected.size===assetPaths.length,'duplicate declared asset paths');
+ for(const asset of assets){
+  const file=path.resolve(publicRoot,'.'+asset.path);
+  check(file.startsWith(publicRoot+path.sep)&&fs.existsSync(file)&&sha(file)===asset.sha256&&fs.statSync(file).size===asset.bytes,`declared asset changed or missing: ${asset.path}`);
+ }
  check(sha(reader)===receipt.reader_sha256,'reader changed since assembly');
  check(expected.size===receipt.asset_count,'asset receipt count changed');
  if(live)check(deployment.status==='PASS'&&deployment.asset_integration_status==='PASS','deployment bytes not verified');
@@ -46,6 +53,8 @@ async function finish(status){
   const pageErrors=[];page.on('pageerror',e=>pageErrors.push(e.message));
   page.on('response',response=>{if(response.status()>=400&&new URL(response.url()).origin===new URL(base).origin)pageErrors.push(`HTTP ${response.status()} ${response.url()}`)});
   await page.goto(base,{waitUntil:'networkidle'});
+  const media=new Set(await page.locator('img[src],video[src],source[src],[poster],[data-graphic-path]').evaluateAll(nodes=>nodes.map(e=>e.getAttribute('src')||e.getAttribute('poster')||e.getAttribute('data-graphic-path')).filter(p=>p&&p.startsWith('/assets/'))));
+  check(media.size===expected.size&&[...media].every(p=>expected.has(p)),`${name}: reader media differs from declared assets`);
   {
    const dir=path.join(run,live?'live-gate-shots':'full-gate-shots');fs.mkdirSync(dir,{recursive:true});
    const opening=path.join(dir,`${name}-opening.png`);

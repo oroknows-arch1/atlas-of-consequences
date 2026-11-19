@@ -2,6 +2,7 @@
 """Only current, complete, deployed and independently inspected work can be a candidate."""
 import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 from urllib.request import urlopen
@@ -48,6 +49,8 @@ def evaluate(run, fetch=urlopen):
         if set(ids)!=required or len(ids)!=len(set(ids)): raise ValueError('required asset coverage mismatch')
         beat_ids=[a['beat_id'] for a in assets if a.get('beat_id')]
         if len(beat_ids)!=len(set(beat_ids)):raise ValueError('duplicate beat assets')
+        paths=[a['path'] for a in assets]
+        if len(paths)!=len(set(paths)): raise ValueError('duplicate declared asset paths')
         for asset in assets:
             if not asset.get('provenance') or not asset.get('provider') or asset.get('visual_qa',{}).get('pass') is not True:
                 raise ValueError('asset lacks independent QA or provenance')
@@ -64,6 +67,8 @@ def evaluate(run, fetch=urlopen):
                 raise ValueError('reader changed since assembly')
         reader=(ROOT/production['reader']).read_text()
         if any(a['path'] not in reader for a in assets): raise ValueError('reader asset reference missing')
+        media=set(re.findall(r'(?:src|poster|data-graphic-path)=["\'](/assets/[^"\'?#]+)',reader))
+        if media!={a['path'] for a in assets}: raise ValueError('reader media differs from declared assets')
         editorial=receipts.get('editorial-qa',{})
         if editorial.get('copy_sha256')!=digest(run/'editorial-copy.json'): raise ValueError('unverified editorial copy')
     check('reader_builder',verify_reader)

@@ -3,6 +3,9 @@ const fs=require('fs'),http=require('http'),path=require('path'),crypto=require(
 const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),run=path.resolve(process.argv[2]||'content/AUTOMATED-TEST-001');
 const receipt=JSON.parse(fs.readFileSync(path.join(run,'early-reader-gate.json')));
+const candidate=JSON.parse(fs.readFileSync(path.join(run,'selected-edition-candidate.json')));
+const assetReceipt=JSON.parse(fs.readFileSync(path.join(run,'asset-persistence-receipt.json')));
+const assetPaths=assetReceipt.assets.map(a=>a.path),expectedAssets=new Set(assetPaths);
 const sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
 const publicRoot=path.join(root,'public'),reader=path.join(root,receipt.reader);
 const checks=[];
@@ -22,6 +25,12 @@ const server=http.createServer((req,res)=>{
  fs.readFile(file,(err,data)=>{res.writeHead(err?404:200,{'Content-Type':mime});res.end(err?'missing':data)})
 });
 (async()=>{
+ check(receipt.edition_id===candidate.candidate_id&&assetReceipt.edition_id===candidate.candidate_id,'mixed candidate identifiers');
+ check(expectedAssets.size===assetPaths.length,'duplicate declared asset paths');
+ for(const asset of assetReceipt.assets){
+  const file=path.resolve(publicRoot,'.'+asset.path);
+  check(file.startsWith(publicRoot+path.sep)&&fs.existsSync(file)&&sha(file)===asset.sha256&&fs.statSync(file).size===asset.bytes,`declared asset changed or missing: ${asset.path}`);
+ }
  check(sha(reader)===receipt.reader_sha256,'reader changed after preview receipt');
  check(sha(path.join(root,'public/adaptive/adaptive.css'))===receipt.canonical_css_sha256,'canonical CSS changed');
  check(sha(path.join(path.dirname(reader),'adaptive.css'))===receipt.canonical_css_sha256,'inherited CSS differs');
@@ -29,7 +38,7 @@ const server=http.createServer((req,res)=>{
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  browser=await chromium.launch({headless:true,args:['--no-sandbox']});
  const base=`http://127.0.0.1:${server.address().port}/${receipt.reader.replace(/^public\//,'').replace(/index.html$/,'')}`;
- const expected=JSON.parse(fs.readFileSync(path.join(run,'causal_boundary_gate.json'))).output.routes.length;
+ const expectedRoutes=JSON.parse(fs.readFileSync(path.join(run,'causal_boundary_gate.json'))).output.routes.length;
  const shots=[];
  for(const [name,width,height] of [['phone',390,844],['small-phone',320,740],['desktop',1440,900]]){
   console.log(`Rendering ${name}`);
@@ -37,13 +46,15 @@ const server=http.createServer((req,res)=>{
   page.setDefaultTimeout(12000);
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base,{waitUntil:'networkidle'});
+  const media=new Set(await page.locator('img[src],video[src],source[src],[poster],[data-graphic-path]').evaluateAll(nodes=>nodes.map(e=>e.getAttribute('src')||e.getAttribute('poster')||e.getAttribute('data-graphic-path')).filter(p=>p&&p.startsWith('/assets/'))));
+  check(media.size===expectedAssets.size&&[...media].every(p=>expectedAssets.has(p)),`${name}: reader media differs from declared assets`);
   let state=await page.evaluate(()=>{
    const h=document.querySelector('.hero'),t=h.querySelector('h1'),s=getComputedStyle(t),bg=h.querySelector('.edition-geo-bg');
    return {height:h.getBoundingClientRect().height,heading:parseFloat(s.fontSize),serif:s.fontFamily.includes('Georgia'),cover:getComputedStyle(bg).objectFit==='cover',deckWords:h.parentElement.querySelector('p').textContent.trim().split(/\s+/).length,count:document.querySelectorAll('[data-perspective]').length,broken:[...document.images].filter(i=>i.complete&&!i.naturalWidth).length,overflow:document.documentElement.scrollWidth>innerWidth+2,copy:getComputedStyle(t).opacity};
   });
   check(state.height>=height*.98&&state.serif&&state.heading>=50&&state.cover,`${name}: canonical opening composition`);
   check(state.deckWords<=28,`${name}: opening deck overwhelms the inherited hero`);
-  check(state.count===expected&&state.broken===0&&!state.overflow,`${name}: Perspective count, image decoding or viewport overflow`);
+  check(state.count===expectedRoutes&&state.broken===0&&!state.overflow,`${name}: Perspective count, image decoding or viewport overflow`);
   await page.locator('.skip-film').click();
   console.log(`${name}: opening`);
   check(await page.locator('.hero').evaluate(e=>e.classList.contains('film-complete')),`${name}: skip/reveal`);
@@ -62,7 +73,7 @@ const server=http.createServer((req,res)=>{
      return images.every(image=>image.naturalWidth>0);
     });
     check(loaded,`${name}: every Perspective image must decode before visual approval`);
-    check(await page.locator('.perspective-menu-image .perspective-hotspot').count()===expected,
+    check(await page.locator('.perspective-menu-image .perspective-hotspot').count()===expectedRoutes,
       `${name}: canonical hotspot menu must match accepted Perspectives`);
     check(await page.locator('.perspective-menu-image').evaluate(e=>e.querySelectorAll(':scope > .edition-menu-art').length===1 && !e.querySelector('.perspective-row') && [...e.querySelectorAll(':scope > .perspective-hotspot')].every(a=>getComputedStyle(a).height!=='0px')),
       `${name}: menu must be one continuous artwork with canonical sibling hotspots`);

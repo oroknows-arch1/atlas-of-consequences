@@ -12,6 +12,7 @@ import production_state as state
 import publication_gate as gate
 import produce_edition as producer
 import reader_builder as builder
+import early_reader_gate as early_gate
 import source_qa
 from validate_manufacturing_trace import validate as trace_validate
 from editorial_factory import validate_copy
@@ -252,7 +253,7 @@ class ProductionRegression(unittest.TestCase):
                    'sha256':state.digest(extra),'bytes':extra.stat().st_size,
                    'provenance':'synthetic test','provider':'fixture','visual_qa':{'pass':True}})
   reader=self.root/'public/review/test/index.html';reader.parent.mkdir(parents=True)
-  reader.write_text(' '.join(a['path'] for a in assets))
+  reader.write_text(' '.join(f'<img src="{a["path"]}">' for a in assets))
   hashes={'public/review/test/index.html':state.digest(reader)}
   state.write(self.run/'editorial-copy.json',editorial)
   from visual_coverage import plan as visual_plan
@@ -264,7 +265,7 @@ class ProductionRegression(unittest.TestCase):
                   'beat_text_sha256':__import__('hashlib').sha256(gap['intent']['beat_text'].encode()).hexdigest(),
                   'sha256':state.digest(p),'bytes':p.stat().st_size,'provenance':'synthetic test',
                   'provider':'fixture','visual_qa':{'pass':True}})
-  reader.write_text(' '.join(a['path'] for a in assets))
+  reader.write_text(' '.join(f'<img src="{a["path"]}">' for a in assets))
   hashes={'public/review/test/index.html':state.digest(reader)}
   shot=self.run/'screenshots/phone.png';shot.parent.mkdir();shot.write_bytes(b'synthetic screenshot')
   shots=[{'path':'screenshots/phone.png','sha256':state.digest(shot)}]
@@ -305,6 +306,37 @@ class ProductionRegression(unittest.TestCase):
   self.assertEqual(self.evaluate()['status'],'BLOCKED')
  def test_missing_required_image_blocks_even_if_all_pass_labels_remain(self):
   self.fixture();self.change('asset-persistence-receipt.json',lambda x:x['assets'].pop())
+  self.assertEqual(self.evaluate()['status'],'BLOCKED')
+ def test_early_reader_rejects_foreign_asset_receipt(self):
+  shutil.copyfile(state.ROOT/'content/AUTOMATED-TEST-001/editorial-copy.json',self.run/'editorial-copy.json')
+  state.write(self.run/'asset-persistence-receipt.json',{'edition_id':'OTHER-CANDIDATE','status':'PASS','assets':[]})
+  page=self.root/'public/review/test/index.html';page.parent.mkdir(parents=True)
+  page.write_text('synthetic reader')
+  inherited=self.root/'public/adaptive/adaptive.css';inherited.parent.mkdir(parents=True)
+  inherited.write_text('synthetic css');(page.parent/'adaptive.css').write_text('synthetic css')
+  with patch.object(early_gate,'ROOT',self.root),patch.object(early_gate,'build_reader',return_value=page):
+   with self.assertRaisesRegex(ValueError,'foreign|stale'):
+    early_gate.main(self.run)
+ def test_incorrect_declared_asset_hash_blocks_publication(self):
+  self.fixture();self.change('asset-persistence-receipt.json',lambda x:x['assets'][0].update(sha256='0'*64))
+  self.assertEqual(self.evaluate()['status'],'BLOCKED')
+ def test_duplicate_declared_asset_paths_block_publication(self):
+  self.fixture()
+  def duplicate(data):
+   source=data['assets'][0]
+   target=data['assets'][-1]
+   target.update(path=source['path'],sha256=source['sha256'],bytes=source['bytes'])
+  self.change('asset-persistence-receipt.json',duplicate)
+  self.assertEqual(self.evaluate()['status'],'BLOCKED')
+ def test_undeclared_reader_media_blocks_publication(self):
+  self.fixture()
+  media=self.root/'public/assets/undeclared.png';media.write_bytes(b'undeclared synthetic media')
+  reader=self.root/'public/review/test/index.html'
+  reader.write_text(reader.read_text()+' <img src="/assets/undeclared.png">')
+  hashes={'public/review/test/index.html':state.digest(reader)}
+  for name in ('production-receipt','asset-persistence-receipt','editorial-qa','deployment-receipt',
+               'source-qa','rendered-qa','visual-review','benchmark-parity','reader-contract-qa'):
+   self.change(name+'.json',lambda x:x.update(reader_hashes=hashes))
   self.assertEqual(self.evaluate()['status'],'BLOCKED')
  def test_trace_operation_cannot_disappear(self):
   contract=state.read(state.ROOT/'atlas/contracts/manufacturing-trace.json')

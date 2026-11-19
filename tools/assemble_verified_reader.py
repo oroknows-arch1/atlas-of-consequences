@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Advance a passed structural reader using only persisted, independently checked assets."""
 import json
+import re
 import sys
 from pathlib import Path
 from production_state import ROOT, read, write, binding, require_current, digest, public_path, reader_hashes
@@ -27,6 +28,8 @@ def main(run):
     persisted=read(run/'asset-persistence-receipt.json');require_current(run,persisted)
     if persisted.get('status')!='PASS': raise ValueError('verified asset receipt is blocked')
     assets=persisted['assets']
+    paths=[asset['path'] for asset in assets]
+    if len(paths)!=len(set(paths)): raise ValueError('duplicate declared asset paths')
     for asset in assets:
         file=public_path(asset['path'])
         if (not file.is_file() or digest(file)!=asset['sha256'] or file.stat().st_size!=asset['bytes']
@@ -39,8 +42,8 @@ def main(run):
     for obsolete in ('reader.css','reader.js'):
         (page.parent/obsolete).unlink(missing_ok=True)
     html=page.read_text()
-    missing=[a['path'] for a in assets if a['path'] not in html]
-    if missing: raise ValueError('persisted assets not connected to reader: '+str(missing))
+    media=set(re.findall(r'(?:src|poster|data-graphic-path)=["\'](/assets/[^"\'?#]+)',html))
+    if media!=set(paths): raise ValueError('reader media differs from declared assets')
     if digest(page)!=early['reader_sha256']:
         raise ValueError('full asset wiring changed the approved structural reader; rerun early visual gate')
     result={**binding(run),'state':'ASSEMBLED','assets_persisted':len(assets),
