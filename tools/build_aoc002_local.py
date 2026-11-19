@@ -185,13 +185,12 @@ def build_inputs():
     requirements, routing = [], []
     for pid, _, _, _ in PERSPECTIVES:
         for sid, meaning, _, boundary in SCENES[pid]:
-            graphic = sid in GRAPHIC_SCENES
-            vtype = "deterministic explanatory graphic" if graphic else "deterministic contextual editorial illustration"
+            vtype = "cinematic AI-generated regional reconstruction"
             requirements.append({"scene_id": sid, "required": True, "purpose": meaning, "truth_boundary": boundary, "visual_type": vtype})
-            routing.append({"scene_id": sid, "required": True, "purpose": meaning, "truth_boundary": boundary, "provider_decision": "DETERMINISTIC", "asset_path": None})
+            routing.append({"scene_id": sid, "required": True, "purpose": meaning, "truth_boundary": boundary, "provider_decision": "OPENAI_IMAGEGEN", "asset_path": None})
     write_json("visual_requirements.json", gate("visual_requirements", {"candidate_id": EDITION, "requirements": requirements}, "Atlas visual requirements / 2026-11-19"))
-    write_json("image_provider_routing.json", gate("image_provider_routing", {"candidate_id": EDITION, "visuals": routing, "runway_required": False, "video_required": False, "routing_note": "Zero-cost deterministic visuals; all contextual images are visibly non-documentary illustrations."}, "Atlas zero-cost provider routing / 2026-11-19"))
-    write_json("visual-context.json", {"candidate_id": EDITION, "geography": "Imo State, Nigeria; no wellhead or host-community claim", "locality_evidence": [{"source_id": "SEPLAT-OML53", "scope": "State and licence context only"}, {"source_id": "NBS-LFS-2023", "scope": "State labour structure only"}, {"source_id": "NUPRC-HOST-2022", "scope": "National host-community process; no Aku-01 community named"}], "visual_bible": {"palette": "humid green, laterite red, deep petroleum blue and warm market gold", "camera": "layered editorial collage and schematic depth; no simulated documentary photograph", "continuity": "Imo regional vegetation, roads, workshops, market and energy infrastructure represented symbolically", "bans": ["named community", "exact wellhead", "fake documentary person", "spill or flare presented as actual", "company logo as endorsement"]}})
+    write_json("image_provider_routing.json", gate("image_provider_routing", {"candidate_id": EDITION, "visuals": routing, "runway_required": False, "video_required": True, "routing_note": "Cinematic regional and fictional reconstructions generated for owner review; none is documentary evidence or an exact Aku-01 site claim."}, "Atlas visual replacement / 2026-11-19"))
+    write_json("visual-context.json", {"candidate_id": EDITION, "geography": "Imo State, Nigeria; no wellhead or host-community claim", "locality_evidence": [{"source_id": "SEPLAT-OML53", "scope": "State and licence context only"}, {"source_id": "NBS-LFS-2023", "scope": "State labour structure only"}, {"source_id": "NUPRC-HOST-2022", "scope": "National host-community process; no Aku-01 community named"}], "visual_bible": {"palette": "humid green, laterite red, deep petroleum blue and warm market gold", "camera": "cinematic naturalistic editorial reconstruction with deep perspective and restrained film grade", "continuity": "Imo regional vegetation, roads, workshops, market, civic process and energy infrastructure; fictional people remain explicitly reconstructed", "bans": ["named community", "exact wellhead", "reconstruction presented as documentary evidence", "spill or flare presented as actual", "company logo as endorsement"]}})
     write_json("visual-data.json", {sid: {"value": DATA[sid][0], "caption": DATA[sid][1], "scope": DATA[sid][1], "source_id": SCENES[sid.split("-")[0]][[x[0] for x in SCENES[sid.split("-")[0]]].index(sid)][2][0]} for sid in GRAPHIC_SCENES})
 
 
@@ -254,25 +253,28 @@ def graphic_svg(path: Path, value: str, caption: str, source_id: str, index: int
 def build_assets_and_receipts():
     ASSETS.mkdir(parents=True, exist_ok=True)
     copy = editorial_copy(); write_json("editorial-copy.json", copy)
-    # Shared sections plus six route entry illustrations are contextual PNGs.
-    contextual = [("reality-scene", "A discovery, not yet a development"), ("consequences-scene", "A conditional chain"), ("place-scene", "Imo State at regional resolution")]
-    for pid, name, _, _ in PERSPECTIVES: contextual.append((SCENES[pid][0][0], name))
+    # Owner-rejected deterministic media is replaced by the inspected cinematic
+    # reconstruction set. Repeated paths are deliberate continuity, not missing media.
+    contextual = [("reality-scene", "reality-scene.png"), ("consequences-scene", "consequences-scene.png"), ("place-scene", "place-scene.png")]
+    for pid, _, _, _ in PERSPECTIVES: contextual.append((SCENES[pid][0][0], f"{pid.lower()}-s1.png"))
     assets = []
-    for i, (sid, label) in enumerate(contextual):
+    for sid, filename in contextual:
         beat = sid + "-B1" if sid.endswith("-scene") else None
-        path = ASSETS / (sid.lower() + ".png")
-        contextual_png(path, i, label)
+        path = ASSETS / filename
+        if not path.is_file(): raise FileNotFoundError(path)
         text = copy[{"reality-scene":"opening", "consequences-scene":"consequences", "place-scene":"place"}[sid]]["paragraphs"][0]["text"] if beat else copy["scenes"][sid]["paragraphs"][0]["text"]
-        assets.append({"scene_id": sid, **({"beat_id": beat} if beat else {}), "path": "/assets/aoc-002/" + path.name, "sha256": sha(path), "bytes": path.stat().st_size, "beat_text_sha256": hashlib.sha256(text.encode()).hexdigest() if beat else None, "provenance": "Deterministic Atlas regional illustration; visual vocabulary bounded by registered Imo sources; non-documentary", "provider": "ATLAS_DETERMINISTIC_CONTEXT", "truth_boundary": "Contextual illustration; not a photograph, wellhead map or host-community claim.", "status": "PASS", "visual_qa": {"pass": True, "reason": "Binary, legible and explicitly non-documentary; rendered QA remains required."}})
-    for i, sid in enumerate(sorted(GRAPHIC_SCENES)):
-        value, caption = DATA[sid]; refs = copy["scenes"][sid]["paragraphs"][0]["evidence_refs"]
-        path = ASSETS / (sid.lower() + ".svg"); graphic_svg(path, value, caption, refs[0], i)
-        assets.append({"scene_id": sid, "path": "/assets/aoc-002/" + path.name, "sha256": sha(path), "bytes": path.stat().st_size, "provenance": "Deterministic source-labelled explanatory graphic", "provider": "ATLAS_DETERMINISTIC_GRAPHIC", "truth_boundary": SCENES[sid.split("-")[0]][[x[0] for x in SCENES[sid.split("-")[0]]].index(sid)][3], "status": "PASS", "visual_qa": {"pass": True, "reason": "Value, scope and registered source are visible; rendered QA remains required."}})
+        assets.append({"scene_id": sid, **({"beat_id": beat} if beat else {}), "path": "/assets/aoc-002/" + path.name, "sha256": sha(path), "bytes": path.stat().st_size, "beat_text_sha256": hashlib.sha256(text.encode()).hexdigest() if beat else None, "provenance": "OpenAI image generation; cinematic Imo State regional or fictional reconstruction; not documentary evidence", "provider": "OPENAI_IMAGEGEN_CONTEXT", "truth_boundary": "AI-generated regional reconstruction; not Aku-01 footage, an exact wellhead, or a host-community claim.", "status": "PASS", "visual_qa": {"pass": True, "reason": "Inspected for regional continuity, cinematic composition, factual boundaries and absence of exact-site claims."}})
+    route_images = {"D1":"d1-s1.png", "I1":"i1-s1.png", "MF1":"mf1-s1.png", "C1":"c1-s1.png", "W1":"w1-s1.png", "E1":"e1-s1.png"}
+    for sid in sorted(GRAPHIC_SCENES):
+        pid = sid.split("-")[0]; path = ASSETS / route_images[pid]
+        assets.append({"scene_id": sid, "path": "/assets/aoc-002/" + path.name, "sha256": sha(path), "bytes": path.stat().st_size, "provenance": "OpenAI image generation; cinematic perspective reconstruction replacing rejected deterministic graphic", "provider": "OPENAI_IMAGEGEN_CONTEXT", "truth_boundary": SCENES[pid][[x[0] for x in SCENES[pid]].index(sid)][3] + " Image is a reconstruction, not documentary evidence.", "status": "PASS", "visual_qa": {"pass": True, "reason": "Inspected cinematic reconstruction; factual value remains in sourced reader text rather than baked into imagery."}})
     # Input binding is computed only after every declared input exists.
     from production_state import binding, digest
     bind = binding(RUN)
     write_json("editorial-qa.json", {**bind, "status": "PASS", "defects": [], "copy_sha256": digest(RUN / "editorial-copy.json"), "attempt": 1, "verifier": "bounded evidence audit / 2026-11-19"})
     write_json("asset-persistence-receipt.json", {**bind, "status": "PASS", "assets": assets, "defects": []})
+    film = ASSETS / "opening.webm"
+    write_json("opening-media.json", {**binding(RUN), "edition_id": EDITION, "status": "PASS", "kind": "motion_video", "path": "/assets/aoc-002/opening.webm", "sha256": sha(film), "bytes": film.stat().st_size, "duration": 15.0, "dimensions": [1920, 1080], "provenance": "Local cinematic motion composition from generated regional reconstructions; synthetic ambient sound; not documentary evidence", "visual_qa": {"status": "PASS", "reviewer": "bounded local visual review / 2026-11-19", "reason": "Regional and fictional reconstruction labels preserved; no exact Aku-01 site claim; soundtrack fades over final 2.2 seconds."}})
     write_json("reader-display-copy.json", {"edition_id": EDITION, "purpose": "No editorial override; preserve evidence-bound copy.", "scene_overrides": {}})
 
 

@@ -1,21 +1,9 @@
 {
-  "E1-S3": {
-    "value": "UNKNOWN",
-    "caption": "Exact wellhead, host community and final development plan",
-    "scope": "Exact wellhead, host community and final development plan",
-    "source_id": "SEPLAT-9M-2026"
-  },
-  "I1-S2": {
-    "value": "Potential tie-back",
-    "caption": "Planned future connection; route and timing not final",
-    "scope": "Planned future connection; route and timing not final",
-    "source_id": "SEPLAT-9M-2026"
-  },
-  "W1-S2": {
-    "value": "Training → practice → certification",
-    "caption": "National capability pathway; no job guarantee",
-    "scope": "National capability pathway; no job guarantee",
-    "source_id": "NCDMB-HCD"
+  "C1-S2": {
+    "value": "3% of prior OPEX",
+    "caption": "Statutory trust contribution basis; not revenue share",
+    "scope": "Statutory trust contribution basis; not revenue share",
+    "source_id": "PIA-2021"
   },
   "MF1-S3": {
     "value": "Economics undisclosed",
@@ -29,11 +17,17 @@
     "scope": "Regulatory objective; not Aku-01 performance evidence",
     "source_id": "NUPRC-FLARE-2022"
   },
-  "C1-S2": {
-    "value": "3% of prior OPEX",
-    "caption": "Statutory trust contribution basis; not revenue share",
-    "scope": "Statutory trust contribution basis; not revenue share",
-    "source_id": "PIA-2021"
+  "I1-S2": {
+    "value": "Potential tie-back",
+    "caption": "Planned future connection; route and timing not final",
+    "scope": "Planned future connection; route and timing not final",
+    "source_id": "SEPLAT-9M-2026"
+  },
+  "E1-S3": {
+    "value": "UNKNOWN",
+    "caption": "Exact wellhead, host community and final development plan",
+    "scope": "Exact wellhead, host community and final development plan",
+    "source_id": "SEPLAT-9M-2026"
   },
   "D1-S2": {
     "value": "157 Bcf + 19 MMbbls",
@@ -41,16 +35,22 @@
     "scope": "Preliminary mid-case gas and oil in place; company estimate",
     "source_id": "SEPLAT-9M-2026"
   },
-  "D1-S3": {
-    "value": "4 prospects",
-    "caption": "Described as de-risked; not discoveries",
-    "scope": "Described as de-risked; not discoveries",
-    "source_id": "SEPLAT-9M-2026"
+  "W1-S2": {
+    "value": "Training → practice → certification",
+    "caption": "National capability pathway; no job guarantee",
+    "scope": "National capability pathway; no job guarantee",
+    "source_id": "NCDMB-HCD"
   },
   "MF1-S2": {
     "value": "40%",
     "caption": "Seplat operated interest in PPL 2A25",
     "scope": "Seplat operated interest in PPL 2A25",
+    "source_id": "SEPLAT-9M-2026"
+  },
+  "D1-S3": {
+    "value": "4 prospects",
+    "caption": "Described as de-risked; not discoveries",
+    "scope": "Described as de-risked; not discoveries",
     "source_id": "SEPLAT-9M-2026"
   }
 }

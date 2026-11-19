@@ -17,12 +17,12 @@
   ],
   "visual_bible": {
     "palette": "humid green, laterite red, deep petroleum blue and warm market gold",
-    "camera": "layered editorial collage and schematic depth; no simulated documentary photograph",
-    "continuity": "Imo regional vegetation, roads, workshops, market and energy infrastructure represented symbolically",
+    "camera": "cinematic naturalistic editorial reconstruction with deep perspective and restrained film grade",
+    "continuity": "Imo regional vegetation, roads, workshops, market, civic process and energy infrastructure; fictional people remain explicitly reconstructed",
     "bans": [
       "named community",
       "exact wellhead",
-      "fake documentary person",
+      "reconstruction presented as documentary evidence",
       "spill or flare presented as actual",
       "company logo as endorsement"
     ]

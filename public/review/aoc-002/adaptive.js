@@ -38,6 +38,7 @@
   const skip = hero.querySelector('.skip-film');
   const reveal = () => {
     hero.classList.add('film-complete');
+    document.body.classList.add('reader-live');
     try { if (video) video.currentTime = Math.max(0, video.duration - 0.05); } catch (_) {}
   };
   video?.addEventListener('ended', reveal, { once:true });
@@ -47,14 +48,26 @@
     reveal();
   });
   video?.addEventListener('error', reveal, { once:true });
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) reveal();
-  else if (video) video.play().catch(() => hero.classList.add('tap-to-play'));
+  if (video) video.play().catch(() => hero.classList.add('tap-to-play'));
   else setTimeout(reveal, 6000);
   hero.addEventListener('click', () => {
     if (hero.classList.contains('tap-to-play') && video?.paused) {
       video?.play().then(() => hero.classList.remove('tap-to-play')).catch(reveal);
     }
   });
+  let scrubFrame = 0;
+  const scrub = () => {
+    if (!video || !hero.classList.contains('film-complete') || !Number.isFinite(video.duration)) return;
+    cancelAnimationFrame(scrubFrame);
+    scrubFrame = requestAnimationFrame(() => {
+      const start = hero.offsetHeight;
+      if (scrollY <= start) return;
+      const range = Math.max(1, document.documentElement.scrollHeight - innerHeight - start);
+      const progress = Math.min(1, Math.max(0, (scrollY - start) / range));
+      video.currentTime = Math.max(0, video.duration * (1 - progress));
+    });
+  };
+  addEventListener('scroll', scrub, { passive:true });
   // Edition routing extends canonical click behaviour to reload, Back and source anchors.
   const navigate = () => {
     let id; try { id = decodeURIComponent(location.hash.slice(1)); } catch (_) { id = ''; }

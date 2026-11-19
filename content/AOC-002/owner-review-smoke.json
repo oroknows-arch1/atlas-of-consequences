@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "viewport": {
+        "name": "phone",
+        "width": 390,
+        "height": 844
+      },
+      "video": true,
+      "ready": 4,
+      "controls": "422px",
+      "mode": "approved_film",
+      "complete": true,
+      "readerLive": true,
+      "perspectives": 6,
+      "videoPosition": "fixed",
+      "routeLinks": true
+    },
+    {
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900
+      },
+      "video": true,
+      "ready": 4,
+      "controls": "450px",
+      "mode": "approved_film",
+      "complete": true,
+      "readerLive": true,
+      "perspectives": 6,
+      "videoPosition": "fixed",
+      "routeLinks": true
+    }
+  ]
+}

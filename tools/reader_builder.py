@@ -54,7 +54,8 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
           and media.get('visual_qa',{}).get('status')=='PASS' and
           media.get('path') and digest(public_path(media['path']))==media.get('sha256') else None)
     sequence=contextual[:3]
-    opening=('''<video class="hero-video" autoplay muted playsinline preload="auto" poster="%s"><source src="%s" type="video/mp4"></video>'''%(esc(hero['path']),esc(film))) if film else '<div class="opening-sequence" aria-hidden="true">'+''.join('<img src="%s" alt="" class="opening-frame frame-%d">'%(esc(a['path']),i+1) for i,a in enumerate(sequence))+'</div>'
+    film_type='video/webm' if film and film.endswith('.webm') else 'video/mp4'
+    opening=('''<video class="hero-video" autoplay playsinline preload="auto" poster="%s" aria-label="AI-generated regional opening film; not documentary footage"><source src="%s" type="%s"></video>'''%(esc(hero['path']),esc(film),film_type)) if film else '<div class="opening-sequence" aria-hidden="true">'+''.join('<img src="%s" alt="" class="opening-frame frame-%d">'%(esc(a['path']),i+1) for i,a in enumerate(sequence))+'</div>'
     mode='approved_film' if film else 'verified_image_sequence'
     write(run/'opening-system.json',{**binding(run),'status':'PASS','mode':mode,
           'assets':[{'path':a['path'],'sha256':a['sha256']} for a in sequence] if not film else [],
@@ -76,7 +77,7 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
             visual=contextual[(n-1)%len(contextual)] if graphic else beat
             cls='scene-overlay'
             image='<img src="%s" alt="%s" loading="lazy">'%(esc(visual['path']),esc(block['heading']))
-            caption='<em class="asset-boundary">AI-generated contextual illustration · not a documentary photograph · %s</em>'%esc(visual['truth_boundary'])
+            caption='<em class="asset-boundary">AI-generated cinematic reconstruction · not documentary evidence · %s</em>'%esc(visual['truth_boundary'])
             if graphic:
                 caption+='<a class="graphic-evidence" href="%s" rel="noopener" target="_blank" data-graphic-path="%s">Inspect verified explanatory graphic ↗</a><em class="asset-boundary">%s</em>'%(esc(beat['path']),esc(beat['path']),esc(beat['truth_boundary']))
             refs=' '.join('<a href="#source-%s">%s</a>'%(esc(ref),esc(ref)) for ref in p['evidence_refs'])
