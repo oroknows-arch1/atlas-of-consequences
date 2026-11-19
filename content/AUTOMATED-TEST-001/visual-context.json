@@ -1,0 +1,16 @@
+{
+  "candidate_id":"AET1-WC-002",
+  "geography":"Dhaka and greater Dhaka, Bangladesh",
+  "locality_evidence":[
+    {"source_id":"IIED-HEAT-2026","scope":"Dhaka informal-worker households, outdoor work and rented homes; representative context, not named individuals"},
+    {"source_id":"CORNELL-HEAT-2026","scope":"Sampled Dhaka-region apparel factories and worker homes; avoid attributing an image to any sampled facility"},
+    {"source_id":"RMG-WORKER-2025","scope":"Two Dhaka garment factories; worker conditions do not establish the look of any named factory"},
+    {"source_id":"UNICEF-EDU-2025","scope":"Bangladesh school disruption and heatwave closures; no specific school is identified"}
+  ],
+  "visual_bible":{
+    "palette":"sunlit warm neutral tones, restrained terracotta highlights and teal-grey shadows, readable midtones",
+    "camera":"observational street-level framing, natural materials and ordinary activity, no staged distress",
+    "continuity":"Dhaka/greater Dhaka built environment and monsoon-season humidity as context; distinct unnamed people in factual scenes; no recurring fictional subjects presented as documentary people",
+    "bans":["identifiable institution signage","named facility","claimed actual study participant","fabricated specific heat incident","poverty spectacle","text baked into photograph"]
+  }
+}

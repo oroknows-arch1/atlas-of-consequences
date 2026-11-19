@@ -1,0 +1,19 @@
+{
+  "stage":"edition_selection_gate",
+  "status":"PASS",
+  "produced_by":"Atlas edition selection gate / approved rule 2026-09-27",
+  "output":{
+    "candidate_id":"AET1-WC-001",
+    "decision":"NOT_READY",
+    "advance_to_route_generation":false,
+    "human_emotional_hook_gate":"FAIL",
+    "informational_completeness_gate":"FAIL",
+    "failed_necessary_perspectives":[
+      {"id":"P3","name":"The Farm Gate","reason":"Farmer/locality evidence does not yet establish actual access, price, application or yield consequences."},
+      {"id":"P4","name":"The Plate","reason":"Household food-price/food-security consequences attributable to this fertilizer shock are not established."}
+    ],
+    "preserved_strengths":["The Chokepoint","The Buffer","The Alternate Route"],
+    "rule_applied":"Do not manufacture emotion, causality or locality; do not drop necessary Perspectives to make the candidate pass.",
+    "next_action":"Retain as WATCH/NOT_READY and continue through remaining EMRADAR scan candidates."
+  }
+}

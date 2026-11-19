@@ -1,0 +1,57 @@
+{
+  "stage": "comparative_knowledge_retrieval",
+  "status": "PASS",
+  "produced_by": "Atlas comparative knowledge worker / 2026-09-27",
+  "output": {
+    "candidate_id": "AET1-WC-002",
+    "principle": "Comparative evidence expands STORY plausibility but cannot establish local occurrence.",
+    "layers": [
+      {
+        "level": "DIRECT_LOCAL",
+        "supports": [
+          "persistent heat exposure",
+          "worker symptoms and reduced capacity",
+          "missed work/income loss",
+          "heat continuing into sampled worker homes",
+          "school disruption/child heat risk"
+        ],
+        "refs": [
+          "WB-HEAT-2025",
+          "IIED-HEAT-2026",
+          "CORNELL-HEAT-2026",
+          "RMG-WORKER-2025",
+          "UNICEF-EDU-2025"
+        ]
+      },
+      {
+        "level": "BROADER_CONTEXT",
+        "supports": [
+          "household schedule pressure when paid work and school availability collide",
+          "unequal ability to cool or rest"
+        ],
+        "rule": "May shape fictional choices and tensions; do not report as measured outcome for a particular Dhaka household."
+      },
+      {
+        "level": "ORDINARY_HUMAN",
+        "supports": [
+          "fatigue",
+          "irritability",
+          "care",
+          "humour",
+          "worry about lost pay",
+          "negotiation between adults",
+          "a child seeking relief from heat"
+        ],
+        "rule": "Ordinary emotional behaviour may be fictionalized without statistical proof when credible in established conditions."
+      }
+    ],
+    "rejected_imports": [
+      "death",
+      "eviction",
+      "domestic violence",
+      "family breakdown",
+      "specific medical emergency"
+    ],
+    "rejection_reason": "Too consequential to import without stronger local support for the proposed story event."
+  }
+}

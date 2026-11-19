@@ -1,0 +1,47 @@
+{
+  "stage": "publication_qa",
+  "status": "BLOCKED",
+  "produced_by": "Atlas publication-completeness repair / 2026-09-27",
+  "output": {
+    "edition_id": "AET1-WC-002",
+    "release_state": "BLOCKED",
+    "reason": "Previous PASS was invalid because required contextual visual binaries were not generated, persisted and integrated. Human review was exposed before publication completeness.",
+    "passed_layers": [
+      "candidate selection",
+      "evidence graph",
+      "Perspective derivation",
+      "route generation",
+      "causal boundaries",
+      "comparative knowledge",
+      "STORY plausibility",
+      "source-register repair"
+    ],
+    "failed_layers": [
+      {
+        "node": "asset_generation",
+        "failure": "Required contextual visual set incomplete."
+      },
+      {
+        "node": "asset_persistence_gate",
+        "failure": "Generated visual continuity board is not yet persisted as publication assets with hashes/targets."
+      },
+      {
+        "node": "reader_integration_gate",
+        "failure": "Required contextual assets are not wired into the reader."
+      },
+      {
+        "node": "benchmark_parity_qa",
+        "failure": "Cannot pass AOC-001 parity without complete imagery/media and integrated publication treatment."
+      }
+    ],
+    "known_required_items": [
+      "Generate the complete required visual set from the approved continuity system.",
+      "Persist each required binary with provenance/hash.",
+      "Integrate each asset into its intended Perspective/STORY scene.",
+      "Run visual/evidence QA, mobile QA, source QA and benchmark parity QA.",
+      "Only then emit PUBLICATION_CANDIDATE."
+    ],
+    "publication_authorized": false,
+    "human_review_required_now": false
+  }
+}

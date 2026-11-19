@@ -1,0 +1,20 @@
+{
+  "schema_version":"1.0",
+  "candidate_id":"AET1-WC-002",
+  "working_title":"When the Heat Comes Inside",
+  "world_change":"In Bangladesh, rising heat has moved from an episodic weather hazard into a persistent labour, health, household and economic constraint, while new 2026 evidence shows that practical cooling and social-protection responses can reduce part of the burden.",
+  "selection_state":"SELECTED_FOR_EDITION_GENERATION",
+  "geographic_core":"Dhaka, Bangladesh",
+  "evidence_basis":[
+    {"id":"WB-HEAT-2025","claim":"National analysis using 16,000+ people found rising heat associated with physical and mental health effects and about 250 million lost workdays in 2024."},
+    {"id":"IIED-HEAT-2026","claim":"Survey of 175 Dhaka informal-worker households measured missed work, income loss, health burden and impacts at work and home."},
+    {"id":"CORNELL-HEAT-2026","claim":"Year-long evidence from eight Dhaka-region apparel factories and three dozen worker homes found a seven-month heat-stress season and quantified cooling economics."},
+    {"id":"RMG-WORKER-2025","claim":"Worker interviews in two Dhaka garment factories documented headaches, dizziness, fatigue, nausea, absenteeism, productivity effects and barriers to hydration/cooling."},
+    {"id":"UNICEF-EDU-2025","claim":"Bangladesh heatwaves contributed to nationwide school closures and child health/learning disruption in 2024."}
+  ],
+  "human_emotional_hook":{
+    "state":"PASS",
+    "basis":"Heat follows people across the boundary between earning a living and recovering at home: workers can lose income by stopping, but continued exposure carries health and exhaustion costs; children and families face parallel heat burdens.",
+    "boundary":"Use evidenced worker/household experiences or clearly labelled fiction grounded in those conditions. Do not invent a named real worker or attribute a surveyed experience to an invented individual as fact."
+  }
+}

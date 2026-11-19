@@ -1,0 +1,276 @@
+{
+  "schema_version": "1.0",
+  "graph_id": "automated-edition-generation",
+  "purpose": "Generate a publication-ready Atlasoquence edition from a verified world change, benchmarked against AOC-001, before human editorial/release review.",
+  "invariants": {
+    "provider_availability_or_credit_exhaustion": "may change HOW a visual requirement is fulfilled; must never change evidence, Perspective structure, scene meaning, or factual boundary",
+    "video_generation_mandatory": false,
+    "edition_selection": "all necessary evidence-derived Perspectives plus a grounded human/emotional consequence must pass before route/scene generation; EMRADAR-derived editions require an explicit evidence-backed Markets/Finance domain route without prescribing its name or count",
+    "visual_coverage": "rendered beat count follows edition copy and Perspective scene topology; each image-led beat needs a matched, verified visual intent and asset; consecutive reuse requires reviewed narrative justification; missing coverage routes upstream as VISUAL_COVERAGE_GAP",
+    "story_plausibility": "FACT remains direct-evidence strict; STORY may use comparative knowledge and bounded human plausibility, but invention must remain clearly fictional and cannot become factual evidence.",
+    "review_ready_definition": "Human review begins only at PUBLICATION_CANDIDATE: all required editorial content, required visual binaries, persistence receipts, reader integration, source treatment, mobile behavior and benchmark QA must pass. No placeholders, pending required assets, or known publication work may remain.",
+    "manufacturing_trace_coverage": "Every operation in an approved benchmark manufacturing trace must map to an executable automated worker, automated gate, or explicit human-authority gate. Manufacturing parity is required in addition to editorial parity."
+  },
+  "nodes": [
+    {
+      "id": "world_change_intake",
+      "mode": "MODEL_RESEARCH",
+      "produces": "world_change_candidate"
+    },
+    {
+      "id": "evidence_graph",
+      "mode": "MODEL_RESEARCH",
+      "requires": [
+        "world_change_intake"
+      ],
+      "produces": "evidence_graph"
+    },
+    {
+      "id": "evidence_gate",
+      "mode": "BOUNDED_VERIFY",
+      "requires": [
+        "evidence_graph"
+      ],
+      "produces": "verified_evidence_graph"
+    },
+    {
+      "id": "geography_resolution",
+      "mode": "MODEL_RESEARCH",
+      "requires": [
+        "evidence_gate"
+      ],
+      "produces": "supported_geography"
+    },
+    {
+      "id": "perspective_candidates",
+      "mode": "MODEL_CREATE",
+      "requires": [
+        "evidence_gate",
+        "geography_resolution"
+      ],
+      "produces": "perspective_candidates"
+    },
+    {
+      "id": "perspective_gate",
+      "mode": "BOUNDED_DECISION",
+      "decision_layer": "JEV_WHEN_USEFUL",
+      "requires": [
+        "perspective_candidates"
+      ],
+      "produces": "accepted_and_rejected_perspectives"
+    },
+    {
+      "id": "edition_selection_gate",
+      "mode": "BOUNDED_DECISION",
+      "decision_layer": "JEV_WHEN_USEFUL",
+      "requires": [
+        "evidence_gate",
+        "geography_resolution",
+        "perspective_gate"
+      ],
+      "rule": "PASS only when every necessary Perspective is evidence-supported, at least one grounded human/emotional consequence is evidenced, and EMRADAR-origin editions contain an explicit evidence-backed Markets/Finance domain route; otherwise reselect before route or asset production",
+      "produces": "edition_selection_decision"
+    },
+    {
+      "id": "route_scene_generation",
+      "mode": "MODEL_CREATE",
+      "requires": [
+        "edition_selection_gate"
+      ],
+      "produces": "routes_and_scene_meanings"
+    },
+    {
+      "id": "causal_boundary_gate",
+      "mode": "BOUNDED_VERIFY",
+      "requires": [
+        "route_scene_generation",
+        "evidence_gate"
+      ],
+      "produces": "bounded_routes"
+    },
+    {
+      "id": "comparative_knowledge_retrieval",
+      "mode": "MODEL_RESEARCH",
+      "requires": [
+        "causal_boundary_gate",
+        "geography_resolution"
+      ],
+      "rule": "Retrieve contextual/comparative evidence only to expand STORY plausibility; it cannot upgrade a factual claim.",
+      "produces": "comparative_knowledge_graph"
+    },
+    {
+      "id": "story_synthesis",
+      "mode": "MODEL_CREATE",
+      "requires": [
+        "causal_boundary_gate",
+        "comparative_knowledge_retrieval"
+      ],
+      "rule": "May invent clearly fictional people, relationships, dialogue, choices, ordinary events and emotions inside evidence-established conditions.",
+      "produces": "story_candidate"
+    },
+    {
+      "id": "story_plausibility_gate",
+      "mode": "BOUNDED_VERIFY",
+      "requires": [
+        "story_synthesis",
+        "comparative_knowledge_retrieval",
+        "evidence_gate"
+      ],
+      "rule": "Verify fiction does not contradict facts, disguise comparison as local occurrence, overstate prevalence, or import severe/culturally specific events without sufficient contextual support.",
+      "produces": "bounded_story"
+    },
+    {
+      "id": "visual_requirements",
+      "mode": "MODEL_CREATE",
+      "requires": [
+        "causal_boundary_gate",
+        "geography_resolution"
+      ],
+      "produces": "scene and rendered-beat visual requirements; asset count follows publication copy, never a fixed quota"
+    },
+    {
+      "id": "image_provider_routing",
+      "mode": "BOUNDED_DECISION",
+      "decision_layer": "JEV_WHEN_USEFUL",
+      "requires": [
+        "visual_requirements"
+      ],
+      "rule": "route by visual purpose, truth boundary, capability and availability; provider availability/credits may alter fulfilment method only",
+      "fallback_order": [
+        "CHATGPT_IMAGES",
+        "DETERMINISTIC",
+        "SOURCED_MEDIA",
+        "NONE"
+      ],
+      "runway_policy": "exception provider only; never required for edition completion",
+      "produces": "provider_decisions"
+    },
+    {
+      "id": "edition_manifest",
+      "mode": "DETERMINISTIC",
+      "requires": [
+        "provider_decisions",
+        "bounded_routes",
+        "verified_evidence_graph",
+        "bounded_story"
+      ],
+      "produces": "generated_edition_manifest"
+    },
+    {
+      "id": "invariant_validation",
+      "mode": "DETERMINISTIC",
+      "requires": [
+        "edition_manifest"
+      ],
+      "produces": "validation_receipt"
+    },
+    {
+      "id": "asset_generation",
+      "mode": "MODEL_CREATE_OR_TOOL",
+      "condition": "only validated scenes with required=true and approved truth boundary; video is optional",
+      "requires": [
+        "invariant_validation"
+      ],
+      "produces": "generated_asset_set_with_binary_receipts",
+      "rule": "Every visual_requirements item with required=true must resolve to a real generated/sourced/deterministic binary or the edition remains BLOCKED. Visual intent, storyboard, prompt, placeholder, gradient or provider decision is not an asset."
+    },
+    {
+      "id": "asset_evidence_qa",
+      "mode": "BOUNDED_VERIFY",
+      "requires": [
+        "asset_generation",
+        "verified_evidence_graph"
+      ],
+      "produces": "verified_asset_set",
+      "rule": "Verify every required asset exists as a binary, has provenance/fiction status, satisfies visual meaning and truth boundary, and is publication-usable."
+    },
+    {
+      "id": "reader_assembly",
+      "mode": "DETERMINISTIC",
+      "requires": [
+        "asset_evidence_qa",
+        "edition_manifest",
+        "bounded_story"
+      ],
+      "produces": "publication_candidate_reader",
+      "rule": "Assemble the complete editorial edition with all required assets wired into their intended scenes; placeholder or missing required media blocks completion."
+    },
+    {
+      "id": "asset_persistence_gate",
+      "mode": "DETERMINISTIC",
+      "requires": [
+        "asset_evidence_qa"
+      ],
+      "rule": "PASS only when each required visual has a persistent repository/publication path, content hash and integration target. Ephemeral generation URLs or unpersisted outputs fail.",
+      "produces": "asset_persistence_receipt"
+    },
+    {
+      "id": "reader_integration_gate",
+      "mode": "DETERMINISTIC",
+      "requires": [
+        "reader_assembly",
+        "asset_persistence_gate"
+      ],
+      "rule": "PASS only when every required visual is actually referenced by the publication candidate and no placeholder/pending visual treatment remains.",
+      "produces": "reader_integration_receipt"
+    },
+    {
+      "id": "benchmark_parity_qa",
+      "mode": "BOUNDED_VERIFY",
+      "requires": [
+        "reader_integration_gate"
+      ],
+      "rule": "Compare candidate against AOC-001 benchmark dimensions: editorial depth, contextual imagery, visual continuity, fact/fiction visibility, source inspectability, route/reader behavior, mobile presentation, visual uniformity and publication completeness. Any material missing layer blocks human review.",
+      "produces": "benchmark_parity_receipt"
+    },
+    {
+      "id": "publication_qa",
+      "mode": "BOUNDED_VERIFY",
+      "requires": [
+        "benchmark_parity_qa"
+      ],
+      "produces": "release_readiness_report",
+      "rule": "May emit PUBLICATION_CANDIDATE only when there are zero known required publication items remaining. Otherwise emit BLOCKED and route defects back to the responsible production node."
+    },
+    {
+      "id": "human_publication_gate",
+      "mode": "HUMAN_GATE",
+      "requires": [
+        "publication_qa"
+      ],
+      "condition": "explicit publication approval required"
+    },
+    {
+      "id": "distribution_handoff",
+      "mode": "DETERMINISTIC",
+      "requires": [
+        "human_publication_gate"
+      ],
+      "produces": "signal_library_input"
+    }
+  ],
+  "failure_policy": {
+    "missing_evidence": "preserve UNKNOWN or UNAVAILABLE; do not fabricate",
+    "weak_perspective": "reject perspective",
+    "unsupported_geography": "reduce geographic resolution",
+    "unsupported_causality": "qualify or break edge",
+    "unsafe_visual_specificity": "use explanatory/generic contextual visual or NONE",
+    "provider_unavailable_or_credits_exhausted": "reroute visual fulfilment without changing evidence, Perspective structure, scene meaning, or factual boundary",
+    "video_unavailable": "continue with still, deterministic, sourced-media or no-motion fulfilment as appropriate",
+    "validation_failure": "halt before asset generation or publication",
+    "incomplete_edition_candidate": "mark NOT_READY or WATCH, record failed gates, and continue through remaining EMRADAR scan candidates; do not generate scenes/assets to rescue it",
+    "story_plausibility_failure": "revise or remove the fictional event; do not weaken factual boundaries or misrepresent comparative evidence as local occurrence",
+    "missing_required_asset": "BLOCKED; return to asset_generation. Never substitute a placeholder and never expose as review-ready.",
+    "unpersisted_required_asset": "BLOCKED; return to asset_persistence_gate until binary path and hash exist.",
+    "benchmark_parity_failure": "BLOCKED; repair the failing production layer and rerun QA. Human review is not the repair loop.",
+    "publication_qa_with_known_items": "invalid state; publication QA cannot PASS with known required review/publication items."
+  },
+  "production_execution": {
+    "workflow": ".github/workflows/atlas-edition-production.yml",
+    "coverage_contract": "atlas/contracts/manufacturing-trace.json",
+    "coverage_gate": "tools/validate_manufacturing_trace.py",
+    "continuation_inputs": "tools/production_state.py:INPUTS",
+    "terminal_gate": "tools/publication_gate.py",
+    "human_gate": "Publication only; established production decisions are automated criteria."
+  }
+}

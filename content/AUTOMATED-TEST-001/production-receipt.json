@@ -1,0 +1,16 @@
+{
+  "edition_id": "AET1-WC-002",
+  "input_sha256": "940f86c72ebe1724ee8e8ccf40050c3426dbad5ac2760b9748bbaf7727eb1e35",
+  "state": "ASSEMBLED",
+  "assets_persisted": 59,
+  "reader": "public/review/aet1-wc-002/index.html",
+  "defects": [],
+  "next_stage": "full_rendered_qa",
+  "publication_authorized": false,
+  "reader_hashes": {
+    "public/review/aet1-wc-002/adaptive.css": "eb0232e2eb66595eb724ae33226f0b489bd62b1569898e1a756c7b4fb921b2a2",
+    "public/review/aet1-wc-002/adaptive.js": "082c2c33a2ae9f6985fbf11009d646154c35918222d43ee4520f37158ecc71b3",
+    "public/review/aet1-wc-002/edition.css": "e9cf8b89a160afb69e1ed712cb7f4638bc233f646656fd1cf9dc5091ae40ddd3",
+    "public/review/aet1-wc-002/index.html": "c29570e25c0a0d785d18552f2a379e067c8dc55acaa22a1e536d605dd844f64e"
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0",
+  "invariant": "MANUFACTURING-TRACE COVERAGE INVARIANT",
+  "benchmark": "AOC-001 quality and manufacturing completeness; not content or topology",
+  "scope": "Continuation from accepted evidence/editorial state. Upstream gates verify accepted inputs; they do not claim to rerun EMRADAR research.",
+  "operations": [
+    {
+      "operation": "world_change",
+      "kind": "automated_gate",
+      "owner": "accepted_input_verifier",
+      "entrypoint": "tools/produce_edition.py:facts",
+      "receipt": "production-receipt.json",
+      "repair_owner": "editorial_inputs"
+    },
+    {
+      "operation": "evidence",
+      "kind": "automated_gate",
+      "owner": "accepted_input_verifier",
+      "entrypoint": "tools/produce_edition.py:facts",
+      "receipt": "production-receipt.json",
+      "repair_owner": "editorial_inputs"
+    },
+    {
+      "operation": "geography",
+      "kind": "automated_gate",
+      "owner": "accepted_input_verifier",
+      "entrypoint": "tools/produce_edition.py:facts",
+      "receipt": "production-receipt.json",
+      "repair_owner": "editorial_inputs"
+    },
+    {
+      "operation": "perspectives",
+      "kind": "automated_gate",
+      "owner": "accepted_input_verifier",
+      "entrypoint": "tools/produce_edition.py:facts",
+      "receipt": "production-receipt.json",
+      "repair_owner": "editorial_inputs"
+    },
+    {
+      "operation": "routes",
+      "kind": "automated_gate",
+      "owner": "accepted_input_verifier",
+      "entrypoint": "tools/produce_edition.py:facts",
+      "receipt": "production-receipt.json",
+      "repair_owner": "editorial_inputs"
+    },
+    {
+      "operation": "story",
+      "kind": "automated_gate",
+      "owner": "accepted_input_verifier",
+      "entrypoint": "tools/produce_edition.py:facts",
+      "receipt": "production-receipt.json",
+      "repair_owner": "editorial_inputs"
+    },
+    {
+      "operation": "visual_intent",
+      "kind": "automated_gate",
+      "owner": "accepted_input_verifier",
+      "entrypoint": "tools/produce_edition.py:facts",
+      "receipt": "production-receipt.json",
+      "repair_owner": "editorial_inputs"
+    },
+    {
+      "operation": "editorial_assembly",
+      "kind": "automated_worker",
+      "owner": "editorial_factory",
+      "entrypoint": "tools/editorial_factory.py:produce",
+      "receipt": "editorial-qa.json",
+      "repair_owner": "editorial_factory"
+    },
+    {
+      "operation": "visual_generation",
+      "kind": "automated_worker",
+      "owner": "visual_factory",
+      "entrypoint": "tools/produce_edition.py:produce_assets",
+      "receipt": "asset-persistence-receipt.json",
+      "repair_owner": "visual_factory"
+    },
+    {
+      "operation": "visual_qa",
+      "kind": "automated_gate",
+      "owner": "visual_factory",
+      "entrypoint": "tools/produce_edition.py:produce_assets",
+      "receipt": "asset-persistence-receipt.json",
+      "repair_owner": "visual_factory"
+    },
+    {
+      "operation": "binary_persistence",
+      "kind": "automated_worker",
+      "owner": "asset_persistence",
+      "entrypoint": "tools/produce_edition.py:produce_assets",
+      "receipt": "asset-persistence-receipt.json",
+      "repair_owner": "asset_persistence"
+    },
+    {
+      "operation": "hash_provenance",
+      "kind": "automated_gate",
+      "owner": "asset_persistence",
+      "entrypoint": "tools/produce_edition.py:produce_assets",
+      "receipt": "asset-persistence-receipt.json",
+      "repair_owner": "asset_persistence"
+    },
+    {
+      "operation": "repository_integration",
+      "kind": "automated_worker",
+      "owner": "repository_worker",
+      "entrypoint": "tools/review_loop.py:persist",
+      "receipt": "deployment-receipt.json",
+      "repair_owner": "repository_worker"
+    },
+    {
+      "operation": "reader_assembly",
+      "kind": "automated_worker",
+      "owner": "reader_builder",
+      "entrypoint": "tools/reader_builder.py:build_reader",
+      "receipt": "production-receipt.json",
+      "repair_owner": "reader_builder"
+    },
+    {
+      "operation": "source_register",
+      "kind": "automated_gate",
+      "owner": "source_registrar",
+      "entrypoint": "tools/source_qa.py:main",
+      "receipt": "source-qa.json",
+      "repair_owner": "source_registrar"
+    },
+    {
+      "operation": "deployment",
+      "kind": "automated_worker",
+      "owner": "deployment_worker",
+      "entrypoint": "tools/deploy_review.py:main",
+      "receipt": "deployment-receipt.json",
+      "repair_owner": "deployment_worker"
+    },
+    {
+      "operation": "rendered_inspection",
+      "kind": "automated_gate",
+      "owner": "rendered_qa",
+      "entrypoint": "tools/rendered_qa.cjs",
+      "receipt": "rendered-qa.json",
+      "repair_owner": "reader_builder"
+    },
+    {
+      "operation": "repair",
+      "kind": "automated_worker",
+      "owner": "repair_orchestrator",
+      "entrypoint": "tools/review_loop.py:repair",
+      "receipt": "repair-receipt.json",
+      "repair_owner": "repair_orchestrator"
+    },
+    {
+      "operation": "redeployment",
+      "kind": "automated_worker",
+      "owner": "deployment_worker",
+      "entrypoint": "tools/review_loop.py:main",
+      "receipt": "deployment-receipt.json",
+      "repair_owner": "deployment_worker"
+    },
+    {
+      "operation": "final_qa",
+      "kind": "automated_gate",
+      "owner": "publication_gate",
+      "entrypoint": "tools/publication_gate.py:evaluate",
+      "receipt": "publication-candidate-receipt.json",
+      "repair_owner": "repair_orchestrator"
+    },
+    {
+      "operation": "publication_review",
+      "kind": "human_authority_gate",
+      "owner": "publisher",
+      "condition": "Explicit approval of this PUBLICATION_CANDIDATE; workflow cannot publish"
+    }
+  ]
+}

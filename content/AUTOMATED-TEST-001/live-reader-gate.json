@@ -1,0 +1,55 @@
+{
+  "edition_id": "AET1-WC-002",
+  "input_sha256": "940f86c72ebe1724ee8e8ccf40050c3426dbad5ac2760b9748bbaf7727eb1e35",
+  "status": "PASS",
+  "reader": "public/review/aet1-wc-002/index.html",
+  "reader_sha256": "db12e44688286c0861ff858638f8ec1369a162b7a4194d34782118774ed44a3c",
+  "asset_count": 59,
+  "beat_count": 59,
+  "asset_generation_authorized": false,
+  "publication_authorized": false,
+  "defects": [],
+  "screenshots": [
+    {
+      "path": "live-gate-shots/phone-opening.png",
+      "sha256": "6430b010e5d547ab17097dec16bbde99e47d76531fe4021bb077ac77cb00a349"
+    },
+    {
+      "path": "live-gate-shots/phone-perspectives.png",
+      "sha256": "b21ed4a07f78440bdeb5dbeda42e7cdf63cb142c4a60fdfb856ed49725ebb7e7"
+    },
+    {
+      "path": "live-gate-shots/phone-route-H1.png",
+      "sha256": "3ee0e5410b08a98828cb54b70428c6cbeeee69bb5c0ff5a0384f31e650effd55"
+    },
+    {
+      "path": "live-gate-shots/phone-place.png",
+      "sha256": "2b475fe153fecced49e8628ffb33365027297ff1a2a3c6354a3958c9dedcc558"
+    },
+    {
+      "path": "live-gate-shots/desktop-opening.png",
+      "sha256": "339eff2afc6b430cab6513a34fcce156864d6f1d0a5013012ffee8661bf7ba37"
+    },
+    {
+      "path": "live-gate-shots/desktop-perspectives.png",
+      "sha256": "0f227691a81ab104950f7b90d3ec964d887759e139bb5642eec9387c6faa94de"
+    },
+    {
+      "path": "live-gate-shots/desktop-route-H1.png",
+      "sha256": "a929776d9fcc7c8876d2848e58e9f24cc0bdde3732f867c225941f561f0797e6"
+    },
+    {
+      "path": "live-gate-shots/desktop-place.png",
+      "sha256": "370d0be38678b6d3841425cb7fe85238e43f4e6707394dad74fe1f5db7fe2f60"
+    }
+  ],
+  "reader_hashes": {
+    "public/review/aet1-wc-002/adaptive.css": "eb0232e2eb66595eb724ae33226f0b489bd62b1569898e1a756c7b4fb921b2a2",
+    "public/review/aet1-wc-002/adaptive.js": "06ce4fb5feeec35e7f85d9632a2a73f575df26ab7514dd513323bfe7599a8c74",
+    "public/review/aet1-wc-002/edition.css": "eb5f798999e2d93a01103807a953d5f0711c9a3f1b1d372c59a1c906817f110f",
+    "public/review/aet1-wc-002/index.html": "db12e44688286c0861ff858638f8ec1369a162b7a4194d34782118774ed44a3c"
+  },
+  "deploy_id": "dep-dau140psrm7s73adcg50",
+  "url": "https://atlas-automated-edition-test-1.onrender.com/review/aet1-wc-002/",
+  "commit": "4fd3f5d861da2bce5071e2068fc5ab9bfe23a789"
+}

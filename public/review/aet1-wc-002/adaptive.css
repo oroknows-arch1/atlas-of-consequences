@@ -1,0 +1,96 @@
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:#050708}body{margin:0;background:#050708;color:#f5f2ea;font-family:Arial,Helvetica,sans-serif}a{color:inherit}.hero{position:relative;min-height:100svh;overflow:hidden;display:flex;align-items:flex-end}.hero-bg,.hero-video,.scene>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.hero-video{z-index:0}.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.08) 35%,rgba(0,0,0,.82))}.top{position:absolute;z-index:2;top:max(18px,env(safe-area-inset-top));left:18px;right:18px;display:flex;justify-content:space-between;font-size:8px;letter-spacing:.18em}.hero-copy{position:relative;z-index:2;padding:0 22px max(55px,env(safe-area-inset-bottom));max-width:600px;text-shadow:0 3px 18px #000}.eyebrow,small,em{font-size:8px;letter-spacing:.18em;text-transform:uppercase;font-style:normal}.hero h1{font:400 clamp(58px,16vw,92px)/.87 Georgia,serif;letter-spacing:-.04em;margin:12px 0}.hero p{font:20px/1.35 Georgia,serif;max-width:28ch}.enter{display:inline-block;margin-top:18px;border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:11px 14px;text-decoration:none;font-size:9px;letter-spacing:.12em;text-transform:uppercase}.menu{min-height:100svh;padding:80px 18px 50px}.menu-head{max-width:600px;margin:auto auto 28px}.menu-head>span{font-size:9px;letter-spacing:.2em}.menu-head p{font:19px/1.45 Georgia,serif;max-width:35ch}.perspective{position:relative;display:block;overflow:hidden;max-width:700px;min-height:42svh;margin:10px auto;text-decoration:none;border:1px solid rgba(255,255,255,.2);padding:24px}.perspective img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.58}.perspective:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.82))}.perspective>div{position:absolute;z-index:2;left:20px;right:20px;bottom:22px}.perspective h2{font:400 36px/1 Georgia,serif;margin:8px 0}.perspective p{font:16px/1.4 Georgia,serif;max-width:32ch}.perspective b{font-size:8px;letter-spacing:.15em;text-transform:uppercase}.locked{min-height:150px;opacity:.5}.locked>div{position:relative;left:auto;right:auto;bottom:auto}.route header{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;padding:max(15px,env(safe-area-inset-top)) 16px 12px;background:rgba(5,7,8,.72);backdrop-filter:blur(12px);font-size:8px;letter-spacing:.14em;text-transform:uppercase}.route header a{text-decoration:none}.scene{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}.scene:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.88) 84%,#050708)}.scene-copy{position:relative;z-index:2;padding:40px 22px max(72px,env(safe-area-inset-bottom));text-shadow:0 3px 18px #000;max-width:620px}.scene-copy h2,.boundary h2{font:400 clamp(36px,10vw,56px)/.98 Georgia,serif;margin:10px 0 16px}.scene-copy p,.boundary p{font:18px/1.5 Georgia,serif;max-width:38ch}.scene-copy em{display:block;margin-top:18px;opacity:.72}
+/* Unified scene surface: contextual imagery supports the information instead of competing with it. */
+.scene-overlay>img{filter:brightness(.88) contrast(1.04) saturate(.96)}
+.scene-overlay:after{background:linear-gradient(180deg,rgba(5,7,8,.08) 0%,rgba(5,7,8,.14) 34%,rgba(5,7,8,.48) 74%,rgba(5,7,8,.78) 100%)}
+.scene-overlay .scene-copy{width:100%;max-width:680px;padding-top:max(92px,12svh)}
+.scene-overlay .scene-copy h2{max-width:12ch}
+.scene-overlay .scene-copy p{max-width:36ch}
+@media(max-height:720px){.scene-overlay{min-height:115svh}.scene-overlay .scene-copy h2{font-size:clamp(32px,9vw,48px)}.scene-overlay .scene-copy p{font-size:17px;line-height:1.42}}
+.boundary{min-height:80svh;padding:100px 22px;display:flex;flex-direction:column;justify-content:center;max-width:680px;margin:auto}.boundary a{margin-top:22px;font-size:9px;letter-spacing:.14em;text-transform:uppercase}.route-end{min-height:100svh;max-width:none;margin:0;padding-left:22px;padding-right:22px;border-top:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16);background:#050708}.route-end>*{width:100%;max-width:636px;margin-left:auto;margin-right:auto}.route-end h2{margin-top:12px}.route-exit{display:block;width:max-content!important;margin-top:30px!important;margin-left:max(0px,calc((100% - 636px)/2))!important;border:1px solid rgba(255,255,255,.48);border-radius:999px;padding:12px 15px;text-decoration:none}.route-divider{min-height:32svh;display:flex;align-items:center;justify-content:center;background:#020303;border-bottom:1px solid rgba(255,255,255,.12);font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.5)}@media(min-width:800px){.hero-copy,.scene-copy{margin-left:8vw}.menu{padding-left:8vw;padding-right:8vw}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Adaptive opening: film first, edition identity second. */
+.video-entry .shade{opacity:0;transition:opacity .9s ease}
+.video-entry .reveal-copy{opacity:0;transform:translateY(14px);pointer-events:none;transition:opacity .9s ease,transform .9s ease}
+.film-mark{position:absolute;z-index:3;top:max(18px,env(safe-area-inset-top));left:18px;right:18px;display:flex;justify-content:space-between;font-size:8px;letter-spacing:.18em;transition:opacity .6s ease}
+.video-entry.film-complete .shade{opacity:1}
+.video-entry.film-complete .reveal-copy{opacity:1;transform:none;pointer-events:auto}
+.video-entry.film-complete .film-mark{opacity:0}
+.video-entry.film-complete .hero-video{opacity:1}
+.video-entry.tap-to-play:after{content:'Tap to play';position:absolute;z-index:4;left:50%;bottom:max(36px,env(safe-area-inset-bottom));transform:translateX(-50%);border:1px solid rgba(255,255,255,.55);border-radius:999px;padding:10px 14px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;background:rgba(0,0,0,.28)}
+@media(prefers-reduced-motion:reduce){.video-entry .shade,.video-entry .reveal-copy{opacity:1;transform:none}.film-mark{display:none}}
+
+/* Hard separation: editorial homepage never overlays the opening film. */
+.video-entry:not(.film-complete) .hero-copy,
+.video-entry:not(.film-complete) .top,
+.video-entry:not(.film-complete) .shade{display:none!important}
+.video-entry.film-complete .hero-copy,
+.video-entry.film-complete .top{display:block}
+.video-entry.film-complete .top{display:flex}
+
+/* Incoming marketing context: highlight provenance without auto-routing. */
+.perspective.incoming-perspective{border-color:rgba(255,255,255,.88);box-shadow:0 0 0 1px rgba(255,255,255,.2),0 0 34px rgba(255,255,255,.10)}
+.perspective.incoming-perspective:before{content:'';position:absolute;z-index:2;inset:0;border:1px solid rgba(255,255,255,.5);pointer-events:none}
+.incoming-marker{display:inline-block;margin-bottom:8px;padding:5px 7px;border:1px solid rgba(255,255,255,.5);border-radius:999px;font-size:7px;line-height:1;letter-spacing:.14em;text-transform:uppercase;background:rgba(0,0,0,.34)}
+
+.skip-film{position:absolute;z-index:5;right:18px;bottom:max(28px,env(safe-area-inset-bottom));appearance:none;border:1px solid rgba(255,255,255,.62);border-radius:999px;background:rgba(0,0,0,.28);color:#fff;padding:10px 13px;font:inherit;font-size:8px;letter-spacing:.14em;text-transform:uppercase;backdrop-filter:blur(8px)}
+.video-entry.film-complete .skip-film{display:none}
+
+/* Edition geographic home state: film is temporary; Atlas geography persists. */
+.edition-geo-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0;transition:opacity .9s ease}
+.video-entry.film-complete .edition-geo-bg{opacity:1}
+.video-entry.film-complete .hero-video{opacity:0!important;pointer-events:none}
+.video-entry:not(.film-complete) .edition-geo-bg{opacity:0}
+
+.skip-film{top:max(58px,calc(env(safe-area-inset-top) + 46px));right:16px;bottom:auto}
+
+/* AOC-001 approved six-Perspective overview. The image establishes the edition system;
+   interactive route cards remain the reader-choice layer below it. */
+.perspectives-system{position:relative;max-width:980px;margin:0 auto 28px;border:1px solid rgba(255,255,255,.18);overflow:hidden;background:#090b0c}
+.perspectives-system img{display:block;width:100%;height:auto}
+.perspectives-system figcaption{position:absolute;left:12px;bottom:12px;padding:7px 9px;background:rgba(5,7,8,.72);backdrop-filter:blur(10px);font-size:7px;letter-spacing:.18em;text-transform:uppercase}
+@media(max-width:600px){.perspectives-system{margin-left:-18px;margin-right:-18px;border-left:0;border-right:0}.perspectives-system img{width:180%;max-width:none;transform:translateX(-22%)}.perspectives-system figcaption{left:18px}}
+
+/* Perspective menu is the visual system: vertical, scrollable, interactive. */
+.perspectives-system{display:none!important}
+.menu .perspective{min-height:min(78svh,760px);margin:0 auto 14px;border-radius:0}
+.menu .perspective>img{opacity:.72;filter:brightness(.72) saturate(.92)}
+.menu .perspective:after{background:linear-gradient(180deg,rgba(5,7,8,.06) 0%,rgba(5,7,8,.18) 42%,rgba(5,7,8,.90) 88%,#050708 100%)}
+.menu .perspective h2{font-size:clamp(38px,10vw,62px);max-width:12ch}
+.menu .perspective p{font-size:17px;max-width:34ch}
+.perspective-fallback{position:absolute!important;z-index:0!important;inset:0!important;left:0!important;right:0!important;bottom:0!important;background:radial-gradient(circle at 65% 30%,rgba(115,91,68,.35),transparent 35%),linear-gradient(145deg,#25211d,#090b0c 65%)}
+.markets-fallback{background:radial-gradient(circle at 70% 25%,rgba(64,89,105,.38),transparent 32%),linear-gradient(145deg,#182126,#07090a 68%)}
+.visual-pending:before{content:'VISUAL ASSET PENDING';position:absolute;z-index:3;top:18px;right:18px;font-size:7px;letter-spacing:.14em;opacity:.65}
+@media(max-width:600px){.menu{padding-left:0;padding-right:0}.menu-head{padding-left:18px;padding-right:18px}.menu .perspective{width:100%;max-width:none;min-height:82svh;margin-bottom:1px;border-left:0;border-right:0}}
+
+/* Approved AOC-001 visual is the Perspective menu itself. */
+.visual-perspective-menu{padding-left:0;padding-right:0;padding-bottom:0}
+.visual-perspective-menu .menu-head{padding-left:18px;padding-right:18px}
+.perspective-menu-image{position:relative;width:100%;max-width:1024px;margin:0 auto;line-height:0;background:#050708}
+.perspective-menu-image>img{display:block;width:100%;height:auto}
+.perspective-hotspot{position:absolute;z-index:4;left:0;right:0;display:block;text-decoration:none;outline-offset:-4px}
+.perspective-hotspot:nth-of-type(1){top:0;height:18.36%}
+.perspective-hotspot:nth-of-type(2){top:18.36%;height:14.39%}
+.perspective-hotspot:nth-of-type(3){top:32.75%;height:14.97%}
+.perspective-hotspot:nth-of-type(4){top:47.72%;height:15.69%}
+.perspective-hotspot:nth-of-type(5){top:63.41%;height:16.02%}
+.perspective-hotspot:nth-of-type(6){top:79.43%;height:20.57%}
+.perspective-hotspot:focus-visible{outline:2px solid #fff}
+.perspective-hotspot.incoming-perspective{box-shadow:inset 0 0 0 2px rgba(255,255,255,.92),inset 0 0 42px rgba(255,255,255,.10)}
+@media(min-width:800px){.visual-perspective-menu{padding-left:8vw;padding-right:8vw}.visual-perspective-menu .menu-head{padding-left:0;padding-right:0}}
+
+/* Phone QA 2026-09-27: Perspectives must take possession of viewport after hero transition. */
+#perspectives{scroll-margin-top:0}
+.visual-perspective-menu{min-height:100svh;padding-top:max(18px,env(safe-area-inset-top));}
+.visual-perspective-menu .menu-head{max-width:none;margin:0 auto 18px}
+.perspective-menu-image{width:100%;max-width:none;margin:0;overflow:hidden}
+@media(max-width:600px){
+  .visual-perspective-menu{padding-top:max(16px,env(safe-area-inset-top))}
+  .visual-perspective-menu .menu-head{padding:0 18px 10px;margin:0}
+  .perspective-menu-image{width:100vw;max-width:none}
+  .perspective-menu-image>img{width:118%;max-width:none;transform:translateX(-7.6%);transform-origin:top center}
+}
+
+/* QA correction: preserve the complete approved menu composition on narrow phones. */
+@media(max-width:600px){
+  .perspective-menu-image{width:100vw;overflow:visible}
+  .perspective-menu-image>img{display:block;width:100%;max-width:100%;height:auto;transform:none!important}
+}

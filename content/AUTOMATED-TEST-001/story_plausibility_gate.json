@@ -1,0 +1,33 @@
+{
+  "stage": "story_plausibility_gate",
+  "status": "PASS",
+  "produced_by": "Atlas STORY plausibility verifier / 2026-09-27",
+  "output": {
+    "candidate_id": "AET1-WC-002",
+    "result": "PASS",
+    "checks": {
+      "clearly_labelled_fiction": true,
+      "contradicts_known_evidence": false,
+      "comparison_disguised_as_local_fact": false,
+      "unsupported_prevalence_claim": false,
+      "severe_event_without_support": false,
+      "cultural_stereotype_dependency": false
+    },
+    "approved_story_elements": [
+      "fictional household",
+      "fan-sharing",
+      "fatigue and irritation",
+      "worry about missed pay",
+      "parents negotiating schedules",
+      "child at home after a heat-related school disruption",
+      "ordinary care/humour/exhaustion"
+    ],
+    "rejected_story_elements": [
+      "invented hospitalization",
+      "invented eviction",
+      "invented death",
+      "invented violence"
+    ],
+    "reader_boundary": "The story is a plausible human synthesis, not testimony or a reported case."
+  }
+}
