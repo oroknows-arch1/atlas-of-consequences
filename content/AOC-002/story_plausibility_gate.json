@@ -17,13 +17,16 @@
       "regional family conversation",
       "CV revision",
       "skills enquiry",
-      "ordinary disagreement and hope"
+      "unverified forwarded training message",
+      "paid-work boundary",
+      "ordinary disagreement and bounded hope"
     ],
     "rejected_story_elements": [
       "guaranteed employment",
       "named host community",
       "invented compensation",
-      "invented spill or conflict"
+      "invented spill or conflict",
+      "claim that the fictional training message came from an operator or regulator"
     ],
     "reader_boundary": "This is a regional fictional response to a verified announcement, not testimony."
   }

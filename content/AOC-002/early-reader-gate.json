@@ -1,10 +1,10 @@
 {
   "edition_id": "AOC-002",
-  "input_sha256": "8fe9504bfa4b6e6fa6bc150934abb394d04f80db67ce7ff00ac8e9345a618fe6",
+  "input_sha256": "4dcb570720c234893f57b8a08f6d8978035349ae3013c89066daf400ba9c3623",
   "status": "PASS",
   "reader": "public/review/aoc-002/index.html",
   "canonical_css_sha256": "eb0232e2eb66595eb724ae33226f0b489bd62b1569898e1a756c7b4fb921b2a2",
-  "reader_sha256": "b85b5e1f0aef3209eafb08a04271e2fdbeecaf0eef40765d95f6e3907fd5ce40",
+  "reader_sha256": "6599cf3ada2576b683fbb0c631ddda3bdd69b210eddb9b69a17bd1f4c5b453e8",
   "asset_generation_authorized": false,
   "publication_authorized": false,
   "note": "Existing verified imagery is reused for structural preview; repeated imagery is not final asset coverage.",
@@ -12,47 +12,47 @@
   "screenshots": [
     {
       "path": "content/AOC-002/early-gate-shots/phone-opening.png",
-      "sha256": "38d61c0f6b1362d335c871b8decd5fceb90bc2cc0abc420c4f7cb73e5f200138"
+      "sha256": "650ded82350589b76181e8b7145a2161fd12a77e124bdf724bb22545b3b0bcef"
     },
     {
       "path": "content/AOC-002/early-gate-shots/phone-perspectives.png",
-      "sha256": "096059238fa97356a20813967841a19b82401cee90893182b1b7ec3fdb34f748"
+      "sha256": "8ef5cf44df6b2af068c336e277f03db3e9c5638e08d1e93c9c6f6b9fee5338ff"
     },
     {
       "path": "content/AOC-002/early-gate-shots/phone-scene.png",
-      "sha256": "05b19ba20455c2ad5fba8e7ae9fa1c4d20276a019b1c056304de36f94614a0e6"
+      "sha256": "179cad4c2ed81398456c2007cca81afbc2e9fa2f0b8ae7173e79a3b777d65d48"
     },
     {
       "path": "content/AOC-002/early-gate-shots/phone-continued-scene.png",
-      "sha256": "b98e3da809237c7aab0c386fc5cc9b57daca6f220cbe9a4930baf8c747142ed2"
+      "sha256": "1cdc9a54bbd3e3f41608cb4359bb86a14ed6755e519bf847df7709ae55e7f957"
     },
     {
       "path": "content/AOC-002/early-gate-shots/small-phone-opening.png",
-      "sha256": "32292cd481eaf0051647884d7f5b2bb49c602d9bcc78023c8367c3c08748578c"
+      "sha256": "44c4969926407caf7054398d3a37e3f9482240fe6efe9c42a141114590e24e9f"
     },
     {
       "path": "content/AOC-002/early-gate-shots/small-phone-perspectives.png",
-      "sha256": "f829a0d959db099a13e0ea1f8e48bec80ec111b0d4eedd8dbd5e233ceaf170ae"
+      "sha256": "8377d2d8e564bcb63ef6dac4ce0deb61dfed863f3e88ecbceca5445dc6894897"
     },
     {
       "path": "content/AOC-002/early-gate-shots/small-phone-scene.png",
-      "sha256": "29acd556deeb2ca86daebc33acd28aec99299e9434526644feb82d91299e69b7"
+      "sha256": "7a15f0aeecb624f5031bb1f6304db4ecccce00069942beed2d6f5f95a3d8a470"
     },
     {
       "path": "content/AOC-002/early-gate-shots/small-phone-continued-scene.png",
-      "sha256": "832b920366f38188cd8715926c2e4cdcec7ac9e9ea3d0139ab2468e3f4293a77"
+      "sha256": "f88b9e3ad059411ce38f31d5609715b6d23e7d543c324ae6820fb8e9c415f941"
     },
     {
       "path": "content/AOC-002/early-gate-shots/desktop-opening.png",
-      "sha256": "bc3ab56b8a0556464efa623004e9289b450e089cda696bbc7b33f8d5c2a879cd"
+      "sha256": "c14a82326ce6a19c58df1f6a680a51c2d3e87efed9332165dda6e233f299d7cf"
     },
     {
       "path": "content/AOC-002/early-gate-shots/desktop-perspectives.png",
-      "sha256": "b2a9ba57e1d93f1efada562064d586ea2d5c3da02475ea97c7a9ad39bdceb054"
+      "sha256": "f9cfd8b5f8f11c137b4ad302cf7c0546a47ff35d1bad3f89aecb4516b6174b6d"
     },
     {
       "path": "content/AOC-002/early-gate-shots/desktop-scene.png",
-      "sha256": "351c6b265c33f73b2a928773aadf429fae0b5500f39613c59d21dcbff54b43a2"
+      "sha256": "b2808f03aa3aaa63bfebd7b03c2dfa4f9b82934c61f1cb456f118f8524802fda"
     }
   ]
 }

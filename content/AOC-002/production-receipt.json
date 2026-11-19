@@ -1,6 +1,6 @@
 {
   "edition_id": "AOC-002",
-  "input_sha256": "8fe9504bfa4b6e6fa6bc150934abb394d04f80db67ce7ff00ac8e9345a618fe6",
+  "input_sha256": "4dcb570720c234893f57b8a08f6d8978035349ae3013c89066daf400ba9c3623",
   "state": "ASSEMBLED",
   "assets_persisted": 20,
   "reader": "public/review/aoc-002/index.html",
@@ -11,6 +11,6 @@
     "public/review/aoc-002/adaptive.css": "eb0232e2eb66595eb724ae33226f0b489bd62b1569898e1a756c7b4fb921b2a2",
     "public/review/aoc-002/adaptive.js": "082c2c33a2ae9f6985fbf11009d646154c35918222d43ee4520f37158ecc71b3",
     "public/review/aoc-002/edition.css": "9c71d0e7dcd9180988b1960fca50b959c8b331386f8a2d9b3a4d300f40a398a2",
-    "public/review/aoc-002/index.html": "b85b5e1f0aef3209eafb08a04271e2fdbeecaf0eef40765d95f6e3907fd5ce40"
+    "public/review/aoc-002/index.html": "6599cf3ada2576b683fbb0c631ddda3bdd69b210eddb9b69a17bd1f4c5b453e8"
   }
 }

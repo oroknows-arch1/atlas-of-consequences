@@ -39,6 +39,24 @@ The owner-rejected deterministic media has been replaced by a cinematic 16:9 vis
 
 A 15-second local opening film now hands off to the Edition Map using the inherited adaptive-reader controls. STORY uses the fictional household frame; routes retain the completed evidence, boundaries and navigation. The opening film and CSS-referenced story image are both included in the declared, hash-verified asset set.
 
+## AOC-001 parity repair
+
+The final offline parity pass found one AOC-002 defect that could be repaired without changing the factory or generating media: `Before Anything Flows` was a six-paragraph synopsis rather than a sustained human narrative comparable to AOC-001.
+
+The AOC-002 production input now carries a thirteen-paragraph story. It keeps Adaeze, Chinedu and Nneka inside the same fictional Owerri household/workshop frame while giving their choices a complete dramatic progression: announcement, rumour, verification, household cost, work terms, disagreement, bounded action and an ending. No factual claim, source, character status, host-community boundary or Aku-01 development claim was expanded. The unverified training message is explicitly fictional and is not attributed to an operator, regulator or real programme.
+
+The reader was rebuilt from that corrected production input. It was not hand-edited, and all twenty previously verified media assets—including the opening film—were reused unchanged.
+
+## Remaining AOC-001 parity limits
+
+- AOC-001's factual opening is a source-verified editorial report film. AOC-002's opening is a clearly labelled regional reconstruction made from the existing generated material; it cannot become documentary Aku-01 coverage offline.
+- The exact Aku-01 wellhead and officially determined host communities remain unresolved in the cited evidence. AOC-002 therefore stays at Imo State / wider OML 53 resolution and cannot honestly match AOC-001's more precise place grounding.
+- Nine scene paths reuse their route's existing cinematic frame. The paths, hashes and integration are valid, but the visual variation is below AOC-001's richer scene-specific benchmark. Correcting that would require new source-cleared or generated media, which was not authorised.
+- STORY has one existing fictional household image rather than AOC-001's broader character/scene visual treatment. The narrative is now complete, but visual character continuity cannot be strengthened without new imagery.
+- No AOC-002 OROK companion or distribution package exists in this owner-review build. The inherited reader factory used here has no AOC-002 companion/distribution surface. This is recorded as a factory/product-completion gap; the canonical factory remains unchanged.
+
+These limits do not invalidate the local owner-review reader, but they block a truthful claim of complete publication parity with AOC-001. Publication authority remains false.
+
 ## Honest missing-assets report
 
 - No verified documentary photograph or footage of Aku-01's exact wellhead was available or used.
