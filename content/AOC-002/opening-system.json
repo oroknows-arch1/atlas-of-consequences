@@ -1,0 +1,21 @@
+{
+  "edition_id": "AOC-002",
+  "input_sha256": "90fe8d71e7e20c6cde639a1b0c59a9989cb0240b52ea5bbf7d7648fdd3c1ebbb",
+  "status": "PASS",
+  "mode": "verified_image_sequence",
+  "assets": [
+    {
+      "path": "/assets/aoc-002/reality-scene.png",
+      "sha256": "626ce3b4ff2df45dc02a82a8176a1b59838bc8acce1f8294f67d1bb0088b0fa5"
+    },
+    {
+      "path": "/assets/aoc-002/consequences-scene.png",
+      "sha256": "38aae98e44fab6119ed5a98bb94f6dd432a47f1e821a88dcb0ed1141bea9b90e"
+    },
+    {
+      "path": "/assets/aoc-002/place-scene.png",
+      "sha256": "ab6264f2ed856358320615c4eeaf5833820d8c4f7a8d71a94336ad0c7eb058c9"
+    }
+  ],
+  "film": null
+}

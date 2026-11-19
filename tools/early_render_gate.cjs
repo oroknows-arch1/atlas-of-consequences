@@ -36,7 +36,8 @@ const server=http.createServer((req,res)=>{
  check(sha(path.join(path.dirname(reader),'adaptive.css'))===receipt.canonical_css_sha256,'inherited CSS differs');
  check(nav(canonical)===nav(inherited),'AOC-001 route controller differs');
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
- browser=await chromium.launch({headless:true,args:['--no-sandbox']});
+ browser=await chromium.launch({headless:true,args:['--no-sandbox'],
+  ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE?{executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE}:{})});
  const base=`http://127.0.0.1:${server.address().port}/${receipt.reader.replace(/^public\//,'').replace(/index.html$/,'')}`;
  const expectedRoutes=JSON.parse(fs.readFileSync(path.join(run,'causal_boundary_gate.json'))).output.routes.length;
  const shots=[];

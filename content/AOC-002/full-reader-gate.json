@@ -1,0 +1,330 @@
+{
+  "edition_id": "AOC-002",
+  "input_sha256": "90fe8d71e7e20c6cde639a1b0c59a9989cb0240b52ea5bbf7d7648fdd3c1ebbb",
+  "status": "PASS",
+  "reader": "public/review/aoc-002/index.html",
+  "reader_sha256": "0b6694955f8a9bac87e851287756deb1dcbec2a91f67db07679c8d117a2e6c38",
+  "asset_count": 18,
+  "beat_count": 18,
+  "asset_generation_authorized": false,
+  "publication_authorized": false,
+  "defects": [],
+  "screenshots": [
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-opening.png",
+      "sha256": "e5af11fd532fe699d51a090822a8a34e43d69261d094d3ecbf1ead1bc665278a"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-perspectives.png",
+      "sha256": "1e38f52bfb2283985828877a2ef4eac785b020d05994f5ce8560df0baac1ead0"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-D1-beat-1.png",
+      "sha256": "6ebb2f28c9604601799872d56c9422647e67ef0406d245c3c1df628757967a97"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-D1-beat-2.png",
+      "sha256": "439ead020790ac1fc0b250ff0ff2b8882a798e3fac67eba83785e4745623c996"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-D1-beat-3.png",
+      "sha256": "1977703997650a44cd67945591625a53022c90dafcadb3f2b71b46786ed79818"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-D1-ending.png",
+      "sha256": "b0ee3703220b7274734a9de02f9bc0237fef002d71224016879c59d747fecddd"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-I1-beat-1.png",
+      "sha256": "9bee6eee5ec623a961fb482ad05dcf968107a5c450c347354bc6c83789211f35"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-I1-beat-2.png",
+      "sha256": "168e7064455d97aa188970a63ead096ceab1baf123706153b6ebaf27c5a4133f"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-I1-ending.png",
+      "sha256": "53334e43ab3ed8a1d5cf72a211b7cacd3b36f133b6d8e26727adf00c2e307aed"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-MF1-beat-1.png",
+      "sha256": "b765e8b3a3c1457255ec0115eec1f7e0da89fcdedea8ddfdf88e25d8774072ce"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-MF1-beat-2.png",
+      "sha256": "d6c301b3255d430714a4d774f01ec5d6bed8d7b2e4df611082160dcf98bbd3ba"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-MF1-beat-3.png",
+      "sha256": "38a6fe919a37cd9548bd98557407edab69d7ae95a6cc03978687f924b84c76a6"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-MF1-ending.png",
+      "sha256": "9cce257c6e64b069ffc160a336756d8fd62a10dd765c0f8dc1b38f1fc5ff747b"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-C1-beat-1.png",
+      "sha256": "2c0234406dc9e98c64935230e91f00567e2c657bc7a64945920fe6c4ba1dcdb4"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-C1-beat-2.png",
+      "sha256": "7b88bfc3895f9f0f315cf60e3f3bb736a77060599d2257ef05658e1a9dc806bb"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-C1-ending.png",
+      "sha256": "0eb6b6bdd8ffee8512de069ba206fe6bb2ad76495b0569365af738884f4cad86"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-W1-beat-1.png",
+      "sha256": "cf0d36f8742ddda9d881cec405fefa01dedb8441525dbfc2cf1b64fae63422e2"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-W1-beat-2.png",
+      "sha256": "29eaa005156afe682d682952b46e676703a5734d65112ac6c9a6dee2a2cb7994"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-W1-ending.png",
+      "sha256": "70fa514f75ff9dcf74a0b691424e6cfb2a84edc51fb63edd3f50f3d174e2490b"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-E1-beat-1.png",
+      "sha256": "ffa83696f67d2e05c44857b2515a93ee395563e952533419da007e8a0ffb73bf"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-E1-beat-2.png",
+      "sha256": "11fe19f1758fc5375b8f7da1b0134ff6600cec97472f69e20e25714ca16cc453"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-E1-beat-3.png",
+      "sha256": "f1fd2e4f7435272fc131edfa5b2a73ee98ec6f98fd73acdbe9d86adf619e979a"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-route-E1-ending.png",
+      "sha256": "2b5709c1cb7b7224ff8360417fe5754f98e2de3dcd748fe8d7e4c92ba62bd1e6"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-reality-beat-1.png",
+      "sha256": "f5a07c23649430ffd020c35f3dfdf362fcb6b304a553ad101ae7cab44930c308"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-consequences-beat-1.png",
+      "sha256": "ed8cb0755357cef8df7d280f00c9ac3c5993442355c481973a0ff84c210f15ac"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-place-beat-1.png",
+      "sha256": "ee914e3e1438e6417360a47488ebc734a3f45f536485951415cc46de2eb3f144"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-story.png",
+      "sha256": "a36f7dd86d03efd4aa2be0a59a37fec86ebae77f0095f42f134a97869d8ded77"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-story-last.png",
+      "sha256": "bea77f706a27a81ef65deb4b2f5ecbfb9a297fa67e4373ec9c1c1d2cb26bb3b7"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/phone-sources.png",
+      "sha256": "6d669f1d7645788e8ecc75063809a303d0ffa2090ed63b0bb57b1b02534ced57"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-opening.png",
+      "sha256": "ed8ab24eb49cf412a9db6e320e2177ea3485e18c7710952aeac870832912d9ce"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-perspectives.png",
+      "sha256": "e0fc4f1065051ba8beb57e48b1bc702dfaa835c132ac7bca4aba0762ea279f5d"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-D1-beat-1.png",
+      "sha256": "431604e89157e3b2021f91f3fc20bfe1d6ab3b19847c92c1117c3567a2d981a2"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-D1-beat-3.png",
+      "sha256": "504e5250fed2ee6e6f1675792fc63d9cc3ea650f1d364020ee5e5ca7b17275fd"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-D1-ending.png",
+      "sha256": "d0211173af16ef416a8ccb836b3094e53c7acb0df38832059c6dfb9afbd54c7d"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-I1-beat-1.png",
+      "sha256": "0f93a37ee3ff0cdf6dcfe1b8b0e8f737b2877fa59b78205f52d8e3f04bf0af03"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-I1-beat-2.png",
+      "sha256": "c7c31b8d4dc44f7c490b243ff82c3561d95a6f6eca706578f7944f196e395240"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-I1-ending.png",
+      "sha256": "a216579018d5f674c74aff9c30f778f605ed762a2f440c5d8cdf89fc52f3c3d6"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-MF1-beat-1.png",
+      "sha256": "24a80364245e7577c3f695767d384e2a97c09aab270053df21c46f719b1cf076"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-MF1-beat-3.png",
+      "sha256": "d536380165a12041cd15f77ac0b54b4f844c84930a137b33c37f345509b64a94"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-MF1-ending.png",
+      "sha256": "a511858fbf43d35429000524825e3cb4b9ccc7d572ba9b4d91d752796004a15d"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-C1-beat-1.png",
+      "sha256": "9c5691dc2b1e6711726b1a39b51bbc813bd17b520b97f11fa67d0bf859088ca3"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-C1-beat-2.png",
+      "sha256": "6e7bc3d5525aa12dd65c737c72cf38c2d1d68fdce435d11618f5eebda931129a"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-C1-ending.png",
+      "sha256": "fd8dc8c311af46a4ce550e60273316cbde51d3f7e1d4aa3b0d7ebe10f2f86c88"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-W1-beat-1.png",
+      "sha256": "ef528927534d6c05d1d2007f1e6efc33d7a6a4ab50d4be0484b43935d956105e"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-W1-beat-2.png",
+      "sha256": "e8cc27c97414e35f4f4077063d9a912e84b69a07b29238c48fea1c30a6d5afe2"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-W1-ending.png",
+      "sha256": "9856f2716b305adbc1543c0839180c11db60a329d370c9e9369acc8ce172243c"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-E1-beat-1.png",
+      "sha256": "bbb764ecfbfd3ff994ba7e6ae0a0136a12fd6e85d14fe28f468d5e29f7bb64da"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-E1-beat-3.png",
+      "sha256": "5dbd98a5dc21219acab7b083849e3f267b9a45a143e72f542c268cb5b66bad32"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-route-E1-ending.png",
+      "sha256": "a0efd327e0a042c8181c4ca2da944e5a27c1ad1c21e04331eb54f28bb3fc6205"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-reality-beat-1.png",
+      "sha256": "fe88884d977a5a769b44945f56b3d1ac3752f95c4603bd166a9ea9edf649c353"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-consequences-beat-1.png",
+      "sha256": "e851908706d5c4bfe61a968ce014d5123df8f8f4fb2f8d0561bdf00e3267e43c"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-place-beat-1.png",
+      "sha256": "157ee5cbfebfaf53b459395108fe420bdfb587596ba41b2e17ea04e82451ce03"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-story.png",
+      "sha256": "2eb7fb6e72d98efcb89daabc1883c9d01becba2089f299db0c315c05f70b0c24"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/small-phone-sources.png",
+      "sha256": "ef8033fca01d07b69883e54f1017795aeebf9cea23b872203fec36b5e9e7e84c"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-opening.png",
+      "sha256": "420f2c6854132835107887210e1a1878a5335de327795b742c3cd69b1bbc5c78"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-perspectives.png",
+      "sha256": "09ec123398d99b09fa1b995022cb2dfca38d14dbe64d1f2686a96ff58382e3af"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-D1-beat-1.png",
+      "sha256": "f7c5a3d8d33626e64b7653c434d6c5a55026dbd6574341327ef4ecfee41349cd"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-D1-beat-3.png",
+      "sha256": "5c809df600689ce563736e1a3bf7ac7d24092d3b343326c1282b303e483a35af"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-D1-ending.png",
+      "sha256": "ef4b28d0fe37e4406a8581c36e6f615c9d541e0fda0ec32c021b03ab486ffb8f"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-I1-beat-1.png",
+      "sha256": "f19f38a4bdd2e1279b0184ca1f31fbf852d9f94e0bd80c678f925dea92367fa3"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-I1-beat-2.png",
+      "sha256": "b7f169af8ccd889b39fcc5a088708a8a0c68ca1f6c1c7b1d888128471f183225"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-I1-ending.png",
+      "sha256": "43dbb39fab852f5ff691fa5b4a992ce01147634f06e1d56e3fada51669007d95"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-MF1-beat-1.png",
+      "sha256": "4b5a74b50e788f877387ce99e6e6f86411c33e95ad988aa02d31822b283c1acc"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-MF1-beat-3.png",
+      "sha256": "2f8e3d7324720ba56acd4b845a0319a78b7d786637f79303984ffd303cbaa1f6"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-MF1-ending.png",
+      "sha256": "3e892f9fd6963ad9781a2d4122835112b13ba99120412762e337bf14dbd79ac2"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-C1-beat-1.png",
+      "sha256": "1677b4bc2c5e04dc225abc7217bb9fea4904c4b06cc9d7debd2c499037bc9464"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-C1-beat-2.png",
+      "sha256": "e03adc6bfcc07648e4d6a43e8d0cef1d9ac31744ba4ff8af851871c5b5ac1bd0"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-C1-ending.png",
+      "sha256": "b1dcbf0f601b28e0497f732c5b31d6af7c22b315316d14a9d57d01ded1ca4c57"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-W1-beat-1.png",
+      "sha256": "af2b9e47ab2388e0661050714879b761287b7866e8010f794e67a2f948614b41"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-W1-beat-2.png",
+      "sha256": "711db4069cb14941a0f981c8d2201edc172b063c153cb4bfb3df1bfaee56045a"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-W1-ending.png",
+      "sha256": "964863d0cf176e35ace4b0338eb6c66c8d3ac507eb92ce9a1891719f0b4aabcd"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-E1-beat-1.png",
+      "sha256": "8e24cb6b875a87d6311e736bae20d4e53dc649f92985645bead9ec9fe20eb361"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-E1-beat-3.png",
+      "sha256": "16745f859577110ba5e0682b640921a48c80c6ad12f080a2158932e3f8c5e8dc"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-route-E1-ending.png",
+      "sha256": "da1c0af5b3802e8afcda8949158c9fdd475aef22881e710b9286a9ebb564d307"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-reality-beat-1.png",
+      "sha256": "805f31bc6bf675afdfb83687c63321f737a2ce8755ab49973949391ee5625495"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-consequences-beat-1.png",
+      "sha256": "48890cc21a19cbcf2fd95a9796af72ab60203551440411efb93463131753d548"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-place-beat-1.png",
+      "sha256": "8f011dfe40b11d65748cb754a13bb16fafe8eb95abc7cfd921f999fb1e817719"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-story.png",
+      "sha256": "cb95d99bde4fd397b52c8078e25ef847fd59cb516dee7994d78c34ef5d68b39f"
+    },
+    {
+      "path": "content/AOC-002/full-gate-shots/desktop-sources.png",
+      "sha256": "7fe91e7a34b9bfe733fd75b4b60efecb3f5364a2b59e557aa11ec80aa76766e1"
+    }
+  ]
+}

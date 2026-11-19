@@ -1,0 +1,65 @@
+[
+  {
+    "id": "SEPLAT-9M-2026",
+    "title": "Seplat Energy — 9M 2026 Financial Results",
+    "url": "https://www.seplatenergy.com/media/xt4h2glj/seplat-energy-report-9m-2026-final-291026.pdf",
+    "supports": "Aku-01 discovered oil and gas after period end; preliminary internal mid-case estimates are 157 Bcf gas in place and 19 MMbbls oil in place; completion and a future tie-back are planned; Seplat holds 40% operated interest in PPL 2A25.",
+    "limitation": "Company-reported preliminary in-place estimates are not proved reserves, production volumes, revenue, a final investment decision, or a schedule guarantee."
+  },
+  {
+    "id": "SEPLAT-OML53",
+    "title": "Seplat Energy — OML 53 operations",
+    "url": "https://www.seplatenergy.com/our-company/our-operations/upstream/oml-53/",
+    "supports": "OML 53 is an onshore Imo State block of about 1,585 km² with existing oil and gas infrastructure, a 40% Seplat working interest, and links to the ANOH gas system.",
+    "limitation": "The page describes the wider licence and existing fields; it does not identify Aku-01's exact wellhead or establish effects in any named community."
+  },
+  {
+    "id": "AGPC-ANOH-2026",
+    "title": "ANOH Gas Processing Company — network entry agreement",
+    "url": "https://anohgas.com/agpc-signs-network-entry-agreement-with-ngic-unlocking-250-mmscf-d-gas-injection-into-nigerias-national-gas-transportation-network/",
+    "supports": "The Imo-based ANOH plant has 300 MMscf/d processing capacity and a 2026 agreement enabling up to 250 MMscf/d injection into the national gas network.",
+    "limitation": "This does not prove that Aku-01 gas will enter ANOH, when it might do so, or at what volume."
+  },
+  {
+    "id": "NBS-LFS-2023",
+    "title": "Nigeria National Bureau of Statistics — Annual Labour Force Survey",
+    "url": "https://nigerianstat.gov.ng/pdfuploads/Annual_Nigerian_Labour_Force_Survey_Report.pdf",
+    "supports": "For the survey period, Imo State had 2,009,039 employed people, 77.6% self-employment among employed people, 93.9% informal employment, and 12.8% employment in agriculture.",
+    "limitation": "Survey estimates describe the state and period, not a particular household, community, applicant, or future oil-and-gas workforce."
+  },
+  {
+    "id": "NCDMB-HCD",
+    "title": "NCDMB — Human Capacity Development",
+    "url": "https://ncdmb.gov.ng/human-capacity-development/",
+    "supports": "Nigeria's content framework requires employment and training plans for qualifying industry projects and describes classroom, practical, on-the-job and certification pathways.",
+    "limitation": "A national framework does not guarantee training, contracting, or employment from Aku-01 to any person or locality."
+  },
+  {
+    "id": "NUPRC-HOST-2022",
+    "title": "NUPRC — Host Communities Development Regulations 2022",
+    "url": "https://www.nuprc.gov.ng/wp-content/uploads/2022/07/Nigeria-Upstream-Petroleum-Host-Communities-Development-Regulations-2022.pdf",
+    "supports": "Regulations govern determination of host communities, development trusts, needs assessments, development plans, governance and fund distribution.",
+    "limitation": "Without the regulator/operator's determination and the exact operational area, Atlas cannot name Aku-01 host communities or promise trust benefits."
+  },
+  {
+    "id": "PIA-2021",
+    "title": "Nigeria Petroleum Industry Act 2021",
+    "url": "https://br2025.nuprc.gov.ng/media/ggwk4wxe/petroleum-industry-act-2021.pdf",
+    "supports": "The Act provides for host-community development trusts and an annual settlor contribution equal to 3% of the preceding year's actual operating expenditure for upstream operations affecting applicable host communities.",
+    "limitation": "The formula is not 3% of oil revenue and cannot be converted into an Aku-01 community amount without applicable operations and expenditure."
+  },
+  {
+    "id": "NUPRC-ENV",
+    "title": "NUPRC — Health, safety and environmental oversight",
+    "url": "https://nuprc.gov.ng/health-safety",
+    "supports": "NUPRC reviews environmental impact assessments, risk registers and management plans and monitors upstream environmental action plans.",
+    "limitation": "Regulatory requirements do not establish that an Aku-01 impact has occurred or that a specific mitigation outcome is assured."
+  },
+  {
+    "id": "NUPRC-FLARE-2022",
+    "title": "NUPRC — Gas Flaring and Venting Regulations 2022",
+    "url": "https://www.nuprc.gov.ng/wp-content/uploads/2022/12/Gas-Flaring-and-Venting-Regulations-2022-D.pdf",
+    "supports": "The regulations aim to reduce environmental and social impacts from flaring and venting, protect the environment, prevent waste and create benefits from gas capture.",
+    "limitation": "They do not establish Aku-01's future emissions, processing route or compliance performance."
+  }
+]

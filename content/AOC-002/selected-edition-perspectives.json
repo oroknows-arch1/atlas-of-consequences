@@ -1,0 +1,80 @@
+{
+  "stage": "perspective_gate",
+  "status": "PASS",
+  "produced_by": "Atlas perspective gate / 2026-11-19",
+  "output": {
+    "candidate_id": "AOC-002",
+    "perspectives": [
+      {
+        "id": "D1",
+        "name": "The Discovery",
+        "status": "ACCEPTED",
+        "necessary": true,
+        "evidence_basis": [
+          "SEPLAT-9M-2026"
+        ],
+        "purpose": "What was found—and what remains preliminary."
+      },
+      {
+        "id": "I1",
+        "name": "The Route to Market",
+        "status": "ACCEPTED",
+        "necessary": true,
+        "evidence_basis": [
+          "SEPLAT-OML53",
+          "AGPC-ANOH-2026"
+        ],
+        "purpose": "How a discovery might meet existing infrastructure."
+      },
+      {
+        "id": "MF1",
+        "name": "The Commercial Question",
+        "status": "ACCEPTED",
+        "necessary": true,
+        "evidence_basis": [
+          "SEPLAT-9M-2026",
+          "SEPLAT-OML53"
+        ],
+        "purpose": "Why in-place resources are not yet revenue.",
+        "entry_label": "Markets and finance: resources, infrastructure and unresolved economics",
+        "primary_domain": "markets_finance"
+      },
+      {
+        "id": "C1",
+        "name": "Community and Authority",
+        "status": "ACCEPTED",
+        "necessary": true,
+        "evidence_basis": [
+          "NUPRC-HOST-2022",
+          "PIA-2021"
+        ],
+        "purpose": "Who may decide, participate and benefit."
+      },
+      {
+        "id": "W1",
+        "name": "Work and Capability",
+        "status": "ACCEPTED",
+        "necessary": true,
+        "evidence_basis": [
+          "NBS-LFS-2023",
+          "NCDMB-HCD"
+        ],
+        "purpose": "Opportunity depends on skills, contracts and timing."
+      },
+      {
+        "id": "E1",
+        "name": "Land, Air and Unknowns",
+        "status": "ACCEPTED",
+        "necessary": true,
+        "evidence_basis": [
+          "NUPRC-ENV",
+          "NUPRC-FLARE-2022"
+        ],
+        "purpose": "Oversight matters before impacts can be claimed."
+      }
+    ],
+    "completeness_result": "PASS",
+    "human_emotional_hook_result": "PASS",
+    "aoc001_template_check": "PASS — route count and subjects derive from Aku-01 evidence."
+  }
+}

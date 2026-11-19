@@ -1,0 +1,30 @@
+{
+  "stage": "story_plausibility_gate",
+  "status": "PASS",
+  "produced_by": "Atlas plausibility verifier / 2026-11-19",
+  "output": {
+    "candidate_id": "AOC-002",
+    "result": "PASS",
+    "checks": {
+      "clearly_labelled_fiction": true,
+      "contradicts_known_evidence": false,
+      "comparison_disguised_as_local_fact": false,
+      "unsupported_prevalence_claim": false,
+      "severe_event_without_support": false,
+      "cultural_stereotype_dependency": false
+    },
+    "approved_story_elements": [
+      "regional family conversation",
+      "CV revision",
+      "skills enquiry",
+      "ordinary disagreement and hope"
+    ],
+    "rejected_story_elements": [
+      "guaranteed employment",
+      "named host community",
+      "invented compensation",
+      "invented spill or conflict"
+    ],
+    "reader_boundary": "This is a regional fictional response to a verified announcement, not testimony."
+  }
+}

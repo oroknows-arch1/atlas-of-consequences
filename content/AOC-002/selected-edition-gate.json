@@ -1,0 +1,18 @@
+{
+  "stage": "edition_selection_gate",
+  "status": "PASS",
+  "produced_by": "Atlas bounded local production / 2026-11-19",
+  "output": {
+    "candidate_id": "AOC-002",
+    "decision": "SELECTED",
+    "advance_to_route_generation": true,
+    "informational_completeness_gate": "PASS",
+    "human_emotional_hook_gate": "PASS",
+    "geographic_grounding_gate": "PASS",
+    "causal_boundary_precheck": "PASS",
+    "visual_context_viability": "PASS",
+    "markets_finance_domain": "PASS",
+    "reason": "Primary evidence supports discovery, infrastructure, commercial, labour, governance and environmental perspectives at Imo State or national-system resolution.",
+    "publication_authorized": false
+  }
+}

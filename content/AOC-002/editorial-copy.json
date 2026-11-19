@@ -1,0 +1,230 @@
+{
+  "opening": {
+    "heading": "A discovery, not yet a development",
+    "paragraphs": [
+      {
+        "text": "Seplat reports oil and gas at Aku-01 in onshore Imo State, with preliminary estimates and a plan for potential future production. Sources do not establish current production, revenue, exact wellhead or named host community.",
+        "state": "FACT",
+        "evidence_refs": [
+          "SEPLAT-9M-2026"
+        ]
+      }
+    ]
+  },
+  "consequences": {
+    "heading": "The consequence chain is conditional",
+    "paragraphs": [
+      {
+        "text": "Appraisal, engineering, approvals, investment, infrastructure, community governance, skills and environmental controls stand between a discovery and lived outcomes. Existing systems make several pathways plausible; none makes a specific benefit or harm inevitable.",
+        "state": "UNCERTAIN",
+        "evidence_refs": [
+          "SEPLAT-9M-2026",
+          "SEPLAT-OML53",
+          "NUPRC-HOST-2022",
+          "NUPRC-ENV"
+        ]
+      }
+    ]
+  },
+  "place": {
+    "heading": "Imo State, at the supported resolution",
+    "paragraphs": [
+      {
+        "text": "OML 53 is an onshore Imo State licence with existing producing fields and infrastructure. This edition remains regional because the cited discovery evidence does not establish Aku-01's exact wellhead or an official host-community determination.",
+        "state": "FACT",
+        "evidence_refs": [
+          "SEPLAT-OML53",
+          "SEPLAT-9M-2026",
+          "NUPRC-HOST-2022"
+        ]
+      }
+    ]
+  },
+  "scenes": {
+    "D1-S1": {
+      "heading": "Aku-01 changes the regional possibility set without beginning production",
+      "paragraphs": [
+        {
+          "text": "Aku-01 changes the regional possibility set without beginning production. Do not describe a preliminary discovery as proved reserves, production or revenue.",
+          "state": "FACT",
+          "evidence_refs": [
+            "SEPLAT-9M-2026"
+          ]
+        }
+      ]
+    },
+    "D1-S2": {
+      "heading": "Five reservoir intervals and preliminary in-place estimates define the announced scale",
+      "paragraphs": [
+        {
+          "text": "Five reservoir intervals and preliminary in-place estimates define the announced scale. Company preliminary estimates remain subject to appraisal and development decisions.",
+          "state": "FACT",
+          "evidence_refs": [
+            "SEPLAT-9M-2026"
+          ]
+        }
+      ]
+    },
+    "D1-S3": {
+      "heading": "The oil find was outside the original well plan, while adjacent prospects remain future exploration questions",
+      "paragraphs": [
+        {
+          "text": "The oil find was outside the original well plan, while adjacent prospects remain future exploration questions. De-risking is not the same as discovery or commerciality in adjacent prospects.",
+          "state": "FACT",
+          "evidence_refs": [
+            "SEPLAT-9M-2026"
+          ]
+        }
+      ]
+    },
+    "I1-S1": {
+      "heading": "OML 53 already contains producing fields, flow stations, pipelines and gas development infrastructure",
+      "paragraphs": [
+        {
+          "text": "OML 53 already contains producing fields, flow stations, pipelines and gas development infrastructure. Wider-block infrastructure does not locate Aku-01 or prove a final connection route.",
+          "state": "FACT",
+          "evidence_refs": [
+            "SEPLAT-OML53"
+          ]
+        }
+      ]
+    },
+    "I1-S2": {
+      "heading": "A planned tie-back could shorten the path to market, but engineering, approvals and timing remain unresolved",
+      "paragraphs": [
+        {
+          "text": "A planned tie-back could shorten the path to market, but engineering, approvals and timing remain unresolved. A stated plan is not a completed tie-back or start-up schedule.",
+          "state": "UNCERTAIN",
+          "evidence_refs": [
+            "SEPLAT-9M-2026",
+            "SEPLAT-OML53"
+          ]
+        }
+      ]
+    },
+    "MF1-S1": {
+      "heading": "Commercial value depends on recoverability, development cost, timing, partners, prices and approvals",
+      "paragraphs": [
+        {
+          "text": "Commercial value depends on recoverability, development cost, timing, partners, prices and approvals—not only resource size. Atlas makes no valuation, price target or investment recommendation.",
+          "state": "FACT",
+          "evidence_refs": [
+            "SEPLAT-9M-2026"
+          ]
+        }
+      ]
+    },
+    "MF1-S2": {
+      "heading": "Seplat reports a 40% operated interest; preliminary gross in-place quantities are not the company's net saleable volumes",
+      "paragraphs": [
+        {
+          "text": "Seplat reports a 40% operated interest; preliminary gross in-place quantities are not the company's net saleable volumes. Do not convert gross in-place estimates into company revenue or reserves.",
+          "state": "FACT",
+          "evidence_refs": [
+            "SEPLAT-9M-2026"
+          ]
+        }
+      ]
+    },
+    "MF1-S3": {
+      "heading": "Existing infrastructure can be commercially relevant, yet no Aku-01 capital budget or project economics were disclosed in the cited evidence",
+      "paragraphs": [
+        {
+          "text": "Existing infrastructure can be commercially relevant, yet no Aku-01 capital budget or project economics were disclosed in the cited evidence. Absence of disclosed project economics requires an explicit knowledge stop.",
+          "state": "UNCERTAIN",
+          "evidence_refs": [
+            "SEPLAT-9M-2026",
+            "SEPLAT-OML53"
+          ]
+        }
+      ]
+    },
+    "C1-S1": {
+      "heading": "Nigeria's host-community framework makes participation and development planning a governed process",
+      "paragraphs": [
+        {
+          "text": "Nigeria's host-community framework makes participation and development planning a governed process. Do not name a host community without an applicable official determination.",
+          "state": "FACT",
+          "evidence_refs": [
+            "NUPRC-HOST-2022",
+            "PIA-2021"
+          ]
+        }
+      ]
+    },
+    "C1-S2": {
+      "heading": "The statutory contribution is linked to preceding-year operating expenditure, not a simple share of discovery value",
+      "paragraphs": [
+        {
+          "text": "The statutory contribution is linked to preceding-year operating expenditure, not a simple share of discovery value. Do not imply a windfall, fixed amount or immediate distribution.",
+          "state": "FACT",
+          "evidence_refs": [
+            "PIA-2021"
+          ]
+        }
+      ]
+    },
+    "W1-S1": {
+      "heading": "Imo's labour market is dominated by self-employment and informal work, so expectations may spread beyond direct payroll jobs",
+      "paragraphs": [
+        {
+          "text": "Imo's labour market is dominated by self-employment and informal work, so expectations may spread beyond direct payroll jobs. State survey structure does not predict Aku-01 employment.",
+          "state": "FACT",
+          "evidence_refs": [
+            "NBS-LFS-2023"
+          ]
+        }
+      ]
+    },
+    "W1-S2": {
+      "heading": "Oil-and-gas participation can require verified training, practical experience, certification and contractor pathways",
+      "paragraphs": [
+        {
+          "text": "Oil-and-gas participation can require verified training, practical experience, certification and contractor pathways. The framework creates pathways, not a guarantee for a fictional applicant.",
+          "state": "FACT",
+          "evidence_refs": [
+            "NCDMB-HCD"
+          ]
+        }
+      ]
+    },
+    "E1-S1": {
+      "heading": "Environmental review and operating controls belong before any claim about local impact or safety",
+      "paragraphs": [
+        {
+          "text": "Environmental review and operating controls belong before any claim about local impact or safety. Do not invent a spill, pollution event, land take or safety outcome.",
+          "state": "FACT",
+          "evidence_refs": [
+            "NUPRC-ENV"
+          ]
+        }
+      ]
+    },
+    "E1-S2": {
+      "heading": "Gas handling choices can affect flaring, emissions, waste and the value recovered from a development",
+      "paragraphs": [
+        {
+          "text": "Gas handling choices can affect flaring, emissions, waste and the value recovered from a development. General regulatory objectives do not establish Aku-01's future emissions.",
+          "state": "FACT",
+          "evidence_refs": [
+            "NUPRC-FLARE-2022"
+          ]
+        }
+      ]
+    },
+    "E1-S3": {
+      "heading": "Exact wellhead, host-community and development-plan evidence remain unresolved and limit local claims",
+      "paragraphs": [
+        {
+          "text": "Exact wellhead, host-community and development-plan evidence remain unresolved and limit local claims. UNKNOWN is a production boundary, not an invitation to infer a site.",
+          "state": "UNCERTAIN",
+          "evidence_refs": [
+            "SEPLAT-9M-2026",
+            "NUPRC-HOST-2022",
+            "NUPRC-ENV"
+          ]
+        }
+      ]
+    }
+  }
+}

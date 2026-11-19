@@ -1,0 +1,58 @@
+{
+  "edition_id": "AOC-002",
+  "input_sha256": "90fe8d71e7e20c6cde639a1b0c59a9989cb0240b52ea5bbf7d7648fdd3c1ebbb",
+  "status": "PASS",
+  "reader": "public/review/aoc-002/index.html",
+  "canonical_css_sha256": "eb0232e2eb66595eb724ae33226f0b489bd62b1569898e1a756c7b4fb921b2a2",
+  "reader_sha256": "0b6694955f8a9bac87e851287756deb1dcbec2a91f67db07679c8d117a2e6c38",
+  "asset_generation_authorized": false,
+  "publication_authorized": false,
+  "note": "Existing verified imagery is reused for structural preview; repeated imagery is not final asset coverage.",
+  "defects": [],
+  "screenshots": [
+    {
+      "path": "content/AOC-002/early-gate-shots/phone-opening.png",
+      "sha256": "bb376b79349f51b5854e5ae0cea7435c97cb09424d03e765f69e7e7c74e472c8"
+    },
+    {
+      "path": "content/AOC-002/early-gate-shots/phone-perspectives.png",
+      "sha256": "1e38f52bfb2283985828877a2ef4eac785b020d05994f5ce8560df0baac1ead0"
+    },
+    {
+      "path": "content/AOC-002/early-gate-shots/phone-scene.png",
+      "sha256": "6ebb2f28c9604601799872d56c9422647e67ef0406d245c3c1df628757967a97"
+    },
+    {
+      "path": "content/AOC-002/early-gate-shots/phone-continued-scene.png",
+      "sha256": "439ead020790ac1fc0b250ff0ff2b8882a798e3fac67eba83785e4745623c996"
+    },
+    {
+      "path": "content/AOC-002/early-gate-shots/small-phone-opening.png",
+      "sha256": "34a7cded65466e12b0764a83e47668a76bcb57700cbd128f8327fcb54c9539b5"
+    },
+    {
+      "path": "content/AOC-002/early-gate-shots/small-phone-perspectives.png",
+      "sha256": "e0fc4f1065051ba8beb57e48b1bc702dfaa835c132ac7bca4aba0762ea279f5d"
+    },
+    {
+      "path": "content/AOC-002/early-gate-shots/small-phone-scene.png",
+      "sha256": "431604e89157e3b2021f91f3fc20bfe1d6ab3b19847c92c1117c3567a2d981a2"
+    },
+    {
+      "path": "content/AOC-002/early-gate-shots/small-phone-continued-scene.png",
+      "sha256": "9d4e2be7a8bbe54ed4d010b59207687f32779478ad7200de5e97231bd5b687c0"
+    },
+    {
+      "path": "content/AOC-002/early-gate-shots/desktop-opening.png",
+      "sha256": "dceae3827f8706e1ea6b219abefa0338577d1e3485b06af6d89b6b3afacacbdf"
+    },
+    {
+      "path": "content/AOC-002/early-gate-shots/desktop-perspectives.png",
+      "sha256": "09ec123398d99b09fa1b995022cb2dfca38d14dbe64d1f2686a96ff58382e3af"
+    },
+    {
+      "path": "content/AOC-002/early-gate-shots/desktop-scene.png",
+      "sha256": "f7c5a3d8d33626e64b7653c434d6c5a55026dbd6574341327ef4ecfee41349cd"
+    }
+  ]
+}

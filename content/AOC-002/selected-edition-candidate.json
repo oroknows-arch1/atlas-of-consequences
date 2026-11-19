@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "candidate_id": "AOC-002",
+  "origin": "EMRADAR",
+  "working_title": "What the Well Changes",
+  "hero_deck": "Aku-01 is a verified oil-and-gas discovery. The consequences are still conditional.",
+  "world_change": "Seplat reported a preliminary oil and gas discovery at Aku-01 in onshore Imo State and plans to complete the well as a potential future producer tied to existing infrastructure.",
+  "selection_state": "SELECTED_FOR_EDITION_GENERATION",
+  "geographic_core": "Imo State, Nigeria",
+  "evidence_basis": [
+    {
+      "id": "SEPLAT-9M-2026",
+      "claim": "Aku-01 discovered oil and gas after period end; preliminary internal mid-case estimates are 157 Bcf gas in place and 19 MMbbls oil in place; completion and a future tie-back are planned; Seplat holds 40% operated interest in PPL 2A25."
+    },
+    {
+      "id": "SEPLAT-OML53",
+      "claim": "OML 53 is an onshore Imo State block of about 1,585 km² with existing oil and gas infrastructure, a 40% Seplat working interest, and links to the ANOH gas system."
+    },
+    {
+      "id": "AGPC-ANOH-2026",
+      "claim": "The Imo-based ANOH plant has 300 MMscf/d processing capacity and a 2026 agreement enabling up to 250 MMscf/d injection into the national gas network."
+    },
+    {
+      "id": "NBS-LFS-2023",
+      "claim": "For the survey period, Imo State had 2,009,039 employed people, 77.6% self-employment among employed people, 93.9% informal employment, and 12.8% employment in agriculture."
+    },
+    {
+      "id": "NCDMB-HCD",
+      "claim": "Nigeria's content framework requires employment and training plans for qualifying industry projects and describes classroom, practical, on-the-job and certification pathways."
+    },
+    {
+      "id": "NUPRC-HOST-2022",
+      "claim": "Regulations govern determination of host communities, development trusts, needs assessments, development plans, governance and fund distribution."
+    },
+    {
+      "id": "PIA-2021",
+      "claim": "The Act provides for host-community development trusts and an annual settlor contribution equal to 3% of the preceding year's actual operating expenditure for upstream operations affecting applicable host communities."
+    },
+    {
+      "id": "NUPRC-ENV",
+      "claim": "NUPRC reviews environmental impact assessments, risk registers and management plans and monitors upstream environmental action plans."
+    },
+    {
+      "id": "NUPRC-FLARE-2022",
+      "claim": "The regulations aim to reduce environmental and social impacts from flaring and venting, protect the environment, prevent waste and create benefits from gas capture."
+    }
+  ],
+  "human_emotional_hook": {
+    "state": "PASS",
+    "basis": "A new discovery can alter expectations about work, contracts, public benefit and environmental responsibility before it produces anything.",
+    "boundary": "Fiction may explore anticipation and choice, but may not promise a job, identify a host community, or claim a local impact."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "stage": "story_synthesis",
+  "status": "PASS",
+  "produced_by": "Atlas story worker / 2026-11-19",
+  "output": {
+    "candidate_id": "AOC-002",
+    "label": "STORY / FICTION",
+    "title": "Before Anything Flows",
+    "characters": [
+      {
+        "name": "Adaeze",
+        "role": "fictional electrical-engineering graduate living in Owerri"
+      },
+      {
+        "name": "Chinedu",
+        "role": "fictional uncle who runs a small vehicle-repair workshop"
+      },
+      {
+        "name": "Nneka",
+        "role": "fictional mother and market trader"
+      }
+    ],
+    "story": [
+      "Adaeze reads the discovery announcement twice on her phone. The first time she sees the numbers. The second time she notices the words potential future production.",
+      "At her uncle Chinedu's workshop in Owerri, the radio summary has already turned the discovery into jobs. He asks whether she will finally use her engineering degree close to home. She tells him a discovery is not a vacancy.",
+      "That evening Nneka asks the practical question: if training opens, will it require travel, fees or a certificate Adaeze does not yet have? Nobody at the table knows. The programme they imagine is fictional; Nigeria's real content system makes skills and training relevant but promises nothing from Aku-01.",
+      "Adaeze updates her CV anyway. Chinedu offers to introduce her to a customer who repairs industrial motors. She refuses the shortcut, then changes her mind about meeting him. A conversation is not a job, but it is more useful than a rumour.",
+      "They argue gently about what the state should gain and what communities near operations should decide. None of them knows the wellhead or which communities the formal process may identify. Their disagreement is invented; the uncertainty is real.",
+      "Before bed, Adaeze saves three links: the company report, the Nigerian content training page and the host-community regulations. Hope feels different when it has footnotes. It is smaller than a promise and more durable than a headline."
+    ],
+    "boundary": "Adaeze, Chinedu, Nneka, their dialogue, workshop, household and choices are invented. Owerri is used only as a regional urban setting; no character is a host-community resident or Aku-01 worker. The discovery, labour structure, training framework and governance rules are sourced conditions."
+  }
+}

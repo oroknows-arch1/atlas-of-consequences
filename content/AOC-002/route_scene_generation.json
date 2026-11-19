@@ -1,0 +1,213 @@
+{
+  "stage": "route_scene_generation",
+  "status": "PASS",
+  "produced_by": "Atlas route worker / 2026-11-19",
+  "output": {
+    "candidate_id": "AOC-002",
+    "routes": [
+      {
+        "perspective_id": "D1",
+        "perspective": "The Discovery",
+        "scenes": [
+          {
+            "scene_id": "D1-S1",
+            "meaning": "Aku-01 changes the regional possibility set without beginning production.",
+            "state": "KNOWN",
+            "evidence_refs": [
+              "SEPLAT-9M-2026"
+            ],
+            "causal_boundary": "Do not describe a preliminary discovery as proved reserves, production or revenue.",
+            "knowledge_stop": null
+          },
+          {
+            "scene_id": "D1-S2",
+            "meaning": "Five reservoir intervals and preliminary in-place estimates define the announced scale.",
+            "state": "KNOWN",
+            "evidence_refs": [
+              "SEPLAT-9M-2026"
+            ],
+            "causal_boundary": "Company preliminary estimates remain subject to appraisal and development decisions.",
+            "knowledge_stop": null
+          },
+          {
+            "scene_id": "D1-S3",
+            "meaning": "The oil find was outside the original well plan, while adjacent prospects remain future exploration questions.",
+            "state": "KNOWN",
+            "evidence_refs": [
+              "SEPLAT-9M-2026"
+            ],
+            "causal_boundary": "De-risking is not the same as discovery or commerciality in adjacent prospects.",
+            "knowledge_stop": null
+          }
+        ]
+      },
+      {
+        "perspective_id": "I1",
+        "perspective": "The Route to Market",
+        "scenes": [
+          {
+            "scene_id": "I1-S1",
+            "meaning": "OML 53 already contains producing fields, flow stations, pipelines and gas development infrastructure.",
+            "state": "KNOWN",
+            "evidence_refs": [
+              "SEPLAT-OML53"
+            ],
+            "causal_boundary": "Wider-block infrastructure does not locate Aku-01 or prove a final connection route.",
+            "knowledge_stop": null
+          },
+          {
+            "scene_id": "I1-S2",
+            "meaning": "A planned tie-back could shorten the path to market, but engineering, approvals and timing remain unresolved.",
+            "state": "UNCERTAIN",
+            "evidence_refs": [
+              "SEPLAT-9M-2026",
+              "SEPLAT-OML53"
+            ],
+            "causal_boundary": "A stated plan is not a completed tie-back or start-up schedule.",
+            "knowledge_stop": "A stated plan is not a completed tie-back or start-up schedule."
+          }
+        ]
+      },
+      {
+        "perspective_id": "MF1",
+        "perspective": "The Commercial Question",
+        "scenes": [
+          {
+            "scene_id": "MF1-S1",
+            "meaning": "Commercial value depends on recoverability, development cost, timing, partners, prices and approvals—not only resource size.",
+            "state": "KNOWN",
+            "evidence_refs": [
+              "SEPLAT-9M-2026"
+            ],
+            "causal_boundary": "Atlas makes no valuation, price target or investment recommendation.",
+            "knowledge_stop": null,
+            "domains": [
+              "markets_finance"
+            ],
+            "finance_mechanism": "valuation_boundary"
+          },
+          {
+            "scene_id": "MF1-S2",
+            "meaning": "Seplat reports a 40% operated interest; preliminary gross in-place quantities are not the company's net saleable volumes.",
+            "state": "KNOWN",
+            "evidence_refs": [
+              "SEPLAT-9M-2026"
+            ],
+            "causal_boundary": "Do not convert gross in-place estimates into company revenue or reserves.",
+            "knowledge_stop": null,
+            "domains": [
+              "markets_finance"
+            ],
+            "finance_mechanism": "company_exposure"
+          },
+          {
+            "scene_id": "MF1-S3",
+            "meaning": "Existing infrastructure can be commercially relevant, yet no Aku-01 capital budget or project economics were disclosed in the cited evidence.",
+            "state": "UNCERTAIN",
+            "evidence_refs": [
+              "SEPLAT-9M-2026",
+              "SEPLAT-OML53"
+            ],
+            "causal_boundary": "Absence of disclosed project economics requires an explicit knowledge stop.",
+            "knowledge_stop": "Absence of disclosed project economics requires an explicit knowledge stop.",
+            "domains": [
+              "markets_finance"
+            ],
+            "finance_mechanism": "financial_quality"
+          }
+        ]
+      },
+      {
+        "perspective_id": "C1",
+        "perspective": "Community and Authority",
+        "scenes": [
+          {
+            "scene_id": "C1-S1",
+            "meaning": "Nigeria's host-community framework makes participation and development planning a governed process.",
+            "state": "KNOWN",
+            "evidence_refs": [
+              "NUPRC-HOST-2022",
+              "PIA-2021"
+            ],
+            "causal_boundary": "Do not name a host community without an applicable official determination.",
+            "knowledge_stop": null
+          },
+          {
+            "scene_id": "C1-S2",
+            "meaning": "The statutory contribution is linked to preceding-year operating expenditure, not a simple share of discovery value.",
+            "state": "KNOWN",
+            "evidence_refs": [
+              "PIA-2021"
+            ],
+            "causal_boundary": "Do not imply a windfall, fixed amount or immediate distribution.",
+            "knowledge_stop": null
+          }
+        ]
+      },
+      {
+        "perspective_id": "W1",
+        "perspective": "Work and Capability",
+        "scenes": [
+          {
+            "scene_id": "W1-S1",
+            "meaning": "Imo's labour market is dominated by self-employment and informal work, so expectations may spread beyond direct payroll jobs.",
+            "state": "KNOWN",
+            "evidence_refs": [
+              "NBS-LFS-2023"
+            ],
+            "causal_boundary": "State survey structure does not predict Aku-01 employment.",
+            "knowledge_stop": null
+          },
+          {
+            "scene_id": "W1-S2",
+            "meaning": "Oil-and-gas participation can require verified training, practical experience, certification and contractor pathways.",
+            "state": "KNOWN",
+            "evidence_refs": [
+              "NCDMB-HCD"
+            ],
+            "causal_boundary": "The framework creates pathways, not a guarantee for a fictional applicant.",
+            "knowledge_stop": null
+          }
+        ]
+      },
+      {
+        "perspective_id": "E1",
+        "perspective": "Land, Air and Unknowns",
+        "scenes": [
+          {
+            "scene_id": "E1-S1",
+            "meaning": "Environmental review and operating controls belong before any claim about local impact or safety.",
+            "state": "KNOWN",
+            "evidence_refs": [
+              "NUPRC-ENV"
+            ],
+            "causal_boundary": "Do not invent a spill, pollution event, land take or safety outcome.",
+            "knowledge_stop": null
+          },
+          {
+            "scene_id": "E1-S2",
+            "meaning": "Gas handling choices can affect flaring, emissions, waste and the value recovered from a development.",
+            "state": "KNOWN",
+            "evidence_refs": [
+              "NUPRC-FLARE-2022"
+            ],
+            "causal_boundary": "General regulatory objectives do not establish Aku-01's future emissions.",
+            "knowledge_stop": null
+          },
+          {
+            "scene_id": "E1-S3",
+            "meaning": "Exact wellhead, host-community and development-plan evidence remain unresolved and limit local claims.",
+            "state": "UNCERTAIN",
+            "evidence_refs": [
+              "SEPLAT-9M-2026",
+              "NUPRC-HOST-2022",
+              "NUPRC-ENV"
+            ],
+            "causal_boundary": "UNKNOWN is a production boundary, not an invitation to infer a site.",
+            "knowledge_stop": "UNKNOWN is a production boundary, not an invitation to infer a site."
+          }
+        ]
+      }
+    ]
+  }
+}

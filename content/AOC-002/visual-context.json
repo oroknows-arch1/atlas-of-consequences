@@ -1,0 +1,30 @@
+{
+  "candidate_id": "AOC-002",
+  "geography": "Imo State, Nigeria; no wellhead or host-community claim",
+  "locality_evidence": [
+    {
+      "source_id": "SEPLAT-OML53",
+      "scope": "State and licence context only"
+    },
+    {
+      "source_id": "NBS-LFS-2023",
+      "scope": "State labour structure only"
+    },
+    {
+      "source_id": "NUPRC-HOST-2022",
+      "scope": "National host-community process; no Aku-01 community named"
+    }
+  ],
+  "visual_bible": {
+    "palette": "humid green, laterite red, deep petroleum blue and warm market gold",
+    "camera": "layered editorial collage and schematic depth; no simulated documentary photograph",
+    "continuity": "Imo regional vegetation, roads, workshops, market and energy infrastructure represented symbolically",
+    "bans": [
+      "named community",
+      "exact wellhead",
+      "fake documentary person",
+      "spill or flare presented as actual",
+      "company logo as endorsement"
+    ]
+  }
+}

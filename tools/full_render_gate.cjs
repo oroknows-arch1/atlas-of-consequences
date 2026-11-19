@@ -44,7 +44,8 @@ async function finish(status){
  check(expected.size===receipt.asset_count,'asset receipt count changed');
  if(live)check(deployment.status==='PASS'&&deployment.asset_integration_status==='PASS','deployment bytes not verified');
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
- browser=await chromium.launch({headless:true,args:['--no-sandbox']});
+ browser=await chromium.launch({headless:true,args:['--no-sandbox'],
+  ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE?{executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE}:{})});
  const base=live?deployment.url:`http://127.0.0.1:${server.address().port}/${receipt.reader.replace(/^public\//,'').replace(/index.html$/,'')}`;
  for(const [name,width,height] of [['phone',390,844],['small-phone',320,740],['desktop',1440,900]]){
   console.log(`Full reader: ${name}`);

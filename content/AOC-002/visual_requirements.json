@@ -1,0 +1,115 @@
+{
+  "stage": "visual_requirements",
+  "status": "PASS",
+  "produced_by": "Atlas visual requirements / 2026-11-19",
+  "output": {
+    "candidate_id": "AOC-002",
+    "requirements": [
+      {
+        "scene_id": "D1-S1",
+        "required": true,
+        "purpose": "Aku-01 changes the regional possibility set without beginning production.",
+        "truth_boundary": "Do not describe a preliminary discovery as proved reserves, production or revenue.",
+        "visual_type": "deterministic contextual editorial illustration"
+      },
+      {
+        "scene_id": "D1-S2",
+        "required": true,
+        "purpose": "Five reservoir intervals and preliminary in-place estimates define the announced scale.",
+        "truth_boundary": "Company preliminary estimates remain subject to appraisal and development decisions.",
+        "visual_type": "deterministic explanatory graphic"
+      },
+      {
+        "scene_id": "D1-S3",
+        "required": true,
+        "purpose": "The oil find was outside the original well plan, while adjacent prospects remain future exploration questions.",
+        "truth_boundary": "De-risking is not the same as discovery or commerciality in adjacent prospects.",
+        "visual_type": "deterministic explanatory graphic"
+      },
+      {
+        "scene_id": "I1-S1",
+        "required": true,
+        "purpose": "OML 53 already contains producing fields, flow stations, pipelines and gas development infrastructure.",
+        "truth_boundary": "Wider-block infrastructure does not locate Aku-01 or prove a final connection route.",
+        "visual_type": "deterministic contextual editorial illustration"
+      },
+      {
+        "scene_id": "I1-S2",
+        "required": true,
+        "purpose": "A planned tie-back could shorten the path to market, but engineering, approvals and timing remain unresolved.",
+        "truth_boundary": "A stated plan is not a completed tie-back or start-up schedule.",
+        "visual_type": "deterministic explanatory graphic"
+      },
+      {
+        "scene_id": "MF1-S1",
+        "required": true,
+        "purpose": "Commercial value depends on recoverability, development cost, timing, partners, prices and approvals—not only resource size.",
+        "truth_boundary": "Atlas makes no valuation, price target or investment recommendation.",
+        "visual_type": "deterministic contextual editorial illustration"
+      },
+      {
+        "scene_id": "MF1-S2",
+        "required": true,
+        "purpose": "Seplat reports a 40% operated interest; preliminary gross in-place quantities are not the company's net saleable volumes.",
+        "truth_boundary": "Do not convert gross in-place estimates into company revenue or reserves.",
+        "visual_type": "deterministic explanatory graphic"
+      },
+      {
+        "scene_id": "MF1-S3",
+        "required": true,
+        "purpose": "Existing infrastructure can be commercially relevant, yet no Aku-01 capital budget or project economics were disclosed in the cited evidence.",
+        "truth_boundary": "Absence of disclosed project economics requires an explicit knowledge stop.",
+        "visual_type": "deterministic explanatory graphic"
+      },
+      {
+        "scene_id": "C1-S1",
+        "required": true,
+        "purpose": "Nigeria's host-community framework makes participation and development planning a governed process.",
+        "truth_boundary": "Do not name a host community without an applicable official determination.",
+        "visual_type": "deterministic contextual editorial illustration"
+      },
+      {
+        "scene_id": "C1-S2",
+        "required": true,
+        "purpose": "The statutory contribution is linked to preceding-year operating expenditure, not a simple share of discovery value.",
+        "truth_boundary": "Do not imply a windfall, fixed amount or immediate distribution.",
+        "visual_type": "deterministic explanatory graphic"
+      },
+      {
+        "scene_id": "W1-S1",
+        "required": true,
+        "purpose": "Imo's labour market is dominated by self-employment and informal work, so expectations may spread beyond direct payroll jobs.",
+        "truth_boundary": "State survey structure does not predict Aku-01 employment.",
+        "visual_type": "deterministic contextual editorial illustration"
+      },
+      {
+        "scene_id": "W1-S2",
+        "required": true,
+        "purpose": "Oil-and-gas participation can require verified training, practical experience, certification and contractor pathways.",
+        "truth_boundary": "The framework creates pathways, not a guarantee for a fictional applicant.",
+        "visual_type": "deterministic explanatory graphic"
+      },
+      {
+        "scene_id": "E1-S1",
+        "required": true,
+        "purpose": "Environmental review and operating controls belong before any claim about local impact or safety.",
+        "truth_boundary": "Do not invent a spill, pollution event, land take or safety outcome.",
+        "visual_type": "deterministic contextual editorial illustration"
+      },
+      {
+        "scene_id": "E1-S2",
+        "required": true,
+        "purpose": "Gas handling choices can affect flaring, emissions, waste and the value recovered from a development.",
+        "truth_boundary": "General regulatory objectives do not establish Aku-01's future emissions.",
+        "visual_type": "deterministic explanatory graphic"
+      },
+      {
+        "scene_id": "E1-S3",
+        "required": true,
+        "purpose": "Exact wellhead, host-community and development-plan evidence remain unresolved and limit local claims.",
+        "truth_boundary": "UNKNOWN is a production boundary, not an invitation to infer a site.",
+        "visual_type": "deterministic explanatory graphic"
+      }
+    ]
+  }
+}
