@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """Build the AOC-001 inherited reader before requesting any new imagery."""
 import json
-import re
 import sys
 from pathlib import Path
-from production_state import ROOT, read, write, binding, require_current, digest, public_path
+from production_state import ROOT, read, write, binding, require_current, digest, public_path, reader_media
 from produce_edition import facts
 from reader_builder import build_reader
 
@@ -25,7 +24,7 @@ def main(run):
             or asset.get('visual_qa',{}).get('pass') is not True or not asset.get('provenance')):
             raise ValueError('asset lacks verified persisted bytes: '+asset['path'])
     page=build_reader(run,edition,candidate,routes,story,assets,copy,structural=True)
-    media=set(re.findall(r'(?:src|poster|data-graphic-path)=["\'](/assets/[^"\'?#]+)',page.read_text()))
+    media=reader_media(page)
     if media!=set(paths): raise ValueError('reader media differs from declared assets')
     inherited=ROOT/'public/adaptive/adaptive.css'
     if digest(page.parent/'adaptive.css')!=digest(inherited):

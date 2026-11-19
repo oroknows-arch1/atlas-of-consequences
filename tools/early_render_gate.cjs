@@ -21,7 +21,7 @@ const server=http.createServer((req,res)=>{
  let file=path.resolve(publicRoot,'.'+url);
  if(!file.startsWith(publicRoot+path.sep)){res.writeHead(403).end();return}
  if(url.endsWith('/'))file=path.join(file,'index.html');
- const mime=file.endsWith('.css')?'text/css':file.endsWith('.js')?'text/javascript':file.endsWith('.svg')?'image/svg+xml':file.endsWith('.png')?'image/png':file.endsWith('.mp4')?'video/mp4':'text/html';
+ const mime=file.endsWith('.css')?'text/css':file.endsWith('.js')?'text/javascript':file.endsWith('.svg')?'image/svg+xml':file.endsWith('.png')?'image/png':file.endsWith('.mp4')?'video/mp4':file.endsWith('.webm')?'video/webm':'text/html';
  fs.readFile(file,(err,data)=>{res.writeHead(err?404:200,{'Content-Type':mime});res.end(err?'missing':data)})
 });
 (async()=>{
@@ -46,8 +46,10 @@ const server=http.createServer((req,res)=>{
   const page=await browser.newPage({viewport:{width,height},reducedMotion:'no-preference'});
   page.setDefaultTimeout(12000);
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(base,{waitUntil:'networkidle'});
+  await page.goto(base,{waitUntil:'domcontentloaded'});
   const media=new Set(await page.locator('img[src],video[src],source[src],[poster],[data-graphic-path]').evaluateAll(nodes=>nodes.map(e=>e.getAttribute('src')||e.getAttribute('poster')||e.getAttribute('data-graphic-path')).filter(p=>p&&p.startsWith('/assets/'))));
+  const storyBackground=await page.locator('.story-copy').evaluate(e=>{const m=getComputedStyle(e).backgroundImage.match(/url\(["']?([^"')]+)/);return m?new URL(m[1],location.href).pathname:null});
+  if(storyBackground?.startsWith('/assets/'))media.add(storyBackground);
   check(media.size===expectedAssets.size&&[...media].every(p=>expectedAssets.has(p)),`${name}: reader media differs from declared assets`);
   let state=await page.evaluate(()=>{
    const h=document.querySelector('.hero'),t=h.querySelector('h1'),s=getComputedStyle(t),bg=h.querySelector('.edition-geo-bg');
@@ -61,7 +63,7 @@ const server=http.createServer((req,res)=>{
   check(await page.locator('.hero').evaluate(e=>e.classList.contains('film-complete')),`${name}: skip/reveal`);
   if(name==='phone'){
    const reduced=await browser.newPage({viewport:{width,height},reducedMotion:'reduce'});
-   await reduced.goto(base,{waitUntil:'networkidle'});
+   await reduced.goto(base,{waitUntil:'domcontentloaded'});
    check(await reduced.locator('.hero').evaluate(e=>e.classList.contains('film-complete')),`${name}: reduced-motion reveal`);
    await reduced.close();
   }

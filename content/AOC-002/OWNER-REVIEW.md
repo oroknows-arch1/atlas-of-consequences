@@ -37,7 +37,7 @@ It also includes WHAT'S REAL, STORY / FICTION, CONSEQUENCES, PLACE and inspectab
 
 The owner-rejected deterministic media has been replaced by a cinematic 16:9 visual set: Imo regional landscape, geoscience, wider-block infrastructure, commercial analysis, community process, skills/work, environmental baseline work, Owerri place context and the fictional Adaeze/Nneka household. Generated people and scenes are explicitly labelled reconstructions, not documentary evidence, Aku-01 footage, an exact wellhead or a named host community.
 
-A 15-second local opening film now hands off to the Edition Map, holds as the persistent reader background and becomes scroll-controlled only after reader scrolling begins. Its synthetic ambient bed fades through the final 2.2 seconds. Opening controls remain at the vertical midpoint. STORY uses the fictional household frame; routes retain the completed evidence, boundaries and navigation.
+A 15-second local opening film now hands off to the Edition Map using the inherited adaptive-reader controls. STORY uses the fictional household frame; routes retain the completed evidence, boundaries and navigation. The opening film and CSS-referenced story image are both included in the declared, hash-verified asset set.
 
 ## Honest missing-assets report
 
@@ -45,7 +45,7 @@ A 15-second local opening film now hands off to the Edition Map, holds as the pe
 - No official source in the edition identifies an Aku-01 host community; none is named or depicted as such.
 - The infrastructure frame is a regional reconstruction of wider-system context, not a photograph of Aku-01 or a confirmed tie-back route.
 - The people in the community, workshop, analysis, environmental and household frames are fictional reconstructions, not witnesses, employees or reported cases.
-- No paid media, stock licence purchase, deployment, publication or merge occurred.
+- This integration run incurred no spend. No stock licence purchase, deployment, publication or merge occurred.
 
 ## Verification
 
@@ -54,7 +54,7 @@ A 15-second local opening film now hands off to the Edition Map, holds as the pe
 - Manufacturing-trace validation: **PASS**
 - AOC-001 canonical paths: **unchanged**
 - Early Chromium gate: **PASS** — 11 screenshots
-- Assembly: **PASS** — 18 assets, 18 rendered beats
+- Assembly: **PASS** — 20 assets, 18 rendered beats
 - Full Chromium gate: **PASS** — 79 screenshots, all routes at 390×844, 320×740 and 1440×900
 - JavaScript syntax: **PASS**
 - AOC-002 build-script syntax: **PASS**

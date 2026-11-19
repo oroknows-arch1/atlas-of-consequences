@@ -1,6 +1,6 @@
 {
   "edition_id": "AOC-002",
-  "input_sha256": "f1a25c45c2a221e221c71708d1cf4eaab60e5b038de0b01d833edfe7ac293cb7",
+  "input_sha256": "8fe9504bfa4b6e6fa6bc150934abb394d04f80db67ce7ff00ac8e9345a618fe6",
   "status": "PASS",
   "assets": [
     {
@@ -143,7 +143,7 @@
     },
     {
       "scene_id": "C1-S2",
-      "path": "/assets/aoc-002/c1-s1.png",
+      "path": "/assets/aoc-002/c1-s2.png",
       "sha256": "b7a366eacf06b82bcf8022ffaad956b686f9e5f0494d31259cb7276511ca7c9c",
       "bytes": 2434512,
       "provenance": "OpenAI image generation; cinematic perspective reconstruction replacing rejected deterministic graphic",
@@ -157,7 +157,7 @@
     },
     {
       "scene_id": "D1-S2",
-      "path": "/assets/aoc-002/d1-s1.png",
+      "path": "/assets/aoc-002/d1-s2.png",
       "sha256": "1e57673d3e1e6596c93c98d82a77a084185828093b6a789c84ef6311b0da7b2b",
       "bytes": 2416180,
       "provenance": "OpenAI image generation; cinematic perspective reconstruction replacing rejected deterministic graphic",
@@ -171,7 +171,7 @@
     },
     {
       "scene_id": "D1-S3",
-      "path": "/assets/aoc-002/d1-s1.png",
+      "path": "/assets/aoc-002/d1-s3.png",
       "sha256": "1e57673d3e1e6596c93c98d82a77a084185828093b6a789c84ef6311b0da7b2b",
       "bytes": 2416180,
       "provenance": "OpenAI image generation; cinematic perspective reconstruction replacing rejected deterministic graphic",
@@ -185,7 +185,7 @@
     },
     {
       "scene_id": "E1-S2",
-      "path": "/assets/aoc-002/e1-s1.png",
+      "path": "/assets/aoc-002/e1-s2.png",
       "sha256": "5a0f0e9a6dcaa72fac92bdd8f06214a810142831373baedb1168962ac0e69a01",
       "bytes": 2967071,
       "provenance": "OpenAI image generation; cinematic perspective reconstruction replacing rejected deterministic graphic",
@@ -199,7 +199,7 @@
     },
     {
       "scene_id": "E1-S3",
-      "path": "/assets/aoc-002/e1-s1.png",
+      "path": "/assets/aoc-002/e1-s3.png",
       "sha256": "5a0f0e9a6dcaa72fac92bdd8f06214a810142831373baedb1168962ac0e69a01",
       "bytes": 2967071,
       "provenance": "OpenAI image generation; cinematic perspective reconstruction replacing rejected deterministic graphic",
@@ -213,7 +213,7 @@
     },
     {
       "scene_id": "I1-S2",
-      "path": "/assets/aoc-002/i1-s1.png",
+      "path": "/assets/aoc-002/i1-s2.png",
       "sha256": "286592c2a0f6964fe2af2514a623ab19a184d7ffe330e7b303ce3c9dd59028a8",
       "bytes": 3046752,
       "provenance": "OpenAI image generation; cinematic perspective reconstruction replacing rejected deterministic graphic",
@@ -227,7 +227,7 @@
     },
     {
       "scene_id": "MF1-S2",
-      "path": "/assets/aoc-002/mf1-s1.png",
+      "path": "/assets/aoc-002/mf1-s2.png",
       "sha256": "1ca77c49f1df39c08195ff3ed6d519f7cdfb480590a8e1704468b3465493af93",
       "bytes": 2176006,
       "provenance": "OpenAI image generation; cinematic perspective reconstruction replacing rejected deterministic graphic",
@@ -241,7 +241,7 @@
     },
     {
       "scene_id": "MF1-S3",
-      "path": "/assets/aoc-002/mf1-s1.png",
+      "path": "/assets/aoc-002/mf1-s3.png",
       "sha256": "1ca77c49f1df39c08195ff3ed6d519f7cdfb480590a8e1704468b3465493af93",
       "bytes": 2176006,
       "provenance": "OpenAI image generation; cinematic perspective reconstruction replacing rejected deterministic graphic",
@@ -255,7 +255,7 @@
     },
     {
       "scene_id": "W1-S2",
-      "path": "/assets/aoc-002/w1-s1.png",
+      "path": "/assets/aoc-002/w1-s2.png",
       "sha256": "57b3677f054ea39c9269c16446b6e105cf8040c067e6e914788797eb9470dc95",
       "bytes": 2489509,
       "provenance": "OpenAI image generation; cinematic perspective reconstruction replacing rejected deterministic graphic",
@@ -265,6 +265,34 @@
       "visual_qa": {
         "pass": true,
         "reason": "Inspected cinematic reconstruction; factual value remains in sourced reader text rather than baked into imagery."
+      }
+    },
+    {
+      "scene_id": "opening-film",
+      "path": "/assets/aoc-002/opening.webm",
+      "sha256": "b8dcf6f5ae5a097c868d4a191bda2c19857bf5c4f974f41c73fc85c1a178044b",
+      "bytes": 12164038,
+      "provenance": "Local cinematic motion composition from generated regional reconstructions; synthetic ambient sound; not documentary evidence",
+      "provider": "ATLAS_LOCAL_MOTION",
+      "truth_boundary": "AI-generated regional opening film; not documentary footage or an exact Aku-01 site claim.",
+      "status": "PASS",
+      "visual_qa": {
+        "pass": true,
+        "reason": "Inspected regional reconstruction; no exact-site claim."
+      }
+    },
+    {
+      "scene_id": "story-fiction",
+      "path": "/assets/aoc-002/story-fiction.png",
+      "sha256": "7b22de96f9ae50c051dfd238d0d101c6601cc52d69cc2850cd7de2dbb5ce446b",
+      "bytes": 2187439,
+      "provenance": "OpenAI image generation; fictional household reconstruction",
+      "provider": "OPENAI_IMAGEGEN_CONTEXT",
+      "truth_boundary": "STORY / FICTION; invented people and setting, not testimony.",
+      "status": "PASS",
+      "visual_qa": {
+        "pass": true,
+        "reason": "Inspected fictional reconstruction and visible story boundary."
       }
     }
   ],

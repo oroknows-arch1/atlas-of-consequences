@@ -20,7 +20,7 @@ const server=http.createServer((req,res)=>{
  let f=path.resolve(publicRoot,'.'+u);
  if(!f.startsWith(publicRoot+path.sep)){res.writeHead(403).end();return}
  if(u.endsWith('/'))f=path.join(f,'index.html');
- const mime=f.endsWith('.css')?'text/css':f.endsWith('.js')?'text/javascript':f.endsWith('.svg')?'image/svg+xml':f.endsWith('.png')?'image/png':'text/html';
+ const mime=f.endsWith('.css')?'text/css':f.endsWith('.js')?'text/javascript':f.endsWith('.svg')?'image/svg+xml':f.endsWith('.png')?'image/png':f.endsWith('.mp4')?'video/mp4':f.endsWith('.webm')?'video/webm':'text/html';
  fs.readFile(f,(error,data)=>{res.writeHead(error?404:200,{'Content-Type':mime});res.end(error?'missing':data)});
 });
 async function finish(status){
@@ -53,8 +53,10 @@ async function finish(status){
   page.setDefaultTimeout(12000);
   const pageErrors=[];page.on('pageerror',e=>pageErrors.push(e.message));
   page.on('response',response=>{if(response.status()>=400&&new URL(response.url()).origin===new URL(base).origin)pageErrors.push(`HTTP ${response.status()} ${response.url()}`)});
-  await page.goto(base,{waitUntil:'networkidle'});
+  await page.goto(base,{waitUntil:'domcontentloaded'});
   const media=new Set(await page.locator('img[src],video[src],source[src],[poster],[data-graphic-path]').evaluateAll(nodes=>nodes.map(e=>e.getAttribute('src')||e.getAttribute('poster')||e.getAttribute('data-graphic-path')).filter(p=>p&&p.startsWith('/assets/'))));
+  const storyBackground=await page.locator('.story-copy').evaluate(e=>{const m=getComputedStyle(e).backgroundImage.match(/url\(["']?([^"')]+)/);return m?new URL(m[1],location.href).pathname:null});
+  if(storyBackground?.startsWith('/assets/'))media.add(storyBackground);
   check(media.size===expected.size&&[...media].every(p=>expected.has(p)),`${name}: reader media differs from declared assets`);
   {
    const dir=path.join(run,live?'live-gate-shots':'full-gate-shots');fs.mkdirSync(dir,{recursive:true});
@@ -139,9 +141,13 @@ async function finish(status){
    return images.map(image=>({path:new URL(image.src).pathname,ok:image.naturalWidth>0}));
   });
   for(const a of nonScene){if(a.ok)used.add(a.path);else defects.push(`${name}: opening/menu image failed to decode ${a.path}`)}
+  const videos=await page.locator('video source[src]').evaluateAll(nodes=>nodes.map(node=>({path:new URL(node.src).pathname,ready:node.parentElement?.readyState>=1})));
+  for(const video of videos){if(video.ready)used.add(video.path);else defects.push(`${name}: opening video metadata failed to load ${video.path}`)}
   const graphics=await page.locator('.graphic-evidence').evaluateAll(links=>links.map(link=>new URL(link.href).pathname));
   for(const p of graphics)used.add(p);
-  check(graphics.length===9&&graphics.every(p=>p.endsWith('.svg')&&expected.has(p)),`${name}: explanatory graphics must remain accessible, verified references`);
+  const expectedGraphics=assets.filter(a=>a.provider==='ATLAS_DETERMINISTIC_GRAPHIC').length;
+  check(graphics.length===expectedGraphics&&graphics.every(p=>p.endsWith('.svg')&&expected.has(p)),`${name}: explanatory graphics must remain accessible, verified references`);
+  if(storyBackground)used.add(storyBackground);
   const menuPaths=await page.locator('.edition-menu-slice img').evaluateAll(images=>images.map(image=>new URL(image.src).pathname));
   check(new Set(menuPaths).size===menuPaths.length,`${name}: Perspective menu repeats imagery despite complete verified asset coverage`);
   check(await page.locator('.edition-menu-label span').evaluateAll(es=>new Set(es.map(e=>e.textContent.trim())).size===es.length),`${name}: menu teaser duplication`);

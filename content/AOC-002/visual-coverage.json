@@ -1,6 +1,6 @@
 {
   "edition_id": "AOC-002",
-  "input_sha256": "90fe8d71e7e20c6cde639a1b0c59a9989cb0240b52ea5bbf7d7648fdd3c1ebbb",
+  "input_sha256": "8fe9504bfa4b6e6fa6bc150934abb394d04f80db67ce7ff00ac8e9345a618fe6",
   "status": "PASS",
   "planned_beats": {
     "D1-S1-B1": {
@@ -15,10 +15,10 @@
           "SEPLAT-9M-2026"
         ],
         "truth_boundary": "Do not describe a preliminary discovery as proved reserves, production or revenue.",
-        "visual_type": "deterministic contextual editorial illustration"
+        "visual_type": "cinematic AI-generated regional reconstruction"
       },
       "asset_path": "/assets/aoc-002/d1-s1.png",
-      "asset_sha256": "642f3102b3bd1f477a7ee111f4855325be7bb3c9effcc4e039c39f14a5e6bb94"
+      "asset_sha256": "1e57673d3e1e6596c93c98d82a77a084185828093b6a789c84ef6311b0da7b2b"
     },
     "D1-S2-B1": {
       "perspective": "D1",
@@ -32,10 +32,10 @@
           "SEPLAT-9M-2026"
         ],
         "truth_boundary": "Company preliminary estimates remain subject to appraisal and development decisions.",
-        "visual_type": "deterministic explanatory graphic"
+        "visual_type": "cinematic AI-generated regional reconstruction"
       },
-      "asset_path": "/assets/aoc-002/d1-s2.svg",
-      "asset_sha256": "6724a4a4f752f8cfd047a58a4d1b482a8efbcab6c8d084ef3ed3a27145955195"
+      "asset_path": "/assets/aoc-002/d1-s2.png",
+      "asset_sha256": "1e57673d3e1e6596c93c98d82a77a084185828093b6a789c84ef6311b0da7b2b"
     },
     "D1-S3-B1": {
       "perspective": "D1",
@@ -49,10 +49,10 @@
           "SEPLAT-9M-2026"
         ],
         "truth_boundary": "De-risking is not the same as discovery or commerciality in adjacent prospects.",
-        "visual_type": "deterministic explanatory graphic"
+        "visual_type": "cinematic AI-generated regional reconstruction"
       },
-      "asset_path": "/assets/aoc-002/d1-s3.svg",
-      "asset_sha256": "f6ee6fbc886f20bbcd4e540381bd53bc05a0d00b02502a3e2dbcdd9311756044"
+      "asset_path": "/assets/aoc-002/d1-s3.png",
+      "asset_sha256": "1e57673d3e1e6596c93c98d82a77a084185828093b6a789c84ef6311b0da7b2b"
     },
     "I1-S1-B1": {
       "perspective": "I1",
@@ -66,10 +66,10 @@
           "SEPLAT-OML53"
         ],
         "truth_boundary": "Wider-block infrastructure does not locate Aku-01 or prove a final connection route.",
-        "visual_type": "deterministic contextual editorial illustration"
+        "visual_type": "cinematic AI-generated regional reconstruction"
       },
       "asset_path": "/assets/aoc-002/i1-s1.png",
-      "asset_sha256": "5d91eec28d2487c2cfd7a133381e7f4313e1b4f2582984d090bacb4608bb64a4"
+      "asset_sha256": "286592c2a0f6964fe2af2514a623ab19a184d7ffe330e7b303ce3c9dd59028a8"
     },
     "I1-S2-B1": {
       "perspective": "I1",
@@ -84,10 +84,10 @@
           "SEPLAT-OML53"
         ],
         "truth_boundary": "A stated plan is not a completed tie-back or start-up schedule.",
-        "visual_type": "deterministic explanatory graphic"
+        "visual_type": "cinematic AI-generated regional reconstruction"
       },
-      "asset_path": "/assets/aoc-002/i1-s2.svg",
-      "asset_sha256": "cafcc956ff265af60f448213aead3de19bb60d90d6cb0fefb0b13b7ffcccd589"
+      "asset_path": "/assets/aoc-002/i1-s2.png",
+      "asset_sha256": "286592c2a0f6964fe2af2514a623ab19a184d7ffe330e7b303ce3c9dd59028a8"
     },
     "MF1-S1-B1": {
       "perspective": "MF1",
@@ -101,10 +101,10 @@
           "SEPLAT-9M-2026"
         ],
         "truth_boundary": "Atlas makes no valuation, price target or investment recommendation.",
-        "visual_type": "deterministic contextual editorial illustration"
+        "visual_type": "cinematic AI-generated regional reconstruction"
       },
       "asset_path": "/assets/aoc-002/mf1-s1.png",
-      "asset_sha256": "cc474856a5f2cf40d2c9a708074c0128800f55483cd2138b2640f82a4175ba87"
+      "asset_sha256": "1ca77c49f1df39c08195ff3ed6d519f7cdfb480590a8e1704468b3465493af93"
     },
     "MF1-S2-B1": {
       "perspective": "MF1",
@@ -118,10 +118,10 @@
           "SEPLAT-9M-2026"
         ],
         "truth_boundary": "Do not convert gross in-place estimates into company revenue or reserves.",
-        "visual_type": "deterministic explanatory graphic"
+        "visual_type": "cinematic AI-generated regional reconstruction"
       },
-      "asset_path": "/assets/aoc-002/mf1-s2.svg",
-      "asset_sha256": "c6d24b7ef246fa564a4d280f4fc20b22914ab6660d0ccced05895d74f707bc15"
+      "asset_path": "/assets/aoc-002/mf1-s2.png",
+      "asset_sha256": "1ca77c49f1df39c08195ff3ed6d519f7cdfb480590a8e1704468b3465493af93"
     },
     "MF1-S3-B1": {
       "perspective": "MF1",
@@ -136,10 +136,10 @@
           "SEPLAT-OML53"
         ],
         "truth_boundary": "Absence of disclosed project economics requires an explicit knowledge stop.",
-        "visual_type": "deterministic explanatory graphic"
+        "visual_type": "cinematic AI-generated regional reconstruction"
       },
-      "asset_path": "/assets/aoc-002/mf1-s3.svg",
-      "asset_sha256": "b7a16a9553d8abe5a17090d5e7ee1cd548b4e8d86e21a280a9a63da24d0cd3c3"
+      "asset_path": "/assets/aoc-002/mf1-s3.png",
+      "asset_sha256": "1ca77c49f1df39c08195ff3ed6d519f7cdfb480590a8e1704468b3465493af93"
     },
     "C1-S1-B1": {
       "perspective": "C1",
@@ -154,10 +154,10 @@
           "PIA-2021"
         ],
         "truth_boundary": "Do not name a host community without an applicable official determination.",
-        "visual_type": "deterministic contextual editorial illustration"
+        "visual_type": "cinematic AI-generated regional reconstruction"
       },
       "asset_path": "/assets/aoc-002/c1-s1.png",
-      "asset_sha256": "2a92c817e13b946ee5b5d1d0dfb3033b17215f127d538ed124956b83a7d17652"
+      "asset_sha256": "b7a366eacf06b82bcf8022ffaad956b686f9e5f0494d31259cb7276511ca7c9c"
     },
     "C1-S2-B1": {
       "perspective": "C1",
@@ -171,10 +171,10 @@
           "PIA-2021"
         ],
         "truth_boundary": "Do not imply a windfall, fixed amount or immediate distribution.",
-        "visual_type": "deterministic explanatory graphic"
+        "visual_type": "cinematic AI-generated regional reconstruction"
       },
-      "asset_path": "/assets/aoc-002/c1-s2.svg",
-      "asset_sha256": "c448d226da6a55f161c98cf40b4497641a4c3e0a50863c4af38ddd14607a9fe8"
+      "asset_path": "/assets/aoc-002/c1-s2.png",
+      "asset_sha256": "b7a366eacf06b82bcf8022ffaad956b686f9e5f0494d31259cb7276511ca7c9c"
     },
     "W1-S1-B1": {
       "perspective": "W1",
@@ -188,10 +188,10 @@
           "NBS-LFS-2023"
         ],
         "truth_boundary": "State survey structure does not predict Aku-01 employment.",
-        "visual_type": "deterministic contextual editorial illustration"
+        "visual_type": "cinematic AI-generated regional reconstruction"
       },
       "asset_path": "/assets/aoc-002/w1-s1.png",
-      "asset_sha256": "a56ea56e07f140bea8154918705aa0b2ee58e323e5dc5a311c4e61d6eee8578f"
+      "asset_sha256": "57b3677f054ea39c9269c16446b6e105cf8040c067e6e914788797eb9470dc95"
     },
     "W1-S2-B1": {
       "perspective": "W1",
@@ -205,10 +205,10 @@
           "NCDMB-HCD"
         ],
         "truth_boundary": "The framework creates pathways, not a guarantee for a fictional applicant.",
-        "visual_type": "deterministic explanatory graphic"
+        "visual_type": "cinematic AI-generated regional reconstruction"
       },
-      "asset_path": "/assets/aoc-002/w1-s2.svg",
-      "asset_sha256": "9f4d0e340091f57d0b4d5340db10cdb123ee2e9c1f92cca8a641b08243bf0b23"
+      "asset_path": "/assets/aoc-002/w1-s2.png",
+      "asset_sha256": "57b3677f054ea39c9269c16446b6e105cf8040c067e6e914788797eb9470dc95"
     },
     "E1-S1-B1": {
       "perspective": "E1",
@@ -222,10 +222,10 @@
           "NUPRC-ENV"
         ],
         "truth_boundary": "Do not invent a spill, pollution event, land take or safety outcome.",
-        "visual_type": "deterministic contextual editorial illustration"
+        "visual_type": "cinematic AI-generated regional reconstruction"
       },
       "asset_path": "/assets/aoc-002/e1-s1.png",
-      "asset_sha256": "6acb296c6e4f06e1589b687885a7220a29e89df0497a121c60062a47ea023115"
+      "asset_sha256": "5a0f0e9a6dcaa72fac92bdd8f06214a810142831373baedb1168962ac0e69a01"
     },
     "E1-S2-B1": {
       "perspective": "E1",
@@ -239,10 +239,10 @@
           "NUPRC-FLARE-2022"
         ],
         "truth_boundary": "General regulatory objectives do not establish Aku-01's future emissions.",
-        "visual_type": "deterministic explanatory graphic"
+        "visual_type": "cinematic AI-generated regional reconstruction"
       },
-      "asset_path": "/assets/aoc-002/e1-s2.svg",
-      "asset_sha256": "ebf3ed9cbb5685516de864ffb8171b692a8ab7210b53392adcb9fff37d06d430"
+      "asset_path": "/assets/aoc-002/e1-s2.png",
+      "asset_sha256": "5a0f0e9a6dcaa72fac92bdd8f06214a810142831373baedb1168962ac0e69a01"
     },
     "E1-S3-B1": {
       "perspective": "E1",
@@ -258,10 +258,10 @@
           "NUPRC-ENV"
         ],
         "truth_boundary": "UNKNOWN is a production boundary, not an invitation to infer a site.",
-        "visual_type": "deterministic explanatory graphic"
+        "visual_type": "cinematic AI-generated regional reconstruction"
       },
-      "asset_path": "/assets/aoc-002/e1-s3.svg",
-      "asset_sha256": "3ef2aecaaae92ebff65ff914655ef92b516751ed6debf08ce5203105cf54d12d"
+      "asset_path": "/assets/aoc-002/e1-s3.png",
+      "asset_sha256": "5a0f0e9a6dcaa72fac92bdd8f06214a810142831373baedb1168962ac0e69a01"
     },
     "reality-scene-B1": {
       "perspective": "reality",
@@ -278,7 +278,7 @@
         "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aoc-002/reality-scene.png",
-      "asset_sha256": "626ce3b4ff2df45dc02a82a8176a1b59838bc8acce1f8294f67d1bb0088b0fa5"
+      "asset_sha256": "67e364755a0114fdf156b60ac3f48b1af0a353b46bb926f58f76b2d0853c3fe2"
     },
     "consequences-scene-B1": {
       "perspective": "consequences",
@@ -298,7 +298,7 @@
         "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aoc-002/consequences-scene.png",
-      "asset_sha256": "38aae98e44fab6119ed5a98bb94f6dd432a47f1e821a88dcb0ed1141bea9b90e"
+      "asset_sha256": "7b22de96f9ae50c051dfd238d0d101c6601cc52d69cc2850cd7de2dbb5ce446b"
     },
     "place-scene-B1": {
       "perspective": "place",
@@ -317,7 +317,7 @@
         "visual_type": "editorial contextual still"
       },
       "asset_path": "/assets/aoc-002/place-scene.png",
-      "asset_sha256": "ab6264f2ed856358320615c4eeaf5833820d8c4f7a8d71a94336ad0c7eb058c9"
+      "asset_sha256": "e4653e0fb280b93a020abbbbda2b373430a2b4feb8ff7bf945fde2458ea9a387"
     }
   },
   "required_count": 18,

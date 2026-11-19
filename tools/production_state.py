@@ -53,6 +53,16 @@ def reader_hashes(reader):
     reader = Path(reader)
     return {str(p.relative_to(ROOT)): digest(p) for p in sorted(reader.parent.iterdir()) if p.is_file()}
 
+def reader_media(reader):
+    """Return every repository asset referenced by reader markup, styles or code."""
+    reader = Path(reader)
+    media = set()
+    pattern = re.compile(r'/assets/[^\s"\'?#)]+')
+    for path in sorted(reader.parent.iterdir()):
+        if path.is_file() and path.suffix in ('.html', '.css', '.js'):
+            media.update(pattern.findall(path.read_text(encoding='utf8')))
+    return media
+
 def block(run, worker, reason):
     result = {'edition_id': identity(run), 'status': 'BLOCKED',
               'known_required_items': [{'worker': worker, 'reason': str(reason)}],

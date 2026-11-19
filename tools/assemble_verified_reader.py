@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """Advance a passed structural reader using only persisted, independently checked assets."""
 import json
-import re
 import sys
 from pathlib import Path
-from production_state import ROOT, read, write, binding, require_current, digest, public_path, reader_hashes
+from production_state import ROOT, read, write, binding, require_current, digest, public_path, reader_hashes, reader_media
 from produce_edition import facts
 from editorial_factory import validate_copy
 from market_finance import validate as validate_markets
@@ -41,8 +40,7 @@ def main(run):
     page=build_reader(run,edition,candidate,routes,story,assets,copy,structural=False)
     for obsolete in ('reader.css','reader.js'):
         (page.parent/obsolete).unlink(missing_ok=True)
-    html=page.read_text()
-    media=set(re.findall(r'(?:src|poster|data-graphic-path)=["\'](/assets/[^"\'?#]+)',html))
+    media=reader_media(page)
     if media!=set(paths): raise ValueError('reader media differs from declared assets')
     if digest(page)!=early['reader_sha256']:
         raise ValueError('full asset wiring changed the approved structural reader; rerun early visual gate')

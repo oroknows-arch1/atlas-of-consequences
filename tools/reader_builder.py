@@ -77,7 +77,7 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
             visual=contextual[(n-1)%len(contextual)] if graphic else beat
             cls='scene-overlay'
             image='<img src="%s" alt="%s" loading="lazy">'%(esc(visual['path']),esc(block['heading']))
-            caption='<em class="asset-boundary">AI-generated cinematic reconstruction · not documentary evidence · %s</em>'%esc(visual['truth_boundary'])
+            caption='<em class="asset-boundary">AI-generated contextual illustration · cinematic reconstruction · not documentary evidence · %s</em>'%esc(visual['truth_boundary'])
             if graphic:
                 caption+='<a class="graphic-evidence" href="%s" rel="noopener" target="_blank" data-graphic-path="%s">Inspect verified explanatory graphic ↗</a><em class="asset-boundary">%s</em>'%(esc(beat['path']),esc(beat['path']),esc(beat['truth_boundary']))
             refs=' '.join('<a href="#source-%s">%s</a>'%(esc(ref),esc(ref)) for ref in p['evidence_refs'])
@@ -150,4 +150,8 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
     shutil.copyfile(CANONICAL/'adaptive.css',target/'adaptive.css')
     shutil.copyfile(ROOT/'public/review/adaptive.js',target/'adaptive.js')
     shutil.copyfile(ROOT/'public/review/edition.css',target/'edition.css')
+    story_asset=next((a for a in available if a['scene_id']=='story-fiction'),None)
+    if story_asset:
+        with (target/'edition.css').open('a',encoding='utf8') as css:
+            css.write('\n.story-copy{position:relative;max-width:none;min-height:100svh;padding:12svh max(22px,calc((100vw - 680px)/2));background-image:linear-gradient(180deg,rgba(5,7,8,.42),rgba(5,7,8,.88)),url("%s")!important;background-size:cover!important;background-position:center!important;background-attachment:fixed!important}\n@media(max-width:600px){.story-copy{background-attachment:scroll!important;background-position:58%% center!important}}\n'%story_asset['path'])
     return target/'index.html'

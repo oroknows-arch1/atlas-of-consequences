@@ -1,5 +1,6 @@
 {
-  "status": "PASS",
+  "status": "SUPERSEDED",
+  "reason": "Superseded by the current hash-bound early-reader and full-reader Chromium gate receipts after duplicate-path and undeclared CSS/video media repair.",
   "checks": [
     {
       "viewport": {

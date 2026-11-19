@@ -40,16 +40,5 @@
 @media(max-width:600px){.edition-menu-slice{height:clamp(178px,24svh,215px)}.edition-menu-label{left:18px;top:12%;width:75%}.edition-menu-label strong{margin:7px 0 11px;font-size:21px}.edition-menu-label strong:after{width:42px;height:3px;margin-top:8px}.edition-menu-label span{font-size:12px;max-width:31ch}.edition-menu-slice:before{right:12px;bottom:14%;width:28px;height:28px;font:20px/25px Arial,sans-serif}}
 @media(prefers-reduced-motion:reduce){.opening-frame{animation:none}.opening-frame:first-child{opacity:1}}
 
-/* AOC-002 owner-review film contract: the final film frame remains the reader's
-   atmospheric background and scroll, not autoplay time, controls it thereafter. */
-.video-entry .hero-video{filter:brightness(.67) saturate(.96);transition:opacity .8s ease}
-.video-entry.film-complete .edition-geo-bg{opacity:0}
-.video-entry.film-complete .hero-video{position:fixed!important;inset:0!important;width:100vw;height:100svh;opacity:.82!important;pointer-events:none;z-index:0}
-body.reader-live{background:transparent}
-body.reader-live #shell{background:rgba(5,7,8,.20)}
-body.reader-live #shell>section{position:relative;z-index:1}
-body.reader-live .menu,body.reader-live .boundary,body.reader-live .story-copy{background:linear-gradient(180deg,rgba(5,7,8,.56),rgba(5,7,8,.82))}
-.skip-film{top:50%!important;bottom:auto!important;transform:translateY(-50%)}
-.story-copy{position:relative;max-width:none;min-height:100svh;padding:12svh max(22px,calc((100vw - 680px)/2));background-image:linear-gradient(180deg,rgba(5,7,8,.42),rgba(5,7,8,.88)),url('/assets/aoc-002/story-fiction.png')!important;background-size:cover!important;background-position:center!important;background-attachment:fixed!important}
+.story-copy{position:relative;max-width:none;min-height:100svh;padding:12svh max(22px,calc((100vw - 680px)/2));background-image:linear-gradient(180deg,rgba(5,7,8,.42),rgba(5,7,8,.88)),url("/assets/aoc-002/story-fiction.png")!important;background-size:cover!important;background-position:center!important;background-attachment:fixed!important}
 @media(max-width:600px){.story-copy{background-attachment:scroll!important;background-position:58% center!important}}
-@media(prefers-reduced-motion:reduce){.video-entry .hero-video{display:block!important}.video-entry .reveal-copy{opacity:0;pointer-events:none}.video-entry.film-complete .reveal-copy{opacity:1;pointer-events:auto}}

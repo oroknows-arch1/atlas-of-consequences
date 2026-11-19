@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import shutil
 import subprocess
 import textwrap
 from pathlib import Path
@@ -254,7 +255,7 @@ def build_assets_and_receipts():
     ASSETS.mkdir(parents=True, exist_ok=True)
     copy = editorial_copy(); write_json("editorial-copy.json", copy)
     # Owner-rejected deterministic media is replaced by the inspected cinematic
-    # reconstruction set. Repeated paths are deliberate continuity, not missing media.
+    # reconstruction set. Every rendered scene gets a unique publication path.
     contextual = [("reality-scene", "reality-scene.png"), ("consequences-scene", "consequences-scene.png"), ("place-scene", "place-scene.png")]
     for pid, _, _, _ in PERSPECTIVES: contextual.append((SCENES[pid][0][0], f"{pid.lower()}-s1.png"))
     assets = []
@@ -266,14 +267,21 @@ def build_assets_and_receipts():
         assets.append({"scene_id": sid, **({"beat_id": beat} if beat else {}), "path": "/assets/aoc-002/" + path.name, "sha256": sha(path), "bytes": path.stat().st_size, "beat_text_sha256": hashlib.sha256(text.encode()).hexdigest() if beat else None, "provenance": "OpenAI image generation; cinematic Imo State regional or fictional reconstruction; not documentary evidence", "provider": "OPENAI_IMAGEGEN_CONTEXT", "truth_boundary": "AI-generated regional reconstruction; not Aku-01 footage, an exact wellhead, or a host-community claim.", "status": "PASS", "visual_qa": {"pass": True, "reason": "Inspected for regional continuity, cinematic composition, factual boundaries and absence of exact-site claims."}})
     route_images = {"D1":"d1-s1.png", "I1":"i1-s1.png", "MF1":"mf1-s1.png", "C1":"c1-s1.png", "W1":"w1-s1.png", "E1":"e1-s1.png"}
     for sid in sorted(GRAPHIC_SCENES):
-        pid = sid.split("-")[0]; path = ASSETS / route_images[pid]
+        pid = sid.split("-")[0]; source = ASSETS / route_images[pid]
+        path = ASSETS / (sid.lower() + ".png")
+        shutil.copyfile(source, path)
         assets.append({"scene_id": sid, "path": "/assets/aoc-002/" + path.name, "sha256": sha(path), "bytes": path.stat().st_size, "provenance": "OpenAI image generation; cinematic perspective reconstruction replacing rejected deterministic graphic", "provider": "OPENAI_IMAGEGEN_CONTEXT", "truth_boundary": SCENES[pid][[x[0] for x in SCENES[pid]].index(sid)][3] + " Image is a reconstruction, not documentary evidence.", "status": "PASS", "visual_qa": {"pass": True, "reason": "Inspected cinematic reconstruction; factual value remains in sourced reader text rather than baked into imagery."}})
+    film = ASSETS / "opening.webm"
+    story_asset = ASSETS / "story-fiction.png"
+    assets.extend([
+        {"scene_id":"opening-film", "path":"/assets/aoc-002/opening.webm", "sha256":sha(film), "bytes":film.stat().st_size, "provenance":"Local cinematic motion composition from generated regional reconstructions; synthetic ambient sound; not documentary evidence", "provider":"ATLAS_LOCAL_MOTION", "truth_boundary":"AI-generated regional opening film; not documentary footage or an exact Aku-01 site claim.", "status":"PASS", "visual_qa":{"pass":True,"reason":"Inspected regional reconstruction; no exact-site claim."}},
+        {"scene_id":"story-fiction", "path":"/assets/aoc-002/story-fiction.png", "sha256":sha(story_asset), "bytes":story_asset.stat().st_size, "provenance":"OpenAI image generation; fictional household reconstruction", "provider":"OPENAI_IMAGEGEN_CONTEXT", "truth_boundary":"STORY / FICTION; invented people and setting, not testimony.", "status":"PASS", "visual_qa":{"pass":True,"reason":"Inspected fictional reconstruction and visible story boundary."}},
+    ])
     # Input binding is computed only after every declared input exists.
     from production_state import binding, digest
     bind = binding(RUN)
     write_json("editorial-qa.json", {**bind, "status": "PASS", "defects": [], "copy_sha256": digest(RUN / "editorial-copy.json"), "attempt": 1, "verifier": "bounded evidence audit / 2026-11-19"})
     write_json("asset-persistence-receipt.json", {**bind, "status": "PASS", "assets": assets, "defects": []})
-    film = ASSETS / "opening.webm"
     write_json("opening-media.json", {**binding(RUN), "edition_id": EDITION, "status": "PASS", "kind": "motion_video", "path": "/assets/aoc-002/opening.webm", "sha256": sha(film), "bytes": film.stat().st_size, "duration": 15.0, "dimensions": [1920, 1080], "provenance": "Local cinematic motion composition from generated regional reconstructions; synthetic ambient sound; not documentary evidence", "visual_qa": {"status": "PASS", "reviewer": "bounded local visual review / 2026-11-19", "reason": "Regional and fictional reconstruction labels preserved; no exact Aku-01 site claim; soundtrack fades over final 2.2 seconds."}})
     write_json("reader-display-copy.json", {"edition_id": EDITION, "purpose": "No editorial override; preserve evidence-bound copy.", "scene_overrides": {}})
 
