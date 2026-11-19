@@ -1,6 +1,6 @@
 {
   "edition_id": "AOC-002",
-  "input_sha256": "4dcb570720c234893f57b8a08f6d8978035349ae3013c89066daf400ba9c3623",
+  "input_sha256": "d8637a35ce5f3070fddf101547e989739c85ecbd0c6fc4c83ecb388be214dffc",
   "status": "PASS",
   "assets": [
     {
@@ -272,27 +272,97 @@
       "path": "/assets/aoc-002/opening.webm",
       "sha256": "b8dcf6f5ae5a097c868d4a191bda2c19857bf5c4f974f41c73fc85c1a178044b",
       "bytes": 12164038,
-      "provenance": "Local cinematic motion composition from generated regional reconstructions; synthetic ambient sound; not documentary evidence",
+      "provenance": "Local cinematic motion composition from generated regional reconstructions; audio disabled by owner lock; not documentary evidence",
       "provider": "ATLAS_LOCAL_MOTION",
       "truth_boundary": "AI-generated regional opening film; not documentary footage or an exact Aku-01 site claim.",
       "status": "PASS",
       "visual_qa": {
         "pass": true,
-        "reason": "Inspected regional reconstruction; no exact-site claim."
+        "reason": "Inspected regional reconstruction; no exact-site claim; reader enforces permanent mute with no audio controls."
       }
     },
     {
-      "scene_id": "story-fiction",
-      "path": "/assets/aoc-002/story-fiction.png",
-      "sha256": "7b22de96f9ae50c051dfd238d0d101c6601cc52d69cc2850cd7de2dbb5ce446b",
-      "bytes": 2187439,
-      "provenance": "OpenAI image generation; fictional household reconstruction",
+      "scene_id": "story-01-morning-announcement",
+      "path": "/assets/aoc-002/story-01-morning-announcement.png",
+      "sha256": "8b61a2f9639cac33429d0e1f1f2d3b5b769eeceb2c7248cc588f30190bd0ca79",
+      "bytes": 1975558,
+      "provenance": "OpenAI built-in image generation; fictional STORY reconstruction; covered Codex allowance; USD $0.00 incremental charge",
       "provider": "OPENAI_IMAGEGEN_CONTEXT",
       "truth_boundary": "STORY / FICTION; invented people and setting, not testimony.",
       "status": "PASS",
       "visual_qa": {
         "pass": true,
-        "reason": "Inspected fictional reconstruction and visible story boundary."
+        "reason": "Inspected for character continuity, distinct staging, fictional boundary, and absence of documentary claims."
+      }
+    },
+    {
+      "scene_id": "story-02-radio-certainty",
+      "path": "/assets/aoc-002/story-02-radio-certainty.png",
+      "sha256": "fbad088a0738f6a293ee2640806d1c0d2cba35d49bae6d4f8bd049916e91f2df",
+      "bytes": 2527666,
+      "provenance": "OpenAI built-in image generation; fictional STORY reconstruction; covered Codex allowance; USD $0.00 incremental charge",
+      "provider": "OPENAI_IMAGEGEN_CONTEXT",
+      "truth_boundary": "STORY / FICTION; invented people and setting, not testimony.",
+      "status": "PASS",
+      "visual_qa": {
+        "pass": true,
+        "reason": "Inspected for character continuity, distinct staging, fictional boundary, and absence of documentary claims."
+      }
+    },
+    {
+      "scene_id": "story-03-forwarded-message",
+      "path": "/assets/aoc-002/story-03-forwarded-message.png",
+      "sha256": "e720ca74ded139e2c65a9028125aaab2138180356b38fe75dd4c2f17e40bc122",
+      "bytes": 2284184,
+      "provenance": "OpenAI built-in image generation; fictional STORY reconstruction; covered Codex allowance; USD $0.00 incremental charge",
+      "provider": "OPENAI_IMAGEGEN_CONTEXT",
+      "truth_boundary": "STORY / FICTION; invented people and setting, not testimony.",
+      "status": "PASS",
+      "visual_qa": {
+        "pass": true,
+        "reason": "Inspected for character continuity, distinct staging, fictional boundary, and absence of documentary claims."
+      }
+    },
+    {
+      "scene_id": "story-04-household-calculation",
+      "path": "/assets/aoc-002/story-04-household-calculation.png",
+      "sha256": "49885579bdb1e9d73cd432f563a187366e7ecbe8a2f86b4bc0f93ed779a518e8",
+      "bytes": 2861011,
+      "provenance": "OpenAI built-in image generation; fictional STORY reconstruction; covered Codex allowance; USD $0.00 incremental charge",
+      "provider": "OPENAI_IMAGEGEN_CONTEXT",
+      "truth_boundary": "STORY / FICTION; invented people and setting, not testimony.",
+      "status": "PASS",
+      "visual_qa": {
+        "pass": true,
+        "reason": "Inspected for character continuity, distinct staging, fictional boundary, and absence of documentary claims."
+      }
+    },
+    {
+      "scene_id": "story-05-terms-not-favour",
+      "path": "/assets/aoc-002/story-05-terms-not-favour.png",
+      "sha256": "1c7bda5bbc116e3f207e57e78a295f2436c0d3c876f673b168d52bb9945ee02a",
+      "bytes": 2122856,
+      "provenance": "OpenAI built-in image generation; fictional STORY reconstruction; covered Codex allowance; USD $0.00 incremental charge",
+      "provider": "OPENAI_IMAGEGEN_CONTEXT",
+      "truth_boundary": "STORY / FICTION; invented people and setting, not testimony.",
+      "status": "PASS",
+      "visual_qa": {
+        "pass": true,
+        "reason": "Inspected for character continuity, distinct staging, fictional boundary, and absence of documentary claims."
+      }
+    },
+    {
+      "scene_id": "story-06-footnoted-hope",
+      "path": "/assets/aoc-002/story-06-footnoted-hope.png",
+      "sha256": "61e66f55192b3110b9352a6caeeb093ad23fcf0b1593d22e507797866da962af",
+      "bytes": 2049280,
+      "provenance": "OpenAI built-in image generation; fictional STORY reconstruction; covered Codex allowance; USD $0.00 incremental charge",
+      "provider": "OPENAI_IMAGEGEN_CONTEXT",
+      "truth_boundary": "STORY / FICTION; invented people and setting, not testimony.",
+      "status": "PASS",
+      "visual_qa": {
+        "pass": true,
+        "reason": "Inspected for character continuity, distinct staging, fictional boundary, and absence of documentary claims."
       }
     }
   ],

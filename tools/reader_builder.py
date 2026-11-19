@@ -55,7 +55,7 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
           media.get('path') and digest(public_path(media['path']))==media.get('sha256') else None)
     sequence=contextual[:3]
     film_type='video/webm' if film and film.endswith('.webm') else 'video/mp4'
-    opening=('''<video class="hero-video" autoplay playsinline preload="auto" poster="%s" aria-label="AI-generated regional opening film; not documentary footage"><source src="%s" type="%s"></video>'''%(esc(hero['path']),esc(film),film_type)) if film else '<div class="opening-sequence" aria-hidden="true">'+''.join('<img src="%s" alt="" class="opening-frame frame-%d">'%(esc(a['path']),i+1) for i,a in enumerate(sequence))+'</div>'
+    opening=('''<video class="hero-video" autoplay muted playsinline preload="auto" poster="%s" aria-label="Silent AI-generated regional opening film; not documentary footage"><source src="%s" type="%s"></video>'''%(esc(hero['path']),esc(film),film_type)) if film else '<div class="opening-sequence" aria-hidden="true">'+''.join('<img src="%s" alt="" class="opening-frame frame-%d">'%(esc(a['path']),i+1) for i,a in enumerate(sequence))+'</div>'
     mode='approved_film' if film else 'verified_image_sequence'
     write(run/'opening-system.json',{**binding(run),'status':'PASS','mode':mode,
           'assets':[{'path':a['path'],'sha256':a['sha256']} for a in sequence] if not film else [],
@@ -138,7 +138,14 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
     shared=[]
     for key,title in [('reality','WHAT’S REAL'),('consequences','CONSEQUENCES'),('place','PLACE')]:
         shared.append(route(key,title,[(key+'-scene',copy['opening' if key=='reality' else key])]))
-    story_text=''.join('<p>%s</p>'%esc(p) for p in story['story'])
+    visual_after={item['after_paragraph']:item for item in story.get('story_visuals',[])}
+    story_parts=[]
+    for index,paragraph in enumerate(story['story']):
+        visual=visual_after.get(index)
+        if visual:
+            story_parts.append('<figure class="story-frame" style="--story-image:url(\'%s\');--story-position:%s"><div role="img" aria-label="STORY / FICTION reconstruction: %s"></div><figcaption>STORY / FICTION · RECONSTRUCTION · NOT TESTIMONY</figcaption></figure>'%(esc(visual['path']),esc(visual['position']),esc(visual['focus'])))
+        story_parts.append('<p>%s</p>'%esc(paragraph))
+    story_text=''.join(story_parts)
     story_panel='<section id="story" class="route perspective-route" data-route="story" hidden><header><a href="#perspectives">← Perspectives</a><span>STORY / FICTION</span></header><section class="boundary"><small>STORY / FICTION</small><h2>%s</h2><p>%s</p><p>These people, dialogue and events are invented. This is not testimony.</p></section><div class="story-copy">%s</div><section class="boundary route-end"><a class="route-exit" href="#perspectives">Choose what to explore next ↑</a></section></section>'%(esc(story['title']),esc(story['boundary']),story_text)
     source_html=''.join('<details id="source-%s"><summary>%s · %s</summary><p>Supports: %s</p><p>Limit: %s</p><a href="%s" rel="noopener">Open source ↗</a></details>'%(esc(s['id']),esc(s['id']),esc(s['title']),esc(s['supports']),esc(s['limitation']),esc(s['url'])) for s in sources)
     menu='<nav class="edition-links"><a href="#reality">WHAT’S REAL</a> · <a href="#story">STORY / FICTION</a> · <a href="#consequences">CONSEQUENCES</a> · <a href="#place">PLACE</a> · <a href="#sources">SOURCES</a></nav>'
@@ -150,8 +157,27 @@ def build_reader(run, edition, candidate, routes, story, assets, copy, *, struct
     shutil.copyfile(CANONICAL/'adaptive.css',target/'adaptive.css')
     shutil.copyfile(ROOT/'public/review/adaptive.js',target/'adaptive.js')
     shutil.copyfile(ROOT/'public/review/edition.css',target/'edition.css')
-    story_asset=next((a for a in available if a['scene_id']=='story-fiction'),None)
+    if edition == 'AOC-002':
+        with (target/'adaptive.js').open('a',encoding='utf8') as script:
+            script.write('''\n// Owner audio lock: AOC-002 must remain silent with no playback controls.\n(() => {\n  const video = document.querySelector('.hero-video');\n  if (!video) return;\n  const enforceSilence = () => { video.defaultMuted = true; video.muted = true; video.volume = 0; video.removeAttribute('controls'); };\n  enforceSilence();\n  video.addEventListener('volumechange', enforceSilence);\n  video.addEventListener('loadedmetadata', enforceSilence);\n})();\n''')
+    story_asset=next((a for a in available if a['scene_id'].startswith('story-')),None)
     if story_asset:
         with (target/'edition.css').open('a',encoding='utf8') as css:
-            css.write('\n.story-copy{position:relative;max-width:none;min-height:100svh;padding:12svh max(22px,calc((100vw - 680px)/2));background-image:linear-gradient(180deg,rgba(5,7,8,.42),rgba(5,7,8,.88)),url("%s")!important;background-size:cover!important;background-position:center!important;background-attachment:fixed!important}\n@media(max-width:600px){.story-copy{background-attachment:scroll!important;background-position:58%% center!important}}\n'%story_asset['path'])
+            css.write('\n.story-copy{position:relative;max-width:none;min-height:100svh;padding:8svh max(22px,calc((100vw - 760px)/2));background:#050708!important}.story-copy>p{max-width:680px;margin:0 auto 1.5em}.story-frame{width:min(100%,980px);margin:5svh auto 7svh}.story-frame>div{height:min(68svh,660px);background-image:linear-gradient(180deg,rgba(5,7,8,.05),rgba(5,7,8,.22)),var(--story-image);background-size:cover;background-position:var(--story-position);border:1px solid rgba(255,255,255,.18)}.story-frame figcaption{margin-top:10px;font:8px/1.4 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;opacity:.72}@media(max-width:600px){.story-copy{padding-left:0;padding-right:0}.story-copy>p{padding-left:22px;padding-right:22px}.story-frame{width:100%;margin:4svh 0 6svh}.story-frame>div{height:58svh;border-left:0;border-right:0}.story-frame figcaption{padding:0 18px}}\n')
+    if edition == 'AOC-002':
+        with (target/'edition.css').open('a',encoding='utf8') as css:
+            css.write('''\n/* Intentional crops for repeated source frames: one sequence, distinct evidence-led focal beats. */
+body::before{content:'DRAFT PREVIEW — FACTUAL VERIFICATION PENDING — NOT FOR PUBLICATION';position:fixed;z-index:1000;inset:0 0 auto;box-sizing:border-box;padding:9px 44px 8px;background:#f4c542;color:#15110a;border-bottom:2px solid #15110a;text-align:center;font:700 11px/1.35 Arial,sans-serif;letter-spacing:.08em}#shell{padding-top:37px}@media(max-width:600px){body::before{padding:8px 12px 7px;font-size:9px;letter-spacing:.055em}#shell{padding-top:39px}}
+.film-mark::after{content:'REGIONAL RECONSTRUCTION · NOT DOCUMENTARY FOOTAGE';position:absolute;top:18px;left:0;right:0;text-align:center;font-size:8px;letter-spacing:.13em;color:#fff;text-shadow:0 1px 5px #000}@media(max-width:600px){.film-mark::after{top:17px;font-size:7px;letter-spacing:.08em}}
+#D1-S2-part-1>img{object-position:67% center;transform:scale(1.12)}
+#D1-S3-part-1>img{object-position:22% center;transform:scale(1.18)}
+#I1-S2-part-1>img{object-position:76% center;transform:scale(1.12)}
+#MF1-S2-part-1>img{object-position:67% center;transform:scale(1.14)}
+#MF1-S3-part-1>img{object-position:26% center;transform:scale(1.16)}
+#C1-S2-part-1>img{object-position:72% center;transform:scale(1.14)}
+#W1-S2-part-1>img{object-position:62% center;transform:scale(1.16)}
+#E1-S2-part-1>img{object-position:76% center;transform:scale(1.14)}
+#E1-S3-part-1>img{object-position:18% center;transform:scale(1.16)}
+@media(max-width:600px){#D1-S2-part-1>img,#I1-S2-part-1>img,#MF1-S2-part-1>img,#C1-S2-part-1>img,#W1-S2-part-1>img,#E1-S2-part-1>img{object-position:62% center}#D1-S3-part-1>img,#MF1-S3-part-1>img,#E1-S3-part-1>img{object-position:28% center}}
+''')
     return target/'index.html'

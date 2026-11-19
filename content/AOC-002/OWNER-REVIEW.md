@@ -5,6 +5,23 @@
 **State:** Local owner-review candidate; not deployed, published, approved or merged  
 **Reader:** `public/review/aoc-002/index.html`
 
+## Open the local owner review
+
+Double-click `content/AOC-002/Open AOC-002.command`. The launcher starts the
+required local server only when it is not already running, then opens
+<http://127.0.0.1:4174/review/aoc-002/index.html> in the default browser. If the
+server cannot start or the reader is missing, the launcher displays a plain-
+language error. The opening starts silently and **Skip opening** remains
+available.
+
+Do not open `index.html` directly with a `file://` URL, and do not serve the
+repository root. The edition intentionally uses site-root asset URLs such as
+`/assets/aoc-002/d1-s1.png`; those resolve to `public/assets/aoc-002/` only when
+`public/` is the server root. Direct-file opening resolves them against the Mac
+filesystem root, while repository-root serving returns 404 for them. Both modes
+produce the reported text-only / no-images result even though the media files
+are intact.
+
 ## Editorial proposition
 
 Seplat Energy's 9M 2026 results report an oil-and-gas discovery at Aku-01 in onshore Imo State. The company's preliminary internal mid-case estimates are 157 Bcf of gas in place and 19 MMbbls of oil in place. It describes Aku-01 as a potential future production well that may be tied back to existing infrastructure.
@@ -39,6 +56,10 @@ The owner-rejected deterministic media has been replaced by a cinematic 16:9 vis
 
 A 15-second local opening film now hands off to the Edition Map using the inherited adaptive-reader controls. STORY uses the fictional household frame; routes retain the completed evidence, boundaries and navigation. The opening film and CSS-referenced story image are both included in the declared, hash-verified asset set.
 
+The AOC-002 reader plays the retained opening permanently muted. Synthetic
+soundtrack playback was removed by owner decision; the source media binary was
+preserved unchanged.
+
 ## AOC-001 parity repair
 
 The final offline parity pass found one AOC-002 defect that could be repaired without changing the factory or generating media: `Before Anything Flows` was a six-paragraph synopsis rather than a sustained human narrative comparable to AOC-001.
@@ -47,12 +68,19 @@ The AOC-002 production input now carries a thirteen-paragraph story. It keeps Ad
 
 The reader was rebuilt from that corrected production input. It was not hand-edited, and all twenty previously verified media assets—including the opening film—were reused unchanged.
 
+The approved six-shot STORY batch is now integrated. The built-in `gpt-image-2` path used the existing included Codex allowance; the verified incremental cash ceiling and actual charge were **USD $0.00**, with no API key, purchased API credit, stock licence or external paid generator. The first generated pass was rejected before integration because it repeated the anchor table and motor-bench compositions. The accepted second pass preserves Adaeze, Nneka and Chinedu while varying bedroom, workshop entrance, parts aisle, kitchen, side-office and veranda settings, as well as camera height, distance and blocking. STORY now uses six unique 16:9 binaries as six labelled full-screen beats. The visual character lock and complete mapping are recorded in `AOC002-VISUAL-CHARACTER-BIBLE-v0.1.md` and `AOC002-SCENE-VISUAL-COVERAGE-v0.1.md`.
+
 ## Remaining AOC-001 parity limits
+
+The production-level comparison is recorded in
+`content/AOC-002/AOC001-AOC002-GAP-TO-CONTRACT.md`. It supersedes any implication
+in this file that valid paths, hashes or technical gates establish experiential
+or publication parity.
 
 - AOC-001's factual opening is a source-verified editorial report film. AOC-002's opening is a clearly labelled regional reconstruction made from the existing generated material; it cannot become documentary Aku-01 coverage offline.
 - The exact Aku-01 wellhead and officially determined host communities remain unresolved in the cited evidence. AOC-002 therefore stays at Imo State / wider OML 53 resolution and cannot honestly match AOC-001's more precise place grounding.
-- Nine scene paths reuse their route's existing cinematic frame. The paths, hashes and integration are valid, but the visual variation is below AOC-001's richer scene-specific benchmark. Correcting that would require new source-cleared or generated media, which was not authorised.
-- STORY has one existing fictional household image rather than AOC-001's broader character/scene visual treatment. The narrative is now complete, but visual character continuity cannot be strengthened without new imagery.
+- Nine scene paths still reuse their route's existing cinematic frame. Purpose-specific crops now reduce visual repetition without pretending to create new evidence, but the underlying unique-image count remains below AOC-001's richer scene-specific benchmark.
+- STORY now exposes two existing, character-consistent fictional frames—household and workshop—across three narrative beats. This is a material continuity improvement, but it remains below AOC-001's approved reference set and moving story-promo treatment.
 - No AOC-002 OROK companion or distribution package exists in this owner-review build. The inherited reader factory used here has no AOC-002 companion/distribution surface. This is recorded as a factory/product-completion gap; the canonical factory remains unchanged.
 
 These limits do not invalidate the local owner-review reader, but they block a truthful claim of complete publication parity with AOC-001. Publication authority remains false.
@@ -63,7 +91,7 @@ These limits do not invalidate the local owner-review reader, but they block a t
 - No official source in the edition identifies an Aku-01 host community; none is named or depicted as such.
 - The infrastructure frame is a regional reconstruction of wider-system context, not a photograph of Aku-01 or a confirmed tie-back route.
 - The people in the community, workshop, analysis, environmental and household frames are fictional reconstructions, not witnesses, employees or reported cases.
-- This integration run incurred no spend. No stock licence purchase, deployment, publication or merge occurred.
+- This integration run incurred **USD $0.00 incremental cash spend** and consumed only the existing included Codex allowance. No API credit, stock licence purchase, deployment, publication or merge occurred.
 
 ## Verification
 

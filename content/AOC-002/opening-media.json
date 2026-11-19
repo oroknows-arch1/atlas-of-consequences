@@ -1,6 +1,6 @@
 {
   "edition_id": "AOC-002",
-  "input_sha256": "4dcb570720c234893f57b8a08f6d8978035349ae3013c89066daf400ba9c3623",
+  "input_sha256": "d8637a35ce5f3070fddf101547e989739c85ecbd0c6fc4c83ecb388be214dffc",
   "status": "PASS",
   "kind": "motion_video",
   "path": "/assets/aoc-002/opening.webm",
@@ -11,10 +11,11 @@
     1920,
     1080
   ],
-  "provenance": "Local cinematic motion composition from generated regional reconstructions; synthetic ambient sound; not documentary evidence",
+  "audio_policy": "PERMANENTLY_MUTED_NO_CONTROLS",
+  "provenance": "Local cinematic motion composition from generated regional reconstructions; audio disabled by owner lock; not documentary evidence",
   "visual_qa": {
     "status": "PASS",
-    "reviewer": "bounded local visual review / 2026-11-19",
-    "reason": "Regional and fictional reconstruction labels preserved; no exact Aku-01 site claim; soundtrack fades over final 2.2 seconds."
+    "reviewer": "bounded local visual review / 2026-11-20",
+    "reason": "Regional and fictional reconstruction labels preserved; no exact Aku-01 site claim; reader enforces permanent mute with no audio controls."
   }
 }

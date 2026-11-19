@@ -67,3 +67,27 @@
   addEventListener('hashchange', navigate);
   navigate();
 })();
+
+// Owner audio lock: AOC-002 must remain silent with no playback controls.
+(() => {
+  const video = document.querySelector('.hero-video');
+  if (!video) return;
+  const enforceSilence = () => { video.defaultMuted = true; video.muted = true; video.volume = 0; video.removeAttribute('controls'); };
+  enforceSilence();
+  video.addEventListener('volumechange', enforceSilence);
+  video.addEventListener('loadedmetadata', enforceSilence);
+})();
+
+// Keep review links on current authoritative NUPRC document indexes when
+// the regulator retires direct PDF paths.
+(() => {
+  const replacements = new Map([
+    ['https://www.nuprc.gov.ng/wp-content/uploads/2022/07/Nigeria-Upstream-Petroleum-Host-Communities-Development-Regulations-2022.pdf', 'https://www.nuprc.gov.ng/laws/regulations/gazetted'],
+    ['https://br2025.nuprc.gov.ng/media/ggwk4wxe/petroleum-industry-act-2021.pdf', 'https://www.nuprc.gov.ng/laws/acts/petroleum-industry-act'],
+    ['https://www.nuprc.gov.ng/wp-content/uploads/2022/12/Gas-Flaring-and-Venting-Regulations-2022-D.pdf', 'https://www.nuprc.gov.ng/laws/regulations/gazetted'],
+  ]);
+  document.querySelectorAll('a[href]').forEach(link => {
+    const replacement = replacements.get(link.href);
+    if (replacement) link.href = replacement;
+  });
+})();

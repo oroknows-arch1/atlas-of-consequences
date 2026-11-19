@@ -171,6 +171,14 @@ def build_inputs():
             {"name": "Chinedu", "role": "fictional uncle who runs a small vehicle-repair workshop"},
             {"name": "Nneka", "role": "fictional mother and market trader"},
         ],
+        "story_visuals": [
+            {"after_paragraph": 0, "path": "/assets/aoc-002/story-01-morning-announcement.png", "focus": "Adaeze reading the announcement during her morning routine", "position": "center center"},
+            {"after_paragraph": 2, "path": "/assets/aoc-002/story-02-radio-certainty.png", "focus": "Adaeze and Chinedu hearing certainty reach the workshop", "position": "center center"},
+            {"after_paragraph": 5, "path": "/assets/aoc-002/story-03-forwarded-message.png", "focus": "Adaeze and Chinedu checking an unverified forwarded message", "position": "center center"},
+            {"after_paragraph": 7, "path": "/assets/aoc-002/story-04-household-calculation.png", "focus": "Adaeze and Nneka calculating the cost of a possible opportunity", "position": "center center"},
+            {"after_paragraph": 10, "path": "/assets/aoc-002/story-05-terms-not-favour.png", "focus": "Adaeze asking for paid terms on her own behalf", "position": "center center"},
+            {"after_paragraph": 12, "path": "/assets/aoc-002/story-06-footnoted-hope.png", "focus": "Adaeze ending the day with verified links and restrained hope", "position": "center center"},
+        ],
         "story": [
             "Adaeze read the announcement twice before she got out of bed. The first time, the numbers held her: one hundred and fifty-seven billion cubic feet of gas in place, nineteen million barrels of oil in place. The second time, she slowed down over the smaller words around them—preliminary, potential, future. Those words changed the shape of the morning.",
             "Her mother, Nneka, was already preparing to leave for the market. She listened while Adaeze tried to explain the difference between finding hydrocarbons and producing them. ‘So they found it, but they have not decided what to do with it?’ Nneka asked. Adaeze said that was close enough. Nneka nodded, tied her bag and asked the question that mattered to her: ‘And when will anybody know?’ Adaeze had no answer.",
@@ -279,17 +287,27 @@ def build_assets_and_receipts():
         shutil.copyfile(source, path)
         assets.append({"scene_id": sid, "path": "/assets/aoc-002/" + path.name, "sha256": sha(path), "bytes": path.stat().st_size, "provenance": "OpenAI image generation; cinematic perspective reconstruction replacing rejected deterministic graphic", "provider": "OPENAI_IMAGEGEN_CONTEXT", "truth_boundary": SCENES[pid][[x[0] for x in SCENES[pid]].index(sid)][3] + " Image is a reconstruction, not documentary evidence.", "status": "PASS", "visual_qa": {"pass": True, "reason": "Inspected cinematic reconstruction; factual value remains in sourced reader text rather than baked into imagery."}})
     film = ASSETS / "opening.webm"
-    story_asset = ASSETS / "story-fiction.png"
+    story_assets = [
+        ("story-01-morning-announcement", "story-01-morning-announcement.png"),
+        ("story-02-radio-certainty", "story-02-radio-certainty.png"),
+        ("story-03-forwarded-message", "story-03-forwarded-message.png"),
+        ("story-04-household-calculation", "story-04-household-calculation.png"),
+        ("story-05-terms-not-favour", "story-05-terms-not-favour.png"),
+        ("story-06-footnoted-hope", "story-06-footnoted-hope.png"),
+    ]
     assets.extend([
-        {"scene_id":"opening-film", "path":"/assets/aoc-002/opening.webm", "sha256":sha(film), "bytes":film.stat().st_size, "provenance":"Local cinematic motion composition from generated regional reconstructions; synthetic ambient sound; not documentary evidence", "provider":"ATLAS_LOCAL_MOTION", "truth_boundary":"AI-generated regional opening film; not documentary footage or an exact Aku-01 site claim.", "status":"PASS", "visual_qa":{"pass":True,"reason":"Inspected regional reconstruction; no exact-site claim."}},
-        {"scene_id":"story-fiction", "path":"/assets/aoc-002/story-fiction.png", "sha256":sha(story_asset), "bytes":story_asset.stat().st_size, "provenance":"OpenAI image generation; fictional household reconstruction", "provider":"OPENAI_IMAGEGEN_CONTEXT", "truth_boundary":"STORY / FICTION; invented people and setting, not testimony.", "status":"PASS", "visual_qa":{"pass":True,"reason":"Inspected fictional reconstruction and visible story boundary."}},
+        {"scene_id":"opening-film", "path":"/assets/aoc-002/opening.webm", "sha256":sha(film), "bytes":film.stat().st_size, "provenance":"Local cinematic motion composition from generated regional reconstructions; audio disabled by owner lock; not documentary evidence", "provider":"ATLAS_LOCAL_MOTION", "truth_boundary":"AI-generated regional opening film; not documentary footage or an exact Aku-01 site claim.", "status":"PASS", "visual_qa":{"pass":True,"reason":"Inspected regional reconstruction; no exact-site claim; reader enforces permanent mute with no audio controls."}},
     ])
+    for scene_id, filename in story_assets:
+        story_asset = ASSETS / filename
+        if not story_asset.is_file(): raise FileNotFoundError(story_asset)
+        assets.append({"scene_id":scene_id, "path":"/assets/aoc-002/" + filename, "sha256":sha(story_asset), "bytes":story_asset.stat().st_size, "provenance":"OpenAI built-in image generation; fictional STORY reconstruction; covered Codex allowance; USD $0.00 incremental charge", "provider":"OPENAI_IMAGEGEN_CONTEXT", "truth_boundary":"STORY / FICTION; invented people and setting, not testimony.", "status":"PASS", "visual_qa":{"pass":True,"reason":"Inspected for character continuity, distinct staging, fictional boundary, and absence of documentary claims."}})
     # Input binding is computed only after every declared input exists.
     from production_state import binding, digest
     bind = binding(RUN)
     write_json("editorial-qa.json", {**bind, "status": "PASS", "defects": [], "copy_sha256": digest(RUN / "editorial-copy.json"), "attempt": 1, "verifier": "bounded evidence audit / 2026-11-19"})
     write_json("asset-persistence-receipt.json", {**bind, "status": "PASS", "assets": assets, "defects": []})
-    write_json("opening-media.json", {**binding(RUN), "edition_id": EDITION, "status": "PASS", "kind": "motion_video", "path": "/assets/aoc-002/opening.webm", "sha256": sha(film), "bytes": film.stat().st_size, "duration": 15.0, "dimensions": [1920, 1080], "provenance": "Local cinematic motion composition from generated regional reconstructions; synthetic ambient sound; not documentary evidence", "visual_qa": {"status": "PASS", "reviewer": "bounded local visual review / 2026-11-19", "reason": "Regional and fictional reconstruction labels preserved; no exact Aku-01 site claim; soundtrack fades over final 2.2 seconds."}})
+    write_json("opening-media.json", {**binding(RUN), "edition_id": EDITION, "status": "PASS", "kind": "motion_video", "path": "/assets/aoc-002/opening.webm", "sha256": sha(film), "bytes": film.stat().st_size, "duration": 15.0, "dimensions": [1920, 1080], "audio_policy": "PERMANENTLY_MUTED_NO_CONTROLS", "provenance": "Local cinematic motion composition from generated regional reconstructions; audio disabled by owner lock; not documentary evidence", "visual_qa": {"status": "PASS", "reviewer": "bounded local visual review / 2026-11-20", "reason": "Regional and fictional reconstruction labels preserved; no exact Aku-01 site claim; reader enforces permanent mute with no audio controls."}})
     write_json("reader-display-copy.json", {"edition_id": EDITION, "purpose": "No editorial override; preserve evidence-bound copy.", "scene_overrides": {}})
 
 

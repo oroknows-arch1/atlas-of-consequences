@@ -1,0 +1,11 @@
+{
+  "edition_id": "AOC-002",
+  "status": "BLOCKED",
+  "known_required_items": [
+    {
+      "worker": "reader_builder",
+      "reason": "Reader grammar changed; fresh deployment and parity required"
+    }
+  ],
+  "publication_authorized": false
+}

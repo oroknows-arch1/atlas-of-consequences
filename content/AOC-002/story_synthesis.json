@@ -20,6 +20,44 @@
         "role": "fictional mother and market trader"
       }
     ],
+    "story_visuals": [
+      {
+        "after_paragraph": 0,
+        "path": "/assets/aoc-002/story-01-morning-announcement.png",
+        "focus": "Adaeze reading the announcement during her morning routine",
+        "position": "center center"
+      },
+      {
+        "after_paragraph": 2,
+        "path": "/assets/aoc-002/story-02-radio-certainty.png",
+        "focus": "Adaeze and Chinedu hearing certainty reach the workshop",
+        "position": "center center"
+      },
+      {
+        "after_paragraph": 5,
+        "path": "/assets/aoc-002/story-03-forwarded-message.png",
+        "focus": "Adaeze and Chinedu checking an unverified forwarded message",
+        "position": "center center"
+      },
+      {
+        "after_paragraph": 7,
+        "path": "/assets/aoc-002/story-04-household-calculation.png",
+        "focus": "Adaeze and Nneka calculating the cost of a possible opportunity",
+        "position": "center center"
+      },
+      {
+        "after_paragraph": 10,
+        "path": "/assets/aoc-002/story-05-terms-not-favour.png",
+        "focus": "Adaeze asking for paid terms on her own behalf",
+        "position": "center center"
+      },
+      {
+        "after_paragraph": 12,
+        "path": "/assets/aoc-002/story-06-footnoted-hope.png",
+        "focus": "Adaeze ending the day with verified links and restrained hope",
+        "position": "center center"
+      }
+    ],
     "story": [
       "Adaeze read the announcement twice before she got out of bed. The first time, the numbers held her: one hundred and fifty-seven billion cubic feet of gas in place, nineteen million barrels of oil in place. The second time, she slowed down over the smaller words around them—preliminary, potential, future. Those words changed the shape of the morning.",
       "Her mother, Nneka, was already preparing to leave for the market. She listened while Adaeze tried to explain the difference between finding hydrocarbons and producing them. ‘So they found it, but they have not decided what to do with it?’ Nneka asked. Adaeze said that was close enough. Nneka nodded, tied her bag and asked the question that mattered to her: ‘And when will anybody know?’ Adaeze had no answer.",

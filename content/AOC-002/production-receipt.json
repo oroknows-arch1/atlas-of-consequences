@@ -1,16 +1,16 @@
 {
   "edition_id": "AOC-002",
-  "input_sha256": "4dcb570720c234893f57b8a08f6d8978035349ae3013c89066daf400ba9c3623",
+  "input_sha256": "d8637a35ce5f3070fddf101547e989739c85ecbd0c6fc4c83ecb388be214dffc",
   "state": "ASSEMBLED",
-  "assets_persisted": 20,
+  "assets_persisted": 25,
   "reader": "public/review/aoc-002/index.html",
-  "defects": [],
-  "next_stage": "full_rendered_qa",
-  "publication_authorized": false,
   "reader_hashes": {
     "public/review/aoc-002/adaptive.css": "eb0232e2eb66595eb724ae33226f0b489bd62b1569898e1a756c7b4fb921b2a2",
-    "public/review/aoc-002/adaptive.js": "082c2c33a2ae9f6985fbf11009d646154c35918222d43ee4520f37158ecc71b3",
-    "public/review/aoc-002/edition.css": "9c71d0e7dcd9180988b1960fca50b959c8b331386f8a2d9b3a4d300f40a398a2",
-    "public/review/aoc-002/index.html": "6599cf3ada2576b683fbb0c631ddda3bdd69b210eddb9b69a17bd1f4c5b453e8"
-  }
+    "public/review/aoc-002/adaptive.js": "2b9224e63d8582c55d2809c6cc5155da8e83d427b33fb8be6c52d44f387d299b",
+    "public/review/aoc-002/edition.css": "a13b5c291e18ff14d3d6de56f40d6cd0453b923f51fe1c1ea6a12d1626f5744a",
+    "public/review/aoc-002/index.html": "46a98de44f0d1ab60138d44baa77d233c4b64845df0251639dce55e078ec5cc3"
+  },
+  "defects": [],
+  "next_stage": "rendered_qa",
+  "publication_authorized": false
 }

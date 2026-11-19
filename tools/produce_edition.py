@@ -16,7 +16,6 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
-from PIL import Image, ImageStat
 from production_state import binding, block, digest, reader_hashes, require_current, public_path
 from editorial_factory import produce as produce_copy
 from reader_builder import build_reader
@@ -92,6 +91,7 @@ def facts(run, candidate):
     return bounded, requirements, receipts["story_synthesis"]["output"]
 
 def validate_binary(path, contextual):
+    from PIL import Image, ImageStat
     with Image.open(path) as image:
         image.verify()
     with Image.open(path) as image:
@@ -178,6 +178,7 @@ def produce_assets(run, edition, routes, requirements, output):
                         result=request_asset(run,dict(job,attempt=attempt,repair_feedback=feedback),generator,invoke)
                         source=Path(result["path"])
                         if not source.is_file(): raise RuntimeError("provider returned no binary")
+                        from PIL import Image
                         with Image.open(source) as im:
                             if im.format!="PNG": raise RuntimeError("image provider must return PNG")
                         validate_binary(source,True)
@@ -242,6 +243,7 @@ def fill_coverage(run, edition, routes, requirements, assets, copy, output):
                     try:
                         result=request_asset(run,dict(job,attempt=attempt,repair_feedback=feedback),generator,invoke)
                         source=Path(result['path'])
+                        from PIL import Image
                         with Image.open(source) as image:
                             if image.format!='PNG':raise RuntimeError('image provider must return PNG')
                         validate_binary(source,True)
