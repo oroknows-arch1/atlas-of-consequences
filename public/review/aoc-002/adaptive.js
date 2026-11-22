@@ -36,24 +36,70 @@
   const video = document.querySelector('.hero-video');
   if (!hero) return;
   const skip = hero.querySelector('.skip-film');
+  const playButton = document.createElement('button');
+  playButton.type = 'button';
+  playButton.className = 'opening-play-button';
+  playButton.textContent = 'Play cinematic opening';
+  playButton.setAttribute('aria-label', 'Play silent cinematic opening');
+  playButton.style.cssText = 'position:absolute;z-index:7;left:50%;bottom:max(36px,env(safe-area-inset-bottom));transform:translateX(-50%);padding:14px 22px;background:rgba(5,7,8,.85);color:#fff;border:1px solid #fff;border-radius:999px;font:600 13px Arial,sans-serif;cursor:pointer;white-space:nowrap;';
+  hero.appendChild(playButton);
   const reveal = () => {
     hero.classList.add('film-complete');
-    try { if (video) video.currentTime = Math.max(0, video.duration - 0.05); } catch (_) {}
+    playButton.hidden = true;
+    playButton.style.display = 'none';
   };
-  video?.addEventListener('ended', reveal, { once:true });
-  skip?.addEventListener('click', (event) => {
+  const showPlay = (label = 'Play cinematic opening') => {
+    if (hero.classList.contains('film-complete')) return;
+    playButton.textContent = label;
+    playButton.hidden = false;
+    playButton.style.display = 'block';
+  };
+  const playOpening = async () => {
+    if (!video) { showPlay('Opening video unavailable · Skip opening'); return; }
+    video.muted = true;
+    video.defaultMuted = true;
+    video.volume = 0;
+    video.playsInline = true;
+    try {
+      await video.play();
+      playButton.hidden = true;
+      playButton.style.display = 'none';
+      hero.classList.remove('tap-to-play');
+    } catch (_) {
+      showPlay('Tap to play cinematic opening');
+    }
+  };
+  playButton.addEventListener('click', event => {
+    event.stopPropagation();
+    if (video && video.error) { reveal(); return; }
+    playOpening();
+  });
+  video?.addEventListener('ended', reveal, { once: true });
+  skip?.addEventListener('click', event => {
     event.stopPropagation();
     video?.pause();
     reveal();
   });
-  video?.addEventListener('error', reveal, { once:true });
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) reveal();
-  else if (video) video.play().catch(() => hero.classList.add('tap-to-play'));
-  else setTimeout(reveal, 6000);
-  hero.addEventListener('click', () => {
-    if (hero.classList.contains('tap-to-play') && video?.paused) {
-      video?.play().then(() => hero.classList.remove('tap-to-play')).catch(reveal);
-    }
+  video?.addEventListener('error', () => {
+    showPlay('Video unavailable · Skip opening');
+    playButton.disabled = true;
+    playButton.style.opacity = '.65';
+  });
+  video?.addEventListener('playing', () => {
+    playButton.hidden = true;
+    playButton.style.display = 'none';
+  });
+  // Some browsers do not dispatch a useful error when a video source is empty.
+  video?.addEventListener('stalled', () => showPlay('Tap to play cinematic opening'));
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Leave the user in control of the film; do not discard the opening.
+    showPlay();
+  } else {
+    playOpening();
+  }
+  hero.addEventListener('click', event => {
+    if (event.target.closest('a,button')) return;
+    if (video?.paused && !hero.classList.contains('film-complete')) playOpening();
   });
   // Edition routing extends canonical click behaviour to reload, Back and source anchors.
   const navigate = () => {
