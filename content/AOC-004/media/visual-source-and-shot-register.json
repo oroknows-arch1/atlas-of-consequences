@@ -117,7 +117,7 @@
       "video_has_audio": false,
       "video_credit_budget": 100,
       "visual_label": "STORY / FICTION · NOT TESTIMONY",
-      "validation": "PENDING_VISUAL_INSPECTION, NOT A PUBLICATION ASSET",
+      "validation": "PROVISIONAL_VISUAL_PASS_TECHNICAL_ONLY_EDITORIAL_REVISE",
       "purpose": "character-consistency and natural-motion proof, unique to Nengi opening scene",
       "video_verified_meta": {
         "width": 716,
@@ -129,7 +129,17 @@
         "Remote signed media links could not be fetched into current inspection runtime. No frame-based character or location QA performed.",
         "Generated asset URLs expire; Runway task IDs retained for durable lookup but publication binaries are not yet persisted in repo.",
         "Do not release the motion proof without human visual inspection."
-      ]
+      ],
+      "review_source": "User-uploaded Mac screen recording Screen Recording 2026-11-23 at 9.01.44 pm.mov (~8.4 seconds capture of 5-second playback); sampled frames at ~1-second intervals",
+      "visual_observations": [
+        "Fictional supervisor appears in orange high-vis vest and white helmet beside open car on a modular industrial site; plausible generic worksite impression, not verified as specifically Nigerian.",
+        "Subtle head/body turn appears broadly continuous across sampled frames; source is a playback recording, not direct master video.",
+        "Jacket on passenger seat, central personal-story hook, is not clearly legible; action's underlying choice is not understandable without accompanying prose.",
+        "Single scene appears visually repetitive across frames, as intended for restrained five-second single take but insufficient as standalone narrative sequence.",
+        "Screen recording limits detection of fine facial/hand distortion and original full-resolution clip fidelity."
+      ],
+      "editorial_action": "REVISE / preserve as optional bridge shot only; do not multiply or re-use as substitute for different dramatic scenes. Story should stage a visibly distinct meaningful action and clear jacket/object interaction if this Nengi beat is kept.",
+      "human_owner_approved": false
     }
   },
   "visual_topology": [
