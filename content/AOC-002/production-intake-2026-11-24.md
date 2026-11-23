@@ -14,9 +14,9 @@ WHAT'S REAL → STORY → CONSEQUENCES → PLACE → SOURCES. Preserve AOC-001's
 ## Immediate gates
 1. Authenticate pad/community/location evidence before claiming specific locality or creating locality-dependent media.
 2. Verify source rights and keep factual material separate from fictional characters and events.
-3. Reuse qualifying existing AOC-002 work and already-paid media only after receipt and quality checks.
+3. AOC-002 starts with ZERO media assets. Do not search for or reuse supposed earlier AOC-002 footage, character visuals, or generated scenes. Source authentic rights-cleared factual visuals and create original fictional visuals from scratch, with individual provenance/rights receipts. Existing research and factory contracts may guide production but are not media assets.
 4. Correct/verify factory fixture identity and rendered/integrity gates before accepting an AOC-002 build; AET1 heat fixture is not AOC-002.
 5. No Runway spending, merge, deployment or publication without documented approval.
 
 ## Execution receipt
-2026-11-24: client input and constraints registered on existing isolated `repair/aoc002-factory-gates` branch. This is an intake artifact, not a generated edition, verified locality, tested reader, or owner preview. Prior `codex/aoc002-actual-edition` branch could not be resolved via connected GitHub; do not claim that its local Mac-only materials were imported.
+2026-11-24: Owner explicitly confirmed there are NO current AOC-002 assets. Asset inventory is zero; footage discovery and new production are required. Client input and constraints registered on existing isolated `repair/aoc002-factory-gates` branch. This is an intake artifact, not a generated edition, verified locality, tested reader, or owner preview. Prior `codex/aoc002-actual-edition` branch could not be resolved via connected GitHub; do not claim that its local Mac-only materials were imported.
