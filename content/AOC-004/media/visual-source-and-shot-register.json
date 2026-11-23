@@ -1,0 +1,263 @@
+{
+  "edition": "AOC-004",
+  "kind": "DEMONSTRATION",
+  "status": "OWNER_REVIEW_SEQUENCE_ASSEMBLED_NOT_CLEARED_FOR_PUBLICATION",
+  "source_boundary": "Real contextual imagery must never be presented as images of the reported incident or the fictional people. Event footage not authenticated.",
+  "opening": {
+    "required": true,
+    "mode": "FACTUAL_DOCUMENTARY_OPENING",
+    "asset_status": "LOCAL_BROWSER_SEQUENCE_INTEGRATED_WITH_PERSISTED_VIDEO_AND_STILL_ASSETS_NOT_MASTER_FILM",
+    "footage_requirement": "The current sequence uses conspicuously labelled generic Colombian drilling motion, a real Nigerian rig still and broad Niger Delta river motion. Nigeria-specific drilling-operation motion remains preferable.",
+    "no_music": true,
+    "sequence": [
+      "verified industrial context",
+      "location level established by sources",
+      "short supplied-account sequence explicitly labelled uncorroborated",
+      "clear hard boundary to STORY / FICTION"
+    ],
+    "no_recycled_shots": true,
+    "editorial_factual_script": "content/AOC-004/media/factual-opening-v0.1.md",
+    "production_gate": "SINGLE_MASTER_FACTUAL_FILM_EDITORIAL_REVIEW_AND_OWNER_APPROVAL_MISSING",
+    "verified_assets_receipt": "content/AOC-004/media/asset-receipt.json"
+  },
+  "candidates": [
+    {
+      "id": "AOC004-REAL-01",
+      "url": "https://commons.wikimedia.org/wiki/File:Onshore_drilling_rig.jpg",
+      "description": "Real onshore rig silhouette in Delta State, photographed 2024, NOT AOC-004",
+      "credit": "Julius A OBARO",
+      "license": "CC BY-SA 4.0",
+      "use": "possible contextual still only; attribution and share-alike review needed",
+      "status": "PERSISTED_LOCAL_OWNER_REVIEW_ONLY_RIGHTS_ATTRIBUTION_REQUIRED",
+      "attribution_required": "Photo: Julius A OBARO / Wikimedia Commons, CC BY-SA 4.0; include license URL and indicate editing if cropped",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "original_file_page": "https://commons.wikimedia.org/wiki/File:Onshore_drilling_rig.jpg",
+      "disclosure": "Real Nigerian drilling context, photographed July 2024; not AOC-004 incident or fictional story environment.",
+      "technical_limit": "A sourced still cannot substitute for required genuine factual opening motion.",
+      "quality_check": "image selection and adaptation rights still require publication review",
+      "persisted_asset_path": "public/demos/aoc-004/media/nigeria-onshore-rig.jpg",
+      "sha256": "f4b560a0642b532437edda0551840c40f8dd690d814e2bf8fd1dad7db62831e1",
+      "classification": "REAL_NIGERIAN_CONTEXT_NOT_INCIDENT"
+    },
+    {
+      "id": "AOC004-REAL-02",
+      "url": "https://commons.wikimedia.org/wiki/File:Onshore_drilling_rig_at_night.jpg",
+      "description": "Real onshore drilling at night in Rivers State, photographed 2024, NOT AOC-004",
+      "credit": "Julius A OBARO",
+      "license": "CC BY-SA 4.0",
+      "use": "possible contextual still only; attribution and share-alike review needed",
+      "status": "SOURCE_AND_LICENSE_VERIFIED_NOT_INCIDENT_FOOTAGE",
+      "attribution_required": "Photo: Julius A OBARO / Wikimedia Commons, CC BY-SA 4.0; include license URL and indicate editing if cropped",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "original_file_page": "https://commons.wikimedia.org/wiki/File:Onshore_drilling_rig_at_night.jpg",
+      "disclosure": "Real Nigerian drilling context, photographed July 2024; not AOC-004 incident or fictional story environment.",
+      "technical_limit": "A sourced still cannot substitute for required genuine factual opening motion.",
+      "quality_check": "image selection and adaptation rights still require publication review"
+    },
+    {
+      "id": "AOC004-REAL-03",
+      "url": "https://www.ncdmb.gov.ng/videos/",
+      "description": "Official Nigerian oil/gas industry contextual video library; individual clip unselected",
+      "credit": "NCDMB",
+      "license": "NOT_CLEARED",
+      "use": "research/reference only until clip-specific permission obtained",
+      "status": "CANDIDATE_NOT_CLEARED"
+    },
+    {
+      "id": "AOC004-REAL-04",
+      "url": "https://www.youtube.com/watch?v=Rd5sygC-kdw",
+      "description": "Real filmed/visualized Egbema OML20 onshore oil facility, not AOC-004; verify that clip contains genuine footage vs 3D visualization",
+      "credit": "Rădoi Engineering",
+      "license": "NOT_CLEARED",
+      "use": "reference only pending permission/shot inspection",
+      "status": "CANDIDATE_NOT_CLEARED"
+    },
+    {
+      "id": "AOC004-RISK-01",
+      "url": "https://visualculture.tuwien.ac.at/en/blog/research-post/black-gold/",
+      "description": "Real professional photo essay of a Rivers State gas-drilling site involving a Chinese contractor; potentially close details to supplied unidentified incident",
+      "credit": "Black Gold photojournalism",
+      "license": "NOT_CLEARED",
+      "use": "DO NOT USE until indirect-identification and rights review; visually compelling but could falsely suggest actual incident identities",
+      "status": "IDENTIFIABILITY_AND_RIGHTS_HOLD"
+    },
+    {
+      "id": "AOC004-REAL-05",
+      "url": "https://www.pexels.com/video/pozo-petrolero-en-produccion-26955493/",
+      "description": "Genuine 12-second aerial of an onshore oil drilling/production site; source identity verified as Colombia, not Nigeria; photographer Julián Armando Santos",
+      "credit": "Julián Armando Santos / Pexels",
+      "license": "Pexels License, free commercial reuse, no endorsement; check source footage identity and depicted third-party rights",
+      "license_url": "https://www.pexels.com/legal-pages/license/",
+      "use": "Generic drilling context only, conspicuously captioned Colombia / not reported incident",
+      "status": "PERSISTED_LOCAL_OWNER_REVIEW_ONLY_RIGHTS_ATTRIBUTION_REQUIRED",
+      "unique_intent": "Visual fact: large heavy equipment operates from ground-supported site; no allegation of this site's failure.",
+      "persisted_asset_path": "public/demos/aoc-004/media/generic-drilling-aerial.mp4",
+      "sha256": "aa82e080171c1c66697774778927b1ab76c2841357c68466d2b4d6a69dc80154",
+      "classification": "REAL_GENERIC_CONTEXT_NOT_NIGERIA_NOT_INCIDENT",
+      "geography": "COLOMBIA_NOT_NIGERIA"
+    },
+    {
+      "id": "AOC004-REAL-06",
+      "url": "https://commons.wikimedia.org/wiki/File:Boy_working_on_palm_oil_in_Niger_Delta_creeks,_Bayelsa_state_2.webm",
+      "description": "Authentic recorded palm-oil work in Niger Delta creeks, Bayelsa, 28s, 1920x1080; not the actual site, no proven connection to its labour market",
+      "credit": "Per Commons file metadata",
+      "license": "CC BY-SA 4.0 according to Commons file record; verify author and complete provenance on acquisition",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "use": "Regional comparative life footage for PLACE only if relevant to editorial story; risk of projecting this livelihood onto unidentified host community",
+      "status": "HOLD_RELEVANCE_AND_DEPICTED_PERSON_RIGHTS",
+      "unique_intent": "Regional livelihood diversity only; not evidence of suppliers, workers or losses for incident"
+    },
+    {
+      "id": "AOC004-REAL-07",
+      "url": "https://commons.wikimedia.org/wiki/File:Forcados_River_Burutu_Delta_State_Nigeria.webm",
+      "description": "Genuine 4.743-second vertical river landscape clip near Burutu, Delta State; this is broad Niger Delta context outside the reported Eastern Niger Delta incident vicinity",
+      "credit": "Nobleagege / Wikimedia Commons",
+      "date": "2025-11-01",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "source_record_oldid": 1236857194,
+      "verified_media": {
+        "duration_seconds": 4.743,
+        "width": 720,
+        "height": 1280,
+        "format": "WebM VP9/Opus",
+        "size_bytes": 1011915
+      },
+      "use": "Optional genuine regional context movement; do not label as exact eastern site or connect depicted people/river to failure",
+      "status": "PERSISTED_LOCAL_OWNER_REVIEW_ONLY_RIGHTS_ATTRIBUTION_REQUIRED",
+      "unique_intent": "Establish physical breadth of Niger Delta in actual sourced motion without claiming specific site identity",
+      "persisted_asset_path": "public/demos/aoc-004/media/forcados-river-context.webm",
+      "sha256": "ec3d4c79dc199c338b8983462661b28f5cfce7b64deac989a9d1162357043fa5",
+      "classification": "REAL_NIGER_DELTA_REGIONAL_CONTEXT_NOT_INCIDENT_VICINITY"
+    }
+  ],
+  "fiction": {
+    "asset_status": "NENGI_REFERENCE_AND_SILENT_MOTION_PERSISTED_OTHER_CHARACTER_MEDIA_MISSING",
+    "allowed": "New original cinematic story imagery using consistent fictional character bible and locality-cleared setting",
+    "disallowed": "Use identifiable real workers as fictional cast; generative imagery disguised as real footage",
+    "first_character_continuity_test": {
+      "id": "AOC004-FICTION-NENGI-01",
+      "character": "Nengi",
+      "still_task": "8bd29e41-4847-430b-969c-9388aea70d89",
+      "still_status": "RUNWAY_SUCCEEDED_BINARY_URL_AVAILABLE_NOT_VISUALLY_INSPECTED",
+      "still_ratio": "9:16",
+      "still_resolution": "1K",
+      "still_credit_cost_observed": 20,
+      "video_task": "458acd69-560b-4ff9-ba44-7a093f99911a",
+      "video_status": "RUNWAY_SUCCEEDED_BINARY_URL_AVAILABLE_NOT_VISUALLY_INSPECTED",
+      "video_duration_seconds": 5,
+      "video_resolution": "720p",
+      "video_has_audio": false,
+      "video_credit_budget": 100,
+      "visual_label": "STORY / FICTION · NOT TESTIMONY",
+      "validation": "PROVISIONAL_VISUAL_PASS_TECHNICAL_ONLY_EDITORIAL_REVISE",
+      "purpose": "character-consistency and natural-motion proof, unique to Nengi opening scene",
+      "video_verified_meta": {
+        "width": 716,
+        "height": 1284,
+        "duration_seconds": 5,
+        "has_audio": false
+      },
+      "qa_limitations": [
+        "Remote signed media links could not be fetched into current inspection runtime. No frame-based character or location QA performed.",
+        "Generated asset URLs expire; Runway task IDs retained for durable lookup but publication binaries are not yet persisted in repo.",
+        "Do not release the motion proof without human visual inspection."
+      ],
+      "review_source": "User-uploaded Mac screen recording Screen Recording 2026-11-23 at 9.01.44 pm.mov (~8.4 seconds capture of 5-second playback); sampled frames at ~1-second intervals",
+      "visual_observations": [
+        "Fictional supervisor appears in orange high-vis vest and white helmet beside open car on a modular industrial site; plausible generic worksite impression, not verified as specifically Nigerian.",
+        "Subtle head/body turn appears broadly continuous across sampled frames; source is a playback recording, not direct master video.",
+        "Jacket on passenger seat, central personal-story hook, is not clearly legible; action's underlying choice is not understandable without accompanying prose.",
+        "Single scene appears visually repetitive across frames, as intended for restrained five-second single take but insufficient as standalone narrative sequence.",
+        "Screen recording limits detection of fine facial/hand distortion and original full-resolution clip fidelity."
+      ],
+      "editorial_action": "REVISE / preserve as optional bridge shot only; do not multiply or re-use as substitute for different dramatic scenes. Story should stage a visibly distinct meaningful action and clear jacket/object interaction if this Nengi beat is kept.",
+      "human_owner_approved": false
+    }
+  },
+  "visual_topology": [
+    {
+      "id": "opening-industrial-footage",
+      "type": "REAL_CONTEXT_VIDEO",
+      "unique_intent": "establish working drilling operations",
+      "status": "MISSING"
+    },
+    {
+      "id": "place-regional-context",
+      "type": "REAL_CONTEXT_STILL_OR_VIDEO",
+      "unique_intent": "sourced regional place distinct from rig",
+      "status": "MISSING"
+    },
+    {
+      "id": "nengi-work",
+      "type": "FICTION_IMAGE_OR_VIDEO",
+      "unique_intent": "handover tension grounded in fictional working context",
+      "status": "MISSING"
+    },
+    {
+      "id": "nengi-private",
+      "type": "FICTION_IMAGE_OR_VIDEO",
+      "unique_intent": "family interview promise",
+      "status": "MISSING"
+    },
+    {
+      "id": "daniel-work",
+      "type": "FICTION_IMAGE_OR_VIDEO",
+      "unique_intent": "understanding separate coordination roles",
+      "status": "MISSING"
+    },
+    {
+      "id": "jian-operational",
+      "type": "FICTION_IMAGE_OR_VIDEO",
+      "unique_intent": "crew routine and dramatic rupture without invented procedure",
+      "status": "MISSING"
+    },
+    {
+      "id": "boma-commerce",
+      "type": "FICTION_IMAGE_OR_VIDEO",
+      "unique_intent": "independent enterprise and delegation",
+      "status": "MISSING"
+    },
+    {
+      "id": "consequences",
+      "type": "SOURCED_DIAGRAM_WITH_FICTION_LAYERS",
+      "unique_intent": "visually map fact/inference/fiction separately",
+      "status": "MISSING"
+    }
+  ],
+  "quality_gates": [
+    "Every displayed media must have source URL or generation receipt, exact classification, rights, content hash and edition scene target.",
+    "Never pretend generic context is the incident itself.",
+    "Avoid repeating a source still across separate story beats; unique dramatic visual intent per beat.",
+    "No identical prose panels in multiple perspectives; reveals must change audience understanding.",
+    "No ambient soundtrack; no music autoplay.",
+    "Don't substitute sourced photo for a mandatory real moving opening unless owner explicitly revises benchmark.",
+    "No public link until genuine binary assets saved, mobile QA and owner approval."
+  ],
+  "budget": {
+    "runway_connected_credits_at_check": 500,
+    "runway_video_models_available": 0,
+    "chatgpt_credits_reported_by_owner": 5022,
+    "assumption": "Separate credit pools and costs; no transfers or unverified spending estimates",
+    "spent_runway_this_step": "20 observed for still; 100 expected for 5-second 720p silent motion task, settlement pending",
+    "runway_balance_after_still_observed": 2296,
+    "runway_video_credit_reservation_estimate": 100,
+    "runway_total_planned_spend_for_two_proofs": 120,
+    "runway_balance_after_video_submitted_observed": 2196,
+    "runway_total_observed_debit": 120,
+    "runway_balance_after_prior_generations": 2196,
+    "new_spend_this_stage": 0,
+    "runway_balance_verified_current_run": 2196,
+    "runway_balance_check_date": "2026-11-23",
+    "overnight_additional_spend_cumulative": 0,
+    "overnight_spend_limit": 400
+  },
+  "production_decision": {
+    "opening_mode": "SOURCE-LED_REAL_MOTION",
+    "motion_test_result": "TECHNICAL_SUCCESS_NOT_VISUAL_QA",
+    "editorial_limit": "No factual opener movie yet; none of the searched footage has been ingested or edited.",
+    "real_footage_strongest_context": "Persisted real Colombian drilling aerial, clearly labelled generic and NOT incident; Nigeria-specific drilling-operation motion remains unavailable",
+    "local_real_motion_status": "Forcados River broad Niger Delta context clip persisted; not incident vicinity; Nigerian drilling rig photo persisted",
+    "next": "Produce and QA one factual master film from persisted assets without falsely suggesting Colombian footage is Nigerian; inspect regional/geographic labelling and acquire Nigeria-specific industrial motion if possible. Keep owner-review only."
+  }
+}

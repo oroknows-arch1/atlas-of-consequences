@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0",
+  "id": "atlas-writers-room",
+  "purpose": "Independent dramatic development and QA after evidence/locality groundwork; never alters evidence truth or publication authority.",
+  "stages": [
+    {
+      "id": "world_bible",
+      "owner": "locality_researcher",
+      "input": [
+        "evidence_graph",
+        "local_context_pack"
+      ],
+      "output": "world_bible",
+      "gate": "source_and_specificity"
+    },
+    {
+      "id": "institution_map",
+      "owner": "story_architect",
+      "input": [
+        "world_bible"
+      ],
+      "output": "institution_map",
+      "gate": "all_perspectives_have_limits"
+    },
+    {
+      "id": "character_room",
+      "owner": "character_director",
+      "input": [
+        "world_bible",
+        "institution_map"
+      ],
+      "output": "character_bible",
+      "gate": "distinct_desires_relationships_flaws"
+    },
+    {
+      "id": "season_board",
+      "owner": "story_architect",
+      "input": [
+        "institution_map",
+        "character_bible"
+      ],
+      "output": "scene_board",
+      "gate": "causality_and_revelations"
+    },
+    {
+      "id": "scene_draft",
+      "owner": "story_writer",
+      "input": [
+        "scene_board"
+      ],
+      "output": "fiction_scenes",
+      "gate": "scene_has_choice_and_cost"
+    },
+    {
+      "id": "dialogue_edit",
+      "owner": "narrative_editor",
+      "input": [
+        "fiction_scenes"
+      ],
+      "output": "dialogue_revision",
+      "gate": "subtext_not_exposition"
+    },
+    {
+      "id": "continuity_audit",
+      "owner": "character_director",
+      "input": [
+        "dialogue_revision",
+        "scene_board"
+      ],
+      "output": "continuity_receipt",
+      "gate": "chronology_and_knowledge"
+    },
+    {
+      "id": "locality_audit",
+      "owner": "locality_researcher",
+      "input": [
+        "dialogue_revision",
+        "world_bible"
+      ],
+      "output": "locality_receipt",
+      "gate": "no_unsupported_local_detail"
+    },
+    {
+      "id": "originality_audit",
+      "owner": "boundary_auditor",
+      "input": [
+        "dialogue_revision"
+      ],
+      "output": "originality_receipt",
+      "gate": "no_borrowed_expression"
+    },
+    {
+      "id": "evidence_boundary_audit",
+      "owner": "boundary_auditor",
+      "input": [
+        "dialogue_revision",
+        "evidence_graph"
+      ],
+      "output": "boundary_receipt",
+      "gate": "fiction_never_becomes_fact"
+    },
+    {
+      "id": "adversarial_edit",
+      "owner": "narrative_editor",
+      "input": [
+        "continuity_receipt",
+        "locality_receipt",
+        "originality_receipt",
+        "boundary_receipt"
+      ],
+      "output": "editorial_decision",
+      "gate": "pass_or_targeted_rewrite"
+    }
+  ],
+  "quality_dimensions": [
+    "character_specificity",
+    "dramatic_choices",
+    "institutional_interconnection",
+    "new_information_per_perspective",
+    "dialogue_subtext",
+    "local_authenticity",
+    "continuity",
+    "originality",
+    "evidence_boundary"
+  ],
+  "blocking_states": [
+    "BLOCKED",
+    "REVISE",
+    "UNRESOLVED"
+  ],
+  "decision_states": [
+    "PASS",
+    "REVISE",
+    "BLOCKED"
+  ],
+  "hard_rules": [
+    "No stage can change source-evidence state.",
+    "No ungrounded regional speech/religious/ethnic markers or stereotyped poverty imagery.",
+    "No writer may approve its own output.",
+    "No living creator's distinctive expression or existing TV scene may be imitated.",
+    "Unverified incident account remains attributed even when fiction is detailed.",
+    "A demonstration can proceed creatively with unknown incident data; full verified publication cannot."
+  ],
+  "scope": "A reusable development gate; complete edition publication and manufacturing-trace requirements remain separately enforced."
+}
