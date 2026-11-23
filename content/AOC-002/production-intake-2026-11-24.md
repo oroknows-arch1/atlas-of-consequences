@@ -1,24 +1,20 @@
-# AOC-002 — client-content production intake
+# AOC-002 — active production intake (corrected 24 November 2026)
 
-Status: EVIDENCE INTAKE STARTED; no edition or preview produced; owner release not authorized.
+**AUTHORITATIVE CLIENT SCENARIO:** hypothetical/reported drilling-pad failure in the onshore Eastern Niger Delta, Nigeria. See `client-brief-correction-2026-11-24.md`.
 
-## Client content / primary evidence
-- Working title: The Oil Beneath Their Feet (provisional; cannot imply an authenticated household or pad).
-- Source: Seplat Energy 9M 2026 results, dated 29 October 2026: https://www.seplatenergy.com/media/xt4h2glj/seplat-energy-report-9m-2026-final-291026.pdf
-- Source-reported: Aku-01 discovery, PPL 2A25, Nigeria (exact state and well location not authenticated by checked Seplat report); Seplat 40% operated interest; oil and gas across five reservoir intervals; preliminary internal mid-case estimates of 157 Bcf gas in place and 19 MMbbl oil in place. In-place estimates are not proved recoverable reserves.
-- Unverified: exact well pad, licence polygon, host community, access route, local conditions, site impacts, jobs, production and payments. Aku-A references must not be treated as proven identical to Aku-01.
+The previous Seplat Aku-01 discovery intake was an incorrect assignment and is **withdrawn**. Do not use its title, statistics, location assumptions, research, imagery, or source register for this edition.
 
-## AOC-001 production contract
-WHAT'S REAL → STORY → CONSEQUENCES → PLACE → SOURCES. Preserve AOC-001's adaptive opening, perspective controller, full-viewport scenes, fact/fiction labels and source register. Evidence → supported place → bounded consequence → researched characters → story lock → separately approved media → reader assembly → rendered phone/desktop QA → owner review. No soundtrack. No generic or invented Nigerian incident footage.
+## Client account (unverified)
+An unnamed operator, local Nigerian civil contractor and Chinese drilling contractor were involved in preparing and operating an onshore drilling location. The client reports inadequate specifications or construction shortcomings, a pad failure during a wiper-trip operation, partial rig sinking, evacuation, pad reconstruction and rig replacement. None of the allegations, causes or consequences has been independently verified.
 
-## Immediate gates
-1. Authenticate pad/community/location evidence before claiming specific locality or creating locality-dependent media.
-2. Verify source rights and keep factual material separate from fictional characters and events.
-3. AOC-002 starts with ZERO media assets. Do not search for or reuse supposed earlier AOC-002 footage, character visuals, or generated scenes. Source authentic rights-cleared factual visuals and create original fictional visuals from scratch, with individual provenance/rights receipts. Existing research and factory contracts may guide production but are not media assets.
-4. Correct/verify factory fixture identity and rendered/integrity gates before accepting an AOC-002 build; AET1 heat fixture is not AOC-002.
-5. No Runway spending, merge, deployment or publication without documented approval.
+## Production contract
+Recreate the AOC-001 experience, not the discarded AOC-004 demo. Research real regional environments independently. Opening must distinguish real contextual footage from a hypothetical reconstruction. Develop distinct fictional perspectives and consequences without assigning guilt to real companies. Maintain rights receipts, fact/fiction labels, phone-first cinematic reader and owner review.
 
-## Execution receipt
-2026-11-24: Owner explicitly confirmed there are NO current AOC-002 assets. Asset inventory is zero; footage discovery and new production are required. Client input and constraints registered on existing isolated `repair/aoc002-factory-gates` branch. This is an intake artifact, not a generated edition, verified locality, tested reader, or owner preview. Prior `codex/aoc002-actual-edition` branch could not be resolved via connected GitHub; do not claim that its local Mac-only materials were imported.
+## Gates
+- ZERO AOC-002 media assets at restart.
+- No exact incident site or companies asserted.
+- No AOC-004 media, reader, character or story reuse.
+- No Runway spend, deployment or publication without approval.
+- Sequence: client brief → regional evidence and visual sourcing → story lock → original media → AOC-001-style reader → mobile/desktop QA → owner approval.
 
-2026-11-24 primary-source recheck: the cited Seplat results do not establish Imo State or the exact well pad. See `evidence/primary-source-and-opening-gate-2026-11-24.md`; no locality-specific scene may proceed on the earlier assertion alone.
+See `production/first-treatment-2026-11-24.md` for the first production treatment.
