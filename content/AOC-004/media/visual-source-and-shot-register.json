@@ -25,7 +25,13 @@
       "credit": "Julius A OBARO",
       "license": "CC BY-SA 4.0",
       "use": "possible contextual still only; attribution and share-alike review needed",
-      "status": "CANDIDATE_NOT_CLEARED"
+      "status": "SOURCE_AND_LICENSE_VERIFIED_NOT_INCIDENT_FOOTAGE",
+      "attribution_required": "Photo: Julius A OBARO / Wikimedia Commons, CC BY-SA 4.0; include license URL and indicate editing if cropped",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "original_file_page": "https://commons.wikimedia.org/wiki/File:Onshore_drilling_rig.jpg",
+      "disclosure": "Real Nigerian drilling context, photographed July 2024; not AOC-004 incident or fictional story environment.",
+      "technical_limit": "A sourced still cannot substitute for required genuine factual opening motion.",
+      "quality_check": "image selection and adaptation rights still require publication review"
     },
     {
       "id": "AOC004-REAL-02",
@@ -34,7 +40,13 @@
       "credit": "Julius A OBARO",
       "license": "CC BY-SA 4.0",
       "use": "possible contextual still only; attribution and share-alike review needed",
-      "status": "CANDIDATE_NOT_CLEARED"
+      "status": "SOURCE_AND_LICENSE_VERIFIED_NOT_INCIDENT_FOOTAGE",
+      "attribution_required": "Photo: Julius A OBARO / Wikimedia Commons, CC BY-SA 4.0; include license URL and indicate editing if cropped",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "original_file_page": "https://commons.wikimedia.org/wiki/File:Onshore_drilling_rig_at_night.jpg",
+      "disclosure": "Real Nigerian drilling context, photographed July 2024; not AOC-004 incident or fictional story environment.",
+      "technical_limit": "A sourced still cannot substitute for required genuine factual opening motion.",
+      "quality_check": "image selection and adaptation rights still require publication review"
     },
     {
       "id": "AOC004-REAL-03",
@@ -154,6 +166,8 @@
     "spent_runway_this_step": "20 observed for still; 100 expected for 5-second 720p silent motion task, settlement pending",
     "runway_balance_after_still_observed": 2296,
     "runway_video_credit_reservation_estimate": 100,
-    "runway_total_planned_spend_for_two_proofs": 120
+    "runway_total_planned_spend_for_two_proofs": 120,
+    "runway_balance_after_video_submitted_observed": 2196,
+    "runway_total_observed_debit": 120
   }
 }
