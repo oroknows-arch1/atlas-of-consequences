@@ -6,7 +6,7 @@
   "opening": {
     "required": true,
     "mode": "FACTUAL_DOCUMENTARY_OPENING",
-    "asset_status": "NOT_GENERATED",
+    "asset_status": "SCRIPT_AND_SOURCE_REGISTER_ONLY_NO_MP4",
     "footage_requirement": "Prefer genuine moving material on Nigerian onshore drilling; verify subject, location, date, rights, and editorial relationship. No source-approved footage yet.",
     "no_music": true,
     "sequence": [
@@ -15,7 +15,9 @@
       "short supplied-account sequence explicitly labelled uncorroborated",
       "clear hard boundary to STORY / FICTION"
     ],
-    "no_recycled_shots": true
+    "no_recycled_shots": true,
+    "editorial_factual_script": "content/AOC-004/media/factual-opening-v0.1.md",
+    "production_gate": "REAL_INDUSTRIAL_MOTION_REQUIRED_NOT_YET_SOURCED_OR_ASSEMBLED"
   },
   "candidates": [
     {
@@ -96,6 +98,26 @@
       "use": "Regional comparative life footage for PLACE only if relevant to editorial story; risk of projecting this livelihood onto unidentified host community",
       "status": "HOLD_RELEVANCE_AND_DEPICTED_PERSON_RIGHTS",
       "unique_intent": "Regional livelihood diversity only; not evidence of suppliers, workers or losses for incident"
+    },
+    {
+      "id": "AOC004-REAL-07",
+      "url": "https://commons.wikimedia.org/wiki/File:Forcados_River_Burutu_Delta_State_Nigeria.webm",
+      "description": "Genuine 4.743-second vertical river landscape clip near Burutu, Delta State; this is broad Niger Delta context outside the reported Eastern Niger Delta incident vicinity",
+      "credit": "Nobleagege / Wikimedia Commons",
+      "date": "2025-11-01",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "source_record_oldid": 1236857194,
+      "verified_media": {
+        "duration_seconds": 4.743,
+        "width": 720,
+        "height": 1280,
+        "format": "WebM VP9/Opus",
+        "size_bytes": 1011915
+      },
+      "use": "Optional genuine regional context movement; do not label as exact eastern site or connect depicted people/river to failure",
+      "status": "CREATOR_DATE_LICENSE_METADATA_VERIFIED_SOURCE_BINARY_NOT_ACQUIRED",
+      "unique_intent": "Establish physical breadth of Niger Delta in actual sourced motion without claiming specific site identity"
     }
   ],
   "fiction": {
@@ -211,7 +233,9 @@
     "runway_video_credit_reservation_estimate": 100,
     "runway_total_planned_spend_for_two_proofs": 120,
     "runway_balance_after_video_submitted_observed": 2196,
-    "runway_total_observed_debit": 120
+    "runway_total_observed_debit": 120,
+    "runway_balance_after_prior_generations": 2196,
+    "new_spend_this_stage": 0
   },
   "production_decision": {
     "opening_mode": "SOURCE-LED_REAL_MOTION",
