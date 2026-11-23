@@ -14,7 +14,7 @@
 
 | ID | Suggested screen time | Visual and exact source | Editorial purpose and strict disclosure | Rights / clearance |
 |---|---|---|---|---|
-| F01 | 0–4.7s | **Actual moving video**: [Forcados River near Burutu, Delta State](https://commons.wikimedia.org/wiki/File:Forcados_River_Burutu_Delta_State_Nigeria.webm), filmed 1 Nov 2025, creator Nobleagege, 4.743s, 720×1280, CC BY 4.0 | Region-level imagery, not exact incident site; do not imply spill, damage or involvement of river settlements | Licence allows use with creator credit, licence link and adaptation declaration; file bytes **not yet ingested** |
+| F01 | 0–4.7s | **Actual moving video**: [Forcados River near Burutu, Delta State](https://commons.wikimedia.org/wiki/File:Forcados_River_Burutu_Delta_State_Nigeria.webm), filmed 1 Nov 2025, creator Nobleagege, 4.743s, 720×1280, CC BY 4.0 | Broad Niger Delta regional imagery (Forcados is not the reported eastern incident vicinity), not incident site; no implication of spill, damage or involved settlements | Licence allows use with creator credit, licence link and adaptation declaration; file bytes **not yet ingested** |
 | F02 | ≤3s | **Actual photo**: [Onshore drilling rig, Obodougua, Delta State](https://commons.wikimedia.org/wiki/File:Onshore_drilling_rig.jpg), Julius A OBARO, 7 Jul 2024, CC BY-SA 4.0 | A real Nigerian rig context image, not the rig in the supplied incident | Use is conditional on share-alike handling for adaptations and attribution; no fake pan/zoom |
 | F03 | ≤3s | **Actual photo**: [Onshore drilling rig at night, Rivers State](https://commons.wikimedia.org/wiki/File:Onshore_drilling_rig_at_night.jpg), Julius A OBARO, 10 Jul 2024, CC BY-SA 4.0 | Night context only if editorially needed; do not suggest incident happened at night | Conditional on rights and visual relation; **avoid if F02 creates visual repetition** |
 | F04 | 3–5s | **Actual motion candidate**: [Onshore drilling-site aerial, Pexels](https://www.pexels.com/video/pozo-petrolero-en-produccion-26955493/), Julián Armando Santos | Establish generic site layout and heavy-equipment scale **only**; actual location unverified; any use requires conspicuous generic-footage label | General Pexels commercial permissions described, source file and depicted context not inspected/ingested; **HOLD** |
@@ -25,7 +25,7 @@
 
 ## Silent/voice editorial copy — preliminary
 
-1. **Establish place:** `EASTERN NIGER DELTA · NIGERIA` (broad reported region; Forcados film is Delta State context, not claimed exact site)
+1. **Establish regional context:** `NIGER DELTA · DELTA STATE, NIGERIA` *on the Forcados clip only*. The supplied incident is reported as **eastern** Niger Delta; Forcados River footage is from a different Niger Delta area and must **not** be presented as the incident's vicinity. Use a separate geographic label for the incident account.
 2. **Establish industry:** `A drilling location begins with work done before a rig arrives.` (general explanatory principle; no assertion of actual design records)
 3. **Attribute account:** `One supplied account reports a drilling-pad failure while the rig was operating.`
 4. **Hold uncertainty:** `The engineering cause, responsibility and wider effects are not independently established.`
