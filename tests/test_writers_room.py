@@ -20,6 +20,20 @@ class WritersRoomTests(unittest.TestCase):
         errors, warnings = validate_room(self.good)
         self.assertEqual(errors, [])
 
+    def test_aoc004_proof_canon_matches_character_board(self):
+        proof = self.good["story_proof"]
+        self.assertIn("Proof 001 establishes Nengi arrives", proof["continuity_rule"])
+        self.assertIn("fictional", proof["fictional_clock"])
+        scene1 = next(s for s in self.good["scenes"] if s["id"] == "AOC004-S01")
+        scene11 = next(s for s in self.good["scenes"] if s["id"] == "AOC004-S11")
+        self.assertIn("goes home to Ebi", scene1["choice"])
+        self.assertIn("interview practice", scene11["resistance"])
+        self.assertIn("REVISE", proof["editorial_result"])
+
+    def test_canon_cannot_claim_historical_incident_date(self):
+        proof = self.good["story_proof"]
+        self.assertIn("not historical incident dates", proof["fictional_clock"])
+
     def test_unverified_cannot_be_claimed_as_verified_edition(self):
         data = copy.deepcopy(self.good)
         data["release_kind"] = "VERIFIED_EDITION"
