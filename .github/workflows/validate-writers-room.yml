@@ -1,0 +1,36 @@
+name: Atlas Writers Room quality contract
+
+on:
+  pull_request:
+    paths:
+      - 'atlas/writers-room/**'
+      - 'tools/validate_writers_room.py'
+      - 'tests/test_writers_room.py'
+      - 'tests/fixtures/*writers-room*.json'
+      - 'docs/writers-room-production.md'
+      - '.github/workflows/validate-writers-room.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  writers-room:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate writers room structural contract
+        run: python3 tools/validate_writers_room.py tests/fixtures/aoc004-writers-room-v1.json --json
+      - name: Run writers room regressions
+        run: python3 -m unittest discover -s tests -p 'test_writers_room.py' -v
+      - name: Confirm editorial gate remains unapproved for AOC-004
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('tests/fixtures/aoc004-writers-room-v1.json').read_text())
+          assert data['release_kind'] == 'DEMONSTRATION'
+          assert data['evidence']['incident_state'] == 'SUPPLIED_UNVERIFIED'
+          assert any(v != 'PASS' for k, v in data['review'].items() if k != 'writer_is_sole_approver')
+          print('PASS: AOC-004 remains an unverified demonstration, editorially not ready')
+          PY
