@@ -1,6 +1,6 @@
 # AOC-004 / factual opening v0.1 — production script and rights register
 
-**Status: EDITORIAL SCRIPT / ASSETS NOT ASSEMBLED / NOT APPROVED FOR PUBLICATION.**
+**Status: LOCAL INTERACTIVE SEQUENCE ASSEMBLED / SINGLE MASTER FILM NOT RENDERED / NOT APPROVED FOR PUBLICATION.**
 
 **Production outcome:** Assemble a genuine-source factual clip **before** further fictional cinematic production, as required by `ATLAS-BUILD-LOCK.md`. AOC-004 is a demonstration from one uncorroborated, de-identified account. It is not the incident record or an official engineering finding.
 
@@ -50,4 +50,4 @@ Keep a 9:16 full-frame documentary visual language, short captions and purposefu
 - [ ] Owner review factual opening.
 - [ ] Only then expand story-promo footage and construct AOC-001-style factual-to-fiction handoff.
 
-**As of 23 Nov 2026:** no source video successfully downloaded into the production runtime, no factual report rendered, no new Runway spend. The Nengi cinematic test has previously cost 120 Runway credits and is retained as provisional **fiction** footage, not a factual opener.
+**As of 23 Nov 2026:** the generic Colombian drilling clip, Nigerian rig still, Forcados River motion, Nengi still and Nengi silent motion are persisted with hashes in `asset-receipt.json` and integrated into the local reader. No single factual master MP4 has been rendered, no additional Runway credits were spent, and the sequence is not publication-approved. The Nengi proof remains **fiction**, not factual footage.

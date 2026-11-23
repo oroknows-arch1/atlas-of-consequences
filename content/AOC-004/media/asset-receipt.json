@@ -1,0 +1,70 @@
+{
+  "edition": "AOC-004",
+  "recorded_at": "2026-11-23",
+  "release_state": "OWNER_REVIEW_ONLY_NOT_PUBLISHED",
+  "runway": {
+    "workspace": "Robdan",
+    "credits_before_existing_generations": 2316,
+    "credits_spent_cumulative": 120,
+    "credits_remaining_verified": 2196,
+    "additional_credits_spent_this_batch": 0,
+    "still_task": "8bd29e41-4847-430b-969c-9388aea70d89",
+    "motion_task": "458acd69-560b-4ff9-ba44-7a093f99911a"
+  },
+  "assets": [
+    {
+      "path": "public/demos/aoc-004/media/generic-drilling-aerial.mp4",
+      "sha256": "aa82e080171c1c66697774778927b1ab76c2841357c68466d2b4d6a69dc80154",
+      "classification": "REAL_GENERIC_CONTEXT_NOT_NIGERIA_NOT_INCIDENT",
+      "credit": "Julian Armando Santos / Pexels",
+      "source": "https://www.pexels.com/video/pozo-petrolero-en-produccion-26955493/",
+      "license": "Pexels License",
+      "reader_label_required": "GENERIC DRILLING CONTEXT / COLOMBIA / NOT THE REPORTED INCIDENT"
+    },
+    {
+      "path": "public/demos/aoc-004/media/nigeria-onshore-rig.jpg",
+      "sha256": "f4b560a0642b532437edda0551840c40f8dd690d814e2bf8fd1dad7db62831e1",
+      "classification": "REAL_NIGERIAN_CONTEXT_NOT_INCIDENT",
+      "credit": "Julius A OBARO / Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:Onshore_drilling_rig.jpg",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "path": "public/demos/aoc-004/media/forcados-river-context.webm",
+      "sha256": "ec3d4c79dc199c338b8983462661b28f5cfce7b64deac989a9d1162357043fa5",
+      "classification": "REAL_NIGER_DELTA_REGIONAL_CONTEXT_NOT_INCIDENT_VICINITY",
+      "credit": "Nobleagege / Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:Forcados_River_Burutu_Delta_State_Nigeria.webm",
+      "license": "CC BY 4.0"
+    },
+    {
+      "path": "public/demos/aoc-004/media/nengi-reference.png",
+      "sha256": "09020e32458346e1135663b7c4229233f59c70852dd9319d8da28ea469e799c0",
+      "classification": "GENERATED_ORIGINAL_FICTION",
+      "task_id": "8bd29e41-4847-430b-969c-9388aea70d89"
+    },
+    {
+      "path": "public/demos/aoc-004/media/forcados-river-poster.png",
+      "sha256": "4b98076e103e646ca079c99574f73f67c4ead130ec599c1e46fd422e372ed017",
+      "classification": "DERIVATIVE_FRAME_FROM_AOC004_REAL_REGIONAL_CONTEXT",
+      "credit": "Nobleagege / Wikimedia Commons",
+      "source": "public/demos/aoc-004/media/forcados-river-context.webm",
+      "license": "CC BY 4.0"
+    },
+    {
+      "path": "public/demos/aoc-004/media/nengi-motion.mp4",
+      "sha256": "03e349642ad326eb03a2cb605986c9dc378fbce238ddfbe55cd4aa2beecf4c96",
+      "classification": "GENERATED_ORIGINAL_FICTION_SILENT",
+      "task_id": "458acd69-560b-4ff9-ba44-7a093f99911a",
+      "duration_seconds": 5,
+      "audio": false
+    }
+  ],
+  "editorial_limits": [
+    "No asset depicts the supplied incident.",
+    "The generic drilling clip is not Nigerian and must remain conspicuously labelled.",
+    "Forcados River is broad regional context outside the reported eastern vicinity.",
+    "Nengi media is fiction and not testimony.",
+    "Local authenticity, oilfield plausibility, confidentiality and owner publication approval remain blocking."
+  ]
+}

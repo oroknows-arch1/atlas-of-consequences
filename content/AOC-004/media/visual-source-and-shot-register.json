@@ -1,13 +1,13 @@
 {
   "edition": "AOC-004",
   "kind": "DEMONSTRATION",
-  "status": "ASSET_RESEARCH_ONLY_NOT_CLEARED_FOR_PUBLICATION",
+  "status": "OWNER_REVIEW_SEQUENCE_ASSEMBLED_NOT_CLEARED_FOR_PUBLICATION",
   "source_boundary": "Real contextual imagery must never be presented as images of the reported incident or the fictional people. Event footage not authenticated.",
   "opening": {
     "required": true,
     "mode": "FACTUAL_DOCUMENTARY_OPENING",
-    "asset_status": "SCRIPT_AND_SOURCE_REGISTER_ONLY_NO_MP4",
-    "footage_requirement": "Prefer genuine moving material on Nigerian onshore drilling; verify subject, location, date, rights, and editorial relationship. No source-approved footage yet.",
+    "asset_status": "LOCAL_BROWSER_SEQUENCE_INTEGRATED_NO_SINGLE_MASTER_MP4",
+    "footage_requirement": "The current sequence uses conspicuously labelled generic Colombian drilling motion, a real Nigerian rig still and broad Niger Delta river motion. Nigeria-specific drilling-operation motion remains preferable.",
     "no_music": true,
     "sequence": [
       "verified industrial context",
@@ -17,7 +17,7 @@
     ],
     "no_recycled_shots": true,
     "editorial_factual_script": "content/AOC-004/media/factual-opening-v0.1.md",
-    "production_gate": "REAL_INDUSTRIAL_MOTION_REQUIRED_NOT_YET_SOURCED_OR_ASSEMBLED"
+    "production_gate": "SINGLE_MASTER_FACTUAL_FILM_EDITORIAL_REVIEW_AND_OWNER_APPROVAL_MISSING"
   },
   "candidates": [
     {
@@ -85,7 +85,7 @@
       "license": "Pexels License, free commercial reuse, no endorsement; check source footage identity and depicted third-party rights",
       "license_url": "https://www.pexels.com/legal-pages/license/",
       "use": "Potential 2-4 second generic REAL DRILLING CONTEXT motion in factual opening, ONLY if clear caption states generic location NOT Nigeria / not AOC-004; cannot establish actual region.",
-      "status": "LICENSE_GENERAL_VERIFIED_GEO_UNRESOLVED_MEDIA_NOT_DOWNLOADED",
+      "status": "ACQUIRED_HASHED_IN_READER_GENERIC_COLOMBIA_LABEL_REQUIRED",
       "unique_intent": "Visual fact: large heavy equipment operates from ground-supported site; no allegation of this site's failure."
     },
     {
@@ -116,12 +116,12 @@
         "size_bytes": 1011915
       },
       "use": "Optional genuine regional context movement; do not label as exact eastern site or connect depicted people/river to failure",
-      "status": "CREATOR_DATE_LICENSE_METADATA_VERIFIED_SOURCE_BINARY_NOT_ACQUIRED",
+      "status": "ACQUIRED_HASHED_IN_READER_BROAD_REGIONAL_CONTEXT_ONLY",
       "unique_intent": "Establish physical breadth of Niger Delta in actual sourced motion without claiming specific site identity"
     }
   ],
   "fiction": {
-    "asset_status": "NOT_GENERATED",
+    "asset_status": "NENGI_REFERENCE_AND_SILENT_MOTION_PERSISTED_OTHER_CHARACTER_MEDIA_MISSING",
     "allowed": "New original cinematic story imagery using consistent fictional character bible and locality-cleared setting",
     "disallowed": "Use identifiable real workers as fictional cast; generative imagery disguised as real footage",
     "first_character_continuity_test": {

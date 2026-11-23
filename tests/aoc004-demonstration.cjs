@@ -7,7 +7,7 @@ const viewports = [
   { name: 'mobile', width: 390, height: 844 },
   { name: 'desktop', width: 1440, height: 900 },
 ];
-const routes = ['operator', 'civil', 'drilling', 'crew', 'community'];
+const routes = ['nengi', 'daniel', 'jian', 'boma'];
 
 (async () => {
   const browser = await chromium.launch({ headless: true });
@@ -23,30 +23,35 @@ const routes = ['operator', 'civil', 'drilling', 'crew', 'community'];
       page.on('pageerror', error => errors.push(error.message));
 
       await page.goto(url, { waitUntil: 'networkidle' });
-      assert.equal(await page.locator('#choices .choice').count(), 5);
+      assert.equal(await page.locator('#choices .choice').count(), 4);
       assert.equal(await page.locator('h1').textContent(), 'The Ground Beneath the Rig');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), true);
+      assert.equal(await page.locator('#opening video').count(), 3);
+      assert.equal(await page.locator('#opening video').evaluateAll(v => v.every(x => x.muted)), true);
+      assert.equal(await page.locator('audio').count(), 0);
+      await page.locator('#skipOpening').click();
+      await page.waitForTimeout(1100);
+      assert.equal(await page.locator('#opening').getAttribute('data-opening-state'), 'skipped');
+      assert.equal(await page.locator('.opening-copy').evaluate(el => getComputedStyle(el).opacity), '1');
 
       for (const route of routes) {
         await page.locator(`#choices .choice[data-route="${route}"]`).click();
-        assert.equal(new URL(page.url()).hash, `#perspective-${route}`);
+        assert.equal(new URL(page.url()).hash, `#story-${route}`);
         assert.equal(await page.locator('#route').isVisible(), true);
-        assert.equal(await page.locator('#route .beat').count(), 3);
+        assert.equal(await page.locator('#route .scene').count(), 3);
         assert.equal(await page.locator('#route').evaluate(el => el === document.activeElement), true);
         await page.locator('#return').click();
-        assert.equal(new URL(page.url()).hash, '#perspectives');
-        assert.equal(await page.locator('#perspectives').isVisible(), true);
-        await page.goto(`${url}#perspective-${route}`, { waitUntil: 'networkidle' });
+        assert.equal(new URL(page.url()).hash, '#stories');
+        assert.equal(await page.locator('#choices').isVisible(), true);
+        await page.goto(`${url}#story-${route}`, { waitUntil: 'networkidle' });
         assert.equal(await page.locator('#route').isVisible(), true);
-        assert.equal(await page.locator('#route .beat').count(), 3);
+        assert.equal(await page.locator('#route .scene').count(), 3);
         await page.locator('#return').click();
       }
 
-      await page.goto(`${url}#perspective-community`, { waitUntil: 'networkidle' });
-      assert.equal(await page.locator('#routeTitle').textContent(), 'Community & suppliers');
-      await page.locator('#showEvidence').click();
-      assert.equal(new URL(page.url()).hash, '#evidence');
-      assert.equal(await page.locator('#evidence').evaluate(el => el === document.activeElement), true);
+      for (const id of ['reality', 'consequences', 'place', 'sources']) {
+        assert.equal(await page.locator(`#${id}`).count(), 1);
+      }
 
       const accessibility = await new AxeBuilder({ page }).analyze();
       assert.deepEqual(accessibility.violations, []);
