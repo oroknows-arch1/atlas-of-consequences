@@ -72,8 +72,8 @@
       "movement": "BEFORE",
       "goal": "Leave to help Ebi",
       "resistance": "Handover queries take longer",
-      "choice": "Delegate a bounded task",
-      "cost": "Breaks a personal promise",
+      "choice": "Delegates handover questions to Tare and goes home to Ebi",
+      "cost": "Takes the professional risk of trusting her deputy while absorbing Ebi's frustration over past cancellations",
       "reveal_to": [
         "daniel"
       ],
@@ -203,10 +203,10 @@
       "id": "AOC004-S08",
       "pov": "jian",
       "movement": "DURING",
-      "goal": "Respond when ground fails",
+      "goal": "Remain attentive and respond to the abnormal reported pad event",
       "resistance": "Reported incident disrupts routine",
-      "choice": "Follows a fictional direction to evacuate",
-      "cost": "Must live with uncertain explanation",
+      "choice": "Fictional Jian follows an evacuation instruction; no specific emergency procedure is asserted",
+      "cost": "An interruption forces him to confront what he cannot explain to his friend",
       "reveal_to": [
         "nengi",
         "daniel"
@@ -261,10 +261,10 @@
       "id": "AOC004-S11",
       "pov": "nengi",
       "movement": "AFTER",
-      "goal": "Answer Ebi honestly",
-      "resistance": "He rejects another delay",
-      "choice": "Listens instead of arguing",
-      "cost": "Faces hurt not fixable by a technical answer",
+      "goal": "Respond honestly to the incident news without abandoning Ebi",
+      "resistance": "Uncertain report arrives during their interview practice",
+      "choice": "Promises one necessary call and to say when she does not know",
+      "cost": "Cannot give Ebi certainty about the site or how long she will be occupied",
       "reveal_to": [
         "daniel"
       ],
@@ -303,5 +303,12 @@
     "continuity": "REVISE",
     "originality": "REVISE",
     "evidence_boundary": "REVISE"
+  },
+  "story_proof": {
+    "proof_001": "https://app.notion.com/p/42163f5ff93681b8ba3bf646587541ac",
+    "proof_002": "https://app.notion.com/p/42163f5ff93681dcb87ffeb19a4fa730",
+    "continuity_rule": "Proof 001 establishes Nengi arrives to help Ebi; Proof 002 starts during that visit. No prior missed appointment in this sequence.",
+    "fictional_clock": "Thursday project schedule and private appointment are fictional; not historical incident dates",
+    "editorial_result": "REVISE - no cold reader or local specialist review yet"
   }
 }
