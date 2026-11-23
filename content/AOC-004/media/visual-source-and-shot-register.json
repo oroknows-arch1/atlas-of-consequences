@@ -67,7 +67,25 @@
   "fiction": {
     "asset_status": "NOT_GENERATED",
     "allowed": "New original cinematic story imagery using consistent fictional character bible and locality-cleared setting",
-    "disallowed": "Use identifiable real workers as fictional cast; generative imagery disguised as real footage"
+    "disallowed": "Use identifiable real workers as fictional cast; generative imagery disguised as real footage",
+    "first_character_continuity_test": {
+      "id": "AOC004-FICTION-NENGI-01",
+      "character": "Nengi",
+      "still_task": "8bd29e41-4847-430b-969c-9388aea70d89",
+      "still_status": "TASK_SUBMITTED",
+      "still_ratio": "9:16",
+      "still_resolution": "1K",
+      "still_credit_cost_observed": 20,
+      "video_task": "458acd69-560b-4ff9-ba44-7a093f99911a",
+      "video_status": "TASK_SUBMITTED",
+      "video_duration_seconds": 5,
+      "video_resolution": "720p",
+      "video_has_audio": false,
+      "video_credit_budget": 100,
+      "visual_label": "STORY / FICTION · NOT TESTIMONY",
+      "validation": "PENDING_VISUAL_INSPECTION, NOT A PUBLICATION ASSET",
+      "purpose": "character-consistency and natural-motion proof, unique to Nengi opening scene"
+    }
   },
   "visual_topology": [
     {
@@ -133,6 +151,9 @@
     "runway_video_models_available": 0,
     "chatgpt_credits_reported_by_owner": 5022,
     "assumption": "Separate credit pools and costs; no transfers or unverified spending estimates",
-    "spent_runway_this_step": 0
+    "spent_runway_this_step": "20 observed for still; 100 expected for 5-second 720p silent motion task, settlement pending",
+    "runway_balance_after_still_observed": 2296,
+    "runway_video_credit_reservation_estimate": 100,
+    "runway_total_planned_spend_for_two_proofs": 120
   }
 }
