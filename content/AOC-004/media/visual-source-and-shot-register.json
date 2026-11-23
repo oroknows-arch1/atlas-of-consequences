@@ -6,7 +6,7 @@
   "opening": {
     "required": true,
     "mode": "FACTUAL_DOCUMENTARY_OPENING",
-    "asset_status": "LOCAL_BROWSER_SEQUENCE_INTEGRATED_NO_SINGLE_MASTER_MP4",
+    "asset_status": "LOCAL_BROWSER_SEQUENCE_INTEGRATED_WITH_PERSISTED_VIDEO_AND_STILL_ASSETS_NOT_MASTER_FILM",
     "footage_requirement": "The current sequence uses conspicuously labelled generic Colombian drilling motion, a real Nigerian rig still and broad Niger Delta river motion. Nigeria-specific drilling-operation motion remains preferable.",
     "no_music": true,
     "sequence": [
@@ -17,7 +17,8 @@
     ],
     "no_recycled_shots": true,
     "editorial_factual_script": "content/AOC-004/media/factual-opening-v0.1.md",
-    "production_gate": "SINGLE_MASTER_FACTUAL_FILM_EDITORIAL_REVIEW_AND_OWNER_APPROVAL_MISSING"
+    "production_gate": "SINGLE_MASTER_FACTUAL_FILM_EDITORIAL_REVIEW_AND_OWNER_APPROVAL_MISSING",
+    "verified_assets_receipt": "content/AOC-004/media/asset-receipt.json"
   },
   "candidates": [
     {
@@ -27,13 +28,16 @@
       "credit": "Julius A OBARO",
       "license": "CC BY-SA 4.0",
       "use": "possible contextual still only; attribution and share-alike review needed",
-      "status": "SOURCE_AND_LICENSE_VERIFIED_NOT_INCIDENT_FOOTAGE",
+      "status": "PERSISTED_LOCAL_OWNER_REVIEW_ONLY_RIGHTS_ATTRIBUTION_REQUIRED",
       "attribution_required": "Photo: Julius A OBARO / Wikimedia Commons, CC BY-SA 4.0; include license URL and indicate editing if cropped",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
       "original_file_page": "https://commons.wikimedia.org/wiki/File:Onshore_drilling_rig.jpg",
       "disclosure": "Real Nigerian drilling context, photographed July 2024; not AOC-004 incident or fictional story environment.",
       "technical_limit": "A sourced still cannot substitute for required genuine factual opening motion.",
-      "quality_check": "image selection and adaptation rights still require publication review"
+      "quality_check": "image selection and adaptation rights still require publication review",
+      "persisted_asset_path": "public/demos/aoc-004/media/nigeria-onshore-rig.jpg",
+      "sha256": "f4b560a0642b532437edda0551840c40f8dd690d814e2bf8fd1dad7db62831e1",
+      "classification": "REAL_NIGERIAN_CONTEXT_NOT_INCIDENT"
     },
     {
       "id": "AOC004-REAL-02",
@@ -80,13 +84,17 @@
     {
       "id": "AOC004-REAL-05",
       "url": "https://www.pexels.com/video/pozo-petrolero-en-produccion-26955493/",
-      "description": "Real 12s aerial of a land-based oil drilling/production site surrounded by greenery, 1920x1080; geographic origin not demonstrated as Nigeria; photographer Julián Armando Santos",
+      "description": "Genuine 12-second aerial of an onshore oil drilling/production site; source identity verified as Colombia, not Nigeria; photographer Julián Armando Santos",
       "credit": "Julián Armando Santos / Pexels",
       "license": "Pexels License, free commercial reuse, no endorsement; check source footage identity and depicted third-party rights",
       "license_url": "https://www.pexels.com/legal-pages/license/",
-      "use": "Potential 2-4 second generic REAL DRILLING CONTEXT motion in factual opening, ONLY if clear caption states generic location NOT Nigeria / not AOC-004; cannot establish actual region.",
-      "status": "ACQUIRED_HASHED_IN_READER_GENERIC_COLOMBIA_LABEL_REQUIRED",
-      "unique_intent": "Visual fact: large heavy equipment operates from ground-supported site; no allegation of this site's failure."
+      "use": "Generic drilling context only, conspicuously captioned Colombia / not reported incident",
+      "status": "PERSISTED_LOCAL_OWNER_REVIEW_ONLY_RIGHTS_ATTRIBUTION_REQUIRED",
+      "unique_intent": "Visual fact: large heavy equipment operates from ground-supported site; no allegation of this site's failure.",
+      "persisted_asset_path": "public/demos/aoc-004/media/generic-drilling-aerial.mp4",
+      "sha256": "aa82e080171c1c66697774778927b1ab76c2841357c68466d2b4d6a69dc80154",
+      "classification": "REAL_GENERIC_CONTEXT_NOT_NIGERIA_NOT_INCIDENT",
+      "geography": "COLOMBIA_NOT_NIGERIA"
     },
     {
       "id": "AOC004-REAL-06",
@@ -116,8 +124,11 @@
         "size_bytes": 1011915
       },
       "use": "Optional genuine regional context movement; do not label as exact eastern site or connect depicted people/river to failure",
-      "status": "ACQUIRED_HASHED_IN_READER_BROAD_REGIONAL_CONTEXT_ONLY",
-      "unique_intent": "Establish physical breadth of Niger Delta in actual sourced motion without claiming specific site identity"
+      "status": "PERSISTED_LOCAL_OWNER_REVIEW_ONLY_RIGHTS_ATTRIBUTION_REQUIRED",
+      "unique_intent": "Establish physical breadth of Niger Delta in actual sourced motion without claiming specific site identity",
+      "persisted_asset_path": "public/demos/aoc-004/media/forcados-river-context.webm",
+      "sha256": "ec3d4c79dc199c338b8983462661b28f5cfce7b64deac989a9d1162357043fa5",
+      "classification": "REAL_NIGER_DELTA_REGIONAL_CONTEXT_NOT_INCIDENT_VICINITY"
     }
   ],
   "fiction": {
@@ -235,14 +246,18 @@
     "runway_balance_after_video_submitted_observed": 2196,
     "runway_total_observed_debit": 120,
     "runway_balance_after_prior_generations": 2196,
-    "new_spend_this_stage": 0
+    "new_spend_this_stage": 0,
+    "runway_balance_verified_current_run": 2196,
+    "runway_balance_check_date": "2026-11-23",
+    "overnight_additional_spend_cumulative": 0,
+    "overnight_spend_limit": 400
   },
   "production_decision": {
     "opening_mode": "SOURCE-LED_REAL_MOTION",
     "motion_test_result": "TECHNICAL_SUCCESS_NOT_VISUAL_QA",
     "editorial_limit": "No factual opener movie yet; none of the searched footage has been ingested or edited.",
-    "real_footage_strongest_context": "Pexels 26955493: generic land well aerial, NOT local Nigerian oilfield proof.",
-    "local_real_motion_status": "Niger Delta place footage located, industrial local real-video still needs suitable licence and specific shot identity.",
-    "next": "Acquire and persist one legitimate context clip with verifiable reuse rights and clear generic-context label, or secure Nigeria-specific licence; separately visual-QA Runway Nengi motion, then implement actual opening."
+    "real_footage_strongest_context": "Persisted real Colombian drilling aerial, clearly labelled generic and NOT incident; Nigeria-specific drilling-operation motion remains unavailable",
+    "local_real_motion_status": "Forcados River broad Niger Delta context clip persisted; not incident vicinity; Nigerian drilling rig photo persisted",
+    "next": "Produce and QA one factual master film from persisted assets without falsely suggesting Colombian footage is Nigerian; inspect regional/geographic labelling and acquire Nigeria-specific industrial motion if possible. Keep owner-review only."
   }
 }
