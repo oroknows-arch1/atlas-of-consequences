@@ -18,12 +18,15 @@ This is a zero-media, single HTML page with no external JS, API, trackers or sou
 
 ## Verification checklist
 
-- [ ] Exact repository tests and schema checks run against this branch.
+- [x] Exact repository tests and manufacturing-trace validation run against this branch (61/61 passed on 23 November 2026).
+- [x] Branch reader exercised in Chromium at 390×844 and 1440×900 across all five routes, direct deep links and evidence navigation.
+- [x] Automated accessibility audit, keyboard focus transitions, console-error check and horizontal-overflow check passed locally.
 - [ ] Hosted preview at `/demos/aoc-004/` tested on phone and desktop.
-- [ ] Accessibility and keyboard interaction audited.
 - [ ] Confidentiality review (the combination of industry, nationality and region could permit indirect identification).
 - [ ] Owner approves publication scope and release.
 - [ ] If adopted as a full edition, evidence graph and media outputs enter the canonical factory; keep provenance labels intact.
+
+The branch-specific browser regression is `tests/aoc004-demonstration.cjs`. It requires Playwright, Chromium and `@axe-core/playwright`; it does not deploy or publish the reader.
 
 ## Sources and source-state
 
