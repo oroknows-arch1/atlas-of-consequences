@@ -74,6 +74,28 @@
       "license": "NOT_CLEARED",
       "use": "DO NOT USE until indirect-identification and rights review; visually compelling but could falsely suggest actual incident identities",
       "status": "IDENTIFIABILITY_AND_RIGHTS_HOLD"
+    },
+    {
+      "id": "AOC004-REAL-05",
+      "url": "https://www.pexels.com/video/pozo-petrolero-en-produccion-26955493/",
+      "description": "Real 12s aerial of a land-based oil drilling/production site surrounded by greenery, 1920x1080; geographic origin not demonstrated as Nigeria; photographer Julián Armando Santos",
+      "credit": "Julián Armando Santos / Pexels",
+      "license": "Pexels License, free commercial reuse, no endorsement; check source footage identity and depicted third-party rights",
+      "license_url": "https://www.pexels.com/legal-pages/license/",
+      "use": "Potential 2-4 second generic REAL DRILLING CONTEXT motion in factual opening, ONLY if clear caption states generic location NOT Nigeria / not AOC-004; cannot establish actual region.",
+      "status": "LICENSE_GENERAL_VERIFIED_GEO_UNRESOLVED_MEDIA_NOT_DOWNLOADED",
+      "unique_intent": "Visual fact: large heavy equipment operates from ground-supported site; no allegation of this site's failure."
+    },
+    {
+      "id": "AOC004-REAL-06",
+      "url": "https://commons.wikimedia.org/wiki/File:Boy_working_on_palm_oil_in_Niger_Delta_creeks,_Bayelsa_state_2.webm",
+      "description": "Authentic recorded palm-oil work in Niger Delta creeks, Bayelsa, 28s, 1920x1080; not the actual site, no proven connection to its labour market",
+      "credit": "Per Commons file metadata",
+      "license": "CC BY-SA 4.0 according to Commons file record; verify author and complete provenance on acquisition",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "use": "Regional comparative life footage for PLACE only if relevant to editorial story; risk of projecting this livelihood onto unidentified host community",
+      "status": "HOLD_RELEVANCE_AND_DEPICTED_PERSON_RIGHTS",
+      "unique_intent": "Regional livelihood diversity only; not evidence of suppliers, workers or losses for incident"
     }
   ],
   "fiction": {
@@ -84,19 +106,30 @@
       "id": "AOC004-FICTION-NENGI-01",
       "character": "Nengi",
       "still_task": "8bd29e41-4847-430b-969c-9388aea70d89",
-      "still_status": "TASK_SUBMITTED",
+      "still_status": "RUNWAY_SUCCEEDED_BINARY_URL_AVAILABLE_NOT_VISUALLY_INSPECTED",
       "still_ratio": "9:16",
       "still_resolution": "1K",
       "still_credit_cost_observed": 20,
       "video_task": "458acd69-560b-4ff9-ba44-7a093f99911a",
-      "video_status": "TASK_SUBMITTED",
+      "video_status": "RUNWAY_SUCCEEDED_BINARY_URL_AVAILABLE_NOT_VISUALLY_INSPECTED",
       "video_duration_seconds": 5,
       "video_resolution": "720p",
       "video_has_audio": false,
       "video_credit_budget": 100,
       "visual_label": "STORY / FICTION · NOT TESTIMONY",
       "validation": "PENDING_VISUAL_INSPECTION, NOT A PUBLICATION ASSET",
-      "purpose": "character-consistency and natural-motion proof, unique to Nengi opening scene"
+      "purpose": "character-consistency and natural-motion proof, unique to Nengi opening scene",
+      "video_verified_meta": {
+        "width": 716,
+        "height": 1284,
+        "duration_seconds": 5,
+        "has_audio": false
+      },
+      "qa_limitations": [
+        "Remote signed media links could not be fetched into current inspection runtime. No frame-based character or location QA performed.",
+        "Generated asset URLs expire; Runway task IDs retained for durable lookup but publication binaries are not yet persisted in repo.",
+        "Do not release the motion proof without human visual inspection."
+      ]
     }
   },
   "visual_topology": [
@@ -169,5 +202,13 @@
     "runway_total_planned_spend_for_two_proofs": 120,
     "runway_balance_after_video_submitted_observed": 2196,
     "runway_total_observed_debit": 120
+  },
+  "production_decision": {
+    "opening_mode": "SOURCE-LED_REAL_MOTION",
+    "motion_test_result": "TECHNICAL_SUCCESS_NOT_VISUAL_QA",
+    "editorial_limit": "No factual opener movie yet; none of the searched footage has been ingested or edited.",
+    "real_footage_strongest_context": "Pexels 26955493: generic land well aerial, NOT local Nigerian oilfield proof.",
+    "local_real_motion_status": "Niger Delta place footage located, industrial local real-video still needs suitable licence and specific shot identity.",
+    "next": "Acquire and persist one legitimate context clip with verifiable reuse rights and clear generic-context label, or secure Nigeria-specific licence; separately visual-QA Runway Nengi motion, then implement actual opening."
   }
 }
