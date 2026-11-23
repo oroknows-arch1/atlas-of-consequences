@@ -1,0 +1,51 @@
+name: AOC-002 context opening preview
+on:
+  push:
+    branches:
+      - repair/aoc002-factory-gates
+    paths:
+      - .github/workflows/aoc002-opening-preview.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  opening-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check FFmpeg capabilities
+        run: |
+          ffmpeg -hide_banner -filters | grep -q drawtext
+          ffmpeg -hide_banner -encoders | grep -q libx264
+      - name: Verify the six original media files
+        run: python3 tools/build_aoc002_opening.py --check
+      - name: Render silent 720x1280 proof
+        run: python3 tools/build_aoc002_opening.py --output content/AOC-002/media/derived/aoc002-context-opening.mp4
+      - name: Confirm playable duration, no audio and vertical frame
+        run: |
+          python3 - <<'PY'
+          import json,subprocess
+          p='content/AOC-002/media/derived/aoc002-context-opening.mp4'
+          q=subprocess.run(['ffprobe','-v','error','-show_streams','-show_format','-of','json',p],capture_output=True,text=True,check=True)
+          obj=json.loads(q.stdout)
+          streams=obj['streams']
+          assert len([s for s in streams if s['codec_type']=='video'])==1, streams
+          assert not [s for s in streams if s['codec_type']=='audio'], 'opening must have NO AUDIO'
+          v=next(s for s in streams if s['codec_type']=='video')
+          assert (v['width'],v['height'])==(720,1280),v
+          d=float(obj['format']['duration'])
+          assert 34.0<=d<=36.0,d
+          print('PASS silent vertical context opening:',round(d,2),'seconds')
+          PY
+      - name: Save proof for internal production review only
+        uses: actions/upload-artifact@v4
+        with:
+          name: aoc002-silent-context-opening-proof
+          path: |
+            content/AOC-002/media/derived/aoc002-context-opening.mp4
+            content/AOC-002/media/derived/aoc002-context-opening.receipt.json
+            content/AOC-002/media/ATTRIBUTION.md
+          retention-days: 14
