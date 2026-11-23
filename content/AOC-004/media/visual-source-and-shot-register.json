@@ -1,0 +1,138 @@
+{
+  "edition": "AOC-004",
+  "kind": "DEMONSTRATION",
+  "status": "ASSET_RESEARCH_ONLY_NOT_CLEARED_FOR_PUBLICATION",
+  "source_boundary": "Real contextual imagery must never be presented as images of the reported incident or the fictional people. Event footage not authenticated.",
+  "opening": {
+    "required": true,
+    "mode": "FACTUAL_DOCUMENTARY_OPENING",
+    "asset_status": "NOT_GENERATED",
+    "footage_requirement": "Prefer genuine moving material on Nigerian onshore drilling; verify subject, location, date, rights, and editorial relationship. No source-approved footage yet.",
+    "no_music": true,
+    "sequence": [
+      "verified industrial context",
+      "location level established by sources",
+      "short supplied-account sequence explicitly labelled uncorroborated",
+      "clear hard boundary to STORY / FICTION"
+    ],
+    "no_recycled_shots": true
+  },
+  "candidates": [
+    {
+      "id": "AOC004-REAL-01",
+      "url": "https://commons.wikimedia.org/wiki/File:Onshore_drilling_rig.jpg",
+      "description": "Real onshore rig silhouette in Delta State, photographed 2024, NOT AOC-004",
+      "credit": "Julius A OBARO",
+      "license": "CC BY-SA 4.0",
+      "use": "possible contextual still only; attribution and share-alike review needed",
+      "status": "CANDIDATE_NOT_CLEARED"
+    },
+    {
+      "id": "AOC004-REAL-02",
+      "url": "https://commons.wikimedia.org/wiki/File:Onshore_drilling_rig_at_night.jpg",
+      "description": "Real onshore drilling at night in Rivers State, photographed 2024, NOT AOC-004",
+      "credit": "Julius A OBARO",
+      "license": "CC BY-SA 4.0",
+      "use": "possible contextual still only; attribution and share-alike review needed",
+      "status": "CANDIDATE_NOT_CLEARED"
+    },
+    {
+      "id": "AOC004-REAL-03",
+      "url": "https://www.ncdmb.gov.ng/videos/",
+      "description": "Official Nigerian oil/gas industry contextual video library; individual clip unselected",
+      "credit": "NCDMB",
+      "license": "NOT_CLEARED",
+      "use": "research/reference only until clip-specific permission obtained",
+      "status": "CANDIDATE_NOT_CLEARED"
+    },
+    {
+      "id": "AOC004-REAL-04",
+      "url": "https://www.youtube.com/watch?v=Rd5sygC-kdw",
+      "description": "Real filmed/visualized Egbema OML20 onshore oil facility, not AOC-004; verify that clip contains genuine footage vs 3D visualization",
+      "credit": "Rădoi Engineering",
+      "license": "NOT_CLEARED",
+      "use": "reference only pending permission/shot inspection",
+      "status": "CANDIDATE_NOT_CLEARED"
+    },
+    {
+      "id": "AOC004-RISK-01",
+      "url": "https://visualculture.tuwien.ac.at/en/blog/research-post/black-gold/",
+      "description": "Real professional photo essay of a Rivers State gas-drilling site involving a Chinese contractor; potentially close details to supplied unidentified incident",
+      "credit": "Black Gold photojournalism",
+      "license": "NOT_CLEARED",
+      "use": "DO NOT USE until indirect-identification and rights review; visually compelling but could falsely suggest actual incident identities",
+      "status": "IDENTIFIABILITY_AND_RIGHTS_HOLD"
+    }
+  ],
+  "fiction": {
+    "asset_status": "NOT_GENERATED",
+    "allowed": "New original cinematic story imagery using consistent fictional character bible and locality-cleared setting",
+    "disallowed": "Use identifiable real workers as fictional cast; generative imagery disguised as real footage"
+  },
+  "visual_topology": [
+    {
+      "id": "opening-industrial-footage",
+      "type": "REAL_CONTEXT_VIDEO",
+      "unique_intent": "establish working drilling operations",
+      "status": "MISSING"
+    },
+    {
+      "id": "place-regional-context",
+      "type": "REAL_CONTEXT_STILL_OR_VIDEO",
+      "unique_intent": "sourced regional place distinct from rig",
+      "status": "MISSING"
+    },
+    {
+      "id": "nengi-work",
+      "type": "FICTION_IMAGE_OR_VIDEO",
+      "unique_intent": "handover tension grounded in fictional working context",
+      "status": "MISSING"
+    },
+    {
+      "id": "nengi-private",
+      "type": "FICTION_IMAGE_OR_VIDEO",
+      "unique_intent": "family interview promise",
+      "status": "MISSING"
+    },
+    {
+      "id": "daniel-work",
+      "type": "FICTION_IMAGE_OR_VIDEO",
+      "unique_intent": "understanding separate coordination roles",
+      "status": "MISSING"
+    },
+    {
+      "id": "jian-operational",
+      "type": "FICTION_IMAGE_OR_VIDEO",
+      "unique_intent": "crew routine and dramatic rupture without invented procedure",
+      "status": "MISSING"
+    },
+    {
+      "id": "boma-commerce",
+      "type": "FICTION_IMAGE_OR_VIDEO",
+      "unique_intent": "independent enterprise and delegation",
+      "status": "MISSING"
+    },
+    {
+      "id": "consequences",
+      "type": "SOURCED_DIAGRAM_WITH_FICTION_LAYERS",
+      "unique_intent": "visually map fact/inference/fiction separately",
+      "status": "MISSING"
+    }
+  ],
+  "quality_gates": [
+    "Every displayed media must have source URL or generation receipt, exact classification, rights, content hash and edition scene target.",
+    "Never pretend generic context is the incident itself.",
+    "Avoid repeating a source still across separate story beats; unique dramatic visual intent per beat.",
+    "No identical prose panels in multiple perspectives; reveals must change audience understanding.",
+    "No ambient soundtrack; no music autoplay.",
+    "Don't substitute sourced photo for a mandatory real moving opening unless owner explicitly revises benchmark.",
+    "No public link until genuine binary assets saved, mobile QA and owner approval."
+  ],
+  "budget": {
+    "runway_connected_credits_at_check": 500,
+    "runway_video_models_available": 0,
+    "chatgpt_credits_reported_by_owner": 5022,
+    "assumption": "Separate credit pools and costs; no transfers or unverified spending estimates",
+    "spent_runway_this_step": 0
+  }
+}
