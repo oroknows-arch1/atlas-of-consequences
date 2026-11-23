@@ -1,0 +1,314 @@
+{
+  "schema_version": "1.0",
+  "edition_id": "AOC-004",
+  "release_kind": "DEMONSTRATION",
+  "visible_demo_disclosure": true,
+  "evidence": {
+    "incident_state": "SUPPLIED_UNVERIFIED",
+    "source_id": "RIGSCOPE-SUPPLIED-ACCOUNT",
+    "limitations": [
+      "Unidentified incident, no engineering record",
+      "No actual incident causal findings",
+      "Reported evacuation, reconstruction and replacement remain uncorroborated"
+    ]
+  },
+  "world_scope": {
+    "geographic_resolution": "Eastern Niger Delta, Nigeria — regional only",
+    "locality_specificity": "REGION_ONLY",
+    "no_unverified_local_identities": true
+  },
+  "context_claims": [
+    {
+      "id": "NCDMB-LOCAL",
+      "source_url": "https://www.ncdmb.gov.ng/ncdmb-intensifies-drive-for-community-inclusion-in-oil-and-gas-sector-through-community-content-guideline-workshop/",
+      "scope": "Regional oil service businesses and community participation; general, not incident-specific",
+      "state": "GENERAL_CONTEXT"
+    },
+    {
+      "id": "REGION-LIMIT",
+      "source_url": "https://www.cambridge.org/core/journals/africa/article/maladaptation-to-environmental-pollution-oil-and-the-livelihood-dysfunction-trap-in-nigerias-niger-delta/E43579FB12A9183D6A5A64868F38E4C9",
+      "scope": "Comparative ethnography demonstrates differing local livelihoods, but not the unknown host community or any spill in this incident",
+      "state": "GENERAL_CONTEXT"
+    }
+  ],
+  "characters": [
+    {
+      "id": "nengi",
+      "desire": "Build a credible career and keep a promise to Ebi",
+      "contradiction": "Protective mentor who resists asking for help",
+      "relationship": "Ebi (brother), Tare (junior colleague)",
+      "flaw": "Defensiveness under perceived disrespect",
+      "agency": "Assigns Tare a bounded handover task"
+    },
+    {
+      "id": "daniel",
+      "desire": "Coordinate work without abandoning family commitments",
+      "contradiction": "Values precision but overpromises to avoid confrontation",
+      "relationship": "Amara (sister), mother",
+      "flaw": "Says he will handle conflicting requests",
+      "agency": "Admits he cannot keep both commitments"
+    },
+    {
+      "id": "jian",
+      "desire": "Finish assignment and make a real plan with a friend",
+      "contradiction": "Reliable at work but vague with people closest to him",
+      "relationship": "Old friend; drilling colleagues",
+      "flaw": "Avoids stating his own needs",
+      "agency": "Makes an honest call without offering false certainty"
+    },
+    {
+      "id": "boma",
+      "desire": "Grow diverse customer business and genuinely delegate",
+      "contradiction": "Wants independence but routinely takes decisions back",
+      "relationship": "Feyi (assistant); cousin",
+      "flaw": "Control disguised as caution",
+      "agency": "Lets Feyi keep a bounded business decision"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "AOC004-S01",
+      "pov": "nengi",
+      "movement": "BEFORE",
+      "goal": "Leave to help Ebi",
+      "resistance": "Handover queries take longer",
+      "choice": "Delegates handover questions to Tare and goes home to Ebi",
+      "cost": "Takes the professional risk of trusting her deputy while absorbing Ebi's frustration over past cancellations",
+      "reveal_to": [
+        "daniel"
+      ],
+      "fiction_label": "STORY / FICTION",
+      "evidence_boundary": "FICTION_NOT_TESTIMONY",
+      "context_refs": [
+        "NCDMB-LOCAL",
+        "REGION-LIMIT"
+      ],
+      "prohibited_claims": []
+    },
+    {
+      "id": "AOC004-S02",
+      "pov": "daniel",
+      "movement": "BEFORE",
+      "goal": "Resolve schedule and family errand",
+      "resistance": "Conflicting requests",
+      "choice": "Promises too much",
+      "cost": "Disappoints Amara",
+      "reveal_to": [
+        "nengi"
+      ],
+      "fiction_label": "STORY / FICTION",
+      "evidence_boundary": "FICTION_NOT_TESTIMONY",
+      "context_refs": [
+        "NCDMB-LOCAL",
+        "REGION-LIMIT"
+      ],
+      "prohibited_claims": []
+    },
+    {
+      "id": "AOC004-S03",
+      "pov": "jian",
+      "movement": "BEFORE",
+      "goal": "Set leave dates",
+      "resistance": "Schedule remains uncertain",
+      "choice": "Avoids committing",
+      "cost": "Friend feels ignored",
+      "reveal_to": [
+        "daniel"
+      ],
+      "fiction_label": "STORY / FICTION",
+      "evidence_boundary": "FICTION_NOT_TESTIMONY",
+      "context_refs": [
+        "NCDMB-LOCAL",
+        "REGION-LIMIT"
+      ],
+      "prohibited_claims": []
+    },
+    {
+      "id": "AOC004-S04",
+      "pov": "boma",
+      "movement": "BEFORE",
+      "goal": "Secure an order while developing Feyi",
+      "resistance": "Unclear customer terms and trust",
+      "choice": "Overrides Feyi",
+      "cost": "Assistant loses confidence",
+      "reveal_to": [
+        "nengi"
+      ],
+      "fiction_label": "STORY / FICTION",
+      "evidence_boundary": "FICTION_NOT_TESTIMONY",
+      "context_refs": [
+        "NCDMB-LOCAL",
+        "REGION-LIMIT"
+      ],
+      "prohibited_claims": []
+    },
+    {
+      "id": "AOC004-S05",
+      "pov": "nengi",
+      "movement": "DURING",
+      "goal": "Defend team and clarify scope",
+      "resistance": "Daniel asks a broad readiness question",
+      "choice": "Acknowledges limited remit",
+      "cost": "Must tolerate an awkward uncertainty",
+      "reveal_to": [
+        "daniel"
+      ],
+      "fiction_label": "STORY / FICTION",
+      "evidence_boundary": "FICTION_NOT_TESTIMONY",
+      "context_refs": [
+        "NCDMB-LOCAL",
+        "REGION-LIMIT"
+      ],
+      "prohibited_claims": []
+    },
+    {
+      "id": "AOC004-S06",
+      "pov": "daniel",
+      "movement": "DURING",
+      "goal": "Clarify obligations",
+      "resistance": "Amara demands an answer",
+      "choice": "Admits he cannot do both",
+      "cost": "Family disagreement remains",
+      "reveal_to": [
+        "nengi"
+      ],
+      "fiction_label": "STORY / FICTION",
+      "evidence_boundary": "FICTION_NOT_TESTIMONY",
+      "context_refs": [
+        "NCDMB-LOCAL",
+        "REGION-LIMIT"
+      ],
+      "prohibited_claims": []
+    },
+    {
+      "id": "AOC004-S07",
+      "pov": "jian",
+      "movement": "DURING",
+      "goal": "Maintain work focus",
+      "resistance": "Personal request interrupts",
+      "choice": "Prioritises working responsibility",
+      "cost": "Personal plan deferred",
+      "reveal_to": [
+        "boma"
+      ],
+      "fiction_label": "STORY / FICTION",
+      "evidence_boundary": "FICTION_NOT_TESTIMONY",
+      "context_refs": [
+        "NCDMB-LOCAL",
+        "REGION-LIMIT"
+      ],
+      "prohibited_claims": []
+    },
+    {
+      "id": "AOC004-S08",
+      "pov": "jian",
+      "movement": "DURING",
+      "goal": "Remain attentive and respond to the abnormal reported pad event",
+      "resistance": "Reported incident disrupts routine",
+      "choice": "Fictional Jian follows an evacuation instruction; no specific emergency procedure is asserted",
+      "cost": "An interruption forces him to confront what he cannot explain to his friend",
+      "reveal_to": [
+        "nengi",
+        "daniel"
+      ],
+      "fiction_label": "STORY / FICTION",
+      "evidence_boundary": "FICTION_NOT_TESTIMONY",
+      "context_refs": [
+        "NCDMB-LOCAL",
+        "REGION-LIMIT"
+      ],
+      "prohibited_claims": []
+    },
+    {
+      "id": "AOC004-S09",
+      "pov": "boma",
+      "movement": "AFTER",
+      "goal": "Protect business cash flow",
+      "resistance": "Possible schedule disruption",
+      "choice": "Changes a speculative order",
+      "cost": "Foregoes a potential opportunity",
+      "reveal_to": [
+        "jian"
+      ],
+      "fiction_label": "STORY / FICTION",
+      "evidence_boundary": "FICTION_NOT_TESTIMONY",
+      "context_refs": [
+        "NCDMB-LOCAL",
+        "REGION-LIMIT"
+      ],
+      "prohibited_claims": []
+    },
+    {
+      "id": "AOC004-S10",
+      "pov": "daniel",
+      "movement": "AFTER",
+      "goal": "Report accurately",
+      "resistance": "Others ask for cause",
+      "choice": "Separates known from unknown",
+      "cost": "Cannot provide reassuring certainty",
+      "reveal_to": [
+        "nengi"
+      ],
+      "fiction_label": "STORY / FICTION",
+      "evidence_boundary": "FICTION_NOT_TESTIMONY",
+      "context_refs": [
+        "NCDMB-LOCAL",
+        "REGION-LIMIT"
+      ],
+      "prohibited_claims": []
+    },
+    {
+      "id": "AOC004-S11",
+      "pov": "nengi",
+      "movement": "AFTER",
+      "goal": "Respond honestly to the incident news without abandoning Ebi",
+      "resistance": "Uncertain report arrives during their interview practice",
+      "choice": "Promises one necessary call and to say when she does not know",
+      "cost": "Cannot give Ebi certainty about the site or how long she will be occupied",
+      "reveal_to": [
+        "daniel"
+      ],
+      "fiction_label": "STORY / FICTION",
+      "evidence_boundary": "FICTION_NOT_TESTIMONY",
+      "context_refs": [
+        "NCDMB-LOCAL",
+        "REGION-LIMIT"
+      ],
+      "prohibited_claims": []
+    },
+    {
+      "id": "AOC004-S12",
+      "pov": "boma",
+      "movement": "AFTER",
+      "goal": "Allow Feyi real responsibility",
+      "resistance": "Feyi independently adjusts a delivery",
+      "choice": "Backs the decision",
+      "cost": "Accepts losing some control",
+      "reveal_to": [
+        "nengi"
+      ],
+      "fiction_label": "STORY / FICTION",
+      "evidence_boundary": "FICTION_NOT_TESTIMONY",
+      "context_refs": [
+        "NCDMB-LOCAL",
+        "REGION-LIMIT"
+      ],
+      "prohibited_claims": []
+    }
+  ],
+  "review": {
+    "writer_is_sole_approver": false,
+    "dramatic_editor": "REVISE",
+    "locality": "REVISE",
+    "continuity": "REVISE",
+    "originality": "REVISE",
+    "evidence_boundary": "REVISE"
+  },
+  "story_proof": {
+    "proof_001": "https://app.notion.com/p/42163f5ff93681b8ba3bf646587541ac",
+    "proof_002": "https://app.notion.com/p/42163f5ff93681dcb87ffeb19a4fa730",
+    "continuity_rule": "Proof 001 establishes Nengi arrives to help Ebi; Proof 002 starts during that visit. No prior missed appointment in this sequence.",
+    "fictional_clock": "Thursday project schedule and private appointment are fictional; not historical incident dates",
+    "editorial_result": "REVISE - no cold reader or local specialist review yet"
+  }
+}
