@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "release_kind": "DEMONSTRATION",
+  "visible_demo_disclosure": true,
+  "evidence": {
+    "incident_state": "SUPPLIED_UNVERIFIED",
+    "source_id": "FICTIONAL-TEST-ONLY"
+  },
+  "world_scope": {
+    "geographic_resolution": "UNSPECIFIED TEST REGION",
+    "locality_specificity": "REGION_ONLY",
+    "no_unverified_local_identities": true
+  },
+  "context_claims": [
+    {
+      "id": "CTX-01",
+      "source_url": "https://example.org/test-context",
+      "scope": "GENERIC TEST ONLY",
+      "state": "GENERAL_CONTEXT"
+    }
+  ],
+  "characters": [
+    {
+      "id": "alex",
+      "desire": "Finish a personal project",
+      "contradiction": "Values punctuality but arrives late",
+      "relationship": "Colleague of Sam",
+      "flaw": "Avoids difficult conversations",
+      "agency": "Can delay the meeting"
+    },
+    {
+      "id": "sam",
+      "desire": "Keep a promise",
+      "contradiction": "Wants openness but withholds concerns",
+      "relationship": "Colleague of Alex",
+      "flaw": "Assumes others understand",
+      "agency": "Can raise the issue"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S01",
+      "pov": "alex",
+      "movement": "BEFORE",
+      "goal": "Arrive before closing",
+      "resistance": "Schedule changes",
+      "choice": "Call Sam",
+      "cost": "Misses another appointment",
+      "reveal_to": [
+        "sam"
+      ],
+      "fiction_label": "STORY / FICTION",
+      "evidence_boundary": "FICTION_NOT_TESTIMONY",
+      "context_refs": [
+        "CTX-01"
+      ]
+    },
+    {
+      "id": "S02",
+      "pov": "sam",
+      "movement": "DURING",
+      "goal": "Explain schedule",
+      "resistance": "Misunderstanding",
+      "choice": "Ask for a reset",
+      "cost": "Admits a mistake",
+      "reveal_to": [
+        "alex"
+      ],
+      "fiction_label": "STORY / FICTION",
+      "evidence_boundary": "FICTION_NOT_TESTIMONY",
+      "context_refs": [
+        "CTX-01"
+      ]
+    },
+    {
+      "id": "S03",
+      "pov": "alex",
+      "movement": "AFTER",
+      "goal": "Resolve plan",
+      "resistance": "Time pressure",
+      "choice": "Reschedule together",
+      "cost": "Project delayed",
+      "reveal_to": [],
+      "fiction_label": "STORY / FICTION",
+      "evidence_boundary": "FICTION_NOT_TESTIMONY",
+      "context_refs": [
+        "CTX-01"
+      ]
+    }
+  ],
+  "review": {
+    "dramatic_editor": "REVISE",
+    "locality": "REVISE",
+    "continuity": "REVISE",
+    "originality": "REVISE",
+    "evidence_boundary": "REVISE",
+    "writer_is_sole_approver": false
+  }
+}
