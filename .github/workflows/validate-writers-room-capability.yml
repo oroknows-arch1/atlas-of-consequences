@@ -1,0 +1,24 @@
+name: Validate reusable Atlas Writers Room capability
+on:
+  pull_request:
+    paths:
+      - 'atlas/writers-room/**'
+      - 'tools/validate_writers_room.py'
+      - 'tests/test_writers_room_capability.py'
+      - 'tests/fixtures/writers-room-neutral-test.json'
+      - '.github/workflows/validate-writers-room-capability.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  capability-structural-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate neutral example without production or paid services
+        run: python3 tools/validate_writers_room.py tests/fixtures/writers-room-neutral-test.json --json
+      - name: Run capability boundary regressions
+        run: python3 -m unittest tests/test_writers_room_capability.py -v
